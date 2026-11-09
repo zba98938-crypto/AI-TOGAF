@@ -39,8 +39,35 @@ def boolean_semantics_adapter():
             'basis':{'file':'standards/sources/ocl-2.4/OCL-2.4.pdf','sha256':OCL_PUBLICATION_SHA256,
                      'url':'https://www.omg.org/spec/OCL/2.4/PDF','clause':'11.5.4 Boolean','pdf_page':178,'printed_page':162},
             'scope':'Only operation owner identity equal to the backend standard Boolean classifier; custom operations delegate to the original evaluator.',
-            'literal_ast_scope':'The original eighteen whole expressions plus explicitly grouped pure Boolean literal trees that the installed parser cannot type. The installed parser runs before the bounded fallback; its accepted expressions bypass fallback limits. The fallback accepts only true/false/null/invalid, not, and/or/xor/implies and balanced parentheses; at most one binary operation per grouping level, a nesting guard at 64 and 2048 tokens. Identifiers, strings, conditionals, custom operations and model text are never rewritten.',
+            'literal_ast_scope':'The original eighteen whole expressions plus explicitly grouped pure Boolean literal trees that the installed parser cannot type. The installed parser runs before the bounded fallback; its accepted expressions bypass fallback limits. The fallback accepts only true/false/null/invalid, not, and/or/xor/implies, balanced parentheses and closed literal if/then/else/endif; at most one binary operation per grouping level, a nesting guard at 64 and 2048 tokens. Conditional typing is disclosed separately. Identifiers, strings, custom operations and model text are never rewritten.',
             'source_body_preserved':True,'human_acceptance':'pending','official_full_conformance':False}
+
+def conditional_ast_adapter():
+    # Reuse the pinned local publication verification, never a remote source.
+    boolean_semantics_adapter()
+    return {'id':'OCL-2.4-bounded-literal-conditional-typing','kind':'execution-only-typed-literal-AST-adapter',
+        'implementation':'scripts/UmlValidate.java:booleanCondition/literalTree/query',
+        'basis':{'file':'standards/sources/ocl-2.4/OCL-2.4.pdf','sha256':OCL_PUBLICATION_SHA256,
+            'clauses':['8.2.1 InvalidType/VoidType','8.3.7 IfExp/LetExp/Variable/VariableExp','10.4.2.2 IfExpEval','A.3.1.2'],
+            'pdf_pages':[57,58,73,77,80,148,248],'printed_pages':[41,42,57,61,64,132,232]},
+        'scope':'Only the bounded closed pure-literal grammar after the original parser fails. Boolean-conforming OclVoid/OclInvalid conditions use an auxiliary local Boolean let; literal types and original source bytes remain unchanged. Branch common-type adaptation is disclosed separately; the native IfExp evaluator remains unchanged.',
+        'condition_values':['true','false','null','invalid'],'undefined_condition_result':'invalid',
+        'undefined_condition_evaluates_else':False,'source_body_preserved':True,
+        'source_ast_identity_claimed':False,'full_language_equivalence_certified':False,
+        'human_acceptance':'pending','official_full_conformance':False}
+
+def conditional_type_adapter():
+    boolean_semantics_adapter()
+    return {'id':'OCL-2.4-bounded-literal-common-type','kind':'execution-only-IfExp-common-type-adapter',
+        'implementation':'scripts/UmlValidate.java:literalCommonType/matchedLiteralType/originalConditionalTypes/literalTree',
+        'basis':{'file':'standards/sources/ocl-2.4/OCL-2.4.pdf','sha256':OCL_PUBLICATION_SHA256,
+            'clauses':['8.2.1 InvalidType/VoidType','8.3.7 IfExp','8.3.8 Classifier.commonSuperType'],
+            'pdf_pages':[57,58,73,80],'printed_pages':[41,42,57,64]},
+        'scope':'Only Boolean/OclVoid/OclInvalid in the bounded closed literal source grammar. The original parser runs first. After a successful parse, every source/AST node must match before any postorder IfExp type change; failed gates and accepted over-limit or out-of-domain inputs retain the original AST and are uncovered. Fallback witnesses retain their original type in per-node evidence before the explicit symmetric join. Literal types, branch order, source bytes and native IfExp evaluation are preserved.',
+        'types':['OclInvalid','OclVoid','Boolean'],
+        'common_types':[['OclInvalid','OclVoid','Boolean'],['OclVoid','OclVoid','Boolean'],['Boolean','Boolean','Boolean']],
+        'source_body_preserved':True,'source_ast_identity_claimed':False,
+        'full_language_equivalence_certified':False,'human_acceptance':'pending','official_full_conformance':False}
 
 def lifeline_adapter(row):
     """Use §17.12.17.5 prose to make the published collection RHS executable.
@@ -260,7 +287,7 @@ def validate_mapped(data,java_home=None,operation_cases=None):
     home=Path(java_home or os.environ.get('JAVA_HOME',''))
     java=str(home/'bin/java') if (home/'bin/java').is_file() else shutil.which('java')
     if not java:raise Incomplete('Java21 unavailable; pass --java-home or JAVA_HOME')
-    rules,source_sha=official_rules();executable,syntax_adapters=execution_rules(rules);queries=official_query_adapters();boolean_adapter=boolean_semantics_adapter()
+    rules,source_sha=official_rules();executable,syntax_adapters=execution_rules(rules);queries=official_query_adapters();boolean_adapter=boolean_semantics_adapter();conditional_adapter=conditional_ast_adapter();common_type_adapter=conditional_type_adapter()
     case_rows,case_metadata,case_catalog=multiplicity_case_records([] if operation_cases is None else operation_cases)
     # Map namespace declarations and Clark tags only through a serialized copy.
     # In contrast to byte.replace, this does not rewrite business string literals.
@@ -293,6 +320,8 @@ def validate_mapped(data,java_home=None,operation_cases=None):
     from uml_ocl_obligations import execution_inventory
     report['normative_ocl_execution_scope']=execution_inventory()['summary']
     report['operation_derived_source_bindings']=case_metadata
+    report['conditional_ast_adapter']=conditional_adapter
+    report['conditional_type_adapter']=common_type_adapter
     report['operation_derived_capability']={'source_sha256':case_catalog['source_sha256'],'supported_queries':[r['name'] for r in case_catalog['operations']],
         'supported_derived_features':['lower','upper'],'scope':'Explicit cases with exact source signatures; independent oracle acceptance remains external; optional int carriers and full obligation equivalence are not certified.',
         'requested_case_count':len(operation_cases or []),'executed_constraint_count':sum(r.get('evaluation_count',0) for r in report.get('operation_derived_cases',[])),

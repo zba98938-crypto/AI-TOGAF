@@ -108,10 +108,9 @@ class ActualGroupedBooleanTests(unittest.TestCase):
         rows={r['id']:r for r in self.report['ocl_rules']}
         for body,value in self.expected.items():
             row=rows[body]
-            if body.startswith('if '):continue
             self.assertEqual('parsed',row['parse_status'],row);self.assertEqual([{'id':'M','value_kind':value}],row['evaluation_outcomes'])
         adapted={r['id'] for r in rows.values() if r['literal_ast_adapter']}
-        self.assertEqual(set(list(self.expected)[:6]),adapted)
+        self.assertEqual(set(list(self.expected)[:6])|{body for body in self.expected if body.startswith('if ')},adapted)
     def test_installed_parser_compatible_inputs_bypass_fallback_limits(self):
         rows={r['id']:r for r in self.report['ocl_rules']}
         for body,value in self.compatible.items():
@@ -121,7 +120,10 @@ class ActualGroupedBooleanTests(unittest.TestCase):
             self.assertEqual([{'id':'M','value_kind':value}],row['evaluation_outcomes'])
     def test_conditionals_and_malformed_or_over_limit_inputs_are_not_promoted(self):
         rows={r['id']:r for r in self.report['ocl_rules']}
-        for identity in [body for body in self.expected if body.startswith('if ')]+['rejected-'+str(i) for i in range(len(self.rejected))]:
+        for identity in [body for body in self.expected if body.startswith('if ')]:
+            row=rows[identity];self.assertEqual('parsed',row['parse_status'],row);self.assertEqual(1,row['invalid_evaluations'])
+            self.assertTrue(row['conditional_ast_adapter']);self.assertIsNotNone(row['original_parser_error']);self.assertEqual(0,row['violations'])
+        for identity in ['rejected-'+str(i) for i in range(len(self.rejected))]:
             row=rows[identity];self.assertEqual('unmapped-or-parse-failed',row['parse_status'],row);self.assertEqual(0,row['applicable'])
             self.assertFalse(row['literal_ast_adapter']);self.assertEqual([],row['evaluation_outcomes'])
         self.assertFalse(self.report['official_full_conformance'])

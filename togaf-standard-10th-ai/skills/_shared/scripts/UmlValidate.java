@@ -83,12 +83,51 @@ public class UmlValidate {
     literal.setType(ocl.getEnvironment().getOCLStandardLibrary().getOclInvalid());return literal;
   }
   static class ParsedQuery {
-    final OCLExpression expression; final boolean literalAstAdapter;
-    ParsedQuery(OCLExpression expression,boolean adapted){this.expression=expression;this.literalAstAdapter=adapted;}
+    final OCLExpression expression; final boolean literalAstAdapter,conditionalAstAdapter;
+    final String originalParserError; final ConditionalTypes conditionalTypes;
+    ParsedQuery(OCLExpression expression,boolean adapted){this(expression,adapted,false,null);}
+    ParsedQuery(OCLExpression expression,boolean adapted,boolean conditional,String originalError){
+      this(expression,adapted,conditional,originalError,new ConditionalTypes("not-applicable","no conditional typing adaptation",List.of()));
+    }
+    ParsedQuery(OCLExpression expression,boolean adapted,boolean conditional,String originalError,ConditionalTypes types){
+      this.expression=expression;this.literalAstAdapter=adapted;this.conditionalAstAdapter=conditional;this.originalParserError=originalError;this.conditionalTypes=types;
+    }
+  }
+  static class ConditionalTypes {
+    final String status,reason; final List<Map<String,Object>> nodes;
+    ConditionalTypes(String status,String reason,List<Map<String,Object>> nodes){this.status=status;this.reason=reason;this.nodes=nodes;}
+    Map<String,Object> report(){return row("id","OCL-2.4-bounded-literal-common-type","status",status,"reason",reason,
+        "adjusted",nodes.stream().anyMatch(n->Boolean.TRUE.equals(n.get("adjusted"))),"nodes",nodes,
+        "full_language_equivalence_certified",false);}
+  }
+  static class ConditionalTypeChange {
+    final org.eclipse.ocl.uml.IfExp expression; final org.eclipse.uml2.uml.Classifier expected;
+    ConditionalTypeChange(org.eclipse.ocl.uml.IfExp expression,org.eclipse.uml2.uml.Classifier expected){this.expression=expression;this.expected=expected;}
+  }
+  static boolean literalType(OCL ocl,org.eclipse.uml2.uml.Classifier type){
+    var library=ocl.getEnvironment().getOCLStandardLibrary();
+    return type==library.getBoolean() || type==library.getOclVoid() || type==library.getOclInvalid();
+  }
+  static org.eclipse.uml2.uml.Classifier literalCommonType(OCL ocl,org.eclipse.uml2.uml.Classifier left,org.eclipse.uml2.uml.Classifier right){
+    // OCL 2.4 8.2.1 and 8.3.7/8.3.8: Invalid conforms to Void;
+    // Void does not conform to Invalid. This closed-domain join is symmetric.
+    var library=ocl.getEnvironment().getOCLStandardLibrary();
+    if(!literalType(ocl,left) || !literalType(ocl,right))throw new IllegalArgumentException("common type outside closed literal domain");
+    if(left==library.getBoolean() || right==library.getBoolean())return library.getBoolean();
+    if(left==library.getOclVoid() || right==library.getOclVoid())return library.getOclVoid();
+    return library.getOclInvalid();
+  }
+  static Map<String,Object> conditionalTypeNode(String path,String origin,org.eclipse.ocl.uml.IfExp expression,
+      org.eclipse.uml2.uml.Classifier left,org.eclipse.uml2.uml.Classifier right,org.eclipse.uml2.uml.Classifier expected){
+    return row("path",path,"path_kind","source-logical","origin",origin,"before",expression.getType().getName(),"after",expected.getName(),
+        "then_before_type",expression.getThenExpression().getType().getName(),"else_before_type",expression.getElseExpression().getType().getName(),
+        "then_type",left.getName(),"else_type",right.getName(),"adjusted",expression.getType()!=expected);
   }
   static class LiteralTree {
-    final String token; final LiteralTree left,right;
-    LiteralTree(String token,LiteralTree left,LiteralTree right){this.token=token;this.left=left;this.right=right;}
+    final String token; final LiteralTree left,right,otherwise;
+    LiteralTree(String token,LiteralTree left,LiteralTree right){this(token,left,right,null);}
+    LiteralTree(String token,LiteralTree left,LiteralTree right,LiteralTree otherwise){this.token=token;this.left=left;this.right=right;this.otherwise=otherwise;}
+    boolean hasConditional(){return token.equals("if") || (left!=null && left.hasConditional()) || (right!=null && right.hasConditional());}
   }
   static class GroupedLiteralParser {
     final List<String> tokens; int at;
@@ -103,7 +142,7 @@ public class UmlValidate {
           int start=at;while(at<body.length() && Character.isLetter(body.charAt(at)))at++;
           if(at==start)return null;
           String word=body.substring(start,at);
-          if(!Set.of("true","false","null","invalid","not","and","or","xor","implies").contains(word))return null;
+          if(!Set.of("true","false","null","invalid","not","and","or","xor","implies","if","then","else","endif").contains(word))return null;
           tokens.add(word);
         }
         if(tokens.size()>2048)throw new IllegalArgumentException("grouped literal adapter token limit exceeded");
@@ -127,6 +166,12 @@ public class UmlValidate {
       if(depth>=64)throw new IllegalArgumentException("grouped literal adapter nesting limit exceeded");
       if(at>=tokens.size())throw new IllegalArgumentException("incomplete literal expression");
       String token=tokens.get(at++);
+      if(token.equals("if")) {
+        LiteralTree condition=expression(depth+1);expect("then");
+        LiteralTree thenBranch=expression(depth+1);expect("else");
+        LiteralTree elseBranch=expression(depth+1);expect("endif");
+        return new LiteralTree(token,condition,thenBranch,elseBranch);
+      }
       if(token.equals("not"))return new LiteralTree(token,primary(depth+1),null);
       if(token.equals("(")) {
         LiteralTree inner=expression(depth+1);
@@ -136,14 +181,94 @@ public class UmlValidate {
       if(!Set.of("true","false","null","invalid").contains(token))throw new IllegalArgumentException("literal expected");
       return new LiteralTree(token,null,null);
     }
+    void expect(String token){if(at>=tokens.size() || !tokens.get(at++).equals(token))throw new IllegalArgumentException("conditional delimiter expected: "+token);}
   }
-  static OCLExpression literalTree(OCL ocl,OCL.Helper helper,LiteralTree tree) throws Exception {
+  static OCLExpression booleanCondition(OCL ocl,OCL.Helper helper,OCLExpression condition) throws Exception {
+    if(condition.getType()==ocl.getEnvironment().getOCLStandardLibrary().getBoolean())return condition;
+    // OCL 2.4 Variable/VariableExp/LetExp typing and VoidType/InvalidType
+    // conformance: keep each undefined literal's own type. The auxiliary local
+    // declaration gives the condition a Boolean static type without converting
+    // its null/invalid value to false. This is an execution-only adaptation.
+    var library=ocl.getEnvironment().getOCLStandardLibrary();
+    if(condition.getType()!=library.getOclVoid() && condition.getType()!=library.getOclInvalid())
+      throw new IllegalArgumentException("conditional fallback requires a Boolean-conforming literal condition");
+    org.eclipse.ocl.uml.LetExp typed=(org.eclipse.ocl.uml.LetExp)helper.createQuery(
+        "let __literal_condition : Boolean = true in __literal_condition");
+    typed.getVariable().setInitExpression(condition);return typed;
+  }
+  static OCLExpression literalTree(OCL ocl,OCL.Helper helper,LiteralTree tree,String path,List<Map<String,Object>> types) throws Exception {
     if(tree.left==null)return Set.of("null","invalid").contains(tree.token)?literal(ocl,tree.token):helper.createQuery(tree.token);
+    if(tree.token.equals("if")) {
+      OCLExpression condition=booleanCondition(ocl,helper,literalTree(ocl,helper,tree.left,path+"/condition",types));
+      OCLExpression thenBranch=literalTree(ocl,helper,tree.right,path+"/thenExpression",types),elseBranch=literalTree(ocl,helper,tree.otherwise,path+"/elseExpression",types);
+      // Preserve the witness parser's original type as evidence, then apply
+      // the published common type independently of its asymmetric inference.
+      org.eclipse.ocl.uml.IfExp expression=(org.eclipse.ocl.uml.IfExp)helper.createQuery(
+          "if true then "+literalTypeWitness(ocl,thenBranch)+" else "+literalTypeWitness(ocl,elseBranch)+" endif");
+      var expected=literalCommonType(ocl,thenBranch.getType(),elseBranch.getType());
+      types.add(conditionalTypeNode(path,"fallback-witness-parser",expression,thenBranch.getType(),elseBranch.getType(),expected));
+      expression.setCondition(condition);expression.setThenExpression(thenBranch);expression.setElseExpression(elseBranch);expression.setType(expected);return expression;
+    }
     org.eclipse.ocl.uml.OperationCallExp expression=(org.eclipse.ocl.uml.OperationCallExp)helper.createQuery(
         tree.token.equals("not")?"not true":"true "+tree.token+" true");
-    expression.setSource(literalTree(ocl,helper,tree.left));
-    if(tree.right!=null)expression.getArgument().set(0,literalTree(ocl,helper,tree.right));
+    expression.setSource(literalTree(ocl,helper,tree.left,path+"/source",types));
+    if(tree.right!=null)expression.getArgument().set(0,literalTree(ocl,helper,tree.right,path+"/argument/0",types));
     return expression;
+  }
+  static org.eclipse.uml2.uml.Classifier matchedLiteralType(OCL ocl,LiteralTree tree,OCLExpression actual,String path,
+      List<ConditionalTypeChange> changes,List<Map<String,Object>> nodes){
+    var library=ocl.getEnvironment().getOCLStandardLibrary();
+    if(!literalType(ocl,actual.getType()))throw new IllegalArgumentException("AST type outside closed literal domain");
+    if(tree.left==null){
+      boolean matches=switch(tree.token){
+        case "true","false" -> actual instanceof org.eclipse.ocl.uml.BooleanLiteralExp &&
+            ((org.eclipse.ocl.uml.BooleanLiteralExp)actual).getBooleanSymbol()==tree.token.equals("true") && actual.getType()==library.getBoolean();
+        case "null" -> actual instanceof org.eclipse.ocl.uml.NullLiteralExp && actual.getType()==library.getOclVoid();
+        case "invalid" -> actual instanceof org.eclipse.ocl.uml.InvalidLiteralExp && actual.getType()==library.getOclInvalid();
+        default -> false;
+      };
+      if(!matches)throw new IllegalArgumentException("literal source and AST mismatch");return actual.getType();
+    }
+    if(tree.token.equals("if")){
+      if(!(actual instanceof org.eclipse.ocl.uml.IfExp))throw new IllegalArgumentException("conditional source and AST mismatch");
+      org.eclipse.ocl.uml.IfExp expression=(org.eclipse.ocl.uml.IfExp)actual;
+      matchedLiteralType(ocl,tree.left,(OCLExpression)expression.getCondition(),path+"/condition",changes,nodes);
+      var left=matchedLiteralType(ocl,tree.right,(OCLExpression)expression.getThenExpression(),path+"/thenExpression",changes,nodes);
+      var right=matchedLiteralType(ocl,tree.otherwise,(OCLExpression)expression.getElseExpression(),path+"/elseExpression",changes,nodes);
+      var expected=literalCommonType(ocl,left,right);
+      nodes.add(conditionalTypeNode(path,"original-parser",expression,left,right,expected));changes.add(new ConditionalTypeChange(expression,expected));return expected;
+    }
+    if(!(actual instanceof org.eclipse.ocl.uml.OperationCallExp))throw new IllegalArgumentException("operation source and AST mismatch");
+    org.eclipse.ocl.uml.OperationCallExp expression=(org.eclipse.ocl.uml.OperationCallExp)actual;
+    var operation=expression.getReferredOperation();int arity=tree.token.equals("not")?0:1;
+    if(operation==null || operation.getOwner()!=library.getBoolean() || !tree.token.equals(operation.getName()) ||
+        expression.getArgument().size()!=arity || actual.getType()!=library.getBoolean())throw new IllegalArgumentException("standard Boolean operation AST mismatch");
+    matchedLiteralType(ocl,tree.left,(OCLExpression)expression.getSource(),path+"/source",changes,nodes);
+    if(tree.right!=null)matchedLiteralType(ocl,tree.right,(OCLExpression)expression.getArgument().get(0),path+"/argument/0",changes,nodes);
+    return library.getBoolean();
+  }
+  static ConditionalTypes originalConditionalTypes(OCL ocl,String body,OCLExpression expression){
+    // A successful original parse must never become a rejection because this
+    // optional source/AST gate fails or exceeds its bounded grammar limits.
+    LiteralTree tree;
+    try{tree=GroupedLiteralParser.parse(body);}
+    catch(RuntimeException e){return new ConditionalTypes("uncovered",e.getClass().getSimpleName()+": "+e.getMessage(),List.of());}
+    if(tree==null)return new ConditionalTypes("uncovered","outside bounded closed literal source grammar",List.of());
+    if(!tree.hasConditional())return new ConditionalTypes("not-applicable","no conditional in bounded literal source",List.of());
+    List<ConditionalTypeChange> changes=new ArrayList<>();List<Map<String,Object>> nodes=new ArrayList<>();
+    try{matchedLiteralType(ocl,tree,expression,"root",changes,nodes);}
+    catch(RuntimeException e){return new ConditionalTypes("uncovered",e.getClass().getSimpleName()+": "+e.getMessage(),List.of());}
+    // All nodes matched before any change is made: mismatch leaves the entire
+    // original AST unchanged. The plans and writes are both in postorder.
+    for(ConditionalTypeChange change:changes)change.expression.setType(change.expected);
+    return new ConditionalTypes("bounded-covered","source and original AST matched in closed literal domain",nodes);
+  }
+  static String literalTypeWitness(OCL ocl,OCLExpression expression) {
+    var library=ocl.getEnvironment().getOCLStandardLibrary();
+    if(expression.getType()==library.getBoolean())return "true";
+    if(expression.getType()==library.getOclVoid())return "null";
+    if(expression.getType()==library.getOclInvalid())return "invalid";
+    throw new IllegalArgumentException("conditional fallback branch type outside bounded literal scope");
   }
   static ParsedQuery query(OCL ocl,OCL.Helper helper,String body) throws Exception {
     // The pinned backend cannot infer a Boolean overload for these eighteen
@@ -153,16 +278,21 @@ public class UmlValidate {
     if(tokens==null) {
       // Build a fallback only for the closed, explicitly grouped literal
       // grammar. General OCL, strings, identifiers and custom operations use
-      // the installed parser unchanged. Conditionals are outside this scope.
-      try {return new ParsedQuery(helper.createQuery(body),false);}
+      // the installed parser unchanged. Only closed literal conditionals enter
+      // the same bounded grammar after the original parser has failed.
+      OCLExpression originalExpression;
+      try {originalExpression=helper.createQuery(body);}
       catch(Exception original) {
         // Adapter limits constrain only the fallback. A source expression
         // accepted by the installed parser keeps its original semantics and
         // never enters this bounded auxiliary grammar.
         LiteralTree grouped=GroupedLiteralParser.parse(body);
         if(grouped==null)throw original;
-        return new ParsedQuery(literalTree(ocl,helper,grouped),true);
+        List<Map<String,Object>> types=new ArrayList<>();OCLExpression adapted=literalTree(ocl,helper,grouped,"root",types);
+        return new ParsedQuery(adapted,true,grouped.hasConditional(),original.toString(),new ConditionalTypes(
+            grouped.hasConditional()?"bounded-covered":"not-applicable","bounded fallback literal AST",types));
       }
+      return new ParsedQuery(originalExpression,false,false,null,originalConditionalTypes(ocl,body,originalExpression));
     }
     boolean unary=tokens.length==2;
     org.eclipse.ocl.uml.OperationCallExp expression=(org.eclipse.ocl.uml.OperationCallExp)helper.createQuery(unary?"not true":"true "+tokens[1]+" true");
@@ -411,14 +541,15 @@ public class UmlValidate {
         String id=new String(Base64.getDecoder().decode(cols[1]),StandardCharsets.UTF_8);
         String body=new String(Base64.getDecoder().decode(cols[2]),StandardCharsets.UTF_8);
         EClassifier type=UMLPackage.eINSTANCE.getEClassifier(context);
-        String error=null;boolean literalAdapted=false;int applicable=0,violations=0,invalid=0,nulls=0,nonBoolean=0,truths=0;
+        String error=null,originalParserError=null;boolean literalAdapted=false,conditionalAdapted=false;int applicable=0,violations=0,invalid=0,nulls=0,nonBoolean=0,truths=0;
+        ConditionalTypes conditionalTypes=new ConditionalTypes("uncovered","expression did not parse",List.of());
         List<String> violationIDs=new ArrayList<>(),invalidIDs=new ArrayList<>(),nullIDs=new ArrayList<>(),nonBooleanIDs=new ArrayList<>(),outcomes=new ArrayList<>();
         try {
           if(!(type instanceof EClass))throw new IllegalArgumentException("context classifier not mapped");
           org.eclipse.uml2.uml.Classifier contextType=contexts.get(context);
           if(contextType==null)throw new IllegalArgumentException("UML semantic context not mapped");
           OCL.Helper helper=ocl.createOCLHelper();helper.setContext(contextType);ParsedQuery parsed=query(ocl,helper,body);
-          OCLExpression expr=parsed.expression;literalAdapted=parsed.literalAstAdapter;parseOK++;
+          OCLExpression expr=parsed.expression;literalAdapted=parsed.literalAstAdapter;conditionalAdapted=parsed.conditionalAstAdapter;originalParserError=parsed.originalParserError;conditionalTypes=parsed.conditionalTypes;parseOK++;
           for(EObject o:objects)if(((EClass)type).isSuperTypeOf(o.eClass())) {
             applicable++;evalCount++;
             String objectID=q(((XMLResource)r).getID(o));String valueKind;
@@ -436,7 +567,7 @@ public class UmlValidate {
             outcomes.add("{\"id\":"+objectID+",\"value_kind\":"+q(valueKind)+"}");
           }
         } catch(Exception e){parseFailed++;error=e.getClass().getSimpleName()+": "+e.getMessage();}
-        rules.add("{\"id\":"+q(id)+",\"context\":"+q(context)+",\"literal_ast_adapter\":"+literalAdapted+",\"parse_status\":"+q(error==null?"parsed":"unmapped-or-parse-failed")+",\"parse_error\":"+q(error)+",\"applicable\":"+applicable+",\"true_evaluations\":"+truths+",\"violations\":"+violations+",\"invalid_evaluations\":"+invalid+",\"null_evaluations\":"+nulls+",\"non_boolean_evaluations\":"+nonBoolean+",\"violation_ids\":["+String.join(",",violationIDs)+"],\"invalid_ids\":["+String.join(",",invalidIDs)+"],\"null_ids\":["+String.join(",",nullIDs)+"],\"non_boolean_ids\":["+String.join(",",nonBooleanIDs)+"],\"evaluation_outcomes\":["+String.join(",",outcomes)+"]}");
+        rules.add("{\"id\":"+q(id)+",\"context\":"+q(context)+",\"literal_ast_adapter\":"+literalAdapted+",\"conditional_ast_adapter\":"+conditionalAdapted+",\"conditional_type_adapter\":"+json(conditionalTypes.report())+",\"original_parser_error\":"+q(originalParserError)+",\"parse_status\":"+q(error==null?"parsed":"unmapped-or-parse-failed")+",\"parse_error\":"+q(error)+",\"applicable\":"+applicable+",\"true_evaluations\":"+truths+",\"violations\":"+violations+",\"invalid_evaluations\":"+invalid+",\"null_evaluations\":"+nulls+",\"non_boolean_evaluations\":"+nonBoolean+",\"violation_ids\":["+String.join(",",violationIDs)+"],\"invalid_ids\":["+String.join(",",invalidIDs)+"],\"null_ids\":["+String.join(",",nullIDs)+"],\"non_boolean_ids\":["+String.join(",",nonBooleanIDs)+"],\"evaluation_outcomes\":["+String.join(",",outcomes)+"]}");
       }
     } finally {org.eclipse.ocl.Environment.Registry.INSTANCE.deregisterEnvironment(ocl.getEnvironment());ocl.dispose();}
     List<Map<String,Object>> operationCases=args.length==5?multiplicityCases(Path.of(args[4]),rs,(XMLResource)r,contexts.get("MultiplicityElement")):List.of();

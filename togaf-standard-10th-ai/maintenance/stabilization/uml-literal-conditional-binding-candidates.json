@@ -1,0 +1,162 @@
+[
+  {
+    "candidate_id": "ocl:2.4:IfExp-condition-Boolean",
+    "binding_target": "supplemental-OCL-execution-semantic-dependency",
+    "public_uml_obligation_id": null,
+    "source_identity": {
+      "file": "togaf-standard-10th-ai/skills/_shared/standards/sources/ocl-2.4/OCL-2.4.pdf",
+      "publication_sha256": "b97e46a946418ba3c8db6f33def013e4d8a56ac500cb1bed055fed660977a7ef",
+      "pdf_page": 73,
+      "printed_page": 57,
+      "clause": "8.3.7 IfExp [1]",
+      "quote": "The type of the condition of an if expression must be Boolean.",
+      "quote_sha256": "34174ed64d992a422c745ec2f858a0ef1b66287db1a31fb5a8dd9aa094e2fd4f",
+      "key": "source-semantics:f4ae5489d4cc9de3143b59e670d0dc77a046400da61653e10e4e82e5d8b2dc88"
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "booleanCondition"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "conditional_ast_adapter"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_conditionals.py",
+        "symbol": "ActualConditionalTests.test_adapted_ast_preserves_condition_literals_and_branch_order"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_conditionals.py",
+        "symbol": "ActualConditionalTests.test_xml_oracle_rejects_actual_false_condition_and_swapped_branch_counterexamples"
+      }
+    ],
+    "scope": "Closed pure-literal grammar after actual original-parser failure; independent XML value, AST and branch-visit oracle. These are supplemental OCL source obligations, not additions to the public UML 2.5.1 coverage ledger.",
+    "source_ast_identity_claimed": false,
+    "full_language_equivalence_certified": false,
+    "full_standard_acceptance": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending-signature"
+  },
+  {
+    "candidate_id": "ocl:2.4:IfExp-common-supertype",
+    "binding_target": "supplemental-OCL-execution-semantic-dependency",
+    "public_uml_obligation_id": null,
+    "source_identity": {
+      "file": "togaf-standard-10th-ai/skills/_shared/standards/sources/ocl-2.4/OCL-2.4.pdf",
+      "publication_sha256": "b97e46a946418ba3c8db6f33def013e4d8a56ac500cb1bed055fed660977a7ef",
+      "pdf_page": 73,
+      "printed_page": 57,
+      "clause": "8.3.7 IfExp [2]",
+      "quote": "The type of the if expression is the most common supertype of the else and then expressions.",
+      "quote_sha256": "4a66bfd4bdc0ef998502e485128f1d35350c69a6dc8f68de04c17e1cd97ed065",
+      "key": "source-semantics:a4f2b61debb073a0411f39059f3ee6fcebebc803d29515905fb112c7930b7a81"
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "literalCommonType"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "matchedLiteralType"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "originalConditionalTypes"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "literalTree"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "conditional_type_adapter"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_conditionals.py",
+        "symbol": "ActualConditionalTests.test_every_recursive_static_type_matches_independent_xml_oracle_in_both_branch_orders"
+      },
+      {
+        "file": "tests/test_uml_conditionals.py",
+        "symbol": "ActualConditionalTests.test_type_adjustments_disclose_original_and_fallback_witness_without_changing_native_values"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_conditionals.py",
+        "symbol": "ActualConditionalTests.test_independent_type_oracle_rejects_value_preserving_native_type_counterexamples"
+      },
+      {
+        "file": "tests/test_uml_conditionals.py",
+        "symbol": "ActualConditionalTests.test_source_ast_mismatch_cancels_all_planned_type_changes"
+      },
+      {
+        "file": "tests/test_uml_conditionals.py",
+        "symbol": "ActualConditionalTests.test_typed_let_and_long_original_parser_inputs_keep_the_native_path"
+      }
+    ],
+    "scope": "Only Boolean/OclVoid/OclInvalid common types in the bounded closed literal source grammar; original parser first, complete source/AST matching before atomic postorder IfExp.type changes, explicit symmetric fallback join with witness before-types. Independent XML recursive type/value/shape/branch oracle; accepted long or out-of-domain original ASTs remain unchanged and uncovered. Supplemental OCL dependency only; no public UML obligation added.",
+    "source_ast_identity_claimed": false,
+    "full_language_equivalence_certified": false,
+    "full_standard_acceptance": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending-signature"
+  },
+  {
+    "candidate_id": "ocl:2.4:IfExpEval-four-values-branch-selection",
+    "binding_target": "supplemental-OCL-execution-semantic-dependency",
+    "public_uml_obligation_id": null,
+    "source_identity": {
+      "file": "togaf-standard-10th-ai/skills/_shared/standards/sources/ocl-2.4/OCL-2.4.pdf",
+      "publication_sha256": "b97e46a946418ba3c8db6f33def013e4d8a56ac500cb1bed055fed660977a7ef",
+      "pdf_page": 148,
+      "printed_page": 132,
+      "clause": "10.4.2.2 IfExpEval [1]",
+      "quote": "The result value of an if expression is the result of the thenExpression if the condition is true, otherwise it is the result of the elseExpression if the condition is false, otherwise the result is invalid.",
+      "quote_sha256": "6c92a3d43b40de984a487b9344bd6ec3c1b42744e9ced03096680c15c7054705",
+      "key": "source-semantics:4fbed4d5d84e5324664f7b4ac70a60fbffbad48dceecfcdb7ccc7fc52ab7263b"
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "query"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "booleanCondition"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "conditional_ast_adapter"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_conditionals.py",
+        "symbol": "ActualConditionalTests.test_only_xml_oracle_selected_branches_are_actually_visited"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_conditionals.py",
+        "symbol": "ActualConditionalTests.test_xml_oracle_rejects_actual_false_condition_and_swapped_branch_counterexamples"
+      }
+    ],
+    "scope": "Closed pure-literal grammar after actual original-parser failure; independent XML value, AST and branch-visit oracle. These are supplemental OCL source obligations, not additions to the public UML 2.5.1 coverage ledger.",
+    "source_ast_identity_claimed": false,
+    "full_language_equivalence_certified": false,
+    "full_standard_acceptance": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending-signature"
+  }
+]
