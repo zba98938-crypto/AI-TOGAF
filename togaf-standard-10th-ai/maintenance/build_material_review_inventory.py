@@ -18,6 +18,7 @@ C = REPO / 'togaf-standard-10th-ai'
 if str(Path(__file__).parent) not in sys.path:
     sys.path.insert(0, str(Path(__file__).parent))
 from material_source_adapters import g242_table_adaptation, DATA_PATH as ADAPTER_DATA_PATH
+import material_preparation_dispositions as preparation_dispositions
 CATEGORIES = {'body', 'front-matter', 'navigation', 'reference'}
 NAV = re.compile(r'^(?:table of contents|contents|list of (?:figures|tables)|index|目录|目次|索引)(?:\b|$)', re.I)
 FRONT = re.compile(r'^(?:preface|foreword|acknowledg\w*|trademarks?|participants?|contributors?|about (?:the |this )?(?:author|document)|序言|前言|致谢|商标|版权)(?:\b|$)', re.I)
@@ -101,11 +102,14 @@ def bounded(path, root=REPO):
 
 
 class Inventory:
-    def __init__(self, root=REPO, visual_source_manifest=None):
+    def __init__(self, root=REPO, visual_source_manifest=None, preparation_manifest=None):
         self.root = Path(root).resolve()
         self.c = self.root / 'togaf-standard-10th-ai'
         self.inputs, self.units, self.documents, self.contexts, self.editorial = {}, [], [], {}, []
         self.ids = set()
+        self.preparation_mode = 'explicit-disabled' if preparation_manifest is False else ('explicit-manifest' if preparation_manifest is not None else 'default-static-source-manifest')
+        self.preparation_path = None if preparation_manifest is False else bounded(preparation_manifest or preparation_dispositions.DEFAULT_MANIFEST,self.root)
+        self.preparation_result = None
         migration = self.c / 'sources/relocation-manifest.json'
         self.migration = self.read(migration).get('logical_paths', {}) if migration.is_file() else {}
         self.visual_pages, self.visual_manifest_ref = {}, None
@@ -458,6 +462,13 @@ class Inventory:
         actual = Counter(d['family'] for d in self.documents)
         if actual != Counter({'series-guide': 26, 'fundamental': 6, 'supplementary': 2}):
             raise ValueError('Required document scope differs: ' + repr(actual))
+        if self.preparation_path is not None:
+            if self.preparation_path.is_file():
+                self.preparation_result = preparation_dispositions.apply(self,self.preparation_path)
+            elif self.preparation_mode == 'explicit-manifest':
+                raise ValueError('Explicit material preparation manifest is missing')
+            else:
+                self.preparation_mode = 'static-source-manifest-unavailable'
         self.units.sort(key=lambda u: (u['document_id'], u['id']))
         summary = {'documents': len(self.documents), 'document_families': dict(actual), 'units': len(self.units),
                    'classification': dict(Counter(u['classification'] for u in self.units)),
@@ -469,7 +480,7 @@ class Inventory:
                    'source_binding_adaptations':sum(len(u.get('source_binding_adaptations', [])) for u in self.units),
                    'derived_visual_source_pages':len(self.visual_pages),
                    'independent_model_review_executed': 0, 'professional_acceptances': 0, 'organizational_approvals': 0}
-        return {'schema_version': 'full-material-source-unit-inventory/1', 'scope': 'six fundamental volumes, 26 series guides, G226 and W242C',
+        result = {'schema_version': 'full-material-source-unit-inventory/1', 'scope': 'six fundamental volumes, 26 series guides, G226 and W242C',
                 'source_unit_definition': 'All extracted PDF content units plus every raw block without a content mapping; all source images; every acquired fundamental block, navigation link and footnote; G226 raw blocks and W242C pages.',
                 'input_sha256': self.inputs, 'documents': self.documents, 'summary': summary, 'units': self.units,
                 'preserved_editorial_records_outside_source_units': self.editorial,
@@ -479,6 +490,9 @@ class Inventory:
                            'Section-aligned translation presence does not prove sentence/unit semantic equivalence.',
                            'Original Chinese W242C pages are not English-to-Chinese translation.',
                            'No prior authored review is renamed as independent model or human acceptance.']}
+        if self.preparation_result is not None:
+            result['source_preparation'] = {'application_mode':self.preparation_mode,**self.preparation_result}
+        return result
 
 
 def prepare_shards(inventory, contexts, max_units=40, max_characters=24000):
@@ -521,12 +535,16 @@ def main():
     parser.add_argument('--max-units', type=int, default=40)
     parser.add_argument('--max-characters', type=int, default=24000)
     parser.add_argument('--visual-source-manifest', type=Path)
+    preparation = parser.add_mutually_exclusive_group()
+    preparation.add_argument('--preparation-manifest',type=Path)
+    preparation.add_argument('--no-preparation-dispositions',action='store_true')
     args = parser.parse_args()
     out = bounded(args.out)
     if not out.is_relative_to(REPO / 'output'):
         raise ValueError('Review inputs must be in repository output')
     out.mkdir()  # No overwriting an old preparation or review.
-    builder = Inventory(visual_source_manifest=args.visual_source_manifest); inventory = builder.build()
+    builder = Inventory(visual_source_manifest=args.visual_source_manifest,
+        preparation_manifest=False if args.no_preparation_dispositions else args.preparation_manifest); inventory = builder.build()
     shards = prepare_shards(inventory, builder.contexts, args.max_units, args.max_characters)
     changed = [name for name, fingerprint in inventory['input_sha256'].items() if sha(REPO / name) != fingerprint]
     if changed:
@@ -548,6 +566,12 @@ def main():
                 'input_sha256':inventory['input_sha256'],'model_launched':False,'model_settings':'existing configuration unchanged',
                 'oversized_single_unit_shards':[s['id'] for s in shards if s['oversized_single_unit']],
                 'independent_review_complete':False,'human_professional_acceptance':'pending','organizational_approval':'pending-signature'}
+    manifest['source_preparation'] = {'application_mode':builder.preparation_mode,
+        'decision_manifest':builder.preparation_result['manifest'] if builder.preparation_result is not None else None,
+        'prepared_dispositions':builder.preparation_result['supported_dispositions'] if builder.preparation_result is not None else 0,
+        'pending_ids':builder.preparation_result['pending_ids'] if builder.preparation_result is not None else [],
+        'English_body_visual_candidates_bound':builder.preparation_result['bound_English_body_visual_units'] if builder.preparation_result is not None else 0,
+        'independent_semantic_reviews_executed':0}
     (out / 'review-input-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     lines = ['# 全量资料复核准备', '', '全部条目仅完成本地清点与暂定分类；独立模型尚未启动，人工专业验收及真实组织批准待签署。', '',
              '|范围|来源单元|正文译写缺项|不确定分类|', '|---|---:|---:|---:|']
