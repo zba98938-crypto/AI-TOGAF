@@ -15,6 +15,9 @@ import sys
 
 REPO = Path(__file__).resolve().parents[2]
 C = REPO / 'togaf-standard-10th-ai'
+if str(Path(__file__).parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).parent))
+from material_source_adapters import g242_table_adaptation, DATA_PATH as ADAPTER_DATA_PATH
 CATEGORIES = {'body', 'front-matter', 'navigation', 'reference'}
 NAV = re.compile(r'^(?:table of contents|contents|list of (?:figures|tables)|index|目录|目次|索引)(?:\b|$)', re.I)
 FRONT = re.compile(r'^(?:preface|foreword|acknowledg\w*|trademarks?|participants?|contributors?|about (?:the |this )?(?:author|document)|序言|前言|致谢|商标|版权)(?:\b|$)', re.I)
@@ -98,13 +101,23 @@ def bounded(path, root=REPO):
 
 
 class Inventory:
-    def __init__(self, root=REPO):
+    def __init__(self, root=REPO, visual_source_manifest=None):
         self.root = Path(root).resolve()
         self.c = self.root / 'togaf-standard-10th-ai'
         self.inputs, self.units, self.documents, self.contexts, self.editorial = {}, [], [], {}, []
         self.ids = set()
         migration = self.c / 'sources/relocation-manifest.json'
         self.migration = self.read(migration).get('logical_paths', {}) if migration.is_file() else {}
+        self.visual_pages, self.visual_manifest_ref = {}, None
+        if visual_source_manifest is not None:
+            from material_visual_sources import reference, verify, read
+            self.visual_manifest_ref = reference(bounded(visual_source_manifest, self.root), self.root)
+            verify(self.visual_manifest_ref, self.root)
+            self.reference(self.root / self.visual_manifest_ref['path'], self.visual_manifest_ref['sha256'])
+            self.visual_pages = {p['pdf_page']: p for p in read(self.root / self.visual_manifest_ref['path'])['pages']}
+            for page in self.visual_pages.values():
+                for image in [page['primary_image']] + [r['crop_image'] for r in page['occurrences'] if r['crop_image']]:
+                    self.reference(self.root / image['path'], image['sha256'])
 
     def reference(self, path, expected=None):
         path = bounded(path, self.root)
@@ -240,7 +253,7 @@ class Inventory:
                 context = outline_context(doc['outline'], page['pdf_page'], block['bbox'][1])
                 box = block['bbox']; center = ((box[0] + box[2])/2, (box[1] + box[3])/2)
                 visual = any(b[0] <= center[0] <= b[2] and b[1] <= center[1] <= b[3] for b in visual_regions[page['pdf_page']])
-                table_candidates, table_units = [], []
+                table_candidates, table_units, binding_adaptations = [], [], []
                 for ci, content in enumerate(page['content']):
                     if content['type'] != 'table':
                         continue
@@ -248,9 +261,13 @@ class Inventory:
                     if not (bbox[0] <= center[0] <= bbox[2] and bbox[1] <= center[1] <= bbox[3]):
                         continue
                     tabletext = norm(content['text'].replace('<br>', ' ').replace('|', ' '))
-                    if not all(norm(line) in tabletext for line in block['text'].splitlines() if norm(line)):
-                        continue
                     identity = f'{code}:p{page["pdf_page"]:04}:c{ci:03}'
+                    if not all(norm(line) in tabletext for line in block['text'].splitlines() if norm(line)):
+                        adaptation = g242_table_adaptation(code, source, docref, block, identity, content)
+                        if adaptation is None:
+                            continue
+                        self.reference(self.c / 'maintenance/material-source-adapters/g242-co2e-binding.json', sha(ADAPTER_DATA_PATH))
+                        binding_adaptations.append(adaptation)
                     table_units.append(identity)
                     table_candidates.extend(ref for text, ref in translated[identity] if text == content['text'])
                 self.add({'id': block['id'], 'document_id': code, 'family': 'series-guide', 'kind': 'pdf-unmapped-raw-block',
@@ -259,6 +276,8 @@ class Inventory:
                           'source_material_form': 'visual-label' if visual else 'table-cell' if table_units else 'text',
                           'related_normalized_table_units':table_units,
                           'table_lineage_basis':'PDF center within table bounds and every nonempty raw line occurs in normalized table' if table_units else None,
+                          **({'source_binding_adaptations': binding_adaptations,
+                              'table_lineage_basis': 'Exact pinned raw/table CO2e delayed-subscript binding adaptation; original source unchanged'} if binding_adaptations else {}),
                           'translation_candidates':table_candidates,
                           'raw_normalization_status': 'not-represented-by-content-unit',
                           'source_locator': {'json_pointer': f'/pages/{pi}/blocks/{bi}', 'pdf_page': page['pdf_page'], 'bbox': box}},
@@ -401,6 +420,7 @@ class Inventory:
                     page_sections[page].append(section.get('title_zh', ''))
             for i, page in enumerate(extracted['pages']):
                 candidate = []
+                visual = self.visual_pages.get(page['pdf_page'])
                 if zh:
                     original = next((p for p in zh['pages'] if p['pdf_page'] == page['pdf_page']), None)
                     if not original or original['text_zh'] != page['text']:
@@ -409,6 +429,9 @@ class Inventory:
                 self.add({'id': code + f':p{page["pdf_page"]:04}', 'document_id': code, 'family': 'supplementary', 'kind': 'pdf-page',
                           'text_zh': page['text'], 'source_content_sha256': textsha(page['text']), 'source_document': docref, 'source': source,
                           'source_image_occurrences': page.get('image_count'),
+                          **({'source_images': [visual['primary_image']], 'source_image_derivation': self.visual_manifest_ref,
+                              'source_image_occurrence_types': dict(Counter(r['provisional_type'] for r in visual['occurrences'])),
+                              'source_material_form': 'original-chinese-page-with-derived-visual-evidence'} if visual else {}),
                           'source_locator': {'json_pointer': f'/pages/{i}', 'pdf_page': page['pdf_page']}, 'translation_candidates': candidate},
                           titles=page_sections[page['pdf_page']], before_body=page['pdf_page'] < 6, chinese=True)
             count = len(extracted['pages'])
@@ -443,6 +466,8 @@ class Inventory:
                    'body_translation_missing': sum(u['translation_status'] == 'body-translation-missing' for u in self.units),
                    'raw_table_cell_units':sum(u['source_material_form']=='table-cell' for u in self.units),
                    'raw_visual_label_units':sum(u['source_material_form']=='visual-label' for u in self.units),
+                   'source_binding_adaptations':sum(len(u.get('source_binding_adaptations', [])) for u in self.units),
+                   'derived_visual_source_pages':len(self.visual_pages),
                    'independent_model_review_executed': 0, 'professional_acceptances': 0, 'organizational_approvals': 0}
         return {'schema_version': 'full-material-source-unit-inventory/1', 'scope': 'six fundamental volumes, 26 series guides, G226 and W242C',
                 'source_unit_definition': 'All extracted PDF content units plus every raw block without a content mapping; all source images; every acquired fundamental block, navigation link and footnote; G226 raw blocks and W242C pages.',
@@ -495,12 +520,13 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--max-units', type=int, default=40)
     parser.add_argument('--max-characters', type=int, default=24000)
+    parser.add_argument('--visual-source-manifest', type=Path)
     args = parser.parse_args()
     out = bounded(args.out)
     if not out.is_relative_to(REPO / 'output'):
         raise ValueError('Review inputs must be in repository output')
     out.mkdir()  # No overwriting an old preparation or review.
-    builder = Inventory(); inventory = builder.build()
+    builder = Inventory(visual_source_manifest=args.visual_source_manifest); inventory = builder.build()
     shards = prepare_shards(inventory, builder.contexts, args.max_units, args.max_characters)
     changed = [name for name, fingerprint in inventory['input_sha256'].items() if sha(REPO / name) != fingerprint]
     if changed:
