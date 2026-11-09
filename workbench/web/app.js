@@ -120,10 +120,20 @@ act('#native-import',()=>$('#native-import-file').click());
 $('#native-import-file').addEventListener('change',guarded(async event=>{
   const file=event.target.files[0];if(!file)return;
   try {
-    if(file.size>7*1024*1024)throw new Error('原生源码超过 7 MiB 编辑限制');
-    const xml=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(await file.arrayBuffer());
-    const language=/\.bpmn$/i.test(file.name)||xml.includes('http://www.omg.org/spec/BPMN/20100524/MODEL')?'bpmn':'uml';
-    const native={language,version:language==='bpmn'?'2.0.2':'2.5.1',xml};
+    const isPackage=/\.json$/i.test(file.name);
+    if(file.size>(isPackage?8:7)*1024*1024)throw new Error(isPackage?'原生资源包超过 8 MiB 编辑请求容量；请使用本地命令行，文件不会截断':'原生源码超过 7 MiB 编辑限制');
+    const text=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(await file.arrayBuffer());
+    let native;
+    if(isPackage){
+      const value=JSON.parse(text);
+      if(value.format==='ai-togaf-native-language-package'){
+        native=(await api('/native/unpack',{method:'POST',body:{package:value}})).native;
+      }else native=value;
+      await api('/native/validate',{method:'POST',body:{native}});
+    }else{
+      const language=/\.bpmn$/i.test(file.name)||text.includes('http://www.omg.org/spec/BPMN/20100524/MODEL')?'bpmn':'uml';
+      native={language,version:language==='bpmn'?'2.0.2':'2.5.1',xml:text};
+    }
     if(S.model){remember();S.native=native;S.nativeDiagnostics=null;modified();setTab('native');toast('原生源码已载入草稿；保存将建立新版本');}
     else modal('建立原生模型项目',`<form><p class="hint">原生 XML 原文作为权威数据保存。无效源码可以保存为带诊断的草稿，生成必须先通过已实现规则。</p><label class="field"><span>项目名称</span><input name="name" required maxlength="120" value="${esc(file.name.replace(/\.[^.]+$/,''))}"></label>${actions('保存首个原生版本')}</form>`,async data=>{
       const project=await api('/projects',{method:'POST',body:{name:data.get('name'),native}});
@@ -143,11 +153,18 @@ function renderNative() {
   if(!S.native){panel.innerHTML='<div class="panel-heading"><div><h2>原生模型源码</h2><p>本项目尚无原生 XML。可将 UML 或 BPMN 原文加入当前草稿。</p></div><button id="native-add-source" class="button primary">导入原生源码</button></div>';$('#native-add-source').addEventListener('click',()=>$('#native-import-file').click());return;}
   panel.innerHTML=`<div class="panel-heading"><div><h2>原文驱动模型与预览</h2><p>UTF-8 XML 原文是权威数据；诊断、交换包和布局预览由已保存版本派生。</p></div><div class="row-actions"><button id="native-remove" class="button">移除草稿中的原生模型</button><button id="native-export" class="button">导出原文 ↗</button></div></div><div class="native-editor-grid"><div class="panel-card"><div class="native-editor-toolbar"><label class="field"><span>标准与版本</span><select id="native-language"><option value="bpmn" ${S.native.language==='bpmn'?'selected':''}>BPMN 2.0.2</option><option value="uml" ${S.native.language==='uml'?'selected':''}>UML 2.5.1</option></select></label><button id="native-diagnose" class="button">诊断源码</button></div><label class="field"><span>原生 XML 源码</span><textarea id="native-source" class="editor-large native-source" spellcheck="false" aria-label="原生XML源码">${esc(S.native.xml)}</textarea></label><p class="hint">保存包含无效源码的草稿会保留错误诊断；这些版本不能生成。原有 DI 坐标保持原文，自动布局必须显式选择。</p></div><div class="panel-card"><h3>诊断与能力状态</h3><div id="native-diagnostics">${nativeDiagnosticMarkup(S.nativeDiagnostics)}</div></div></div><div class="panel-card"><div class="native-preview-toolbar"><label><input id="native-auto-layout" type="checkbox" ${S.nativeAutoLayout?'checked':''}> 显式生成派生自动布局（已有 DI 保持）</label><button id="native-preview" class="button primary" ${S.dirty?'disabled':''}>预览已保存版本</button></div><p class="hint">预览复用生成任务及版本评审。材料缺失或图形能力未覆盖会保留明确状态；原文导出不受派生布局影响。</p><div id="native-preview-result"></div></div>`;
   let remembered=false;
+  if(S.native.resources || S.native.document_path){
+    $('#native-language').disabled=true;
+    const summary=document.createElement('p');summary.className='hint';summary.id='native-resource-summary';
+    summary.textContent=`主文档：${S.native.document_path || 'main.bpmn'} · 导入资源：${(S.native.resources || []).length} 个。主文档编辑会保留资源原字节；跨文件语义与图形能力未覆盖。`;
+    $('#native-source').parentElement.after(summary);
+    $('#native-export').textContent='导出原生源码包 ↗';
+  }
   $('#native-source').addEventListener('input',event=>{if(!remembered){remember();remembered=true;}S.native.xml=event.target.value;delete S.native.source_sha256;S.nativeDiagnostics=null;modified();$('#native-preview').disabled=true;$('#native-diagnostics').innerHTML=nativeDiagnosticMarkup(null);});
   $('#native-language').addEventListener('change',event=>{remember();S.native.language=event.target.value;S.native.version=event.target.value==='bpmn'?'2.0.2':'2.5.1';S.nativeDiagnostics=null;modified();$('#native-preview').disabled=true;$('#native-diagnostics').innerHTML=nativeDiagnosticMarkup(null);});
   $('#native-auto-layout').addEventListener('change',event=>{S.nativeAutoLayout=event.target.checked;});
   $('#native-diagnose').addEventListener('click',guarded(async()=>{const result=await api('/native/validate',{method:'POST',body:{native:S.native}});S.nativeDiagnostics=result;$('#native-diagnostics').innerHTML=nativeDiagnosticMarkup(result);$('#validation-status').textContent=result.valid?'原生规则诊断完成':'原生源码有错误';}));
-  $('#native-export').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([S.native.xml],{type:'application/xml;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download=(S.model.project.id || 'native')+(S.native.language==='bpmn'?'.bpmn':'.uml');link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  $('#native-export').addEventListener('click',()=>{const bundled=Boolean(S.native.resources || S.native.document_path);const url=URL.createObjectURL(new Blob([bundled?pretty(S.native)+'\n':S.native.xml],{type:bundled?'application/json':'application/xml;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download=(S.model.project.id || 'native')+(bundled?'.native.json':S.native.language==='bpmn'?'.bpmn':'.uml');link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
   $('#native-remove').addEventListener('click',()=>{remember();S.native=null;S.nativeDiagnostics=null;modified();renderNative();toast('原生模型已从草稿移除；历史版本保持，可撤销');});
   $('#native-preview').addEventListener('click',guarded(async()=>{if(S.dirty)throw new Error('先保存原生草稿，再生成版本预览');const job=await api(`/projects/${S.project.id}/generate`,{method:'POST',body:{version:S.base,kind:'native',render:true,auto_layout:S.nativeAutoLayout}});S.jobs.unshift(job);updateHeader();trackJob(job.id);renderNativePreview();toast('原生预览任务已排队');}));
   renderNativePreview();

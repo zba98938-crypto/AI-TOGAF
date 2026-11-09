@@ -12,16 +12,21 @@ for path in (SCRIPTS, SCRIPTS.parent / 'vendor'):
         sys.path.insert(0, str(path))
 
 VERSIONS = {'bpmn': '2.0.2', 'uml': '2.5.1'}
+MAX_EDITOR_BODY = 8 * 1024 * 1024
 
 
 def normalize(value):
     if value is None:
         return None
-    if not isinstance(value, dict) or set(value) - {'language', 'version', 'xml', 'source_sha256'}:
-        raise ValueError('native must contain language, version and UTF-8 xml only')
+    if not isinstance(value, dict) or set(value) - {'language', 'version', 'xml', 'source_sha256', 'resources', 'document_path'}:
+        raise ValueError('native must contain language, version, UTF-8 xml and optional BPMN resources/document_path')
     language, version, text = value.get('language'), value.get('version'), value.get('xml')
     if language not in VERSIONS or version != VERSIONS[language]:
         raise ValueError('native requires explicit BPMN 2.0.2 or UML 2.5.1')
+    if language!='bpmn' and ('resources' in value or 'document_path' in value):
+        raise ValueError('native resources/document_path are currently BPMN-only')
+    if len(json.dumps(value,ensure_ascii=False).encode('utf-8')) > MAX_EDITOR_BODY:
+        raise ValueError('native resource package exceeds the existing 8 MiB editor request capacity; use the local CLI without truncation')
     if not isinstance(text, str):
         raise ValueError('native.xml must be a UTF-8 source string')
     data = text.encode('utf-8')
@@ -30,7 +35,36 @@ def normalize(value):
     fingerprint = hashlib.sha256(data).hexdigest()
     if value.get('source_sha256') is not None and value['source_sha256'] != fingerprint:
         raise ValueError('native source fingerprint does not match xml')
-    return {'language': language, 'version': version, 'xml': text, 'source_sha256': fingerprint}
+    result={'language': language, 'version': version, 'xml': text, 'source_sha256': fingerprint}
+    if 'resources' in value or 'document_path' in value:
+        from bpmn_imports import decode_resources,document_path,encode_resources
+        if 'resources' in value and not isinstance(value['resources'],list):raise ValueError('native.resources must be a list')
+        if 'document_path' in value and not isinstance(value['document_path'],str):raise ValueError('native.document_path must be a string')
+        main=document_path(value.get('document_path'))
+        resources=decode_resources(value.get('resources',[]),len(data),main)
+        result.update(document_path=main,resources=encode_resources(resources))
+    return result
+
+
+def context_args(native):
+    return ({'resources':native.get('resources',[]),'document_path':native.get('document_path')}
+            if native['language']=='bpmn' and ('resources' in native or 'document_path' in native) else {})
+
+
+def unpack_package(package):
+    """The editor consumes the same package integrity checks as the local CLI."""
+    from standards import package_bytes,Invalid,Incomplete
+    if not isinstance(package,dict) or package.get('language')!='bpmn':
+        raise Invalid('Native resource package editing currently requires BPMN 2.0.2')
+    data=package_bytes(package,'bpmn','2.0.2')
+    if package.get('bindings'):
+        raise Incomplete('Native editor package bindings are not covered; use the local CLI to preserve this package')
+    try:text=data.decode('utf-8')
+    except UnicodeDecodeError as exc:raise Invalid('Native editor main document must be UTF-8: '+str(exc)) from None
+    return normalize({'language':'bpmn','version':'2.0.2','xml':text,
+                      'source_sha256':package['native_sha256'],
+                      'resources':package.get('resources',[]),
+                      'document_path':package.get('document_path','main.bpmn')})
 
 
 def issue(category, message, code=None):
@@ -67,7 +101,7 @@ def diagnose(native):
                     groups['validation_errors'].append(issue('validation_errors',
                         'Native editor resource reference is unsafe and will not be read: ' + value,
                         'native-unsafe-reference'))
-        report = check_native(native['xml'].encode('utf-8'), native['language'], native['version'])
+        report = check_native(native['xml'].encode('utf-8'), native['language'], native['version'], **context_args(native))
         explicit = report.get('diagnostic_groups')
         if isinstance(explicit, dict):
             for category in groups:
@@ -91,7 +125,7 @@ def diagnose(native):
     return {**groups, 'valid': not groups['validation_errors'],
             'conformance_complete': complete, 'source_sha256': native['source_sha256'],
             'conformance_status': 'invalid' if groups['validation_errors'] else 'complete' if complete else 'incomplete',
-            'authority': 'native.xml UTF-8 source bytes', 'standard_report': summary}
+            'authority': 'native.xml UTF-8 source bytes and optional native.resources bytes', 'standard_report': summary}
 
 
 def generate(native, out, *, render=False, auto_layout=False):
@@ -105,7 +139,14 @@ def generate(native, out, *, render=False, auto_layout=False):
     data = native['xml'].encode('utf-8')
     extension = '.bpmn' if native['language'] == 'bpmn' else '.uml'
     (out / ('native' + extension)).write_bytes(data)
-    (out / 'native-package.json').write_text(json.dumps(make_package(data, native['language'], native['version']), ensure_ascii=False, indent=2) + '\n')
+    package=make_package(data, native['language'], native['version'], **context_args(native))
+    (out / 'native-package.json').write_text(json.dumps(package, ensure_ascii=False, indent=2) + '\n')
+    if native.get('resources'):
+        from bpmn_imports import decode_resources
+        for path,value in decode_resources(native['resources'],len(data),native.get('document_path')).items():
+            target=out/'native-resources'/path
+            target.parent.mkdir(parents=True,exist_ok=True)
+            target.write_bytes(value)
     (out / 'native-diagnostics.json').write_text(json.dumps(diagnostic, ensure_ascii=False, indent=2) + '\n')
     preview = {'status': 'not-requested', 'auto_layout_requested': auto_layout,
                'source_sha256': native['source_sha256'], 'derived_layout': False}
@@ -120,6 +161,8 @@ def generate(native, out, *, render=False, auto_layout=False):
                 rendered = render_native(data, out / 'native-preview.svg')
                 preview['derived_layout'] = bool(rendered.get('derived_layout',not native_di))
             else:
+                if diagnostic['standard_report'].get('resource_closure',{}).get('imports'):
+                    raise Incomplete('Cross-document BPMN semantics/DI/rendering remains uncovered; authoritative resources are preserved')
                 root = safe_xml(data)
                 if not auto_layout and not any(isinstance(e.tag, str) and e.tag == '{http://www.omg.org/spec/BPMN/20100524/DI}BPMNDiagram' for e in root.iter()):
                     raise Incomplete('Native BPMNDI coordinates missing; explicitly select automatic layout to create a derived preview')
@@ -136,7 +179,9 @@ def generate(native, out, *, render=False, auto_layout=False):
               for p in sorted(out.rglob('*')) if p.is_file() and p.name != 'manifest.json'}
     manifest = {'schema_version': 'workbench-native-generation/1', 'runtime_stable': True,
                 'job_status': 'blocked' if preview['status'] == 'blocked' else 'succeeded',
-                'native_source_sha256': native['source_sha256'], 'source_authority': 'version native.xml',
+                'native_source_sha256': native['source_sha256'], 'source_authority': 'version native.xml and native.resources',
+                'native_document_path':native.get('document_path'),
+                'native_resource_sha256':{r['path']:r['sha256'] for r in native.get('resources',[])},
                 'exchange': 'native bytes preserved', 'preview': preview,
                 'full_language_acceptance': diagnostic['conformance_complete'], 'output_sha256': hashes}
     (out / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')

@@ -697,6 +697,16 @@ class Handler(BaseHTTPRequestHandler):
             if 'model' not in data:
                 raise APIError(400, 'invalid_request', 'model is required')
             return 200, validation(data['model'])
+        if path == '/api/native/unpack' and not get:
+            from workbench.native import unpack_package,diagnose
+            from standards import Incomplete
+            try:
+                native=unpack_package(data.get('package'))
+            except Incomplete as exc:
+                raise APIError(422,'native_capability_uncovered',str(exc)) from None
+            except (ValueError,TypeError) as exc:
+                raise APIError(400,'invalid_native_request',str(exc)) from None
+            return 200,{'native':native,'diagnostic':diagnose(native)}
         if path == '/api/native/validate' and not get:
             native = native_source(data.get('native'))
             if native is None:
