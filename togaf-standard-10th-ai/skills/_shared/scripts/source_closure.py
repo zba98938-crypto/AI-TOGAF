@@ -4,6 +4,7 @@ from urllib.parse import urlsplit
 import hashlib
 import json
 import re
+from source_dependencies import dependency_evidence,has_symlink
 
 
 def sha256(path):
@@ -26,7 +27,7 @@ def source_requirements(corpus):
     if not indexes:
         issues.append({'code': 'retrieval-index-missing'})
     for index in indexes:
-        if corpus.resolve() not in index.resolve().parents or not index.is_file():
+        if corpus.resolve() not in index.resolve().parents or not index.is_file() or has_symlink(index,corpus.resolve()):
             issues.append({'code': 'retrieval-index-outside-package', 'index': index.name})
             continue
         index_hashes[index.relative_to(corpus).as_posix()] = sha256(index)
@@ -60,7 +61,7 @@ class SourceResolver:
     def __init__(self, corpus, source_map=None):
         self.corpus = Path(corpus).resolve()
         path = self.corpus / 'source-map.json'
-        if source_map is None and path.exists() and self.corpus not in path.resolve().parents:
+        if source_map is None and path.exists() and (self.corpus not in path.resolve().parents or has_symlink(path,self.corpus)):
             raise ValueError('source map escapes package')
         self.source_map = source_map if source_map is not None else (
             json.loads(path.read_text(encoding='utf-8')) if path.is_file() else {})
@@ -91,9 +92,12 @@ class SourceResolver:
         if (relative_url.scheme or relative_url.netloc
                 or PurePosixPath(relative).is_absolute() or '..' in PurePosixPath(relative).parts):
             return {**result, 'reason': 'outside-package-source'}
-        candidate = (self.corpus / relative).resolve()
+        lexical=self.corpus/relative
+        candidate = lexical.resolve()
         if self.corpus not in candidate.parents:
             return {**result, 'reason': 'outside-package-source'}
+        if has_symlink(lexical,self.corpus):
+            return {**result,'reason':'source-symlink-not-packaged'}
         exists = candidate.is_file()
         result.update(package_path=relative + ('#' + fragment if separator else ''), exists=exists,
                       sha256=None, fingerprint_matches=None)
@@ -147,11 +151,21 @@ def verify_source_closure(corpus):
                 issues.append({'code': 'source-map-fingerprint-missing', 'logical_path': logical})
             if not resolved['source_available']:
                 issues.append({'code': resolved.get('reason', 'source-unavailable'), 'logical_path': logical})
+        dependencies,dependency_issues=dependency_evidence(corpus)
+        issues.extend(dependency_issues)
+        if resolver.source_map.get('markdown_dependencies',[])!=dependencies:
+            issues.append({'code':'markdown-dependency-inventory-or-fingerprint-mismatch'})
+        for row in dependencies:
+            if (row['scope']=='corpus' and row.get('kind')!='source-map-self-reference'
+                    and row['package_path'] not in resolver.fingerprints):
+                issues.append({'code':'markdown-dependency-fingerprint-missing','document':row['document'],
+                               'package_path':row['package_path']})
         file_hashes = {path.relative_to(corpus).as_posix(): digest
                        for path, digest in resolver.digests.items()}
     except (OSError, ValueError, TypeError) as exc:
         issues.append({'code': 'invalid-source-map', 'detail': str(exc)})
         file_hashes = {}
+        dependencies=[]
     inputs = {**required['index_sha256'], **file_hashes}
     if (corpus / 'source-map.json').is_file() and corpus in (corpus / 'source-map.json').resolve().parents:
         inputs['source-map.json'] = sha256(corpus / 'source-map.json')
@@ -159,6 +173,7 @@ def verify_source_closure(corpus):
             'counts': {'indexes': len(required['index_sha256']), 'records': required['records'],
                        'required_sources': len(required['requirements']),
                        'source_files_checked': len(file_hashes), 'issues': len(issues)},
+            'markdown_dependency_count':len(dependencies),
             'issues': issues, 'sources': sources, 'input_sha256': inputs,
             'semantic_acceptance': 'not-established-by-source-accessibility'}
 

@@ -24,7 +24,12 @@
 ```bash
 python3 -B togaf-standard-10th-ai/maintenance/stabilization_evidence.py freeze \
   --round-id <本轮ID> --entry-inputs <入口旧字节清单.json> --out <新冻结结果.json>
+JAVA_HOME=/Users/Shared/ai-togaf-java-20261106-01 \
+TOGAF_BROWSER_PATH=/Users/Shared/ai-togaf-browser-20261106-01/chrome-headless-shell-mac-arm64/chrome-headless-shell \
 python3 -B tests/run_unit_regressions.py tests --out <新单元结果目录>
+JAVA_HOME=/Users/Shared/ai-togaf-java-20261106-01 \
+TOGAF_BROWSER_PATH=/Users/Shared/ai-togaf-browser-20261106-01/chrome-headless-shell-mac-arm64/chrome-headless-shell \
+python3 -B tests/verify_core.py --render --out <新完整工程结果目录>
 python3 -B tests/diagnose_controlled_render.py \
   --browser /Users/Shared/ai-togaf-browser-20261106-01/chrome-headless-shell-mac-arm64/chrome-headless-shell \
   --out <新零模型准入目录>
@@ -38,6 +43,8 @@ python3 -B tests/verify_native_toolchain.py --runtime-root <本轮冻结运行�
 评测沿用当前配置的模型服务、模型与推理设置，按并发 `1 → 2 → 4` 提升。最多四批，每批四小时及 1,000 会话，总计十六小时及 4,000 会话；中断恢复、修复重试及批间停顿沿用原预算。保留超时、限流、资源和质量停止规则，记录实际会话与模型用量。
 
 包装生成后 Git HEAD 保持冻结提交；只允许冻结声明的精确生成清单或指定生成历史路径变化。新增源码、未声明文件、扩大排除范围、重命名绕过和未经授权的入口差异均阻断。最终只读核验完成前不提交下游生成结果，避免改变冻结的源码提交身份。
+
+来源附件闭包使用[递归依赖规则](source-dependency-round.md)，完整方法回归由 `verify_core.py` 显式传入仓库内 `tests/method_fixtures.py`。未配置已保留 Java 环境导致的跳过仍是验证失败，不可用兼容覆盖层豁免。
 
 ## 证据与业务验收
 

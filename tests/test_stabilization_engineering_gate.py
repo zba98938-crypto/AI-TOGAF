@@ -41,6 +41,7 @@ def fixture(root):
     write(root/'tests/test_fixture.py', source)
     for name in ('run_unit_regressions.py', 'verify_core.py'):
         write(root/'tests'/name, '# source controller\n')
+    write(root/'tests/method_fixtures.py','# authored method fixtures\n')
     for name in ('generate.py', 'verify_skill_packages.py', 'verify_method_case_constraints.py',
                  'verify_method_reasoning.py', 'verify_methods.py', 'registry_consistency.py',
                  'verify_artifact_profiles.py', 'verify_profile_geometry.py', 'verify_scale_cases.py', 'render.mjs'):
@@ -75,7 +76,9 @@ def fixture(root):
                               ('method-case-constraints','verify_method_case_constraints.py','method-cases.json'),
                               ('method-reasoning','verify_method_reasoning.py','method-reasoning.json'),
                               ('methods','verify_methods.py','methods')]:
-        command(name,scripts/script,['--out',out/dest])
+        arguments=['--out',out/dest]
+        if name=='methods':arguments.extend(['--fixtures',root/'tests/method_fixtures.py'])
+        command(name,scripts/script,arguments)
     command('registry-consistency',scripts/'registry_consistency.py')
     write(out/'logs/registry-consistency.log',json.dumps({'errors':[],'review_evidence_required':False})+'\n')
     command('profile-expression',scripts/'verify_artifact_profiles.py',['--all','--out',out/'profiles','--render','--oversized-policy','tile'])

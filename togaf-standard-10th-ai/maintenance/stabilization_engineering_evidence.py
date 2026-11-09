@@ -252,7 +252,7 @@ def _commands(out, root, rows):
         'skill-packages': (scripts/'verify_skill_packages.py', ['--out', str(out/'packages.json')], 0),
         'method-case-constraints': (scripts/'verify_method_case_constraints.py', ['--out', str(out/'method-cases.json')], 0),
         'method-reasoning': (scripts/'verify_method_reasoning.py', ['--out', str(out/'method-reasoning.json')], 0),
-        'methods': (scripts/'verify_methods.py', ['--out', str(out/'methods')], 0),
+        'methods': (scripts/'verify_methods.py', ['--out', str(out/'methods'), '--fixtures',str(Path(root)/'tests/method_fixtures.py')], 0),
         'registry-consistency': (scripts/'registry_consistency.py', [], 0),
         'profile-expression': (scripts/'verify_artifact_profiles.py', ['--all', '--out', str(out/'profiles'), '--render', '--oversized-policy', 'tile'], 0),
         'text-geometry': (scripts/'verify_profile_geometry.py', [str(out/'profiles'), '--out', str(out/'geometry')], 0),

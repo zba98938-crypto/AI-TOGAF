@@ -60,7 +60,9 @@ def main():
         ('method-case-constraints', 'verify_method_case_constraints.py', out / 'method-cases.json'),
         ('method-reasoning', 'verify_method_reasoning.py', out / 'method-reasoning.json'),
         ('methods', 'verify_methods.py', out / 'methods')):
-        record(name, lambda n=name, s=script, d=destination: command(n, [py, scripts / s, '--out', d]))
+        arguments=['--out',destination]
+        if name=='methods':arguments.extend(['--fixtures',REPO/'tests/method_fixtures.py'])
+        record(name, lambda n=name, s=script, a=arguments: command(n, [py, scripts / s, *a]))
     record('registry-consistency', lambda: command('registry-consistency', [py, scripts / 'registry_consistency.py']))
     record('production-profiles', lambda: production_profiles(out))
     record('deliverables', lambda: delivery_cases(out))

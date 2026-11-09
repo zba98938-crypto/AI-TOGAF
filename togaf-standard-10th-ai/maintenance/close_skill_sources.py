@@ -6,6 +6,7 @@ from source_paths import resolve as source_path
 C=Path(__file__).resolve().parents[1];P=C/'skills';S=P/'_shared';D=S/'corpus'
 sys.path.insert(0,str(S/'scripts'))
 from source_closure import source_requirements, require_source_closure
+from source_dependencies import local_dependencies, dependency_evidence,has_symlink
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 def copy(src,dst,expected=None):
  src=src.resolve();dst=dst.resolve()
@@ -34,11 +35,72 @@ def indexed_source(logical,expected,relocation):
  destination=local.removeprefix(prefix) if local.startswith(prefix) else local
  return src,destination
 
+def close_markdown_dependencies(relocation,previous_hashes=None):
+ """Copy recursive dependencies at their original relative paths, never rewrite text."""
+ previous_hashes=previous_hashes or {}
+ migrations={}
+ for row in relocation.get('files',[]):
+  local=row.get('local_path')
+  if local in migrations and migrations[local]['sha256']!=row['sha256']:
+   raise ValueError('Migration dependency fingerprint conflict: '+str(local))
+  migrations[local]=row
+ verified=set()
+ while True:
+  edges,issues=local_dependencies(D)
+  dangerous=[row for row in issues if row['code']!='markdown-dependency-missing']
+  if dangerous:raise ValueError('Unsafe Markdown dependency: '+json.dumps(dangerous[:10],ensure_ascii=False))
+  pending=[row for row in edges if (row['scope'],row['package_path']) not in verified]
+  if not pending:
+   unresolved=[row for row in issues if row.get('package_path')!='source-map.json']
+   if unresolved:raise ValueError('Missing Markdown dependencies: '+json.dumps(unresolved[:10],ensure_ascii=False))
+   return dependency_evidence(D)[0]
+  for row in pending:
+   rel=row['package_path'];identity=(row['scope'],rel)
+   if identity in verified:continue
+   if row['scope']=='corpus' and rel=='source-map.json':
+    verified.add(identity);continue  # Written once after dependency collection; final gate requires it.
+   if row['scope']=='shared':
+    target=S/rel
+    source=C/'skills/_shared'/rel
+    if (C.resolve() not in source.resolve().parents or S.resolve() not in target.resolve().parents
+        or has_symlink(source,C.resolve()) or has_symlink(target,S.resolve())):
+     raise ValueError('Shared Markdown dependency escapes approved roots: '+rel)
+    if source.is_file():
+     target.parent.mkdir(parents=True,exist_ok=True)
+     if source.resolve()!=target.resolve() and (not target.is_file() or sha(target)!=sha(source)):
+      shutil.copy2(source,target)
+    if not target.is_file():raise ValueError('Required shared Markdown dependency missing: '+rel)
+    verified.add(identity);continue
+   src=C/rel;target=D/rel
+   migration=migrations.get(rel)
+   if rel.startswith('sources/retained/') and migration is None:
+    raise ValueError('Retained Markdown dependency has no migration fingerprint: '+rel)
+   if migration:
+    if relocation.get('logical_paths',{}).get(migration['old_path'])!=rel:
+     raise ValueError('Migration dependency path conflict: '+rel)
+    src,destination=indexed_source(migration['old_path'],migration['sha256'],relocation)
+    if destination!=rel:raise ValueError('Migration dependency destination conflict: '+rel)
+   if (migration is None and target.suffix.lower()=='.md' and target.is_file()
+       and previous_hashes.get(rel)==sha(target)):
+    # A recorded portable reading derivation keeps its proven relative links.
+    # Retained historical Markdown never takes this path: migration bytes govern it.
+    pass
+   elif src.is_file():
+    expected=migration['sha256'] if migration else sha(src)
+    copy(src,target,expected)
+   elif target.is_file() and previous_hashes.get(rel)==sha(target):
+    # Already recorded packaged source-tools assets have no authoring duplicate.
+    pass
+   else:raise ValueError('Required Markdown dependency missing or unrecorded: '+rel)
+   verified.add(identity)
+
 def main():
  mapping={};missing=[]
  requirements=source_requirements(C)
  if requirements['issues']:raise ValueError('Invalid retrieval requirements: '+json.dumps(requirements['issues']))
  relocation=json.loads((C/'sources/relocation-manifest.json').read_text())
+ previous_path=D/'source-map.json'
+ previous_hashes=json.loads(previous_path.read_text()).get('file_sha256',{}) if previous_path.is_file() else {}
  for name in ['documents','tables','figures','fundamental/web-2025/volumes','maintenance/fundamental-review-data','maintenance/supplementary-review-data','maintenance/chapter-review-data','maintenance/chinese-text-data']:
   for src in sorted((C/name).rglob('*')):
    if src.is_file() and src.name not in {'.DS_Store'}:
@@ -60,6 +122,7 @@ def main():
   src,dst=indexed_source(logical,entry['sha256'],relocation)
   copy(src,D/dst);mapping[logical.partition('#')[0]]=dst
   if logical.startswith(C.name+'/'):mapping.setdefault(logical.removeprefix(C.name+'/'),dst)
+ dependencies=close_markdown_dependencies(relocation,previous_hashes)
  # Readable evidence locators retain their historical IDs, resolved through this map.
  for src in sorted(D.rglob('*')):
   if not src.is_file() or src.name=='source-map.json':continue
@@ -68,6 +131,7 @@ def main():
  report={'schema_version':'portable-source-map/2','path_base':'corpus/','logical_paths':dict(sorted(mapping.items())),
          'file_sha256':{rel:sha(D/rel) for rel in sorted(set(mapping.values()))},
          'retrieval_index_sha256':requirements['index_sha256'],'required_source_count':len(requirements['requirements']),
+         'markdown_dependencies':dependencies,
          'missing_required_sources':missing,'notice_zh':'历史来源路径仅是身份；包内通过本映射定位同字节副本，不访问原项目。网页按卷/锚点/块定位，不生成PDF页码。来源可达和指纹一致不授予译文或语义验收。'}
  (D/'source-map.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  closure=require_source_closure(D)

@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import sys
 
 REPO=Path(__file__).resolve().parents[2]
 STAGES=('source_freeze','source_closure','package_verification','engineering_verification',
@@ -182,6 +183,7 @@ def review_parser():
 
 def current_source_closure(corpus):
     path=Path(__file__).resolve().parents[1]/'skills/_shared/scripts/source_closure.py'
+    if str(path.parent) not in sys.path:sys.path.insert(0,str(path.parent))
     spec=importlib.util.spec_from_file_location('_stabilization_source_closure',path)
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     return module.verify_source_closure(corpus)
