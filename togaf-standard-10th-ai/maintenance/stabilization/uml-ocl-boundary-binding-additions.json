@@ -1,0 +1,34 @@
+[
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:Lifeline-same_classifier",
+    "implementation": [{"file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py", "symbol": "lifeline_classifier_adapter"}],
+    "positive_tests": [{"file": "tests/test_uml_ocl_boundaries.py", "symbol": "ActualLifelineClassifierTests.test_every_lifeline_matches_closest_classifier_and_explicit_inheritance_oracle"}],
+    "negative_tests": [{"file": "tests/test_uml_ocl_boundaries.py", "symbol": "ActualLifelineClassifierTests.test_published_body_and_prose_differences_stay_visible"}],
+    "basis": "Pinned normative prose at UML 2.5.1 PDF physical page 665 / printed 623, clause 17.12.17.5; original body and native outcomes retained separately. Independent XML containment/generalization oracle.",
+    "limitations": ["Explicit prose semantic adaptation; equivalence to the published OCL is not claimed and professional acceptance remains pending.", "Bounded local resolvable model fixtures; missing ends retain published outcomes and full UML acceptance remains incomplete."]
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:Lifeline-selector_specified",
+    "implementation": [{"file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py", "symbol": "official_rules"}, {"file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java", "symbol": "main"}],
+    "positive_tests": [{"file": "tests/test_uml_ocl_boundaries.py", "symbol": "ActualLifelineClassifierTests.test_other_lifeline_constraints_have_independent_selector_counterexamples"}],
+    "negative_tests": [{"file": "tests/test_uml_ocl_boundaries.py", "symbol": "ActualLifelineClassifierTests.test_other_lifeline_constraints_have_independent_selector_counterexamples"}],
+    "basis": "Published OCL retained: independent single/multivalued XML declarations with absent/integer/string/Boolean selectors.",
+    "limitations": ["Published equality is executed without converting its prose into a different implication.", "Bounded local fixtures do not certify all selector expressions or full UML constraints."]
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:Lifeline-selector_int_or_string",
+    "implementation": [{"file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py", "symbol": "official_rules"}, {"file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java", "symbol": "main"}],
+    "positive_tests": [{"file": "tests/test_uml_ocl_boundaries.py", "symbol": "ActualLifelineClassifierTests.test_other_lifeline_constraints_have_independent_selector_counterexamples"}],
+    "negative_tests": [{"file": "tests/test_uml_ocl_boundaries.py", "symbol": "ActualLifelineClassifierTests.test_other_lifeline_constraints_have_independent_selector_counterexamples"}],
+    "basis": "Published OCL retained; actual native Java accepts absent/integer/string and independently rejects LiteralBoolean selector.",
+    "limitations": ["Literal selector rule only; full expression/value conformance and professional acceptance remain incomplete."]
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:Lifeline-interaction_uses_share_lifeline",
+    "implementation": [{"file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py", "symbol": "lifeline_adapter"}],
+    "positive_tests": [{"file": "tests/test_uml_lifeline_adapter.py", "symbol": "ActualLifelineOracleTests.test_every_lifeline_matches_independent_graph_and_selector_oracle"}],
+    "negative_tests": [{"file": "tests/test_uml_lifeline_adapter.py", "symbol": "ActualLifelineOracleTests.test_positive_negative_selector_and_represents_cases_are_present"}],
+    "basis": "Existing pinned prose adaptation at physical pages 664–665 retained; independent XML nested containment and selector/represents oracle rerun in this group.",
+    "limitations": ["Standard absent/LiteralString/LiteralInteger selector scope; prose/OCL equivalence and full-standard acceptance remain uncertified."]
+  }
+]

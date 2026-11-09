@@ -82,17 +82,93 @@ public class UmlValidate {
     org.eclipse.ocl.uml.InvalidLiteralExp literal=org.eclipse.ocl.uml.UMLFactory.eINSTANCE.createInvalidLiteralExp();
     literal.setType(ocl.getEnvironment().getOCLStandardLibrary().getOclInvalid());return literal;
   }
-  static OCLExpression query(OCL ocl,OCL.Helper helper,String body) throws Exception {
+  static class ParsedQuery {
+    final OCLExpression expression; final boolean literalAstAdapter;
+    ParsedQuery(OCLExpression expression,boolean adapted){this.expression=expression;this.literalAstAdapter=adapted;}
+  }
+  static class LiteralTree {
+    final String token; final LiteralTree left,right;
+    LiteralTree(String token,LiteralTree left,LiteralTree right){this.token=token;this.left=left;this.right=right;}
+  }
+  static class GroupedLiteralParser {
+    final List<String> tokens; int at;
+    GroupedLiteralParser(List<String> tokens){this.tokens=tokens;}
+    static LiteralTree parse(String body) {
+      List<String> tokens=new ArrayList<>();
+      for(int at=0;at<body.length();) {
+        char c=body.charAt(at);
+        if(Character.isWhitespace(c)){at++;continue;}
+        if(c=='(' || c==')'){tokens.add(String.valueOf(c));at++;}
+        else {
+          int start=at;while(at<body.length() && Character.isLetter(body.charAt(at)))at++;
+          if(at==start)return null;
+          String word=body.substring(start,at);
+          if(!Set.of("true","false","null","invalid","not","and","or","xor","implies").contains(word))return null;
+          tokens.add(word);
+        }
+        if(tokens.size()>2048)throw new IllegalArgumentException("grouped literal adapter token limit exceeded");
+      }
+      if(tokens.isEmpty())return null;
+      GroupedLiteralParser parser=new GroupedLiteralParser(tokens);
+      try {LiteralTree tree=parser.expression(0);return parser.at==tokens.size()?tree:null;}
+      catch(IllegalArgumentException e) {
+        if(e.getMessage().contains("limit exceeded"))throw e;
+        return null;
+      }
+    }
+    LiteralTree expression(int depth) {
+      LiteralTree left=primary(depth);
+      if(at<tokens.size() && Set.of("and","or","xor","implies").contains(tokens.get(at))) {
+        String operation=tokens.get(at++);return new LiteralTree(operation,left,primary(depth));
+      }
+      return left;
+    }
+    LiteralTree primary(int depth) {
+      if(depth>=64)throw new IllegalArgumentException("grouped literal adapter nesting limit exceeded");
+      if(at>=tokens.size())throw new IllegalArgumentException("incomplete literal expression");
+      String token=tokens.get(at++);
+      if(token.equals("not"))return new LiteralTree(token,primary(depth+1),null);
+      if(token.equals("(")) {
+        LiteralTree inner=expression(depth+1);
+        if(at>=tokens.size() || !tokens.get(at++).equals(")"))throw new IllegalArgumentException("unbalanced literal grouping");
+        return inner;
+      }
+      if(!Set.of("true","false","null","invalid").contains(token))throw new IllegalArgumentException("literal expected");
+      return new LiteralTree(token,null,null);
+    }
+  }
+  static OCLExpression literalTree(OCL ocl,OCL.Helper helper,LiteralTree tree) throws Exception {
+    if(tree.left==null)return Set.of("null","invalid").contains(tree.token)?literal(ocl,tree.token):helper.createQuery(tree.token);
+    org.eclipse.ocl.uml.OperationCallExp expression=(org.eclipse.ocl.uml.OperationCallExp)helper.createQuery(
+        tree.token.equals("not")?"not true":"true "+tree.token+" true");
+    expression.setSource(literalTree(ocl,helper,tree.left));
+    if(tree.right!=null)expression.getArgument().set(0,literalTree(ocl,helper,tree.right));
+    return expression;
+  }
+  static ParsedQuery query(OCL ocl,OCL.Helper helper,String body) throws Exception {
     // The pinned backend cannot infer a Boolean overload for these eighteen
     // whole expressions. Instantiate that exact standard operation's typed
     // AST and literals. Normative/model source bytes never change.
     String[] tokens=literalAstTokens(body);
-    if(tokens==null)return helper.createQuery(body);
+    if(tokens==null) {
+      // Build a fallback only for the closed, explicitly grouped literal
+      // grammar. General OCL, strings, identifiers and custom operations use
+      // the installed parser unchanged. Conditionals are outside this scope.
+      try {return new ParsedQuery(helper.createQuery(body),false);}
+      catch(Exception original) {
+        // Adapter limits constrain only the fallback. A source expression
+        // accepted by the installed parser keeps its original semantics and
+        // never enters this bounded auxiliary grammar.
+        LiteralTree grouped=GroupedLiteralParser.parse(body);
+        if(grouped==null)throw original;
+        return new ParsedQuery(literalTree(ocl,helper,grouped),true);
+      }
+    }
     boolean unary=tokens.length==2;
     org.eclipse.ocl.uml.OperationCallExp expression=(org.eclipse.ocl.uml.OperationCallExp)helper.createQuery(unary?"not true":"true "+tokens[1]+" true");
     expression.setSource(literal(ocl,unary?tokens[1]:tokens[0]));
     if(!unary)expression.getArgument().set(0,literal(ocl,tokens[2]));
-    return expression;
+    return new ParsedQuery(expression,true);
   }
   static String q(String s) {
     if(s==null)return "null";
@@ -175,13 +251,14 @@ public class UmlValidate {
         String id=new String(Base64.getDecoder().decode(cols[1]),StandardCharsets.UTF_8);
         String body=new String(Base64.getDecoder().decode(cols[2]),StandardCharsets.UTF_8);
         EClassifier type=UMLPackage.eINSTANCE.getEClassifier(context);
-        String error=null;int applicable=0,violations=0,invalid=0,nulls=0,nonBoolean=0,truths=0;
+        String error=null;boolean literalAdapted=false;int applicable=0,violations=0,invalid=0,nulls=0,nonBoolean=0,truths=0;
         List<String> violationIDs=new ArrayList<>(),invalidIDs=new ArrayList<>(),nullIDs=new ArrayList<>(),nonBooleanIDs=new ArrayList<>(),outcomes=new ArrayList<>();
         try {
           if(!(type instanceof EClass))throw new IllegalArgumentException("context classifier not mapped");
           org.eclipse.uml2.uml.Classifier contextType=contexts.get(context);
           if(contextType==null)throw new IllegalArgumentException("UML semantic context not mapped");
-          OCL.Helper helper=ocl.createOCLHelper();helper.setContext(contextType);OCLExpression expr=query(ocl,helper,body);parseOK++;
+          OCL.Helper helper=ocl.createOCLHelper();helper.setContext(contextType);ParsedQuery parsed=query(ocl,helper,body);
+          OCLExpression expr=parsed.expression;literalAdapted=parsed.literalAstAdapter;parseOK++;
           for(EObject o:objects)if(((EClass)type).isSuperTypeOf(o.eClass())) {
             applicable++;evalCount++;
             String objectID=q(((XMLResource)r).getID(o));String valueKind;
@@ -199,7 +276,7 @@ public class UmlValidate {
             outcomes.add("{\"id\":"+objectID+",\"value_kind\":"+q(valueKind)+"}");
           }
         } catch(Exception e){parseFailed++;error=e.getClass().getSimpleName()+": "+e.getMessage();}
-        rules.add("{\"id\":"+q(id)+",\"context\":"+q(context)+",\"literal_ast_adapter\":"+(literalAstTokens(body)!=null)+",\"parse_status\":"+q(error==null?"parsed":"unmapped-or-parse-failed")+",\"parse_error\":"+q(error)+",\"applicable\":"+applicable+",\"true_evaluations\":"+truths+",\"violations\":"+violations+",\"invalid_evaluations\":"+invalid+",\"null_evaluations\":"+nulls+",\"non_boolean_evaluations\":"+nonBoolean+",\"violation_ids\":["+String.join(",",violationIDs)+"],\"invalid_ids\":["+String.join(",",invalidIDs)+"],\"null_ids\":["+String.join(",",nullIDs)+"],\"non_boolean_ids\":["+String.join(",",nonBooleanIDs)+"],\"evaluation_outcomes\":["+String.join(",",outcomes)+"]}");
+        rules.add("{\"id\":"+q(id)+",\"context\":"+q(context)+",\"literal_ast_adapter\":"+literalAdapted+",\"parse_status\":"+q(error==null?"parsed":"unmapped-or-parse-failed")+",\"parse_error\":"+q(error)+",\"applicable\":"+applicable+",\"true_evaluations\":"+truths+",\"violations\":"+violations+",\"invalid_evaluations\":"+invalid+",\"null_evaluations\":"+nulls+",\"non_boolean_evaluations\":"+nonBoolean+",\"violation_ids\":["+String.join(",",violationIDs)+"],\"invalid_ids\":["+String.join(",",invalidIDs)+"],\"null_ids\":["+String.join(",",nullIDs)+"],\"non_boolean_ids\":["+String.join(",",nonBooleanIDs)+"],\"evaluation_outcomes\":["+String.join(",",outcomes)+"]}");
       }
     } finally {org.eclipse.ocl.Environment.Registry.INSTANCE.deregisterEnvironment(ocl.getEnvironment());ocl.dispose();}
     System.out.println("{\"backend\":\"Eclipse UML2 + EMF Diagnostician + UML OCL\",\"java_version\":"+q(System.getProperty("java.version"))+",\"loaded_objects\":"+objects.size()+",\"inventory\":["+String.join(",",inventory)+"],\"diagnostics\":["+String.join(",",diagnostics)+"],\"query_adapter_results\":["+String.join(",",queryAdapters)+"],\"ocl_rules\":["+String.join(",",rules)+"],\"ocl_parsed\":"+parseOK+",\"ocl_unmapped\":"+parseFailed+",\"ocl_evaluations\":"+evalCount+",\"official_full_conformance\":false}");
