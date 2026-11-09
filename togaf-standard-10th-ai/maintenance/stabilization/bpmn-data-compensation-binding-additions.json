@@ -1,0 +1,2300 @@
+[
+  {
+    "obligation_id": "bpmn:2.0.2:attribute:BPMN20.cmof:DataInput-isCollection",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_collection_matches_item_definition_and_false_defaults"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-item-collection",
+        "section": "Tables 10.52/10.59/10.60",
+        "pdf_physical_pages": [
+          235,
+          244,
+          246
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataInput-isCollection",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:attribute:BPMN20.cmof:DataObject-isCollection",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_collection_matches_item_definition_and_false_defaults"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-item-collection",
+        "section": "Tables 10.52/10.59/10.60",
+        "pdf_physical_pages": [
+          235,
+          244,
+          246
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataObject-isCollection",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:attribute:BPMN20.cmof:DataOutput-isCollection",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_collection_matches_item_definition_and_false_defaults"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-item-collection",
+        "section": "Tables 10.52/10.59/10.60",
+        "pdf_physical_pages": [
+          235,
+          244,
+          246
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataOutput-isCollection",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:construct:BPMN20.cmof:CompensateEventDefinition",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_top_level_and_non_event_subprocess_compensation_starts_are_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_catching_intermediate_compensation_is_boundary_only"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_boundary_compensation_outgoing_sequence_flow_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_referenced_event_definition_has_the_same_constraints_as_inline_definition"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "compensation-start-scope",
+        "section": "10.6 Compensation Event",
+        "pdf_physical_pages": [
+          292
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "CompensateEventDefinition",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      },
+      {
+        "rule_id": "compensation-catch-placement",
+        "section": "10.6 Compensation Event",
+        "pdf_physical_pages": [
+          292
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "CompensateEventDefinition",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      },
+      {
+        "rule_id": "compensation-boundary-flow",
+        "section": "10.6 Intermediate Event SequenceFlow exceptions",
+        "pdf_physical_pages": [
+          288
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "CompensateEventDefinition",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:construct:BPMN20.cmof:DataInputAssociation",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_input_target_and_output_source_direction_and_owner_are_checked"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_event_catch_output_and_throw_input_associations_have_native_owners"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-association-direction",
+        "section": "10.3 DataInputAssociation/DataOutputAssociation",
+        "pdf_physical_pages": [
+          252,
+          253
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataInputAssociation",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:construct:BPMN20.cmof:DataObject",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_data_object_and_property_containment_have_separate_rule_evidence"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-object-containment",
+        "section": "10.3 DataObject containment and lifecycle",
+        "pdf_physical_pages": [
+          234,
+          236
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataObject",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:construct:BPMN20.cmof:DataObjectReference",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_data_reference_effective_item_definition_is_derived_without_modifying_xml"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-reference-item-definition",
+        "section": "10.3 DataObjectReference semantic restriction",
+        "pdf_physical_pages": [
+          234
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataObjectReference",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:construct:BPMN20.cmof:DataOutputAssociation",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_input_target_and_output_source_direction_and_owner_are_checked"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_event_catch_output_and_throw_input_associations_have_native_owners"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-association-direction",
+        "section": "10.3 DataInputAssociation/DataOutputAssociation",
+        "pdf_physical_pages": [
+          252,
+          253
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataOutputAssociation",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:construct:BPMN20.cmof:Property",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_data_object_and_property_containment_have_separate_rule_evidence"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "property-containment",
+        "section": "10.3 Properties",
+        "pdf_physical_pages": [
+          238,
+          239
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "Property",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:construct:BPMN20.cmof:SubProcess",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_embedded_subprocess_cannot_define_direct_data_io"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "embedded-subprocess-io",
+        "section": "10.3 InputOutputSpecification applicability",
+        "pdf_physical_pages": [
+          240
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "SubProcess",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:Activity-dataInputAssociations",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_input_target_and_output_source_direction_and_owner_are_checked"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_event_catch_output_and_throw_input_associations_have_native_owners"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-association-direction",
+        "section": "10.3 DataInputAssociation/DataOutputAssociation",
+        "pdf_physical_pages": [
+          252,
+          253
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "Activity-dataInputAssociations",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:Activity-dataOutputAssociations",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_input_target_and_output_source_direction_and_owner_are_checked"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_event_catch_output_and_throw_input_associations_have_native_owners"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-association-direction",
+        "section": "10.3 DataInputAssociation/DataOutputAssociation",
+        "pdf_physical_pages": [
+          252,
+          253
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "Activity-dataOutputAssociations",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:Activity-ioSpecification",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_embedded_subprocess_cannot_define_direct_data_io"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "embedded-subprocess-io",
+        "section": "10.3 InputOutputSpecification applicability",
+        "pdf_physical_pages": [
+          240
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "Activity-ioSpecification",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:CompensateEventDefinition-activityRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_activity_reference_cannot_name_gateway_or_data_definition"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_child_and_other_process_activity_are_not_visible_from_throw_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "compensation-activity-reference-type",
+        "section": "Table 10.94",
+        "pdf_physical_pages": [
+          293
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "CompensateEventDefinition-activityRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      },
+      {
+        "rule_id": "compensation-activity-visibility",
+        "section": "Tables 10.88/10.89 Compensation target visibility",
+        "pdf_physical_pages": [
+          277,
+          281
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "CompensateEventDefinition-activityRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:DataAssociation-sourceRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_existing_task_gateway_and_flow_are_not_itemaware_references"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_without_transformation_exactly_one_source_is_required"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_outer_and_sibling_scope_objects_and_properties_are_not_leaked"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-association-type",
+        "section": "10.3 DataAssociation, Table 10.63",
+        "pdf_physical_pages": [
+          252
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataAssociation-sourceRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      },
+      {
+        "rule_id": "data-association-source-cardinality",
+        "section": "10.3 DataAssociation copying/transformation",
+        "pdf_physical_pages": [
+          251,
+          252
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataAssociation-sourceRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      },
+      {
+        "rule_id": "data-association-scope",
+        "section": "10.3 Lifecycle/Accessibility and association scope",
+        "pdf_physical_pages": [
+          236,
+          237,
+          239,
+          240,
+          252,
+          253
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataAssociation-sourceRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:DataAssociation-targetRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_existing_task_gateway_and_flow_are_not_itemaware_references"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_outer_and_sibling_scope_objects_and_properties_are_not_leaked"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-association-type",
+        "section": "10.3 DataAssociation, Table 10.63",
+        "pdf_physical_pages": [
+          252
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataAssociation-targetRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      },
+      {
+        "rule_id": "data-association-scope",
+        "section": "10.3 Lifecycle/Accessibility and association scope",
+        "pdf_physical_pages": [
+          236,
+          237,
+          239,
+          240,
+          252,
+          253
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataAssociation-targetRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:DataAssociation-transformation",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_without_transformation_exactly_one_source_is_required"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_mismatched_identified_item_definitions_need_transformation"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-association-source-cardinality",
+        "section": "10.3 DataAssociation copying/transformation",
+        "pdf_physical_pages": [
+          251,
+          252
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataAssociation-transformation",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      },
+      {
+        "rule_id": "data-association-item-definition",
+        "section": "10.3 DataAssociation ItemDefinition compatibility",
+        "pdf_physical_pages": [
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataAssociation-transformation",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:DataInput-inputSetRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_every_declared_input_and_output_needs_corresponding_set_membership"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_event_data_input_and_output_need_their_corresponding_set"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-membership",
+        "section": "DataInput/Output set membership",
+        "pdf_physical_pages": [
+          244,
+          246,
+          247,
+          248
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataInput-inputSetRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:DataObjectReference-dataObjectRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_reference_types_reject_existing_gateway_and_task"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-reference-type",
+        "section": "Tables 10.53/10.56",
+        "pdf_physical_pages": [
+          235,
+          238
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataObjectReference-dataObjectRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:DataOutput-outputSetRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_every_declared_input_and_output_needs_corresponding_set_membership"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_event_data_input_and_output_need_their_corresponding_set"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-membership",
+        "section": "DataInput/Output set membership",
+        "pdf_physical_pages": [
+          244,
+          246,
+          247,
+          248
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataOutput-outputSetRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:DataStoreReference-dataStoreRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_reference_types_reject_existing_gateway_and_task"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-reference-type",
+        "section": "Tables 10.53/10.56",
+        "pdf_physical_pages": [
+          235,
+          238
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "DataStoreReference-dataStoreRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:InputSet-dataInputRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_io_set_types_owner_and_pairing_are_independent_of_id_existence"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-reference-type",
+        "section": "Tables 10.61/10.62",
+        "pdf_physical_pages": [
+          248,
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "InputSet-dataInputRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:InputSet-optionalInputRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_optional_and_while_executing_refs_are_main_set_subsets"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-subset",
+        "section": "Tables 10.61/10.62 subset requirements",
+        "pdf_physical_pages": [
+          248,
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "InputSet-optionalInputRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:InputSet-outputSetRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_io_set_types_owner_and_pairing_are_independent_of_id_existence"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-reference-scope",
+        "section": "InputOutputSpecification and set associations",
+        "pdf_physical_pages": [
+          247,
+          248,
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "InputSet-outputSetRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:InputSet-whileExecutingInputRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_optional_and_while_executing_refs_are_main_set_subsets"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-subset",
+        "section": "Tables 10.61/10.62 subset requirements",
+        "pdf_physical_pages": [
+          248,
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "InputSet-whileExecutingInputRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:ItemAwareElement-itemSubjectRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_item_subject_ref_must_name_an_item_definition"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_mismatched_identified_item_definitions_need_transformation"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_data_reference_effective_item_definition_is_derived_without_modifying_xml"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "data-item-subject-type",
+        "section": "ItemAwareElement and DataAssociation type",
+        "pdf_physical_pages": [
+          250,
+          252
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "ItemAwareElement-itemSubjectRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      },
+      {
+        "rule_id": "data-association-item-definition",
+        "section": "10.3 DataAssociation ItemDefinition compatibility",
+        "pdf_physical_pages": [
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "ItemAwareElement-itemSubjectRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      },
+      {
+        "rule_id": "data-reference-item-definition",
+        "section": "10.3 DataObjectReference semantic restriction",
+        "pdf_physical_pages": [
+          234
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "ItemAwareElement-itemSubjectRef",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:OutputSet-dataOutputRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_io_set_types_owner_and_pairing_are_independent_of_id_existence"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-reference-type",
+        "section": "Tables 10.61/10.62",
+        "pdf_physical_pages": [
+          248,
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "OutputSet-dataOutputRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:OutputSet-inputSetRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_io_set_types_owner_and_pairing_are_independent_of_id_existence"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-reference-scope",
+        "section": "InputOutputSpecification and set associations",
+        "pdf_physical_pages": [
+          247,
+          248,
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "OutputSet-inputSetRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:OutputSet-optionalOutputRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_optional_and_while_executing_refs_are_main_set_subsets"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-subset",
+        "section": "Tables 10.61/10.62 subset requirements",
+        "pdf_physical_pages": [
+          248,
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "OutputSet-optionalOutputRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:OutputSet-whileExecutingOutputRefs",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "event_data_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "compensation_model",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_positive_data_events_compensation_and_empty_specs_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNCompensationConstraintsTests.test_native_import_export_roundtrip_preserves_data_compensation_and_explicit_source_bytes"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_compensation.py",
+        "symbol": "BPMNDataConstraintsTests.test_optional_and_while_executing_refs_are_main_set_subsets"
+      }
+    ],
+    "basis": "BPMN 2.0.2 acquired official PDF and nested BPMN20.cmof class graph; exact pages and native IDs in rule_sources. Hand-authored data, lifecycle and compensation oracle fixtures.",
+    "limitations": [
+      "Bounded design-time rule subset; neither whole construct semantics nor full normative obligation closure is claimed.",
+      "Source discrepancy adjudication remains separate: DataObject.dataState, DataOutput direction wording and missing exchange SubProcess.compensable.",
+      "Official missing Semantic.cmof import remains a source/provenance defect; required classes used here are present in acquired BPMN20.cmof."
+    ],
+    "rule_sources": [
+      {
+        "rule_id": "io-set-subset",
+        "section": "Tables 10.61/10.62 subset requirements",
+        "pdf_physical_pages": [
+          248,
+          250
+        ],
+        "pdf_sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+        "machine_native_id": "OutputSet-whileExecutingOutputRefs",
+        "cmof_sha256": "72f5bf035da7bea80dc53131a22e6ba466789abd7437532e64abd3a7cff20139"
+      }
+    ]
+  }
+]

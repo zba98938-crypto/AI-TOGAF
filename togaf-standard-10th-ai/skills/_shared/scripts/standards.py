@@ -158,6 +158,7 @@ def check_native(data,language,version,package_root=None):
         from bpmn_design_semantics import check as check_design_time
         design_time=check_design_time(root)
         errors.extend(f["rule_id"]+': '+str(f['id'])+': '+f['message'] for f in design_time['findings'])
+        blocked.extend(design_time.get('capability_uncovered',[]))
     elif namespace(root.tag) not in (XMI,'http://www.omg.org/spec/UML/20131001'):
         errors.append('UML 2.5.1 requires normative UML/XMI namespaces; Eclipse namespaces require explicit mapping, not silent substitution')
     if language=='uml' and not errors:

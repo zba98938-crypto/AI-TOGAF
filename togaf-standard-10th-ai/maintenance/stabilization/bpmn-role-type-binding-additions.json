@@ -1,0 +1,458 @@
+[
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:MultiInstanceLoopCharacteristics-inputDataItem",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_id",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "tests/bpmn_role_type_fixtures.py",
+        "symbol": "multi_instance_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "definitions",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "bytes_xml",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_schema_valid_multi_instance_roles_and_implicit_event_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_all_analogous_role_declarations_match_independent_source_oracle"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_native_mi_source_and_expression_bytes_survive_validation_and_package_roundtrip"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_both_mi_data_roles_reject_existing_non_item_definition_without_schema_error"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_both_mi_data_roles_enforce_collection_false_default_and_true_mismatch"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_role_mapping_is_scoped_and_vendor_or_similar_tags_are_not_guessed"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_missing_or_conflicting_schema_is_material_unusable_without_false_findings"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_matching_fingerprint_cannot_hide_a_role_type_or_composite_conflict"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_missing_required_role_declaration_is_unusable_even_with_matching_fingerprint"
+      }
+    ],
+    "basis": "Official BPMN 2.0.2 Semantic.xsd tMultiInstanceLoopCharacteristics local inputDataItem/outputDataItem declarations match CMOF composite roles typed DataInput/DataOutput; source-derived inheritance enables ItemAwareElement subject typing and DataInput/Output collection rules.",
+    "limitations": [
+      "Bounded exact containment role/type mapping and inherited Data/IO rules; complete MI semantics, graphic support and full applicable standard obligation closure are not claimed.",
+      "21 analogous local class-valued exchange roles are independently audited; this delta binds only the two MI role obligations and their exact XSD declarations.",
+      "Authoritative native bytes and coordinates are preserved; no expression execution or automatic layout.",
+      "Model evaluation, professional human acceptance and organization signature remain separate gates."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:MultiInstanceLoopCharacteristics-outputDataItem",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_id",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "tests/bpmn_role_type_fixtures.py",
+        "symbol": "multi_instance_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "definitions",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "bytes_xml",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_schema_valid_multi_instance_roles_and_implicit_event_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_all_analogous_role_declarations_match_independent_source_oracle"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_native_mi_source_and_expression_bytes_survive_validation_and_package_roundtrip"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_both_mi_data_roles_reject_existing_non_item_definition_without_schema_error"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_both_mi_data_roles_enforce_collection_false_default_and_true_mismatch"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_role_mapping_is_scoped_and_vendor_or_similar_tags_are_not_guessed"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_missing_or_conflicting_schema_is_material_unusable_without_false_findings"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_matching_fingerprint_cannot_hide_a_role_type_or_composite_conflict"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_missing_required_role_declaration_is_unusable_even_with_matching_fingerprint"
+      }
+    ],
+    "basis": "Official BPMN 2.0.2 Semantic.xsd tMultiInstanceLoopCharacteristics local inputDataItem/outputDataItem declarations match CMOF composite roles typed DataInput/DataOutput; source-derived inheritance enables ItemAwareElement subject typing and DataInput/Output collection rules.",
+    "limitations": [
+      "Bounded exact containment role/type mapping and inherited Data/IO rules; complete MI semantics, graphic support and full applicable standard obligation closure are not claimed.",
+      "21 analogous local class-valued exchange roles are independently audited; this delta binds only the two MI role obligations and their exact XSD declarations.",
+      "Authoritative native bytes and coordinates are preserved; no expression execution or automatic layout.",
+      "Model evaluation, professional human acceptance and organization signature remain separate gates."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:exchange:Semantic.xsd:6bcd5225fe18787cf48605c2",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_id",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "tests/bpmn_role_type_fixtures.py",
+        "symbol": "multi_instance_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "definitions",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "bytes_xml",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_schema_valid_multi_instance_roles_and_implicit_event_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_all_analogous_role_declarations_match_independent_source_oracle"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_native_mi_source_and_expression_bytes_survive_validation_and_package_roundtrip"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_both_mi_data_roles_reject_existing_non_item_definition_without_schema_error"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_both_mi_data_roles_enforce_collection_false_default_and_true_mismatch"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_role_mapping_is_scoped_and_vendor_or_similar_tags_are_not_guessed"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_missing_or_conflicting_schema_is_material_unusable_without_false_findings"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_matching_fingerprint_cannot_hide_a_role_type_or_composite_conflict"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_missing_required_role_declaration_is_unusable_even_with_matching_fingerprint"
+      }
+    ],
+    "basis": "Official BPMN 2.0.2 Semantic.xsd tMultiInstanceLoopCharacteristics local inputDataItem/outputDataItem declarations match CMOF composite roles typed DataInput/DataOutput; source-derived inheritance enables ItemAwareElement subject typing and DataInput/Output collection rules.",
+    "limitations": [
+      "Bounded exact containment role/type mapping and inherited Data/IO rules; complete MI semantics, graphic support and full applicable standard obligation closure are not claimed.",
+      "21 analogous local class-valued exchange roles are independently audited; this delta binds only the two MI role obligations and their exact XSD declarations.",
+      "Authoritative native bytes and coordinates are preserved; no expression execution or automatic layout.",
+      "Model evaluation, professional human acceptance and organization signature remain separate gates."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:exchange:Semantic.xsd:339e3cd95217017d60c2b7c0",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_metamodel"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_id",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "tests/bpmn_role_type_fixtures.py",
+        "symbol": "multi_instance_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "definitions",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "bytes_xml",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_schema_valid_multi_instance_roles_and_implicit_event_are_native_valid"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_all_analogous_role_declarations_match_independent_source_oracle"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_native_mi_source_and_expression_bytes_survive_validation_and_package_roundtrip"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_both_mi_data_roles_reject_existing_non_item_definition_without_schema_error"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_both_mi_data_roles_enforce_collection_false_default_and_true_mismatch"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_role_mapping_is_scoped_and_vendor_or_similar_tags_are_not_guessed"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_missing_or_conflicting_schema_is_material_unusable_without_false_findings"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_matching_fingerprint_cannot_hide_a_role_type_or_composite_conflict"
+      },
+      {
+        "file": "tests/test_bpmn_role_types.py",
+        "symbol": "BPMNRoleTypeTests.test_missing_required_role_declaration_is_unusable_even_with_matching_fingerprint"
+      }
+    ],
+    "basis": "Official BPMN 2.0.2 Semantic.xsd tMultiInstanceLoopCharacteristics local inputDataItem/outputDataItem declarations match CMOF composite roles typed DataInput/DataOutput; source-derived inheritance enables ItemAwareElement subject typing and DataInput/Output collection rules.",
+    "limitations": [
+      "Bounded exact containment role/type mapping and inherited Data/IO rules; complete MI semantics, graphic support and full applicable standard obligation closure are not claimed.",
+      "21 analogous local class-valued exchange roles are independently audited; this delta binds only the two MI role obligations and their exact XSD declarations.",
+      "Authoritative native bytes and coordinates are preserved; no expression execution or automatic layout.",
+      "Model evaluation, professional human acceptance and organization signature remain separate gates."
+    ]
+  }
+]

@@ -1,0 +1,1181 @@
+[
+  {
+    "obligation_id": "bpmn:2.0.2:construct:BPMN20.cmof:DataInput",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "diagram_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "render_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "notation_projection"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "data_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "boundary_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "io",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "association",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_activity_event_process_data_view_is_valid_and_explicit"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_directly_depicted_data_endpoints_need_no_redundant_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_raw_coordinate_strings_and_source_plane_order_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_package_roundtrip_preserves_all_original_di_strings_and_order"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_actual_native_data_symbols_and_di_geometry_are_rendered"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_omitting_optional_data_shapes_and_associations_does_not_fail_model_or_view"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_undepicted_model_data_endpoint_requires_explicit_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_di_inference_is_plane_local_and_same_plane_ambiguity_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_explicit_di_override_cannot_impersonate_a_sibling_business_owner"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_repeated_data_depiction_is_rejected_without_losing_native_bytes"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_optional_data_visibility_preserves_collapsed_subprocess_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 official PDF physical242/244/251/398/405/423/441/442: optional partial DI data depictions, collection/input/output symbols, source plane order and explicit endpoint overrides. Current CMOF identities are source derived.",
+    "limitations": [
+      "Bounded process/collaboration data DI subset; whole referenced construct, exchange and prose obligation closure is not claimed.",
+      "SequenceFlow shorthand without bpmnElement, mixed choreography data views and the controlled-render dispatcher require separate verification.",
+      "Graphics use authoritative source coordinate strings and plane ordering; only label placement without BPMNLabel bounds is derived and disclosed.",
+      "Agent visual QA is separate from professional human acceptance and organization approval."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:construct:BPMN20.cmof:DataOutput",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "diagram_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "render_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "notation_projection"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "data_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "boundary_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "io",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "association",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_activity_event_process_data_view_is_valid_and_explicit"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_directly_depicted_data_endpoints_need_no_redundant_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_raw_coordinate_strings_and_source_plane_order_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_package_roundtrip_preserves_all_original_di_strings_and_order"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_actual_native_data_symbols_and_di_geometry_are_rendered"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_omitting_optional_data_shapes_and_associations_does_not_fail_model_or_view"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_undepicted_model_data_endpoint_requires_explicit_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_di_inference_is_plane_local_and_same_plane_ambiguity_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_explicit_di_override_cannot_impersonate_a_sibling_business_owner"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_repeated_data_depiction_is_rejected_without_losing_native_bytes"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_optional_data_visibility_preserves_collapsed_subprocess_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 official PDF physical242/244/251/398/405/423/441/442: optional partial DI data depictions, collection/input/output symbols, source plane order and explicit endpoint overrides. Current CMOF identities are source derived.",
+    "limitations": [
+      "Bounded process/collaboration data DI subset; whole referenced construct, exchange and prose obligation closure is not claimed.",
+      "SequenceFlow shorthand without bpmnElement, mixed choreography data views and the controlled-render dispatcher require separate verification.",
+      "Graphics use authoritative source coordinate strings and plane ordering; only label placement without BPMNLabel bounds is derived and disclosed.",
+      "Agent visual QA is separate from professional human acceptance and organization approval."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMNDI.cmof:BPMNEdge-bpmnElement",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "diagram_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "render_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "notation_projection"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "data_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "boundary_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "io",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "association",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_activity_event_process_data_view_is_valid_and_explicit"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_directly_depicted_data_endpoints_need_no_redundant_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_raw_coordinate_strings_and_source_plane_order_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_package_roundtrip_preserves_all_original_di_strings_and_order"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_actual_native_data_symbols_and_di_geometry_are_rendered"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_omitting_optional_data_shapes_and_associations_does_not_fail_model_or_view"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_undepicted_model_data_endpoint_requires_explicit_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_di_inference_is_plane_local_and_same_plane_ambiguity_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_explicit_di_override_cannot_impersonate_a_sibling_business_owner"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_repeated_data_depiction_is_rejected_without_losing_native_bytes"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_optional_data_visibility_preserves_collapsed_subprocess_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 official PDF physical242/244/251/398/405/423/441/442: optional partial DI data depictions, collection/input/output symbols, source plane order and explicit endpoint overrides. Current CMOF identities are source derived.",
+    "limitations": [
+      "Bounded process/collaboration data DI subset; whole referenced construct, exchange and prose obligation closure is not claimed.",
+      "SequenceFlow shorthand without bpmnElement, mixed choreography data views and the controlled-render dispatcher require separate verification.",
+      "Graphics use authoritative source coordinate strings and plane ordering; only label placement without BPMNLabel bounds is derived and disclosed.",
+      "Agent visual QA is separate from professional human acceptance and organization approval."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMNDI.cmof:BPMNShape-bpmnElement",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "diagram_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "render_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "notation_projection"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "data_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "boundary_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "io",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "association",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_activity_event_process_data_view_is_valid_and_explicit"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_directly_depicted_data_endpoints_need_no_redundant_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_raw_coordinate_strings_and_source_plane_order_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_package_roundtrip_preserves_all_original_di_strings_and_order"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_actual_native_data_symbols_and_di_geometry_are_rendered"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_omitting_optional_data_shapes_and_associations_does_not_fail_model_or_view"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_undepicted_model_data_endpoint_requires_explicit_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_di_inference_is_plane_local_and_same_plane_ambiguity_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_explicit_di_override_cannot_impersonate_a_sibling_business_owner"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_repeated_data_depiction_is_rejected_without_losing_native_bytes"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_optional_data_visibility_preserves_collapsed_subprocess_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 official PDF physical242/244/251/398/405/423/441/442: optional partial DI data depictions, collection/input/output symbols, source plane order and explicit endpoint overrides. Current CMOF identities are source derived.",
+    "limitations": [
+      "Bounded process/collaboration data DI subset; whole referenced construct, exchange and prose obligation closure is not claimed.",
+      "SequenceFlow shorthand without bpmnElement, mixed choreography data views and the controlled-render dispatcher require separate verification.",
+      "Graphics use authoritative source coordinate strings and plane ordering; only label placement without BPMNLabel bounds is derived and disclosed.",
+      "Agent visual QA is separate from professional human acceptance and organization approval."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:symbol:BPMN-2.0.2.pdf:p398:b9bca22a7715e375cdc876b5",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "diagram_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "render_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "notation_projection"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "data_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "boundary_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "io",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "association",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_activity_event_process_data_view_is_valid_and_explicit"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_directly_depicted_data_endpoints_need_no_redundant_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_raw_coordinate_strings_and_source_plane_order_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_package_roundtrip_preserves_all_original_di_strings_and_order"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_actual_native_data_symbols_and_di_geometry_are_rendered"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_omitting_optional_data_shapes_and_associations_does_not_fail_model_or_view"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_undepicted_model_data_endpoint_requires_explicit_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_di_inference_is_plane_local_and_same_plane_ambiguity_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_explicit_di_override_cannot_impersonate_a_sibling_business_owner"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_repeated_data_depiction_is_rejected_without_losing_native_bytes"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_optional_data_visibility_preserves_collapsed_subprocess_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 official PDF physical242/244/251/398/405/423/441/442: optional partial DI data depictions, collection/input/output symbols, source plane order and explicit endpoint overrides. Current CMOF identities are source derived.",
+    "limitations": [
+      "Bounded process/collaboration data DI subset; whole referenced construct, exchange and prose obligation closure is not claimed.",
+      "SequenceFlow shorthand without bpmnElement, mixed choreography data views and the controlled-render dispatcher require separate verification.",
+      "Graphics use authoritative source coordinate strings and plane ordering; only label placement without BPMNLabel bounds is derived and disclosed.",
+      "Agent visual QA is separate from professional human acceptance and organization approval."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:symbol:BPMN-2.0.2.pdf:p398:ba1d6db94ed443e6f9968ffe",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "diagram_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "render_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "notation_projection"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "data_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "boundary_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "io",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "association",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_activity_event_process_data_view_is_valid_and_explicit"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_directly_depicted_data_endpoints_need_no_redundant_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_raw_coordinate_strings_and_source_plane_order_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_package_roundtrip_preserves_all_original_di_strings_and_order"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_actual_native_data_symbols_and_di_geometry_are_rendered"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_omitting_optional_data_shapes_and_associations_does_not_fail_model_or_view"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_undepicted_model_data_endpoint_requires_explicit_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_di_inference_is_plane_local_and_same_plane_ambiguity_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_explicit_di_override_cannot_impersonate_a_sibling_business_owner"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_repeated_data_depiction_is_rejected_without_losing_native_bytes"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_optional_data_visibility_preserves_collapsed_subprocess_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 official PDF physical242/244/251/398/405/423/441/442: optional partial DI data depictions, collection/input/output symbols, source plane order and explicit endpoint overrides. Current CMOF identities are source derived.",
+    "limitations": [
+      "Bounded process/collaboration data DI subset; whole referenced construct, exchange and prose obligation closure is not claimed.",
+      "SequenceFlow shorthand without bpmnElement, mixed choreography data views and the controlled-render dispatcher require separate verification.",
+      "Graphics use authoritative source coordinate strings and plane ordering; only label placement without BPMNLabel bounds is derived and disclosed.",
+      "Agent visual QA is separate from professional human acceptance and organization approval."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:symbol:BPMN-2.0.2.pdf:p398:bf89782749db3ad782f443f0",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "diagram_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "render_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "notation_projection"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "data_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "boundary_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "io",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "association",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_activity_event_process_data_view_is_valid_and_explicit"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_directly_depicted_data_endpoints_need_no_redundant_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_raw_coordinate_strings_and_source_plane_order_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_package_roundtrip_preserves_all_original_di_strings_and_order"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_actual_native_data_symbols_and_di_geometry_are_rendered"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_omitting_optional_data_shapes_and_associations_does_not_fail_model_or_view"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_undepicted_model_data_endpoint_requires_explicit_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_di_inference_is_plane_local_and_same_plane_ambiguity_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_explicit_di_override_cannot_impersonate_a_sibling_business_owner"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_repeated_data_depiction_is_rejected_without_losing_native_bytes"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_optional_data_visibility_preserves_collapsed_subprocess_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 official PDF physical242/244/251/398/405/423/441/442: optional partial DI data depictions, collection/input/output symbols, source plane order and explicit endpoint overrides. Current CMOF identities are source derived.",
+    "limitations": [
+      "Bounded process/collaboration data DI subset; whole referenced construct, exchange and prose obligation closure is not claimed.",
+      "SequenceFlow shorthand without bpmnElement, mixed choreography data views and the controlled-render dispatcher require separate verification.",
+      "Graphics use authoritative source coordinate strings and plane ordering; only label placement without BPMNLabel bounds is derived and disclosed.",
+      "Agent visual QA is separate from professional human acceptance and organization approval."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:symbol:BPMN-2.0.2.pdf:p405:b3d8de883d51f5b2d5edbd6e",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "diagram_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "render_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "notation_projection"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "data_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "boundary_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "io",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "association",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_activity_event_process_data_view_is_valid_and_explicit"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_directly_depicted_data_endpoints_need_no_redundant_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_raw_coordinate_strings_and_source_plane_order_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_package_roundtrip_preserves_all_original_di_strings_and_order"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_actual_native_data_symbols_and_di_geometry_are_rendered"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_omitting_optional_data_shapes_and_associations_does_not_fail_model_or_view"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_undepicted_model_data_endpoint_requires_explicit_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_di_inference_is_plane_local_and_same_plane_ambiguity_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_explicit_di_override_cannot_impersonate_a_sibling_business_owner"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_repeated_data_depiction_is_rejected_without_losing_native_bytes"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_optional_data_visibility_preserves_collapsed_subprocess_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 official PDF physical242/244/251/398/405/423/441/442: optional partial DI data depictions, collection/input/output symbols, source plane order and explicit endpoint overrides. Current CMOF identities are source derived.",
+    "limitations": [
+      "Bounded process/collaboration data DI subset; whole referenced construct, exchange and prose obligation closure is not claimed.",
+      "SequenceFlow shorthand without bpmnElement, mixed choreography data views and the controlled-render dispatcher require separate verification.",
+      "Graphics use authoritative source coordinate strings and plane ordering; only label placement without BPMNLabel bounds is derived and disclosed.",
+      "Agent visual QA is separate from professional human acceptance and organization approval."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:symbol:BPMN-2.0.2.pdf:p423:338eb57f7d5802bb6d9e38e5",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "diagram_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_render.py",
+        "symbol": "render_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "notation_projection"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "data_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_di_fixtures.py",
+        "symbol": "boundary_di_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "element",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "io",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "association",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "change",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_data_compensation_fixtures.py",
+        "symbol": "by_id",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_activity_event_process_data_view_is_valid_and_explicit"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_directly_depicted_data_endpoints_need_no_redundant_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_raw_coordinate_strings_and_source_plane_order_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_package_roundtrip_preserves_all_original_di_strings_and_order"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_actual_native_data_symbols_and_di_geometry_are_rendered"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_omitting_optional_data_shapes_and_associations_does_not_fail_model_or_view"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_undepicted_model_data_endpoint_requires_explicit_override"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_native_di_inference_is_plane_local_and_same_plane_ambiguity_is_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_explicit_di_override_cannot_impersonate_a_sibling_business_owner"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_repeated_data_depiction_is_rejected_without_losing_native_bytes"
+      },
+      {
+        "file": "tests/test_bpmn_data_di.py",
+        "symbol": "BPMNDataDITests.test_optional_data_visibility_preserves_collapsed_subprocess_scope"
+      }
+    ],
+    "basis": "BPMN 2.0.2 official PDF physical242/244/251/398/405/423/441/442: optional partial DI data depictions, collection/input/output symbols, source plane order and explicit endpoint overrides. Current CMOF identities are source derived.",
+    "limitations": [
+      "Bounded process/collaboration data DI subset; whole referenced construct, exchange and prose obligation closure is not claimed.",
+      "SequenceFlow shorthand without bpmnElement, mixed choreography data views and the controlled-render dispatcher require separate verification.",
+      "Graphics use authoritative source coordinate strings and plane ordering; only label placement without BPMNLabel bounds is derived and disclosed.",
+      "Agent visual QA is separate from professional human acceptance and organization approval."
+    ]
+  }
+]

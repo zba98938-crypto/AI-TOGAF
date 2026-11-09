@@ -1,10 +1,12 @@
 // Trusted worker: all paths/flags are controller-owned; no executable task data.
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 import {Resvg} from '@resvg/resvg-js';
 import {launchBrowser} from './browser_resolver.mjs';
 import {rasterPlan} from './raster_tiles.mjs';
 import {renderDesignScene} from './bpmn_design_scene.mjs';
+import {renderDataScene} from './bpmn_data_scene.mjs';
 const file = path.resolve(process.argv[2]);
 const taskRoot = path.dirname(file);
 const shared = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
@@ -26,7 +28,7 @@ try {
   await page.setContent('<!doctype html><meta charset="utf-8"><style>body{margin:0}</style><div id="canvas"></div><div id="scene"></div>');
   await page.addStyleTag({content:fontCSS});
   await page.evaluate(() => document.fonts.load('18px TogafCJK'));
-  let svg = input, nativeRegistry, nativeGeometry, notationAdapters;
+  let svg = input, nativeRegistry, nativeGeometry, notationAdapters, dataSceneEvidence;
   if (spec.kind==='mmd') {
     await page.addScriptTag({path:path.join(shared,'node_modules/mermaid/dist/mermaid.min.js')});
     svg = await page.evaluate(async input => {
@@ -45,6 +47,18 @@ try {
       nativeRegistry=result.graphicIds;
       nativeGeometry=result.geometry;
       notationAdapters=spec.bpmn_plan.notation_adaptations;
+    } else if(spec.bpmn_plan.backend==='native-data-di') {
+      if(createHash('sha256').update(input).digest('hex')!==spec.bpmn_plan.source_sha256)
+        throw Error('Data DI source fingerprint differs from controller plan');
+      const result=await page.evaluate(renderDataScene,{spec:spec.bpmn_plan,fontCSS});
+      svg=result.svg;nativeRegistry=result.graphicIds;nativeGeometry=result.geometry;
+      notationAdapters=spec.bpmn_plan.notation_adaptations;
+      dataSceneEvidence={backend:'native-data-di',source_sha256:spec.bpmn_plan.source_sha256,
+        common_symbol_evidence:result.commonSymbols,label_layouts:result.labelLayouts,
+        data_depiction_inventory:spec.bpmn_plan.data_depiction_inventory,
+        hidden_native_elements:spec.bpmn_plan.hidden_native_elements,
+        geometry_origin:spec.bpmn_plan.geometry_origin,diagram_scope:spec.bpmn_plan.diagram_scope,
+        source_plane_order_preserved:true,auto_layout:false};
     } else {
       const result = await page.evaluate(async ({input,plan}) => {
       const viewer=new BpmnJS({container:'#canvas',textRenderer:{defaultStyle:{fontFamily:'TogafCJK'}}});
@@ -99,6 +113,7 @@ try {
     kind:spec.kind,browser:browser.togafBrowser,external_requests:external,text_geometry:geometry,
     width:raster.width,height:raster.height,native_registry:nativeRegistry,native_geometry:nativeGeometry,
     notation_adapters:notationAdapters,
+    bpmn_data_di:dataSceneEvidence,
     source_authoritative:true,derived_layout:spec.kind==='mmd'||spec.kind==='uml-class-layout',
     native_uml_source_sha256:spec.uml_source_sha256,uml_layout:spec.uml_layout,
     uml_profile_applications:spec.uml_profile_applications,

@@ -46,6 +46,22 @@ def diagram_plan(data, package_root=None, auto_layout=False):
             e.get('participantBandKind')) for e in root.iter()):
         from bpmn_design_render import design_plan
         return design_plan(data, root, report)
+    nodes_by_id = {e.get('id'):e for e in root.iter() if isinstance(e.tag,str) and e.get('id')}
+    from bpmn_references import local_reference
+    data_graphics = {'dataInput','dataOutput','dataObjectReference','dataStoreReference','dataInputAssociation','dataOutputAssociation'}
+    has_data_graphic = any(isinstance(e.tag,str) and e.tag in {'{'+BPMN+'}'+k for k in data_graphics}
+                           for e in root.iter())
+    for graphic in root.iter():
+        if not isinstance(graphic.tag,str) or graphic.tag not in {'{'+DI+'}BPMNShape','{'+DI+'}BPMNEdge'}:
+            continue
+        identity = local_reference(graphic,graphic.get('bpmnElement'),root.get('targetNamespace'))[0]
+        semantic = nodes_by_id.get(identity)
+        if semantic is not None and local(semantic.tag) in data_graphics:
+            has_data_graphic = True
+            break
+    if has_data_graphic:
+        from bpmn_data_render import plan as data_plan
+        return data_plan(data, root, report)
     nodes = {e.get('id'): e for e in root.iter() if isinstance(e.tag, str) and e.get('id')}
     diagrams = list(root.iter('{'+DI+'}BPMNDiagram'))
     if len(diagrams) != 1:
@@ -166,7 +182,8 @@ def render_native(data, out, package_root=None, auto_layout=False):
                 'input': str(source), 'font': str(font), 'svg': str(folder/'diagram.svg'),
                 'png': str(folder/'diagram.png'), 'report': str(folder/'render.json')}
         (folder/'spec.json').write_text(json.dumps(spec, ensure_ascii=False))
-        script = 'bpmn_design_render.mjs' if plan.get('backend') == 'native-design-di' else 'bpmn_render.mjs'
+        script = ('bpmn_data_render.mjs' if plan.get('backend')=='native-data-di' else
+                  'bpmn_design_render.mjs' if plan.get('backend') == 'native-design-di' else 'bpmn_render.mjs')
         run = subprocess.run([shutil.which('node') or 'node', str(ROOT/'scripts'/script), str(folder/'spec.json')],
                              capture_output=True, text=True, timeout=120)
         if run.returncode:

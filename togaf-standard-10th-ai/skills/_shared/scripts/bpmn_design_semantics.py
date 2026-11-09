@@ -24,7 +24,7 @@ RULES = {
     'di-attribute-applicability': ('12.2.3.3 BPMNShape attributes', [403]),
     'di-participant-band': ('12.2.3.3/4 and 11.5.1/2', [354, 358, 361, 403, 404]),
     'di-band-message': ('11.5.1, 11.5.3 and Table 12.33', [355, 363, 438, 439, 440]),
-    'di-edge-endpoint': ('12.3.3 BPMNEdge', [440, 441]),
+    'di-edge-endpoint': ('12.2.3.5 and 12.3.3 BPMNEdge', [405, 440, 441]),
 }
 CONVERSATIONS = {'conversation', 'subConversation', 'callConversation'}
 CHOREOGRAPHY_ACTIVITIES = {'choreographyTask', 'subChoreography', 'callChoreography'}
@@ -267,11 +267,25 @@ def check(root):
                 if target is not None and (kind(target) not in {'BPMNShape', 'BPMNEdge'} or target.get('participantBandKind')):
                     issue('di-edge-endpoint', edge, attr + ' must refer to a DI Shape/Edge and never to a Participant Band')
         semantic = resolve(edge, edge.get('bpmnElement'))
-        if kind(semantic) in {'dataInputAssociation', 'dataOutputAssociation'} and not any(edge.get(a) for a in ('sourceElement', 'targetElement')):
-            issue('di-edge-endpoint', edge, 'Data Association depiction requires sourceElement or targetElement override')
+        if kind(semantic) in {'dataInputAssociation', 'dataOutputAssociation'}:
+            plane=edge.getparent()
+            source_ids=refs(semantic,'sourceRef');target_ids=refs(semantic,'targetRef')
+            for direction,identities in [('source',source_ids),('target',target_ids)]:
+                if edge.get(direction+'Element'):
+                    continue
+                matching=[graphic for graphic in plane if kind(graphic) in {'BPMNShape','BPMNEdge'}
+                          and not graphic.get('participantBandKind') and ref(graphic,graphic.get('bpmnElement')) in identities]
+                if len(identities)!=1 or len(matching)!=1:
+                    issue('di-edge-endpoint', edge, 'Data Association '+direction+' is undepicted or ambiguous; explicit '+direction+'Element is required')
 
-    return {'implemented_rule_ids': list(RULES), 'findings': findings,
-            'normative_rule_basis': {r: {'section': v[0], 'physical_pages': v[1], 'pdf_sha256': PDF_SHA256} for r, v in RULES.items()},
+    from bpmn_data_compensation import check as check_data_compensation
+    data_compensation = check_data_compensation(root)
+    return {'implemented_rule_ids': list(RULES) + data_compensation['implemented_rule_ids'],
+            'findings': findings + data_compensation['findings'],
+            'normative_rule_basis': {**{r: {'section': v[0], 'physical_pages': v[1], 'pdf_sha256': PDF_SHA256} for r, v in RULES.items()},
+                                    **data_compensation['normative_rule_basis']},
+            'data_compensation_validation': data_compensation,
+            'capability_uncovered': data_compensation['capability_uncovered'],
             'exchange_adaptations': [{'element': 'ChoreographyTask.messageFlowRef',
                                       'normative_text': 'Table 11.2 [1..*]; task prose describes one or two exchanges',
                                       'official_xsd': 'Semantic.xsd tChoreographyTask minOccurs=1 maxOccurs=2',
@@ -279,6 +293,7 @@ def check(root):
                                      {'element': 'ParticipantMultiplicity.maximum',
                                       'normative_text': 'Section 9.3.1 printed page 117: show multi-instance marker when maximum is omitted or >=2',
                                       'official_xsd': 'Semantic.xsd tParticipantMultiplicity maximum default=1',
-                                      'execution': 'preserve omitted/explicit distinction; depict marker using prose and retain default discrepancy in evidence'}],
+                                      'execution': 'preserve omitted/explicit distinction; depict marker using prose and retain default discrepancy in evidence'}]
+                                    + data_compensation['exchange_adaptations'],
             'full_design_time_semantics': 'incomplete',
             'independent_normative_rule_review': 'pending'}
