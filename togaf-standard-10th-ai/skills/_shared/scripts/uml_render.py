@@ -291,6 +291,10 @@ def svg_diagram(model):
 
 
 def render_native(data,out,package_root=None):
+    from uml_di_render import has_native_di
+    if has_native_di(data):
+        from uml_di_render import render_native as render_native_di
+        return render_native_di(data,out,package_root)
     model=diagram_model(data,package_root);svg,layout=svg_diagram(model)
     out=Path(out).resolve();base=out.with_suffix('') if out.suffix.lower() in {'.svg','.png'} else out/'diagram'
     paths={'svg':base.with_suffix('.svg'),'png':base.with_suffix('.png'),'report':base.with_suffix('.render.json')}

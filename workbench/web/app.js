@@ -157,7 +157,7 @@ function renderNativePreview() {
   const job=S.jobs.find(row=>row.kind==='native'&&row.version===S.base);
   if(!job){target.innerHTML='<p class="hint">尚无此版本的原生预览任务。</p>';return;}
   const picture=(job.outputs || []).find(row=>row.name==='native-preview.png');
-  target.innerHTML=`<p class="hint">任务 ${esc(short(job.id))} · ${esc(STATES[job.status] || job.status)} · 版本 ${esc(short(job.version))}</p>${job.native_preview?.issues?nativeDiagnosticMarkup({valid:true,conformance_complete:false,[job.native_preview.category]:job.native_preview.issues}):''}${job.error?`<pre>${esc(job.error)}</pre>`:''}${picture?`<img class="native-preview-image" src="${esc(picture.url)}" alt="已保存原生模型版本的派生预览">`:''}<div class="output-links">${(job.outputs || []).map(row=>`<a class="button small" href="${esc(row.url)}" target="_blank" rel="noopener">${esc(row.name)} ↗</a>`).join('')}</div>`;
+  target.innerHTML=`<p class="hint">任务 ${esc(short(job.id))} · ${esc(STATES[job.status] || job.status)} · 版本 ${esc(short(job.version))}</p>${job.native_preview?.issues?nativeDiagnosticMarkup({valid:true,conformance_complete:false,[job.native_preview.category]:job.native_preview.issues}):''}${job.error?`<pre>${esc(job.error)}</pre>`:''}${picture?`<img class="native-preview-image" src="${esc(picture.url)}" alt="已保存原生模型版本的图形预览">`:''}<div class="output-links">${(job.outputs || []).map(row=>`<a class="button small" href="${esc(row.url)}" target="_blank" rel="noopener">${esc(row.name)} ↗</a>`).join('')}</div>`;
 }
 
 // Canvas state is separate from semantic model data. The graph is explicitly a

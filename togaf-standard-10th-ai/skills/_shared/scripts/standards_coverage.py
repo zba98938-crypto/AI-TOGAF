@@ -84,13 +84,90 @@ def element_path(element):
     return '/'.join(reversed(segments))
 
 
-def source_entry(language, version, row, element, kind, owner=None):
+def source_identities(row, root):
+    """Logical tree identities supplement native IDs; official bytes stay intact.
+
+    Source hashes remain evidence bindings rather than changing logical identity.
+    Occurrence distinguishes repeated named nodes inside the same source owner.
+    """
+    identities = {}; occurrences = {}
+    for element in root.iter():
+        if not isinstance(element.tag, str): continue
+        native_id = xml_attribute(element, 'id'); path = element_path(element)
+        occurrence_key = (native_id, path)
+        occurrences[occurrence_key] = occurrences.get(occurrence_key, 0)+1
+        logical = {'file': row['file'], 'native_id': native_id, 'xml_path': path,
+                   'occurrence': occurrences[occurrence_key]}
+        identity_key = digest(json.dumps(logical, sort_keys=True, separators=(',', ':')).encode())
+        identities[element] = {**logical, 'key': 'source-identity:'+identity_key,
+                               'sha256': row['sha256'], 'source_line': element.sourceline}
+    return identities
+
+
+def source_identity_provenance(row, root):
+    """Inventory all duplicate XML identities and leave bare references ambiguous.
+
+    Context candidates describe syntactic containment only. They never resolve
+    an XMI idref or supply a normative/semantic execution adaptation.
+    """
+    from collections import defaultdict
+    from lxml import etree
+    identities = source_identities(row, root); by_id = defaultdict(list)
+    for element in identities:
+        native_id = xml_attribute(element, 'id')
+        if native_id: by_id[native_id].append(element)
+    duplicate = {native_id: values for native_id, values in by_id.items() if len(values)>1}
+    def record(element):
+        owner = element.getparent()
+        classifier = next((parent for parent in element.iterancestors()
+                           if (xml_attribute(parent,'type') or '').split(':')[-1]
+                           in {'Class','DataType','Enumeration','PrimitiveType','Stereotype'}), None)
+        fragment = etree.tostring(element, method='c14n')
+        return {'identity': identities[element], 'owner_identity': identities.get(owner),
+                'classifier_identity': identities.get(classifier),
+                'canonical_xml_fragment': fragment.decode(), 'canonical_fragment_sha256': digest(fragment),
+                'fragment_serialization': 'c14n; original file bytes remain authoritative and unchanged'}
+    groups = [{'native_id': native_id, 'occurrence_count': len(values),
+               'occurrences': [record(element) for element in values]}
+              for native_id, values in sorted(duplicate.items())]
+    references = []
+    for element in identities:
+        for attribute, raw in element.attrib.items():
+            if local(attribute)=='id': continue
+            tokens = [raw[1:]] if local(attribute)=='href' and raw.startswith('#') else raw.split()
+            for token_index, token in enumerate(tokens):
+                if token not in duplicate: continue
+                operation = next((parent for parent in (element, *element.iterancestors())
+                                  if local(parent.tag)=='ownedOperation'), None)
+                contextual = [candidate for candidate in duplicate[token]
+                              if operation is not None and (candidate is operation or
+                                  operation in candidate.iterancestors())]
+                references.append({'source_identity': identities[element], 'attribute': attribute,
+                    'raw_value': raw, 'token_index': token_index, 'native_idref': token,
+                    'status': 'ambiguous-source-reference', 'resolved_target': None,
+                    'candidates': [identities[candidate] for candidate in duplicate[token]],
+                    'context_candidates': [identities[candidate] for candidate in contextual],
+                    'context_basis': 'Same enclosing ownedOperation in the XML tree only; separate normative type/ownership evidence is required before any execution adaptation.',
+                    'execution_adapter_applied': False, 'semantic_correction_applied': False})
+    verified = row.get('verified_sha256')==row['sha256']
+    return {'file': row['file'], 'sha256': row['sha256'], 'file_available': verified,
+            'file_fingerprint_verified': verified, 'xml_well_formed': True,
+            'identity_inventory_status': 'complete-with-known-duplicates' if duplicate else 'complete',
+            'global_native_id_unique': not duplicate, 'native_id_count': len(by_id),
+            'native_id_occurrences': sum(len(values) for values in by_id.values()),
+            'duplicate_native_id_count': len(duplicate),
+            'duplicate_occurrence_count': sum(len(values) for values in duplicate.values()),
+            'duplicate_groups': groups, 'ambiguous_references': references,
+            'global_identity_repair_applied': False, 'semantic_acceptance': 'not-established-by-source-provenance'}
+
+
+def source_entry(language, version, row, element, kind, owner=None, identities=None):
     from lxml import etree
     native_id = xml_attribute(element, 'id')
     locator = 'xmi:id='+native_id if native_id else element_path(element)
     token = native_id or digest(locator.encode())[:24]
     body = element.findtext('specification/body') or element.findtext('body')
-    return {
+    result = {
         'id': ':'.join((language, version, kind, Path(row['file']).name, token)),
         'kind': kind, 'name': element.get('name') or local(element.tag),
         'declaration_kind': (xml_attribute(element, 'type') or local(element.tag)).split(':')[-1],
@@ -104,11 +181,17 @@ def source_entry(language, version, row, element, kind, owner=None):
         'implementation_status': 'uncovered', 'implementation': [],
         'positive_tests': [], 'negative_tests': [], 'verification_status': 'not-executed',
     }
+    if language=='uml':
+        if identities is None: identities=source_identities(row,element.getroottree().getroot())
+        result['source_identity']=identities[element]
+        result['owner_identity']=identities.get(element.getparent())
+    return result
 
 
 def metamodel_entries(language, version, row, path, type_kinds=None):
     from standards import safe_xml
     root = safe_xml(path.read_bytes()); elements = list(root.iter())
+    identities = source_identities(row,root) if language=='uml' else None
     scalar_ids = {xml_attribute(e, 'id') for e in elements if xml_attribute(e, 'id')
                   and (xml_attribute(e, 'type') or '').split(':')[-1]
                   in ('Enumeration', 'DataType', 'PrimitiveType')}
@@ -123,9 +206,9 @@ def metamodel_entries(language, version, row, path, type_kinds=None):
         parent = element.getparent(); owner = xml_attribute(parent, 'id') if parent is not None else None
         if declared in ('Class', 'Association', 'Extension', 'Enumeration', 'DataType', 'PrimitiveType',
                         'Stereotype', 'Profile', 'Operation'):
-            result.append(source_entry(language, version, row, element, 'construct', owner))
+            result.append(source_entry(language, version, row, element, 'construct', owner, identities))
             if 'DI' in Path(row['file']).stem or Path(row['file']).stem == 'DC':
-                result.append(source_entry(language, version, row, element, 'symbol', owner))
+                result.append(source_entry(language, version, row, element, 'symbol', owner, identities))
         elif tag in ('ownedAttribute', 'ownedEnd', 'ownedParameter'):
             target = element.get('type')
             type_child = next((child for child in element if local(child.tag) == 'type'), None)
@@ -138,11 +221,11 @@ def metamodel_entries(language, version, row, path, type_kinds=None):
                         (xml_attribute(type_child, 'type') or '').split(':')[-1] in ('PrimitiveType', 'DataType')) or \
                         imported_kind in ('Enumeration', 'DataType', 'PrimitiveType')
             kind = 'attribute' if primitive else 'reference'
-            result.append(source_entry(language, version, row, element, kind, owner))
-        elif tag == 'ownedLiteral': result.append(source_entry(language, version, row, element, 'attribute', owner))
-        elif tag == 'ownedRule': result.append(source_entry(language, version, row, element, 'constraint', owner))
+            result.append(source_entry(language, version, row, element, kind, owner, identities))
+        elif tag == 'ownedLiteral': result.append(source_entry(language, version, row, element, 'attribute', owner, identities))
+        elif tag == 'ownedRule': result.append(source_entry(language, version, row, element, 'constraint', owner, identities))
         elif tag in ('generalization', 'packageImport', 'elementImport', 'profileApplication'):
-            result.append(source_entry(language, version, row, element, 'reference', owner))
+            result.append(source_entry(language, version, row, element, 'reference', owner, identities))
     for item in result:
         identity = item['source']['locator'].removeprefix('xmi:id=')
         if native_counts[identity] > 1:
@@ -156,10 +239,11 @@ def metamodel_entries(language, version, row, path, type_kinds=None):
 def exchange_entries(language, version, row, path):
     from standards import safe_xml
     root = safe_xml(path.read_bytes()); result = []
+    identities = source_identities(row,root) if language=='uml' else None
     for element in root.iter():
         if not isinstance(element.tag, str) or not element.tag.startswith('{'+XSD+'}'): continue
         if local(element.tag) in ('annotation', 'documentation', 'appinfo'): continue
-        result.append(source_entry(language, version, row, element, 'exchange'))
+        result.append(source_entry(language, version, row, element, 'exchange', identities=identities))
     return result
 
 
@@ -285,7 +369,7 @@ def completeness(entries, source_complete, applicability_complete=False):
 
 def ledger(language, version, sources_root=None, bindings=None, evidence=None):
     base, sources = verified_sources(language, version, sources_root)
-    entries = []
+    entries = []; identity_provenance = []
     from standards import safe_xml
     type_kinds = {}
     for row in sources:
@@ -297,6 +381,8 @@ def ledger(language, version, sources_root=None, bindings=None, evidence=None):
     for row in sources:
         path = contained_file(base, row['file'])
         if path.suffix in ('.xmi', '.cmof'): entries += metamodel_entries(language, version, row, path, type_kinds)
+        if language=='uml' and path.suffix=='.xmi':
+            identity_provenance.append(source_identity_provenance(row,safe_xml(path.read_bytes())))
         if path.suffix == '.xsd': entries += exchange_entries(language, version, row, path)
         if path.name.endswith('.pages.json'): entries += prose_entries(language, version, row, path)
     ids = [item['id'] for item in entries]
@@ -329,7 +415,7 @@ def ledger(language, version, sources_root=None, bindings=None, evidence=None):
     if not body: blockers.insert(0, 'Normative specification body is missing.')
     if source_defects: blockers.append('Normative machine source contains duplicate IDs; entries retain disambiguating XML paths.')
     if missing_imports: blockers.append('Normative machine imports not acquired: '+', '.join(missing_imports))
-    return {'schema_version': 'native-design-time-coverage/1', 'language': language, 'version': version,
+    result = {'schema_version': 'native-design-time-coverage/1', 'language': language, 'version': version,
             'sources': sources, 'items': entries, 'item_count': len(entries),
             'by_kind': {kind: sum(item['kind'] == kind for item in entries) for kind in KINDS},
             'unadjudicated_prose_candidates': sum(item['applicability'] == 'unadjudicated' for item in entries),
@@ -337,6 +423,18 @@ def ledger(language, version, sources_root=None, bindings=None, evidence=None):
             'source_defects': [{'file': file, 'duplicate_native_id': identity} for file, identity in source_defects],
             'missing_machine_imports': missing_imports, 'blockers': blockers,
             'human_acceptance': 'pending', 'organization_approval': 'pending-signature'}
+    if language=='uml':
+        result['source_availability']={'status':'verified-local-files','file_count':len(sources),
+            'file_accessibility_establishes_semantic_acceptance':False}
+        result['source_identity_provenance']=identity_provenance
+        result['source_identity_summary']={
+            'duplicate_xml_native_id_count':sum(row['duplicate_native_id_count'] for row in identity_provenance),
+            'duplicate_xml_occurrence_count':sum(row['duplicate_occurrence_count'] for row in identity_provenance),
+            'ambiguous_reference_count':sum(len(row['ambiguous_references']) for row in identity_provenance),
+            'global_native_id_unique':all(row['global_native_id_unique'] for row in identity_provenance),
+            'global_identity_repair_applied':False,'semantic_correction_applied':False,
+            'availability_and_inventory_do_not_close_design_time_scope':True}
+    return result
 
 
 def main():

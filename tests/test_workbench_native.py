@@ -241,13 +241,41 @@ class NativeWorkbenchHTTPTests(unittest.TestCase):
 
     def test_existing_umldi_is_preserved_and_uncovered_preview_stays_explicit(self):
         text = UML.replace('xmlns:uml=', 'xmlns:umldi="http://www.omg.org/spec/UML/20161101/UMLDI" xmlns:uml=')
-        text = text.replace('</uml:Model>', '<umldi:UMLDiagram xmi:id="DI"/></uml:Model>')
+        text = text.replace('</uml:Model>', '<umldi:UMLDiagram xmi:id="DI" isFrame="false"/></uml:Model>')
         project = self.create(source(text, 'uml'))
         job = self.wait_job(self.enqueue(project, render=True, auto_layout=True)[1]['id'])
         self.assertEqual(job['status'], 'blocked', job)
         self.assertEqual(job['native_preview']['category'], 'capability_uncovered')
         self.assertEqual(self.output(job, 'native.uml'), text.encode())
         self.assertFalse(job['native_preview']['derived_layout'])
+
+    def test_native_umldi_preview_keeps_coordinates_routes_and_source_without_auto_layout(self):
+        from uml_di_fixtures import document
+        text=document().decode('utf-8')
+        project=self.create(source(text,'uml'))
+        job=self.wait_job(self.enqueue(project,render=True)[1]['id'])
+        self.assertEqual(job['status'],'succeeded',job)
+        self.assertFalse(job['auto_layout'])
+        self.assertFalse(job['native_preview']['derived_layout'])
+        self.assertFalse(job['full_language_acceptance'])
+        self.assertEqual(self.output(job,'native.uml'),text.encode('utf-8'))
+        rendering=job['native_preview']['rendering']
+        self.assertEqual(rendering['model']['native_bounds']['S_ORDER'],
+                         {'x':'20.5000','y':'30.25','width':'240','height':'240'})
+        self.assertEqual(rendering['model']['native_waypoints']['E_GENERAL'][0],{'x':'260.5000','y':'60.25'})
+        self.assertTrue(self.output(job,'native-preview.png').startswith(b'\x89PNG\r\n\x1a\n'))
+        self.assertEqual(base64.b64decode(self.output(job,'native-package.json')['native_xml']),text.encode('utf-8'))
+
+    def test_auto_layout_selection_does_not_replace_native_umldi_or_bypass_uncovered_notation(self):
+        from uml_di_fixtures import document,DI
+        text=document(diagram=DI.replace('xmi:id="S_ORDER"','xmi:id="S_ORDER" isIcon="true"')).decode('utf-8')
+        project=self.create(source(text,'uml'))
+        job=self.wait_job(self.enqueue(project,render=True,auto_layout=True)[1]['id'])
+        self.assertEqual(job['status'],'blocked',job)
+        self.assertEqual(job['native_preview']['category'],'capability_uncovered')
+        self.assertFalse(job['native_preview']['derived_layout'])
+        self.assertEqual(self.output(job,'native.uml'),text.encode('utf-8'))
+        self.assertNotIn('native-preview.png',[row['name'] for row in job['outputs']])
 
     def test_restart_restores_native_source_and_queued_exchange_kind(self):
         project = self.create(source(UML, 'uml'))

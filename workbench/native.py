@@ -112,14 +112,13 @@ def generate(native, out, *, render=False, auto_layout=False):
     if render:
         try:
             if native['language'] == 'uml':
-                root = safe_xml(data)
-                if any(isinstance(e.tag, str) and 'UMLDI' in e.tag for e in root.iter()):
-                    raise Incomplete('Preserving native UMLDI preview is not yet implemented; original DI remains in native.xml')
-                if not auto_layout:
+                from uml_di_render import has_native_di
+                native_di=has_native_di(data)
+                if not native_di and not auto_layout:
                     raise Incomplete('Native UML coordinates missing; explicitly select automatic layout to create a derived preview')
                 from uml_render import render_native
                 rendered = render_native(data, out / 'native-preview.svg')
-                preview['derived_layout'] = True
+                preview['derived_layout'] = bool(rendered.get('derived_layout',not native_di))
             else:
                 root = safe_xml(data)
                 if not auto_layout and not any(isinstance(e.tag, str) and e.tag == '{http://www.omg.org/spec/BPMN/20100524/DI}BPMNDiagram' for e in root.iter()):

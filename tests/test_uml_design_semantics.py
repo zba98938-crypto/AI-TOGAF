@@ -25,7 +25,7 @@ MODEL = '''<u:Model xmi:id="M" name="Native">
  <packagedElement xmi:type="u:Profile" xmi:id="PROFILE" name="LocalProfile"/>
  <profileApplication xmi:id="APPLIED" appliedProfile="PROFILE"/>
 </u:Model>'''
-DI = '''<ud:UMLClassDiagram xmi:id="D" name="Class view">
+DI = '''<ud:UMLClassDiagram xmi:id="D" name="Class view" isFrame="false">
  <ownedElement xmi:type="ud:UMLShape" xmi:id="SA" modelElement="A">
   <bounds xmi:type="dc:Bounds" xmi:id="RECT" x="-24.25" y="12.5" width="0" height="100"/>
  </ownedElement>

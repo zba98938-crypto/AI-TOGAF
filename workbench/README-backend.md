@@ -98,6 +98,8 @@ Node/resvg 渲染链，缺失本地依赖或表达检查错误都会使任务 fa
 `render:false` 仅交换，成功不表示完整能力通过。`render:true` 请求本地预览：
 BPMN 使用显式 DI，缺少 DI 且未选择自动布局时 blocked；显式 `auto_layout:true` 为当前支持的
 过程/协作/会话/编排子集生成独立 `.layout.bpmn`，保留原始 XML 和已有坐标，布局能力未覆盖时 blocked。
+UML 有受支持的原生 UMLDI 类图时按原有 bounds、waypoints 和标签顺序预览，不生成布局。
+其他 UMLDI 图形或未支持的符号明确返回能力未覆盖；自动布局选项不替换已有 DI。
 UML 无 DI 时只有 `auto_layout:true` 才渲染现有类图子集，派生布局单独标记。
 现有 UMLDI 保留原文，预览标记 capability_uncovered，避免覆盖已有坐标。
 blocked 表示原文/交换输出有效而预览不可满足，已核验文件仍可下载；失败不会提供部分文件。
