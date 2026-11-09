@@ -1,0 +1,1752 @@
+{
+  "figures": {
+    "G242/fig1-2": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "2604bf3d0945482e088a9f2e98ee0d3565ac382f8e6c393c71eedee562fa5f71"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All 12 variable labels, 21 visible directed connectors and polarity marks, 3 loop annotations and legend; PDF pages 22–23 compared separately.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        22,
+        23
+      ],
+      "findings_zh": [
+        "全部12个变量与21条箭头逐一对原图核对；没有包含框或人员汇报关系。",
+        "旧Digital Usages→Cost of Digital方向相反，原图为Cost of Digital→Digital Usages；旧Cost→Infrastructure线不存在。",
+        "Digital Performance→Infrastructure的箭头旁有负号；原图Cost→Usages正号与第23页正文“higher cost, less usage”冲突，二者分别记录。",
+        "原图Addictive algorithm→Usages旁为负号，按图保留，不按直觉改为正；成本与利润双向正号也按图保留。"
+      ],
+      "edge_overrides": {
+        "11": {
+          "from": "cost_digital",
+          "to": "digital_usages",
+          "predicate": "causal",
+          "polarity": "+",
+          "visual": {
+            "from": "cost_digital",
+            "to": "digital_usages",
+            "arrow": "forward"
+          },
+          "reason_zh": "沿Cost上方向左上曲线追踪，箭头落在Digital Usages且近端为+；旧解释方向颠倒。原文第23页却说成本越高使用越少，保存图文冲突。",
+          "source_conflict": {
+            "kind": "printed-polarity-versus-prose",
+            "figure_polarity": "+",
+            "prose_polarity": "-",
+            "prose_pdf_page": 23,
+            "quote_en": "the higher the cost, the less the usage",
+            "resolution": "unresolved-source-inconsistency-do-not-silently-normalize"
+          }
+        },
+        "13": {
+          "predicate": "unsupported_historical_relation",
+          "semantic_state": "rejected-unobserved",
+          "visual_explicit_connection": false,
+          "direction": "undirected",
+          "reason_zh": "原图不存在Cost of Digital→Infrastructure的独立线；朝Infrastructure的斜线源端是Digital Performance。",
+          "visual": {
+            "line_style": "not-present",
+            "arrow": "none"
+          }
+        },
+        "14": {
+          "predicate": "causal",
+          "polarity": "-",
+          "reason_zh": "原图Digital Performance向左上的实线箭头指向Infrastructure，箭头近端标负号；旧解释漏掉极性并写成推动基础设施。"
+        }
+      },
+      "flows_override": [
+        {
+          "id": "loop_r1",
+          "kind": "loop",
+          "name_zh": "R1 数字使用—基础设施增强回路",
+          "steps": [
+            "digital_usages",
+            "infrastructure"
+          ],
+          "loop_type": "reinforcing",
+          "printed_label": "R1",
+          "description_zh": "Digital Usages→Infrastructure→Digital Usages，两条均+，与第23页相互促进说明一致。"
+        },
+        {
+          "id": "loop_b1",
+          "kind": "loop",
+          "name_zh": "B1 数字使用—基础设施—成本回路",
+          "steps": [
+            "digital_usages",
+            "infrastructure",
+            "cost_digital"
+          ],
+          "loop_type": "balancing-in-prose-conflicts-with-printed-polarity",
+          "printed_label": "B1",
+          "observed_polarity_product": "+",
+          "prose_polarity_product": "-",
+          "description_zh": "原图B1涉及使用→基础设施→成本→使用，最后一条图标+但正文为负向；不能沿旧虚构成本→基础设施边构造两节点回路。"
+        },
+        {
+          "id": "loop_r2",
+          "kind": "loop",
+          "name_zh": "R2 利润—投资—性能增强回路",
+          "steps": [
+            "digital_margin",
+            "digital_investments",
+            "digital_performance"
+          ],
+          "loop_type": "reinforcing",
+          "printed_label": "R2",
+          "description_zh": "Digital Margin→Digital Investments→Digital Performance→Digital Margin三条均+。"
+        }
+      ],
+      "semantics_overrides": {
+        "one_line_zh": "ICT的使用、基础设施、成本、性能和投资通过反馈共同影响资源消费及污染；图示并非经量化校准的因果预测模型。",
+        "reading_guide_zh": "先识别12个变量，再沿蓝色箭头和端点正负号读取21条关系；最后对照R1、B1、R2和PDF第23页解释。B1必须保留图中正号与正文负反馈的冲突。",
+        "key_points_zh": [
+          "R1：使用增加带来基础设施扩张，部署后追求收益又促进使用。",
+          "B1：正文说明基础设施增加成本，成本抑制使用；但图中成本→使用标+，属于源图和正文不一致。",
+          "性能改善对基础设施和成本的直接边均标-，对利润的边标+；利润→投资→性能构成R2。",
+          "基础设施和化石能源业务对污染标+，再生生物圈业务对污染标-。",
+          "Addictive algorithm→使用在图中标-，数字充足性→使用也标-；前者与直觉不同，只记录源图不擅自订正。",
+          "优化效率本身不能保证污染减少；第23页说明更便宜、更容易获得的服务会导致需求反弹，应约束用途并向生物圈再生转变。"
+        ],
+        "line_semantics_zh": "蓝色箭头是有向因果连线，+表示同向变动，-表示反向变动；不是时间先后或组织指挥。黑色R/B环形图标是回路注记，不是另外的实体间边。",
+        "hierarchy_zh": "没有封闭分组、从属层级或组织汇报树。12个量之间构成因果网络，三个回路只表示反馈结构。",
+        "misreadings_zh": [
+          "禁止把旧成本→基础设施虚构线用于平衡回路。",
+          "图上+/-不是统计相关系数、概率或实际测量参数。",
+          "B1标题/正文与所画极性不一致，分析必须同时保留两者。",
+          "成本和利润两向+、成瘾算法边的-均保持源图字面值，不替作者修改。"
+        ]
+      }
+    },
+    "G242/fig1-1": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "38fd9ffb1323878293a998f5f4ea46aa6d9d40ca8fab1cc00c6eca96ddd5ddc5"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        21
+      ],
+      "findings_zh": [
+        "16根柱、2010–2025年份、2018–2025星号、0/50/100/150/200刻度及轴标题逐项核对。",
+        "原图柱子没有数值标签；现有表数值属于估读，只有2025的181ZB及相对2018的5.5倍由正文明确给出。",
+        "图和本页正文均未解释星号，不能把预测含义写成已确认事实；Generated与正文stored不同措辞分别保留。"
+      ],
+      "tables_override": [
+        {
+          "id": "t_data",
+          "title_zh": "2010–2025 年全球年度数据产生量（按柱高估读，单位 ZB）",
+          "columns": [
+            "年份",
+            "数据产生量（ZB，≈）",
+            "原图标记"
+          ],
+          "rows": [
+            [
+              "2010",
+              "2",
+              ""
+            ],
+            [
+              "2011",
+              "5",
+              ""
+            ],
+            [
+              "2012",
+              "6.5",
+              ""
+            ],
+            [
+              "2013",
+              "9",
+              ""
+            ],
+            [
+              "2014",
+              "12",
+              ""
+            ],
+            [
+              "2015",
+              "15",
+              ""
+            ],
+            [
+              "2016",
+              "18",
+              ""
+            ],
+            [
+              "2017",
+              "26",
+              ""
+            ],
+            [
+              "2018",
+              "33",
+              "*（原图未释义）"
+            ],
+            [
+              "2019",
+              "41",
+              "*（原图未释义）"
+            ],
+            [
+              "2020",
+              "64",
+              "*（原图未释义）"
+            ],
+            [
+              "2021",
+              "79",
+              "*（原图未释义）"
+            ],
+            [
+              "2022",
+              "97",
+              "*（原图未释义）"
+            ],
+            [
+              "2023",
+              "120",
+              "*（原图未释义）"
+            ],
+            [
+              "2024",
+              "147",
+              "*（原图未释义）"
+            ],
+            [
+              "2025",
+              "181",
+              "*（原图未释义）"
+            ]
+          ],
+          "cell_legend": [
+            "数值按柱高估读，不是原图打印值；2025=181 ZB由PDF第21页正文明确给出。",
+            "2018–2025年份后有星号；源图及本页正文没有解释星号。"
+          ],
+          "notes_zh": "2025 年 181 ZB 与正文一致；2018 年按“2025 为 2018 的 5.5 倍”反推约 33 ZB，与柱高吻合。"
+        }
+      ],
+      "semantics_overrides": {
+        "key_points_zh": [
+          "横轴连续覆盖2010–2025共16年；纵轴Data Generated (zettabytes)为线性0–200刻度。",
+          "柱高显示数据量快速上升；正文给出2025年181ZB及比2018年5.5倍两个锚点，其他数值仅为估读。",
+          "2018–2025标签带星号，原图未说明其含义，不把它们自动定性为已发生统计或预测。",
+          "图内Generated与正文stored措辞不同；不能将产生量无条件等同存储存量。",
+          "正文建议清理现有数据，并将新存储能力留给最有用的用例。"
+        ],
+        "misreadings_zh": [
+          "表中估读值不能当作精确测量结果或当前年度实际值。",
+          "源文没有星号图例，预测解释只是猜测。",
+          "本图不支持按柱高直接计算某企业的排放量。"
+        ]
+      }
+    },
+    "G242/fig2-1": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "487019bbbda348d0ce8e9a2a4dfbe77f37ec00677349b1900ec19c3246a08c29"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        26
+      ],
+      "findings_zh": [
+        "两行Strategy/Capability与Business/Business Function完整可见；能力与功能图标不同，元素无连接线。",
+        "本页原图仅选择两种记法且正文分别定义，不根据子集展示断言PDF图像被裁切。"
+      ],
+      "semantics_overrides": {
+        "key_points_zh": [
+          "选取战略层Capability和业务层Business Function两种ArchiMate元素。",
+          "能力使用右上角叠方块图标，业务功能使用双折角图标。",
+          "层带包含对应元素，图标属于记法组成，不是额外业务实体。",
+          "原图没有表达能力与业务功能之间的连线，不能补造实现关系。"
+        ],
+        "misreadings_zh": [
+          "两种元素的具体定义见PDF第26页；层带排列不代表人员汇报。",
+          "此图是所选元素示例，不能据其数量断言源图被裁切或标准仅有两种元素。"
+        ]
+      }
+    },
+    "G242/fig3-1": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "353035f7ea332f123e95cb7190a153a5fcc0dc5b0b0641f1cc0506d829fca43f"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        30,
+        31,
+        32
+      ],
+      "findings_zh": [
+        "外框内七项业务功能、六个健身类比文字和版权标注与转录一致，无箭头或时序连线。",
+        "七项功能平级放在总容器中；顶部战略、底部治理的横向布局本身不构成上下级或执行先后。",
+        "正文明确文化建设是前提，模型要结合组织具体语境裁剪。"
+      ],
+      "semantics_overrides": {
+        "key_points_zh": [
+          "七个功能为战略、对外互动、架构构建、运营、文化、环境影响度量、转型治理。",
+          "总容器表示共同部署可持续信息系统政策；七项功能平级，没有线把战略或治理设为其他功能的管理父项。",
+          "六个健身类比文字是注释：Motivation、Good Relationships、Sport Room、State of Being、Weighing、Coach。运营没有单独类比标签。",
+          "原文将文化认知和承诺视作其他活动成功的前提，将模型作为活动分类、成熟度和对标起点；须按组织上下文裁剪。"
+        ],
+        "hierarchy_zh": "最外框包含七个业务功能；类比标签是各功能内的注记。布局没有表示执行顺序或人员直属关系。"
+      }
+    },
+    "G242/fig3-2": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "71816d57032ad513597b2b3c99183b74d262738a9c039c0405f5ea2b68d2b1af"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        35,
+        36
+      ],
+      "findings_zh": [
+        "四象限和中心Digital Sobriety五个标签完整，十字为分隔线而不是四条带方向关系。",
+        "已有四条关系标implicit association是语义解释，不伪装成显式箭头；无阶段或成熟度数值。"
+      ],
+      "semantics_overrides": {
+        "line_semantics_zh": "图中白色十字划分四个文化维度，没有箭头。四条association记录是对中心主题的解释性关联。"
+      }
+    },
+    "G242/fig3-3": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "b4c8d832fe7f3d8e671ea8cbb0b6d08363d9179be8a46274c8866cf20a1ce5d4"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        40,
+        41
+      ],
+      "findings_zh": [
+        "实际图为CSR与Risk Management两个相交圆，Environmental Risks是交集区域文字，不是第三个圆。",
+        "Digital Risk黑椭圆位于交集；右侧三个人像与Information System Management及Alert/Measure/Evaluate/Propose说明不是正式人事树。"
+      ],
+      "node_overrides": {
+        "environmental_risks": {
+          "type": "concept",
+          "description_zh": "CSR与风险管理两圆交集中的环境风险标签，没有单独第三圆。"
+        },
+        "digital_risk": {
+          "parent": null,
+          "description_zh": "在两圆交集内部的黑色椭圆；环境风险标签不构成另一个可见父框。"
+        }
+      },
+      "semantics_overrides": {
+        "reading_guide_zh": "先读左侧CSR与风险管理两个圆及交集中的环境风险，再读黑椭圆Digital Risk和右侧信息系统管理团队。",
+        "key_points_zh": [
+          "两个相交圆的标签是Corporate Social Responsibility (Organizations)和Risk Management。",
+          "Environmental Risks位于交集，Digital Risk位于该共同区域；图中没有第三个独立Environmental Risks圆。",
+          "水平黑线无箭头，将数字风险与信息系统管理团队及四项行动联系起来。",
+          "Alert、Measure、Evaluate、Propose为预警、度量、评估和建议；不据此赋予CIO全部风险接受权。",
+          "第41页正文要求可持续IT愿景由CSR、风险管理和业务单元共同构建，并需要CEO赞助。"
+        ],
+        "hierarchy_zh": "只有两圆交叠和数字风险黑椭圆；非互斥分类，不是三个独立圆或人员汇报。"
+      }
+    },
+    "G242/fig3-4": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "14e5c97864c7b2999cf099ff466814ec77979023037b01dc2032b9f0fcc9d4d4"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        47
+      ],
+      "findings_zh": [
+        "三个编号分别位于技术、应用数据、业务流程；CO2箭头穿出ICT边界。",
+        "业务人与应用数据之间画有未命名终端图标，两侧各一支双头箭头，旧解析漏掉终端并合成了直接边。"
+      ],
+      "additional_nodes": [
+        {
+          "id": "user_terminal",
+          "label_en": null,
+          "label_zh": "未命名用户终端图示",
+          "type": "technology",
+          "parent": "ict_system",
+          "position": "业务流程与应用数据矩形之间的屏幕/主机",
+          "description_zh": "原图未命名终端图标；不能当作当前企业设备实例或新增架构域。"
+        }
+      ],
+      "node_overrides": {
+        "co2_arrow": {
+          "parent": null,
+          "description_zh": "向上跨出技术基础设施框及ICT总边界的CO2排放箭头标注。"
+        }
+      },
+      "edge_overrides": {
+        "0": {
+          "to": "user_terminal",
+          "visual": {
+            "to": "user_terminal"
+          },
+          "reason_zh": "左侧双头箭头实际位于业务人物与终端之间；另有终端到应用数据的独立双头箭头。"
+        }
+      },
+      "additional_edges": [
+        {
+          "from": "user_terminal",
+          "to": "applications_data",
+          "type": "association",
+          "explicit": true,
+          "line": "thick",
+          "arrow": "both",
+          "description_zh": "屏幕右侧与应用数据矩形之间的独立双头箭头；保持两段图形交互，不压成一条线。"
+        }
+      ],
+      "semantics_overrides": {
+        "key_points_zh": [
+          "ICT系统边界内有业务流程、应用与数据、技术基础设施三个具名框，并有用户终端图示。",
+          "业务人物↔终端、终端↔应用数据、应用数据↔基础设施共三支双头箭头。",
+          "CO2向上穿出边界，正文将运行、制造、安装、维护、报废以及境外和外包设备纳入技术基础设施碳足迹。",
+          "编号1/2/3对应正文论点，不是执行步骤、成熟度或组织层级。"
+        ]
+      }
+    },
+    "G242/fig3-5": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "cd57dae9f30bc193f7026c6c60902d35fac11036dd50657a5028303d77e914e2"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        48,
+        49
+      ],
+      "findings_zh": [
+        "左右方法各三项要点，中间业务/应用/技术三个框和底部共同产出全部核对。",
+        "绿色向下和紫色向上箭头沿中间列外侧，没有落到单个框；现有两条flow只可表示方法解释，不是直接连接。"
+      ],
+      "edge_overrides": {
+        "0": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "diagram-direction-annotation"
+          },
+          "reason_zh": "长箭头是整个方法跨架构层的方向注记，没有连接该方法文本块与某一个架构框；本边保留为解释性路径。"
+        },
+        "1": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "diagram-direction-annotation"
+          },
+          "reason_zh": "长箭头是整个方法跨架构层的方向注记，没有连接该方法文本块与某一个架构框；本边保留为解释性路径。"
+        }
+      },
+      "additional_nodes": [
+        {
+          "id": "arrow_top_down",
+          "label_en": null,
+          "label_zh": "绿色向下方法箭头",
+          "type": "note",
+          "parent": null,
+          "position": "中间架构列左侧贯穿三层",
+          "description_zh": "长向下箭头没有接触实体边界，表示从用途下探技术的阅读方向。"
+        },
+        {
+          "id": "arrow_bottom_up",
+          "label_en": null,
+          "label_zh": "紫色向上方法箭头",
+          "type": "note",
+          "parent": null,
+          "position": "中间架构列右侧贯穿三层",
+          "description_zh": "长向上箭头没有接触实体边界，表示从基础设施上溯用途的阅读方向。"
+        }
+      ],
+      "semantics_overrides": {
+        "line_semantics_zh": "两条长箭头表示方向而不是实体之间的传输连接。三个中间框没有相互连线；顺序关系与共同产出关系均为结合正文的方法解释。"
+      }
+    },
+    "G242/fig3-6": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "54fbbfae4c6ed0ff67cafa6eba9eaa8e0a3fabb6d7ed8c8fe5d77bb73da062f7"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        49,
+        50
+      ],
+      "findings_zh": [
+        "10项非功能属性按3/2/5分栏准确，三个趋势箭头没有实体端点，图中没有定量目标。",
+        "表中Dismantlability/Repairability及Portability/Interoperability各为一框两个词，不能拆成新的原图行。"
+      ],
+      "edge_overrides": {
+        "0": {
+          "visual_explicit_connection": false,
+          "direction": "undirected",
+          "visual": {
+            "line_style": "trend-annotation"
+          },
+          "reason_zh": "箭头是整栏趋势图例，不是从分类容器到图标的实际连线；记录注记关联。"
+        },
+        "1": {
+          "visual_explicit_connection": false,
+          "direction": "undirected",
+          "visual": {
+            "line_style": "trend-annotation"
+          },
+          "reason_zh": "箭头是整栏趋势图例，不是从分类容器到图标的实际连线；记录注记关联。"
+        },
+        "2": {
+          "visual_explicit_connection": false,
+          "direction": "undirected",
+          "visual": {
+            "line_style": "trend-annotation"
+          },
+          "reason_zh": "箭头是整栏趋势图例，不是从分类容器到图标的实际连线；记录注记关联。"
+        }
+      },
+      "semantics_overrides": {
+        "line_semantics_zh": "红向下、蓝水平、绿向上三个箭头是趋势注记，不连接变量；列间虚线仅分隔。",
+        "misreadings_zh": [
+          "Availability下降是本指南节制语境的需求趋势，不是要求任何业务无条件降低可用性。",
+          "Safety按原文原词保留，不直接扩展成完整信息安全要求。",
+          "没有幅度、阈值或阶段，不能推造量化指标。"
+        ]
+      }
+    },
+    "G242/fig3-7": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "ac8aa1eda23ccca215ab52b55102a03f3daa53c3a01e0d501166c63a9f10b9da"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        50,
+        51,
+        52
+      ],
+      "findings_zh": [
+        "四侧约束标题和四段示例完整；每侧三支向内箭头，共12支，表示逐轮收紧。",
+        "原图Iteration1最外、Iteration2中间、Iteration3更内，旧解析层级顺序反了；最内系统图标还有未命名虚线边界。",
+        "中心云/网络/服务器/数据库/屏幕是概括性插画，不表示五个实际部署系统或明确网络拓扑。"
+      ],
+      "node_overrides": {
+        "iter_1": {
+          "parent": null,
+          "description_zh": "Iteration1引线对应最外迭代带，后续向内收紧。"
+        },
+        "iter_2": {
+          "parent": "iter_1",
+          "description_zh": "Iteration2为中间迭代带。"
+        },
+        "iter_3": {
+          "parent": "iter_2",
+          "description_zh": "Iteration3为更内迭代带，包围最终系统边界。"
+        },
+        "central_system": {
+          "parent": "iter_3",
+          "description_zh": "最内未命名虚线框和通用ICT插画：云、网络、服务器、数据库、屏幕；没有源文组件名称或部署关系。"
+        }
+      },
+      "edge_overrides": {
+        "0": {
+          "visual": {
+            "repeated_arrow_count": 3,
+            "instances_description_zh": "同一侧三支短箭头依次跨过迭代带，均朝中心。"
+          },
+          "reason_zh": "同侧三支向内箭头合记约束作用；实际箭头共12支，不是4条人员治理指令。"
+        },
+        "1": {
+          "visual": {
+            "repeated_arrow_count": 3,
+            "instances_description_zh": "同一侧三支短箭头依次跨过迭代带，均朝中心。"
+          },
+          "reason_zh": "同侧三支向内箭头合记约束作用；实际箭头共12支，不是4条人员治理指令。"
+        },
+        "2": {
+          "visual": {
+            "repeated_arrow_count": 3,
+            "instances_description_zh": "同一侧三支短箭头依次跨过迭代带，均朝中心。"
+          },
+          "reason_zh": "同侧三支向内箭头合记约束作用；实际箭头共12支，不是4条人员治理指令。"
+        },
+        "3": {
+          "visual": {
+            "repeated_arrow_count": 3,
+            "instances_description_zh": "同一侧三支短箭头依次跨过迭代带，均朝中心。"
+          },
+          "reason_zh": "同侧三支向内箭头合记约束作用；实际箭头共12支，不是4条人员治理指令。"
+        }
+      },
+      "semantics_overrides": {
+        "key_points_zh": [
+          "用途、应用开发、数据、基础设施四类约束同时作用于系统。",
+          "用途可按配额或用户组限制高消耗功能；应用开发可约束库、框架、能耗和过时风险。",
+          "数据可在企业、业务线、应用、用户层限定数据量；基础设施可约束采购类型和服务器、虚拟机数量。",
+          "Iteration1最外→Iteration2→Iteration3向内收紧，最内为系统插画及其虚线边界；各侧三个箭头表示渐进约束。",
+          "第52页要求用指标、利益相关者参与和周期治理，使约束有依据且可接受；不能仅按图强加限制。"
+        ],
+        "hierarchy_zh": "视觉顺序由外向内为Iteration1、Iteration2、Iteration3和系统边界；这是同一系统不同迭代约束范围，不是同时存在的四个组织层级。",
+        "line_semantics_zh": "四侧各三支短箭头朝内收紧。三个细灰水平引线将Iteration1/2/3标签对应到由外向内的迭代带，没有流程传输或人员汇报含义。"
+      }
+    },
+    "G242/fig3-8": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "9b4114af1fb23c5d349e00ab99d4ab55bb5e7a418fd1a05c6487a4ddb34f7339"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        55,
+        56,
+        57
+      ],
+      "findings_zh": [
+        "24个文字节点及四个匿名人物图标、中央循环箭头和三种图例逐项核对。",
+        "唯一实际连接符是冲刺的粗循环箭头；四个角的框没有组成一条画出的Scrum流程。",
+        "原图青色Rites、橙色Artefacts图例与框内容分类冲突；保留原词，不静默改图例。"
+      ],
+      "node_overrides": {
+        "hdr_issues": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "issue_clients": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "issue_quality": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "issue_climate": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "hdr_prioritize": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "prio_arch": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "prio_quality": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "prio_environment": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "hdr_improve": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "imp_delivery": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "imp_collective": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "imp_sufficiency": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "hdr_validation": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "val_business": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "val_technical": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "val_environment": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "要点列在色块下方，归于该主题，但不被色块视觉包围。"
+        },
+        "team_responsible": {
+          "visual_instance_count": 4,
+          "description_zh": "四个人物图标围绕团队目标文字，没有逐人名称、岗位、技能等级或汇报线。"
+        }
+      },
+      "edge_overrides": {
+        "1": {
+          "semantic_state": "rejected-unobserved",
+          "reason_zh": "图中没有此连接，邻近正文没有规定这一步骤之间的具体流转；旧解释按一般Scrum知识补造了流程。"
+        },
+        "4": {
+          "semantic_state": "rejected-unobserved",
+          "reason_zh": "图中没有此连接，邻近正文没有规定这一步骤之间的具体流转；旧解释按一般Scrum知识补造了流程。"
+        },
+        "5": {
+          "semantic_state": "rejected-unobserved",
+          "reason_zh": "图中没有此连接，邻近正文没有规定这一步骤之间的具体流转；旧解释按一般Scrum知识补造了流程。"
+        },
+        "2": {
+          "from": "sprint",
+          "to": "next_increment",
+          "predicate": "consumes",
+          "visual_explicit_connection": false,
+          "reason_zh": "若保留待办作为冲刺输入的解释，消费主体应为Sprint；该关系是术语解释，不是原图画线。",
+          "scope_qualifier": "interpretation-from-backlog-and-delivery-labels"
+        },
+        "3": {
+          "visual_explicit_connection": false,
+          "reason_zh": "交付与增量标签支持这一解释，但原图无实体间箭头。",
+          "scope_qualifier": "interpretation-from-delivery-and-product-labels"
+        },
+        "6": {
+          "visual_explicit_connection": false,
+          "reason_zh": "第55页自主负责团队与图中目标责任文字支持团队作用；并非原图连接。"
+        }
+      },
+      "flows_override": [
+        {
+          "id": "sprint-iteration",
+          "steps": [
+            "sprint"
+          ],
+          "description_zh": "仅中央冲刺有实际循环箭头；不将四角框补成有向流程。"
+        }
+      ],
+      "semantics_overrides": {
+        "one_line_zh": "可持续目标进入敏捷交付的愿景、待办排序、团队责任、回顾与验收；原图只画出冲刺自循环。",
+        "key_points_zh": [
+          "绿色条目包括团队负责达成目标、气候环境问题、环境需求、节制目标及环境验收。",
+          "第55页要求业务单元把环境影响限制纳入验收和优先级，并通过重复交付与公开指标促进持续改进。",
+          "第56页实施条件包括度量手段、比较基准、架构需求与指南、团队意识和IT高管支持；业务与环境需求之间需要折中。",
+          "唯一画出的连接是冲刺自循环。四角对象的输入输出理解是解释，不能冒充源图完整流程。",
+          "原图图例文字青色Rites、橙色Artefacts与待办/产品和Daily/Retro框颜色存在分类冲突。"
+        ],
+        "hierarchy_zh": "要点在主题框下方，属于主题分类而非框内组成；四个人物是匿名团队图示。",
+        "source_conflicts": [
+          {
+            "kind": "legend-content-classification-conflict",
+            "literal_legend": {
+              "cyan": "Rites",
+              "orange": "Artefacts"
+            },
+            "visible_labels": {
+              "cyan": [
+                "Backlog product",
+                "Backlog Sprint",
+                "The Sprint",
+                "The Product"
+              ],
+              "orange": [
+                "The Daily",
+                "The Retro"
+              ]
+            },
+            "resolution_zh": "保留图例和框标签，不依据图例自动给对象赋仪式/制品类型。"
+          }
+        ]
+      }
+    },
+    "G242/fig3-9": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "1984f4ab69be7eaaa016077cc2d3be76c648fc728ade7fa5d86520ab4deb5194"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        59,
+        60
+      ],
+      "findings_zh": [
+        "六种气体、四条范围色带、范围1两项、范围2一项、上下游范围3的8/7项全部核对。",
+        "紫色范围3箭头止于各自范围标题下方，并未连接顶部气体云；四条旧范围→气体关系只能作为解释。",
+        "活动在色带上分类，不是被四个封闭范围容器包围；上下游同名活动保留不同实例。"
+      ],
+      "node_overrides": {
+        "purchased_goods": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "capital_goods": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "fuel_energy": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "transport_up": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "waste_ops": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "business_travel": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "employee_commuting": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "leased_assets_up": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "purchased_electricity": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "company_facilities": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "company_vehicles": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "transport_down": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "processing_sold": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "use_sold": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "end_of_life": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "leased_assets_down": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "franchises": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        },
+        "investments": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "图标在该范围色带上，以位置和颜色分类；没有封闭的父容器。"
+        }
+      },
+      "edge_overrides": {
+        "0": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "scope-band-direction-annotation",
+            "arrow": "upward"
+          },
+          "reason_zh": "范围由带箭头色带表示；箭尖停在范围标题下，没有从该标签接到气体云的连接线。范围排放温室气体是全图解释。"
+        },
+        "1": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "scope-band-direction-annotation",
+            "arrow": "upward"
+          },
+          "reason_zh": "范围由带箭头色带表示；箭尖停在范围标题下，没有从该标签接到气体云的连接线。范围排放温室气体是全图解释。"
+        },
+        "2": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "scope-band-direction-annotation",
+            "arrow": "upward"
+          },
+          "reason_zh": "范围由带箭头色带表示；箭尖停在范围标题下，没有从该标签接到气体云的连接线。范围排放温室气体是全图解释。"
+        },
+        "3": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "scope-band-direction-annotation",
+            "arrow": "upward"
+          },
+          "reason_zh": "范围由带箭头色带表示；箭尖停在范围标题下，没有从该标签接到气体云的连接线。范围排放温室气体是全图解释。"
+        }
+      },
+      "semantics_overrides": {
+        "hierarchy_zh": "18项排放活动按范围分类：范围1两项、范围2一项、上游范围3八项、下游范围3七项。底部三条带是价值链位置，顶部六气体是另一分类；不是组织或物理容器树。",
+        "line_semantics_zh": "四条向上的范围色带将活动分类；灰色范围2和青色范围1箭头停在各自标题下，紫色范围3两箭头更低，均无逐气体连线。底部色带说明上游、报告公司与下游，不表达流程。",
+        "misreadings_zh": [
+          "上游和下游运输配送、租赁资产是不同范围语境中的同名项目，不应合并为同一节点。",
+          "范围2同时列出电力、蒸汽、供热和制冷，不能只保留电力。",
+          "第60页关于ICT范围3占比的陈述来自引用研究，不是每个项目的实测结果。",
+          "中文旧重绘中的其他环境影响并非原图的第四排放范围。"
+        ]
+      }
+    },
+    "G242/fig3-10": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "977ef001591e0171f90386e428b567141c30a15ebe816c9500e57d91dca481f4"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        61,
+        62
+      ],
+      "findings_zh": [
+        "六列对象、示例子项、六行指标、两个行括号与颜色图例均对原图核对。",
+        "PUE 1.2位于Microsoft Office365下，旧总结把它移到自营数据中心并声称云不填PUE，是误读。",
+        "Carbon Accounting括号从Electricity Consumption延至Offset；Analysis只括Storage行，旧前三行/后三行分组错误。",
+        "存储行分隔落在分包商列内部，未与列边界对齐；只能确认自营/云属于Volume，网络/工作站/客户属于Not Concerned，分包商归属不确定。"
+      ],
+      "node_overrides": {
+        "sub_dc1": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_dc2": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_dc_more": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_office365": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_azure": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_aws": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_cloud_more": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_marketing": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_internet": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_devices": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "sub_terminal_pct": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_mix_onprem": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_cloud_mtco2e": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_measure_sub": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_measure_net": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_mix_workstation": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_mix_customers": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_inventory_onprem": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_services": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_terminals_ws": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "cell_terminals_cust": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "按表头归类，表头并未视觉包围子项。"
+        },
+        "row_electricity": {
+          "parent": "grp_carbon_accounting",
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "左侧Carbon Accounting括号实际覆盖这四行。"
+        },
+        "row_inventories": {
+          "parent": "grp_carbon_accounting",
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "左侧Carbon Accounting括号实际覆盖这四行。"
+        },
+        "row_total": {
+          "parent": "grp_carbon_accounting",
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "左侧Carbon Accounting括号实际覆盖这四行。"
+        },
+        "row_offset": {
+          "parent": "grp_carbon_accounting",
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "左侧Carbon Accounting括号实际覆盖这四行。"
+        },
+        "row_storage": {
+          "parent": "grp_analysis",
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "Analysis括号只覆盖Storage Terabyte行。"
+        },
+        "cell_storage_note": {
+          "description_zh": "横向合并白框写# Volume in TB；右边界穿过分包商列，不能准确投射为完整列集合。"
+        },
+        "cell_not_concerned": {
+          "description_zh": "浅灰合并框写Not Concerned；左边界位于分包商列内部；公共网络、工作站和客户终端明确位于其内。"
+        }
+      },
+      "tables_override": [
+        {
+          "id": "t_yearly_assessment",
+          "title_zh": "年度环境评估矩阵（按原图逐格转录；黄=范围 2，蓝=范围 3）",
+          "columns": [
+            "核算步骤",
+            "自营数据中心（DC#1 / DC#2 / …）",
+            "公有云（Office 365 / Azure / AWS / …）",
+            "分包商（营销活动、分包服务）",
+            "公共网络（互联网）",
+            "工作站/薪酬/分包商（计算机、电话、打印机、屏幕等）",
+            "客户终端（所需终端百分比）"
+          ],
+          "rows": [
+            [
+              "PUE",
+              "1.5 / 1.4 / ……",
+              "1.2 / …… / …… / ……",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "用电量 Electricity Consumption",
+              "#kWH * Electric Mix of the Location（黄）",
+              "MtCO₂e（蓝）",
+              "Measure Method to Identify（蓝）",
+              "Measure Method to Identify（蓝）",
+              "#kWH * Electric Mix of the Location（黄）",
+              "#kWH * Electric Mix of the Location（蓝）"
+            ],
+            [
+              "设备清单、设备寿命 Inventories, Equipment's Lifetime",
+              "#Physical Servers #Virtual Servers #Network Equipment #Storage Bays…（蓝）",
+              "#Services（蓝）",
+              "Measure Method to Identify（蓝）",
+              "Measure Method to Identify（蓝）",
+              "#Terminals #Equipment（蓝）",
+              "#Terminals #Equipment（蓝）"
+            ],
+            [
+              "Total MtCO₂e/Year",
+              "Use public reference data: balance sheet GHG emissions ADEME, TSP REN, GES published by providers（白，跨全部列）",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "MtCO₂e Offset",
+              "Offset Should be Counted Separately（白，跨全部列）",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Storage Terabyte",
+              "# Volume in TB（白）",
+              "# Volume in TB（白）",
+              null,
+              "Not Concerned（浅灰）",
+              "Not Concerned（浅灰）",
+              "Not Concerned（浅灰）"
+            ]
+          ],
+          "cell_legend": [
+            "黄色：范围 2——与用电相关的间接温室气体排放",
+            "蓝色：范围 3——与服务、材料采购相关的间接温室气体排放",
+            "白色：无范围着色（公式、度量方法说明或汇总）",
+            "浅灰：Not Concerned，该项不适用于此核算对象"
+          ],
+          "notes_zh": "PUE中DC#1=1.5、DC#2=1.4、Microsoft Office365=1.2为图内示例。总量与抵消两行横跨全部对象列。存储行界线落在分包商列内，无法将该列完整判入Volume或Not Concerned；null表示源图边界含混，不表示零。分包商与网络的Measure Method to Identify分别纵跨用电/清单两行。",
+          "source_layout_uncertainties": [
+            {
+              "row": "Storage Terabyte",
+              "column": "Sub-contractors",
+              "kind": "merged-cell-boundary-not-aligned-to-column",
+              "description_zh": "Volume/Not Concerned分界在分包商列中间；保留横向合并区域，拒绝猜测列归属。"
+            }
+          ],
+          "merged_regions": [
+            {
+              "rows": [
+                "Total MtCO2e/Year"
+              ],
+              "columns": "all-six-object-columns",
+              "text": "Use public reference data: balance sheet GHG emissions ADEME, TSP REN, GES published by providers"
+            },
+            {
+              "rows": [
+                "MtCO2e Offset"
+              ],
+              "columns": "all-six-object-columns",
+              "text": "Offset Should be Counted Separately"
+            },
+            {
+              "rows": [
+                "Electricity Consumption",
+                "Inventories, Equipment’s Lifetime"
+              ],
+              "columns": [
+                "Sub-contractors"
+              ],
+              "text": "Measure Method to Identify"
+            },
+            {
+              "rows": [
+                "Electricity Consumption",
+                "Inventories, Equipment’s Lifetime"
+              ],
+              "columns": [
+                "Public Network"
+              ],
+              "text": "Measure Method to Identify"
+            },
+            {
+              "rows": [
+                "Storage Terabyte"
+              ],
+              "confirmed_columns": [
+                "On-Premise Data Centers Managed by the Organization",
+                "Public Cloud"
+              ],
+              "ambiguous_partial_column": "Sub-contractors",
+              "text": "# Volume in TB"
+            },
+            {
+              "rows": [
+                "Storage Terabyte"
+              ],
+              "confirmed_columns": [
+                "Public Network",
+                "Workstation / Salaries / Sub-contractors",
+                "Customers’ Terminals"
+              ],
+              "ambiguous_partial_column": "Sub-contractors",
+              "text": "Not Concerned"
+            }
+          ]
+        }
+      ],
+      "semantics_overrides": {
+        "reading_guide_zh": "按六类对象逐年度度量，并用2–3年序列看趋势。PUE是独立行；Carbon Accounting左括号覆盖用电、清单、总量、抵消四行，Analysis括号只覆盖存储行。",
+        "key_points_zh": [
+          "六列依次是自营数据中心、公有云、分包商、公共网络、Workstation / Salaries / Sub-contractors、客户终端。Salaries原词保留，不静默改成人员或设备。",
+          "PUE示例1.5/1.4在DC#1/DC#2，1.2在Microsoft Office365下；不能声称公有云不填PUE。空白不是0，也不能据图判定所有其他对象均不适用。",
+          "用电行：自营与工作站黄色表示范围2，公有云/分包商/网络/客户蓝色表示范围3；云格写MtCO2e而非同一kWH公式。",
+          "清单行区分物理/虚拟服务器、网络、存储，云服务数量，以及两类终端/设备。分包商和网络各有纵跨两行的Measure Method to Identify。",
+          "Total行提示使用公开参考数据；没有说不许汇总，也不提供可直接照搬的完整求和或PUE乘法公式。",
+          "Offset单列，与第62页reduce what you can, offset what you cannot及分开追踪排放的正文一致。",
+          "存储行的合并边界与分包商表头不对齐；该列归属保持未知。",
+          "第62页允许先按数量级估算，缺少精确供应商数据不应导致不评估；云迁移可能把范围2转为范围3，并不自动减排。"
+        ],
+        "hierarchy_zh": "行列分类、两条行括号与合并单元格共同组织表格，不是业务实体树。Carbon Accounting含四行，Analysis只有存储行；PUE位于两括号之外。",
+        "misreadings_zh": [
+          "1.2不是自营数据中心的第三个示例值，而是Office365列下的值。",
+          "原图没有禁止对恰当边界下的排放求和；公开因子说明不能被解释成年度总量无需计算。",
+          "分包商的存储归属在源图中含混，不能硬填Not Concerned。",
+          "抵消单列，不能用净值掩盖总排放趋势；本模板不能替代核算边界和方法说明。"
+        ]
+      }
+    },
+    "G242/fig3-11": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "da6357bd1ba017f664b15d6e1166658a44b8ed7f50e6bf885ee6b9de273c540a"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        64,
+        65,
+        66
+      ],
+      "findings_zh": [
+        "业务2、软件4、基础设施4项指标，三种结果与三条真实箭头完整核对。",
+        "箭头从每层分组右边界出发，穿过CO2 Equivalent Frame到相应结果；不另造每指标到框架连线。",
+        "原文支持利益相关者决策范围内采取减排措施，没有把三个层级规定为三个正式岗位。"
+      ],
+      "semantics_overrides": {
+        "purpose_zh": "把业务用途、软件应用、基础设施网络三种归集视角的中间指标转成碳足迹，支持利益相关者在各自决策范围采取减排措施。",
+        "key_points_zh": [
+          "业务用途层两项：按用途/业务管理归集的基础设施与应用指标。",
+          "软件应用层四项：按应用归集基础设施指标、应用数量、内部应用使用的不同库数量、使用频率/时长或功能细节。",
+          "基础设施网络层四项：设备制造排放、能耗、存储量、内部外部传输数据量。",
+          "三条箭头共同穿过CO2当量框架，分别到按用途/业务、应用/软件、设备/材料及相关基础设施归集的碳足迹。",
+          "图示共同折算框架，不声称某一工具是唯一合法方法，也不赋予三个岗位排他责任。",
+          "第65–66页建议统一共享原始因子、来源、电力结构等数据以保证一致性和同行复核；当云供应商细节不足时中间指标可支持先行动。"
+        ],
+        "hierarchy_zh": "三个并列度量视角，每个视角包含指标，右侧Carbon Footprint列归集对应结果；没有人员汇报层级。"
+      }
+    },
+    "G242/fig3-12": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "8ab07721f84d482891becf6718f5885e416b0e87c683e1e28949358ca7b5e869"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        66,
+        67,
+        68
+      ],
+      "findings_zh": [
+        "17个角色/活动/阶段/外部性标签、7条实际交换箭头、2条角色括号及五个带间隙的V形块完整核对。",
+        "五个生命周期块之间没有单独连线；右向V形表达排列顺序，不能当作四条实体传输箭头。",
+        "制造商与IS专业人员括号只说明图示作用范围；没有画废弃阶段括号不等于把其责任转给其他人。"
+      ],
+      "edge_overrides": {
+        "0": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "chevron-sequence",
+            "arrow": "right-facing-shape"
+          },
+          "reason_zh": "阶段之间留有空白，没有独立连接线；顺序由右向V形及左到右布局表达。"
+        },
+        "1": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "chevron-sequence",
+            "arrow": "right-facing-shape"
+          },
+          "reason_zh": "阶段之间留有空白，没有独立连接线；顺序由右向V形及左到右布局表达。"
+        },
+        "2": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "chevron-sequence",
+            "arrow": "right-facing-shape"
+          },
+          "reason_zh": "阶段之间留有空白，没有独立连接线；顺序由右向V形及左到右布局表达。"
+        },
+        "3": {
+          "visual_explicit_connection": false,
+          "visual": {
+            "line_style": "chevron-sequence",
+            "arrow": "right-facing-shape"
+          },
+          "reason_zh": "阶段之间留有空白，没有独立连接线；顺序由右向V形及左到右布局表达。"
+        }
+      },
+      "semantics_overrides": {
+        "purpose_zh": "说明ICT资产生命周期中的参与者和知识、数据、规则、资源、污染交换；为组织与客户、供应商、监管和知识机构合作提供地图。",
+        "reading_guide_zh": "中间五阶段从左到右，制造商括号位于前两段下方，IS专业人员括号位于第三第四段下方，最终用户在使用维护上方。上部三条与教育有关的交换及两条与监管有关的交换，共五箭头；底部资源流入、污染流出另两箭头。",
+        "key_points_zh": [
+          "五段为开采使用自然资源、制造设备、构建信息系统、使用维护、处置数字废弃物/回收；块之间有间隙。",
+          "制造商括号覆盖前两段，信息系统专业人员括号覆盖第三第四段。图没有赋予任何角色排他或全部生命周期责任。",
+          "教育/共享知识→监管为Knowledge to Influence；生命周期向教育和监管分别提供Real Data；教育向生命周期提供Knowledge to Influence，监管向其提供Rules。",
+          "底部有限自然资源流入生命周期，ICT污染流出；不是两个信息系统数据库。",
+          "NGO、高教、国家/机构和最终用户等人物图标表示角色类别，不是实际人数或岗位技能矩阵。",
+          "第66–68页要求生态合作、供应商全生命周期透明度、明确披露范围与采购选择条件；职责应结合正文和项目约定进一步界定。"
+        ],
+        "line_semantics_zh": "五条上部知识/数据/规则箭头加两条资源/污染箭头共7条实际连线。四条阶段sequence是V形排列的解释；角色花括号不是方向箭头。",
+        "misreadings_zh": [
+          "废弃回收没有角色括号并不意味着IS专业人员或制造商没有相关责任，也不能据此把责任指定给最终用户。",
+          "最终用户位于使用维护附近，图中没有规定其不能执行任何生命周期活动。",
+          "图示角色范围不是排他责任边界或完整RACI。"
+        ]
+      }
+    },
+    "G242/fig3-13": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "376ff553aac110a7ab01ce7c43543dbd34c0b61a598670b4e5c9d89ced9fbe32"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        76,
+        77
+      ],
+      "findings_zh": [
+        "决策仓库圆柱和四个带勾属性完整；没有箭头、数据字段或工具选择。",
+        "正文说日志可以记录到共享仓库，未要求必须采用某类数据库，旧“不可以是文档”过度推断。"
+      ],
+      "semantics_overrides": {
+        "key_points_zh": [
+          "Decision Repository用圆柱示意存放决策日志；第77页原文使用can be recorded，未指定数据库产品或排除文档型实现。",
+          "四项图中文字为Traceable、Shareable、Editable、Readable，分别可追溯、可共享、可编辑、可读；正文updatability/availability措辞另保留。",
+          "四个勾表示期望性质，不是某项目已经实施完成的证明。",
+          "原文下一段把数字可持续性评审模板误指为Figure3-13，而下方实际模板图题为Figure3-14；保留引用编号不一致。"
+        ],
+        "misreadings_zh": [
+          "仓库符号不能推导某技术栈、数据库强制要求或禁用文档。",
+          "四项并列性质不是流程顺序或已完成待办。"
+        ],
+        "source_conflicts": [
+          {
+            "kind": "cross-reference-mismatch",
+            "pdf_page": 77,
+            "literal_reference": "Figure 3-13 shows an example of a template",
+            "caption_of_template": "Figure 3-14",
+            "resolution_zh": "模板路由指向3-14，同时保留原文误指。"
+          }
+        ]
+      }
+    },
+    "G242/fig3-14": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "6288422091deecb809fc565c4dccdfd023afa94eda760a67e0c228dbb0a06010"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        77
+      ],
+      "findings_zh": [
+        "19个标签、3个业务判断、五类手段、碳足迹表的21个数值及选中状态完整核对。",
+        "保留Total884与分项883、Scope2平衡-390与计算-391的差异；不猜测四舍五入原因。",
+        "Increase深色选中同时总平衡-103，源图两种信号不一致；不把此示例当作项目评审结论。",
+        "底部绿色大空白输入框与右侧Comment框分别存在，旧节点记录遗漏底部空白框。"
+      ],
+      "node_overrides": {
+        "subtitle": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "impact_measure": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "impact_reduce": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "impact_train": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "explain_measure": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "explain_reduce": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "explain_train": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "toggle_increase": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "toggle_decrease": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "comment": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "lever_dev": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "lever_equipment": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "lever_procurement": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "lever_data": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        },
+        "lever_users": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "标题/带状分组用于表单分类，并不视觉包围下方字段；无组成或人事语义。"
+        }
+      },
+      "additional_nodes": [
+        {
+          "id": "blank_bottom_field",
+          "label_en": null,
+          "label_zh": "底部未命名空白输入框",
+          "type": "note",
+          "parent": null,
+          "position": "五类手段YES/NO按钮下方横跨表单宽度",
+          "description_zh": "原图绿色边框空白区域，没有字段名或填写内容。"
+        }
+      ],
+      "semantics_overrides": {
+        "hierarchy_zh": "标题和三个带状标题将表单分为业务影响、IT碳足迹和环境影响最小化手段；是字段分类，不是人员或业务组件层级。",
+        "source_conflicts": [
+          {
+            "kind": "printed-arithmetic-mismatch",
+            "row": "IN : Added Resources",
+            "printed_total": 884,
+            "visible_component_sum": 883
+          },
+          {
+            "kind": "printed-arithmetic-mismatch",
+            "column": "Year 1 Scope 2",
+            "printed_balance": -390,
+            "difference_of_visible_inputs": -391
+          },
+          {
+            "kind": "toggle-and-balance-tension",
+            "selected_toggle": "Increase",
+            "printed_total_balance": -103,
+            "resolution_zh": "保留按钮与数值，不推断作者意图或自动修改。"
+          }
+        ]
+      }
+    },
+    "G242/fig3-15": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "ae6283fe588a60e54112de6c114b1f302136f3589c88d72c518fcb9d31ba42d6"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        78
+      ],
+      "findings_zh": [
+        "中央一个与本地三个会议图标、四类中央参与视角、两个文字标签及本地汇至中央的一组箭头完整核对。",
+        "本地三个图标表示多个治理实例；人物小图标不赋予实际人数、职位或人事汇报。",
+        "表3-6只给示例门槛Y tCO2e，并未给具体数值；决策是否上报取决于选择的标准。"
+      ],
+      "node_overrides": {
+        "role_finance": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "Finance/Business/IT/Architecture是会议图标四周的参与视角标签，不是被封闭机构框包含的岗位。"
+        },
+        "role_business": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "Finance/Business/IT/Architecture是会议图标四周的参与视角标签，不是被封闭机构框包含的岗位。"
+        },
+        "role_it": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "Finance/Business/IT/Architecture是会议图标四周的参与视角标签，不是被封闭机构框包含的岗位。"
+        },
+        "role_architecture": {
+          "hierarchy_kind": "classified_under",
+          "hierarchy_reason_zh": "Finance/Business/IT/Architecture是会议图标四周的参与视角标签，不是被封闭机构框包含的岗位。"
+        }
+      },
+      "edge_overrides": {
+        "0": {
+          "visual": {
+            "connector_topology": "three-local-branches-join-one-upward-trunk",
+            "branch_count": 3
+          },
+          "reason_zh": "三个本地图标共用横向支线和一个向中央的箭头；一组汇合线表示决策认可/升级，不是直接人员汇报。"
+        }
+      },
+      "semantics_overrides": {
+        "purpose_zh": "说明按环境影响与组织选定标准进行分层决策验证；本地可记录、传达以求认可或升级到相关机构。",
+        "key_points_zh": [
+          "中央图标周围是Finance、Business、IT、Architecture四种参与视角；未指定实际委员人数。",
+          "本地三个会议图标表示复数实例，三支线汇合为一条向上箭头，标签Endorsement or Escalation of Decisions。",
+          "第78页允许依规模设多个治理层级，此图不强制所有组织固定两级或三个本地机构。",
+          "表3-6列新托管服务、新应用服务、超过Y tCO2e作为提交委员会的示例标准，Y未赋具体数值。",
+          "图没有向下批复箭头或员工直属汇报关系；这些需要另有证据。"
+        ]
+      }
+    },
+    "G242/fig3-16": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "c46eb23d7a843e2f1eafcaf50c1fbbeb595cb543a8729852aa95a5a401c7f44a"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        79,
+        80,
+        81,
+        82
+      ],
+      "findings_zh": [
+        "九张卡片和编号按列1/2/3、4/5/6、7/8/9完整核对；无连接线或父子组。",
+        "保留源图equipment’s services、repareable、Chose字样；正文表3-7解释不替换图中字面。",
+        "九条原则为示例，原图没有把1设为其他8条的必要前置，旧断言须移除。"
+      ],
+      "node_overrides": {
+        "p8_design": {
+          "label_en": "Design equipment’s services to make them repareable, reusable, recyclable",
+          "description_zh": "原图保留equipment’s services及repareable原词；表3-7对应原则涵盖可维修、可复用硬件和服务的模块化设计。"
+        }
+      },
+      "semantics_overrides": {
+        "purpose_zh": "提供可裁剪的公司架构原则示例，使日常非正式决策与可持续战略一致；不是强制统一的九步实施方案。",
+        "reading_guide_zh": "按列编号阅读：左列1培训沟通、2透明度量、3节制使用；中列4可持续共享服务、5知识共享、6再用维修回收；右列7资源优化减少污染、8可维修复用回收设计、9选择遵循原则的供应商。",
+        "key_points_zh": [
+          "九条卡片为并列原则示例，编号不证明优先级、成熟度或依赖。",
+          "培训沟通面向员工、经理与股东；原文支持建立认知，不支持“没有第1条其他8条不能实施”的必要性断言。",
+          "透明度量从全生命周期CO2e开始，在需要时增加指标；使用节制可用配额，需按组织情境实施。",
+          "共享服务与知识旨在减少重复资源；知识共享的正文边界是without harming the organization，不能推成所有信息无条件公开。",
+          "再用维修回收、资源与制造优化、模块化可维修设计，覆盖设备和服务生命周期。",
+          "供应商选择把原则延伸至提供方，具体论证见表3-7而非图中额外连线。"
+        ]
+      }
+    },
+    "G242/fig5-1": {
+      "source_pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+      "source_crop_sha256": [
+        "5f1f332984f8d380d0b08c3848ec3df063627cff287c8954d57b39897988d0c5"
+      ],
+      "date": "2026-11-07",
+      "review_status": "source-content-audited",
+      "scope": "All visible labels, actual connectors, groups, chart data and legend, plus adjacent original paragraphs.",
+      "reviewed_components": [
+        "visible-labels",
+        "connector-topology",
+        "grouping",
+        "table-content-or-absence",
+        "nearby-source-text"
+      ],
+      "inspected_pdf_pages": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "findings_zh": [
+        "外层1能力、7组业务功能、36个细分功能共44节点；6/6/8/4/4/3/5分组数量与所有标签逐一核对。",
+        "外框右上阶梯块图标与内部业务功能双折角图标不同；均为记法，不是额外实体。",
+        "无连线，无从战略到治理的顺序；文化、度量和治理的位置不能自动构造依赖或优先级。",
+        "图上frugal & regenerative与表5-1的Encourage Frugal Innovation措辞不同，保留图文字及表文本。"
+      ],
+      "node_overrides": {
+        "deploy_policy": {
+          "notation_type": "ArchiMate Capability",
+          "description_zh": "外层能力容器，右上阶梯块能力图标；内含七类业务功能。"
+        },
+        "f_dual_approach": {
+          "label_en": "A dual use-based an infrastructure-based architecture approach to drive transformation",
+          "description_zh": "图内连接词印为an；按上下文解释为用途与基础设施双向方法，但不静默修订字面。"
+        },
+        "f_data_arch": {
+          "label_en": "Reshape data architecture to reduce data volume"
+        }
+      },
+      "semantics_overrides": {
+        "reading_guide_zh": "从外到内读能力总容器、七类业务功能及其36个子功能。战略在顶部、治理在底部、互动在左、度量在右均为布局；无先后箭头。外框能力图标与内部功能图标须区分。",
+        "key_points_zh": [
+          "44节点：1能力容器、7功能组、36细分功能；各组细分数量为战略6、生态互动6、架构构建8、运营4、文化4、度量3、治理5。",
+          "战略含风险、发起人、CSR/业务/ICT对齐、目标、业务模式、转型计划六项。",
+          "互动含透明度、选择标准、采购战略、监管、客户参与和市场知识六项。",
+          "架构构建含愿景、双向方法、业务/应用/数据/技术重塑、敏捷与可持续软件八项；这些都直接属于同组。",
+          "运营的负荷削减明确依电力运营商可中断请求；不能推成无条件停机。",
+          "文化4项、度量3项、治理5项分别为并列功能，不由版面决定高低优先级。",
+          "详细说明见表5-1和第3章；用作组织活动盘点与裁剪的参考模型，不是项目现状。"
+        ],
+        "misreadings_zh": [
+          "36个细分功能不是36个执行步骤；战略位置和治理位置不构成流程。",
+          "外层能力与内部业务功能有不同记法，不把所有框都标成同一种ArchiMate元素。",
+          "图中的an及regenerative措辞与正文有差异，原图字面与语境解释分开保存。",
+          "功能图标不是新节点、按钮或关系端点。"
+        ]
+      }
+    }
+  }
+}

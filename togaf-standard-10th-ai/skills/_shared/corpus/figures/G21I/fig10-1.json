@@ -1,0 +1,419 @@
+{
+  "schema_version": "1.0",
+  "id": "G21I/fig10-1",
+  "status": "done",
+  "doc": {
+    "code": "G21I",
+    "title_zh": "微服务架构",
+    "title_en": "Microservices Architecture (MSA)",
+    "zh_md": "G21Ie_微服务架构.md",
+    "en_pdf": "togaf-standard-10th/G21Ie.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "10-1",
+    "title_en": "Scope Transformation",
+    "title_zh": "范围转型",
+    "section_en": "10.2 Scope Transformation",
+    "section_zh": "10.2 范围转型",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        44
+      ],
+      "printed_page": 30,
+      "bboxes": [
+        [
+          99.8,
+          36.0,
+          512.2,
+          186.8
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        635
+      ],
+      "label_table_lines": [
+        639,
+        649
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21ie_fig10-1_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "791f4fc76cd4",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.979（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g21ie_fig10-1_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "0bc6a71c07a9",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "两个状态标题框、单体应用与全新建设两个框、大箭头、云和 5 个微服务框都在，位置一致，译名正确",
+        "“转型路线图”放在一块比箭头颜色浅的矩形补丁上，补丁边缘清晰可见",
+        "字号不统一：“目标状态”“转型路线图”很大，“现状”“全新建设（绿地）”“微服务”偏小；原图两个状态标题字号相同"
+      ]
+    },
+    {
+      "path": "G21Ie_微服务架构.md#L639-L649",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "366b9d41cb6a",
+      "fidelity": "faithful",
+      "issues_zh": []
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "flow",
+      "infographic"
+    ],
+    "notation": "非正式“现状→目标”示意图：灰蓝色标题框标出现状与目标状态；左侧橙色实心框（单体）与绿框白底（全新建设）为两种起点；中间灰蓝色大块箭头标“转型路线图”；右侧绿色圆角框为微服务，其中 3 个在云形图内、2 个在云外",
+    "concepts": [
+      "microservices",
+      "transition_architecture",
+      "architecture_roadmap",
+      "baseline_target_gap"
+    ],
+    "adm_phases": [
+      "adm_phase_e"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "无论现状是单体还是全新建设，都通过转型路线图走向由多个独立微服务组成的目标状态。",
+    "purpose_zh": "第 10.2 节（阶段 E 的范围转型）用本图说明云原生与 MSA 的核心理念：目标状态是模块化、分布式、高度解耦的方案；由于微服务独立且自包含，每个模块的范围可以单独管理，各有自己的路线图与过渡计划。范围转型是阶段 E 的三类关键考虑之一（另两类为组织转型和技术转型）。",
+    "reading_guide_zh": "从左到右读。左侧“现状”下列出两种起点：单体（橙色框）和全新建设（绿框），二者是可选的两种情形，不是同时存在的两个部分。中间的大箭头是“转型路线图”（复数）。右侧“目标状态”是 5 个独立的微服务，其中 3 个画在云里，2 个在云外。",
+    "key_points_zh": [
+      "现状有两种情形：可分解的单体方案，或没有遗留系统的全新建设（Greenfield）。",
+      "目标状态是模块化、分布式、高度解耦的方案，由多个彼此独立的微服务组成。",
+      "微服务独立且自包含，所以每个模块的范围可以单独管理，各有自己的路线图与过渡计划；箭头上写的是复数的“转型路线图”。",
+      "部分微服务在云内、部分在云外：原文指出微服务是云原生方案的一种，但也可以部署在云外；云原生则专为云设计。",
+      "阶段 E 还要考虑组织转型（每个微服务由单一团队拥有，治理结构精益、联邦式）和技术转型（异构技术格局、内外双重参考架构、交付与部署基础设施，以及数据转型），这些不在本图中。"
+    ],
+    "hierarchy_zh": "两组：“现状”下是单体与全新建设两种可选起点；“目标状态”下是 5 个微服务，其中 3 个位于云形图内。",
+    "line_semantics_zh": "只有一个大块箭头，从现状指向目标状态，标“转型路线图”。现状中的两个框之间、各微服务之间都没有连线。",
+    "misreadings_zh": [
+      "单体与全新建设是二选一的两种起点，不是需要同时迁移的两个系统。",
+      "箭头不表示一次性整体迁移；原文强调每个模块有自己的路线图与过渡计划。",
+      "云外的 2 个微服务不是“尚未迁移”的部分；原图没有区分它们的状态，正文只说明微服务也可以部署在云外。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p43",
+        "summary_zh": "阶段 E 识别交付目标架构的交付载体，汇总阶段 B–D 的差距，并形成实施与迁移策略纲要。"
+      },
+      {
+        "source": "en_pdf p43",
+        "summary_zh": "微服务是云原生方案的一种，但也可以部署在云外；云原生专为云设计；二者都高度模块化、分布式部署，具有弹性和韧性。云原生与 MSA 给目标架构、架构路线图和过渡计划带来范围转型、组织转型、技术转型（含数据转型）三类考虑。"
+      },
+      {
+        "source": "en_pdf p43",
+        "summary_zh": "范围转型：目标状态是模块化、分布式、高度解耦的方案；现状可能是全新建设或可分解的单体；微服务独立且自包含，使每个模块的范围可单独管理，各有自己的路线图与过渡计划，见图 10-1。"
+      },
+      {
+        "source": "en_pdf p44",
+        "summary_zh": "组织转型要求每个模块（微服务）由单一团队拥有、治理结构精益且联邦式；技术转型要考虑从同质到异构的技术格局、从单一到双重参考架构、以及交付与部署基础设施的转型。"
+      },
+      {
+        "source": "zh_md L633",
+        "summary_zh": "中文稿对范围转型的说明与英文一致。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "左列：顶部“现状”标题框，下面上下排列单体（橙色）和全新建设（绿框白底）。中间：指向右方的灰蓝色大块箭头。右侧：顶部“目标状态”标题框，下方一朵云，云内 3 个微服务框，云外下方 2 个微服务框。"
+  },
+  "legend": [
+    {
+      "symbol": "灰蓝色标题框",
+      "meaning_zh": "状态名称（现状 / 目标状态）",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色实心框",
+      "meaning_zh": "单体方案（已有系统）",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色边框、白底的框",
+      "meaning_zh": "全新建设（没有已有系统）",
+      "explicit": false
+    },
+    {
+      "symbol": "灰蓝色大块箭头",
+      "meaning_zh": "转型路线图，由现状指向目标状态",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色圆角框",
+      "meaning_zh": "微服务",
+      "explicit": false
+    },
+    {
+      "symbol": "云形图",
+      "meaning_zh": "云（未标名称）；云内为云上部署的微服务",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "current_state",
+      "label_en": "Current State",
+      "label_zh": "现状",
+      "type": "architecture",
+      "parent": null,
+      "position": "左上标题框"
+    },
+    {
+      "id": "monolith",
+      "label_en": "Monolith",
+      "label_zh": "单体应用",
+      "type": "application",
+      "parent": "current_state",
+      "position": "左列上",
+      "description_zh": "可分解的单体方案。"
+    },
+    {
+      "id": "greenfield",
+      "label_en": "Greenfield",
+      "label_zh": "全新建设（绿地）",
+      "type": "concept",
+      "parent": "current_state",
+      "position": "左列下",
+      "description_zh": "没有遗留系统的全新建设场景。"
+    },
+    {
+      "id": "roadmaps",
+      "label_en": "Transformation Roadmaps",
+      "label_zh": "转型路线图",
+      "type": "artifact",
+      "position": "中间大箭头上",
+      "description_zh": "复数：每个模块各有路线图与过渡计划。"
+    },
+    {
+      "id": "target_state",
+      "label_en": "Target State",
+      "label_zh": "目标状态",
+      "type": "architecture",
+      "parent": null,
+      "position": "右上标题框",
+      "description_zh": "模块化、分布式、高度解耦的方案。"
+    },
+    {
+      "id": "cloud",
+      "label_en": null,
+      "label_zh": "云（未标名称的云形图）",
+      "type": "technology",
+      "parent": "target_state",
+      "position": "右侧中上"
+    },
+    {
+      "id": "ms_1",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "cloud",
+      "position": "云内左上"
+    },
+    {
+      "id": "ms_2",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "cloud",
+      "position": "云内右上"
+    },
+    {
+      "id": "ms_3",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "cloud",
+      "position": "云内中"
+    },
+    {
+      "id": "ms_4",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "target_state",
+      "position": "云外右下",
+      "description_zh": "部署在云外的微服务。"
+    },
+    {
+      "id": "ms_5",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "target_state",
+      "position": "云外左下"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "current_state",
+      "to": "target_state",
+      "type": "transitions_to",
+      "label_en": "Transformation Roadmaps",
+      "label_zh": "转型路线图",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "大块箭头"
+    },
+    {
+      "from": "roadmaps",
+      "to": "target_state",
+      "type": "realization",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "路线图（各模块各一份）把现状带到目标状态"
+    },
+    {
+      "from": "monolith",
+      "to": "greenfield",
+      "type": "contrast",
+      "label_zh": "二选一的起点",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_scope",
+      "kind": "sequence",
+      "name_zh": "范围转型",
+      "steps": [
+        "current_state",
+        "roadmaps",
+        "target_state"
+      ]
+    }
+  ],
+  "tables": [],
+  "related_figures": [],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中的云没有标签；“云内/云外”与“微服务可部署在云外”的对应来自第 10.1 节正文，图本身没有说明。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 44 页原图截图（220 dpi）",
+      "英文 PDF 第 43–44 页正文",
+      "中文稿 G21Ie_微服务架构.md 第 616–662 行（含图内标签对照表 L639–L648）",
+      "figs/zh/g21ie_fig10-1_zh.png",
+      "figs/g21ie_fig10-1_en.png（自动相似度 0.979）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Ie.pdf",
+    "pdf_sha256": "279f6c06124f49a147a168591965805115b2fc976eea2664e41e491ac5d163bf",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21I/fig10-1.json",
+    "interpretation_sha256": "afcd5a25323f0ad9d4320159594997a5d4ebb395981b335a9acdc9b2c118a583",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 44,
+        "text": "Figure 10-1: Scope Transformation",
+        "bbox_pdf_points": [
+          48.24,
+          191.464,
+          208.917,
+          205.03
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 44,
+      "printed_page": 30,
+      "bbox_pdf_points": [
+        99.8,
+        36.0,
+        512.2,
+        186.8
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21I/fig10-1-p0044.png",
+      "image_sha256": "7091078cb552d9ecac8b4538a7ae86090404b390c9e93030936fa92a311143e7",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "7091078cb552d9ecac8b4538a7ae86090404b390c9e93030936fa92a311143e7",
+          "status": "extracted-unverified",
+          "text": "ciel\n_\nGreenfield",
+          "words": [
+            {
+              "text": "ciel",
+              "confidence": 4.596148,
+              "bbox_pixels_xywh": [
+                522,
+                1,
+                282,
+                207
+              ]
+            },
+            {
+              "text": "_",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                18,
+                61,
+                127,
+                101
+              ]
+            },
+            {
+              "text": "Greenfield",
+              "confidence": 96.185165,
+              "bbox_pixels_xywh": [
+                33,
+                237,
+                94,
+                15
+              ]
+            }
+          ],
+          "mean_word_confidence": 33.59,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,26 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Communication and Consultation"]
+  n1["Monitoring and Review"]
+  n2["Establishing the Context"]
+  n3["Risk Assessment"]
+  n4["Risk Identification"]
+  n5["Risk Analysis"]
+  n6["Risk Evaluation"]
+  n7["Risk Treatment"]
+  n2 -->|"先于"| n4
+  n4 -->|"先于"| n5
+  n5 -->|"先于"| n6
+  n6 -->|"先于"| n7
+  n7 -->|"流动"| n1
+  n1 -->|"迭代"| n2
+  n0 ---|"关联"| n2
+  n0 ---|"关联"| n4
+  n0 ---|"关联"| n5
+  n0 ---|"关联"| n6
+  n0 ---|"关联"| n7
+  n1 ---|"关联"| n2
+  n1 ---|"关联"| n4
+  n1 ---|"关联"| n5
+  n1 ---|"关联"| n6
+  n1 ---|"关联"| n7

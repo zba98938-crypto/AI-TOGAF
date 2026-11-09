@@ -1,0 +1,368 @@
+{
+  "source_ids": [
+    "CASE-MANDATE",
+    "CASE-BASELINE",
+    "CASE-REVIEW",
+    "CASE-PERSON",
+    "CASE-EXPERT",
+    "CASE-ROLE-TARGET"
+  ],
+  "scope": "虚构全渠道履约：在线库存预占与异步处理候选；业务一致性及工作量未定",
+  "as_of": "2026-11-07",
+  "mandate": {
+    "id": "MANDATE-STOCK",
+    "scope": "全渠道订单履约改造的候选架构分析",
+    "decision_owner": "架构委员会与库存业务负责人",
+    "evidence": [
+      "CASE-MANDATE"
+    ]
+  },
+  "roles": [
+    {
+      "id": "ROLE-CHIEF",
+      "name": "首席架构师",
+      "tier": "chief",
+      "scope": "战略与运营语境",
+      "evidence": [
+        "CASE-MANDATE"
+      ]
+    },
+    {
+      "id": "ROLE-EA",
+      "name": "企业架构师",
+      "tier": "enterprise",
+      "scope": "跨订单、库存和门店能力",
+      "evidence": [
+        "CASE-MANDATE"
+      ]
+    },
+    {
+      "id": "ROLE-SEG",
+      "name": "库存分段架构师",
+      "tier": "segment",
+      "scope": "库存业务/数据",
+      "evidence": [
+        "CASE-MANDATE"
+      ]
+    },
+    {
+      "id": "ROLE-SOL",
+      "name": "履约解决方案架构师",
+      "tier": "solution",
+      "scope": "库存预占与异步接口",
+      "evidence": [
+        "CASE-MANDATE"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TASK-CH",
+      "scope": "战略优先与业务承诺边界",
+      "decision": "明确先试点还是扩大承诺范围；不代业务定义超卖容忍",
+      "outcome": "跨业务决策议程和未决项",
+      "role_refs": [
+        "ROLE-CHIEF"
+      ],
+      "required_skill_ids": [
+        "G249:skill:business:strategic-planning"
+      ],
+      "method_ids": [
+        "architecture-backlog-trace-review"
+      ],
+      "artifact_ids": [
+        "strategy-capability-matrix"
+      ],
+      "evidence": [
+        "CASE-BASELINE",
+        "CASE-REVIEW"
+      ],
+      "workload_hours": null
+    },
+    {
+      "id": "TASK-EA",
+      "scope": "跨分段互操作原则",
+      "decision": "确定订单、库存与门店之间的责任和约束",
+      "outcome": "跨域接口原则与协作边界",
+      "role_refs": [
+        "ROLE-EA"
+      ],
+      "required_skill_ids": [
+        "G249:skill:architecture:generic-integration-and-interoperability"
+      ],
+      "method_ids": [
+        "domain-architecture-alignment-review"
+      ],
+      "artifact_ids": [
+        "interoperability-assessment"
+      ],
+      "evidence": [
+        "CASE-BASELINE",
+        "CASE-REVIEW"
+      ],
+      "workload_hours": null
+    },
+    {
+      "id": "TASK-SEG",
+      "scope": "库存语义与运营条件",
+      "decision": "业务一致性、受理/承诺和冲突处理规则未给出",
+      "outcome": "库存状态和服务责任待决清单",
+      "role_refs": [
+        "ROLE-SEG"
+      ],
+      "required_skill_ids": [
+        "G249:skill:data:operational-data"
+      ],
+      "method_ids": [
+        "msa-data-distribution-conditions-method"
+      ],
+      "artifact_ids": [
+        "data-lifecycle-diagram"
+      ],
+      "evidence": [
+        "CASE-BASELINE",
+        "CASE-REVIEW"
+      ],
+      "workload_hours": null
+    },
+    {
+      "id": "TASK-SOL",
+      "scope": "预占接口候选比较",
+      "decision": "比较同步预占和异步处理；缺一致性要求时不得定优",
+      "outcome": "接口契约、失败恢复与验证场景",
+      "role_refs": [
+        "ROLE-SOL"
+      ],
+      "required_skill_ids": [
+        "G249:skill:application:integration-and-interoperability",
+        "G249:skill:application:optimistic-pessimistic-patterns"
+      ],
+      "method_ids": [
+        "msa-contract-consumer-evidence-method"
+      ],
+      "artifact_ids": [
+        "application-communication-diagram"
+      ],
+      "evidence": [
+        "CASE-BASELINE",
+        "CASE-REVIEW"
+      ],
+      "workload_hours": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-SKILL-CH",
+      "task_ref": "TASK-CH",
+      "role_ref": "ROLE-CHIEF",
+      "skill_id": "G249:skill:business:strategic-planning",
+      "assessment_kind": "tailored_target",
+      "assessment_state": "adopted",
+      "proficiency": 3,
+      "scale_id": "G249-table5-1",
+      "behavioral_criteria": [
+        "把战略约束转成可复议决定"
+      ],
+      "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+      "evidence": [
+        "CASE-ROLE-TARGET"
+      ]
+    },
+    {
+      "id": "REQ-SKILL-EA",
+      "task_ref": "TASK-EA",
+      "role_ref": "ROLE-EA",
+      "skill_id": "G249:skill:architecture:generic-integration-and-interoperability",
+      "assessment_kind": "tailored_target",
+      "assessment_state": "adopted",
+      "proficiency": 3,
+      "scale_id": "G249-table5-1",
+      "behavioral_criteria": [
+        "解释跨分段接口语义及风险"
+      ],
+      "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+      "evidence": [
+        "CASE-ROLE-TARGET"
+      ]
+    },
+    {
+      "id": "REQ-SKILL-SEG",
+      "task_ref": "TASK-SEG",
+      "role_ref": "ROLE-SEG",
+      "skill_id": "G249:skill:data:operational-data",
+      "assessment_kind": "tailored_target",
+      "assessment_state": "adopted",
+      "proficiency": 3,
+      "scale_id": "G249-table5-1",
+      "behavioral_criteria": [
+        "核对运行数据的一致性与恢复证据"
+      ],
+      "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+      "evidence": [
+        "CASE-ROLE-TARGET"
+      ]
+    },
+    {
+      "id": "REQ-SKILL-SOL",
+      "task_ref": "TASK-SOL",
+      "role_ref": "ROLE-SOL",
+      "skill_id": "G249:skill:application:integration-and-interoperability",
+      "assessment_kind": "tailored_target",
+      "assessment_state": "adopted",
+      "proficiency": 3,
+      "scale_id": "G249-table5-1",
+      "behavioral_criteria": [
+        "独立完成异常接口设计并经评审"
+      ],
+      "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+      "evidence": [
+        "CASE-ROLE-TARGET"
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "id": "OBS-A",
+      "person_ref": "PERSON-A",
+      "skill_id": "G249:skill:application:integration-and-interoperability",
+      "assessment_kind": "observed_assessment",
+      "assessment_state": "evidence_insufficient",
+      "proficiency": null,
+      "scale_id": "G249-table5-1",
+      "task_refs": [
+        "TASK-SOL"
+      ],
+      "observed_on": "2026-11-05",
+      "evidence": [
+        "CASE-PERSON"
+      ],
+      "behavioral_evidence": [
+        {
+          "criterion": "独立完成异常接口设计并经评审",
+          "demonstrated": false,
+          "evidence": [
+            "CASE-PERSON"
+          ]
+        }
+      ],
+      "note": "甲曾独立画接口图，但没有异常场景评审。3级未获证实；没有2级所需行为证据，不能自动记2级。"
+    },
+    {
+      "id": "OBS-EXPERT",
+      "person_ref": "PERSON-EXPERT",
+      "skill_id": "G249:skill:application:integration-and-interoperability",
+      "assessment_kind": "observed_assessment",
+      "assessment_state": "assessed",
+      "proficiency": 4,
+      "scale_id": "G249-table5-1",
+      "task_refs": [
+        "TASK-SOL"
+      ],
+      "observed_on": "2026-11-06",
+      "assessor": "虚构专业评审人",
+      "evidence": [
+        "CASE-EXPERT"
+      ],
+      "behavioral_evidence": [
+        {
+          "criterion": "独立完成异常接口设计并经评审",
+          "demonstrated": true,
+          "evidence": [
+            "CASE-EXPERT"
+          ]
+        }
+      ]
+    }
+  ],
+  "assignments": [
+    {
+      "id": "ASSIGN-A",
+      "person_ref": "PERSON-A",
+      "role_ref": "ROLE-SOL",
+      "task_refs": [
+        "TASK-SOL"
+      ],
+      "requirement_refs": [
+        "REQ-SKILL-SOL"
+      ],
+      "assessment_refs": [
+        "OBS-A"
+      ],
+      "mandate_ref": "MANDATE-STOCK",
+      "authority": "虚构方案负责人；仅提出候选配置",
+      "valid_from": "2026-11-07",
+      "valid_until": "2026-11-30",
+      "available_hours": 40,
+      "evidence": [
+        "CASE-MANDATE",
+        "CASE-PERSON"
+      ],
+      "support": {
+        "provider": "PERSON-EXPERT",
+        "mode": "共同评审异常场景及接口契约，不替代甲的能力证据",
+        "requirement_refs": [
+          "REQ-SKILL-SOL"
+        ],
+        "assessment_refs": [
+          "OBS-EXPERT"
+        ],
+        "available_hours": 8,
+        "evidence": [
+          "CASE-EXPERT"
+        ]
+      }
+    }
+  ],
+  "development": [
+    {
+      "id": "DEV-A",
+      "person": "PERSON-A",
+      "role": "ROLE-SOL",
+      "skill_id": "G249:skill:application:integration-and-interoperability",
+      "task_refs": [
+        "TASK-SOL"
+      ],
+      "requirement_refs": [
+        "REQ-SKILL-SOL"
+      ],
+      "current_proficiency": null,
+      "target_proficiency": 3,
+      "scale_id": "G249-table5-1",
+      "behavioral_gap": "尚缺独立完成异常接口设计并经评审的证据，不宣称能力已经判为2级",
+      "action": "在专家支持下补重复请求、库存不足及补偿场景；独立完成设计后提交评审",
+      "owner": "虚构方案负责人",
+      "due": "2026-11-30",
+      "success_criteria": [
+        "独立完成异常接口设计并经评审"
+      ],
+      "evidence": [
+        "CASE-PERSON",
+        "CASE-ROLE-TARGET"
+      ],
+      "reassessment": {
+        "assessor": "虚构独立专业评审人",
+        "due_on": "2026-11-30",
+        "criteria": [
+          "独立完成异常接口设计并经评审"
+        ],
+        "status": "planned",
+        "evidence": []
+      },
+      "history": [
+        {
+          "observed_on": "2026-11-05",
+          "assessment_ref": "OBS-A",
+          "proficiency": null,
+          "evidence": [
+            "CASE-PERSON"
+          ],
+          "status": "evidence_insufficient",
+          "rationale": "缺少三级实操评审证据；无二级评级依据，保留未知。"
+        }
+      ]
+    }
+  ],
+  "interpretations": [],
+  "scales": [],
+  "example_notice": "全部企业、人员、评级与授权材料为虚构教学材料；正式能力与人员配置仍须责任方评审。"
+}

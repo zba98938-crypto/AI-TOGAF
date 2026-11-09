@@ -1,0 +1,150 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["General Entities"]
+  n1["Associated with All Objects"]
+  n2["BUSINESS ARCHITECTURE"]
+  n3["DATA ARCHITECTURE"]
+  n4["APPLICATION ARCHITECTURE"]
+  n5["TECHNOLOGY ARCHITECTURE"]
+  n6["Principle"]
+  n7["Constraint"]
+  n8["Assumption"]
+  n9["Requirement"]
+  n10["Location"]
+  n11["Gap"]
+  n12["Work Package"]
+  n13["Capability"]
+  n14["Driver"]
+  n15["Goal"]
+  n16["Objective"]
+  n17["Measure"]
+  n18["Course of Action"]
+  n19["Product"]
+  n20["Organization Unit"]
+  n21["Business Capability"]
+  n22["Value Stream"]
+  n23["Business Information"]
+  n24["Function"]
+  n25["Actor"]
+  n26["Process"]
+  n27["Role"]
+  n28["Event"]
+  n29["Service Quality"]
+  n30["Contract"]
+  n31["Control"]
+  n32["Business Service"]
+  n33["Data Entity"]
+  n34["Logical Data Component"]
+  n35["Physical Data Component"]
+  n36["Application Service"]
+  n37["Logical Application Component"]
+  n38["Physical Application Component"]
+  n39["Technology Service"]
+  n40["Logical Technology Component"]
+  n41["Physical Technology Component"]
+  n12 -->|"产生/交付"| n13
+  n14 -->|"产生/交付"| n15
+  n14 -->|"影响"| n20
+  n16 -->|"实现"| n15
+  n18 -->|"实现"| n15
+  n16 -->|"关联"| n17
+  n18 -->|"影响"| n19
+  n18 -->|"影响"| n20
+  n18 -->|"影响"| n21
+  n18 -->|"影响"| n22
+  n18 -->|"影响"| n23
+  n18 -->|"影响"| n24
+  n20 -->|"产生/交付"| n19
+  n20 -->|"包含组成"| n25
+  n20 -->|"治理/监督"| n32
+  n32 -->|"受治理于"| n20
+  n20 -->|"使能"| n24
+  n20 -->|"参与"| n18
+  n21 -->|"支撑/服务"| n22
+  n26 -->|"落实为行为"| n21
+  n26 -->|"落实为行为"| n22
+  n25 -->|"参与"| n22
+  n23 -->|"使用"| n26
+  n23 -->|"产生/交付"| n32
+  n26 -->|"交付"| n19
+  n24 -->|"支持"| n25
+  n26 -->|"实现"| n24
+  n25 -->|"执行"| n24
+  n32 -->|"提供受治理的访问接口"| n24
+  n25 -->|"供应或消费"| n33
+  n24 -->|"受约束于"| n32
+  n25 -->|"参与/分配"| n20
+  n25 -->|"消费"| n32
+  n25 -->|"参与/分配"| n27
+  n25 -->|"关联"| n26
+  n26 -->|"编排与分解"| n32
+  n27 -->|"参与/分配"| n26
+  n26 -->|"参与/分配"| n27
+  n26 -->|"产生/交付"| n28
+  n28 -->|"关联"| n26
+  n32 -->|"支持"| n26
+  n31 -->|"治理/监督"| n26
+  n26 -->|"依赖"| n31
+  n29 -->|"关联"| n30
+  n30 -->|"治理/监督"| n32
+  n29 -->|"关联"| n32
+  n32 -->|"支撑/服务"| n25
+  n33 -->|"实现"| n23
+  n32 -->|"消费"| n36
+  n34 -->|"封装"| n33
+  n35 -->|"实现"| n34
+  n33 -->|"通过其访问/更新"| n32
+  n37 -->|"使用"| n34
+  n38 -->|"使用"| n35
+  n37 -->|"实现"| n36
+  n38 -->|"实现"| n37
+  n39 -->|"支撑/服务"| n36
+  n40 -->|"支撑/服务"| n37
+  n41 -->|"支撑/服务"| n38
+  n32 -->|"实现在其平台上"| n40
+  n40 -->|"支撑/服务"| n39
+  n41 -->|"实现"| n40
+  n40 -->|"为其提供平台"| n32
+  n20 -->|"交付"| n21
+  n24 -->|"交付"| n21
+  n21 -->|"使用"| n23
+  n25 -->|"产生/交付"| n28
+  n32 -->|"解决"| n28
+  n36 -->|"使用"| n33
+  n0 -.->|"分组"| n1
+  n1 -.->|"分组"| n6
+  n1 -.->|"分组"| n7
+  n1 -.->|"分组"| n8
+  n1 -.->|"分组"| n9
+  n1 -.->|"分组"| n10
+  n1 -.->|"分组"| n11
+  n1 -.->|"分组"| n12
+  n0 -.->|"分组"| n13
+  n2 -.->|"分组"| n14
+  n2 -.->|"分组"| n15
+  n2 -.->|"分组"| n16
+  n2 -.->|"分组"| n17
+  n2 -.->|"分组"| n18
+  n2 -.->|"分组"| n19
+  n2 -.->|"分组"| n20
+  n2 -.->|"分组"| n21
+  n2 -.->|"分组"| n22
+  n2 -.->|"分组"| n23
+  n2 -.->|"分组"| n24
+  n2 -.->|"分组"| n25
+  n2 -.->|"分组"| n26
+  n2 -.->|"分组"| n27
+  n2 -.->|"分组"| n28
+  n2 -.->|"分组"| n29
+  n2 -.->|"分组"| n30
+  n2 -.->|"分组"| n31
+  n2 -.->|"分组"| n32
+  n3 -.->|"分组"| n33
+  n3 -.->|"分组"| n34
+  n3 -.->|"分组"| n35
+  n4 -.->|"分组"| n36
+  n4 -.->|"分组"| n37
+  n4 -.->|"分组"| n38
+  n5 -.->|"分组"| n39
+  n5 -.->|"分组"| n40
+  n5 -.->|"分组"| n41

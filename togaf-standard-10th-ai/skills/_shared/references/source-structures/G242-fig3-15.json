@@ -1,0 +1,223 @@
+{
+  "schema_version": "2.0",
+  "id": "G242/fig3-15",
+  "title": "分布式治理模型示意图（来源：The Shift Project Lean-ICT 工作组）",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      1502
+    ],
+    "label_table_lines": [
+      1506,
+      1517
+    ]
+  },
+  "reading": {
+    "purpose_zh": "说明“分布式治理”如何落地：不必所有决策都上中央会，本地治理机构先处理；只有达到表 3-6 标准的决策才认可或上报到中央治理机构，中央机构汇集业务、IT、财务、架构等所有相关视角。",
+    "reading_guide_zh": "先看右侧：上面一个圆桌图标，四周标着 Finance（上）、Business（左）、IT（右）、Architecture（下），代表中央治理机构的组成。下面三个同样的圆桌图标代表多个本地治理机构，它们被一条横向括号连起，括号中央向上伸出一支箭头直达中央图标，箭头右侧写“Endorsement or Escalation of Decisions（决策的认可或上报）”。左侧两个蓝框只是给上下两组图标贴标签：上=中央治理机构，下=本地治理机构。",
+    "key_points_zh": [
+      "治理分两级：中央治理机构一个，本地治理机构多个（图中画三个，表示复数而非确切数量）。",
+      "中央机构由四类视角组成：业务、IT、财务、架构；四者围桌而坐，表示共同审议而非某一方主导。",
+      "本地机构的决策不是全部上交：只有需要“认可（endorsement）”或“上报（escalation）”的才沿箭头上行，其余在本地闭环。",
+      "箭头是单向向上的，图中没有画中央向下的批复箭头；批复/授权关系未在图中表达。",
+      "该结构与正文“视组织规模可有多个治理层级；决策可仅记录、传达认可或按标准上报”一致，类似预算影响驱动的决策流程。",
+      "图中没有画表 3-6 的触发标准（新托管服务、新应用服务、超过 Y tCO2e），标准是箭头背后的筛选逻辑。"
+    ],
+    "hierarchy_zh": "两层：中央治理机构（1 个，含业务/IT/财务/架构四个席位）在上；本地治理机构（3 个图标表示多个）在下。左侧两个蓝框是对这两层的文字标注，不是第三层。",
+    "line_semantics_zh": "唯一的一组连线是下方的括号树：三个本地图标各有一条短竖线向上接到一条横线，横线中点再向上画一支带箭头的竖线，指向中央会议图标。箭头向上=决策上行；旁边的文字“Endorsement or Escalation of Decisions”说明上行的两种性质（认可或上报）。左侧蓝框与图标之间没有连线，是并置标注。",
+    "misreadings_zh": [
+      "三个本地图标不代表只有三个本地机构，是“多个”的示意。",
+      "箭头不是“中央向本地下达”，方向是本地→中央；图中没有画下行箭头。",
+      "“Endorsement（认可）”与“Escalation（上报）”是同一支箭头上的两种处理方式，不是两条不同的线。",
+      "Business/IT/Finance/Architecture 是中央机构的席位/视角，不是四个独立的治理机构。",
+      "左侧蓝框不是流程步骤，只是图例式标注；不要读成“先中央后本地”的先后顺序。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "central_gov",
+      "label_en": "Central Governance Instance",
+      "label_zh": "中央治理机构",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 1,
+      "position": "左上蓝色方框"
+    },
+    {
+      "id": "local_gov",
+      "label_en": "Local Governance Instances",
+      "label_zh": "本地治理机构",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 1,
+      "position": "左下蓝色方框"
+    },
+    {
+      "id": "central_meeting",
+      "label_en": null,
+      "label_zh": "中央治理会议（圆桌图标）",
+      "type": "actor",
+      "parent": null,
+      "level": 1,
+      "position": "右上，灰色方块内的圆桌会议图标",
+      "notation_type": "meeting icon"
+    },
+    {
+      "id": "role_finance",
+      "label_en": "Finance",
+      "label_zh": "财务",
+      "type": "role",
+      "parent": "central_meeting",
+      "level": 2,
+      "order": 1,
+      "position": "图标正上方"
+    },
+    {
+      "id": "role_business",
+      "label_en": "Business",
+      "label_zh": "业务",
+      "type": "role",
+      "parent": "central_meeting",
+      "level": 2,
+      "order": 2,
+      "position": "图标左侧"
+    },
+    {
+      "id": "role_it",
+      "label_en": "IT",
+      "label_zh": "IT",
+      "type": "role",
+      "parent": "central_meeting",
+      "level": 2,
+      "order": 3,
+      "position": "图标右侧"
+    },
+    {
+      "id": "role_architecture",
+      "label_en": "Architecture",
+      "label_zh": "架构",
+      "type": "role",
+      "parent": "central_meeting",
+      "level": 2,
+      "order": 4,
+      "position": "图标正下方"
+    },
+    {
+      "id": "local_meetings",
+      "label_en": null,
+      "label_zh": "本地治理会议（三个圆桌图标）",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "右下，三个并排的圆桌图标"
+    },
+    {
+      "id": "local_meeting_1",
+      "label_en": null,
+      "label_zh": "本地治理会议 1",
+      "type": "actor",
+      "parent": "local_meetings",
+      "level": 2,
+      "order": 1,
+      "position": "左起第 1 个"
+    },
+    {
+      "id": "local_meeting_2",
+      "label_en": null,
+      "label_zh": "本地治理会议 2",
+      "type": "actor",
+      "parent": "local_meetings",
+      "level": 2,
+      "order": 2,
+      "position": "左起第 2 个"
+    },
+    {
+      "id": "local_meeting_3",
+      "label_en": null,
+      "label_zh": "本地治理会议 3",
+      "type": "actor",
+      "parent": "local_meetings",
+      "level": 2,
+      "order": 3,
+      "position": "左起第 3 个"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_local_to_central",
+      "from": "local_meetings",
+      "to": "central_meeting",
+      "type": "flow",
+      "label_en": "Endorsement or Escalation of Decisions",
+      "label_zh": "决策的认可或上报",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "三个本地图标经括号汇成一支向上箭头，指向中央会议图标"
+    },
+    {
+      "id": "r_central_label",
+      "from": "central_gov",
+      "to": "central_meeting",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "左侧蓝框为右侧上方图标贴标签（并置标注，无连线）"
+    },
+    {
+      "id": "r_local_label",
+      "from": "local_gov",
+      "to": "local_meetings",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "左侧蓝框为右侧下方三个图标贴标签（并置标注，无连线）"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "圆桌会议图标",
+      "meaning_zh": "治理机构（多方围桌议事）",
+      "explicit": false
+    },
+    {
+      "symbol": "图标四周的文字",
+      "meaning_zh": "中央治理机构的席位/视角",
+      "explicit": false
+    },
+    {
+      "symbol": "括号+向上箭头",
+      "meaning_zh": "本地决策上行至中央（认可或上报）",
+      "explicit": true
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "三个本地图标仅表示复数，图中未标注具体数量或层级名称。",
+      "中央图标四周的四个词是席位还是会议议题视角，图中未明确；按席位/视角理解。",
+      "原图未标注作者/版权以外的来源信息。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 78 页（印刷页 60）原图截图与 2×2 放大分块",
+      "英文 PDF 第 78 页正文与表 3-6",
+      "中文稿 G242e_环境可持续的信息系统.md 第 1487–1517 行",
+      "figs/zh/g242_fig3-15_zh.png、figs/g242_fig3-15_en.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G242/fig3-15",
+    "asset": "figs/g242_fig3-15_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "18"
+  }
+}

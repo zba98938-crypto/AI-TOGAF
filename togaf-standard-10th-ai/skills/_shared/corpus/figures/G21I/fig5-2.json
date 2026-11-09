@@ -1,0 +1,922 @@
+{
+  "schema_version": "1.0",
+  "id": "G21I/fig5-2",
+  "status": "done",
+  "doc": {
+    "code": "G21I",
+    "title_zh": "微服务架构",
+    "title_en": "Microservices Architecture (MSA)",
+    "zh_md": "G21Ie_微服务架构.md",
+    "en_pdf": "togaf-standard-10th/G21Ie.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "5-2",
+    "title_en": "MSA Governance Reference Model",
+    "title_zh": "MSA 治理参考模型",
+    "section_en": "5.3 Governance and Support Strategy",
+    "section_zh": "5.3 治理与支持策略",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        26
+      ],
+      "printed_page": 12,
+      "bboxes": [
+        [
+          177.1,
+          323.1,
+          434.9,
+          598.4
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        308
+      ],
+      "label_table_lines": [
+        312,
+        322
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21ie_fig5-2_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "a02805b82328",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.954（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g21ie_fig5-2_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "d8f641577409",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "6 个扇区标签都在，位置与译名正确；外圈及 6 个顺时针箭头头部保留",
+        "原图标签统一为蓝色粗体、字号相近；中文化后改为黑色常规字，字号相差悬殊：“角色与职责”很大，“受治理的微服务架构流程”极小，“技术”“制品”偏小",
+        "“角色与职责”的白色抹字底块越出扇区，盖住了左侧外圈的一段和附近的分隔线；“受治理的微服务架构流程”扇区右侧的分隔线也被白块切断一截",
+        "画布比原图宽，左右留白较多（不影响内容）"
+      ]
+    },
+    {
+      "path": "G21Ie_微服务架构.md#L312-L322",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "0f5a72854870",
+      "fidelity": "faithful",
+      "issues_zh": []
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "cycle"
+    ],
+    "notation": "圆形扇区图：三条直径把圆分成 6 个等大扇区，每个扇区是模型的一个组成部分；外圈粗灰线在每条分隔线端点处带箭头，全部顺时针，表示持续改进循环",
+    "concepts": [
+      "governance_model",
+      "architecture_governance",
+      "microservices",
+      "soa"
+    ],
+    "adm_phases": [
+      "adm_preliminary"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "MSA 治理参考模型由 6 个部分组成，外圈顺时针箭头表示它们构成持续改进的循环。",
+    "purpose_zh": "第 5.3 节用本图给出 MSA 治理参考模型：它与 SOA 治理参考模型大体相同，只是范围限于 MSA 流程。外圈箭头强调治理是过程而不是项目，各阶段构成持续改进循环：度量进展，需要时纠偏并更新流程。",
+    "reading_guide_zh": "从右上方的“指导原则”扇区开始，沿外圈箭头顺时针读：指导原则 → 治理流程 → 受治理的 MSA 流程 → 制品 → 角色与职责 → 技术，再回到指导原则。外圈上的 6 个箭头头部都位于扇区分界处，方向一致为顺时针。",
+    "key_points_zh": [
+      "模型有 6 个组成部分：指导原则、治理流程、受治理的 MSA 流程、制品、角色与职责、技术。",
+      "原文说明 MSA 治理参考模型与 SOA 治理参考模型大体相同，区别只在于它限于 MSA 流程；图中“受治理的 MSA 流程”一格体现了这一点。",
+      "“治理流程”与“受治理的 MSA 流程”是两回事：前者是实施治理的流程，后者是被治理的对象（MSA 的流程），二者在环上相邻。",
+      "外圈顺时针箭头把 6 个部分连成闭环：治理模型应被视为过程而不是项目，各阶段循环进行，度量进展并在需要时纠偏和更新流程。",
+      "原文没有逐一解释 6 个部分的含义，也没有给出相邻部分之间具体的输入/输出。"
+    ],
+    "hierarchy_zh": "一层：MSA 治理参考模型（图中没有单独的框，由整个圆表示）包含 6 个并列的组成部分，扇区等大，彼此没有上下级。",
+    "line_semantics_zh": "外圈粗灰线带 6 个箭头头部，均为顺时针，各位于一条分隔线与外圈的交点，表示循环方向；关系清单把每段外圈记为相邻扇区之间的先后关系。三条细灰直径只用于分隔扇区，不表示对角扇区之间有关系。",
+    "misreadings_zh": [
+      "直径不是连线：被同一条直径穿过的对角扇区之间没有关系。",
+      "6 个部分在环上首尾相接，没有起点和终点；从“指导原则”读起只是阅读习惯，不表示它最重要。",
+      "原图中空心大字“Evaluation Copy”是英文 PDF 的水印，不是图的内容。",
+      "中文稿引用的中文化 PNG 中“角色与职责”字号特别大并遮住一段外圈，“受治理的微服务架构流程”字号极小，容易让人以为各部分权重不同；原图 6 个标签字号一致。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p26",
+        "summary_zh": "MSA 治理参考模型与 SOA 治理参考模型大体相同，只是限于 MSA 流程，见图 5-2。"
+      },
+      {
+        "source": "en_pdf p26",
+        "summary_zh": "任何治理模型都应被视为过程而非项目，因此治理参考模型的各阶段应被视为持续改进循环：度量进展，需要时纠偏并更新流程，如图 5-2 所示。"
+      },
+      {
+        "source": "en_pdf p25",
+        "summary_zh": "治理不是制定一套治理要求，而是应用这些要求的过程与方法；按敏捷原则，治理应由架构师与实施团队并肩持续开展。"
+      },
+      {
+        "source": "zh_md L306",
+        "summary_zh": "中文稿：MSA 治理参考模型与 SOA 治理参考模型大体相同，区别仅在于范围限于 MSA 过程。"
+      },
+      {
+        "source": "zh_md L323",
+        "summary_zh": "中文稿：治理参考模型的各阶段应被视为持续改进循环，与英文一致。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "radial",
+    "description_zh": "一个圆被三条直径（一条竖直、两条斜向）分成 6 个等大扇区；标签按顺时针排列：右上指导原则、右中治理流程、右下受治理的 MSA 流程、左下制品、左中角色与职责、左上技术。外圈箭头头部分别位于顶部、右上、右下、底部、左下、左上。"
+  },
+  "legend": [
+    {
+      "symbol": "扇区 + 蓝色粗体标签",
+      "meaning_zh": "治理参考模型的一个组成部分",
+      "explicit": false
+    },
+    {
+      "symbol": "外圈粗灰线上的箭头（顺时针）",
+      "meaning_zh": "持续改进循环的方向",
+      "explicit": false
+    },
+    {
+      "symbol": "细灰直径",
+      "meaning_zh": "扇区分隔线，无关系含义",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "gov_model",
+      "label_en": "MSA Governance Reference Model",
+      "label_zh": "MSA 治理参考模型",
+      "type": "framework",
+      "parent": null,
+      "level": 0,
+      "description_zh": "图中没有单独的框，由整个圆表示；名称来自图题。"
+    },
+    {
+      "id": "s_principles",
+      "label_en": "Guiding Principles",
+      "label_zh": "指导原则",
+      "type": "principle",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 1,
+      "position": "右上扇区"
+    },
+    {
+      "id": "s_governing",
+      "label_en": "Governing Processes",
+      "label_zh": "治理流程",
+      "type": "process",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 2,
+      "position": "右中扇区"
+    },
+    {
+      "id": "s_governed",
+      "label_en": "Governed MSA Processes",
+      "label_zh": "受治理的微服务架构流程",
+      "type": "process",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 3,
+      "position": "右下扇区",
+      "description_zh": "被治理的对象，即 MSA 的流程；SOA 治理参考模型中对应的是受治理的 SOA 流程（背景知识）。"
+    },
+    {
+      "id": "s_artifacts",
+      "label_en": "Artifacts",
+      "label_zh": "制品",
+      "type": "artifact",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 4,
+      "position": "左下扇区"
+    },
+    {
+      "id": "s_roles",
+      "label_en": "Roles and Responsibilities",
+      "label_zh": "角色与职责",
+      "type": "role",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 5,
+      "position": "左中扇区"
+    },
+    {
+      "id": "s_technology",
+      "label_en": "Technology",
+      "label_zh": "技术",
+      "type": "technology",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 6,
+      "position": "左上扇区"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "s_principles",
+      "to": "s_governing",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（右上分界处）"
+    },
+    {
+      "from": "s_governing",
+      "to": "s_governed",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（右下分界处）"
+    },
+    {
+      "from": "s_governed",
+      "to": "s_artifacts",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（底部分界处）"
+    },
+    {
+      "from": "s_artifacts",
+      "to": "s_roles",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（左下分界处）"
+    },
+    {
+      "from": "s_roles",
+      "to": "s_technology",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（左上分界处）"
+    },
+    {
+      "from": "s_technology",
+      "to": "s_principles",
+      "type": "iteration",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（顶部分界处），闭合循环"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_gov_loop",
+      "kind": "cycle",
+      "name_zh": "MSA 治理持续改进循环",
+      "steps": [
+        "s_principles",
+        "s_governing",
+        "s_governed",
+        "s_artifacts",
+        "s_roles",
+        "s_technology"
+      ],
+      "description_zh": "外圈顺时针；原文称各阶段构成持续改进循环，度量进展并在需要时纠偏、更新流程。"
+    }
+  ],
+  "tables": [],
+  "related_figures": [],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原文没有解释 6 个组成部分各自的含义，也没有说明相邻部分之间传递什么；关系清单只按外圈箭头记录先后。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 26 页原图截图（220 dpi）",
+      "英文 PDF 第 25–26 页正文",
+      "中文稿 G21Ie_微服务架构.md 第 306–323 行（含图内标签对照表 L312–L321）",
+      "figs/zh/g21ie_fig5-2_zh.png",
+      "figs/g21ie_fig5-2_en.png（自动相似度 0.954）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Ie.pdf",
+    "pdf_sha256": "279f6c06124f49a147a168591965805115b2fc976eea2664e41e491ac5d163bf",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21I/fig5-2.json",
+    "interpretation_sha256": "b6c88d06e29218b043e1fb18eaa6599699faa0010aa51062cf2729a4ca6cbe47",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 26,
+        "text": "Figure 5-2: MSA Governance Reference Model",
+        "bbox_pdf_points": [
+          48.24,
+          603.134,
+          258.862,
+          616.7
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 26,
+      "printed_page": 12,
+      "bbox_pdf_points": [
+        177.1,
+        323.1,
+        434.9,
+        598.4
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21I/fig5-2-p0026.png",
+      "image_sha256": "523ac97d2ec3ea67ee21624b6de716d420e8215eeccd05de9dd9b12b46b472fd",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "523ac97d2ec3ea67ee21624b6de716d420e8215eeccd05de9dd9b12b46b472fd",
+          "status": "extracted-unverified",
+          "text": "\\|\n\\\\\n\\\\\na\n\\\\\n(\\\n\\)\n\\\\\n\\\\\n\\\na\niding\nTechnol\n9Y\\|\\ p\nng\niples\n(Gan\n\\\nUY]\n|v\nray\n\\ \\\\\nws\n\\\nAy\n‘ loles\\\n\\\\\nGoverning\nnsibiliti\nProcesses\n\\\\ \\\\\n\\\\ \\\n\\\\\nLe\n\\\\\n\\\\\\\n\\ \\\\\n\\|\n\\|\nGoverned\nVs\nArtifacts\nMSA\nProcesses\nVy)\n©The Open Group",
+          "words": [
+            {
+              "text": "\\|",
+              "confidence": 66.993576,
+              "bbox_pixels_xywh": [
+                494,
+                4,
+                10,
+                9
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 92.555443,
+              "bbox_pixels_xywh": [
+                390,
+                22,
+                14,
+                22
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 93.179253,
+              "bbox_pixels_xywh": [
+                394,
+                43,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 64.098602,
+              "bbox_pixels_xywh": [
+                308,
+                63,
+                14,
+                12
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                310,
+                72,
+                11,
+                12
+              ]
+            },
+            {
+              "text": "(\\",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                322,
+                45,
+                36,
+                43
+              ]
+            },
+            {
+              "text": "\\)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                226,
+                94,
+                11,
+                8
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 90.896309,
+              "bbox_pixels_xywh": [
+                349,
+                88,
+                11,
+                12
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 79.99601,
+              "bbox_pixels_xywh": [
+                352,
+                97,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 6.921816,
+              "bbox_pixels_xywh": [
+                234,
+                125,
+                11,
+                13
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 71.936493,
+              "bbox_pixels_xywh": [
+                265,
+                91,
+                65,
+                47
+              ]
+            },
+            {
+              "text": "iding",
+              "confidence": 86.679024,
+              "bbox_pixels_xywh": [
+                338,
+                110,
+                52,
+                29
+              ]
+            },
+            {
+              "text": "Technol",
+              "confidence": 95.701691,
+              "bbox_pixels_xywh": [
+                97,
+                130,
+                97,
+                19
+              ]
+            },
+            {
+              "text": "9Y\\|\\",
+              "confidence": 25.585461,
+              "bbox_pixels_xywh": [
+                212,
+                134,
+                39,
+                40
+              ]
+            },
+            {
+              "text": "p",
+              "confidence": 41.214031,
+              "bbox_pixels_xywh": [
+                288,
+                142,
+                10,
+                23
+              ]
+            },
+            {
+              "text": "ng",
+              "confidence": 85.946358,
+              "bbox_pixels_xywh": [
+                317,
+                148,
+                25,
+                31
+              ]
+            },
+            {
+              "text": "iples",
+              "confidence": 90.478188,
+              "bbox_pixels_xywh": [
+                347,
+                142,
+                56,
+                29
+              ]
+            },
+            {
+              "text": "(Gan",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                152,
+                201,
+                43,
+                11
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 4.049377,
+              "bbox_pixels_xywh": [
+                214,
+                175,
+                9,
+                40
+              ]
+            },
+            {
+              "text": "UY]",
+              "confidence": 23.087002,
+              "bbox_pixels_xywh": [
+                284,
+                194,
+                31,
+                13
+              ]
+            },
+            {
+              "text": "|v",
+              "confidence": 61.679909,
+              "bbox_pixels_xywh": [
+                306,
+                173,
+                38,
+                19
+              ]
+            },
+            {
+              "text": "ray",
+              "confidence": 62.033821,
+              "bbox_pixels_xywh": [
+                59,
+                208,
+                16,
+                29
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 68.454102,
+              "bbox_pixels_xywh": [
+                199,
+                230,
+                2,
+                8
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 68.454102,
+              "bbox_pixels_xywh": [
+                225,
+                225,
+                2,
+                8
+              ]
+            },
+            {
+              "text": "ws",
+              "confidence": 3.808641,
+              "bbox_pixels_xywh": [
+                281,
+                212,
+                30,
+                14
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 78.983421,
+              "bbox_pixels_xywh": [
+                196,
+                173,
+                25,
+                73
+              ]
+            },
+            {
+              "text": "Ay",
+              "confidence": 28.657871,
+              "bbox_pixels_xywh": [
+                229,
+                242,
+                22,
+                16
+              ]
+            },
+            {
+              "text": "‘",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                67,
+                234,
+                2,
+                8
+              ]
+            },
+            {
+              "text": "loles\\",
+              "confidence": 50.822102,
+              "bbox_pixels_xywh": [
+                77,
+                228,
+                58,
+                47
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 88.622452,
+              "bbox_pixels_xywh": [
+                196,
+                257,
+                12,
+                15
+              ]
+            },
+            {
+              "text": "Governing",
+              "confidence": 96.098457,
+              "bbox_pixels_xywh": [
+                345,
+                245,
+                126,
+                25
+              ]
+            },
+            {
+              "text": "nsibiliti",
+              "confidence": 45.983269,
+              "bbox_pixels_xywh": [
+                102,
+                270,
+                86,
+                32
+              ]
+            },
+            {
+              "text": "Processes",
+              "confidence": 96.744286,
+              "bbox_pixels_xywh": [
+                347,
+                276,
+                125,
+                20
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 59.305302,
+              "bbox_pixels_xywh": [
+                82,
+                297,
+                12,
+                17
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 59.305302,
+              "bbox_pixels_xywh": [
+                109,
+                303,
+                11,
+                8
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 90.900986,
+              "bbox_pixels_xywh": [
+                84,
+                310,
+                29,
+                17
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 90.900986,
+              "bbox_pixels_xywh": [
+                105,
+                300,
+                12,
+                31
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 76.804123,
+              "bbox_pixels_xywh": [
+                88,
+                324,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "Le",
+              "confidence": 70.512985,
+              "bbox_pixels_xywh": [
+                136,
+                319,
+                26,
+                23
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 59.843098,
+              "bbox_pixels_xywh": [
+                7,
+                350,
+                9,
+                17
+              ]
+            },
+            {
+              "text": "\\\\\\",
+              "confidence": 38.048042,
+              "bbox_pixels_xywh": [
+                8,
+                362,
+                30,
+                19
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 81.016632,
+              "bbox_pixels_xywh": [
+                76,
+                357,
+                2,
+                8
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 81.016632,
+              "bbox_pixels_xywh": [
+                102,
+                351,
+                2,
+                8
+              ]
+            },
+            {
+              "text": "\\|",
+              "confidence": 28.711872,
+              "bbox_pixels_xywh": [
+                9,
+                377,
+                9,
+                17
+              ]
+            },
+            {
+              "text": "\\|",
+              "confidence": 64.126526,
+              "bbox_pixels_xywh": [
+                10,
+                391,
+                9,
+                16
+              ]
+            },
+            {
+              "text": "Governed",
+              "confidence": 96.729073,
+              "bbox_pixels_xywh": [
+                283,
+                373,
+                119,
+                19
+              ]
+            },
+            {
+              "text": "Vs",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                73,
+                389,
+                13,
+                19
+              ]
+            },
+            {
+              "text": "Artifacts",
+              "confidence": 96.548203,
+              "bbox_pixels_xywh": [
+                115,
+                404,
+                104,
+                19
+              ]
+            },
+            {
+              "text": "MSA",
+              "confidence": 96.868896,
+              "bbox_pixels_xywh": [
+                314,
+                404,
+                57,
+                20
+              ]
+            },
+            {
+              "text": "Processes",
+              "confidence": 96.358772,
+              "bbox_pixels_xywh": [
+                281,
+                434,
+                125,
+                19
+              ]
+            },
+            {
+              "text": "Vy)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                0,
+                432,
+                23,
+                32
+              ]
+            },
+            {
+              "text": "©The",
+              "confidence": 61.096138,
+              "bbox_pixels_xywh": [
+                373,
+                520,
+                30,
+                8
+              ]
+            },
+            {
+              "text": "Open",
+              "confidence": 96.705063,
+              "bbox_pixels_xywh": [
+                407,
+                520,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "Group",
+              "confidence": 96.856239,
+              "bbox_pixels_xywh": [
+                437,
+                520,
+                30,
+                10
+              ]
+            }
+          ],
+          "mean_word_confidence": 59.47,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "schema_version": "2.0",
+  "id": "G198/fig6-2",
+  "title": "分段架构师与解决方案架构师的技能差异",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      405
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "第 6.2 节用本图对比两类架构师的技能要求：分段架构师技能集与企业架构师相似，需要理解所有架构领域；解决方案架构师更以 IT 为中心，业务建模/流程设计不必达到专家级，但技术与应用/数据领域要求更高。",
+    "reading_guide_zh": "底图与图 6-1 相同：四条水平层带（业务流程、应用服务、应用组件、技术），Sales 分段与 Solution Architecture 两个范围边界。左侧粗箭头对应分段架构师，颜色自下而上由红（Expert）过渡到蓝（Knowledge）；右侧粗箭头对应解决方案架构师，颜色自下而上由红（Expert）过渡到绿（Awareness）。箭头旁的技能等级按图下颜色图例读取。",
+    "key_points_zh": [
+      "技能等级图例：Background（黄）、Awareness（绿）、Knowledge（蓝）、Expert（红）。",
+      "左侧箭头（分段架构师）：技术层为 Expert（红），向上到业务流程层为 Knowledge（蓝）；即需要理解所有架构领域，并在技术领域达到专家级。",
+      "右侧箭头（解决方案架构师）：技术层为 Expert（红），向上到业务流程层为 Awareness（绿）；即业务侧只需知晓，技术与应用/数据侧要求更高。",
+      "这与正文一致：分段架构师技能集与企业架构师相似，区别是不必理解整个企业的业务及相关 IT；解决方案架构师更以 IT 为中心，不必是业务建模或业务流程设计专家。",
+      "两条箭头都止于技术层的 Expert，说明技术深度是两类架构师共同的硬要求；差别主要在业务流程层的技能等级（Knowledge vs Awareness）。",
+      "底图仍表达分段架构与解决方案架构的范围差别：Sales 分段跨多个流程复用服务，解决方案架构只覆盖一个聚焦的业务运作。"
+    ],
+    "hierarchy_zh": "四层视觉分层不变：业务流程 → 应用服务 → 应用组件 → 技术。两条渐变箭头是叠加的技能维度，不是新的架构层；Sales、Segment、Solution 仍是范围边界。",
+    "line_semantics_zh": "底图黑色/洋红色箭头同图 6-1，表示流程—服务—组件—技术的依赖与 Sales 服务的跨流程使用。两条粗渐变箭头不是元素间连线，而是技能等级刻度：箭头方向由下（技术，Expert）向上（业务，Knowledge/Awareness）读出。",
+    "misreadings_zh": [
+      "渐变箭头的颜色是技能等级，不是架构层的重要性或成熟度；红色 Expert 位于技术层，蓝色 Knowledge/绿色 Awareness 位于业务流程层。",
+      "左侧箭头对应分段架构师，右侧箭头对应解决方案架构师；不要因为箭头在图的左右两侧就理解成两个架构范围本身。",
+      "解决方案架构师在业务流程层是 Awareness，不是“不懂业务”；正文要求其理解解决方案交付所处的业务环境。",
+      "中文稿引用的 figs/g198_fig6-2.svg 是技能条形图，与原图无关，不能据它判断两类架构师在各层的技能等级。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "layer_bp",
+      "label_en": "Business processes",
+      "label_zh": "业务流程层",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "最上层"
+    },
+    {
+      "id": "layer_as",
+      "label_en": "Application services",
+      "label_zh": "应用服务层",
+      "type": "group",
+      "parent": null,
+      "level": 2,
+      "position": "第二层"
+    },
+    {
+      "id": "layer_ac",
+      "label_en": "Application components",
+      "label_zh": "应用组件层",
+      "type": "group",
+      "parent": null,
+      "level": 3,
+      "position": "第三层"
+    },
+    {
+      "id": "layer_tech",
+      "label_en": "Technology",
+      "label_zh": "技术层",
+      "type": "group",
+      "parent": null,
+      "level": 4,
+      "position": "最下层"
+    },
+    {
+      "id": "scope_segment",
+      "label_en": "Segment Architecture",
+      "label_zh": "分段架构范围",
+      "type": "group",
+      "parent": null,
+      "position": "洋红色虚线大括号"
+    },
+    {
+      "id": "scope_sales",
+      "label_en": "Sales",
+      "label_zh": "Sales 分段",
+      "type": "group",
+      "parent": "scope_segment",
+      "position": "洋红色点划线框"
+    },
+    {
+      "id": "scope_solution",
+      "label_en": "Solution Architecture",
+      "label_zh": "解决方案架构范围",
+      "type": "group",
+      "parent": null,
+      "position": "橄榄色虚线框"
+    },
+    {
+      "id": "information_view",
+      "label_en": "Information",
+      "label_zh": "信息视角",
+      "type": "concept",
+      "parent": null,
+      "position": "最右侧竖排标签"
+    },
+    {
+      "id": "skill_levels",
+      "label_en": "Skill Levels",
+      "label_zh": "技能等级",
+      "type": "concept",
+      "parent": null,
+      "position": "图下方图例"
+    },
+    {
+      "id": "arrow_segment",
+      "label_en": "Segment Architect skill arrow",
+      "label_zh": "分段架构师技能箭头",
+      "type": "metric",
+      "parent": null,
+      "position": "图左侧渐变箭头",
+      "description_zh": "技术层 Expert（红）→ 业务流程层 Knowledge（蓝）"
+    },
+    {
+      "id": "arrow_solution",
+      "label_en": "Solution Architect skill arrow",
+      "label_zh": "解决方案架构师技能箭头",
+      "type": "metric",
+      "parent": null,
+      "position": "图右侧渐变箭头",
+      "description_zh": "技术层 Expert（红）→ 业务流程层 Awareness（绿）"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "layer_bp",
+      "to": "layer_as",
+      "type": "dependency",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "业务流程使用应用服务"
+    },
+    {
+      "from": "layer_as",
+      "to": "layer_ac",
+      "type": "realization",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "应用组件实现应用服务"
+    },
+    {
+      "from": "layer_ac",
+      "to": "layer_tech",
+      "type": "serving",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "应用组件运行在技术上"
+    },
+    {
+      "from": "scope_segment",
+      "to": "layer_bp",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_segment",
+      "to": "layer_as",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_segment",
+      "to": "layer_ac",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_segment",
+      "to": "layer_tech",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_solution",
+      "to": "layer_bp",
+      "type": "composition",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_solution",
+      "to": "layer_as",
+      "type": "composition",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_solution",
+      "to": "layer_ac",
+      "type": "composition",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_solution",
+      "to": "layer_tech",
+      "type": "composition",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_sales",
+      "to": "layer_as",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "洋红色线：Sales 服务被其他业务流程使用"
+    },
+    {
+      "from": "arrow_segment",
+      "to": "layer_bp",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_zh": "Knowledge",
+      "description_zh": "分段架构师在业务流程层为 Knowledge"
+    },
+    {
+      "from": "arrow_segment",
+      "to": "layer_tech",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_zh": "Expert",
+      "description_zh": "分段架构师在技术层为 Expert"
+    },
+    {
+      "from": "arrow_solution",
+      "to": "layer_bp",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_zh": "Awareness",
+      "description_zh": "解决方案架构师在业务流程层为 Awareness"
+    },
+    {
+      "from": "arrow_solution",
+      "to": "layer_tech",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_zh": "Expert",
+      "description_zh": "解决方案架构师在技术层为 Expert"
+    },
+    {
+      "from": "skill_levels",
+      "to": "arrow_segment",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "颜色图例用于读取两条技能箭头"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_skills",
+      "title_zh": "两类架构师的技能侧重（据渐变箭头与颜色图例）",
+      "columns": [
+        "架构师",
+        "业务流程层",
+        "应用服务/组件层",
+        "技术层",
+        "正文依据"
+      ],
+      "rows": [
+        [
+          "分段架构师 Segment Architect",
+          "Knowledge（蓝）",
+          "介于 Knowledge 与 Expert 之间（箭头中间段）",
+          "Expert（红）",
+          "技能集与企业架构师相似，需理解所有架构领域；不必理解整个企业"
+        ],
+        [
+          "解决方案架构师 Solution Architect",
+          "Awareness（绿）",
+          "Knowledge 至 Expert（箭头中间段，偏技术）",
+          "Expert（红）",
+          "更以 IT 为中心，业务建模/流程设计不必专家级，技能集中在应用、数据与技术"
+        ]
+      ],
+      "cell_legend": [
+        "颜色等级：Background 黄、Awareness 绿、Knowledge 蓝、Expert 红"
+      ],
+      "notes_zh": "箭头中间段的颜色按渐变读取；原图没有逐层标注文字。"
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "Background（黄）",
+      "meaning_zh": "背景级技能",
+      "explicit": true
+    },
+    {
+      "symbol": "Awareness（绿）",
+      "meaning_zh": "知晓级技能",
+      "explicit": true
+    },
+    {
+      "symbol": "Knowledge（蓝）",
+      "meaning_zh": "知识级技能",
+      "explicit": true
+    },
+    {
+      "symbol": "Expert（红）",
+      "meaning_zh": "专家级技能",
+      "explicit": true
+    },
+    {
+      "symbol": "左侧渐变箭头",
+      "meaning_zh": "分段架构师的技能等级：业务流程 Knowledge → 技术 Expert",
+      "explicit": false
+    },
+    {
+      "symbol": "右侧渐变箭头",
+      "meaning_zh": "解决方案架构师的技能等级：业务流程 Awareness → 技术 Expert",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "原图没有把两条渐变箭头直接标注为“分段架构师/解决方案架构师”；本解析按箭头所在侧、文字顺序与正文的技能描述对应。",
+      "箭头中间段（应用服务/组件层）的颜色是渐变，未逐层标注具体等级；表中只给范围。",
+      "无标签的方框、椭圆、圆柱没有逐个编号；本图按四层与范围边界概括。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 24 页原图截图（600 dpi）",
+      "英文 PDF 第 23–24 页正文",
+      "中文稿 G198e_架构技能框架.md 第 393–407 行",
+      "figs/g198_fig6-2.svg 源码（确认与原图不对应）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G198/fig6-2",
+    "asset": "figs/g198_fig6-2.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "07"
+  }
+}

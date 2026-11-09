@@ -1,0 +1,1477 @@
+{
+  "schema_version": "2.0",
+  "notice": "来源约束下的项目操作元模型；并非完整官方TOGAF元模型。视觉包含、实例及评价与业务事实分开。",
+  "entity_types": {
+    "capability_instance": {
+      "meaning": "特定价值流阶段、范围及状态中的能力实现实例，不是子能力"
+    },
+    "visual_container": {
+      "meaning": "只用于视图包含，不声明业务组成或汇报关系"
+    },
+    "information": {
+      "meaning": "业务信息概念"
+    },
+    "information_group": {
+      "meaning": "信息视图分组"
+    },
+    "business_object": {
+      "meaning": "业务层被动结构对象"
+    },
+    "data_object": {
+      "meaning": "应用层数据对象"
+    },
+    "application_component": {
+      "meaning": "可复用应用结构组件"
+    },
+    "application_process": {
+      "meaning": "应用内部行为"
+    },
+    "business_process": {
+      "meaning": "业务层有序行为"
+    },
+    "risk_asset": {
+      "meaning": "承担业务价值且可能受损失的资产"
+    },
+    "threat_actor": {
+      "meaning": "威胁主体"
+    },
+    "threat_event": {
+      "meaning": "可能引发损失的威胁事件"
+    },
+    "loss_event": {
+      "meaning": "对业务目标产生损失的事件"
+    },
+    "vulnerability": {
+      "meaning": "可被利用的脆弱性"
+    },
+    "control_objective": {
+      "meaning": "控制预期实现的结果"
+    },
+    "security_requirement": {
+      "meaning": "可验证安全需求"
+    },
+    "security_service": {
+      "meaning": "支撑安全需求的服务"
+    },
+    "security_domain": {
+      "meaning": "适用共同安全策略的范围"
+    },
+    "trust_relationship": {
+      "meaning": "附条件和方向的信任关系记录"
+    },
+    "business_attribute": {
+      "meaning": "业务属性及其可测量标准"
+    },
+    "risk_register_entry": {
+      "meaning": "有责任人、评价与处置的风险登记项"
+    },
+    "risk_appetite": {
+      "meaning": "声明评价范围和容忍规则的风险偏好"
+    },
+    "legal_requirement": {
+      "meaning": "明确版本和适用范围的法规要求"
+    },
+    "control_framework": {
+      "meaning": "明确版本与适用性的控制框架"
+    },
+    "assessment_factor": {
+      "meaning": "有量表与证据的评估因素"
+    },
+    "assessment_result": {
+      "meaning": "给定范围、时间、方法的评价结果"
+    },
+    "maturity_element": {
+      "meaning": "成熟度框架的评价要素"
+    },
+    "readiness_factor": {
+      "meaning": "技术采用就绪度因素"
+    },
+    "option": {
+      "meaning": "等待权衡选择的候选方案"
+    },
+    "criterion": {
+      "meaning": "有优化方向、尺度和权重的决策判据"
+    },
+    "metadata_asset": {
+      "meaning": "业务、技术或运营元数据资产"
+    },
+    "metadata_repository": {
+      "meaning": "具有范围和管理责任的元数据存储库"
+    },
+    "metadata_source": {
+      "meaning": "提供可采集元数据的源"
+    },
+    "metadata_function": {
+      "meaning": "元数据管理功能"
+    },
+    "data_quality_rule": {
+      "meaning": "具有阈值或判定方法的数据质量规则"
+    },
+    "master_data": {
+      "meaning": "具有权威记录及共享管理规则的主数据"
+    },
+    "data_steward": {
+      "meaning": "承担数据管理责任的角色"
+    },
+    "customer_journey_stage": {
+      "meaning": "客户旅程中的体验阶段"
+    },
+    "customer_persona": {
+      "meaning": "有证据或显式假设的客户画像"
+    },
+    "environment_measure": {
+      "meaning": "有生命周期边界、Scope、年度、单位和证据的环境度量"
+    },
+    "environment_debt": {
+      "meaning": "有影响、责任与处置安排的环境债务"
+    },
+    "decision_record": {
+      "meaning": "包含选项、判据、决定、理由和证据的决策"
+    },
+    "skill": {
+      "meaning": "可评价的技能"
+    },
+    "architecture_role": {
+      "meaning": "架构工作角色"
+    },
+    "ea_service": {
+      "meaning": "架构团队向客户交付的服务"
+    },
+    "project_task": {
+      "meaning": "架构项目任务"
+    },
+    "deliverable_component": {
+      "meaning": "交付物中的可独立追溯内容"
+    },
+    "business_scenario": {
+      "meaning": "连接问题、目标、环境、参与者与需求的业务场景"
+    },
+    "problem": {
+      "meaning": "需要解释和解决的业务问题"
+    },
+    "scenario_goal": {
+      "meaning": "业务场景的目标"
+    },
+    "consequence": {
+      "meaning": "特定条件可能产生的后果"
+    },
+    "milestone": {
+      "meaning": "有进入或退出判据的时间节点"
+    },
+    "transition": {
+      "meaning": "可运营的中间架构状态"
+    },
+    "value_network_actor": {
+      "meaning": "价值网络参与者；交换价值角色独立于组织法律实体"
+    },
+    "lean_process": {
+      "meaning": "精益流程，记录工作和等待时间及完整准确率，不是价值阶段"
+    },
+    "business_model_component": {
+      "meaning": "四框业务模型的并列组成"
+    },
+    "business_model_dimension": {
+      "meaning": "六维业务模型立方体的并列维度"
+    },
+    "operating_model": {
+      "meaning": "业务流程集成与标准化的模式及适用范围"
+    },
+    "dbrm_domain": {
+      "meaning": "DBRM四参考域之一，非TOGAF四架构域"
+    },
+    "dbrm_element": {
+      "meaning": "DBRM十核心参考要素之一"
+    },
+    "information_meaning": {
+      "meaning": "某利益相关者在明确语境中对信息概念的解释，不替代概念自身"
+    },
+    "metadata_solution_component": {
+      "meaning": "元数据IT方案的技术、模型或流程组成部分；不是三个存储库"
+    },
+    "guide:backlog_item": "业务变革需求项；冲刺选择复用同一ID，不复制需求身份",
+    "guide:sprint": "团队与时间盒下有独立目标的冲刺",
+    "guide:dorp_record": "演示/成果/回顾/规划四活动的可追溯记录",
+    "guide:delegation_decision": "特定决策范围的授权与可逆性约定",
+    "guide:description_review": "架构描述相对于指定决策的充分性与正式度判断",
+    "guide:technical_debt": "技术或架构债及偿还追溯，不隐含财务债务计算",
+    "guide:delivery_feature_review": "G20F方法的项目操作记录；字段按视图规范解释，非新增官方元模型类型",
+    "guide:delivery_style_decision": "G20F方法的项目操作记录；字段按视图规范解释，非新增官方元模型类型",
+    "guide:sbce_iteration": "G20F方法的项目操作记录；字段按视图规范解释，非新增官方元模型类型",
+    "guide:sbce_constraint": "G20F方法的项目操作记录；字段按视图规范解释，非新增官方元模型类型",
+    "guide:mva_scope": "有名称、范围和选择依据的最小可行架构边界；不是MVP或部署状态",
+    "guide:ea-point-of-view": {
+      "meaning": "外部生态变化要求什么转型，EA建议如何被阅读、讨论并关联到后续变更？",
+      "definition_origin": "G184/G188 source-guided project work-product vocabulary"
+    },
+    "guide:project-management-strategy": {
+      "meaning": "架构项目如何管理风险、质量、沟通、配置与控制，谁确认方法和授权边界？",
+      "definition_origin": "G184/G188 source-guided project work-product vocabulary"
+    },
+    "guide:project-highlight-report": {
+      "meaning": "本报告期实际完成了什么、下期做什么、余项如何预测，哪些事项需要决策或上报？",
+      "definition_origin": "G184/G188 source-guided project work-product vocabulary"
+    },
+    "g234:metadata-tool": {
+      "meaning": "项目元数据工具/应用的稳定身份与版本；不是源参考功能或资产"
+    },
+    "g234:function-coverage": {
+      "meaning": "特定范围/状态/日期的源应用功能覆盖审查记录；不等于功能本体或已实施事实"
+    },
+    "acceptance_criterion": {
+      "meaning": "验收准则：可判定的通过条件，须指明主体、判据与证据形式。",
+      "level": "core",
+      "owner_domain": "togaf-artifact-review",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:closure_record": {
+      "meaning": "阶段或项目收尾记录：记录交付、遗留与移交状态。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-artifact-review",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:deliverable_charter": {
+      "meaning": "交付物章程：约定交付物范围、验收流程与责任人。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-artifact-review",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:governance_check": {
+      "meaning": "治理检查记录：对治理清单的执行结果。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-artifact-review",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:noncompliance_disposition": {
+      "meaning": "不合规处置：偏差、裁决、到期与后续动作。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-artifact-review",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:viewpoint": {
+      "meaning": "视角定义：面向谁、回答哪些关注点、需要什么信息与记法。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-artifact-review",
+      "definition_origin": "project-operational-convention"
+    },
+    "sustainability_action": {
+      "meaning": "可持续性行动：针对已识别环境影响的候选措施。",
+      "level": "core",
+      "owner_domain": "togaf-artifact-review",
+      "definition_origin": "project-operational-convention"
+    },
+    "adoption_option": {
+      "meaning": "采用选项：数字技术采用的候选路径，不含采纳决定。",
+      "level": "core",
+      "owner_domain": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "adoption_step": {
+      "meaning": "采用步骤：采用路径中的一个可执行动作。",
+      "level": "core",
+      "owner_domain": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "ea_capacity": {
+      "meaning": "架构能力容量：可投入架构工作的人力与技能总量。",
+      "level": "core",
+      "owner_domain": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "ea_value": {
+      "meaning": "架构价值项：架构工作对业务的具体贡献，须可指向受益方。",
+      "level": "core",
+      "owner_domain": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:cycle_product": {
+      "meaning": "业务周期工作产品时点：某工作产品在业务周期中的产出时机。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:ea_adm_mapping": {
+      "meaning": "EA 服务与 ADM 阶段映射：服务在哪个阶段被消费。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:ea_service_context": {
+      "meaning": "EA 服务语境：服务面向的组织规模与决策层级。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:framework_touchpoint": {
+      "meaning": "框架接触点：与其他框架或标准的接触位置与承诺程度。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:project_learning": {
+      "meaning": "项目经验记录：可复用的教训与改进动作。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:sustainability_capability": {
+      "meaning": "可持续性能力：支撑环境目标的能力项。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:value_observation": {
+      "meaning": "价值观测：带基线、观测窗与归因边界的实测记录。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "maturity_criterion": {
+      "meaning": "成熟度判据：某一级别必须成立的证据条件。",
+      "level": "core",
+      "owner_domain": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "maturity_observation": {
+      "meaning": "成熟度观察：针对某判据的实际观察值与证据。",
+      "level": "core",
+      "owner_domain": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "readiness_consequence": {
+      "meaning": "就绪度后果：某因素未达标带来的具体影响。",
+      "level": "core",
+      "owner_domain": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "readiness_question": {
+      "meaning": "就绪度问项：问卷中的一个可作答问题及其锚点。",
+      "level": "core",
+      "owner_domain": "togaf-ea-capability",
+      "definition_origin": "project-operational-convention"
+    },
+    "analytics_component": {
+      "meaning": "分析组件：BI 与分析平台的构成单元。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "data_issue": {
+      "meaning": "数据问题：已发现的缺陷、影响与处置状态。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "data_quality_measure": {
+      "meaning": "数据质量测量值：维度、指标、期间与测量结果。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "data_usage": {
+      "meaning": "数据用途：某数据被谁、为何、在什么约束下使用。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:bi_operating_state": {
+      "meaning": "BI 运营状态：平台在某一阶段的可运营条件。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:mdm_diagnostic_answer": {
+      "meaning": "主数据诊断答案：运营十问中的一条作答与证据。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:mdm_match_case": {
+      "meaning": "主数据匹配案例：候选记录对与匹配依据。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:mdm_plateau": {
+      "meaning": "主数据成熟台阶：某阶段的能力与退出条件。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "inference_source": {
+      "meaning": "推断来源：技术元数据推断所依据的来源与置信说明。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "master_exchange": {
+      "meaning": "主数据交换：主数据在两系统间的传递方式与频率。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "master_repository": {
+      "meaning": "主数据存储库：保存权威副本的库及其职责。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "metadata_activity": {
+      "meaning": "元数据活动：采集、校验、发布等可执行动作。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "metadata_component": {
+      "meaning": "元数据组件：元数据管理方案的构成部分。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "metadata_policy": {
+      "meaning": "元数据政策：元数据的责任、质量与使用规则。",
+      "level": "core",
+      "owner_domain": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "ops:bi_model_operations": {
+      "meaning": "BI 模型运维：模型上线后的运行与监控要求。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "ops:bi_value_chain": {
+      "meaning": "BI 价值链控制：从数据到决策的增值环节与控制点。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "ops:functional_coverage": {
+      "meaning": "功能覆盖记录：参考功能与项目实现的覆盖关系。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-information-data",
+      "definition_origin": "project-operational-convention"
+    },
+    "analytics_requirement": {
+      "meaning": "分析需求：由决策问题反推的信息与分析要求。",
+      "level": "core",
+      "owner_domain": "togaf-requirements",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:bi_requirement_provenance": {
+      "meaning": "BI 需求来源：需求由哪个决策问题与哪些材料产生。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-requirements",
+      "definition_origin": "project-operational-convention"
+    },
+    "ops:bi_usage": {
+      "meaning": "BI 使用记录：功能被实际使用的证据，不等于运行次数。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-requirements",
+      "definition_origin": "project-operational-convention"
+    },
+    "architecture_activity": {
+      "meaning": "架构活动：可排期的架构工作单元。",
+      "level": "core",
+      "owner_domain": "togaf-architecture-workbench",
+      "definition_origin": "project-operational-convention"
+    },
+    "architecture_task": {
+      "meaning": "架构任务：活动下的可分配工作项。",
+      "level": "core",
+      "owner_domain": "togaf-architecture-workbench",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:agile_activity": {
+      "meaning": "敏捷活动：冲刺中的一项工作。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-architecture-workbench",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:agile_context": {
+      "meaning": "敏捷语境：协作方式适用的团队与场景。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-architecture-workbench",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:agile_pattern_choice": {
+      "meaning": "敏捷协作方式选择：四种协作方式之一的选定理由。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-architecture-workbench",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:agile_sprint": {
+      "meaning": "敏捷冲刺：团队与时间盒下有独立目标的迭代。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-architecture-workbench",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:dorp_gate": {
+      "meaning": "DORP 关卡：演示、成果、回顾、规划四活动中的检查点。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-architecture-workbench",
+      "definition_origin": "project-operational-convention"
+    },
+    "digital_business_function": {
+      "meaning": "数字业务功能：数字企业参考模型中的功能项。",
+      "level": "core",
+      "owner_domain": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "government_service": {
+      "meaning": "政府服务：政府参考模型中的三级服务项。",
+      "level": "core",
+      "owner_domain": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:competency_overlay": {
+      "meaning": "胜任力叠加：能力所需胜任力的映射层。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:dbrm_applicability": {
+      "meaning": "DBRM 适用性：参考要素对本企业的适用判断。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:dbrm_mapping_row": {
+      "meaning": "DBRM 映射行：参考要素与项目对象的一行对应。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:government_overlay": {
+      "meaning": "政府参考叠加：政府部门功能服务对业务的对照。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:government_reference_node": {
+      "meaning": "政府参考节点：部门、功能、服务三层中的节点。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:operating_submodel": {
+      "meaning": "运营子模型：运营模式中的一个可分析子域。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "journey_stage": {
+      "meaning": "旅程阶段：客户旅程中的一个阶段及其触点与痛点。",
+      "level": "core",
+      "owner_domain": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "persona": {
+      "meaning": "客户画像：带证据的客户群特征与目标。",
+      "level": "core",
+      "owner_domain": "togaf-business-models-processes",
+      "definition_origin": "project-operational-convention"
+    },
+    "environmental_debt": {
+      "meaning": "环境债务：已产生但未处置的环境负担，不等于排放量。",
+      "level": "core",
+      "owner_domain": "togaf-change-value",
+      "definition_origin": "project-operational-convention"
+    },
+    "environmental_decision": {
+      "meaning": "环境决策：针对环境影响的裁决与理由。",
+      "level": "core",
+      "owner_domain": "togaf-change-value",
+      "definition_origin": "project-operational-convention"
+    },
+    "phosphogypsum_record": {
+      "meaning": "磷石膏记录：某期间的产生、利用、堆存数量与利用率。",
+      "level": "core",
+      "owner_domain": "togaf-change-value",
+      "definition_origin": "project-operational-convention"
+    },
+    "equipment": {
+      "meaning": "设备：ISA-95 设备层级中的资产单元，含所属工作中心与关键度。",
+      "level": "core",
+      "owner_domain": "togaf-technology-architecture",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:carbon_reference_data": {
+      "meaning": "碳参考数据：排放因子与其适用边界。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-change-value",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:dual_entry_opportunity": {
+      "meaning": "双入口机会：用途侧与基础设施侧同时识别的改进机会。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-change-value",
+      "definition_origin": "project-operational-convention"
+    },
+    "audit_finding": {
+      "meaning": "审计发现：审计中确认的偏差与整改要求。",
+      "level": "core",
+      "owner_domain": "togaf-implementation-governance",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:cloud_environmental_field": {
+      "meaning": "云环境数据字段：云与外包方需提供的数据项。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-implementation-governance",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:governance-check": {
+      "meaning": "治理检查：治理规则的执行判定（另一写法）。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-implementation-governance",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:sustainable_procurement": {
+      "meaning": "可持续采购：ICT 采购中的环境与生命周期要求。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-implementation-governance",
+      "definition_origin": "project-operational-convention"
+    },
+    "capability_change": {
+      "meaning": "能力变更：优化、整合、新建、退役之一及其范围。",
+      "level": "core",
+      "owner_domain": "togaf-gap-solutions",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:product_component": {
+      "meaning": "产品组件：产品架构中的构成单元。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-gap-solutions",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:product_function": {
+      "meaning": "产品功能：产品对外提供的功能项。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-gap-solutions",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:product_interface": {
+      "meaning": "产品接口：产品与其他单元的交互约定。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-gap-solutions",
+      "definition_origin": "project-operational-convention"
+    },
+    "option_score": {
+      "meaning": "选项评分：某候选方案在某准则上的分值及其证据。",
+      "level": "core",
+      "owner_domain": "togaf-gap-solutions",
+      "definition_origin": "project-operational-convention"
+    },
+    "transition_architecture": {
+      "meaning": "过渡架构：功能完整、可运营的中间状态。",
+      "level": "core",
+      "owner_domain": "togaf-gap-solutions",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:estimate_check": {
+      "meaning": "估算充分性检查：估算是否有依据、区间与假设。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-migration-roadmap",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:implementation_factor": {
+      "meaning": "实施因素：影响实施顺序与可行性的条件。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-migration-roadmap",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:portfolio_assignment": {
+      "meaning": "组合分配：工作包归属的组合主题。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-migration-roadmap",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:project_authorization": {
+      "meaning": "项目授权：工作包被授权进入执行的记录。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-migration-roadmap",
+      "definition_origin": "project-operational-convention"
+    },
+    "rollback_step": {
+      "meaning": "回退步骤：触发条件、责任人、前置条件与验证方法。",
+      "level": "core",
+      "owner_domain": "togaf-migration-roadmap",
+      "definition_origin": "project-operational-convention"
+    },
+    "guide:sustainability_learning": {
+      "meaning": "可持续性学习：面向可持续目标的能力培养项。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-organization-roles",
+      "definition_origin": "project-operational-convention"
+    },
+    "skill_development": {
+      "meaning": "技能发展：某技能的成长路径与熟练度证据。",
+      "level": "core",
+      "owner_domain": "togaf-organization-roles",
+      "definition_origin": "project-operational-convention"
+    },
+    "impact_scenario": {
+      "meaning": "影响情景：某一威胁实现后的业务后果路径。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "legal_obligation": {
+      "meaning": "法律义务：法规要求的具体义务与适用条件。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "risk_treatment": {
+      "meaning": "风险处置：规避、降低、转移、接受的选定方式与残余风险。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "security_classification": {
+      "meaning": "安全分类：信息或资产的分级与处理要求。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "security_component": {
+      "meaning": "安全组件：实现安全服务的构成单元。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "security_impact": {
+      "meaning": "安全影响：安全事件对业务的具体影响估计。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "security_policy": {
+      "meaning": "安全政策：必须遵守的安全规则与适用范围。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "security_resource": {
+      "meaning": "安全资源：投入某项控制的人力、工具与预算。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "training_need": {
+      "meaning": "培训需求：某角色在安全或合规上的能力缺口。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "transition_risk": {
+      "meaning": "过渡风险：迁移或切换期间特有的风险。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "trust_party": {
+      "meaning": "信任方：建立信任关系的外部或内部主体。",
+      "level": "core",
+      "owner_domain": "togaf-security-risk",
+      "definition_origin": "project-operational-convention"
+    },
+    "microservice": {
+      "meaning": "微服务：独立部署、单一职责、自有数据边界的服务单元。",
+      "level": "core",
+      "owner_domain": "togaf-application-architecture",
+      "definition_origin": "project-operational-convention"
+    },
+    "service_boundary": {
+      "meaning": "服务边界：服务职责与数据所有权的分界。",
+      "level": "core",
+      "owner_domain": "togaf-application-architecture",
+      "definition_origin": "project-operational-convention"
+    },
+    "ops:msa_value_resource": {
+      "meaning": "微服务价值与资源：服务产生的价值与其消耗的资源。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-application-architecture",
+      "definition_origin": "project-operational-convention"
+    },
+    "interoperability_issue": {
+      "meaning": "互操作问题：两系统间在语义、协议或数据上的障碍。",
+      "level": "core",
+      "owner_domain": "togaf-technology-architecture",
+      "definition_origin": "project-operational-convention"
+    },
+    "microservice_guideline": {
+      "meaning": "微服务技术指引：部署、观测、失败隔离的技术要求。",
+      "level": "core",
+      "owner_domain": "togaf-technology-architecture",
+      "definition_origin": "project-operational-convention"
+    },
+    "ops:msa_governance": {
+      "meaning": "微服务联邦治理：跨团队的治理安排与决策权。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-technology-architecture",
+      "definition_origin": "project-operational-convention"
+    },
+    "ops:msa_readiness": {
+      "meaning": "微服务就绪度：组织与平台是否具备拆分条件。",
+      "level": "guide-extension",
+      "owner_guide": "togaf-technology-architecture",
+      "definition_origin": "project-operational-convention"
+    },
+    "scenario": {
+      "meaning": "业务场景：问题、环境、SMART 成果与参与者的结构化描述。",
+      "level": "core",
+      "owner_domain": "togaf-vision-scenarios",
+      "definition_origin": "project-operational-convention"
+    },
+    "repository_container": {
+      "meaning": "存储库容器：企业库或架构库，不是全景本身。",
+      "level": "guide-extension"
+    },
+    "repository_partition": {
+      "meaning": "架构库分区或能力，全景只是其中之一。",
+      "level": "guide-extension"
+    },
+    "repository_external": {
+      "meaning": "架构库外侧的参考、标准或委员会。",
+      "level": "guide-extension"
+    },
+    "repository_asset": {
+      "meaning": "分区内的资产入口。",
+      "level": "guide-extension"
+    },
+    "landscape_projection": {
+      "meaning": "EA 全景体积，可按轴投影。",
+      "level": "guide-extension"
+    },
+    "landscape_dimension": {
+      "meaning": "广度、抽象或时间轴，不是流程。",
+      "level": "guide-extension"
+    },
+    "landscape_slice": {
+      "meaning": "全景内的项目切片。",
+      "level": "guide-extension"
+    },
+    "adm_phase": {
+      "meaning": "ADM 阶段标识，不是批准记录。",
+      "level": "guide-extension"
+    },
+    "security_risk_concept": {
+      "meaning": "安全与风险概念，可标 ISM/ERM 新增。",
+      "level": "guide-extension"
+    },
+    "ism_process": {
+      "meaning": "信息安全管理持续过程。",
+      "level": "guide-extension"
+    },
+    "erm_process": {
+      "meaning": "企业风险管理持续过程。",
+      "level": "guide-extension"
+    },
+    "data_profiling": {
+      "meaning": "数据剖析活动。",
+      "level": "guide-extension"
+    },
+    "metadata_management": {
+      "meaning": "元数据管理活动。",
+      "level": "guide-extension"
+    },
+    "metadata_zone": {
+      "meaning": "METADATA 或 DATA 分区。",
+      "level": "guide-extension"
+    },
+    "soa_layer": {
+      "meaning": "SOA 参考水平层。",
+      "level": "guide-extension"
+    },
+    "soa_concern": {
+      "meaning": "SOA 跨层关注点。",
+      "level": "guide-extension"
+    },
+    "guide:architecture-role": {
+      "meaning": "架构实践需要哪些角色层级，各自职责、活动、关键利益相关者与KPI是什么，谁领导谁？",
+      "definition_origin": "G249 §4、§4.1–4.4 source-guided project work-product vocabulary"
+    },
+    "guide:solution-delivery-notebook": {
+      "meaning": "交付团队据以设计和测试的需求/规格、风险/控制配对、差距范围与目标架构摘要是什么？",
+      "definition_origin": "G186 附录D 表D-1 source-guided project work-product vocabulary"
+    },
+    "guide:product-constraint-register": {
+      "meaning": "架构定义了哪些产品、边界与产品负责人约束，哪些待办项与约束冲突，是否有阶段G豁免？",
+      "definition_origin": "G186 §12.1 source-guided project work-product vocabulary"
+    },
+    "guide:domain-architecture": {
+      "meaning": "各领域架构是否服务同一EA项目与目标、引用共享模型，安全是否作为关注点贯穿其他域？",
+      "definition_origin": "G186 §12.2 source-guided project work-product vocabulary"
+    },
+    "guide:ea-project-scope": {
+      "meaning": "各领域架构是否服务同一EA项目与目标、引用共享模型，安全是否作为关注点贯穿其他域？",
+      "definition_origin": "G186 §12.2 source-guided project work-product vocabulary"
+    },
+    "guide:incident-adjustment": {
+      "meaning": "事件如何改变了利益相关者的风险偏好与需求，有哪些目标变更、取消目标或取消变更的选项？",
+      "definition_origin": "G186 §12.3 source-guided project work-product vocabulary"
+    },
+    "guide:dtra-alignment-summary": {
+      "meaning": "DTRA结果在每个ADM阶段意味着什么，各阶段考虑了哪些因素，低分因素如何处理？",
+      "definition_origin": "G212 §6、表6-1、图6-1 source-guided project work-product vocabulary"
+    },
+    "guide:dtra-phase-record": {
+      "meaning": "DTRA结果在每个ADM阶段意味着什么，各阶段考虑了哪些因素，低分因素如何处理？",
+      "definition_origin": "G212 §6、表6-1、图6-1 source-guided project work-product vocabulary"
+    },
+    "guide:scenario-checklist-stage": {
+      "meaning": "业务场景每个步骤的清单完成到哪里，缺什么证据，G176的角色是否在规划步骤指定？",
+      "definition_origin": "G176 §10、§11.1–11.6 source-guided project work-product vocabulary"
+    },
+    "guide:goal": {
+      "meaning": "每个目的是否具体、可度量、可行动、现实、有时限，并追溯到已分类的目标？",
+      "definition_origin": "G176 §9.1–9.3 source-guided project work-product vocabulary"
+    },
+    "guide:smart-objective": {
+      "meaning": "每个目的是否具体、可度量、可行动、现实、有时限，并追溯到已分类的目标？",
+      "definition_origin": "G176 §9.1–9.3 source-guided project work-product vocabulary"
+    }
+  },
+  "relationships": {
+    "instance_of": {
+      "source_types": [
+        "capability_instance"
+      ],
+      "target_types": [
+        "capability"
+      ],
+      "meaning": "实例属于稳定能力类型"
+    },
+    "has_instance": {
+      "source_types": [
+        "capability"
+      ],
+      "target_types": [
+        "capability_instance"
+      ],
+      "meaning": "能力在指定语境中的实例"
+    },
+    "stage_uses_instance": {
+      "source_types": [
+        "value_stage"
+      ],
+      "target_types": [
+        "capability_instance"
+      ],
+      "meaning": "阶段由特定能力实例使能"
+    },
+    "instance_comprises": {
+      "source_types": [
+        "capability_instance"
+      ],
+      "target_types": [
+        "role",
+        "actor",
+        "process",
+        "business_process",
+        "application",
+        "application_component",
+        "application_process",
+        "business_object",
+        "data_object",
+        "information",
+        "data_entity",
+        "technology"
+      ],
+      "meaning": "实例的实现组成"
+    },
+    "visually_contains": {
+      "source_types": [
+        "visual_container",
+        "information_group"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "仅视觉包含，不自动生成业务组成事实"
+    },
+    "uses_information": {
+      "source_types": [
+        "capability",
+        "capability_instance",
+        "business_service",
+        "process"
+      ],
+      "target_types": [
+        "information",
+        "business_object"
+      ],
+      "meaning": "主体使用信息；从使用者指向信息"
+    },
+    "modifies_information": {
+      "source_types": [
+        "capability",
+        "capability_instance",
+        "business_service",
+        "process"
+      ],
+      "target_types": [
+        "information",
+        "business_object"
+      ],
+      "meaning": "主体创建或修改信息；从主体指向信息"
+    },
+    "aggregation": {
+      "source_types": [
+        "information",
+        "business_object",
+        "data_entity",
+        "logical_entity"
+      ],
+      "target_types": [
+        "information",
+        "business_object",
+        "data_entity",
+        "logical_entity"
+      ],
+      "meaning": "整体共享地聚合部分；不是独占生命周期"
+    },
+    "composition": {
+      "source_types": [
+        "information",
+        "business_object",
+        "data_entity",
+        "logical_entity"
+      ],
+      "target_types": [
+        "information",
+        "business_object",
+        "data_entity",
+        "logical_entity"
+      ],
+      "meaning": "整体独占地组成部分，生命周期含义按视点说明"
+    },
+    "generalization": {
+      "source_types": [
+        "information",
+        "business_object",
+        "data_entity",
+        "logical_entity"
+      ],
+      "target_types": [
+        "information",
+        "business_object",
+        "data_entity",
+        "logical_entity"
+      ],
+      "meaning": "特化类型指向一般类型"
+    },
+    "realizes_abb": {
+      "source_types": [
+        "sbb",
+        "application",
+        "application_component",
+        "technology"
+      ],
+      "target_types": [
+        "abb"
+      ],
+      "meaning": "具体解决方案实现架构要求"
+    },
+    "implements_control": {
+      "source_types": [
+        "sbb",
+        "application",
+        "technology",
+        "process"
+      ],
+      "target_types": [
+        "control"
+      ],
+      "meaning": "实现控制措施"
+    },
+    "threatens": {
+      "source_types": [
+        "threat_actor",
+        "threat_event"
+      ],
+      "target_types": [
+        "risk_asset",
+        "vulnerability"
+      ],
+      "meaning": "威胁作用于资产或利用脆弱性"
+    },
+    "exploits": {
+      "source_types": [
+        "threat_event",
+        "threat_actor"
+      ],
+      "target_types": [
+        "vulnerability"
+      ],
+      "meaning": "威胁利用脆弱性"
+    },
+    "causes_loss": {
+      "source_types": [
+        "threat_event",
+        "vulnerability"
+      ],
+      "target_types": [
+        "loss_event"
+      ],
+      "meaning": "有证据或待验证的损失因果"
+    },
+    "impacts_asset": {
+      "source_types": [
+        "loss_event",
+        "risk"
+      ],
+      "target_types": [
+        "risk_asset"
+      ],
+      "meaning": "损失或风险影响资产"
+    },
+    "risk_has_control": {
+      "source_types": [
+        "risk",
+        "risk_register_entry"
+      ],
+      "target_types": [
+        "control"
+      ],
+      "meaning": "风险关联候选或已实施控制"
+    },
+    "requires_control": {
+      "source_types": [
+        "control_objective",
+        "security_requirement"
+      ],
+      "target_types": [
+        "control"
+      ],
+      "meaning": "要求由控制措施实现"
+    },
+    "derived_from": {
+      "source_types": [
+        "security_requirement",
+        "requirement"
+      ],
+      "target_types": [
+        "business_attribute",
+        "control_objective",
+        "goal",
+        "legal_requirement"
+      ],
+      "meaning": "要求由业务属性或目标导出"
+    },
+    "belongs_to_domain": {
+      "source_types": [
+        "risk_asset",
+        "application",
+        "data_entity",
+        "actor",
+        "technology"
+      ],
+      "target_types": [
+        "security_domain"
+      ],
+      "meaning": "对象位于安全策略域"
+    },
+    "trusts": {
+      "source_types": [
+        "security_domain",
+        "actor",
+        "application"
+      ],
+      "target_types": [
+        "security_domain",
+        "actor",
+        "application"
+      ],
+      "meaning": "带条件的有向信任；不是无条件授权"
+    },
+    "evaluated_by": {
+      "source_types": [
+        "*"
+      ],
+      "target_types": [
+        "assessment_factor",
+        "criterion",
+        "measure",
+        "environment_measure"
+      ],
+      "meaning": "对象由判据或度量评价"
+    },
+    "scores": {
+      "source_types": [
+        "assessment_result"
+      ],
+      "target_types": [
+        "assessment_factor",
+        "maturity_element",
+        "readiness_factor",
+        "criterion"
+      ],
+      "meaning": "评价结果对应因素或判据"
+    },
+    "has_consequence": {
+      "source_types": [
+        "readiness_factor",
+        "assessment_factor",
+        "problem"
+      ],
+      "target_types": [
+        "consequence"
+      ],
+      "meaning": "缺失或不足条件对应定性后果"
+    },
+    "metadata_describes": {
+      "source_types": [
+        "metadata_asset"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "元数据描述对象"
+    },
+    "ingests_from": {
+      "source_types": [
+        "metadata_repository"
+      ],
+      "target_types": [
+        "metadata_source",
+        "metadata_repository"
+      ],
+      "meaning": "存储库从源摄取元数据；采集方式另记属性"
+    },
+    "pushes_metadata": {
+      "source_types": [
+        "metadata_source",
+        "metadata_repository"
+      ],
+      "target_types": [
+        "metadata_repository"
+      ],
+      "meaning": "源主动向目标推送"
+    },
+    "pulls_metadata": {
+      "source_types": [
+        "metadata_repository"
+      ],
+      "target_types": [
+        "metadata_source",
+        "metadata_repository"
+      ],
+      "meaning": "目标发起拉取；响应数据流需另记"
+    },
+    "checks_quality": {
+      "source_types": [
+        "data_quality_rule"
+      ],
+      "target_types": [
+        "metadata_asset",
+        "master_data",
+        "data_entity"
+      ],
+      "meaning": "质量规则检查数据资产"
+    },
+    "governed_by": {
+      "source_types": [
+        "metadata_asset",
+        "master_data",
+        "data_entity"
+      ],
+      "target_types": [
+        "data_steward",
+        "role",
+        "organization"
+      ],
+      "meaning": "数据治理责任"
+    },
+    "has_journey_stage": {
+      "source_types": [
+        "customer_persona",
+        "value_stream"
+      ],
+      "target_types": [
+        "customer_journey_stage"
+      ],
+      "meaning": "画像或旅程对应体验阶段"
+    },
+    "supports_role": {
+      "source_types": [
+        "skill"
+      ],
+      "target_types": [
+        "architecture_role",
+        "role",
+        "guide:architecture-role"
+      ],
+      "meaning": "技能支撑角色；熟练度另记"
+    },
+    "causal_influence": {
+      "source_types": [
+        "*"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "有正负极性、时滞和证据的因果影响，非相关性自动推断"
+    },
+    "implements_transition": {
+      "source_types": [
+        "work_package"
+      ],
+      "target_types": [
+        "transition"
+      ],
+      "meaning": "工作包实现可运营过渡状态"
+    },
+    "changes_object": {
+      "source_types": [
+        "work_package",
+        "change_request"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "变革对象及新增改进整合退役分类"
+    },
+    "records_decision": {
+      "source_types": [
+        "decision_record"
+      ],
+      "target_types": [
+        "option",
+        "abb",
+        "sbb",
+        "application",
+        "technology",
+        "work_package"
+      ],
+      "meaning": "记录选项选择与理由"
+    },
+    "exchanges_value": {
+      "source_types": [
+        "value_network_actor"
+      ],
+      "target_types": [
+        "value_network_actor"
+      ],
+      "meaning": "有方向且带条件的价值交换；需明确价值项与对价，不能默认双向"
+    },
+    "information_flow": {
+      "source_types": [
+        "actor",
+        "application",
+        "lean_process"
+      ],
+      "target_types": [
+        "actor",
+        "application",
+        "lean_process"
+      ],
+      "meaning": "精益图中的信息传递；与工作物料推进及流程先后独立"
+    },
+    "work_flow": {
+      "source_types": [
+        "lean_process"
+      ],
+      "target_types": [
+        "lean_process"
+      ],
+      "meaning": "工作或物料在精益流程间推进；推拉规则与队列需明示"
+    },
+    "contains": {
+      "source_types": [
+        "dbrm_domain",
+        "platform"
+      ],
+      "target_types": [
+        "dbrm_element",
+        "technology"
+      ],
+      "meaning": "明确类型约束的包含：平台含技术；DBRM参考域含核心要素。包含不是授权或组织汇报。"
+    },
+    "realizes": {
+      "source_types": [
+        "function",
+        "outcome",
+        "sbb",
+        "technology"
+      ],
+      "target_types": [
+        "abb",
+        "business_service",
+        "goal",
+        "technology_service"
+      ],
+      "meaning": "实现规定的服务、构建块或目标；成果到目标表示达成，不表示目标导致成果。"
+    },
+    "precedes": {
+      "source_types": [
+        "value_stage",
+        "customer_journey_stage"
+      ],
+      "target_types": [
+        "value_stage",
+        "customer_journey_stage"
+      ],
+      "meaning": "同一价值流或客户旅程内阶段的先后；旅程阶段的先后是体验次序，不是流程控制流，也不跨价值流与旅程连接。"
+    },
+    "makes_explicit": {
+      "source_types": [
+        "business_object"
+      ],
+      "target_types": [
+        "information"
+      ],
+      "meaning": "业务对象使信息概念显性化；不是存储或生成关系",
+      "definition_origin": "project-vocabulary-guided-by-G190-A.1-or-G206-5"
+    },
+    "is_about": {
+      "source_types": [
+        "information"
+      ],
+      "target_types": [
+        "business_object"
+      ],
+      "meaning": "信息概念作为元数据描述业务对象；不是组成关系",
+      "definition_origin": "project-vocabulary-guided-by-G190-A.1-or-G206-5"
+    },
+    "interprets_information": {
+      "source_types": [
+        "information_meaning"
+      ],
+      "target_types": [
+        "information"
+      ],
+      "meaning": "具名语境和利益相关者对信息的解释",
+      "definition_origin": "project-vocabulary-guided-by-G190-A.1-or-G206-5"
+    },
+    "organization_value_exchange": {
+      "source_types": [
+        "organization"
+      ],
+      "target_types": [
+        "organization"
+      ],
+      "meaning": "从交付方向接收方交付具体价值项；不自动逆推对价",
+      "definition_origin": "project-vocabulary-guided-by-G190-A.1-or-G206-5"
+    },
+    "organization_information_exchange": {
+      "source_types": [
+        "organization"
+      ],
+      "target_types": [
+        "organization"
+      ],
+      "meaning": "工作网络中的定向信息传递，需信息概念与派生证据",
+      "definition_origin": "project-vocabulary-guided-by-G190-A.1-or-G206-5"
+    },
+    "supports_metadata_requirement": {
+      "source_types": [
+        "metadata_solution_component"
+      ],
+      "target_types": [
+        "requirement"
+      ],
+      "meaning": "特定元数据方案组成满足业务需求的设计追溯，尚不证明实现或验收"
+    }
+  }
+}

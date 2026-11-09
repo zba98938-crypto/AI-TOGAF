@@ -1,0 +1,247 @@
+{
+  "schema_version": "2.0",
+  "id": "G184/fig10-1",
+  "title": "决策流程集成",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      1076
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "说明 EA 能力与决策流程之间的固定交互模式：向上提供建议与约束，向下接受决策指导，向治理提供报告。作者用它区分“对决策的输入”和“对治理的报告”，并说明该模式适用于所有类型的决策流程，变化的只是决策流程类型。",
+    "reading_guide_zh": "先看顶部蓝色标题框“Decision-making Process”，它统摄下方两个橙色流程框：左“Process Decision-making”、右“Process Governance”。中央小框“Decision”位于两框下方，向下箭头指向“Architecture Support”。左下“Advice & Constraints”向上箭头指向 Process Decision-making；右下“Reporting”向上箭头指向 Process Governance。三组箭头就是全部画出的关系。",
+    "key_points_zh": [
+      "两个上游输入：Advice & Constraints 向上进入决策制定流程；Reporting 向上进入治理流程。",
+      "建议通常采取权衡分析、视图与架构路线图的形式；约束多是先前的决策，常以架构需求规格说明表达。",
+      "建议导向决策，决策通常表现为批准候选架构；决策向下指导架构支持。",
+      "报告在目标架构范围内针对相关流程已做出的决策，用于确认执行、驱动目标架构变更或执行变更。",
+      "交互被分成两半：建议/约束喂给决策，报告喂给治理——这正是图中左右两条上行箭头。",
+      "该交互模型对所有决策流程不变，变化的只是决策流程类型；正文列出战略制定、组合/项目群规划、项目规划、解决方案开发四类。",
+      "存在子决策时，输入会受到指导与约束（正文），图中未画子决策。",
+      "“Decision”框与两个流程框相接但无箭头，表示决策是流程的产出/交汇点（版式推断）。"
+    ],
+    "hierarchy_zh": "顶部蓝色标题框是流程总称，下方两个橙色框是它的两个侧面（决策制定与治理）；Decision 是二者下方的中心框；Advice & Constraints、Reporting、Architecture Support 是三个输入/受指导方。图中没有总框包含关系，全部是并列框加箭头。",
+    "line_semantics_zh": "三条实线箭头：Advice & Constraints ↑ Process Decision-making；Reporting ↑ Process Governance；Decision ↓ Architecture Support。箭头方向与正文“建议/约束喂给决策、报告喂给治理、决策指导架构支持”一致。Decision 与两个流程框仅相邻，没有箭头；蓝色标题框与下方框之间也没有连线。",
+    "misreadings_zh": [
+      "不要以为 Reporting 指向决策流程；它指向 Process Governance。",
+      "不要以为 Decision 向上指向流程；图中唯一的向下箭头是 Decision→Architecture Support。",
+      "不要把顶部蓝色标题框当作流程中的一个步骤；它没有连线，只是流程总称。",
+      "不要把 Decision 与两个流程框的相邻读成包含关系；它是二者下方的产出/交汇框（版式推断）。",
+      "不要把“Advice & Constraints”读成 EA 能力的全部输出；它只是对决策的输入，报告是另一条独立通道。",
+      "中文稿引用的 SVG 重画成 EA→决策→执行→治理的闭环，并加入“执行流程”，与原图不符；不能据它理解本图。",
+      "原图没有“执行流程”；执行流程集成是图 10-2 的内容。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "dm_process",
+      "label_en": "Decision-making Process",
+      "label_zh": "决策流程（总称）",
+      "type": "process",
+      "parent": null,
+      "position": "顶部蓝色宽框",
+      "description_zh": "企业决策流程的总称；所有规划与预算流程都属于决策流程。图中没有从它出发的连线。"
+    },
+    {
+      "id": "process_decision_making",
+      "label_en": "Process Decision-making",
+      "label_zh": "流程决策（决策制定）",
+      "type": "process",
+      "parent": null,
+      "position": "第二行左框",
+      "description_zh": "决策制定流程；接收 EA 能力的建议与约束，产出决策。"
+    },
+    {
+      "id": "process_governance",
+      "label_en": "Process Governance",
+      "label_zh": "流程治理",
+      "type": "process",
+      "parent": null,
+      "position": "第二行右框",
+      "description_zh": "对决策进行治理的流程；接收 EA 能力的报告。"
+    },
+    {
+      "id": "decision",
+      "label_en": "Decision",
+      "label_zh": "决策",
+      "type": "event",
+      "parent": null,
+      "position": "第二、三行之间的中央小框",
+      "description_zh": "决策制定与治理的交汇点；向下指导架构支持。通常表现为批准候选架构。"
+    },
+    {
+      "id": "advice_constraints",
+      "label_en": "Advice & Constraints",
+      "label_zh": "建议与约束",
+      "type": "artifact",
+      "parent": null,
+      "position": "左下框",
+      "description_zh": "EA 能力提供给决策的建议与约束：权衡分析、视图、架构路线图，以及作为先前决策的架构需求规格说明。"
+    },
+    {
+      "id": "reporting",
+      "label_en": "Reporting",
+      "label_zh": "报告",
+      "type": "artifact",
+      "parent": null,
+      "position": "右下框",
+      "description_zh": "EA 能力在目标架构范围内针对已做出的决策提供的报告，用于确认执行或触发变更。"
+    },
+    {
+      "id": "architecture_support",
+      "label_en": "Architecture Support",
+      "label_zh": "架构支持",
+      "type": "process",
+      "parent": null,
+      "position": "底部中央宽框",
+      "description_zh": "接受决策指导的架构支持活动；与建议、报告两个框的边角略有叠压。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_advice_decision",
+      "from": "advice_constraints",
+      "to": "process_decision_making",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "左下框的竖直箭头向上指向 Process Decision-making。"
+    },
+    {
+      "id": "r_report_governance",
+      "from": "reporting",
+      "to": "process_governance",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "右下框的竖直箭头向上指向 Process Governance。"
+    },
+    {
+      "id": "r_decision_support",
+      "from": "decision",
+      "to": "architecture_support",
+      "type": "governs",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "中央小框的竖直箭头向下指向 Architecture Support；正文为 decisions direct the architecture support。"
+    },
+    {
+      "id": "r_decide_to_decision",
+      "from": "process_decision_making",
+      "to": "decision",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "Decision 框顶边与 Process Decision-making 底边相接，表示决策由决策制定流程产生（版式推断）。"
+    },
+    {
+      "id": "r_govern_decision",
+      "from": "process_governance",
+      "to": "decision",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "Decision 框顶边同时与 Process Governance 底边相接，表示治理作用于决策（版式推断，正文称 governance of the decision）。"
+    },
+    {
+      "id": "r_process_pdm",
+      "from": "dm_process",
+      "to": "process_decision_making",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "蓝色标题框横跨两个流程框上方，表示它们属于决策流程（版式推断）。"
+    },
+    {
+      "id": "r_process_gov",
+      "from": "dm_process",
+      "to": "process_governance",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "同上，治理流程也属于决策流程总称（版式推断）。"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_advice",
+      "kind": "sequence",
+      "name_zh": "建议/约束 → 决策制定 → 决策",
+      "steps": [
+        "advice_constraints",
+        "process_decision_making",
+        "decision"
+      ],
+      "description_zh": "EA 能力提供建议与约束，决策流程据此做出决策。"
+    },
+    {
+      "id": "f_report",
+      "kind": "sequence",
+      "name_zh": "决策执行 → 报告 → 治理",
+      "steps": [
+        "decision",
+        "reporting",
+        "process_governance"
+      ],
+      "description_zh": "报告在决策之后提供，用于治理确认执行或触发变更。"
+    }
+  ],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "蓝色宽框",
+      "meaning_zh": "决策流程总称（标题框，不是流程步骤）",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色矩形框",
+      "meaning_zh": "流程、输入或受指导的角色（决策制定、治理、决策、建议与约束、报告、架构支持）",
+      "explicit": false
+    },
+    {
+      "symbol": "实线箭头",
+      "meaning_zh": "建议/约束与报告的输入方向，以及决策对架构支持的指导方向",
+      "explicit": false
+    },
+    {
+      "symbol": "框的相邻（无箭头）",
+      "meaning_zh": "产出/交汇关系（Decision 位于两个流程框下方）",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "Decision 与两个流程框只是相邻、没有箭头；“决策由决策制定流程产生、受治理流程治理”是依据版式与正文的推断，已标为 implicit。",
+      "顶部蓝色标题框与下方两个流程框之间没有连线；“三者是整体与部分”同样是版式推断，未当作显式关系。",
+      "Advice & Constraints 与 Architecture Support、Reporting 与 Architecture Support 的框角有轻微叠压，属排版重叠，不表示额外关系。",
+      "中文稿引用的 SVG 是另一套模型（含执行流程），不是本图的忠实重绘，已在 asset_checks 中列为 not_equivalent。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 95 页图 10-1 截图与 2x2 放大分块",
+      "英文 PDF 第 95 页 10.1.1 节正文",
+      "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 1068-1078 行",
+      "figs/g184_fig10-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G184/fig10-1",
+    "asset": "figs/g184_fig10-1.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "02"
+  }
+}

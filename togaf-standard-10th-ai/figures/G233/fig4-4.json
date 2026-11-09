@@ -1,0 +1,658 @@
+{
+  "schema_version": "1.0",
+  "id": "G233/fig4-4",
+  "status": "done",
+  "doc": {
+    "code": "G233",
+    "title_zh": "业务能力规划",
+    "title_en": "Business Capability Planning",
+    "zh_md": "G233e_业务能力规划.md",
+    "en_pdf": "togaf-standard-10th/G233e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-4",
+    "title_en": "Business Objects View",
+    "title_zh": "业务对象视图",
+    "section_en": "4.4.2 Conceptual Data Model",
+    "section_zh": "4.4.2 概念数据模型（Conceptual Data Model）",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        27
+      ],
+      "printed_page": 13,
+      "bboxes": [
+        [
+          61.1,
+          260.9,
+          550.9,
+          588.3
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        349
+      ],
+      "label_table_lines": [
+        353,
+        367
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g233e_fig4-4_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "03d4d69cde82",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.996（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g233e_fig4-4_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "56c4beba35ec",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "“门店”二字被放大约 4 倍，撑满并溢出实体框，压住“零售购买—门店”连线与门店框的左边缘，破坏版式",
+        "“Evaluation Copy”斜向水印仍为英文且未去除，压在“零售购买—门店”与“支付—零售购买”连线区域",
+        "其余九个实体名、十条连线与基数符号均与原图一致，译名与标签对照表一致"
+      ]
+    },
+    {
+      "path": "G233e_业务能力规划.md#L353-L367",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "02cf01291dce",
+      "fidelity": "faithful",
+      "issues_zh": []
+    },
+    {
+      "path": "figs/zh/g233e_fig4-4_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "b80364149825",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "该 SVG 是中文稿 L349 实际引用的文件，但未列入骨架 assets；十个实体、十条连线与总体拓扑完整",
+        "增加了原图没有的标题“简化零售概念数据模型”和底部图例“关联基数：| 表示 1（一），○< 表示 0..*（多）”；图例没有解释 ○|（0..1），而原图无图例",
+        "员工与支付两端的“○”（可选，0..1）被省略，只剩“|”，把 0..1 简化为 1",
+        "Retail Purchases—Products in Purchase 的基数画反了：SVG 在购买端画“|”、购买行端画“○<”，原图是购买端“○<”、购买行端“○|”；按语义 SVG 反而更接近“一笔购买多条购买行”",
+        "Employees 自关联环只保留了走线，鸦爪与圆圈基数标记未重绘"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "er_model"
+    ],
+    "notation": "概念 ER 图（IE/鸦爪记法）：圆角矩形为业务对象实体，无属性列；连线两端用竖线“|”表示 1、小圆圈表示 0（可选）、鸦爪“<”表示多；无箭头",
+    "concepts": [
+      "erd",
+      "information_concept",
+      "business_model",
+      "data_architecture"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "用十个业务对象及其基数关系搭出零售概念数据模型的骨架，核心是“零售购买”这个交易枢纽。",
+    "purpose_zh": "第 4.4.2 节说明：概念数据模型就是业务对象及其关系的集合，很多行业标准模型可直接借用；这张业务对象视图是“简化零售概念数据模型”的基础，用来在考察能力实例时理解应用所拥有的信息对象，并为第 4.4.3 节的应用信息交换目录提供对象清单。",
+    "reading_guide_zh": "从画面中央的 Retail Purchases（零售购买）读起：它向上连员工、向左连客户与支付、向右连门店与购买中的产品、向下连激励。每条连线两端读基数：靠实体一侧的竖线=1，小圆圈=0（可选），鸦爪=多。再读两条链：Products in Purchase→Products、Payments→Payment Type；最后看 Employees 右上角的自我关联环。",
+    "key_points_zh": [
+      "十个业务对象：Employees、Customers、Retail Purchases、Stores、Warehouses、Payments、Products in Purchase、Products、Payment Type、Incentives；Retail Purchases 是连接最多（6 条）的交易中心。概念模型只表达实体与基数，不含属性，其价值在于为应用中的数据对象提供业务语义。",
+      "客户—零售购买是 1:N：一个客户可有多笔购买，每笔购买恰好属于一个客户。",
+      "员工—零售购买、支付—零售购买都是 0..1:N：每笔购买可没有或只有一名员工/一笔支付，而一名员工或一笔支付可关联多笔购买（支付可批量覆盖多笔交易）。",
+      "激励—零售购买是 1:N：每笔购买对应一个激励（优惠券），一个激励可用于多笔购买。",
+      "支付类型—支付、仓库—门店、产品—购买中的产品都是 1:N：支付类型、仓库、产品分别是查找表/主数据，被多笔支付、多家门店、多条购买行引用。",
+      "门店—零售购买、零售购买—购买中的产品这两条线的基数符号画在了“父”端（门店/购买端画鸦爪，购买/购买行端画竖线），与其余连线相反；按零售语义应读作“一家门店多笔购买”“一笔购买多条购买行”，本分析按语义记录并在关系说明中标出画面差异。",
+      "Products in Purchase 是购买与产品之间的关联实体（购买行），不是产品主数据；Products 才是产品主数据。",
+      "Employees 右上角有一条无标签的自关联环，鸦爪+圆圈落在员工框右侧，表示员工之间存在一对多自关联（如经理—下属）；原图未给关系名。"
+    ],
+    "hierarchy_zh": "没有上下级层级，只有实体间的基数关联。Retail Purchases 处于星型中心；Products in Purchase 是 Products 与 Retail Purchases 之间的关联实体；Payment Type 是 Payments 的查找实体；Warehouses 是 Stores 的上游主数据。",
+    "line_semantics_zh": "全部为实线关联，无箭头；方向由基数符号读：竖线=1，小圆圈=0（可选），鸦爪=多。多数连线遵循“靠实体端为 1、另一端为 0..*”的画法，但门店—零售购买、零售购买—购买中的产品两条把鸦爪画在父端，属于原图画法不一致。Employees 自关联用一条绕行的环线表示同一实体内部的一对多关系。",
+    "misreadings_zh": [
+      "不要机械照读门店—零售购买与零售购买—购买中的产品这两条线的鸦爪位置；按画面会得到“一笔购买对应多家门店”“一条购买行对应多笔购买”的荒谬结论，应结合零售语义读作 1:N。",
+      "不要把“Products in Purchase”当成产品主数据；它是购买行（关联实体），Products 才是产品主数据。",
+      "不要把两端的小圆圈都当成“多”：本图圆圈表示 0（可选），真正表示“多”的是鸦爪；员工与支付端的“|○”合起来是 0..1。",
+      "员工自关联没有标签，不能断定是“管理”“汇报”还是“协作”；按鸦爪只能判断是一对多自关联。",
+      "中文重绘 SVG 省略了员工与支付端的“○”，并画反了零售购买—购买中的产品，不能据它判断 0..1 与购买行的基数。",
+      "不要把本图与图 6-3 中的白色数据对象混为一谈：本图是业务对象（概念层），图 6-3 的应用框内才是数据对象。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p27",
+        "summary_zh": "概念数据模型通常是业务对象及其关系的集合；以下业务对象视图（图 4-4）为简化的零售概念数据模型提供基础。"
+      },
+      {
+        "source": "en_pdf p27",
+        "summary_zh": "概念数据模型作为组织部署的许多应用的标准配置被开发或配置；业务对象由此成为应用运行所需的众多数据对象之一；考察能力实例时理解应用目录及其信息对象很有帮助。"
+      },
+      {
+        "source": "en_pdf p24",
+        "summary_zh": "正文列举销售单据、财务收据、目录、广告传单等零售业务对象，说明业务对象是业务运作的核心，并会以关键数据元素的形式出现在应用中。"
+      },
+      {
+        "source": "zh_md L347",
+        "summary_zh": "中文稿说明多数概念数据模型是业务对象及其关系的集合，图 4-4 的业务对象视图为简化零售概念数据模型提供基础。"
+      },
+      {
+        "source": "zh_md L353",
+        "summary_zh": "中文稿给出 10 条图内标签对照：员工、客户、零售购买、门店、仓库、支付、购买中的产品、产品、支付类型、激励。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "星型布局：Retail Purchases 居中；Employees 在上，Customers 与 Payments 在左，Stores 与 Products in Purchase 在右，Incentives 在下；Stores 右侧接 Warehouses，Products in Purchase 右侧接 Products，Payments 下方接 Payment Type；Employees 右上角有自关联环。"
+  },
+  "legend": [
+    {
+      "symbol": "竖线 |（靠实体端）",
+      "meaning_zh": "基数 1（恰好一个）",
+      "explicit": false
+    },
+    {
+      "symbol": "小圆圈 ○",
+      "meaning_zh": "基数 0（可选）；与竖线组合成 0..1",
+      "explicit": false
+    },
+    {
+      "symbol": "鸦爪 <",
+      "meaning_zh": "基数多（0..* 或 1..*，配合圆圈判断可选性）",
+      "explicit": false
+    },
+    {
+      "symbol": "圆角矩形",
+      "meaning_zh": "业务对象实体（概念层，无属性）",
+      "explicit": false
+    },
+    {
+      "symbol": "绕行环线",
+      "meaning_zh": "同一实体的自关联（Employees）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "employees",
+      "label_en": "Employees",
+      "label_zh": "员工",
+      "type": "data",
+      "parent": null,
+      "position": "上方中部",
+      "notation_type": "ER 实体"
+    },
+    {
+      "id": "customers",
+      "label_en": "Customers",
+      "label_zh": "客户",
+      "type": "data",
+      "parent": null,
+      "position": "左侧中部",
+      "notation_type": "ER 实体"
+    },
+    {
+      "id": "retail_purchases",
+      "label_en": "Retail Purchases",
+      "label_zh": "零售购买",
+      "type": "data",
+      "parent": null,
+      "position": "画面中央",
+      "notation_type": "ER 实体",
+      "description_zh": "交易事实实体，连接最多（6 条）。"
+    },
+    {
+      "id": "stores",
+      "label_en": "Stores",
+      "label_zh": "门店",
+      "type": "data",
+      "parent": null,
+      "position": "右侧中部",
+      "notation_type": "ER 实体"
+    },
+    {
+      "id": "warehouses",
+      "label_en": "Warehouses",
+      "label_zh": "仓库",
+      "type": "data",
+      "parent": null,
+      "position": "最右侧",
+      "notation_type": "ER 实体"
+    },
+    {
+      "id": "payments",
+      "label_en": "Payments",
+      "label_zh": "支付",
+      "type": "data",
+      "parent": null,
+      "position": "左下",
+      "notation_type": "ER 实体"
+    },
+    {
+      "id": "payment_type",
+      "label_en": "Payment Type",
+      "label_zh": "支付类型",
+      "type": "data",
+      "parent": null,
+      "position": "左下最底",
+      "notation_type": "ER 实体"
+    },
+    {
+      "id": "products_in_purchase",
+      "label_en": "Products in Purchase",
+      "label_zh": "购买中的产品",
+      "type": "data",
+      "parent": null,
+      "position": "右下中部",
+      "notation_type": "ER 关联实体",
+      "description_zh": "购买行/关联实体，连接 Retail Purchases 与 Products。"
+    },
+    {
+      "id": "products",
+      "label_en": "Products",
+      "label_zh": "产品",
+      "type": "data",
+      "parent": null,
+      "position": "右下最右",
+      "notation_type": "ER 实体"
+    },
+    {
+      "id": "incentives",
+      "label_en": "Incentives",
+      "label_zh": "激励",
+      "type": "data",
+      "parent": null,
+      "position": "下方中部",
+      "notation_type": "ER 实体"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "customers",
+      "to": "retail_purchases",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1:N",
+      "description_zh": "一个客户可有多笔购买；每笔购买恰好属于一个客户。客户端画竖线，购买端画圆圈+鸦爪。"
+    },
+    {
+      "from": "employees",
+      "to": "retail_purchases",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "0..1:N",
+      "description_zh": "每笔购买可没有或只有一名员工；一名员工可关联多笔购买。员工端为竖线+圆圈，购买端为圆圈+鸦爪。"
+    },
+    {
+      "from": "payments",
+      "to": "retail_purchases",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "0..1:N",
+      "description_zh": "每笔购买可有 0 或 1 笔支付；一笔支付可覆盖多笔购买。支付端为竖线+圆圈，购买端为圆圈+鸦爪。"
+    },
+    {
+      "from": "incentives",
+      "to": "retail_purchases",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1:N",
+      "description_zh": "每笔购买对应一个激励，一个激励可用于多笔购买。激励端画竖线，购买端画圆圈+鸦爪。"
+    },
+    {
+      "from": "payment_type",
+      "to": "payments",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1:N",
+      "description_zh": "一种支付类型可对应多笔支付。支付类型端画竖线，支付端画圆圈+鸦爪。"
+    },
+    {
+      "from": "warehouses",
+      "to": "stores",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1:N",
+      "description_zh": "一个仓库服务多家门店；每家门店属于一个仓库。仓库端画竖线，门店端画圆圈+鸦爪。"
+    },
+    {
+      "from": "products",
+      "to": "products_in_purchase",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1:N",
+      "description_zh": "一个产品可出现在多条购买行中；每条购买行对应一个产品。产品端画竖线+圆圈，购买行端画圆圈+鸦爪。"
+    },
+    {
+      "from": "retail_purchases",
+      "to": "products_in_purchase",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1:N",
+      "description_zh": "语义为一笔购买含多条购买行；但画面把鸦爪画在 Retail Purchases 端、竖线画在 Products in Purchase 端，字面读作 0..*:1，疑为原图画法不一致。"
+    },
+    {
+      "from": "stores",
+      "to": "retail_purchases",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1:N",
+      "description_zh": "语义为一家门店有多笔购买；但画面把鸦爪画在 Stores 端、竖线画在 Retail Purchases 端，字面读作 0..*:1，疑为原图画法不一致。"
+    },
+    {
+      "from": "employees",
+      "to": "employees",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1:N",
+      "description_zh": "员工自关联环，鸦爪+圆圈落在员工框右侧，无关系名；只能判断是一对多自关联（如经理—下属），环的另一端未画基数。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G233/fig6-3",
+      "relation": "basis_for",
+      "note_zh": "图 6-3 的应用组件内出现 Product Catalog、Product Inventory、Loyalty Customer Identity 等数据对象，其业务语义来自本图的业务对象"
+    },
+    {
+      "target": "G233/figC-1",
+      "relation": "basis_for",
+      "note_zh": "图 C-1 的 Role Catalog、Position Description、Employment Contract 等业务对象可视为本概念模型在招聘域的扩展"
+    },
+    {
+      "target": "G233/fig4-2",
+      "relation": "related",
+      "note_zh": "商业模式画布中的关键资源/成本（库存、仓库）与本图的 Products、Warehouses 等业务对象对应"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "门店—零售购买、零售购买—购买中的产品两处鸦爪画在父端，字面基数与零售语义相反；无法确认是建模错误还是特殊业务规则，本分析按语义记 1:N 并在描述中标出画面差异。",
+      "员工自关联环没有关系名，无法确定是“管理”“汇报”还是其他关系；另一端未画基数，1:N 是从鸦爪端推断的。",
+      "英文 PDF 第 27 页图上有“Evaluation Copy”斜向水印，部分连线/符号被遮挡；基数符号本身仍可辨认，但不排除个别端点被水印干扰。",
+      "圆圈在这些连线上表示 0（可选），本分析据此把员工/支付端读为 0..1；若把圆圈当作绘图工具端点符号，则这两条会变成 1:N。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 27 页图 4-4 截图（figctx 裁剪）、3×3 放大分块及端点高倍裁剪",
+      "英文 PDF 第 24、27 页正文",
+      "中文稿 G233e_业务能力规划.md 第 345–368 行（含 10 条图内标签对照）",
+      "figs/g233e_fig4-4_en.png、figs/zh/g233e_fig4-4_zh.png 与 figs/zh/g233e_fig4-4_zh.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G233e.pdf",
+    "pdf_sha256": "d5c62f9edb2465d10e59f0a1c9c23fb5d8a0b14e506cf7739a09886fbee07754",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G233/fig4-4.json",
+    "interpretation_sha256": "bf5bf81d04b511832a69a0f56b4f3a55a44cf6ef63846eff03afb774c0dc2d30",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 27,
+        "text": "Figure 4-4: Business Objects View",
+        "bbox_pdf_points": [
+          48.24,
+          592.984,
+          205.326,
+          606.55
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 27,
+      "printed_page": 13,
+      "bbox_pdf_points": [
+        61.1,
+        260.9,
+        550.9,
+        588.3
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G233/fig4-4-p0027.png",
+      "image_sha256": "85b593b4f6cde2c39d7c3ef560e026576babe14d343d093e50afd304b45b70cd",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "85b593b4f6cde2c39d7c3ef560e026576babe14d343d093e50afd304b45b70cd",
+          "status": "extracted-unverified",
+          "text": "Employees\nCustomers }+——O<\nStores\n+ Warehouses\nRetail\nPurchases\nPayments }}0—O<\nProducts in\nPurchase\npool\n|\nPayment\nIncentives\nType",
+          "words": [
+            {
+              "text": "Employees",
+              "confidence": 96.475052,
+              "bbox_pixels_xywh": [
+                297,
+                98,
+                119,
+                22
+              ]
+            },
+            {
+              "text": "Customers",
+              "confidence": 90.184303,
+              "bbox_pixels_xywh": [
+                28,
+                287,
+                118,
+                18
+              ]
+            },
+            {
+              "text": "}+——O<",
+              "confidence": 58.696304,
+              "bbox_pixels_xywh": [
+                172,
+                290,
+                101,
+                17
+              ]
+            },
+            {
+              "text": "Stores",
+              "confidence": 96.996407,
+              "bbox_pixels_xywh": [
+                590,
+                287,
+                70,
+                18
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 51.186047,
+              "bbox_pixels_xywh": [
+                795,
+                292,
+                1,
+                14
+              ]
+            },
+            {
+              "text": "Warehouses",
+              "confidence": 90.915092,
+              "bbox_pixels_xywh": [
+                826,
+                287,
+                136,
+                18
+              ]
+            },
+            {
+              "text": "Retail",
+              "confidence": 96.801178,
+              "bbox_pixels_xywh": [
+                327,
+                349,
+                60,
+                17
+              ]
+            },
+            {
+              "text": "Purchases",
+              "confidence": 96.977676,
+              "bbox_pixels_xywh": [
+                300,
+                372,
+                114,
+                18
+              ]
+            },
+            {
+              "text": "Payments",
+              "confidence": 78.164917,
+              "bbox_pixels_xywh": [
+                34,
+                434,
+                106,
+                22
+              ]
+            },
+            {
+              "text": "}}0—O<",
+              "confidence": 5.209265,
+              "bbox_pixels_xywh": [
+                172,
+                435,
+                101,
+                18
+              ]
+            },
+            {
+              "text": "Products",
+              "confidence": 96.071991,
+              "bbox_pixels_xywh": [
+                563,
+                422,
+                98,
+                17
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 96.644989,
+              "bbox_pixels_xywh": [
+                669,
+                422,
+                18,
+                17
+              ]
+            },
+            {
+              "text": "Purchase",
+              "confidence": 96.554512,
+              "bbox_pixels_xywh": [
+                574,
+                445,
+                102,
+                18
+              ]
+            },
+            {
+              "text": "pool",
+              "confidence": 21.506706,
+              "bbox_pixels_xywh": [
+                441,
+                407,
+                102,
+                75
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 58.773006,
+              "bbox_pixels_xywh": [
+                348,
+                487,
+                21,
+                82
+              ]
+            },
+            {
+              "text": "Payment",
+              "confidence": 96.839531,
+              "bbox_pixels_xywh": [
+                41,
+                589,
+                94,
+                22
+              ]
+            },
+            {
+              "text": "Incentives",
+              "confidence": 96.178619,
+              "bbox_pixels_xywh": [
+                302,
+                601,
+                110,
+                17
+              ]
+            },
+            {
+              "text": "Type",
+              "confidence": 96.913544,
+              "bbox_pixels_xywh": [
+                61,
+                612,
+                53,
+                23
+              ]
+            }
+          ],
+          "mean_word_confidence": 78.95,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

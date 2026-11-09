@@ -1,0 +1,45 @@
+{
+  "schema_version": "assignment-verification/2",
+  "passed": true,
+  "rows": [
+    {
+      "variant": "baseline",
+      "entities": 11,
+      "main_relationships": 7,
+      "period_state": "covered-for-declared-task-periods",
+      "capacity_state": "unresolved",
+      "approval": "not-granted",
+      "semantic_gaps": 11
+    },
+    {
+      "variant": "offline-change",
+      "entities": 11,
+      "main_relationships": 7,
+      "period_state": "not-covered",
+      "capacity_state": "unresolved",
+      "approval": "not-granted",
+      "semantic_gaps": 12
+    },
+    {
+      "variant": "shared-object-change",
+      "entities": 11,
+      "main_relationships": 7,
+      "period_state": "not-covered",
+      "capacity_state": "unresolved",
+      "approval": "not-granted",
+      "semantic_gaps": 12
+    }
+  ],
+  "negative_tests": [
+    "missing-main-entity",
+    "missing-main-relationship"
+  ],
+  "input_sha256": {
+    "maintenance/cases/omnichannel/generated/baseline/model.json": "77cb2276b36a549cd7567ad7429ca5ea37e286a52261d1a6cc0e63cc1692eb21",
+    "maintenance/cases/omnichannel/generated/offline-change/model.json": "b80953dab31b0c1eddefeeea3429e89ca744d9124b657f5c41d95acf31cd67db",
+    "maintenance/cases/omnichannel/generated/shared-object-change/model.json": "b8147f13a8c05b549774bc575490bfa26859b8a5202b2873446804c55d4304b4"
+  },
+  "limits_zh": [
+    "校验当前通用执行契约；不替代真实人员评价或组织批准。"
+  ]
+}

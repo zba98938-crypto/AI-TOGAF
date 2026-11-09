@@ -1,0 +1,1204 @@
+{
+  "schema_version": "1.0",
+  "id": "G210/fig3-2",
+  "status": "done",
+  "doc": {
+    "code": "G210",
+    "title_zh": "以敏捷冲刺应用 TOGAF ADM",
+    "title_en": "Applying the TOGAF ADM using Agile Sprints",
+    "zh_md": "G210e_以敏捷冲刺应用TOGAF_ADM.md",
+    "en_pdf": "togaf-standard-10th/G210e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-2",
+    "title_en": "Enterprise Architecture Development Sprints in the ADM",
+    "title_zh": "ADM 中的企业架构开发冲刺",
+    "section_en": "3.3.5. Enterprise Architecture Development Agility",
+    "section_zh": "3.3.5 企业架构开发敏捷",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        24
+      ],
+      "printed_page": 12,
+      "bboxes": [
+        [
+          61.1,
+          142.7,
+          550.9,
+          430.3
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        303
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g210_fig3-2.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "24bf7cb2deac",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "结构被换掉：原图是“一条时间轴 + 每列一根纵向 DORP 竖条 + 冲刺间夹着企业架构框”，SVG 改成两行方框（EA 团队 4 个冲刺框 + 一个实施框），没有任何 DORP 竖条，DORP 这一核心概念整体丢失",
+        "缺失元素：Business Change Vision Definition（业务变革愿景定义）、Business Change Backlog（待办列表椭圆）、Final Product Architecture（最终产品架构）、DORP 0–… 竖条、虚线 MVA 圆圈与图例",
+        "“实施（受 EA 治理）”替代了原图的“Final Product Architecture”：把交付物改写成实施活动，语义被改写",
+        "“冲刺 0／战略冲刺”中的“战略冲刺”在原图只写 Sprint 0 / DORP 0，是重绘者按正文 3.3.4（sprint zero 也称 strategic sprint）补的注，图上并没有",
+        "原图最后一个冲刺写作“Sprint …/DORP …”，表示可继续任意次并以最终产品架构收束；SVG 固定为冲刺 0–3 四个框后直接实施，丢掉了开放性与“架构全部完成后才实施”的收束点位置",
+        "图例（DORP、MVA 定义与虚线含义）全部缺失，只在底部加了一句概述，MVA 被降级为框内文字"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "timeline",
+      "flow"
+    ],
+    "notation": "非正式时间轴：横向蓝色箭头链穿过若干根纵向橙色圆角竖条，每根竖条顶端标 DORP + 序号；竖条内放白色椭圆（待办列表）或虚线圆（MVA）作为成果标记；底部给出缩写图例",
+    "concepts": [
+      "adm",
+      "agile_sprint",
+      "mvp_mva"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "只用 EA 冲刺做架构：ADM 切片逐冲刺产出 MVA，全部架构完成后再实施。",
+    "purpose_zh": "说明最基础的协作方式（企业架构开发敏捷）：把交付企业架构所需的 ADM 阶段 A–F 切成切片分到各冲刺，每个冲刺以 DORP 收尾并交付一个 MVA，整个企业架构完成、得到最终产品架构后才开始实施。它是后三种协作方式（图 3-3 至 3-5）的基线。",
+    "reading_guide_zh": "从左往右读。最左是企业架构团队与业务的输入“业务变革愿景定义”；它进入冲刺 0 的 DORP（橙色竖条）——竖条内的白色椭圆是冲刺 0 的成果“业务变革待办列表”。之后每一根竖条是一个冲刺末的 DORP，竖条之间的“Enterprise Architecture”框是该冲刺产出的架构切片，竖条内的虚线圆圈 MVA 是该冲刺交付的最小可行架构。最后一根竖条之后收束为“最终产品架构”。竖条不是活动框，而是“冲刺边界 + 演示/成果/回顾/规划/发布”的关口。",
+    "key_points_zh": [
+      "时间轴分四段：冲刺 0（只产出愿景与待办列表）、冲刺 1、冲刺 2、冲刺 …（开放结尾，表示可继续任意次）。",
+      "每个架构冲刺产出“企业架构”的一个切片；切片可包含 ADM 阶段 A–F 中任何相关内容（正文 L307）。",
+      "冲刺 0 的成果是业务变革待办列表（实线椭圆＝必需成果）；从冲刺 1 起每个 DORP 交付 MVA（虚线圆＝可交付但非总是必需）。",
+      "整个企业架构在实施开始前完成，最后的交付物是“最终产品架构”；本方式是四种协作方式中唯一“先架构、后实施”的，这正是它与图 3-3/3-4 的分水岭。",
+      "MVA 是最小可行架构，不是完整架构：每个冲刺交付的是可演示、可评审的增量，多个增量累积成最终产品架构。",
+      "DORP 画在冲刺之间而不是冲刺内部，说明它是冲刺的收口动作（演示、成果、回顾、规划与发布），下一冲刺的输入从这里产生。"
+    ],
+    "hierarchy_zh": "两层：上层是时间轴（冲刺 0 → 1 → 2 → …），下层是各冲刺的产出物。纵向 DORP 竖条是冲刺关口，竖条内的椭圆/圆圈（待办列表、MVA）视觉上从属该竖条；企业架构框位于两根竖条之间，属于左侧冲刺的产出。",
+    "line_semantics_zh": "蓝色细箭头自左向右表示成果流转：业务变革愿景定义 →（冲刺 0 的 DORP）→ 企业架构（冲刺 1）→（DORP 1）→ 企业架构（冲刺 2）→ … → 最终产品架构。箭头从竖条后穿过而不在竖条上转向，竖条只“截获”成果并标注；全部为实线单向箭头，没有反馈回路。虚线只用于 MVA 圆圈边框，表示该成果可交付但非必需。",
+    "misreadings_zh": [
+      "不要把橙色竖条当成“实施阶段”或“团队”：它是冲刺末的 DORP 关口，竖条数量＝冲刺数量。",
+      "不要把 MVA 圆圈当成流程节点：它是该冲刺交付物的标记，没有连线指向或离开它。",
+      "冲刺 0 交付的是待办列表而非 MVA——这是本图与图 3-3 最容易被忽略的差别。",
+      "图只画到“最终产品架构”，实施没有展开（正文 p24/L301 说架构完成后才开始实施，某些情况下部分解决方案可并行）。",
+      "中文稿当前引用的 figs/g210_fig3-2.svg 丢掉了 DORP、愿景、待办列表与最终产品架构，还把冲刺 3 后直接接到“实施”，并自加“战略冲刺”，不能据它理解本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p23",
+        "summary_zh": "第一个冲刺（冲刺零）的成果按普通冲刺处理，每个冲刺交付一个 MVA；用冲刺做 EA 能带来回顾改进、早期利益相关者反馈、更易提早终止项目等效果。"
+      },
+      {
+        "source": "en_pdf p24",
+        "summary_zh": "图 3-2 展示 EA 工作如何划分为冲刺；采用该协作模式时整个企业架构在实施开始前完成；每个冲刺定义架构切片，切片可含 ADM 阶段 A–F 相关内容，可直接实施或在全部完成后实施。"
+      },
+      {
+        "source": "zh_md L293",
+        "summary_zh": "第一个冲刺（冲刺零）……其成果随后像其他冲刺一样处理；每个冲刺交付一个 MVA。"
+      },
+      {
+        "source": "zh_md L301",
+        "summary_zh": "完成企业架构的一系列冲刺后，可开始企业架构的实施……实施由企业架构团队与业务支持并治理。"
+      },
+      {
+        "source": "zh_md L305",
+        "summary_zh": "图 3-2 展示企业架构工作如何划分为冲刺；采用此协作模式时，整个企业架构在实施开始前创建。"
+      },
+      {
+        "source": "zh_md L307",
+        "summary_zh": "企业架构团队在每个冲刺中为业务变革定义架构切片；切片可包含 ADM 阶段 A 至 F 的相关内容。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "横向时间轴：左端一个愿景框，其后 4 根纵向橙色竖条（DORP 0/1/2/…）等距排列，竖条之间夹着 3 个“Enterprise Architecture”框，最右为“Final Product Architecture”；冲刺名（Sprint 0/1/2/…）标在各竖条左上方，缩写图例在图下方左侧。"
+  },
+  "legend": [
+    {
+      "symbol": "DORP = Demo, Outcome, Retrospective, Planning, & Releases",
+      "meaning_zh": "DORP＝演示、成果、回顾、规划与发布（每个冲刺末的四项活动，图例原文含 Releases）",
+      "explicit": true
+    },
+    {
+      "symbol": "MVA = Minimum Viable Architecture",
+      "meaning_zh": "MVA＝最小可行架构",
+      "explicit": true
+    },
+    {
+      "symbol": "Dashed outcomes mean they can be delivered but are not always necessary",
+      "meaning_zh": "虚线成果：可以交付，但并非总是必需",
+      "explicit": true
+    },
+    {
+      "symbol": "纵向橙色圆角竖条 + 顶端 DORP 编号",
+      "meaning_zh": "一个冲刺及其收口关口（DORP），位于冲刺之间",
+      "explicit": false
+    },
+    {
+      "symbol": "白色椭圆（实线边框）",
+      "meaning_zh": "冲刺 0 的成果：业务变革待办列表（必需成果）",
+      "explicit": false
+    },
+    {
+      "symbol": "蓝色细箭头",
+      "meaning_zh": "成果从上一冲刺流入下一冲刺的方向",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "sprint_0",
+      "label_en": "Sprint 0",
+      "label_zh": "冲刺 0",
+      "type": "time",
+      "parent": null,
+      "order": 1,
+      "position": "第 1 根竖条左上方",
+      "description_zh": "准备冲刺（正文 3.3.4 亦称冲刺零/战略冲刺），只产出愿景与待办列表。"
+    },
+    {
+      "id": "sprint_1",
+      "label_en": "Sprint 1",
+      "label_zh": "冲刺 1",
+      "type": "time",
+      "parent": null,
+      "order": 2,
+      "position": "第 2 根竖条左上方"
+    },
+    {
+      "id": "sprint_2",
+      "label_en": "Sprint 2",
+      "label_zh": "冲刺 2",
+      "type": "time",
+      "parent": null,
+      "order": 3,
+      "position": "第 3 根竖条左上方"
+    },
+    {
+      "id": "sprint_ellipsis",
+      "label_en": "Sprint ...",
+      "label_zh": "冲刺 …",
+      "type": "time",
+      "parent": null,
+      "order": 4,
+      "position": "第 4 根竖条左上方",
+      "description_zh": "省略号表示后续冲刺可继续任意次。"
+    },
+    {
+      "id": "dorp_0",
+      "label_en": "DORP 0",
+      "label_zh": "DORP 0",
+      "type": "event",
+      "parent": null,
+      "order": 1,
+      "position": "第 1 根纵向竖条",
+      "description_zh": "冲刺 0 末的演示/成果/回顾/规划/发布关口；柱内是业务变革待办列表。"
+    },
+    {
+      "id": "dorp_1",
+      "label_en": "DORP 1",
+      "label_zh": "DORP 1",
+      "type": "event",
+      "parent": null,
+      "order": 2,
+      "position": "第 2 根纵向竖条",
+      "description_zh": "冲刺 1 的 DORP；柱内是 MVA。"
+    },
+    {
+      "id": "dorp_2",
+      "label_en": "DORP 2",
+      "label_zh": "DORP 2",
+      "type": "event",
+      "parent": null,
+      "order": 3,
+      "position": "第 3 根纵向竖条",
+      "description_zh": "冲刺 2 的 DORP；柱内是 MVA。"
+    },
+    {
+      "id": "dorp_ellipsis",
+      "label_en": "DORP ...",
+      "label_zh": "DORP …",
+      "type": "event",
+      "parent": null,
+      "order": 4,
+      "position": "第 4 根纵向竖条",
+      "description_zh": "后续冲刺的 DORP，柱内是 MVA。"
+    },
+    {
+      "id": "bc_vision",
+      "label_en": "Business Change Vision Definition",
+      "label_zh": "业务变革愿景定义",
+      "type": "artifact",
+      "parent": null,
+      "position": "最左端方框",
+      "description_zh": "整条时间轴的输入。"
+    },
+    {
+      "id": "bc_backlog",
+      "label_en": "Business Change Backlog",
+      "label_zh": "业务变革待办列表",
+      "type": "artifact",
+      "parent": "dorp_0",
+      "position": "冲刺 0 竖条内的白色椭圆",
+      "description_zh": "冲刺 0 的成果，实线边框表示必需成果。"
+    },
+    {
+      "id": "mva_1",
+      "label_en": "MVA",
+      "label_zh": "MVA（最小可行架构）",
+      "type": "artifact",
+      "parent": "dorp_1",
+      "position": "DORP 1 竖条内的虚线圆",
+      "description_zh": "冲刺 1 交付的最小可行架构。"
+    },
+    {
+      "id": "mva_2",
+      "label_en": "MVA",
+      "label_zh": "MVA（最小可行架构）",
+      "type": "artifact",
+      "parent": "dorp_2",
+      "position": "DORP 2 竖条内的虚线圆"
+    },
+    {
+      "id": "mva_ellipsis",
+      "label_en": "MVA",
+      "label_zh": "MVA（最小可行架构）",
+      "type": "artifact",
+      "parent": "dorp_ellipsis",
+      "position": "DORP … 竖条内的虚线圆"
+    },
+    {
+      "id": "ea_1",
+      "label_en": "Enterprise Architecture",
+      "label_zh": "企业架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "冲刺 1 列的方框",
+      "description_zh": "冲刺 1 产出的企业架构切片。"
+    },
+    {
+      "id": "ea_2",
+      "label_en": "Enterprise Architecture",
+      "label_zh": "企业架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "冲刺 2 列的方框"
+    },
+    {
+      "id": "ea_ellipsis",
+      "label_en": "Enterprise Architecture",
+      "label_zh": "企业架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "冲刺 … 列的方框"
+    },
+    {
+      "id": "final_arch",
+      "label_en": "Final Product Architecture",
+      "label_zh": "最终产品架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "最右端方框",
+      "description_zh": "全部架构冲刺完成后得到的最终产品架构，实施在它之后开始。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_vision_d0",
+      "from": "bc_vision",
+      "to": "dorp_0",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "愿景定义进入冲刺 0，柱内生成待办列表"
+    },
+    {
+      "id": "r_d0_ea1",
+      "from": "dorp_0",
+      "to": "ea_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "待办列表驱动冲刺 1 的架构切片"
+    },
+    {
+      "id": "r_ea1_d1",
+      "from": "ea_1",
+      "to": "dorp_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "冲刺 1 的架构成果在 DORP 1 演示并形成 MVA"
+    },
+    {
+      "id": "r_d1_ea2",
+      "from": "dorp_1",
+      "to": "ea_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_ea2_d2",
+      "from": "ea_2",
+      "to": "dorp_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d2_ea3",
+      "from": "dorp_2",
+      "to": "ea_ellipsis",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_ea3_d3",
+      "from": "ea_ellipsis",
+      "to": "dorp_ellipsis",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d3_final",
+      "from": "dorp_ellipsis",
+      "to": "final_arch",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "最后一根 DORP 之后收束为最终产品架构"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_sprints",
+      "kind": "sequence",
+      "name_zh": "冲刺序列",
+      "steps": [
+        "sprint_0",
+        "sprint_1",
+        "sprint_2",
+        "sprint_ellipsis"
+      ]
+    },
+    {
+      "id": "f_ea",
+      "kind": "sequence",
+      "name_zh": "企业架构切片逐冲刺累积",
+      "steps": [
+        "bc_vision",
+        "ea_1",
+        "ea_2",
+        "ea_ellipsis",
+        "final_arch"
+      ]
+    }
+  ],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G210/fig3-3",
+      "relation": "precedes",
+      "note_zh": "下一级协作方式（解决方案协作）：在本图单泳道基础上加入解决方案泳道，MVA 交给下一冲刺的解决方案团队"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "冲刺 0 竖条内只有待办列表、没有 MVA，与“每个冲刺交付一个 MVA”的正文表述略有张力；按图如实记录为“冲刺 0 产出待办列表”。",
+      "竖条宽度较窄，MVA 圆圈压在竖条边框上，圆圈是否完全属于竖条内部按视觉包含处理。"
+    ],
+    "analyzed_from": [
+      "figctx.py G210/fig3-2 的 220 dpi 原图裁切（英文 PDF p24）与 2x2 放大分块、整页 80 dpi 概览",
+      "英文 PDF p23–p24 正文与图题",
+      "中文稿 G210e_以敏捷冲刺应用TOGAF_ADM.md L281–L307",
+      "figs/g210_fig3-2.svg 源码（对比重绘版式与文字）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G210e.pdf",
+    "pdf_sha256": "289803b369a49bc7f49c0d587b7f4af87899eebea8d834a6f52cbb2c3a657a58",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G210/fig3-2.json",
+    "interpretation_sha256": "5c93913e3efcaf96c4a85e9667fa156e49887c0a0cbd93c71a9835b76f18d6a4",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 24,
+        "text": "Figure 3-2: Enterprise Architecture Development Sprints in the ADM",
+        "bbox_pdf_points": [
+          48.24,
+          434.995,
+          365.964,
+          448.561
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 24,
+      "printed_page": 12,
+      "bbox_pdf_points": [
+        61.1,
+        142.7,
+        550.9,
+        430.3
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G210/fig3-2-p0024.png",
+      "image_sha256": "3e6d1ef3f45b99a7e435f8838a13287177f25623c06b664ef24717f0960d60c4",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "3e6d1ef3f45b99a7e435f8838a13287177f25623c06b664ef24717f0960d60c4",
+          "status": "extracted-unverified",
+          "text": "Sprint 0\nDORP\nSprint 4\nDORP\nSprint 2\nDORP\nSprint...\neae\nBusiness\nBusiness\nFinal Product\nChange Vision\nChange\nEnterprise\nEnterprise\nEnterprise\nDefinition\nBockiog\nArchitecture\nArchitecture\nArchitecture\nArchitecture\n_\n—_\n_\n| wa f\n| wva [\nq wa |\n—\n—\n—~\nDORP = Demo, Outcome, Retrospective, Planning, & Releases\nMVA\ninimum Viable Architecture\n© The Open Group\nDashed outcomes mean they can be delivered but are not always necessary",
+          "words": [
+            {
+              "text": "Sprint",
+              "confidence": 96.873772,
+              "bbox_pixels_xywh": [
+                39,
+                26,
+                41,
+                16
+              ]
+            },
+            {
+              "text": "0",
+              "confidence": 91.728859,
+              "bbox_pixels_xywh": [
+                85,
+                26,
+                8,
+                13
+              ]
+            },
+            {
+              "text": "DORP",
+              "confidence": 81.647545,
+              "bbox_pixels_xywh": [
+                149,
+                21,
+                31,
+                10
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 95.887207,
+              "bbox_pixels_xywh": [
+                247,
+                26,
+                42,
+                16
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 72.20446,
+              "bbox_pixels_xywh": [
+                295,
+                26,
+                5,
+                12
+              ]
+            },
+            {
+              "text": "DORP",
+              "confidence": 86.259789,
+              "bbox_pixels_xywh": [
+                360,
+                21,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 94.898232,
+              "bbox_pixels_xywh": [
+                456,
+                26,
+                42,
+                16
+              ]
+            },
+            {
+              "text": "2",
+              "confidence": 94.898232,
+              "bbox_pixels_xywh": [
+                503,
+                26,
+                8,
+                12
+              ]
+            },
+            {
+              "text": "DORP",
+              "confidence": 74.081985,
+              "bbox_pixels_xywh": [
+                570,
+                21,
+                31,
+                10
+              ]
+            },
+            {
+              "text": "Sprint...",
+              "confidence": 83.856209,
+              "bbox_pixels_xywh": [
+                666,
+                26,
+                60,
+                16
+              ]
+            },
+            {
+              "text": "eae",
+              "confidence": 14.472713,
+              "bbox_pixels_xywh": [
+                781,
+                21,
+                30,
+                25
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 93.62767,
+              "bbox_pixels_xywh": [
+                39,
+                257,
+                52,
+                11
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 41.539188,
+              "bbox_pixels_xywh": [
+                148,
+                261,
+                35,
+                8
+              ]
+            },
+            {
+              "text": "Final",
+              "confidence": 94.566734,
+              "bbox_pixels_xywh": [
+                869,
+                265,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 94.566734,
+              "bbox_pixels_xywh": [
+                901,
+                265,
+                45,
+                10
+              ]
+            },
+            {
+              "text": "Change",
+              "confidence": 67.858307,
+              "bbox_pixels_xywh": [
+                22,
+                273,
+                46,
+                13
+              ]
+            },
+            {
+              "text": "Vision",
+              "confidence": 91.862511,
+              "bbox_pixels_xywh": [
+                72,
+                273,
+                34,
+                10
+              ]
+            },
+            {
+              "text": "Change",
+              "confidence": 44.337563,
+              "bbox_pixels_xywh": [
+                150,
+                274,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 94.701904,
+              "bbox_pixels_xywh": [
+                246,
+                265,
+                59,
+                13
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 96.65683,
+              "bbox_pixels_xywh": [
+                457,
+                265,
+                58,
+                13
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 95.823044,
+              "bbox_pixels_xywh": [
+                667,
+                265,
+                59,
+                13
+              ]
+            },
+            {
+              "text": "Definition",
+              "confidence": 96.51226,
+              "bbox_pixels_xywh": [
+                38,
+                289,
+                54,
+                10
+              ]
+            },
+            {
+              "text": "Bockiog",
+              "confidence": 53.095898,
+              "bbox_pixels_xywh": [
+                150,
+                287,
+                30,
+                9
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 90.766678,
+              "bbox_pixels_xywh": [
+                240,
+                281,
+                70,
+                10
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 87.300217,
+              "bbox_pixels_xywh": [
+                451,
+                281,
+                69,
+                10
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 92.203476,
+              "bbox_pixels_xywh": [
+                661,
+                281,
+                70,
+                10
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 80.095047,
+              "bbox_pixels_xywh": [
+                872,
+                281,
+                70,
+                10
+              ]
+            },
+            {
+              "text": "_",
+              "confidence": 17.175541,
+              "bbox_pixels_xywh": [
+                360,
+                298,
+                32,
+                8
+              ]
+            },
+            {
+              "text": "—_",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                570,
+                298,
+                32,
+                8
+              ]
+            },
+            {
+              "text": "_",
+              "confidence": 16.480789,
+              "bbox_pixels_xywh": [
+                781,
+                299,
+                32,
+                7
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 88.192383,
+              "bbox_pixels_xywh": [
+                561,
+                319,
+                2,
+                13
+              ]
+            },
+            {
+              "text": "wa",
+              "confidence": 59.886669,
+              "bbox_pixels_xywh": [
+                574,
+                320,
+                36,
+                11
+              ]
+            },
+            {
+              "text": "f",
+              "confidence": 6.502237,
+              "bbox_pixels_xywh": [
+                602,
+                314,
+                12,
+                27
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 57.810535,
+              "bbox_pixels_xywh": [
+                771,
+                319,
+                3,
+                13
+              ]
+            },
+            {
+              "text": "wva",
+              "confidence": 34.716347,
+              "bbox_pixels_xywh": [
+                785,
+                320,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "[",
+              "confidence": 1.589441,
+              "bbox_pixels_xywh": [
+                814,
+                314,
+                10,
+                27
+              ]
+            },
+            {
+              "text": "q",
+              "confidence": 90.420471,
+              "bbox_pixels_xywh": [
+                351,
+                319,
+                7,
+                25
+              ]
+            },
+            {
+              "text": "wa",
+              "confidence": 93.286377,
+              "bbox_pixels_xywh": [
+                363,
+                321,
+                23,
+                10
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 46.248199,
+              "bbox_pixels_xywh": [
+                393,
+                320,
+                6,
+                22
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 39.706345,
+              "bbox_pixels_xywh": [
+                360,
+                345,
+                32,
+                8
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 42.977516,
+              "bbox_pixels_xywh": [
+                570,
+                344,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "—~",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                780,
+                344,
+                33,
+                8
+              ]
+            },
+            {
+              "text": "DORP",
+              "confidence": 92.329094,
+              "bbox_pixels_xywh": [
+                136,
+                529,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 96.850525,
+              "bbox_pixels_xywh": [
+                169,
+                519,
+                8,
+                28
+              ]
+            },
+            {
+              "text": "Demo,",
+              "confidence": 96.773666,
+              "bbox_pixels_xywh": [
+                182,
+                529,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "Outcome,",
+              "confidence": 83.055763,
+              "bbox_pixels_xywh": [
+                218,
+                529,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "Retrospective,",
+              "confidence": 92.887726,
+              "bbox_pixels_xywh": [
+                271,
+                529,
+                72,
+                11
+              ]
+            },
+            {
+              "text": "Planning,",
+              "confidence": 92.854149,
+              "bbox_pixels_xywh": [
+                347,
+                529,
+                46,
+                11
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.121445,
+              "bbox_pixels_xywh": [
+                397,
+                529,
+                7,
+                9
+              ]
+            },
+            {
+              "text": "Releases",
+              "confidence": 82.593918,
+              "bbox_pixels_xywh": [
+                409,
+                529,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "MVA",
+              "confidence": 85.048698,
+              "bbox_pixels_xywh": [
+                136,
+                543,
+                24,
+                8
+              ]
+            },
+            {
+              "text": "inimum",
+              "confidence": 33.876144,
+              "bbox_pixels_xywh": [
+                183,
+                545,
+                36,
+                6
+              ]
+            },
+            {
+              "text": "Viable",
+              "confidence": 96.868454,
+              "bbox_pixels_xywh": [
+                222,
+                543,
+                32,
+                8
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 94.582092,
+              "bbox_pixels_xywh": [
+                257,
+                543,
+                61,
+                8
+              ]
+            },
+            {
+              "text": "©",
+              "confidence": 96.969963,
+              "bbox_pixels_xywh": [
+                787,
+                539,
+                4,
+                7
+              ]
+            },
+            {
+              "text": "The",
+              "confidence": 95.430649,
+              "bbox_pixels_xywh": [
+                799,
+                539,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "Open",
+              "confidence": 96.901634,
+              "bbox_pixels_xywh": [
+                831,
+                540,
+                32,
+                12
+              ]
+            },
+            {
+              "text": "Group",
+              "confidence": 96.973686,
+              "bbox_pixels_xywh": [
+                890,
+                542,
+                18,
+                10
+              ]
+            },
+            {
+              "text": "Dashed",
+              "confidence": 95.837791,
+              "bbox_pixels_xywh": [
+                136,
+                556,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "outcomes",
+              "confidence": 95.508423,
+              "bbox_pixels_xywh": [
+                178,
+                557,
+                49,
+                8
+              ]
+            },
+            {
+              "text": "mean",
+              "confidence": 96.314102,
+              "bbox_pixels_xywh": [
+                231,
+                559,
+                27,
+                6
+              ]
+            },
+            {
+              "text": "they",
+              "confidence": 96.326447,
+              "bbox_pixels_xywh": [
+                262,
+                556,
+                21,
+                11
+              ]
+            },
+            {
+              "text": "can",
+              "confidence": 96.840729,
+              "bbox_pixels_xywh": [
+                287,
+                559,
+                17,
+                6
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 96.879333,
+              "bbox_pixels_xywh": [
+                309,
+                556,
+                11,
+                9
+              ]
+            },
+            {
+              "text": "delivered",
+              "confidence": 94.600365,
+              "bbox_pixels_xywh": [
+                324,
+                556,
+                45,
+                9
+              ]
+            },
+            {
+              "text": "but",
+              "confidence": 96.448242,
+              "bbox_pixels_xywh": [
+                374,
+                556,
+                15,
+                9
+              ]
+            },
+            {
+              "text": "are",
+              "confidence": 96.34446,
+              "bbox_pixels_xywh": [
+                393,
+                559,
+                16,
+                6
+              ]
+            },
+            {
+              "text": "not",
+              "confidence": 96.34446,
+              "bbox_pixels_xywh": [
+                412,
+                557,
+                16,
+                8
+              ]
+            },
+            {
+              "text": "always",
+              "confidence": 92.463371,
+              "bbox_pixels_xywh": [
+                431,
+                556,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "necessary",
+              "confidence": 88.90538,
+              "bbox_pixels_xywh": [
+                469,
+                559,
+                51,
+                8
+              ]
+            }
+          ],
+          "mean_word_confidence": 76.67,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

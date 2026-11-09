@@ -1,0 +1,2252 @@
+{
+  "views": [
+    {
+      "renderer_version": "2.6",
+      "renderer": "nested-map",
+      "errors": [],
+      "warnings": [
+        "分类带未记录能力：战略",
+        "分类带未记录能力：支持"
+      ],
+      "represented_entity_ids": [
+        "CAP-FULFIL",
+        "CAP-LOGISTICS",
+        "CAP-ORDER",
+        "CAP-RESERVE"
+      ],
+      "represented_relationship_ids": [
+        "CAP-PART-CAP-LOGISTICS",
+        "CAP-PART-CAP-ORDER",
+        "CAP-PART-CAP-RESERVE"
+      ],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "CAP-FULFIL": [
+          "category",
+          "definition",
+          "level"
+        ],
+        "CAP-ORDER": [
+          "category",
+          "definition",
+          "level"
+        ],
+        "CAP-RESERVE": [
+          "category",
+          "definition",
+          "level",
+          "policy"
+        ],
+        "CAP-LOGISTICS": [
+          "category",
+          "definition",
+          "level"
+        ]
+      },
+      "represented_relationship_attributes": {},
+      "source_template_status": "source-derived-view-with-project-construction-rules",
+      "review_status": "generated-awaiting-review",
+      "view_id": "capability-map",
+      "artifact_id": "business-capability-map",
+      "profile_id": "capability-decomposition",
+      "layout": "adaptive"
+    },
+    {
+      "renderer": "field-table",
+      "renderer_version": "1.2",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "APP-ORDER",
+        "APP-STORE",
+        "APP-STOCK"
+      ],
+      "represented_relationship_ids": [],
+      "represented_attributes": {
+        "APP-ORDER": [
+          "version",
+          "owner",
+          "lifecycle",
+          "criticality",
+          "cost"
+        ],
+        "APP-STORE": [
+          "version",
+          "owner",
+          "lifecycle",
+          "criticality",
+          "cost"
+        ],
+        "APP-STOCK": [
+          "version",
+          "owner",
+          "lifecycle",
+          "criticality",
+          "cost"
+        ]
+      },
+      "represented_relationship_attributes": {},
+      "entity_field_locations": {
+        "APP-ORDER": {
+          "version": {
+            "table": "application",
+            "row_id": "APP-ORDER",
+            "column": "version"
+          },
+          "owner": {
+            "table": "application",
+            "row_id": "APP-ORDER",
+            "column": "owner"
+          },
+          "lifecycle": {
+            "table": "application",
+            "row_id": "APP-ORDER",
+            "column": "lifecycle"
+          },
+          "criticality": {
+            "table": "application",
+            "row_id": "APP-ORDER",
+            "column": "criticality"
+          },
+          "cost": {
+            "table": "application",
+            "row_id": "APP-ORDER",
+            "column": "cost"
+          }
+        },
+        "APP-STORE": {
+          "version": {
+            "table": "application",
+            "row_id": "APP-STORE",
+            "column": "version"
+          },
+          "owner": {
+            "table": "application",
+            "row_id": "APP-STORE",
+            "column": "owner"
+          },
+          "lifecycle": {
+            "table": "application",
+            "row_id": "APP-STORE",
+            "column": "lifecycle"
+          },
+          "criticality": {
+            "table": "application",
+            "row_id": "APP-STORE",
+            "column": "criticality"
+          },
+          "cost": {
+            "table": "application",
+            "row_id": "APP-STORE",
+            "column": "cost"
+          }
+        },
+        "APP-STOCK": {
+          "version": {
+            "table": "application",
+            "row_id": "APP-STOCK",
+            "column": "version"
+          },
+          "owner": {
+            "table": "application",
+            "row_id": "APP-STOCK",
+            "column": "owner"
+          },
+          "lifecycle": {
+            "table": "application",
+            "row_id": "APP-STOCK",
+            "column": "lifecycle"
+          },
+          "criticality": {
+            "table": "application",
+            "row_id": "APP-STOCK",
+            "column": "criticality"
+          },
+          "cost": {
+            "table": "application",
+            "row_id": "APP-STOCK",
+            "column": "cost"
+          }
+        }
+      },
+      "relationship_field_locations": {},
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "review_status": "generated-awaiting-review",
+      "view_id": "application-catalog",
+      "artifact_id": "application-portfolio-catalog",
+      "profile_id": "compat-application-portfolio-catalog",
+      "layout": "adaptive"
+    },
+    {
+      "renderer_version": "2.6",
+      "renderer": "network",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "APP-ORDER",
+        "APP-STOCK",
+        "APP-STORE",
+        "IF-EVENT",
+        "IF-RECOVERY",
+        "IF-RESERVE"
+      ],
+      "represented_relationship_ids": [
+        "EX-EVENT",
+        "EX-RECOVERY",
+        "EX-RESERVE",
+        "USE-EVENT",
+        "USE-RECOVERY",
+        "USE-RESERVE"
+      ],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "APP-ORDER": [
+          "cost",
+          "criticality",
+          "lifecycle",
+          "owner",
+          "version"
+        ],
+        "APP-STORE": [
+          "cost",
+          "criticality",
+          "lifecycle",
+          "owner",
+          "version"
+        ],
+        "APP-STOCK": [
+          "cost",
+          "criticality",
+          "lifecycle",
+          "owner",
+          "version"
+        ],
+        "IF-RESERVE": [
+          "payload",
+          "protocol",
+          "version"
+        ],
+        "IF-EVENT": [
+          "payload",
+          "protocol",
+          "version"
+        ],
+        "IF-RECOVERY": [
+          "payload",
+          "policy",
+          "protocol",
+          "source_role",
+          "version"
+        ]
+      },
+      "represented_relationship_attributes": {
+        "EX-RESERVE": [],
+        "USE-RESERVE": [],
+        "EX-EVENT": [],
+        "USE-EVENT": [],
+        "EX-RECOVERY": [],
+        "USE-RECOVERY": []
+      },
+      "source_template_status": "project-compatibility-template",
+      "review_status": "generated-awaiting-review",
+      "view_id": "interface-network",
+      "artifact_id": "application-communication-diagram",
+      "profile_id": "compat-application-communication-diagram",
+      "layout": "adaptive"
+    },
+    {
+      "renderer": "field-table",
+      "renderer_version": "1.2",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "REQ-CONSISTENCY",
+        "REQ-OFFLINE"
+      ],
+      "represented_relationship_ids": [],
+      "represented_attributes": {
+        "REQ-CONSISTENCY": [
+          "statement",
+          "owner",
+          "priority",
+          "status",
+          "acceptance"
+        ],
+        "REQ-OFFLINE": [
+          "statement",
+          "owner",
+          "priority",
+          "status",
+          "acceptance",
+          "source_role"
+        ]
+      },
+      "represented_relationship_attributes": {},
+      "entity_field_locations": {
+        "REQ-CONSISTENCY": {
+          "statement": {
+            "table": "requirement",
+            "row_id": "REQ-CONSISTENCY",
+            "column": "statement"
+          },
+          "owner": {
+            "table": "requirement",
+            "row_id": "REQ-CONSISTENCY",
+            "column": "owner"
+          },
+          "priority": {
+            "table": "requirement",
+            "row_id": "REQ-CONSISTENCY",
+            "column": "priority"
+          },
+          "status": {
+            "table": "requirement",
+            "row_id": "REQ-CONSISTENCY",
+            "column": "status"
+          },
+          "acceptance": {
+            "table": "requirement",
+            "row_id": "REQ-CONSISTENCY",
+            "column": "acceptance"
+          }
+        },
+        "REQ-OFFLINE": {
+          "statement": {
+            "table": "requirement",
+            "row_id": "REQ-OFFLINE",
+            "column": "statement"
+          },
+          "owner": {
+            "table": "requirement",
+            "row_id": "REQ-OFFLINE",
+            "column": "owner"
+          },
+          "priority": {
+            "table": "requirement",
+            "row_id": "REQ-OFFLINE",
+            "column": "priority"
+          },
+          "status": {
+            "table": "requirement",
+            "row_id": "REQ-OFFLINE",
+            "column": "status"
+          },
+          "acceptance": {
+            "table": "requirement",
+            "row_id": "REQ-OFFLINE",
+            "column": "acceptance"
+          },
+          "source_role": {
+            "table": "requirement",
+            "row_id": "REQ-OFFLINE",
+            "column": "source_role"
+          }
+        }
+      },
+      "relationship_field_locations": {},
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "review_status": "generated-awaiting-review",
+      "view_id": "requirements",
+      "artifact_id": "requirements-catalog",
+      "profile_id": "compat-requirements-catalog",
+      "layout": "adaptive"
+    },
+    {
+      "renderer_version": "2.6",
+      "renderer": "roadmap",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "TRANS-OFFLINE",
+        "TRANS-ONLINE",
+        "WP-OFFLINE",
+        "WP-ONLINE"
+      ],
+      "represented_relationship_ids": [
+        "WP-DEP",
+        "WP-TO-OFFLINE",
+        "WP-TO-ONLINE"
+      ],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "WP-ONLINE": [
+          "end",
+          "owner",
+          "start",
+          "status"
+        ],
+        "TRANS-ONLINE": [
+          "definition",
+          "end",
+          "operating_conditions",
+          "ordinal",
+          "start"
+        ],
+        "WP-OFFLINE": [
+          "end",
+          "owner",
+          "source_role",
+          "start",
+          "status"
+        ],
+        "TRANS-OFFLINE": [
+          "definition",
+          "end",
+          "operating_conditions",
+          "ordinal",
+          "policy",
+          "source_role",
+          "start"
+        ]
+      },
+      "represented_relationship_attributes": {
+        "WP-TO-ONLINE": [],
+        "WP-TO-OFFLINE": [],
+        "WP-DEP": []
+      },
+      "source_template_status": "project-operational-view",
+      "review_status": "generated-awaiting-review",
+      "view_id": "transition-roadmap",
+      "artifact_id": "transition-architecture-model",
+      "profile_id": "transition-architecture-model-default",
+      "layout": "adaptive"
+    },
+    {
+      "renderer_version": "2.6",
+      "renderer": "roadmap",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "RISK-STOCK"
+      ],
+      "represented_relationship_ids": [],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "RISK-STOCK": [
+          "action",
+          "control",
+          "due_date",
+          "end",
+          "expected_residual",
+          "owner",
+          "policy",
+          "risk",
+          "start"
+        ]
+      },
+      "represented_relationship_attributes": {},
+      "source_template_status": "project-operational-view",
+      "review_status": "generated-awaiting-review",
+      "view_id": "risk-treatment",
+      "artifact_id": "risk-mitigation-plan",
+      "profile_id": "risk-mitigation-plan-default",
+      "layout": "adaptive"
+    },
+    {
+      "renderer_version": "2.6",
+      "renderer": "state",
+      "errors": [],
+      "warnings": [
+        "模型未声明初始状态；不从拓扑推断起点，也不绘制初始伪状态。"
+      ],
+      "represented_entity_ids": [
+        "ORDER-CONFIRMED",
+        "ORDER-EXCEPTION",
+        "ORDER-FULFIL",
+        "ORDER-PENDING"
+      ],
+      "represented_relationship_ids": [
+        "ORDER-CONFIRM",
+        "ORDER-EXCEPT",
+        "ORDER-TO-FULFIL"
+      ],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "ORDER-PENDING": [
+          "entry",
+          "exit",
+          "owner",
+          "retention"
+        ],
+        "ORDER-CONFIRMED": [
+          "entry",
+          "exit",
+          "owner",
+          "retention"
+        ],
+        "ORDER-EXCEPTION": [
+          "entry",
+          "exit",
+          "owner",
+          "retention"
+        ],
+        "ORDER-FULFIL": [
+          "entry",
+          "exit",
+          "owner",
+          "retention"
+        ]
+      },
+      "represented_relationship_attributes": {
+        "ORDER-CONFIRM": [],
+        "ORDER-EXCEPT": [],
+        "ORDER-TO-FULFIL": []
+      },
+      "source_template_status": "project-compatibility-template",
+      "review_status": "generated-awaiting-review",
+      "view_id": "order-states",
+      "artifact_id": "data-lifecycle-diagram",
+      "profile_id": "compat-data-lifecycle-diagram",
+      "layout": "adaptive"
+    },
+    {
+      "renderer_version": "2.6",
+      "renderer": "network",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "CENTRAL-ORDER-RECORD",
+        "LOCAL-ORDER-RECORD"
+      ],
+      "represented_relationship_ids": [
+        "RECONCILE-RECORDS"
+      ],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "LOCAL-ORDER-RECORD": [
+          "definition",
+          "design_status",
+          "evidence_origin",
+          "fields",
+          "owner",
+          "retention",
+          "source_role"
+        ],
+        "CENTRAL-ORDER-RECORD": [
+          "definition",
+          "design_status",
+          "owner",
+          "source_role"
+        ]
+      },
+      "represented_relationship_attributes": {
+        "RECONCILE-RECORDS": []
+      },
+      "source_template_status": "source-derived-view-with-project-construction-rules",
+      "review_status": "generated-awaiting-review",
+      "view_id": "offline-data-boundary",
+      "artifact_id": "information-map",
+      "profile_id": "information-concept-network",
+      "layout": "adaptive"
+    },
+    {
+      "renderer": "field-table",
+      "renderer_version": "1.2",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "DELIVERY-NOTE"
+      ],
+      "represented_relationship_ids": [],
+      "represented_attributes": {
+        "DELIVERY-NOTE": [
+          "work_package_id",
+          "solution_concept_ref",
+          "implementation_strategy",
+          "stakeholders",
+          "requirements",
+          "specifications",
+          "risks",
+          "controls",
+          "gaps",
+          "architecture_summary",
+          "recovery_contract",
+          "decision_agenda",
+          "policy",
+          "operations",
+          "validation_scenarios",
+          "decision"
+        ]
+      },
+      "represented_relationship_attributes": {},
+      "entity_field_locations": {
+        "DELIVERY-NOTE": {
+          "work_package_id": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "work_package_id",
+            "column": "值"
+          },
+          "solution_concept_ref": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "solution_concept_ref",
+            "column": "值"
+          },
+          "implementation_strategy": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "implementation_strategy",
+            "column": "值"
+          },
+          "stakeholders": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "stakeholders",
+            "column": "值"
+          },
+          "requirements": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "requirements",
+            "column": "值"
+          },
+          "specifications": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "specifications",
+            "column": "值"
+          },
+          "risks": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "risks",
+            "column": "值"
+          },
+          "controls": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "controls",
+            "column": "值"
+          },
+          "gaps": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "gaps",
+            "column": "值"
+          },
+          "architecture_summary": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "architecture_summary",
+            "column": "值"
+          },
+          "recovery_contract": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "recovery_contract",
+            "column": "值"
+          },
+          "decision_agenda": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "decision_agenda",
+            "column": "值"
+          },
+          "policy": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "policy",
+            "column": "值"
+          },
+          "operations": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "operations",
+            "column": "值"
+          },
+          "validation_scenarios": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "validation_scenarios",
+            "column": "值"
+          },
+          "decision": {
+            "table": "DELIVERY-NOTE",
+            "row_id": "decision",
+            "column": "值"
+          }
+        }
+      },
+      "relationship_field_locations": {},
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "review_status": "generated-awaiting-review",
+      "view_id": "delivery-notebook",
+      "artifact_id": "solution-delivery-notebook",
+      "profile_id": "solution-delivery-notebook-default",
+      "layout": "adaptive"
+    },
+    {
+      "renderer_version": "2.6",
+      "renderer": "network",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "ROLE-CHIEF",
+        "ROLE-EA",
+        "ROLE-SEG",
+        "ROLE-SOL"
+      ],
+      "represented_relationship_ids": [
+        "CONSTRAINT-SEG",
+        "COOPERATE-SOL",
+        "GUIDE-EA",
+        "HANDOFF-IF",
+        "SPECIAL-CH"
+      ],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "ROLE-CHIEF": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "ROLE-EA": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "ROLE-SEG": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "ROLE-SOL": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ]
+      },
+      "represented_relationship_attributes": {
+        "SPECIAL-CH": [
+          "scope",
+          "semantic_type"
+        ],
+        "GUIDE-EA": [
+          "scope",
+          "semantic_type"
+        ],
+        "CONSTRAINT-SEG": [
+          "scope",
+          "semantic_type"
+        ],
+        "COOPERATE-SOL": [
+          "scope",
+          "semantic_type"
+        ],
+        "HANDOFF-IF": [
+          "acceptance_criteria",
+          "deliverable_ref",
+          "scope",
+          "semantic_type"
+        ]
+      },
+      "source_template_status": "source-derived-view-with-project-construction-rules",
+      "review_status": "generated-awaiting-review",
+      "view_id": "role-collaboration",
+      "artifact_id": "architecture-role-catalog",
+      "profile_id": "architecture-role-collaboration",
+      "layout": "adaptive"
+    },
+    {
+      "renderer_version": "2.6",
+      "renderer": "matrix",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "ROLE-CHIEF",
+        "ROLE-EA",
+        "ROLE-SEG",
+        "ROLE-SOL",
+        "SKILL-1",
+        "SKILL-2",
+        "SKILL-3",
+        "SKILL-4"
+      ],
+      "represented_relationship_ids": [
+        "BEH-CH",
+        "BEH-EA",
+        "BEH-SEG",
+        "BEH-SOL",
+        "REF-REQ-SKILL-EA",
+        "REQ-SKILL-CH",
+        "REQ-SKILL-EA",
+        "REQ-SKILL-SEG",
+        "REQ-SKILL-SOL"
+      ],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "SKILL-1": [
+          "category",
+          "skill_id",
+          "subskill"
+        ],
+        "SKILL-2": [
+          "category",
+          "skill_id",
+          "subskill"
+        ],
+        "SKILL-3": [
+          "category",
+          "skill_id",
+          "subskill"
+        ],
+        "SKILL-4": [
+          "category",
+          "skill_id",
+          "subskill"
+        ],
+        "ROLE-CHIEF": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "ROLE-EA": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "ROLE-SEG": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "ROLE-SOL": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ]
+      },
+      "represented_relationship_attributes": {
+        "REQ-SKILL-CH": [
+          "adoption_context",
+          "assessment_kind",
+          "assessment_state",
+          "behavioral_criteria",
+          "proficiency",
+          "scale_id",
+          "tailoring_reason",
+          "task_ref",
+          "task_refs"
+        ],
+        "BEH-CH": [
+          "assessment_kind",
+          "assessment_state",
+          "assessor",
+          "behavioral_evidence",
+          "note",
+          "observed_on",
+          "person_ref",
+          "proficiency",
+          "scale_id",
+          "task_refs"
+        ],
+        "REQ-SKILL-EA": [
+          "adoption_context",
+          "assessment_kind",
+          "assessment_state",
+          "behavioral_criteria",
+          "proficiency",
+          "scale_id",
+          "tailoring_reason",
+          "task_ref",
+          "task_refs"
+        ],
+        "REF-REQ-SKILL-EA": [
+          "assessment_kind",
+          "assessment_state",
+          "proficiency",
+          "reference_role_id",
+          "scale_id",
+          "source_locator"
+        ],
+        "BEH-EA": [
+          "assessment_kind",
+          "assessment_state",
+          "assessor",
+          "behavioral_evidence",
+          "note",
+          "observed_on",
+          "person_ref",
+          "proficiency",
+          "scale_id",
+          "task_refs"
+        ],
+        "REQ-SKILL-SEG": [
+          "adoption_context",
+          "assessment_kind",
+          "assessment_state",
+          "behavioral_criteria",
+          "proficiency",
+          "scale_id",
+          "tailoring_reason",
+          "task_ref",
+          "task_refs"
+        ],
+        "BEH-SEG": [
+          "assessment_kind",
+          "assessment_state",
+          "assessor",
+          "behavioral_evidence",
+          "note",
+          "observed_on",
+          "person_ref",
+          "proficiency",
+          "scale_id",
+          "task_refs"
+        ],
+        "REQ-SKILL-SOL": [
+          "adoption_context",
+          "assessment_kind",
+          "assessment_state",
+          "behavioral_criteria",
+          "proficiency",
+          "scale_id",
+          "tailoring_reason",
+          "task_ref",
+          "task_refs"
+        ],
+        "BEH-SOL": [
+          "assessment_kind",
+          "assessment_state",
+          "assessor",
+          "behavioral_evidence",
+          "note",
+          "observed_on",
+          "person_ref",
+          "proficiency",
+          "scale_id",
+          "task_refs"
+        ]
+      },
+      "source_template_status": "source-derived-view-with-project-construction-rules",
+      "review_status": "generated-awaiting-review",
+      "view_id": "skill-matrix",
+      "artifact_id": "architecture-skill-matrix",
+      "profile_id": "ea-skill-role-proficiency",
+      "layout": "adaptive"
+    },
+    {
+      "renderer_version": "2.6",
+      "renderer": "roadmap",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "DEV-A"
+      ],
+      "represented_relationship_ids": [],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "DEV-A": [
+          "action",
+          "behavioral_gap",
+          "current_assessment_state",
+          "current_proficiency",
+          "due",
+          "end",
+          "evidence",
+          "history",
+          "owner",
+          "person",
+          "reassessment",
+          "requirement_refs",
+          "role",
+          "scale_id",
+          "skill_id",
+          "start",
+          "success_criteria",
+          "target_proficiency",
+          "task_refs"
+        ]
+      },
+      "represented_relationship_attributes": {},
+      "source_template_status": "project-operational-view",
+      "review_status": "generated-awaiting-review",
+      "view_id": "development-plan",
+      "artifact_id": "architecture-development-plan",
+      "profile_id": "architecture-development-plan-default",
+      "layout": "adaptive"
+    },
+    {
+      "renderer_version": "2.6",
+      "renderer": "network",
+      "errors": [],
+      "warnings": [],
+      "represented_entity_ids": [
+        "ASSIGN-A",
+        "ASSIGN-CH",
+        "ASSIGN-EA",
+        "ASSIGN-SEG",
+        "BEH-CH.evidence",
+        "BEH-EA.evidence",
+        "BEH-SEG.evidence",
+        "BEH-SOL.evidence",
+        "ROLE-CHIEF",
+        "ROLE-EA",
+        "ROLE-SEG",
+        "ROLE-SOL",
+        "TASK-CH",
+        "TASK-EA",
+        "TASK-SEG",
+        "TASK-SOL"
+      ],
+      "represented_relationship_ids": [
+        "work-projection.06a88de2ec5a26c2fca0",
+        "work-projection.0c4fe3f44093d9f50fec",
+        "work-projection.221f533dc7d14014d128",
+        "work-projection.440b9262d69aeaa8953a",
+        "work-projection.4eb7c710941c2fc9bd50",
+        "work-projection.554aee97e4fbf2c66416",
+        "work-projection.5aa5498d92502bf7da41",
+        "work-projection.6bb0140bc708e4bbb096",
+        "work-projection.710d6c5a67f4b472155f",
+        "work-projection.9216799023b9b1fffcd4",
+        "work-projection.ae03e8809cb9bfce5fa0",
+        "work-projection.db99e6eb17404474021f"
+      ],
+      "unrepresented_entity_ids": [],
+      "unrepresented_relationship_ids": [],
+      "represented_attributes": {
+        "ROLE-CHIEF": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "ROLE-EA": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "ROLE-SEG": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "ROLE-SOL": [
+          "definition",
+          "primary_responsibility",
+          "scope",
+          "tier"
+        ],
+        "TASK-CH": [
+          "artifact_ids",
+          "configuration_status",
+          "decision",
+          "evidence",
+          "id",
+          "method_ids",
+          "model_object_refs",
+          "outcome",
+          "output_tailoring_reason",
+          "required_skill_ids",
+          "requirement_refs",
+          "role_refs",
+          "scope",
+          "work_period",
+          "workload_hours"
+        ],
+        "TASK-EA": [
+          "artifact_ids",
+          "configuration_status",
+          "decision",
+          "evidence",
+          "id",
+          "method_ids",
+          "model_object_refs",
+          "outcome",
+          "output_tailoring_reason",
+          "required_skill_ids",
+          "requirement_refs",
+          "role_refs",
+          "scope",
+          "work_period",
+          "workload_hours"
+        ],
+        "TASK-SEG": [
+          "artifact_ids",
+          "configuration_status",
+          "decision",
+          "evidence",
+          "id",
+          "method_ids",
+          "model_object_refs",
+          "outcome",
+          "output_tailoring_reason",
+          "required_skill_ids",
+          "requirement_refs",
+          "role_refs",
+          "scope",
+          "work_period",
+          "workload_hours"
+        ],
+        "TASK-SOL": [
+          "artifact_ids",
+          "configuration_status",
+          "decision",
+          "evidence",
+          "id",
+          "method_ids",
+          "model_object_refs",
+          "outcome",
+          "output_tailoring_reason",
+          "required_skill_ids",
+          "requirement_refs",
+          "role_refs",
+          "scope",
+          "work_period",
+          "workload_hours"
+        ],
+        "ASSIGN-CH": [
+          "approval",
+          "assessment_refs",
+          "authority",
+          "available_hours",
+          "capacity_state",
+          "competence_state",
+          "evidence",
+          "id",
+          "mandate_ref",
+          "period_gap",
+          "period_state",
+          "person_ref",
+          "requirement_refs",
+          "review_state",
+          "role_ref",
+          "task_refs",
+          "valid_from",
+          "valid_until",
+          "workload_hours"
+        ],
+        "ASSIGN-EA": [
+          "approval",
+          "assessment_refs",
+          "authority",
+          "available_hours",
+          "capacity_state",
+          "competence_state",
+          "evidence",
+          "id",
+          "mandate_ref",
+          "period_gap",
+          "period_state",
+          "person_ref",
+          "requirement_refs",
+          "review_state",
+          "role_ref",
+          "task_refs",
+          "valid_from",
+          "valid_until",
+          "workload_hours"
+        ],
+        "ASSIGN-SEG": [
+          "approval",
+          "assessment_refs",
+          "authority",
+          "available_hours",
+          "capacity_state",
+          "competence_state",
+          "evidence",
+          "id",
+          "mandate_ref",
+          "period_gap",
+          "period_state",
+          "person_ref",
+          "requirement_refs",
+          "review_state",
+          "role_ref",
+          "task_refs",
+          "valid_from",
+          "valid_until",
+          "workload_hours"
+        ],
+        "ASSIGN-A": [
+          "approval",
+          "assessment_refs",
+          "authority",
+          "available_hours",
+          "capacity_state",
+          "competence_state",
+          "evidence",
+          "id",
+          "mandate_ref",
+          "period_gap",
+          "period_state",
+          "person_ref",
+          "requirement_refs",
+          "review_state",
+          "role_ref",
+          "task_refs",
+          "valid_from",
+          "valid_until",
+          "workload_hours"
+        ],
+        "BEH-CH.evidence": [
+          "assessment_kind",
+          "assessment_state",
+          "assessor",
+          "behavioral_evidence",
+          "current_proficiency",
+          "evidence",
+          "id",
+          "note",
+          "observation_ref",
+          "observed_on",
+          "person_ref",
+          "proficiency",
+          "scale_id",
+          "skill_id",
+          "task_refs"
+        ],
+        "BEH-EA.evidence": [
+          "assessment_kind",
+          "assessment_state",
+          "assessor",
+          "behavioral_evidence",
+          "current_proficiency",
+          "evidence",
+          "id",
+          "note",
+          "observation_ref",
+          "observed_on",
+          "person_ref",
+          "proficiency",
+          "scale_id",
+          "skill_id",
+          "task_refs"
+        ],
+        "BEH-SEG.evidence": [
+          "assessment_kind",
+          "assessment_state",
+          "assessor",
+          "behavioral_evidence",
+          "current_proficiency",
+          "evidence",
+          "id",
+          "note",
+          "observation_ref",
+          "observed_on",
+          "person_ref",
+          "proficiency",
+          "scale_id",
+          "skill_id",
+          "task_refs"
+        ],
+        "BEH-SOL.evidence": [
+          "assessment_kind",
+          "assessment_state",
+          "assessor",
+          "behavioral_evidence",
+          "current_proficiency",
+          "evidence",
+          "id",
+          "note",
+          "observation_ref",
+          "observed_on",
+          "person_ref",
+          "proficiency",
+          "scale_id",
+          "skill_id",
+          "task_refs"
+        ]
+      },
+      "represented_relationship_attributes": {
+        "work-projection.6bb0140bc708e4bbb096": [
+          "origin"
+        ],
+        "work-projection.5aa5498d92502bf7da41": [
+          "origin"
+        ],
+        "work-projection.4eb7c710941c2fc9bd50": [
+          "origin"
+        ],
+        "work-projection.db99e6eb17404474021f": [
+          "origin"
+        ],
+        "work-projection.0c4fe3f44093d9f50fec": [
+          "origin"
+        ],
+        "work-projection.9216799023b9b1fffcd4": [
+          "origin"
+        ],
+        "work-projection.06a88de2ec5a26c2fca0": [
+          "origin"
+        ],
+        "work-projection.440b9262d69aeaa8953a": [
+          "origin"
+        ],
+        "work-projection.ae03e8809cb9bfce5fa0": [
+          "origin"
+        ],
+        "work-projection.710d6c5a67f4b472155f": [
+          "origin"
+        ],
+        "work-projection.554aee97e4fbf2c66416": [
+          "origin"
+        ],
+        "work-projection.221f533dc7d14014d128": [
+          "origin"
+        ]
+      },
+      "source_template_status": "project-operational-view",
+      "review_status": "generated-awaiting-review",
+      "detail_ledger": {
+        "entities": [
+          {
+            "id": "ROLE-CHIEF",
+            "fields": {
+              "tier": "chief",
+              "definition": "本次任务角色：战略优先与业务承诺边界"
+            }
+          },
+          {
+            "id": "ROLE-EA",
+            "fields": {
+              "tier": "enterprise",
+              "definition": "本次任务角色：跨分段互操作原则"
+            }
+          },
+          {
+            "id": "ROLE-SEG",
+            "fields": {
+              "tier": "segment",
+              "definition": "本次任务角色：库存语义与运营条件"
+            }
+          },
+          {
+            "id": "ROLE-SOL",
+            "fields": {
+              "tier": "solution",
+              "definition": "本次任务角色：预占接口候选比较"
+            }
+          },
+          {
+            "id": "TASK-CH",
+            "fields": {
+              "id": "TASK-CH",
+              "scope": "战略优先与业务承诺边界",
+              "role_refs": [
+                "ROLE-CHIEF"
+              ],
+              "method_ids": [
+                "architecture-backlog-trace-review"
+              ],
+              "artifact_ids": [
+                "business-capability-map",
+                "transition-architecture-model",
+                "solution-delivery-notebook"
+              ],
+              "evidence": [
+                "CASE-BASELINE",
+                "CASE-REVIEW",
+                "FICTIONAL-POLICY",
+                "FICTIONAL-CAPACITY"
+              ],
+              "model_object_refs": [
+                "CAP-FULFIL",
+                "CAP-ORDER",
+                "CAP-RESERVE",
+                "CAP-LOGISTICS",
+                "TRANS-ONLINE",
+                "RISK-STOCK",
+                "TRANS-OFFLINE",
+                "ROLE-CHIEF",
+                "SKILL-1",
+                "SKILL-2",
+                "SKILL-3",
+                "SKILL-4",
+                "DEV-A",
+                "ORDER-PENDING",
+                "ORDER-CONFIRMED",
+                "ORDER-EXCEPTION",
+                "ORDER-FULFIL",
+                "LOCAL-ORDER-RECORD",
+                "CENTRAL-ORDER-RECORD",
+                "DELIVERY-NOTE",
+                "TASK-CH",
+                "ASSIGN-CH",
+                "BEH-CH.evidence"
+              ],
+              "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。",
+              "requirement_refs": [
+                "REQ-SKILL-CH"
+              ],
+              "configuration_status": "declared workload and behavioral evidence present; owner review pending"
+            }
+          },
+          {
+            "id": "TASK-EA",
+            "fields": {
+              "id": "TASK-EA",
+              "scope": "跨分段互操作原则",
+              "role_refs": [
+                "ROLE-EA"
+              ],
+              "method_ids": [
+                "domain-architecture-alignment-review"
+              ],
+              "artifact_ids": [
+                "business-capability-map",
+                "application-portfolio-catalog",
+                "solution-delivery-notebook"
+              ],
+              "evidence": [
+                "CASE-BASELINE",
+                "CASE-REVIEW",
+                "FICTIONAL-POLICY",
+                "FICTIONAL-CAPACITY"
+              ],
+              "model_object_refs": [
+                "CAP-FULFIL",
+                "CAP-ORDER",
+                "CAP-RESERVE",
+                "CAP-LOGISTICS",
+                "APP-ORDER",
+                "APP-STORE",
+                "APP-STOCK",
+                "IF-RESERVE",
+                "IF-EVENT",
+                "REQ-CONSISTENCY",
+                "REQ-OFFLINE",
+                "IF-RECOVERY",
+                "ROLE-EA",
+                "SKILL-1",
+                "SKILL-2",
+                "SKILL-3",
+                "SKILL-4",
+                "DEV-A",
+                "ORDER-PENDING",
+                "ORDER-CONFIRMED",
+                "ORDER-EXCEPTION",
+                "ORDER-FULFIL",
+                "LOCAL-ORDER-RECORD",
+                "CENTRAL-ORDER-RECORD",
+                "DELIVERY-NOTE",
+                "TASK-EA",
+                "ASSIGN-EA",
+                "BEH-EA.evidence"
+              ],
+              "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。",
+              "requirement_refs": [
+                "REQ-SKILL-EA"
+              ],
+              "configuration_status": "declared workload and behavioral evidence present; owner review pending"
+            }
+          },
+          {
+            "id": "TASK-SEG",
+            "fields": {
+              "id": "TASK-SEG",
+              "scope": "库存语义与运营条件",
+              "role_refs": [
+                "ROLE-SEG"
+              ],
+              "method_ids": [
+                "msa-data-distribution-conditions-method"
+              ],
+              "artifact_ids": [
+                "requirements-catalog",
+                "data-lifecycle-diagram",
+                "solution-delivery-notebook"
+              ],
+              "evidence": [
+                "CASE-BASELINE",
+                "CASE-REVIEW",
+                "FICTIONAL-POLICY",
+                "FICTIONAL-CAPACITY"
+              ],
+              "model_object_refs": [
+                "CAP-FULFIL",
+                "CAP-ORDER",
+                "CAP-RESERVE",
+                "CAP-LOGISTICS",
+                "IF-RESERVE",
+                "IF-EVENT",
+                "REQ-CONSISTENCY",
+                "RISK-STOCK",
+                "REQ-OFFLINE",
+                "IF-RECOVERY",
+                "ROLE-SEG",
+                "SKILL-1",
+                "SKILL-2",
+                "SKILL-3",
+                "SKILL-4",
+                "DEV-A",
+                "ORDER-PENDING",
+                "ORDER-CONFIRMED",
+                "ORDER-EXCEPTION",
+                "ORDER-FULFIL",
+                "LOCAL-ORDER-RECORD",
+                "CENTRAL-ORDER-RECORD",
+                "DELIVERY-NOTE",
+                "TASK-SEG",
+                "ASSIGN-SEG",
+                "BEH-SEG.evidence"
+              ],
+              "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。",
+              "requirement_refs": [
+                "REQ-SKILL-SEG"
+              ],
+              "configuration_status": "declared workload and behavioral evidence present; owner review pending"
+            }
+          },
+          {
+            "id": "TASK-SOL",
+            "fields": {
+              "id": "TASK-SOL",
+              "scope": "预占接口候选比较",
+              "role_refs": [
+                "ROLE-SOL"
+              ],
+              "method_ids": [
+                "msa-contract-consumer-evidence-method"
+              ],
+              "artifact_ids": [
+                "application-communication-diagram",
+                "transition-architecture-model",
+                "risk-mitigation-plan",
+                "solution-delivery-notebook"
+              ],
+              "evidence": [
+                "CASE-BASELINE",
+                "CASE-REVIEW",
+                "FICTIONAL-POLICY",
+                "FICTIONAL-CAPACITY"
+              ],
+              "model_object_refs": [
+                "APP-ORDER",
+                "APP-STORE",
+                "APP-STOCK",
+                "IF-RESERVE",
+                "IF-EVENT",
+                "REQ-CONSISTENCY",
+                "WP-ONLINE",
+                "TRANS-ONLINE",
+                "RISK-STOCK",
+                "REQ-OFFLINE",
+                "IF-RECOVERY",
+                "WP-OFFLINE",
+                "TRANS-OFFLINE",
+                "ROLE-SOL",
+                "SKILL-1",
+                "SKILL-2",
+                "SKILL-3",
+                "SKILL-4",
+                "DEV-A",
+                "ORDER-PENDING",
+                "ORDER-CONFIRMED",
+                "ORDER-EXCEPTION",
+                "ORDER-FULFIL",
+                "LOCAL-ORDER-RECORD",
+                "CENTRAL-ORDER-RECORD",
+                "DELIVERY-NOTE",
+                "TASK-SOL",
+                "ASSIGN-A",
+                "BEH-SOL.evidence"
+              ],
+              "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。",
+              "requirement_refs": [
+                "REQ-SKILL-SOL"
+              ],
+              "configuration_status": "declared workload and behavioral evidence present; owner review pending"
+            }
+          },
+          {
+            "id": "BEH-CH.evidence",
+            "fields": {
+              "id": "BEH-CH",
+              "skill_id": "G249:skill:business:strategic-planning",
+              "assessment_kind": "observed_assessment",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "task_refs": [
+                "TASK-CH"
+              ],
+              "observed_on": "2026-12-02",
+              "assessor": "FICTIONAL-PEER-REVIEW",
+              "evidence": [
+                "FICTIONAL-BEHAVIOR"
+              ],
+              "behavioral_evidence": [
+                {
+                  "criterion": "把战略约束转成可复议决定",
+                  "demonstrated": true,
+                  "evidence_kind": "reviewed-work-product",
+                  "evidence": [
+                    "FICTIONAL-BEHAVIOR"
+                  ]
+                }
+              ],
+              "observation_ref": "BEH-CH"
+            }
+          },
+          {
+            "id": "BEH-EA.evidence",
+            "fields": {
+              "id": "BEH-EA",
+              "skill_id": "G249:skill:architecture:generic-integration-and-interoperability",
+              "assessment_kind": "observed_assessment",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "task_refs": [
+                "TASK-EA"
+              ],
+              "observed_on": "2026-12-02",
+              "assessor": "FICTIONAL-PEER-REVIEW",
+              "evidence": [
+                "FICTIONAL-BEHAVIOR"
+              ],
+              "behavioral_evidence": [
+                {
+                  "criterion": "解释跨分段接口语义及风险",
+                  "demonstrated": true,
+                  "evidence_kind": "reviewed-work-product",
+                  "evidence": [
+                    "FICTIONAL-BEHAVIOR"
+                  ]
+                }
+              ],
+              "observation_ref": "BEH-EA"
+            }
+          },
+          {
+            "id": "BEH-SEG.evidence",
+            "fields": {
+              "id": "BEH-SEG",
+              "skill_id": "G249:skill:data:operational-data",
+              "assessment_kind": "observed_assessment",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "task_refs": [
+                "TASK-SEG"
+              ],
+              "observed_on": "2026-12-02",
+              "assessor": "FICTIONAL-PEER-REVIEW",
+              "evidence": [
+                "FICTIONAL-BEHAVIOR"
+              ],
+              "behavioral_evidence": [
+                {
+                  "criterion": "核对运行数据的一致性与恢复证据",
+                  "demonstrated": true,
+                  "evidence_kind": "reviewed-work-product",
+                  "evidence": [
+                    "FICTIONAL-BEHAVIOR"
+                  ]
+                }
+              ],
+              "observation_ref": "BEH-SEG"
+            }
+          },
+          {
+            "id": "BEH-SOL.evidence",
+            "fields": {
+              "id": "BEH-SOL",
+              "skill_id": "G249:skill:application:integration-and-interoperability",
+              "assessment_kind": "observed_assessment",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "task_refs": [
+                "TASK-SOL"
+              ],
+              "observed_on": "2026-12-02",
+              "assessor": "FICTIONAL-PEER-REVIEW",
+              "evidence": [
+                "FICTIONAL-BEHAVIOR"
+              ],
+              "behavioral_evidence": [
+                {
+                  "criterion": "独立完成异常接口设计并经评审",
+                  "demonstrated": true,
+                  "evidence_kind": "reviewed-work-product",
+                  "evidence": [
+                    "FICTIONAL-BEHAVIOR"
+                  ]
+                }
+              ],
+              "observation_ref": "BEH-SOL"
+            }
+          },
+          {
+            "id": "ASSIGN-CH",
+            "fields": {
+              "id": "ASSIGN-CH",
+              "role_ref": "ROLE-CHIEF",
+              "task_refs": [
+                "TASK-CH"
+              ],
+              "requirement_refs": [
+                "REQ-SKILL-CH"
+              ],
+              "assessment_refs": [
+                "BEH-CH"
+              ],
+              "mandate_ref": "MANDATE-STOCK",
+              "authority": "虚构候选配置；真实批准未授予",
+              "evidence": [
+                "FICTIONAL-CAPACITY",
+                "CASE-MANDATE"
+              ],
+              "competence_state": "evidenced-for-declared-task",
+              "period_gap": "declared task period covered; real approval not-granted",
+              "workload_hours": 8
+            }
+          },
+          {
+            "id": "ASSIGN-EA",
+            "fields": {
+              "id": "ASSIGN-EA",
+              "role_ref": "ROLE-EA",
+              "task_refs": [
+                "TASK-EA"
+              ],
+              "requirement_refs": [
+                "REQ-SKILL-EA"
+              ],
+              "assessment_refs": [
+                "BEH-EA"
+              ],
+              "mandate_ref": "MANDATE-STOCK",
+              "authority": "虚构候选配置；真实批准未授予",
+              "evidence": [
+                "FICTIONAL-CAPACITY",
+                "CASE-MANDATE"
+              ],
+              "competence_state": "evidenced-for-declared-task",
+              "period_gap": "declared task period covered; real approval not-granted",
+              "workload_hours": 16
+            }
+          },
+          {
+            "id": "ASSIGN-SEG",
+            "fields": {
+              "id": "ASSIGN-SEG",
+              "role_ref": "ROLE-SEG",
+              "task_refs": [
+                "TASK-SEG"
+              ],
+              "requirement_refs": [
+                "REQ-SKILL-SEG"
+              ],
+              "assessment_refs": [
+                "BEH-SEG"
+              ],
+              "mandate_ref": "MANDATE-STOCK",
+              "authority": "虚构候选配置；真实批准未授予",
+              "evidence": [
+                "FICTIONAL-CAPACITY",
+                "CASE-MANDATE"
+              ],
+              "competence_state": "evidenced-for-declared-task",
+              "period_gap": "declared task period covered; real approval not-granted",
+              "workload_hours": 24
+            }
+          },
+          {
+            "id": "ASSIGN-A",
+            "fields": {
+              "id": "ASSIGN-A",
+              "role_ref": "ROLE-SOL",
+              "task_refs": [
+                "TASK-SOL"
+              ],
+              "requirement_refs": [
+                "REQ-SKILL-SOL"
+              ],
+              "assessment_refs": [
+                "BEH-SOL"
+              ],
+              "mandate_ref": "MANDATE-STOCK",
+              "authority": "虚构候选配置；真实批准未授予",
+              "evidence": [
+                "FICTIONAL-CAPACITY",
+                "CASE-MANDATE"
+              ],
+              "competence_state": "evidenced-for-declared-task",
+              "period_gap": "declared task period covered; real approval not-granted",
+              "workload_hours": 32
+            }
+          }
+        ],
+        "relationships": [
+          {
+            "id": "work-projection.6bb0140bc708e4bbb096",
+            "index": 1,
+            "text": "[1] 首席架构师 → 战略优先与业务承诺边界：本次任务职责；不是人事汇报 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.5aa5498d92502bf7da41",
+            "index": 2,
+            "text": "[2] 企业架构师 → 跨分段互操作原则：本次任务职责；不是人事汇报 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.4eb7c710941c2fc9bd50",
+            "index": 3,
+            "text": "[3] 库存分段架构师 → 库存语义与运营条件：本次任务职责；不是人事汇报 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.db99e6eb17404474021f",
+            "index": 4,
+            "text": "[4] 履约解决方案架构师 → 预占接口候选比较：本次任务职责；不是人事汇报 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.0c4fe3f44093d9f50fec",
+            "index": 5,
+            "text": "[5] PERSON-CH候选配置 → 战略优先与业务承诺边界：候选承担；未批准 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.9216799023b9b1fffcd4",
+            "index": 6,
+            "text": "[6] PERSON-CH候选配置 → PERSON-CH：BEH-CH：配置依赖的人员/支持证据 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.06a88de2ec5a26c2fca0",
+            "index": 7,
+            "text": "[7] PERSON-EA候选配置 → 跨分段互操作原则：候选承担；未批准 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.440b9262d69aeaa8953a",
+            "index": 8,
+            "text": "[8] PERSON-EA候选配置 → PERSON-EA：BEH-EA：配置依赖的人员/支持证据 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.ae03e8809cb9bfce5fa0",
+            "index": 9,
+            "text": "[9] PERSON-SEG候选配置 → 库存语义与运营条件：候选承担；未批准 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.710d6c5a67f4b472155f",
+            "index": 10,
+            "text": "[10] PERSON-SEG候选配置 → PERSON-SEG：BEH-SEG：配置依赖的人员/支持证据 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.554aee97e4fbf2c66416",
+            "index": 11,
+            "text": "[11] PERSON-A候选配置 → 预占接口候选比较：候选承担；未批准 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          },
+          {
+            "id": "work-projection.221f533dc7d14014d128",
+            "index": 12,
+            "text": "[12] PERSON-A候选配置 → PERSON-A：BEH-SOL：配置依赖的人员/支持证据 [traces_to] · {\"origin\":\"project-task-evidence-projection\"}"
+          }
+        ]
+      },
+      "main_figure_excludes_attribute_footer": true,
+      "companion_file": "role-assignment.details.html",
+      "companion_html": "<html lang=\"zh-CN\"><head><meta charset=\"utf-8\"/><title>任务、角色、配置及能力证据</title><style>body{font:16px sans-serif;max-width:1100px;margin:32px auto;line-height:1.7}section{break-inside:avoid;border:1px solid #ccd;padding:20px;margin:24px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{overflow-wrap:anywhere}@media print{section{break-before:page}}</style></head><body><h1>任务、角色、配置及能力证据：分组明细</h1><p>与主图共用模型ID。下列关系登记提供完整语义，不表示每条关系均为主图上的连线。每个对象为可独立打印的明细页。</p><nav><a href=\"#entity-ROLE-CHIEF\">首席架构师</a> · <a href=\"#entity-ROLE-EA\">企业架构师</a> · <a href=\"#entity-ROLE-SEG\">库存分段架构师</a> · <a href=\"#entity-ROLE-SOL\">履约解决方案架构师</a> · <a href=\"#entity-TASK-CH\">战略优先与业务承诺边界</a> · <a href=\"#entity-TASK-EA\">跨分段互操作原则</a> · <a href=\"#entity-TASK-SEG\">库存语义与运营条件</a> · <a href=\"#entity-TASK-SOL\">预占接口候选比较</a> · <a href=\"#entity-BEH-CH.evidence\">PERSON-CH：BEH-CH</a> · <a href=\"#entity-BEH-EA.evidence\">PERSON-EA：BEH-EA</a> · <a href=\"#entity-BEH-SEG.evidence\">PERSON-SEG：BEH-SEG</a> · <a href=\"#entity-BEH-SOL.evidence\">PERSON-A：BEH-SOL</a> · <a href=\"#entity-ASSIGN-CH\">PERSON-CH候选配置</a> · <a href=\"#entity-ASSIGN-EA\">PERSON-EA候选配置</a> · <a href=\"#entity-ASSIGN-SEG\">PERSON-SEG候选配置</a> · <a href=\"#entity-ASSIGN-A\">PERSON-A候选配置</a> · </nav><nav aria-label=\"分组分页\"><a href=\"#page-guide%3Aarchitecture-role-1\">guide:architecture-role / 1</a> · <a href=\"#page-guide%3Aarchitecture-task-1\">guide:architecture-task / 1</a> · <a href=\"#page-guide%3Acompetence-evidence-1\">guide:competence-evidence / 1</a> · <a href=\"#page-guide%3Aperson-assignment-1\">guide:person-assignment / 1</a> · </nav><article id=\"page-guide%3Aarchitecture-role-1\" style=\"break-before:page\"><h2>guide:architecture-role 分页</h2><section id=\"entity-ROLE-CHIEF\" data-entity-id=\"ROLE-CHIEF\"><h2>首席架构师</h2><pre>{\n  &quot;id&quot;: &quot;ROLE-CHIEF&quot;,\n  &quot;type&quot;: &quot;guide:architecture-role&quot;,\n  &quot;name&quot;: &quot;首席架构师&quot;,\n  &quot;attributes&quot;: {\n    &quot;tier&quot;: &quot;chief&quot;,\n    &quot;scope&quot;: &quot;战略与运营语境&quot;,\n    &quot;primary_responsibility&quot;: &quot;跨业务决策议程和未决项&quot;,\n    &quot;definition&quot;: &quot;本次任务角色：战略优先与业务承诺边界&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-ROLE-EA\" data-entity-id=\"ROLE-EA\"><h2>企业架构师</h2><pre>{\n  &quot;id&quot;: &quot;ROLE-EA&quot;,\n  &quot;type&quot;: &quot;guide:architecture-role&quot;,\n  &quot;name&quot;: &quot;企业架构师&quot;,\n  &quot;attributes&quot;: {\n    &quot;tier&quot;: &quot;enterprise&quot;,\n    &quot;scope&quot;: &quot;跨订单、库存、物流分段；门店作为渠道与运营参与者&quot;,\n    &quot;primary_responsibility&quot;: &quot;跨分段责任和接口政策核对记录&quot;,\n    &quot;definition&quot;: &quot;本次任务角色：跨分段互操作原则&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-ROLE-SEG\" data-entity-id=\"ROLE-SEG\"><h2>库存分段架构师</h2><pre>{\n  &quot;id&quot;: &quot;ROLE-SEG&quot;,\n  &quot;type&quot;: &quot;guide:architecture-role&quot;,\n  &quot;name&quot;: &quot;库存分段架构师&quot;,\n  &quot;attributes&quot;: {\n    &quot;tier&quot;: &quot;segment&quot;,\n    &quot;scope&quot;: &quot;库存业务/数据&quot;,\n    &quot;primary_responsibility&quot;: &quot;库存确认、过期隔离和人工处理条件&quot;,\n    &quot;definition&quot;: &quot;本次任务角色：库存语义与运营条件&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-ROLE-SOL\" data-entity-id=\"ROLE-SOL\"><h2>履约解决方案架构师</h2><pre>{\n  &quot;id&quot;: &quot;ROLE-SOL&quot;,\n  &quot;type&quot;: &quot;guide:architecture-role&quot;,\n  &quot;name&quot;: &quot;履约解决方案架构师&quot;,\n  &quot;attributes&quot;: {\n    &quot;tier&quot;: &quot;solution&quot;,\n    &quot;scope&quot;: &quot;库存预占与异步接口&quot;,\n    &quot;primary_responsibility&quot;: &quot;线上同步试点建议、离线待确认契约及异常验证清单&quot;,\n    &quot;definition&quot;: &quot;本次任务角色：预占接口候选比较&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section></article><article id=\"page-guide%3Aarchitecture-task-1\" style=\"break-before:page\"><h2>guide:architecture-task 分页</h2><section id=\"entity-TASK-CH\" data-entity-id=\"TASK-CH\"><h2>战略优先与业务承诺边界</h2><pre>{\n  &quot;id&quot;: &quot;TASK-CH&quot;,\n  &quot;type&quot;: &quot;guide:architecture-task&quot;,\n  &quot;name&quot;: &quot;战略优先与业务承诺边界&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;TASK-CH&quot;,\n    &quot;scope&quot;: &quot;战略优先与业务承诺边界&quot;,\n    &quot;decision&quot;: &quot;明确先试点还是扩大承诺范围；不代业务定义超卖容忍&quot;,\n    &quot;outcome&quot;: &quot;跨业务决策议程和未决项&quot;,\n    &quot;role_refs&quot;: [\n      &quot;ROLE-CHIEF&quot;\n    ],\n    &quot;required_skill_ids&quot;: [\n      &quot;G249:skill:business:strategic-planning&quot;\n    ],\n    &quot;method_ids&quot;: [\n      &quot;architecture-backlog-trace-review&quot;\n    ],\n    &quot;artifact_ids&quot;: [\n      &quot;business-capability-map&quot;,\n      &quot;transition-architecture-model&quot;,\n      &quot;solution-delivery-notebook&quot;\n    ],\n    &quot;evidence&quot;: [\n      &quot;CASE-BASELINE&quot;,\n      &quot;CASE-REVIEW&quot;,\n      &quot;FICTIONAL-POLICY&quot;,\n      &quot;FICTIONAL-CAPACITY&quot;\n    ],\n    &quot;workload_hours&quot;: 8,\n    &quot;work_period&quot;: {\n      &quot;start&quot;: &quot;2026-11-09&quot;,\n      &quot;end&quot;: &quot;2026-12-04&quot;\n    },\n    &quot;model_object_refs&quot;: [\n      &quot;CAP-FULFIL&quot;,\n      &quot;CAP-ORDER&quot;,\n      &quot;CAP-RESERVE&quot;,\n      &quot;CAP-LOGISTICS&quot;,\n      &quot;TRANS-ONLINE&quot;,\n      &quot;RISK-STOCK&quot;,\n      &quot;TRANS-OFFLINE&quot;,\n      &quot;ROLE-CHIEF&quot;,\n      &quot;SKILL-1&quot;,\n      &quot;SKILL-2&quot;,\n      &quot;SKILL-3&quot;,\n      &quot;SKILL-4&quot;,\n      &quot;DEV-A&quot;,\n      &quot;ORDER-PENDING&quot;,\n      &quot;ORDER-CONFIRMED&quot;,\n      &quot;ORDER-EXCEPTION&quot;,\n      &quot;ORDER-FULFIL&quot;,\n      &quot;LOCAL-ORDER-RECORD&quot;,\n      &quot;CENTRAL-ORDER-RECORD&quot;,\n      &quot;DELIVERY-NOTE&quot;,\n      &quot;TASK-CH&quot;,\n      &quot;ASSIGN-CH&quot;,\n      &quot;BEH-CH.evidence&quot;\n    ],\n    &quot;output_tailoring_reason&quot;: &quot;本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。&quot;,\n    &quot;requirement_refs&quot;: [\n      &quot;REQ-SKILL-CH&quot;\n    ],\n    &quot;configuration_status&quot;: &quot;declared workload and behavioral evidence present; owner review pending&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-BASELINE&quot;,\n    &quot;CASE-REVIEW&quot;,\n    &quot;FICTIONAL-POLICY&quot;,\n    &quot;FICTIONAL-CAPACITY&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-TASK-EA\" data-entity-id=\"TASK-EA\"><h2>跨分段互操作原则</h2><pre>{\n  &quot;id&quot;: &quot;TASK-EA&quot;,\n  &quot;type&quot;: &quot;guide:architecture-task&quot;,\n  &quot;name&quot;: &quot;跨分段互操作原则&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;TASK-EA&quot;,\n    &quot;scope&quot;: &quot;跨分段互操作原则&quot;,\n    &quot;decision&quot;: &quot;核查中央承诺、门店待确认及物流确认门槛之间的跨分段一致性&quot;,\n    &quot;outcome&quot;: &quot;跨分段责任和接口政策核对记录&quot;,\n    &quot;role_refs&quot;: [\n      &quot;ROLE-EA&quot;\n    ],\n    &quot;required_skill_ids&quot;: [\n      &quot;G249:skill:architecture:generic-integration-and-interoperability&quot;\n    ],\n    &quot;method_ids&quot;: [\n      &quot;domain-architecture-alignment-review&quot;\n    ],\n    &quot;artifact_ids&quot;: [\n      &quot;business-capability-map&quot;,\n      &quot;application-portfolio-catalog&quot;,\n      &quot;solution-delivery-notebook&quot;\n    ],\n    &quot;evidence&quot;: [\n      &quot;CASE-BASELINE&quot;,\n      &quot;CASE-REVIEW&quot;,\n      &quot;FICTIONAL-POLICY&quot;,\n      &quot;FICTIONAL-CAPACITY&quot;\n    ],\n    &quot;workload_hours&quot;: 16,\n    &quot;work_period&quot;: {\n      &quot;start&quot;: &quot;2026-11-09&quot;,\n      &quot;end&quot;: &quot;2026-12-04&quot;\n    },\n    &quot;model_object_refs&quot;: [\n      &quot;CAP-FULFIL&quot;,\n      &quot;CAP-ORDER&quot;,\n      &quot;CAP-RESERVE&quot;,\n      &quot;CAP-LOGISTICS&quot;,\n      &quot;APP-ORDER&quot;,\n      &quot;APP-STORE&quot;,\n      &quot;APP-STOCK&quot;,\n      &quot;IF-RESERVE&quot;,\n      &quot;IF-EVENT&quot;,\n      &quot;REQ-CONSISTENCY&quot;,\n      &quot;REQ-OFFLINE&quot;,\n      &quot;IF-RECOVERY&quot;,\n      &quot;ROLE-EA&quot;,\n      &quot;SKILL-1&quot;,\n      &quot;SKILL-2&quot;,\n      &quot;SKILL-3&quot;,\n      &quot;SKILL-4&quot;,\n      &quot;DEV-A&quot;,\n      &quot;ORDER-PENDING&quot;,\n      &quot;ORDER-CONFIRMED&quot;,\n      &quot;ORDER-EXCEPTION&quot;,\n      &quot;ORDER-FULFIL&quot;,\n      &quot;LOCAL-ORDER-RECORD&quot;,\n      &quot;CENTRAL-ORDER-RECORD&quot;,\n      &quot;DELIVERY-NOTE&quot;,\n      &quot;TASK-EA&quot;,\n      &quot;ASSIGN-EA&quot;,\n      &quot;BEH-EA.evidence&quot;\n    ],\n    &quot;output_tailoring_reason&quot;: &quot;本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。&quot;,\n    &quot;requirement_refs&quot;: [\n      &quot;REQ-SKILL-EA&quot;\n    ],\n    &quot;configuration_status&quot;: &quot;declared workload and behavioral evidence present; owner review pending&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-BASELINE&quot;,\n    &quot;CASE-REVIEW&quot;,\n    &quot;FICTIONAL-POLICY&quot;,\n    &quot;FICTIONAL-CAPACITY&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-TASK-SEG\" data-entity-id=\"TASK-SEG\"><h2>库存语义与运营条件</h2><pre>{\n  &quot;id&quot;: &quot;TASK-SEG&quot;,\n  &quot;type&quot;: &quot;guide:architecture-task&quot;,\n  &quot;name&quot;: &quot;库存语义与运营条件&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;TASK-SEG&quot;,\n    &quot;scope&quot;: &quot;库存语义与运营条件&quot;,\n    &quot;decision&quot;: &quot;在给定限量与期限政策下审查库存及恢复行为&quot;,\n    &quot;outcome&quot;: &quot;库存确认、过期隔离和人工处理条件&quot;,\n    &quot;role_refs&quot;: [\n      &quot;ROLE-SEG&quot;\n    ],\n    &quot;required_skill_ids&quot;: [\n      &quot;G249:skill:data:operational-data&quot;\n    ],\n    &quot;method_ids&quot;: [\n      &quot;msa-data-distribution-conditions-method&quot;\n    ],\n    &quot;artifact_ids&quot;: [\n      &quot;requirements-catalog&quot;,\n      &quot;data-lifecycle-diagram&quot;,\n      &quot;solution-delivery-notebook&quot;\n    ],\n    &quot;evidence&quot;: [\n      &quot;CASE-BASELINE&quot;,\n      &quot;CASE-REVIEW&quot;,\n      &quot;FICTIONAL-POLICY&quot;,\n      &quot;FICTIONAL-CAPACITY&quot;\n    ],\n    &quot;workload_hours&quot;: 24,\n    &quot;work_period&quot;: {\n      &quot;start&quot;: &quot;2026-11-09&quot;,\n      &quot;end&quot;: &quot;2026-12-04&quot;\n    },\n    &quot;model_object_refs&quot;: [\n      &quot;CAP-FULFIL&quot;,\n      &quot;CAP-ORDER&quot;,\n      &quot;CAP-RESERVE&quot;,\n      &quot;CAP-LOGISTICS&quot;,\n      &quot;IF-RESERVE&quot;,\n      &quot;IF-EVENT&quot;,\n      &quot;REQ-CONSISTENCY&quot;,\n      &quot;RISK-STOCK&quot;,\n      &quot;REQ-OFFLINE&quot;,\n      &quot;IF-RECOVERY&quot;,\n      &quot;ROLE-SEG&quot;,\n      &quot;SKILL-1&quot;,\n      &quot;SKILL-2&quot;,\n      &quot;SKILL-3&quot;,\n      &quot;SKILL-4&quot;,\n      &quot;DEV-A&quot;,\n      &quot;ORDER-PENDING&quot;,\n      &quot;ORDER-CONFIRMED&quot;,\n      &quot;ORDER-EXCEPTION&quot;,\n      &quot;ORDER-FULFIL&quot;,\n      &quot;LOCAL-ORDER-RECORD&quot;,\n      &quot;CENTRAL-ORDER-RECORD&quot;,\n      &quot;DELIVERY-NOTE&quot;,\n      &quot;TASK-SEG&quot;,\n      &quot;ASSIGN-SEG&quot;,\n      &quot;BEH-SEG.evidence&quot;\n    ],\n    &quot;output_tailoring_reason&quot;: &quot;本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。&quot;,\n    &quot;requirement_refs&quot;: [\n      &quot;REQ-SKILL-SEG&quot;\n    ],\n    &quot;configuration_status&quot;: &quot;declared workload and behavioral evidence present; owner review pending&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-BASELINE&quot;,\n    &quot;CASE-REVIEW&quot;,\n    &quot;FICTIONAL-POLICY&quot;,\n    &quot;FICTIONAL-CAPACITY&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-TASK-SOL\" data-entity-id=\"TASK-SOL\"><h2>预占接口候选比较</h2><pre>{\n  &quot;id&quot;: &quot;TASK-SOL&quot;,\n  &quot;type&quot;: &quot;guide:architecture-task&quot;,\n  &quot;name&quot;: &quot;预占接口候选比较&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;TASK-SOL&quot;,\n    &quot;scope&quot;: &quot;预占接口候选比较&quot;,\n    &quot;decision&quot;: &quot;依据声明的一致性与延迟目标比较线上同步及异步最终确认；离线仅受理待确认&quot;,\n    &quot;outcome&quot;: &quot;线上同步试点建议、离线待确认契约及异常验证清单&quot;,\n    &quot;role_refs&quot;: [\n      &quot;ROLE-SOL&quot;\n    ],\n    &quot;required_skill_ids&quot;: [\n      &quot;G249:skill:application:integration-and-interoperability&quot;\n    ],\n    &quot;method_ids&quot;: [\n      &quot;msa-contract-consumer-evidence-method&quot;\n    ],\n    &quot;artifact_ids&quot;: [\n      &quot;application-communication-diagram&quot;,\n      &quot;transition-architecture-model&quot;,\n      &quot;risk-mitigation-plan&quot;,\n      &quot;solution-delivery-notebook&quot;\n    ],\n    &quot;evidence&quot;: [\n      &quot;CASE-BASELINE&quot;,\n      &quot;CASE-REVIEW&quot;,\n      &quot;FICTIONAL-POLICY&quot;,\n      &quot;FICTIONAL-CAPACITY&quot;\n    ],\n    &quot;workload_hours&quot;: 32,\n    &quot;work_period&quot;: {\n      &quot;start&quot;: &quot;2026-11-09&quot;,\n      &quot;end&quot;: &quot;2026-12-04&quot;\n    },\n    &quot;model_object_refs&quot;: [\n      &quot;APP-ORDER&quot;,\n      &quot;APP-STORE&quot;,\n      &quot;APP-STOCK&quot;,\n      &quot;IF-RESERVE&quot;,\n      &quot;IF-EVENT&quot;,\n      &quot;REQ-CONSISTENCY&quot;,\n      &quot;WP-ONLINE&quot;,\n      &quot;TRANS-ONLINE&quot;,\n      &quot;RISK-STOCK&quot;,\n      &quot;REQ-OFFLINE&quot;,\n      &quot;IF-RECOVERY&quot;,\n      &quot;WP-OFFLINE&quot;,\n      &quot;TRANS-OFFLINE&quot;,\n      &quot;ROLE-SOL&quot;,\n      &quot;SKILL-1&quot;,\n      &quot;SKILL-2&quot;,\n      &quot;SKILL-3&quot;,\n      &quot;SKILL-4&quot;,\n      &quot;DEV-A&quot;,\n      &quot;ORDER-PENDING&quot;,\n      &quot;ORDER-CONFIRMED&quot;,\n      &quot;ORDER-EXCEPTION&quot;,\n      &quot;ORDER-FULFIL&quot;,\n      &quot;LOCAL-ORDER-RECORD&quot;,\n      &quot;CENTRAL-ORDER-RECORD&quot;,\n      &quot;DELIVERY-NOTE&quot;,\n      &quot;TASK-SOL&quot;,\n      &quot;ASSIGN-A&quot;,\n      &quot;BEH-SOL.evidence&quot;\n    ],\n    &quot;output_tailoring_reason&quot;: &quot;本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。&quot;,\n    &quot;requirement_refs&quot;: [\n      &quot;REQ-SKILL-SOL&quot;\n    ],\n    &quot;configuration_status&quot;: &quot;declared workload and behavioral evidence present; owner review pending&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-BASELINE&quot;,\n    &quot;CASE-REVIEW&quot;,\n    &quot;FICTIONAL-POLICY&quot;,\n    &quot;FICTIONAL-CAPACITY&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section></article><article id=\"page-guide%3Acompetence-evidence-1\" style=\"break-before:page\"><h2>guide:competence-evidence 分页</h2><section id=\"entity-BEH-CH.evidence\" data-entity-id=\"BEH-CH.evidence\"><h2>PERSON-CH：BEH-CH</h2><pre>{\n  &quot;id&quot;: &quot;BEH-CH.evidence&quot;,\n  &quot;type&quot;: &quot;guide:competence-evidence&quot;,\n  &quot;name&quot;: &quot;PERSON-CH：BEH-CH&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;BEH-CH&quot;,\n    &quot;person_ref&quot;: &quot;PERSON-CH&quot;,\n    &quot;skill_id&quot;: &quot;G249:skill:business:strategic-planning&quot;,\n    &quot;assessment_kind&quot;: &quot;observed_assessment&quot;,\n    &quot;assessment_state&quot;: &quot;assessed&quot;,\n    &quot;proficiency&quot;: 3,\n    &quot;scale_id&quot;: &quot;G249-table5-1&quot;,\n    &quot;task_refs&quot;: [\n      &quot;TASK-CH&quot;\n    ],\n    &quot;observed_on&quot;: &quot;2026-12-02&quot;,\n    &quot;assessor&quot;: &quot;FICTIONAL-PEER-REVIEW&quot;,\n    &quot;evidence&quot;: [\n      &quot;FICTIONAL-BEHAVIOR&quot;\n    ],\n    &quot;behavioral_evidence&quot;: [\n      {\n        &quot;criterion&quot;: &quot;把战略约束转成可复议决定&quot;,\n        &quot;demonstrated&quot;: true,\n        &quot;evidence_kind&quot;: &quot;reviewed-work-product&quot;,\n        &quot;evidence&quot;: [\n          &quot;FICTIONAL-BEHAVIOR&quot;\n        ]\n      }\n    ],\n    &quot;note&quot;: &quot;本任务行为已在虚构材料中给定；困难情形仍需专家，不表示通用认证。&quot;,\n    &quot;observation_ref&quot;: &quot;BEH-CH&quot;,\n    &quot;current_proficiency&quot;: 3\n  },\n  &quot;evidence&quot;: [\n    &quot;FICTIONAL-BEHAVIOR&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-BEH-EA.evidence\" data-entity-id=\"BEH-EA.evidence\"><h2>PERSON-EA：BEH-EA</h2><pre>{\n  &quot;id&quot;: &quot;BEH-EA.evidence&quot;,\n  &quot;type&quot;: &quot;guide:competence-evidence&quot;,\n  &quot;name&quot;: &quot;PERSON-EA：BEH-EA&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;BEH-EA&quot;,\n    &quot;person_ref&quot;: &quot;PERSON-EA&quot;,\n    &quot;skill_id&quot;: &quot;G249:skill:architecture:generic-integration-and-interoperability&quot;,\n    &quot;assessment_kind&quot;: &quot;observed_assessment&quot;,\n    &quot;assessment_state&quot;: &quot;assessed&quot;,\n    &quot;proficiency&quot;: 3,\n    &quot;scale_id&quot;: &quot;G249-table5-1&quot;,\n    &quot;task_refs&quot;: [\n      &quot;TASK-EA&quot;\n    ],\n    &quot;observed_on&quot;: &quot;2026-12-02&quot;,\n    &quot;assessor&quot;: &quot;FICTIONAL-PEER-REVIEW&quot;,\n    &quot;evidence&quot;: [\n      &quot;FICTIONAL-BEHAVIOR&quot;\n    ],\n    &quot;behavioral_evidence&quot;: [\n      {\n        &quot;criterion&quot;: &quot;解释跨分段接口语义及风险&quot;,\n        &quot;demonstrated&quot;: true,\n        &quot;evidence_kind&quot;: &quot;reviewed-work-product&quot;,\n        &quot;evidence&quot;: [\n          &quot;FICTIONAL-BEHAVIOR&quot;\n        ]\n      }\n    ],\n    &quot;note&quot;: &quot;本任务行为已在虚构材料中给定；困难情形仍需专家，不表示通用认证。&quot;,\n    &quot;observation_ref&quot;: &quot;BEH-EA&quot;,\n    &quot;current_proficiency&quot;: 3\n  },\n  &quot;evidence&quot;: [\n    &quot;FICTIONAL-BEHAVIOR&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-BEH-SEG.evidence\" data-entity-id=\"BEH-SEG.evidence\"><h2>PERSON-SEG：BEH-SEG</h2><pre>{\n  &quot;id&quot;: &quot;BEH-SEG.evidence&quot;,\n  &quot;type&quot;: &quot;guide:competence-evidence&quot;,\n  &quot;name&quot;: &quot;PERSON-SEG：BEH-SEG&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;BEH-SEG&quot;,\n    &quot;person_ref&quot;: &quot;PERSON-SEG&quot;,\n    &quot;skill_id&quot;: &quot;G249:skill:data:operational-data&quot;,\n    &quot;assessment_kind&quot;: &quot;observed_assessment&quot;,\n    &quot;assessment_state&quot;: &quot;assessed&quot;,\n    &quot;proficiency&quot;: 3,\n    &quot;scale_id&quot;: &quot;G249-table5-1&quot;,\n    &quot;task_refs&quot;: [\n      &quot;TASK-SEG&quot;\n    ],\n    &quot;observed_on&quot;: &quot;2026-12-02&quot;,\n    &quot;assessor&quot;: &quot;FICTIONAL-PEER-REVIEW&quot;,\n    &quot;evidence&quot;: [\n      &quot;FICTIONAL-BEHAVIOR&quot;\n    ],\n    &quot;behavioral_evidence&quot;: [\n      {\n        &quot;criterion&quot;: &quot;核对运行数据的一致性与恢复证据&quot;,\n        &quot;demonstrated&quot;: true,\n        &quot;evidence_kind&quot;: &quot;reviewed-work-product&quot;,\n        &quot;evidence&quot;: [\n          &quot;FICTIONAL-BEHAVIOR&quot;\n        ]\n      }\n    ],\n    &quot;note&quot;: &quot;本任务行为已在虚构材料中给定；困难情形仍需专家，不表示通用认证。&quot;,\n    &quot;observation_ref&quot;: &quot;BEH-SEG&quot;,\n    &quot;current_proficiency&quot;: 3\n  },\n  &quot;evidence&quot;: [\n    &quot;FICTIONAL-BEHAVIOR&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-BEH-SOL.evidence\" data-entity-id=\"BEH-SOL.evidence\"><h2>PERSON-A：BEH-SOL</h2><pre>{\n  &quot;id&quot;: &quot;BEH-SOL.evidence&quot;,\n  &quot;type&quot;: &quot;guide:competence-evidence&quot;,\n  &quot;name&quot;: &quot;PERSON-A：BEH-SOL&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;BEH-SOL&quot;,\n    &quot;person_ref&quot;: &quot;PERSON-A&quot;,\n    &quot;skill_id&quot;: &quot;G249:skill:application:integration-and-interoperability&quot;,\n    &quot;assessment_kind&quot;: &quot;observed_assessment&quot;,\n    &quot;assessment_state&quot;: &quot;assessed&quot;,\n    &quot;proficiency&quot;: 3,\n    &quot;scale_id&quot;: &quot;G249-table5-1&quot;,\n    &quot;task_refs&quot;: [\n      &quot;TASK-SOL&quot;\n    ],\n    &quot;observed_on&quot;: &quot;2026-12-02&quot;,\n    &quot;assessor&quot;: &quot;FICTIONAL-PEER-REVIEW&quot;,\n    &quot;evidence&quot;: [\n      &quot;FICTIONAL-BEHAVIOR&quot;\n    ],\n    &quot;behavioral_evidence&quot;: [\n      {\n        &quot;criterion&quot;: &quot;独立完成异常接口设计并经评审&quot;,\n        &quot;demonstrated&quot;: true,\n        &quot;evidence_kind&quot;: &quot;reviewed-work-product&quot;,\n        &quot;evidence&quot;: [\n          &quot;FICTIONAL-BEHAVIOR&quot;\n        ]\n      }\n    ],\n    &quot;note&quot;: &quot;本任务行为已在虚构材料中给定；困难情形仍需专家，不表示通用认证。&quot;,\n    &quot;observation_ref&quot;: &quot;BEH-SOL&quot;,\n    &quot;current_proficiency&quot;: 3\n  },\n  &quot;evidence&quot;: [\n    &quot;FICTIONAL-BEHAVIOR&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section></article><article id=\"page-guide%3Aperson-assignment-1\" style=\"break-before:page\"><h2>guide:person-assignment 分页</h2><section id=\"entity-ASSIGN-CH\" data-entity-id=\"ASSIGN-CH\"><h2>PERSON-CH候选配置</h2><pre>{\n  &quot;id&quot;: &quot;ASSIGN-CH&quot;,\n  &quot;type&quot;: &quot;guide:person-assignment&quot;,\n  &quot;name&quot;: &quot;PERSON-CH候选配置&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;ASSIGN-CH&quot;,\n    &quot;person_ref&quot;: &quot;PERSON-CH&quot;,\n    &quot;role_ref&quot;: &quot;ROLE-CHIEF&quot;,\n    &quot;task_refs&quot;: [\n      &quot;TASK-CH&quot;\n    ],\n    &quot;requirement_refs&quot;: [\n      &quot;REQ-SKILL-CH&quot;\n    ],\n    &quot;assessment_refs&quot;: [\n      &quot;BEH-CH&quot;\n    ],\n    &quot;mandate_ref&quot;: &quot;MANDATE-STOCK&quot;,\n    &quot;authority&quot;: &quot;虚构候选配置；真实批准未授予&quot;,\n    &quot;valid_from&quot;: &quot;2026-11-09&quot;,\n    &quot;valid_until&quot;: &quot;2026-12-04&quot;,\n    &quot;available_hours&quot;: 10,\n    &quot;evidence&quot;: [\n      &quot;FICTIONAL-CAPACITY&quot;,\n      &quot;CASE-MANDATE&quot;\n    ],\n    &quot;review_state&quot;: &quot;ready-for-owner-review&quot;,\n    &quot;capacity_state&quot;: &quot;sufficient-for-declared-workload&quot;,\n    &quot;period_state&quot;: &quot;covered-for-declared-task-periods&quot;,\n    &quot;approval&quot;: &quot;not-granted&quot;,\n    &quot;competence_state&quot;: &quot;evidenced-for-declared-task&quot;,\n    &quot;period_gap&quot;: &quot;declared task period covered; real approval not-granted&quot;,\n    &quot;workload_hours&quot;: 8\n  },\n  &quot;evidence&quot;: [\n    &quot;FICTIONAL-CAPACITY&quot;,\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-ASSIGN-EA\" data-entity-id=\"ASSIGN-EA\"><h2>PERSON-EA候选配置</h2><pre>{\n  &quot;id&quot;: &quot;ASSIGN-EA&quot;,\n  &quot;type&quot;: &quot;guide:person-assignment&quot;,\n  &quot;name&quot;: &quot;PERSON-EA候选配置&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;ASSIGN-EA&quot;,\n    &quot;person_ref&quot;: &quot;PERSON-EA&quot;,\n    &quot;role_ref&quot;: &quot;ROLE-EA&quot;,\n    &quot;task_refs&quot;: [\n      &quot;TASK-EA&quot;\n    ],\n    &quot;requirement_refs&quot;: [\n      &quot;REQ-SKILL-EA&quot;\n    ],\n    &quot;assessment_refs&quot;: [\n      &quot;BEH-EA&quot;\n    ],\n    &quot;mandate_ref&quot;: &quot;MANDATE-STOCK&quot;,\n    &quot;authority&quot;: &quot;虚构候选配置；真实批准未授予&quot;,\n    &quot;valid_from&quot;: &quot;2026-11-09&quot;,\n    &quot;valid_until&quot;: &quot;2026-12-04&quot;,\n    &quot;available_hours&quot;: 20,\n    &quot;evidence&quot;: [\n      &quot;FICTIONAL-CAPACITY&quot;,\n      &quot;CASE-MANDATE&quot;\n    ],\n    &quot;review_state&quot;: &quot;ready-for-owner-review&quot;,\n    &quot;capacity_state&quot;: &quot;sufficient-for-declared-workload&quot;,\n    &quot;period_state&quot;: &quot;covered-for-declared-task-periods&quot;,\n    &quot;approval&quot;: &quot;not-granted&quot;,\n    &quot;competence_state&quot;: &quot;evidenced-for-declared-task&quot;,\n    &quot;period_gap&quot;: &quot;declared task period covered; real approval not-granted&quot;,\n    &quot;workload_hours&quot;: 16\n  },\n  &quot;evidence&quot;: [\n    &quot;FICTIONAL-CAPACITY&quot;,\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-ASSIGN-SEG\" data-entity-id=\"ASSIGN-SEG\"><h2>PERSON-SEG候选配置</h2><pre>{\n  &quot;id&quot;: &quot;ASSIGN-SEG&quot;,\n  &quot;type&quot;: &quot;guide:person-assignment&quot;,\n  &quot;name&quot;: &quot;PERSON-SEG候选配置&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;ASSIGN-SEG&quot;,\n    &quot;person_ref&quot;: &quot;PERSON-SEG&quot;,\n    &quot;role_ref&quot;: &quot;ROLE-SEG&quot;,\n    &quot;task_refs&quot;: [\n      &quot;TASK-SEG&quot;\n    ],\n    &quot;requirement_refs&quot;: [\n      &quot;REQ-SKILL-SEG&quot;\n    ],\n    &quot;assessment_refs&quot;: [\n      &quot;BEH-SEG&quot;\n    ],\n    &quot;mandate_ref&quot;: &quot;MANDATE-STOCK&quot;,\n    &quot;authority&quot;: &quot;虚构候选配置；真实批准未授予&quot;,\n    &quot;valid_from&quot;: &quot;2026-11-09&quot;,\n    &quot;valid_until&quot;: &quot;2026-12-04&quot;,\n    &quot;available_hours&quot;: 28,\n    &quot;evidence&quot;: [\n      &quot;FICTIONAL-CAPACITY&quot;,\n      &quot;CASE-MANDATE&quot;\n    ],\n    &quot;review_state&quot;: &quot;ready-for-owner-review&quot;,\n    &quot;capacity_state&quot;: &quot;sufficient-for-declared-workload&quot;,\n    &quot;period_state&quot;: &quot;covered-for-declared-task-periods&quot;,\n    &quot;approval&quot;: &quot;not-granted&quot;,\n    &quot;competence_state&quot;: &quot;evidenced-for-declared-task&quot;,\n    &quot;period_gap&quot;: &quot;declared task period covered; real approval not-granted&quot;,\n    &quot;workload_hours&quot;: 24\n  },\n  &quot;evidence&quot;: [\n    &quot;FICTIONAL-CAPACITY&quot;,\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"entity-ASSIGN-A\" data-entity-id=\"ASSIGN-A\"><h2>PERSON-A候选配置</h2><pre>{\n  &quot;id&quot;: &quot;ASSIGN-A&quot;,\n  &quot;type&quot;: &quot;guide:person-assignment&quot;,\n  &quot;name&quot;: &quot;PERSON-A候选配置&quot;,\n  &quot;attributes&quot;: {\n    &quot;id&quot;: &quot;ASSIGN-A&quot;,\n    &quot;person_ref&quot;: &quot;PERSON-A&quot;,\n    &quot;role_ref&quot;: &quot;ROLE-SOL&quot;,\n    &quot;task_refs&quot;: [\n      &quot;TASK-SOL&quot;\n    ],\n    &quot;requirement_refs&quot;: [\n      &quot;REQ-SKILL-SOL&quot;\n    ],\n    &quot;assessment_refs&quot;: [\n      &quot;BEH-SOL&quot;\n    ],\n    &quot;mandate_ref&quot;: &quot;MANDATE-STOCK&quot;,\n    &quot;authority&quot;: &quot;虚构候选配置；真实批准未授予&quot;,\n    &quot;valid_from&quot;: &quot;2026-11-09&quot;,\n    &quot;valid_until&quot;: &quot;2026-12-04&quot;,\n    &quot;available_hours&quot;: 40,\n    &quot;evidence&quot;: [\n      &quot;FICTIONAL-CAPACITY&quot;,\n      &quot;CASE-MANDATE&quot;\n    ],\n    &quot;review_state&quot;: &quot;ready-for-owner-review&quot;,\n    &quot;capacity_state&quot;: &quot;sufficient-for-declared-workload&quot;,\n    &quot;period_state&quot;: &quot;covered-for-declared-task-periods&quot;,\n    &quot;approval&quot;: &quot;not-granted&quot;,\n    &quot;competence_state&quot;: &quot;evidenced-for-declared-task&quot;,\n    &quot;period_gap&quot;: &quot;declared task period covered; real approval not-granted&quot;,\n    &quot;workload_hours&quot;: 32\n  },\n  &quot;evidence&quot;: [\n    &quot;FICTIONAL-CAPACITY&quot;,\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section></article><h2>关系明细</h2><section id=\"relationship-work-projection.6bb0140bc708e4bbb096\" data-relationship-id=\"work-projection.6bb0140bc708e4bbb096\"><h3>本次任务职责；不是人事汇报</h3><p><a href=\"#entity-ROLE-CHIEF\">ROLE-CHIEF</a> → <a href=\"#entity-TASK-CH\">TASK-CH</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.6bb0140bc708e4bbb096&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ROLE-CHIEF&quot;,\n  &quot;target&quot;: &quot;TASK-CH&quot;,\n  &quot;label&quot;: &quot;本次任务职责；不是人事汇报&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.5aa5498d92502bf7da41\" data-relationship-id=\"work-projection.5aa5498d92502bf7da41\"><h3>本次任务职责；不是人事汇报</h3><p><a href=\"#entity-ROLE-EA\">ROLE-EA</a> → <a href=\"#entity-TASK-EA\">TASK-EA</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.5aa5498d92502bf7da41&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ROLE-EA&quot;,\n  &quot;target&quot;: &quot;TASK-EA&quot;,\n  &quot;label&quot;: &quot;本次任务职责；不是人事汇报&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.4eb7c710941c2fc9bd50\" data-relationship-id=\"work-projection.4eb7c710941c2fc9bd50\"><h3>本次任务职责；不是人事汇报</h3><p><a href=\"#entity-ROLE-SEG\">ROLE-SEG</a> → <a href=\"#entity-TASK-SEG\">TASK-SEG</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.4eb7c710941c2fc9bd50&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ROLE-SEG&quot;,\n  &quot;target&quot;: &quot;TASK-SEG&quot;,\n  &quot;label&quot;: &quot;本次任务职责；不是人事汇报&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.db99e6eb17404474021f\" data-relationship-id=\"work-projection.db99e6eb17404474021f\"><h3>本次任务职责；不是人事汇报</h3><p><a href=\"#entity-ROLE-SOL\">ROLE-SOL</a> → <a href=\"#entity-TASK-SOL\">TASK-SOL</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.db99e6eb17404474021f&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ROLE-SOL&quot;,\n  &quot;target&quot;: &quot;TASK-SOL&quot;,\n  &quot;label&quot;: &quot;本次任务职责；不是人事汇报&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.0c4fe3f44093d9f50fec\" data-relationship-id=\"work-projection.0c4fe3f44093d9f50fec\"><h3>候选承担；未批准</h3><p><a href=\"#entity-ASSIGN-CH\">ASSIGN-CH</a> → <a href=\"#entity-TASK-CH\">TASK-CH</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.0c4fe3f44093d9f50fec&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ASSIGN-CH&quot;,\n  &quot;target&quot;: &quot;TASK-CH&quot;,\n  &quot;label&quot;: &quot;候选承担；未批准&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.9216799023b9b1fffcd4\" data-relationship-id=\"work-projection.9216799023b9b1fffcd4\"><h3>配置依赖的人员/支持证据</h3><p><a href=\"#entity-ASSIGN-CH\">ASSIGN-CH</a> → <a href=\"#entity-BEH-CH.evidence\">BEH-CH.evidence</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.9216799023b9b1fffcd4&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ASSIGN-CH&quot;,\n  &quot;target&quot;: &quot;BEH-CH.evidence&quot;,\n  &quot;label&quot;: &quot;配置依赖的人员/支持证据&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.06a88de2ec5a26c2fca0\" data-relationship-id=\"work-projection.06a88de2ec5a26c2fca0\"><h3>候选承担；未批准</h3><p><a href=\"#entity-ASSIGN-EA\">ASSIGN-EA</a> → <a href=\"#entity-TASK-EA\">TASK-EA</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.06a88de2ec5a26c2fca0&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ASSIGN-EA&quot;,\n  &quot;target&quot;: &quot;TASK-EA&quot;,\n  &quot;label&quot;: &quot;候选承担；未批准&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.440b9262d69aeaa8953a\" data-relationship-id=\"work-projection.440b9262d69aeaa8953a\"><h3>配置依赖的人员/支持证据</h3><p><a href=\"#entity-ASSIGN-EA\">ASSIGN-EA</a> → <a href=\"#entity-BEH-EA.evidence\">BEH-EA.evidence</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.440b9262d69aeaa8953a&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ASSIGN-EA&quot;,\n  &quot;target&quot;: &quot;BEH-EA.evidence&quot;,\n  &quot;label&quot;: &quot;配置依赖的人员/支持证据&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.ae03e8809cb9bfce5fa0\" data-relationship-id=\"work-projection.ae03e8809cb9bfce5fa0\"><h3>候选承担；未批准</h3><p><a href=\"#entity-ASSIGN-SEG\">ASSIGN-SEG</a> → <a href=\"#entity-TASK-SEG\">TASK-SEG</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.ae03e8809cb9bfce5fa0&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ASSIGN-SEG&quot;,\n  &quot;target&quot;: &quot;TASK-SEG&quot;,\n  &quot;label&quot;: &quot;候选承担；未批准&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.710d6c5a67f4b472155f\" data-relationship-id=\"work-projection.710d6c5a67f4b472155f\"><h3>配置依赖的人员/支持证据</h3><p><a href=\"#entity-ASSIGN-SEG\">ASSIGN-SEG</a> → <a href=\"#entity-BEH-SEG.evidence\">BEH-SEG.evidence</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.710d6c5a67f4b472155f&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ASSIGN-SEG&quot;,\n  &quot;target&quot;: &quot;BEH-SEG.evidence&quot;,\n  &quot;label&quot;: &quot;配置依赖的人员/支持证据&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.554aee97e4fbf2c66416\" data-relationship-id=\"work-projection.554aee97e4fbf2c66416\"><h3>候选承担；未批准</h3><p><a href=\"#entity-ASSIGN-A\">ASSIGN-A</a> → <a href=\"#entity-TASK-SOL\">TASK-SOL</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.554aee97e4fbf2c66416&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ASSIGN-A&quot;,\n  &quot;target&quot;: &quot;TASK-SOL&quot;,\n  &quot;label&quot;: &quot;候选承担；未批准&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section><section id=\"relationship-work-projection.221f533dc7d14014d128\" data-relationship-id=\"work-projection.221f533dc7d14014d128\"><h3>配置依赖的人员/支持证据</h3><p><a href=\"#entity-ASSIGN-A\">ASSIGN-A</a> → <a href=\"#entity-BEH-SOL.evidence\">BEH-SOL.evidence</a></p><pre>{\n  &quot;id&quot;: &quot;work-projection.221f533dc7d14014d128&quot;,\n  &quot;type&quot;: &quot;traces_to&quot;,\n  &quot;source&quot;: &quot;ASSIGN-A&quot;,\n  &quot;target&quot;: &quot;BEH-SOL.evidence&quot;,\n  &quot;label&quot;: &quot;配置依赖的人员/支持证据&quot;,\n  &quot;attributes&quot;: {\n    &quot;origin&quot;: &quot;project-task-evidence-projection&quot;\n  },\n  &quot;evidence&quot;: [\n    &quot;CASE-MANDATE&quot;\n  ],\n  &quot;certainty&quot;: &quot;assumed&quot;\n}</pre></section></body></html>",
+      "expression_locations": {
+        "entities": {
+          "ROLE-CHIEF": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-ROLE-CHIEF",
+              "representation": "readable-record"
+            }
+          ],
+          "ROLE-EA": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-ROLE-EA",
+              "representation": "readable-record"
+            }
+          ],
+          "ROLE-SEG": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-ROLE-SEG",
+              "representation": "readable-record"
+            }
+          ],
+          "ROLE-SOL": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-ROLE-SOL",
+              "representation": "readable-record"
+            }
+          ],
+          "TASK-CH": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-TASK-CH",
+              "representation": "readable-record"
+            }
+          ],
+          "TASK-EA": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-TASK-EA",
+              "representation": "readable-record"
+            }
+          ],
+          "TASK-SEG": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-TASK-SEG",
+              "representation": "readable-record"
+            }
+          ],
+          "TASK-SOL": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-TASK-SOL",
+              "representation": "readable-record"
+            }
+          ],
+          "ASSIGN-CH": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-ASSIGN-CH",
+              "representation": "readable-record"
+            }
+          ],
+          "ASSIGN-EA": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-ASSIGN-EA",
+              "representation": "readable-record"
+            }
+          ],
+          "ASSIGN-SEG": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-ASSIGN-SEG",
+              "representation": "readable-record"
+            }
+          ],
+          "ASSIGN-A": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-ASSIGN-A",
+              "representation": "readable-record"
+            }
+          ],
+          "BEH-CH.evidence": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-BEH-CH.evidence",
+              "representation": "readable-record"
+            }
+          ],
+          "BEH-EA.evidence": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-BEH-EA.evidence",
+              "representation": "readable-record"
+            }
+          ],
+          "BEH-SEG.evidence": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-BEH-SEG.evidence",
+              "representation": "readable-record"
+            }
+          ],
+          "BEH-SOL.evidence": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "entity-BEH-SOL.evidence",
+              "representation": "readable-record"
+            }
+          ]
+        },
+        "relationships": {
+          "work-projection.6bb0140bc708e4bbb096": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.6bb0140bc708e4bbb096",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.5aa5498d92502bf7da41": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.5aa5498d92502bf7da41",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.4eb7c710941c2fc9bd50": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.4eb7c710941c2fc9bd50",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.db99e6eb17404474021f": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.db99e6eb17404474021f",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.0c4fe3f44093d9f50fec": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.0c4fe3f44093d9f50fec",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.9216799023b9b1fffcd4": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.9216799023b9b1fffcd4",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.06a88de2ec5a26c2fca0": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.06a88de2ec5a26c2fca0",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.440b9262d69aeaa8953a": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.440b9262d69aeaa8953a",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.ae03e8809cb9bfce5fa0": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.ae03e8809cb9bfce5fa0",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.710d6c5a67f4b472155f": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.710d6c5a67f4b472155f",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.554aee97e4fbf2c66416": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.554aee97e4fbf2c66416",
+              "representation": "readable-record"
+            }
+          ],
+          "work-projection.221f533dc7d14014d128": [
+            {
+              "kind": "main",
+              "file": null,
+              "anchor": null,
+              "representation": "diagram"
+            },
+            {
+              "kind": "companion",
+              "file": "role-assignment.details.html",
+              "anchor": "relationship-work-projection.221f533dc7d14014d128",
+              "representation": "readable-record"
+            }
+          ]
+        }
+      },
+      "coverage_contract": "expression-locations/2",
+      "projection_contract": "generic-assignment-projection/1",
+      "business_approval": "not-granted",
+      "view_id": "role-assignment",
+      "artifact_id": "architecture-role-catalog",
+      "profile_id": "architecture-work-assignment-map",
+      "layout": "adaptive"
+    }
+  ],
+  "notice": "表达记录是工程证据；需结合语义断言及目视评审。"
+}

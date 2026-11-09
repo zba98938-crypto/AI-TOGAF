@@ -1,0 +1,467 @@
+# G211/fig3-1 · ABC 公司组织架构图
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G211/fig3-1.md) · [JSON](../../architecture/diagrams/G211/fig3-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G211e.pdf`；SHA-256：`93fa7ac115956d34c0ad2161c46a5fd01cbc972d5f85a0f19f2f5b9d8c0a2b34`。
+
+## 原图 · PDF 第 16 页
+
+![英文原图](../assets/G211/fig3-1-p0016.png)
+
+PDF 坐标：`[74.0, 391.5, 538.0, 696.0]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+ABC Company
+Human
+Operations
+Sales
+Finance
+Resources
+Product
+Partner
+Business
+Payroll
+Development
+Management
+Planning
+Distribution
+Service Desk
+Capital
+=
+Recruiting
+Management
+Public
+Information
+Talent
+Purchasing
+Relations
+Technology
+Management
+```
+
+## 概要（历史解释；局部修正见上）
+
+ABC 公司的组织架构：运营、销售、财务、人力资源四个职能领域各下辖三个部门，只表示汇报关系。
+
+## 目的（历史解释；局部修正见上）
+
+第 3.1.1 节的示例：组织结构是起草业务能力地图的三个信息来源之一。正文以本图为起点，访谈各业务单元负责人得到按单元分组的初始能力集，再按业务对象修正为一级能力候选清单（最终形成图 3-2）；同时提醒不要把组织架构图直接套成能力地图的框架。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+自上而下读：顶部粗体框是 ABC 公司；第二行四个框是四个职能领域（业务单元），由一条横向蓝线接到 ABC 公司；每个职能领域框左下方伸出一条竖线，竖线上的短横线连到右侧的三个部门框，这三个部门向该职能领域汇报。部门框向右错开约半个框宽，看起来位于相邻两个职能领域之间，判断归属时要顺着竖线找，不要看正上方是哪个框。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 共三层 17 个组织单元：ABC 公司 → 4 个职能领域 → 12 个部门。运营：产品开发、分销、采购；销售：合作伙伴管理、服务台、公共关系；财务：业务规划、资本管理、信息技术；人力资源：薪资发放、招聘、人才管理。
+- 图中只有正式的上下级汇报关系：每个部门只有一个上级，没有横向协作、跨单元团队或外部伙伴（这些是 G206 组织地图才表达的内容）。
+- 本图是第 3.1.1 节的输入：正文访谈图中各业务单元负责人后，按单元列出初始能力集（销售 6 项、财务 2 项、人力资源 1 项、运营 8 项），再按业务对象分析修正，得到图 3-2 所用的一级能力候选清单。
+- 图中的名称是部门/职能名（如 Payroll、Recruiting、Service Desk），不是“名词+动词”形式的能力名；正文要求避免让业务单元的职能名称与顶层能力一一对应，因为组织结构比能力更易变，一项能力也常由多个单元共同交付。
+- 图与正文清单并不一一对应：图中“资本管理”和“业务规划”是财务下的部门，而正文初始能力集把资本管理列在运营下，并把业务规划视为没有明确归属单元的能力，在候选清单中单列到“ABC 公司”层级。
+- 财务下的“信息技术”部门对应正文初始能力集中的“IT 管理”；正文指出 IT 常是能力重复的来源，并以“信息”为业务对象把它改为“信息管理”。
+
+## 层级（历史解释；局部修正见上）
+
+三层树：第 0 层 ABC 公司；第 1 层 4 个职能领域（运营、销售、财务、人力资源，正文称业务单元/职能领域）；第 2 层 12 个部门，每个职能领域 3 个。上下级由连线表达，不是框的嵌套。
+
+## 线条含义（历史解释；局部修正见上）
+
+所有连线都是蓝色直角折线，没有箭头，表示汇报关系：下级在下、上级在上。职能领域通过顶部横线接到 ABC 公司；部门通过所属职能领域左侧的竖线和短横线相连。关系清单中 reports_to 记为 from=下级、to=上级。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 部门框右移了半格，例如“合作伙伴管理”位于销售与财务之间，“业务规划”位于财务与人力资源之间；归属以连线为准（合作伙伴管理属销售，业务规划属财务）。
+- 部门名中的“Management”（如 Partner Management、Capital Management、Talent Management）是部门名称，不等于业务能力；本图不是能力地图。
+- 运营与销售、财务、人力资源是并列的四个职能领域，都直接向 ABC 公司汇报；中文稿当前引用的 figs/g211_fig3-1.svg 把运营画在财务下面，并缺少全部 12 个部门。
+
+## 元素
+
+```json
+[
+  {
+    "id": "ou_abc",
+    "label_en": "ABC Company",
+    "label_zh": "ABC 公司",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 0,
+    "position": "顶部居中"
+  },
+  {
+    "id": "ou_operations",
+    "label_en": "Operations",
+    "label_zh": "运营",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 1,
+    "order": 1,
+    "position": "第二行第 1 个"
+  },
+  {
+    "id": "ou_sales",
+    "label_en": "Sales",
+    "label_zh": "销售",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 1,
+    "order": 2,
+    "position": "第二行第 2 个"
+  },
+  {
+    "id": "ou_finance",
+    "label_en": "Finance",
+    "label_zh": "财务",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 1,
+    "order": 3,
+    "position": "第二行第 3 个"
+  },
+  {
+    "id": "ou_hr",
+    "label_en": "Human Resources",
+    "label_zh": "人力资源",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 1,
+    "order": 4,
+    "position": "第二行第 4 个"
+  },
+  {
+    "id": "d_product_development",
+    "label_en": "Product Development",
+    "label_zh": "产品开发",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 1,
+    "position": "运营下第 1 个"
+  },
+  {
+    "id": "d_distribution",
+    "label_en": "Distribution",
+    "label_zh": "分销",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 2,
+    "position": "运营下第 2 个"
+  },
+  {
+    "id": "d_purchasing",
+    "label_en": "Purchasing",
+    "label_zh": "采购",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 3,
+    "position": "运营下第 3 个"
+  },
+  {
+    "id": "d_partner_management",
+    "label_en": "Partner Management",
+    "label_zh": "合作伙伴管理",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 1,
+    "position": "销售下第 1 个"
+  },
+  {
+    "id": "d_service_desk",
+    "label_en": "Service Desk",
+    "label_zh": "服务台",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 2,
+    "position": "销售下第 2 个"
+  },
+  {
+    "id": "d_public_relations",
+    "label_en": "Public Relations",
+    "label_zh": "公共关系",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 3,
+    "position": "销售下第 3 个"
+  },
+  {
+    "id": "d_business_planning",
+    "label_en": "Business Planning",
+    "label_zh": "业务规划",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 1,
+    "position": "财务下第 1 个"
+  },
+  {
+    "id": "d_capital_management",
+    "label_en": "Capital Management",
+    "label_zh": "资本管理",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 2,
+    "position": "财务下第 2 个"
+  },
+  {
+    "id": "d_information_technology",
+    "label_en": "Information Technology",
+    "label_zh": "信息技术",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 3,
+    "position": "财务下第 3 个"
+  },
+  {
+    "id": "d_payroll",
+    "label_en": "Payroll",
+    "label_zh": "薪资发放",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 1,
+    "position": "人力资源下第 1 个"
+  },
+  {
+    "id": "d_recruiting",
+    "label_en": "Recruiting",
+    "label_zh": "招聘",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 2,
+    "position": "人力资源下第 2 个"
+  },
+  {
+    "id": "d_talent_management",
+    "label_en": "Talent Management",
+    "label_zh": "人才管理",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "order": 3,
+    "position": "人力资源下第 3 个"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "ou_operations",
+    "to": "ou_abc",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ou_sales",
+    "to": "ou_abc",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ou_finance",
+    "to": "ou_abc",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ou_hr",
+    "to": "ou_abc",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_product_development",
+    "to": "ou_operations",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_distribution",
+    "to": "ou_operations",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_purchasing",
+    "to": "ou_operations",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_partner_management",
+    "to": "ou_sales",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_service_desk",
+    "to": "ou_sales",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_public_relations",
+    "to": "ou_sales",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_business_planning",
+    "to": "ou_finance",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_capital_management",
+    "to": "ou_finance",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_information_technology",
+    "to": "ou_finance",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_payroll",
+    "to": "ou_hr",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_recruiting",
+    "to": "ou_hr",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "d_talent_management",
+    "to": "ou_hr",
+    "type": "reports_to",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "黑色粗边框矩形",
+    "meaning_zh": "组织单元（顶部粗体字为企业本身）",
+    "explicit": false
+  },
+  {
+    "symbol": "蓝色直角折线（无箭头）",
+    "meaning_zh": "汇报关系，下级在下、上级在上",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "顶部居中一个粗边框框（ABC 公司）；第二行并列四个职能领域框；每个职能领域下方偏右纵向排列三个部门框，由左侧竖线连接。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G211/fig3-2",
+    "relation": "basis_for",
+    "note_zh": "正文以本图的业务单元为起点得出初始能力集，再经业务对象分析形成图 3-2 的一级能力地图（图 3-2 还综合了业务模式与战略/财务计划等输入）"
+  },
+  {
+    "target": "G206/fig3-1",
+    "relation": "related",
+    "note_zh": "同为传统树形组织架构图（另一家示例公司）；G206 用它说明组织架构图只表达正式汇报线"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "部门的中文译名（如“服务台”“薪资发放”“人才管理”）由解析者拟定，中文稿没有本图的标签对照；职能领域译名沿用中文稿正文（运营、销售、财务、人力资源）。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 16 页原图截图（220 dpi）",
+    "英文 PDF 第 16–19 页正文",
+    "中文稿 G211e_业务能力.md 第 187–219 行",
+    "figs/g211_fig3-1.svg 源码"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

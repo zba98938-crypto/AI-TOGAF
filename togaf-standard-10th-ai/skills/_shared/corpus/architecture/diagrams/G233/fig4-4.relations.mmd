@@ -1,0 +1,22 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Employees"]
+  n1["Customers"]
+  n2["Retail Purchases"]
+  n3["Stores"]
+  n4["Warehouses"]
+  n5["Payments"]
+  n6["Payment Type"]
+  n7["Products in Purchase"]
+  n8["Products"]
+  n9["Incentives"]
+  n1 ---|"关联"| n2
+  n0 ---|"关联"| n2
+  n5 ---|"关联"| n2
+  n9 ---|"关联"| n2
+  n6 ---|"关联"| n5
+  n4 ---|"关联"| n3
+  n8 ---|"关联"| n7
+  n2 ---|"关联"| n7
+  n3 ---|"关联"| n2
+  n0 ---|"关联"| n0

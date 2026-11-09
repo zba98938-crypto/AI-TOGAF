@@ -1,0 +1,520 @@
+{
+  "schema_version": "1.0",
+  "id": "G21B/fig5-1",
+  "status": "done",
+  "doc": {
+    "code": "G21B",
+    "title_zh": "信息架构——客户主数据管理",
+    "title_en": "Information Architecture — Customer Master Data (C-MDM)",
+    "zh_md": "G21Be_信息架构_客户主数据管理.md",
+    "en_pdf": "togaf-standard-10th/G21Be.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "5-1",
+    "title_en": "Physical Person Kernel Data",
+    "title_zh": "自然人内核数据",
+    "section_en": "5.1.1 Physical Person Kernel Data",
+    "section_zh": "5.1.1 自然人内核数据",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        38
+      ],
+      "printed_page": 28,
+      "bboxes": [
+        [
+          48.2,
+          62.3,
+          563.8,
+          265.6
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        444
+      ],
+      "label_table_lines": [
+        448,
+        459
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21be_fig5-1_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "387dfa64ebf2",
+      "fidelity": "unchecked",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.987（≥0.9 通常为同一图）",
+        "中文稿未引用该英文 PNG（引用的是 figs/zh/ 下的中文化版本），未逐像素核对。"
+      ]
+    },
+    {
+      "path": "figs/zh/g21be_fig5-1_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "6f385a369e39",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "标题“客户数据——自然人”字号明显小于原图，且下移到两个横线之间；原图标题紧贴顶栏、字号与六个分类标签相当。",
+        "“联系方式数据”字号远小于其余五个分类标签，原图六个标签字号一致。",
+        "六个框顶部的内侧分隔线多处中断（只剩两端短线段），原图每个框内有一条完整的横向分隔线。"
+      ]
+    },
+    {
+      "path": "G21Be_信息架构_客户主数据管理.md#L448-L459",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "f42676a97132",
+      "fidelity": "faithful",
+      "issues_zh": []
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "hierarchy",
+      "infographic"
+    ],
+    "notation": "淡黄色底板 + 顶部标题的“数据范围”图：底板内 2×3 排列六个分类框，框内只有分类名，无连线。",
+    "concepts": [
+      "master_data_management",
+      "data_architecture",
+      "information_concept"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "自然人内核数据分六类：内部/外部标识键、个人标识数据、联系方式、偏好/同意、与其他客户的关系。",
+    "purpose_zh": "界定 C-MDM 对“自然人”客户应管理的核心数据范围（内核客户数据），为第 5.1 节确定主数据模型边界；每个分类的具体信息项在表 5-1 中展开。",
+    "reading_guide_zh": "先读顶部标题“Customer Data – Physical Person”，确认范围是自然人而非组织；再按从左到右、从上到下读六个分类框——上排是三类“识别/描述”数据（内部键、外部键、个人标识），下排是“联系/偏好/关系”数据。六个框是并列的分类，没有先后或主次；框内不再细分，细项见表 5-1。",
+    "key_points_zh": [
+      "自然人内核数据分六类：内部标识键、外部标识键、个人标识数据、联系方式数据、偏好/同意数据、与其他客户的关系。",
+      "标识键分内部与外部两套：内部键包括业务客户编码与 C-MDM 管理的唯一技术键；外部键如身份证号、外部数据提供方参考号，可用于确保唯一性并支持与外部数据提供方协作提升质量。",
+      "个人标识数据（名、姓、出生日期、出生地、家庭/婚姻状况、官方职业类别）是描述“这个人是谁”的属性。",
+      "偏好/同意数据记录客户是否授权组织为特定目的使用某范围数据；正文指出很多组织是在 2018 年因 GDPR 才把它引入 C-MDM。",
+      "关系数据描述客户与其他自然人的关系（父、母、子女、员工等），可指向 C-MDM 中的另一个自然人。",
+      "六个分类共同构成“内核”客户数据；组织/法人客户使用图 5-2 的另一套分类（法人描述替代个人标识数据）。"
+    ],
+    "hierarchy_zh": "两层：第 1 层是“自然人内核数据”（淡黄色底板 + 标题）；第 2 层是六个并列的分类框。分类之间没有上下级，也没有画出的关系。",
+    "line_semantics_zh": "图中没有任何连线或箭头。六个框的并列与分组只由版式（2×3 网格 + 淡黄底板）表达；底板表示它们同属“自然人内核数据”这一范围。",
+    "misreadings_zh": [
+      "六个分类不是流程步骤，也不表示数据从标识键流向关系数据。",
+      "“内部标识键”与“外部标识键”不是同一事物的两种写法：前者由组织/C-MDM 管理，后者来自外部（身份证号、外部数据提供方等）。",
+      "偏好/同意数据不是可选项：正文把它列为核心范围，且与 GDPR 合规直接相关。",
+      "本图只给分类，不给字段清单；字段清单见表 5-1，不能只看图就设计数据模型。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p38",
+        "summary_zh": "图 5-1 给出自然人内核数据的六个分类；表 5-1 逐项说明内部/外部标识键、个人标识数据与联系方式数据。"
+      },
+      {
+        "source": "zh_md L444",
+        "summary_zh": "中文稿引用图 5-1（自然人内核数据），并在图内标签对照表中列出六个分类。"
+      },
+      {
+        "source": "zh_md L462",
+        "summary_zh": "表 5-1 给出自然人内核数据的类型、信息项与说明（内部标识键、外部标识键、个人识别数据、联系方式数据等）。"
+      },
+      {
+        "source": "zh_md L250",
+        "summary_zh": "内核客户数据主要涉及标识键、个人识别数据、联系方式、偏好与同意数据，以及关系数据（客户间关系、层级等）。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "grid",
+    "description_zh": "淡黄色大底板，顶部居中标题；内部 2 行 × 3 列六个等大分类框（上排：内部标识键、外部标识键、个人标识数据；下排：联系方式数据、偏好/同意数据、与其他客户的关系）。"
+  },
+  "legend": [
+    {
+      "symbol": "淡黄色底板",
+      "meaning_zh": "自然人内核数据的整体范围",
+      "explicit": false
+    },
+    {
+      "symbol": "底板内的浅色框 + 顶部横线",
+      "meaning_zh": "一个数据分类（细项见表 5-1）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "pp_kernel",
+      "label_en": "Customer Data – Physical Person",
+      "label_zh": "客户数据——自然人",
+      "type": "data",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "pp_internal_keys",
+      "label_en": "Internal Identification Keys",
+      "label_zh": "内部标识键",
+      "type": "data",
+      "parent": "pp_kernel",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "pp_external_keys",
+      "label_en": "External Identification Keys",
+      "label_zh": "外部标识键",
+      "type": "data",
+      "parent": "pp_kernel",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "pp_personal_id",
+      "label_en": "Personal Identification Data",
+      "label_zh": "个人标识数据",
+      "type": "data",
+      "parent": "pp_kernel",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "pp_contact",
+      "label_en": "Contact Data",
+      "label_zh": "联系方式数据",
+      "type": "data",
+      "parent": "pp_kernel",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "pp_prefs",
+      "label_en": "Preferences/Consent Data",
+      "label_zh": "偏好/同意数据",
+      "type": "data",
+      "parent": "pp_kernel",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "pp_relations",
+      "label_en": "Relationships with Other Customers",
+      "label_zh": "与其他客户的关系",
+      "type": "data",
+      "parent": "pp_kernel",
+      "level": 2,
+      "order": 6
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G21B/fig5-2",
+      "relation": "complements",
+      "note_zh": "图 5-1 是自然人客户的内核数据分类，图 5-2 是组织/法人客户的内核数据分类；两者共同构成第 5.1 节的内核数据范围。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中只给分类名，未给字段；字段级内容依据表 5-1，未在图中出现。",
+      "“与其他客户的关系”是否包含组织客户之间的关系，图中未限定；正文表 5-1 举例为父、母、子女、员工等人际关系。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 38 页原图截图",
+      "英文 PDF 第 38–39 页表 5-1",
+      "中文稿 G21Be_信息架构_客户主数据管理.md 第 444–474 行",
+      "figs/zh/g21be_fig5-1_zh.png 中文化图"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Be.pdf",
+    "pdf_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21B/fig5-1.json",
+    "interpretation_sha256": "bb03d251712b42a919daf47bc4510036ced80e0f43b17e7b42f760e6f6180b17",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 38,
+        "text": "Figure 5-1: Physical Person Kernel Data",
+        "bbox_pdf_points": [
+          48.24,
+          270.3,
+          234.184,
+          283.866
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 38,
+      "printed_page": 28,
+      "bbox_pdf_points": [
+        48.2,
+        62.3,
+        563.8,
+        265.6
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21B/fig5-1-p0038.png",
+      "image_sha256": "59946984054b2250011eebc6063d0bbd31e0875d35a42a297e0d5a567fe0c740",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "59946984054b2250011eebc6063d0bbd31e0875d35a42a297e0d5a567fe0c740",
+          "status": "extracted-unverified",
+          "text": "Customer Data — Physical Person\nInternal Identification\nExternal Identification\nPersonal Identification\nData\nKeys\nKeys\nContact Data\nPreferences/Consent\nRelationships with Other\nData\nCustomers",
+          "words": [
+            {
+              "text": "Customer",
+              "confidence": 96.904213,
+              "bbox_pixels_xywh": [
+                331,
+                31,
+                107,
+                18
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 93.13887,
+              "bbox_pixels_xywh": [
+                446,
+                31,
+                48,
+                18
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 56.575397,
+              "bbox_pixels_xywh": [
+                500,
+                41,
+                14,
+                3
+              ]
+            },
+            {
+              "text": "Physical",
+              "confidence": 96.147446,
+              "bbox_pixels_xywh": [
+                521,
+                31,
+                92,
+                22
+              ]
+            },
+            {
+              "text": "Person",
+              "confidence": 96.849304,
+              "bbox_pixels_xywh": [
+                622,
+                31,
+                75,
+                18
+              ]
+            },
+            {
+              "text": "Internal",
+              "confidence": 96.93306,
+              "bbox_pixels_xywh": [
+                85,
+                132,
+                73,
+                17
+              ]
+            },
+            {
+              "text": "Identification",
+              "confidence": 91.446083,
+              "bbox_pixels_xywh": [
+                168,
+                132,
+                127,
+                17
+              ]
+            },
+            {
+              "text": "External",
+              "confidence": 96.713898,
+              "bbox_pixels_xywh": [
+                405,
+                132,
+                81,
+                17
+              ]
+            },
+            {
+              "text": "Identification",
+              "confidence": 94.355545,
+              "bbox_pixels_xywh": [
+                496,
+                132,
+                127,
+                17
+              ]
+            },
+            {
+              "text": "Personal",
+              "confidence": 94.804977,
+              "bbox_pixels_xywh": [
+                725,
+                132,
+                88,
+                17
+              ]
+            },
+            {
+              "text": "Identification",
+              "confidence": 94.926582,
+              "bbox_pixels_xywh": [
+                823,
+                132,
+                126,
+                17
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.5634,
+              "bbox_pixels_xywh": [
+                814,
+                159,
+                46,
+                17
+              ]
+            },
+            {
+              "text": "Keys",
+              "confidence": 97.000954,
+              "bbox_pixels_xywh": [
+                166,
+                159,
+                48,
+                22
+              ]
+            },
+            {
+              "text": "Keys",
+              "confidence": 96.996841,
+              "bbox_pixels_xywh": [
+                490,
+                159,
+                48,
+                22
+              ]
+            },
+            {
+              "text": "Contact",
+              "confidence": 96.955421,
+              "bbox_pixels_xywh": [
+                122,
+                286,
+                79,
+                18
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.94474,
+              "bbox_pixels_xywh": [
+                209,
+                286,
+                46,
+                18
+              ]
+            },
+            {
+              "text": "Preferences/Consent",
+              "confidence": 92.28981,
+              "bbox_pixels_xywh": [
+                407,
+                286,
+                215,
+                18
+              ]
+            },
+            {
+              "text": "Relationships",
+              "confidence": 96.757339,
+              "bbox_pixels_xywh": [
+                714,
+                286,
+                136,
+                22
+              ]
+            },
+            {
+              "text": "with",
+              "confidence": 96.650185,
+              "bbox_pixels_xywh": [
+                857,
+                287,
+                40,
+                17
+              ]
+            },
+            {
+              "text": "Other",
+              "confidence": 97.009338,
+              "bbox_pixels_xywh": [
+                906,
+                286,
+                57,
+                18
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.900017,
+              "bbox_pixels_xywh": [
+                490,
+                314,
+                45,
+                17
+              ]
+            },
+            {
+              "text": "Customers",
+              "confidence": 96.581497,
+              "bbox_pixels_xywh": [
+                782,
+                313,
+                110,
+                18
+              ]
+            }
+          ],
+          "mean_word_confidence": 94.07,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

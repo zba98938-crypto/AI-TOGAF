@@ -1,0 +1,1512 @@
+{
+  "schema_version": "1.0",
+  "id": "G234/fig4-2",
+  "status": "done",
+  "doc": {
+    "code": "G234",
+    "title_zh": "信息架构——元数据管理",
+    "title_en": "Information Architecture — Metadata Management",
+    "zh_md": "G234e_信息架构_元数据管理.md",
+    "en_pdf": "togaf-standard-10th/G234e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-2",
+    "title_en": "Metadata Requirements Collection Illustration",
+    "title_zh": "元数据需求收集示意",
+    "section_en": "4.2.1 Collect Metadata Requirements",
+    "section_zh": "4.2.1 收集元数据需求",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        24
+      ],
+      "printed_page": 14,
+      "bboxes": [
+        [
+          61.1,
+          36.0,
+          550.9,
+          296.5
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        244
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g234_fig4-2.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "522ebc14df78",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "原图是两条路径的箭头示意图：中央是 Metadata Requirements 节点，四个起点（Compliance、Business Use-Cases、Data Set、Business Data Issue）分别用带文字的箭头与它相连，左右各有一条长箭头标 Top down / Bottom up",
+        "SVG 改成两栏项目符号清单（自上而下 / 自下而上），没有方框、没有中央节点、没有任何箭头，原图最核心的“谁指向谁”完全丢失",
+        "SVG 丢失全部箭头标签：Define metadata req.、Link data to use-cases、Apply metadata req. on data set、Define metadata req. for impact analysis、Support business data issue resolution、Define metadata req. to generate business value",
+        "SVG 丢失顶部四张驱动/收益卡：Support regulatory compliance and meet internal control requirements、Reduce environmental footprints、Improve operational efficiency of business functions and increase confidence in data、Improve accessibility to data to increase business value",
+        "SVG 自加原文没有的判断句（如“业务支持强，一致性由校验流程保障”“机会驱动，需先以实例证明价值”“两种路径都需明确元数据范围与期望质量水平”），其中最后一句来自正文而非图"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "flow",
+      "infographic"
+    ],
+    "notation": "非正式箭头示意图：四个触发源分列上下两排，通过带文字标签的实线箭头与中央 Metadata Requirements 节点相连；左右两条长箭头标示自上而下/自下而上",
+    "concepts": [
+      "metadata_management",
+      "requirements",
+      "data_architecture",
+      "adm_phase_b"
+    ],
+    "adm_phases": [
+      "adm_phase_b"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "自上而下（合规/业务用例）与自下而上（数据集/业务数据问题）两条路径，最终都汇入同一组元数据需求。",
+    "purpose_zh": "展示收集元数据需求的四个起点与两条总体方向，并强调每种起点都不是单向索取：需求要被定义出来，也要被应用回数据集、业务用例或数据问题，才能产生价值。",
+    "reading_guide_zh": "左半读自上而下：Compliance 与 Business Use-Cases 在上，各自上方有两张驱动/收益卡；右半读自下而上：Data Set 与 Business Data Issue 在下，各带一张米色做法说明。中央 Metadata Requirements 是汇聚点。每条箭头旁的文字说明动作方向，箭头指向即动作的宾语。",
+    "key_points_zh": [
+      "四类起点：合规要求、业务用例（自上而下）；数据集、业务数据问题（自下而上）。",
+      "合规由两类驱动支撑：支持监管合规与内控、减少环境足迹；业务用例由两类收益支撑：提升业务功能运营效率与数据信心、提升数据可访问性以增加业务价值。",
+      "Compliance → Metadata Requirements 是单向箭头（Define metadata req.）：合规要求直接推导元数据需求，不再回写。",
+      "Business Use-Cases、Data Set、Business Data Issue 与中央节点之间都是双向箭头：既定义需求，也把需求应用回起点（Link data to use-cases、Apply metadata req. on data set、Support business data issue resolution）。",
+      "左右两条长箭头 Top down（向下）与 Bottom up（向上）方向相反，但终点都是同一组元数据需求，说明两条路径可并存。",
+      "底部两张米色卡给出自下而上的具体做法：为现有数据集建档以民主化访问并产生业务价值；把业务数据问题当作定义需求、支持问题解决的机会。"
+    ],
+    "hierarchy_zh": "两条方法路径（Top down / Bottom up）各自包含两个起点；中央 Metadata Requirements 不隶属于任何一条路径，而是四个起点的共同汇聚点。驱动卡属于合规，收益卡属于业务用例。",
+    "line_semantics_zh": "实线箭头 + 文字标签表示动作方向：箭头指向中央表示“定义/推导需求”，箭头指回起点表示“把需求应用/链接/支撑到该场景”。两条长箭头只表示方法走向，不是数据流。",
+    "misreadings_zh": [
+      "不要把四条连线都读成单向；只有 Compliance 是单向，其余三条是双向。",
+      "不要把 Top down / Bottom up 两条长箭头当成数据流或流程步骤，它们是方法方向的标识。",
+      "不要把业务用例上方的两张卡当成两个额外的起点，它们是业务用例的收益说明。",
+      "中文稿 SVG 只是两段要点清单，没有中央节点和箭头，不能据它理解各起点的指向。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p23",
+        "summary_zh": "第 4.2.1 节列出定义元数据需求的两种方法：自上而下从合规或业务用例出发；自下而上基于业务数据问题或数据集需求，并给出 GDPR、Solvency II、IFRS 17、CIF、开票频率错误等例子。"
+      },
+      {
+        "source": "en_pdf p24",
+        "summary_zh": "自上而下方法通常有强业务支持，元数据一致性由校验流程与工作流保障；自下而上更具机会主义，需先用具体例子证明价值；两种情况下都要澄清元数据需求及期望质量水平。"
+      },
+      {
+        "source": "zh_md L236",
+        "summary_zh": "中文稿复述两种方法及例子，并在 L244 插入图 4-2。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "左右两组：左上 Compliance 与右上 Business Use-Cases（各带两张上方卡片），中央 Metadata Requirements 横贯中线，左下 Data Set 与右下 Business Data Issue（各带一张下方说明卡）；最左一条向下长箭头，最右一条向上长箭头。"
+  },
+  "legend": [
+    {
+      "symbol": "青绿色实线箭头 + 文字",
+      "meaning_zh": "元数据需求的定义或应用动作，箭头指向动作用语的对象",
+      "explicit": false
+    },
+    {
+      "symbol": "左侧向下长箭头 Top down",
+      "meaning_zh": "自上而下的需求收集路径",
+      "explicit": true
+    },
+    {
+      "symbol": "右侧向上长箭头 Bottom up",
+      "meaning_zh": "自下而上的需求收集路径",
+      "explicit": true
+    },
+    {
+      "symbol": "米色说明卡",
+      "meaning_zh": "该起点的具体做法说明",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "metadata_requirements",
+      "label_en": "Metadata Requirements",
+      "label_zh": "元数据需求",
+      "type": "requirement",
+      "parent": null,
+      "level": 1,
+      "position": "图中央",
+      "description_zh": "四个起点共同指向的需求集合。"
+    },
+    {
+      "id": "compliance",
+      "label_en": "Compliance",
+      "label_zh": "合规",
+      "type": "goal",
+      "parent": null,
+      "level": 1,
+      "position": "左上"
+    },
+    {
+      "id": "card_regulatory",
+      "label_en": "Support regulatory compliance and meet internal control requirements",
+      "label_zh": "支持监管合规并满足内控要求",
+      "type": "goal",
+      "parent": null,
+      "level": 2,
+      "position": "Compliance 上方左卡"
+    },
+    {
+      "id": "card_footprint",
+      "label_en": "Reduce environmental footprints",
+      "label_zh": "减少环境足迹",
+      "type": "goal",
+      "parent": null,
+      "level": 2,
+      "position": "Compliance 上方右卡"
+    },
+    {
+      "id": "business_use_cases",
+      "label_en": "Business Use-Cases",
+      "label_zh": "业务用例",
+      "type": "capability",
+      "parent": null,
+      "level": 1,
+      "position": "右上"
+    },
+    {
+      "id": "card_efficiency",
+      "label_en": "Improve operational efficiency of business functions and increase confidence in data",
+      "label_zh": "提升业务功能运营效率并增强对数据的信心",
+      "type": "goal",
+      "parent": null,
+      "level": 2,
+      "position": "Business Use-Cases 上方左卡"
+    },
+    {
+      "id": "card_accessibility",
+      "label_en": "Improve accessibility to data to increase business value",
+      "label_zh": "提升数据可访问性以增加业务价值",
+      "type": "goal",
+      "parent": null,
+      "level": 2,
+      "position": "Business Use-Cases 上方右卡"
+    },
+    {
+      "id": "data_set",
+      "label_en": "Data Set",
+      "label_zh": "数据集",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "position": "左下"
+    },
+    {
+      "id": "note_data_set",
+      "label_en": "Document existing data sets to democratize access to the data and generate more value for the business",
+      "label_zh": "为现有数据集建档，以民主化数据访问并为业务创造更多价值",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "Data Set 下方米色卡"
+    },
+    {
+      "id": "business_data_issue",
+      "label_en": "Business Data Issue",
+      "label_zh": "业务数据问题",
+      "type": "risk",
+      "parent": null,
+      "level": 1,
+      "position": "右下"
+    },
+    {
+      "id": "note_issue",
+      "label_en": "Use a business data issue as an opportunity to define metadata requirements to support the issue resolution",
+      "label_zh": "把业务数据问题作为定义元数据需求、支持问题解决的机会",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "Business Data Issue 下方米色卡"
+    },
+    {
+      "id": "ind_top_down",
+      "label_en": "Top down",
+      "label_zh": "自上而下",
+      "type": "note",
+      "parent": null,
+      "level": 1,
+      "position": "最左侧竖直长箭头旁"
+    },
+    {
+      "id": "ind_bottom_up",
+      "label_en": "Bottom up",
+      "label_zh": "自下而上",
+      "type": "note",
+      "parent": null,
+      "level": 1,
+      "position": "最右侧竖直长箭头旁"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "compliance",
+      "to": "metadata_requirements",
+      "type": "produces",
+      "label_en": "Define metadata req.",
+      "label_zh": "定义元数据需求",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "business_use_cases",
+      "to": "metadata_requirements",
+      "type": "produces",
+      "label_en": "Define metadata req.",
+      "label_zh": "定义元数据需求",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "metadata_requirements",
+      "to": "business_use_cases",
+      "type": "maps_to",
+      "label_en": "Link data to use-cases",
+      "label_zh": "把数据关联到用例",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "data_set",
+      "to": "metadata_requirements",
+      "type": "produces",
+      "label_en": "Define metadata req. to generate business value",
+      "label_zh": "定义元数据需求以产生业务价值",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "metadata_requirements",
+      "to": "data_set",
+      "type": "governs",
+      "label_en": "Apply metadata req. on data set",
+      "label_zh": "在数据集上应用元数据需求",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "business_data_issue",
+      "to": "metadata_requirements",
+      "type": "produces",
+      "label_en": "Define metadata req. for impact analysis",
+      "label_zh": "为影响分析定义元数据需求",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "metadata_requirements",
+      "to": "business_data_issue",
+      "type": "serving",
+      "label_en": "Support business data issue resolution",
+      "label_zh": "支持业务数据问题解决",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ind_top_down",
+      "to": "data_set",
+      "type": "other",
+      "label_en": "Top down",
+      "label_zh": "自上而下",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "最左侧长箭头从顶部贯穿到底部、箭头朝下，仅表示自上而下的方法方向，不是实体间依赖。"
+    },
+    {
+      "from": "ind_bottom_up",
+      "to": "business_use_cases",
+      "type": "other",
+      "label_en": "Bottom up",
+      "label_zh": "自下而上",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "最右侧长箭头从底部向上、箭头朝上，仅表示自下而上的方法方向。"
+    },
+    {
+      "from": "card_regulatory",
+      "to": "compliance",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "驱动卡位于 Compliance 正上方，无连线。"
+    },
+    {
+      "from": "card_footprint",
+      "to": "compliance",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "驱动卡位于 Compliance 正上方，无连线。"
+    },
+    {
+      "from": "card_efficiency",
+      "to": "business_use_cases",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "收益卡位于 Business Use-Cases 正上方，无连线。"
+    },
+    {
+      "from": "card_accessibility",
+      "to": "business_use_cases",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "收益卡位于 Business Use-Cases 正上方，无连线。"
+    },
+    {
+      "from": "note_data_set",
+      "to": "data_set",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "说明卡位于 Data Set 正下方，无连线。"
+    },
+    {
+      "from": "note_issue",
+      "to": "business_data_issue",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "说明卡位于 Business Data Issue 正下方，无连线。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G234/fig4-1",
+      "relation": "follows",
+      "note_zh": "图 4-1 先列元数据来源与域，图 4-2 再从这些来源中收集需求"
+    },
+    {
+      "target": "G234/fig4-3",
+      "relation": "precedes",
+      "note_zh": "需求收集完成后，图 4-3 定义保障元数据质量的两种流程模式"
+    },
+    {
+      "target": "G234/fig4-5",
+      "relation": "related",
+      "note_zh": "需求最终落实为图 4-5 的关键元数据资产清单"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "Business Use-Cases 与 Metadata Requirements 之间的两条箭头几乎平行，2x 截图可辨认箭头指向，但两条线的起止点略有交叠。",
+      "四张驱动/收益卡与下方方框之间没有画线，只能按版式判断归属。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 24 页原图截图（2x2 放大分块）",
+      "英文 PDF 第 23–24 页正文",
+      "中文稿 G234e_信息架构_元数据管理.md 第 234–251 行",
+      "figs/g234_fig4-2.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G234e.pdf",
+    "pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G234/fig4-2.json",
+    "interpretation_sha256": "62c873b1d691bc4b17bd52776fde0071b1cd5e06068e57d3bce6ebc2ae07cc89",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 24,
+        "text": "Figure 4-2: Metadata Requirements Collection Illustration",
+        "bbox_pdf_points": [
+          48.24,
+          301.191,
+          318.203,
+          314.757
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 24,
+      "printed_page": 14,
+      "bbox_pdf_points": [
+        61.1,
+        36.0,
+        550.9,
+        296.5
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G234/fig4-2-p0024.png",
+      "image_sha256": "29a755eeee1b96d49631d4291dd5ab591620ca4ea7fee631c78eeacdcd3f95e0",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "29a755eeee1b96d49631d4291dd5ab591620ca4ea7fee631c78eeacdcd3f95e0",
+          "status": "extracted-unverified",
+          "text": "Top down\n‘Supportfegulatory\ngs\nImprove operational\nReduce environmental\nImprove accessibility\ncompliance and meet\nfootprints\nefficiency of business\nto datato increase\ninternalcontrol\nfunctionsand increase\nbusinessvalue\nrequirements\nconfidencein data\nBusiness Use-Cases\nCompliance\nDefine\nDefine\nmetadata req\nNN\nmetadata req\norana\nuse-cases\nDefine\nmetadata req\nDefine metadata\nSupport\nto generate\nipply metadata\nreq. for impact\nbusinessdata\nbusiness value\nee.\n69.\non dataset\nanalysis\nWN\nissue resolution\nData Set\nBusiness Data Issue\nDocumentexisting data sets to democratize\nUse a business data issue as an opportunity\naccessto the data and generate more value\nto define metadata requirements to support\nforthe business\nthe issue resolution\nBottom up",
+          "words": [
+            {
+              "text": "Top",
+              "confidence": 96.58567,
+              "bbox_pixels_xywh": [
+                13,
+                12,
+                36,
+                19
+              ]
+            },
+            {
+              "text": "down",
+              "confidence": 96.563957,
+              "bbox_pixels_xywh": [
+                54,
+                12,
+                52,
+                15
+              ]
+            },
+            {
+              "text": "‘Supportfegulatory",
+              "confidence": 42.834816,
+              "bbox_pixels_xywh": [
+                107,
+                66,
+                114,
+                13
+              ]
+            },
+            {
+              "text": "gs",
+              "confidence": 57.367001,
+              "bbox_pixels_xywh": [
+                309,
+                44,
+                32,
+                23
+              ]
+            },
+            {
+              "text": "Improve",
+              "confidence": 94.274475,
+              "bbox_pixels_xywh": [
+                592,
+                66,
+                51,
+                13
+              ]
+            },
+            {
+              "text": "operational",
+              "confidence": 96.742165,
+              "bbox_pixels_xywh": [
+                646,
+                66,
+                65,
+                12
+              ]
+            },
+            {
+              "text": "Reduce",
+              "confidence": 86.322105,
+              "bbox_pixels_xywh": [
+                257,
+                69,
+                48,
+                11
+              ]
+            },
+            {
+              "text": "environmental",
+              "confidence": 86.322105,
+              "bbox_pixels_xywh": [
+                308,
+                70,
+                83,
+                10
+              ]
+            },
+            {
+              "text": "Improve",
+              "confidence": 94.515167,
+              "bbox_pixels_xywh": [
+                749,
+                67,
+                51,
+                13
+              ]
+            },
+            {
+              "text": "accessibility",
+              "confidence": 65.840431,
+              "bbox_pixels_xywh": [
+                804,
+                67,
+                71,
+                13
+              ]
+            },
+            {
+              "text": "compliance",
+              "confidence": 66.737679,
+              "bbox_pixels_xywh": [
+                99,
+                82,
+                97,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 89.629044,
+              "bbox_pixels_xywh": [
+                176,
+                74,
+                22,
+                28
+              ]
+            },
+            {
+              "text": "meet",
+              "confidence": 80.652489,
+              "bbox_pixels_xywh": [
+                200,
+                82,
+                29,
+                10
+              ]
+            },
+            {
+              "text": "footprints",
+              "confidence": 96.648605,
+              "bbox_pixels_xywh": [
+                294,
+                86,
+                59,
+                12
+              ]
+            },
+            {
+              "text": "efficiency",
+              "confidence": 86.325539,
+              "bbox_pixels_xywh": [
+                586,
+                82,
+                132,
+                13
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 87.008148,
+              "bbox_pixels_xywh": [
+                649,
+                73,
+                13,
+                29
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 81.152245,
+              "bbox_pixels_xywh": [
+                666,
+                82,
+                52,
+                13
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 76.963654,
+              "bbox_pixels_xywh": [
+                754,
+                85,
+                12,
+                9
+              ]
+            },
+            {
+              "text": "datato",
+              "confidence": 76.963654,
+              "bbox_pixels_xywh": [
+                770,
+                84,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "increase",
+              "confidence": 96.74707,
+              "bbox_pixels_xywh": [
+                816,
+                87,
+                52,
+                7
+              ]
+            },
+            {
+              "text": "internalcontrol",
+              "confidence": 88.647179,
+              "bbox_pixels_xywh": [
+                119,
+                98,
+                89,
+                10
+              ]
+            },
+            {
+              "text": "functionsand",
+              "confidence": 91.23214,
+              "bbox_pixels_xywh": [
+                585,
+                98,
+                80,
+                10
+              ]
+            },
+            {
+              "text": "increase",
+              "confidence": 93.066719,
+              "bbox_pixels_xywh": [
+                671,
+                89,
+                53,
+                28
+              ]
+            },
+            {
+              "text": "businessvalue",
+              "confidence": 92.607498,
+              "bbox_pixels_xywh": [
+                767,
+                100,
+                91,
+                10
+              ]
+            },
+            {
+              "text": "requirements",
+              "confidence": 89.947426,
+              "bbox_pixels_xywh": [
+                124,
+                115,
+                81,
+                12
+              ]
+            },
+            {
+              "text": "confidencein",
+              "confidence": 89.279816,
+              "bbox_pixels_xywh": [
+                596,
+                114,
+                81,
+                10
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 96.826744,
+              "bbox_pixels_xywh": [
+                681,
+                114,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 93.29493,
+              "bbox_pixels_xywh": [
+                633,
+                154,
+                88,
+                15
+              ]
+            },
+            {
+              "text": "Use-Cases",
+              "confidence": 91.369179,
+              "bbox_pixels_xywh": [
+                726,
+                154,
+                102,
+                15
+              ]
+            },
+            {
+              "text": "Compliance",
+              "confidence": 96.626801,
+              "bbox_pixels_xywh": [
+                188,
+                154,
+                112,
+                19
+              ]
+            },
+            {
+              "text": "Define",
+              "confidence": 91.098801,
+              "bbox_pixels_xywh": [
+                242,
+                196,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "Define",
+              "confidence": 94.442612,
+              "bbox_pixels_xywh": [
+                530,
+                196,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "metadata",
+              "confidence": 92.514885,
+              "bbox_pixels_xywh": [
+                220,
+                213,
+                56,
+                10
+              ]
+            },
+            {
+              "text": "req",
+              "confidence": 94.121361,
+              "bbox_pixels_xywh": [
+                279,
+                215,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "NN",
+              "confidence": 32.191273,
+              "bbox_pixels_xywh": [
+                320,
+                193,
+                60,
+                34
+              ]
+            },
+            {
+              "text": "metadata",
+              "confidence": 92.865257,
+              "bbox_pixels_xywh": [
+                508,
+                212,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "req",
+              "confidence": 95.266541,
+              "bbox_pixels_xywh": [
+                568,
+                215,
+                18,
+                11
+              ]
+            },
+            {
+              "text": "orana",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                602,
+                193,
+                132,
+                37
+              ]
+            },
+            {
+              "text": "use-cases",
+              "confidence": 70.609436,
+              "bbox_pixels_xywh": [
+                667,
+                239,
+                64,
+                8
+              ]
+            },
+            {
+              "text": "Define",
+              "confidence": 96.898308,
+              "bbox_pixels_xywh": [
+                199,
+                277,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "metadata",
+              "confidence": 87.369209,
+              "bbox_pixels_xywh": [
+                173,
+                284,
+                58,
+                29
+              ]
+            },
+            {
+              "text": "req",
+              "confidence": 87.369209,
+              "bbox_pixels_xywh": [
+                236,
+                284,
+                22,
+                29
+              ]
+            },
+            {
+              "text": "Define",
+              "confidence": 85.781189,
+              "bbox_pixels_xywh": [
+                531,
+                293,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "metadata",
+              "confidence": 85.781189,
+              "bbox_pixels_xywh": [
+                575,
+                293,
+                56,
+                10
+              ]
+            },
+            {
+              "text": "Support",
+              "confidence": 77.403793,
+              "bbox_pixels_xywh": [
+                730,
+                293,
+                51,
+                13
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 46.372719,
+              "bbox_pixels_xywh": [
+                179,
+                302,
+                15,
+                28
+              ]
+            },
+            {
+              "text": "generate",
+              "confidence": 46.372719,
+              "bbox_pixels_xywh": [
+                198,
+                310,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "ipply",
+              "confidence": 49.09412,
+              "bbox_pixels_xywh": [
+                345,
+                300,
+                27,
+                14
+              ]
+            },
+            {
+              "text": "metadata",
+              "confidence": 79.851921,
+              "bbox_pixels_xywh": [
+                376,
+                300,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "req.",
+              "confidence": 73.428482,
+              "bbox_pixels_xywh": [
+                538,
+                311,
+                18,
+                11
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 72.124176,
+              "bbox_pixels_xywh": [
+                565,
+                300,
+                16,
+                29
+              ]
+            },
+            {
+              "text": "impact",
+              "confidence": 72.124176,
+              "bbox_pixels_xywh": [
+                585,
+                300,
+                44,
+                29
+              ]
+            },
+            {
+              "text": "businessdata",
+              "confidence": 75.641289,
+              "bbox_pixels_xywh": [
+                713,
+                309,
+                85,
+                10
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                173,
+                317,
+                55,
+                28
+              ]
+            },
+            {
+              "text": "value",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                230,
+                317,
+                30,
+                28
+              ]
+            },
+            {
+              "text": "ee.",
+              "confidence": 38.259731,
+              "bbox_pixels_xywh": [
+                257,
+                296,
+                87,
+                40
+              ]
+            },
+            {
+              "text": "69.",
+              "confidence": 32.90424,
+              "bbox_pixels_xywh": [
+                341,
+                320,
+                14,
+                10
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 88.062439,
+              "bbox_pixels_xywh": [
+                363,
+                320,
+                15,
+                7
+              ]
+            },
+            {
+              "text": "dataset",
+              "confidence": 85.620987,
+              "bbox_pixels_xywh": [
+                383,
+                317,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "analysis",
+              "confidence": 96.373215,
+              "bbox_pixels_xywh": [
+                556,
+                325,
+                51,
+                13
+              ]
+            },
+            {
+              "text": "WN",
+              "confidence": 10.370178,
+              "bbox_pixels_xywh": [
+                647,
+                299,
+                52,
+                32
+              ]
+            },
+            {
+              "text": "issue",
+              "confidence": 78.272354,
+              "bbox_pixels_xywh": [
+                708,
+                328,
+                33,
+                8
+              ]
+            },
+            {
+              "text": "resolution",
+              "confidence": 78.272354,
+              "bbox_pixels_xywh": [
+                744,
+                325,
+                59,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.352806,
+              "bbox_pixels_xywh": [
+                206,
+                356,
+                42,
+                15
+              ]
+            },
+            {
+              "text": "Set",
+              "confidence": 96.639099,
+              "bbox_pixels_xywh": [
+                253,
+                356,
+                31,
+                15
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.245651,
+              "bbox_pixels_xywh": [
+                636,
+                356,
+                87,
+                15
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 69.675224,
+              "bbox_pixels_xywh": [
+                729,
+                356,
+                41,
+                15
+              ]
+            },
+            {
+              "text": "Issue",
+              "confidence": 69.675224,
+              "bbox_pixels_xywh": [
+                776,
+                356,
+                50,
+                15
+              ]
+            },
+            {
+              "text": "Documentexisting",
+              "confidence": 90.55677,
+              "bbox_pixels_xywh": [
+                99,
+                417,
+                123,
+                14
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 96.896156,
+              "bbox_pixels_xywh": [
+                226,
+                417,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "sets",
+              "confidence": 43.643364,
+              "bbox_pixels_xywh": [
+                260,
+                409,
+                26,
+                28
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 43.643364,
+              "bbox_pixels_xywh": [
+                288,
+                409,
+                15,
+                28
+              ]
+            },
+            {
+              "text": "democratize",
+              "confidence": 92.635246,
+              "bbox_pixels_xywh": [
+                305,
+                417,
+                84,
+                11
+              ]
+            },
+            {
+              "text": "Use",
+              "confidence": 23.481112,
+              "bbox_pixels_xywh": [
+                584,
+                417,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 23.481112,
+              "bbox_pixels_xywh": [
+                611,
+                407,
+                8,
+                31
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 75.838516,
+              "bbox_pixels_xywh": [
+                627,
+                407,
+                59,
+                31
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 75.838516,
+              "bbox_pixels_xywh": [
+                690,
+                407,
+                27,
+                31
+              ]
+            },
+            {
+              "text": "issue",
+              "confidence": 65.646774,
+              "bbox_pixels_xywh": [
+                723,
+                407,
+                33,
+                31
+              ]
+            },
+            {
+              "text": "as",
+              "confidence": 65.646774,
+              "bbox_pixels_xywh": [
+                760,
+                420,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "an",
+              "confidence": 96.838562,
+              "bbox_pixels_xywh": [
+                781,
+                420,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "opportunity",
+              "confidence": 87.632271,
+              "bbox_pixels_xywh": [
+                802,
+                417,
+                75,
+                14
+              ]
+            },
+            {
+              "text": "accessto",
+              "confidence": 86.083374,
+              "bbox_pixels_xywh": [
+                98,
+                434,
+                61,
+                12
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.996117,
+              "bbox_pixels_xywh": [
+                163,
+                434,
+                21,
+                12
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 96.754852,
+              "bbox_pixels_xywh": [
+                189,
+                434,
+                29,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 87.520111,
+              "bbox_pixels_xywh": [
+                223,
+                434,
+                24,
+                12
+              ]
+            },
+            {
+              "text": "generate",
+              "confidence": 87.520111,
+              "bbox_pixels_xywh": [
+                251,
+                434,
+                60,
+                14
+              ]
+            },
+            {
+              "text": "more",
+              "confidence": 93.595627,
+              "bbox_pixels_xywh": [
+                318,
+                430,
+                31,
+                25
+              ]
+            },
+            {
+              "text": "value",
+              "confidence": 93.595627,
+              "bbox_pixels_xywh": [
+                354,
+                434,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 7.272739,
+              "bbox_pixels_xywh": [
+                587,
+                434,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "define",
+              "confidence": 7.272739,
+              "bbox_pixels_xywh": [
+                602,
+                434,
+                43,
+                12
+              ]
+            },
+            {
+              "text": "metadata",
+              "confidence": 96.808197,
+              "bbox_pixels_xywh": [
+                649,
+                434,
+                63,
+                12
+              ]
+            },
+            {
+              "text": "requirements",
+              "confidence": 77.813278,
+              "bbox_pixels_xywh": [
+                716,
+                434,
+                103,
+                14
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 77.813278,
+              "bbox_pixels_xywh": [
+                807,
+                430,
+                12,
+                24
+              ]
+            },
+            {
+              "text": "support",
+              "confidence": 95.046005,
+              "bbox_pixels_xywh": [
+                823,
+                434,
+                51,
+                14
+              ]
+            },
+            {
+              "text": "forthe",
+              "confidence": 96.862717,
+              "bbox_pixels_xywh": [
+                191,
+                452,
+                42,
+                11
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 88.560883,
+              "bbox_pixels_xywh": [
+                237,
+                452,
+                60,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 88.319725,
+              "bbox_pixels_xywh": [
+                665,
+                452,
+                21,
+                11
+              ]
+            },
+            {
+              "text": "issue",
+              "confidence": 88.319725,
+              "bbox_pixels_xywh": [
+                690,
+                454,
+                35,
+                9
+              ]
+            },
+            {
+              "text": "resolution",
+              "confidence": 96.2658,
+              "bbox_pixels_xywh": [
+                729,
+                452,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "Bottom",
+              "confidence": 75.132622,
+              "bbox_pixels_xywh": [
+                868,
+                502,
+                68,
+                15
+              ]
+            },
+            {
+              "text": "up",
+              "confidence": 75.132622,
+              "bbox_pixels_xywh": [
+                942,
+                505,
+                23,
+                16
+              ]
+            }
+          ],
+          "mean_word_confidence": 76.33,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

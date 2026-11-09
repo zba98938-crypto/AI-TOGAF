@@ -1,0 +1,28 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Business Goal / Objective"]
+  n1["Available Capability &amp; Implemented Solution"]
+  n2["Baseline Architecture"]
+  n3["Target Architecture"]
+  n4["Transition Architecture"]
+  n5["Work Package"]
+  n6["MVP"]
+  n7["MMP"]
+  n8["Delivery Sprints"]
+  n0 -->|"关联"| n1
+  n1 -->|"实现"| n0
+  n0 -->|"影响"| n2
+  n2 -->|"过渡到"| n4
+  n4 -->|"关联"| n2
+  n3 -->|"支撑/服务"| n1
+  n5 -->|"实现"| n4
+  n4 -->|"参与/分配"| n5
+  n5 -->|"依赖"| n3
+  n3 -->|"过渡到"| n2
+  n6 -->|"映射"| n4
+  n7 -->|"关联"| n6
+  n8 -->|"实现"| n7
+  n7 -->|"参与/分配"| n8
+  n8 -->|"实现"| n6
+  n8 -->|"映射"| n5
+  n8 -->|"实现"| n6

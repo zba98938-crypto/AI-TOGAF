@@ -1,0 +1,539 @@
+<html lang="zh-CN"><head><meta charset="utf-8"/><title>任务、角色、配置及能力证据</title><style>body{font:16px sans-serif;max-width:1100px;margin:32px auto;line-height:1.7}section{break-inside:avoid;border:1px solid #ccd;padding:20px;margin:24px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{overflow-wrap:anywhere}@media print{section{break-before:page}}</style></head><body><h1>任务、角色、配置及能力证据：分组明细</h1><p>与主图共用模型ID。下列关系登记提供完整语义，不表示每条关系均为主图上的连线。每个对象为可独立打印的明细页。</p><nav><a href="#entity-ROLE-CHIEF">首席架构师</a> · <a href="#entity-ROLE-EA">企业架构师</a> · <a href="#entity-ROLE-SEG">库存分段架构师</a> · <a href="#entity-ROLE-SOL">履约解决方案架构师</a> · <a href="#entity-TASK-CH">战略优先与业务承诺边界</a> · <a href="#entity-TASK-EA">跨分段互操作原则</a> · <a href="#entity-TASK-SEG">库存语义与运营条件</a> · <a href="#entity-TASK-SOL">预占接口候选比较</a> · <a href="#entity-ASSIGN-A">甲的候选履约架构任务配置</a> · <a href="#entity-EVIDENCE-A">甲的任务能力证据不足</a> · <a href="#entity-EVIDENCE-EXPERT">专家支持证据未证实</a> · </nav><nav aria-label="分组分页"><a href="#page-guide%3Aarchitecture-role-1">guide:architecture-role / 1</a> · <a href="#page-case%3Aarchitecture-task-1">case:architecture-task / 1</a> · <a href="#page-case%3Aperson-assignment-1">case:person-assignment / 1</a> · <a href="#page-case%3Acompetence-evidence-1">case:competence-evidence / 1</a> · </nav><article id="page-guide%3Aarchitecture-role-1" style="break-before:page"><h2>guide:architecture-role 分页</h2><section id="entity-ROLE-CHIEF" data-entity-id="ROLE-CHIEF"><h2>首席架构师</h2><pre>{
+  &quot;id&quot;: &quot;ROLE-CHIEF&quot;,
+  &quot;type&quot;: &quot;guide:architecture-role&quot;,
+  &quot;name&quot;: &quot;首席架构师&quot;,
+  &quot;attributes&quot;: {
+    &quot;tier&quot;: &quot;chief&quot;,
+    &quot;scope&quot;: &quot;战略与运营语境&quot;,
+    &quot;primary_responsibility&quot;: &quot;跨业务决策议程和未决项&quot;,
+    &quot;definition&quot;: &quot;本次任务角色：战略优先与业务承诺边界&quot;
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-MANDATE&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="entity-ROLE-EA" data-entity-id="ROLE-EA"><h2>企业架构师</h2><pre>{
+  &quot;id&quot;: &quot;ROLE-EA&quot;,
+  &quot;type&quot;: &quot;guide:architecture-role&quot;,
+  &quot;name&quot;: &quot;企业架构师&quot;,
+  &quot;attributes&quot;: {
+    &quot;tier&quot;: &quot;enterprise&quot;,
+    &quot;scope&quot;: &quot;跨订单、库存、物流分段；门店作为渠道与运营参与者&quot;,
+    &quot;primary_responsibility&quot;: &quot;跨域接口原则与协作边界&quot;,
+    &quot;definition&quot;: &quot;本次任务角色：跨分段互操作原则&quot;
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-MANDATE&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="entity-ROLE-SEG" data-entity-id="ROLE-SEG"><h2>库存分段架构师</h2><pre>{
+  &quot;id&quot;: &quot;ROLE-SEG&quot;,
+  &quot;type&quot;: &quot;guide:architecture-role&quot;,
+  &quot;name&quot;: &quot;库存分段架构师&quot;,
+  &quot;attributes&quot;: {
+    &quot;tier&quot;: &quot;segment&quot;,
+    &quot;scope&quot;: &quot;库存业务/数据&quot;,
+    &quot;primary_responsibility&quot;: &quot;库存状态和服务责任待决清单&quot;,
+    &quot;definition&quot;: &quot;本次任务角色：库存语义与运营条件&quot;
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-MANDATE&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="entity-ROLE-SOL" data-entity-id="ROLE-SOL"><h2>履约解决方案架构师</h2><pre>{
+  &quot;id&quot;: &quot;ROLE-SOL&quot;,
+  &quot;type&quot;: &quot;guide:architecture-role&quot;,
+  &quot;name&quot;: &quot;履约解决方案架构师&quot;,
+  &quot;attributes&quot;: {
+    &quot;tier&quot;: &quot;solution&quot;,
+    &quot;scope&quot;: &quot;库存预占与异步接口&quot;,
+    &quot;primary_responsibility&quot;: &quot;接口契约、失败恢复与验证场景&quot;,
+    &quot;definition&quot;: &quot;本次任务角色：预占接口候选比较&quot;
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-MANDATE&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section></article><article id="page-case%3Aarchitecture-task-1" style="break-before:page"><h2>case:architecture-task 分页</h2><section id="entity-TASK-CH" data-entity-id="TASK-CH"><h2>战略优先与业务承诺边界</h2><pre>{
+  &quot;id&quot;: &quot;TASK-CH&quot;,
+  &quot;type&quot;: &quot;case:architecture-task&quot;,
+  &quot;name&quot;: &quot;战略优先与业务承诺边界&quot;,
+  &quot;attributes&quot;: {
+    &quot;scope&quot;: &quot;战略优先与业务承诺边界&quot;,
+    &quot;decision&quot;: &quot;明确先试点还是扩大承诺范围；不代业务定义超卖容忍&quot;,
+    &quot;outcome&quot;: &quot;跨业务决策议程和未决项&quot;,
+    &quot;role_refs&quot;: [
+      &quot;ROLE-CHIEF&quot;
+    ],
+    &quot;requirement_refs&quot;: [
+      &quot;REQ-SKILL-CH&quot;
+    ],
+    &quot;required_skill_ids&quot;: [
+      &quot;G249:skill:business:strategic-planning&quot;
+    ],
+    &quot;workload_hours&quot;: null,
+    &quot;configuration_status&quot;: &quot;人员未配置；期间与容量待明确&quot;,
+    &quot;assignment_refs&quot;: [],
+    &quot;id&quot;: &quot;TASK-CH&quot;,
+    &quot;method_ids&quot;: [
+      &quot;architecture-backlog-trace-review&quot;
+    ],
+    &quot;artifact_ids&quot;: [
+      &quot;business-capability-map&quot;,
+      &quot;transition-architecture-model&quot;,
+      &quot;solution-delivery-notebook&quot;
+    ],
+    &quot;evidence&quot;: [
+      &quot;CASE-BASELINE&quot;,
+      &quot;CASE-REVIEW&quot;
+    ],
+    &quot;work_period&quot;: {
+      &quot;start&quot;: &quot;2026-11-09&quot;,
+      &quot;end&quot;: &quot;2026-11-20&quot;
+    },
+    &quot;model_object_refs&quot;: [
+      &quot;CAP-FULFIL&quot;,
+      &quot;CAP-ORDER&quot;,
+      &quot;CAP-RESERVE&quot;,
+      &quot;CAP-LOGISTICS&quot;,
+      &quot;TRANS-ONLINE&quot;,
+      &quot;RISK-STOCK&quot;,
+      &quot;ROLE-CHIEF&quot;,
+      &quot;SKILL-1&quot;,
+      &quot;SKILL-2&quot;,
+      &quot;SKILL-3&quot;,
+      &quot;SKILL-4&quot;,
+      &quot;DEV-A&quot;,
+      &quot;ORDER-PENDING&quot;,
+      &quot;ORDER-CONFIRMED&quot;,
+      &quot;ORDER-EXCEPTION&quot;,
+      &quot;ORDER-FULFIL&quot;,
+      &quot;DELIVERY-NOTE&quot;,
+      &quot;TASK-CH&quot;
+    ],
+    &quot;output_tailoring_reason&quot;: &quot;本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。&quot;
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-BASELINE&quot;,
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="entity-TASK-EA" data-entity-id="TASK-EA"><h2>跨分段互操作原则</h2><pre>{
+  &quot;id&quot;: &quot;TASK-EA&quot;,
+  &quot;type&quot;: &quot;case:architecture-task&quot;,
+  &quot;name&quot;: &quot;跨分段互操作原则&quot;,
+  &quot;attributes&quot;: {
+    &quot;scope&quot;: &quot;跨分段互操作原则&quot;,
+    &quot;decision&quot;: &quot;确定订单、库存、物流之间的责任和约束，并检查门店渠道影响&quot;,
+    &quot;outcome&quot;: &quot;跨域接口原则与协作边界&quot;,
+    &quot;role_refs&quot;: [
+      &quot;ROLE-EA&quot;
+    ],
+    &quot;requirement_refs&quot;: [
+      &quot;REQ-SKILL-EA&quot;
+    ],
+    &quot;required_skill_ids&quot;: [
+      &quot;G249:skill:architecture:generic-integration-and-interoperability&quot;
+    ],
+    &quot;workload_hours&quot;: null,
+    &quot;configuration_status&quot;: &quot;人员未配置；期间与容量待明确&quot;,
+    &quot;assignment_refs&quot;: [],
+    &quot;id&quot;: &quot;TASK-EA&quot;,
+    &quot;method_ids&quot;: [
+      &quot;domain-architecture-alignment-review&quot;
+    ],
+    &quot;artifact_ids&quot;: [
+      &quot;business-capability-map&quot;,
+      &quot;application-portfolio-catalog&quot;,
+      &quot;solution-delivery-notebook&quot;
+    ],
+    &quot;evidence&quot;: [
+      &quot;CASE-BASELINE&quot;,
+      &quot;CASE-REVIEW&quot;
+    ],
+    &quot;work_period&quot;: {
+      &quot;start&quot;: &quot;2026-11-09&quot;,
+      &quot;end&quot;: &quot;2026-11-20&quot;
+    },
+    &quot;model_object_refs&quot;: [
+      &quot;CAP-FULFIL&quot;,
+      &quot;CAP-ORDER&quot;,
+      &quot;CAP-RESERVE&quot;,
+      &quot;CAP-LOGISTICS&quot;,
+      &quot;APP-ORDER&quot;,
+      &quot;APP-STORE&quot;,
+      &quot;APP-STOCK&quot;,
+      &quot;IF-RESERVE&quot;,
+      &quot;IF-EVENT&quot;,
+      &quot;REQ-CONSISTENCY&quot;,
+      &quot;ROLE-EA&quot;,
+      &quot;SKILL-1&quot;,
+      &quot;SKILL-2&quot;,
+      &quot;SKILL-3&quot;,
+      &quot;SKILL-4&quot;,
+      &quot;DEV-A&quot;,
+      &quot;ORDER-PENDING&quot;,
+      &quot;ORDER-CONFIRMED&quot;,
+      &quot;ORDER-EXCEPTION&quot;,
+      &quot;ORDER-FULFIL&quot;,
+      &quot;DELIVERY-NOTE&quot;,
+      &quot;TASK-EA&quot;
+    ],
+    &quot;output_tailoring_reason&quot;: &quot;本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。&quot;
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-BASELINE&quot;,
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="entity-TASK-SEG" data-entity-id="TASK-SEG"><h2>库存语义与运营条件</h2><pre>{
+  &quot;id&quot;: &quot;TASK-SEG&quot;,
+  &quot;type&quot;: &quot;case:architecture-task&quot;,
+  &quot;name&quot;: &quot;库存语义与运营条件&quot;,
+  &quot;attributes&quot;: {
+    &quot;scope&quot;: &quot;库存语义与运营条件&quot;,
+    &quot;decision&quot;: &quot;业务一致性、受理/承诺和冲突处理规则未给出&quot;,
+    &quot;outcome&quot;: &quot;库存状态和服务责任待决清单&quot;,
+    &quot;role_refs&quot;: [
+      &quot;ROLE-SEG&quot;
+    ],
+    &quot;requirement_refs&quot;: [
+      &quot;REQ-SKILL-SEG&quot;
+    ],
+    &quot;required_skill_ids&quot;: [
+      &quot;G249:skill:data:operational-data&quot;
+    ],
+    &quot;workload_hours&quot;: null,
+    &quot;configuration_status&quot;: &quot;人员未配置；期间与容量待明确&quot;,
+    &quot;assignment_refs&quot;: [],
+    &quot;id&quot;: &quot;TASK-SEG&quot;,
+    &quot;method_ids&quot;: [
+      &quot;msa-data-distribution-conditions-method&quot;
+    ],
+    &quot;artifact_ids&quot;: [
+      &quot;requirements-catalog&quot;,
+      &quot;data-lifecycle-diagram&quot;,
+      &quot;solution-delivery-notebook&quot;
+    ],
+    &quot;evidence&quot;: [
+      &quot;CASE-BASELINE&quot;,
+      &quot;CASE-REVIEW&quot;
+    ],
+    &quot;work_period&quot;: {
+      &quot;start&quot;: &quot;2026-11-09&quot;,
+      &quot;end&quot;: &quot;2026-11-20&quot;
+    },
+    &quot;model_object_refs&quot;: [
+      &quot;CAP-FULFIL&quot;,
+      &quot;CAP-ORDER&quot;,
+      &quot;CAP-RESERVE&quot;,
+      &quot;CAP-LOGISTICS&quot;,
+      &quot;IF-RESERVE&quot;,
+      &quot;IF-EVENT&quot;,
+      &quot;REQ-CONSISTENCY&quot;,
+      &quot;RISK-STOCK&quot;,
+      &quot;ROLE-SEG&quot;,
+      &quot;SKILL-1&quot;,
+      &quot;SKILL-2&quot;,
+      &quot;SKILL-3&quot;,
+      &quot;SKILL-4&quot;,
+      &quot;DEV-A&quot;,
+      &quot;ORDER-PENDING&quot;,
+      &quot;ORDER-CONFIRMED&quot;,
+      &quot;ORDER-EXCEPTION&quot;,
+      &quot;ORDER-FULFIL&quot;,
+      &quot;DELIVERY-NOTE&quot;,
+      &quot;TASK-SEG&quot;
+    ],
+    &quot;output_tailoring_reason&quot;: &quot;本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。&quot;
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-BASELINE&quot;,
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="entity-TASK-SOL" data-entity-id="TASK-SOL"><h2>预占接口候选比较</h2><pre>{
+  &quot;id&quot;: &quot;TASK-SOL&quot;,
+  &quot;type&quot;: &quot;case:architecture-task&quot;,
+  &quot;name&quot;: &quot;预占接口候选比较&quot;,
+  &quot;attributes&quot;: {
+    &quot;scope&quot;: &quot;预占接口候选比较&quot;,
+    &quot;decision&quot;: &quot;比较同步预占和异步处理；缺一致性要求时不得定优&quot;,
+    &quot;outcome&quot;: &quot;接口契约、失败恢复与验证场景&quot;,
+    &quot;role_refs&quot;: [
+      &quot;ROLE-SOL&quot;
+    ],
+    &quot;requirement_refs&quot;: [
+      &quot;REQ-SKILL-SOL&quot;
+    ],
+    &quot;required_skill_ids&quot;: [
+      &quot;G249:skill:application:integration-and-interoperability&quot;,
+      &quot;G249:skill:application:optimistic-pessimistic-patterns&quot;
+    ],
+    &quot;workload_hours&quot;: null,
+    &quot;configuration_status&quot;: &quot;候选配置需补能力、容量与授权证据&quot;,
+    &quot;assignment_refs&quot;: [
+      &quot;ASSIGN-A&quot;
+    ],
+    &quot;id&quot;: &quot;TASK-SOL&quot;,
+    &quot;method_ids&quot;: [
+      &quot;msa-contract-consumer-evidence-method&quot;
+    ],
+    &quot;artifact_ids&quot;: [
+      &quot;application-communication-diagram&quot;,
+      &quot;transition-architecture-model&quot;,
+      &quot;risk-mitigation-plan&quot;,
+      &quot;solution-delivery-notebook&quot;
+    ],
+    &quot;evidence&quot;: [
+      &quot;CASE-BASELINE&quot;,
+      &quot;CASE-REVIEW&quot;
+    ],
+    &quot;work_period&quot;: {
+      &quot;start&quot;: &quot;2026-11-09&quot;,
+      &quot;end&quot;: &quot;2026-11-20&quot;
+    },
+    &quot;model_object_refs&quot;: [
+      &quot;APP-ORDER&quot;,
+      &quot;APP-STORE&quot;,
+      &quot;APP-STOCK&quot;,
+      &quot;IF-RESERVE&quot;,
+      &quot;IF-EVENT&quot;,
+      &quot;REQ-CONSISTENCY&quot;,
+      &quot;WP-ONLINE&quot;,
+      &quot;TRANS-ONLINE&quot;,
+      &quot;RISK-STOCK&quot;,
+      &quot;ROLE-SOL&quot;,
+      &quot;SKILL-1&quot;,
+      &quot;SKILL-2&quot;,
+      &quot;SKILL-3&quot;,
+      &quot;SKILL-4&quot;,
+      &quot;DEV-A&quot;,
+      &quot;ORDER-PENDING&quot;,
+      &quot;ORDER-CONFIRMED&quot;,
+      &quot;ORDER-EXCEPTION&quot;,
+      &quot;ORDER-FULFIL&quot;,
+      &quot;DELIVERY-NOTE&quot;,
+      &quot;TASK-SOL&quot;,
+      &quot;ASSIGN-A&quot;,
+      &quot;EVIDENCE-A&quot;,
+      &quot;EVIDENCE-EXPERT&quot;
+    ],
+    &quot;output_tailoring_reason&quot;: &quot;本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。&quot;
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-BASELINE&quot;,
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section></article><article id="page-case%3Aperson-assignment-1" style="break-before:page"><h2>case:person-assignment 分页</h2><section id="entity-ASSIGN-A" data-entity-id="ASSIGN-A"><h2>甲的候选履约架构任务配置</h2><pre>{
+  &quot;id&quot;: &quot;ASSIGN-A&quot;,
+  &quot;type&quot;: &quot;case:person-assignment&quot;,
+  &quot;name&quot;: &quot;甲的候选履约架构任务配置&quot;,
+  &quot;attributes&quot;: {
+    &quot;person_ref&quot;: &quot;PERSON-A&quot;,
+    &quot;role_ref&quot;: &quot;ROLE-SOL&quot;,
+    &quot;task_refs&quot;: [
+      &quot;TASK-SOL&quot;
+    ],
+    &quot;requirement_refs&quot;: [
+      &quot;REQ-SKILL-SOL&quot;
+    ],
+    &quot;assessment_refs&quot;: [
+      &quot;OBS-A&quot;
+    ],
+    &quot;authority&quot;: &quot;虚构方案负责人；仅提出候选配置&quot;,
+    &quot;valid_from&quot;: &quot;2026-11-07&quot;,
+    &quot;valid_until&quot;: &quot;2026-11-30&quot;,
+    &quot;available_hours&quot;: 40,
+    &quot;workload_hours&quot;: null,
+    &quot;capacity_state&quot;: &quot;unresolved&quot;,
+    &quot;competence_state&quot;: &quot;needs-evidence&quot;,
+    &quot;approval&quot;: &quot;not-granted&quot;,
+    &quot;support&quot;: {
+      &quot;provider&quot;: &quot;PERSON-EXPERT&quot;,
+      &quot;mode&quot;: &quot;共同评审异常场景及接口契约，不替代甲的能力证据&quot;,
+      &quot;requirement_refs&quot;: [
+        &quot;REQ-SKILL-SOL&quot;
+      ],
+      &quot;assessment_refs&quot;: [
+        &quot;OBS-EXPERT&quot;
+      ],
+      &quot;available_hours&quot;: 8,
+      &quot;evidence&quot;: [
+        &quot;CASE-EXPERT&quot;
+      ]
+    },
+    &quot;period_gap&quot;: &quot;本次工作量未知，不能认定容量充分&quot;,
+    &quot;id&quot;: &quot;ASSIGN-A&quot;,
+    &quot;mandate_ref&quot;: &quot;MANDATE-STOCK&quot;,
+    &quot;evidence&quot;: [
+      &quot;CASE-MANDATE&quot;,
+      &quot;CASE-PERSON&quot;
+    ],
+    &quot;review_state&quot;: &quot;needs-evidence&quot;,
+    &quot;period_state&quot;: &quot;covered-for-declared-task-periods&quot;
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-MANDATE&quot;,
+    &quot;CASE-PERSON&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section></article><article id="page-case%3Acompetence-evidence-1" style="break-before:page"><h2>case:competence-evidence 分页</h2><section id="entity-EVIDENCE-A" data-entity-id="EVIDENCE-A"><h2>甲的任务能力证据不足</h2><pre>{
+  &quot;id&quot;: &quot;EVIDENCE-A&quot;,
+  &quot;type&quot;: &quot;case:competence-evidence&quot;,
+  &quot;name&quot;: &quot;甲的任务能力证据不足&quot;,
+  &quot;attributes&quot;: {
+    &quot;person_ref&quot;: &quot;PERSON-A&quot;,
+    &quot;observation_ref&quot;: &quot;OBS-A&quot;,
+    &quot;state&quot;: &quot;evidence_insufficient&quot;,
+    &quot;current_proficiency&quot;: null,
+    &quot;observed_on&quot;: &quot;2026-11-05&quot;,
+    &quot;behavioral_evidence&quot;: [
+      {
+        &quot;criterion&quot;: &quot;独立完成异常接口设计并经评审&quot;,
+        &quot;demonstrated&quot;: false,
+        &quot;evidence&quot;: [
+          &quot;CASE-PERSON&quot;
+        ]
+      }
+    ],
+    &quot;note&quot;: &quot;甲曾独立画接口图，但没有异常场景评审。3级未获证实；没有2级所需行为证据，不能自动记2级。&quot;,
+    &quot;id&quot;: &quot;OBS-A&quot;,
+    &quot;skill_id&quot;: &quot;G249:skill:application:integration-and-interoperability&quot;,
+    &quot;assessment_kind&quot;: &quot;observed_assessment&quot;,
+    &quot;assessment_state&quot;: &quot;evidence_insufficient&quot;,
+    &quot;proficiency&quot;: null,
+    &quot;scale_id&quot;: &quot;G249-table5-1&quot;,
+    &quot;task_refs&quot;: [
+      &quot;TASK-SOL&quot;
+    ],
+    &quot;evidence&quot;: [
+      &quot;CASE-PERSON&quot;
+    ]
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-PERSON&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="entity-EVIDENCE-EXPERT" data-entity-id="EVIDENCE-EXPERT"><h2>专家支持证据未证实</h2><pre>{
+  &quot;id&quot;: &quot;EVIDENCE-EXPERT&quot;,
+  &quot;type&quot;: &quot;case:competence-evidence&quot;,
+  &quot;name&quot;: &quot;专家支持证据未证实&quot;,
+  &quot;attributes&quot;: {
+    &quot;person_ref&quot;: &quot;PERSON-EXPERT&quot;,
+    &quot;observation_ref&quot;: &quot;OBS-EXPERT&quot;,
+    &quot;state&quot;: &quot;evidence_insufficient&quot;,
+    &quot;current_proficiency&quot;: null,
+    &quot;observed_on&quot;: &quot;2026-11-06&quot;,
+    &quot;behavioral_evidence&quot;: [
+      {
+        &quot;criterion&quot;: &quot;独立完成异常接口设计并经评审&quot;,
+        &quot;demonstrated&quot;: true,
+        &quot;evidence&quot;: [
+          &quot;CASE-EXPERT&quot;
+        ]
+      }
+    ],
+    &quot;note&quot;: &quot;现有一项异常接口设计评审证据不足以认定广泛经验、实践与应用知识达到4级；保留实际行为，不自动降到3级，也不凭专家称谓认定能力。&quot;,
+    &quot;prior_claim&quot;: {
+      &quot;proficiency&quot;: 4,
+      &quot;status&quot;: &quot;not-substantiated-by-available-evidence&quot;,
+      &quot;source&quot;: &quot;只读旧教学输入中的等级声明&quot;
+    },
+    &quot;id&quot;: &quot;OBS-EXPERT&quot;,
+    &quot;skill_id&quot;: &quot;G249:skill:application:integration-and-interoperability&quot;,
+    &quot;assessment_kind&quot;: &quot;observed_assessment&quot;,
+    &quot;assessment_state&quot;: &quot;evidence_insufficient&quot;,
+    &quot;proficiency&quot;: null,
+    &quot;scale_id&quot;: &quot;G249-table5-1&quot;,
+    &quot;task_refs&quot;: [
+      &quot;TASK-SOL&quot;
+    ],
+    &quot;assessor&quot;: &quot;虚构专业评审人&quot;,
+    &quot;evidence&quot;: [
+      &quot;CASE-EXPERT&quot;
+    ]
+  },
+  &quot;evidence&quot;: [
+    &quot;CASE-EXPERT&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section></article><h2>关系明细</h2><section id="relationship-CONFIG-TASK-CH" data-relationship-id="CONFIG-TASK-CH"><h3>本次工作职责</h3><p><a href="#entity-ROLE-CHIEF">ROLE-CHIEF</a> → <a href="#entity-TASK-CH">TASK-CH</a></p><pre>{
+  &quot;id&quot;: &quot;CONFIG-TASK-CH&quot;,
+  &quot;type&quot;: &quot;traces_to&quot;,
+  &quot;source&quot;: &quot;ROLE-CHIEF&quot;,
+  &quot;target&quot;: &quot;TASK-CH&quot;,
+  &quot;label&quot;: &quot;本次工作职责&quot;,
+  &quot;attributes&quot;: {},
+  &quot;evidence&quot;: [
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="relationship-CONFIG-TASK-EA" data-relationship-id="CONFIG-TASK-EA"><h3>本次工作职责</h3><p><a href="#entity-ROLE-EA">ROLE-EA</a> → <a href="#entity-TASK-EA">TASK-EA</a></p><pre>{
+  &quot;id&quot;: &quot;CONFIG-TASK-EA&quot;,
+  &quot;type&quot;: &quot;traces_to&quot;,
+  &quot;source&quot;: &quot;ROLE-EA&quot;,
+  &quot;target&quot;: &quot;TASK-EA&quot;,
+  &quot;label&quot;: &quot;本次工作职责&quot;,
+  &quot;attributes&quot;: {},
+  &quot;evidence&quot;: [
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="relationship-CONFIG-TASK-SEG" data-relationship-id="CONFIG-TASK-SEG"><h3>本次工作职责</h3><p><a href="#entity-ROLE-SEG">ROLE-SEG</a> → <a href="#entity-TASK-SEG">TASK-SEG</a></p><pre>{
+  &quot;id&quot;: &quot;CONFIG-TASK-SEG&quot;,
+  &quot;type&quot;: &quot;traces_to&quot;,
+  &quot;source&quot;: &quot;ROLE-SEG&quot;,
+  &quot;target&quot;: &quot;TASK-SEG&quot;,
+  &quot;label&quot;: &quot;本次工作职责&quot;,
+  &quot;attributes&quot;: {},
+  &quot;evidence&quot;: [
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="relationship-CONFIG-TASK-SOL" data-relationship-id="CONFIG-TASK-SOL"><h3>本次工作职责</h3><p><a href="#entity-ROLE-SOL">ROLE-SOL</a> → <a href="#entity-TASK-SOL">TASK-SOL</a></p><pre>{
+  &quot;id&quot;: &quot;CONFIG-TASK-SOL&quot;,
+  &quot;type&quot;: &quot;traces_to&quot;,
+  &quot;source&quot;: &quot;ROLE-SOL&quot;,
+  &quot;target&quot;: &quot;TASK-SOL&quot;,
+  &quot;label&quot;: &quot;本次工作职责&quot;,
+  &quot;attributes&quot;: {},
+  &quot;evidence&quot;: [
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="relationship-CONFIG-ASSIGN-TASK" data-relationship-id="CONFIG-ASSIGN-TASK"><h3>候选承担；未批准</h3><p><a href="#entity-ASSIGN-A">ASSIGN-A</a> → <a href="#entity-TASK-SOL">TASK-SOL</a></p><pre>{
+  &quot;id&quot;: &quot;CONFIG-ASSIGN-TASK&quot;,
+  &quot;type&quot;: &quot;traces_to&quot;,
+  &quot;source&quot;: &quot;ASSIGN-A&quot;,
+  &quot;target&quot;: &quot;TASK-SOL&quot;,
+  &quot;label&quot;: &quot;候选承担；未批准&quot;,
+  &quot;attributes&quot;: {},
+  &quot;evidence&quot;: [
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="relationship-CONFIG-EVIDENCE-A" data-relationship-id="CONFIG-EVIDENCE-A"><h3>任职能力待举证</h3><p><a href="#entity-ASSIGN-A">ASSIGN-A</a> → <a href="#entity-EVIDENCE-A">EVIDENCE-A</a></p><pre>{
+  &quot;id&quot;: &quot;CONFIG-EVIDENCE-A&quot;,
+  &quot;type&quot;: &quot;traces_to&quot;,
+  &quot;source&quot;: &quot;ASSIGN-A&quot;,
+  &quot;target&quot;: &quot;EVIDENCE-A&quot;,
+  &quot;label&quot;: &quot;任职能力待举证&quot;,
+  &quot;attributes&quot;: {},
+  &quot;evidence&quot;: [
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section><section id="relationship-CONFIG-EVIDENCE-EXPERT" data-relationship-id="CONFIG-EVIDENCE-EXPERT"><h3>支持者证据待审</h3><p><a href="#entity-ASSIGN-A">ASSIGN-A</a> → <a href="#entity-EVIDENCE-EXPERT">EVIDENCE-EXPERT</a></p><pre>{
+  &quot;id&quot;: &quot;CONFIG-EVIDENCE-EXPERT&quot;,
+  &quot;type&quot;: &quot;traces_to&quot;,
+  &quot;source&quot;: &quot;ASSIGN-A&quot;,
+  &quot;target&quot;: &quot;EVIDENCE-EXPERT&quot;,
+  &quot;label&quot;: &quot;支持者证据待审&quot;,
+  &quot;attributes&quot;: {},
+  &quot;evidence&quot;: [
+    &quot;CASE-REVIEW&quot;
+  ],
+  &quot;certainty&quot;: &quot;assumed&quot;
+}</pre></section></body></html>

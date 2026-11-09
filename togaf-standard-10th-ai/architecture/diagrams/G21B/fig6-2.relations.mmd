@@ -1,0 +1,39 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Customer Data Acquisition Patterns"]
+  n1["Customer Data Distribution Patterns"]
+  n2["C-MDM System (Point of Truth)"]
+  n3["Direct Point of Truth Acquisition UI"]
+  n4["Point of Truth Service (no local storage, near-real time)"]
+  n5["Point of Truth Synchronization Service (local storage, near-real time)"]
+  n6["Batch Acquisition (local storage, batch)"]
+  n7["Direct Point of Truth Access UI (search and read)"]
+  n8["Point of Truth &quot;Search and Read&quot; Service (no local storage, near-real time)"]
+  n9["Point of Truth &quot;On Update Event&quot; Consumption (local storage, near-real time)"]
+  n10["Batch Consumption (local storage, batch)"]
+  n11["Point of Acquisition App"]
+  n12["Point of Consumption App"]
+  n13["Point of Acquisition App"]
+  n14["Point of Acquisition App"]
+  n15["本地客户数据存储图标"]
+  n16["Point of Acquisition App"]
+  n17["本地客户数据存储图标"]
+  n18["Point of Consumption App"]
+  n19["Point of Consumption App"]
+  n20["本地客户数据存储图标"]
+  n21["Point of Consumption App"]
+  n22["本地客户数据存储图标"]
+  n23["客户数据已采集标记"]
+  n24["客户数据已采集标记"]
+  n25["客户数据已采集标记"]
+  n26["客户数据已采集标记"]
+  n27["客户数据已分发标记"]
+  n28["客户数据已分发标记"]
+  n29["客户数据已分发标记"]
+  n30["客户数据已分发标记"]
+  n13 -->|"流动"| n2
+  n14 <-->|"流动"| n2
+  n16 -->|"流动"| n2
+  n2 -->|"流动"| n18
+  n2 -->|"流动"| n19
+  n2 -->|"流动"| n21

@@ -1,0 +1,635 @@
+{
+  "schema_version": "2.0",
+  "id": "G210/fig3-4",
+  "title": "跨开发协作",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      368
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "展示“跨开发协作”：业务开发也以敏捷方式进入冲刺，三条泳道（业务开发、企业架构、解决方案）在同一冲刺内并行工作，但成果隔一个冲刺逐级交接，形成 MVBD→MVA→MVP 的恰好及时链；虚线表示三者之间在同一冲刺内的协作、治理与支持。",
+    "reading_guide_zh": "三条泳道共用一条时间轴：最上“Agile Business Development”，中间“Agile Enterprise Architecture”，最下“Agile Solution Development”（三张叠放卡＝多个团队）。橙色竖条是每个冲刺末的 DORP，柱内自上而下排列三类交付标记：MVBD（上）、MVA（中）、MVP（下）。横向细箭头是同一泳道穿过 DORP 进入下一冲刺；斜向细箭头是跨泳道交接——本冲刺的业务成果进入下一冲刺的架构，架构成果进入下一冲刺的解决方案。青色竖直虚线双箭头是同一冲刺内的协作与治理。",
+    "key_points_zh": [
+      "三条泳道并行，但交接逐级晚一个冲刺：业务团队在冲刺 1 做 MVBD，EA 团队在冲刺 2 为该 MVBD 出 MVA，解决方案团队在冲刺 3 为该 MVA 出解决方案（中文稿 L372 / 英文 p28）。",
+      "每个 DORP 柱内可同时出现三类成果标记（MVBD、MVA、MVP），分别对应三条泳道在同一冲刺末的产出。",
+      "每列有三条竖直虚线双箭头：业务↔架构、架构↔解决方案、业务↔解决方案；比图 3-3 多了“业务直接对解决方案”那一条，说明业务开发也直接参与解决方案的讨论。",
+      "冲刺 1 的解决方案堆叠卡画成虚线边框，与图例“虚线成果＝可交付但并非必需”呼应：该成熟度下解决方案冲刺可以更晚才真正启动。",
+      "冲刺 0 只产出业务变革愿景定义与待办列表，柱内没有 MVBD/MVA/MVP。",
+      "序列开放（Sprint … / DORP n）；最后一根竖条柱内只剩 MVP。",
+      "横向线只在本泳道内传递，跨泳道一律走斜线并在中间 DORP 处折向，表示“在冲刺末的演示上交接”。"
+    ],
+    "hierarchy_zh": "三层泳道（业务开发 / 企业架构 / 解决方案开发）彼此并列，不是上下级；每条泳道内的方框是该角色在各冲刺的工作，三张叠放卡表示多个并行团队。DORP 竖条纵向贯穿三条泳道，柱内标记按泳道对齐（MVBD 在上、MVA 居中、MVP 在下）。",
+    "line_semantics_zh": "实线箭头一律自左向右。横向箭头＝同一泳道经过本冲刺的 DORP 进入下一冲刺；斜向箭头＝跨泳道移交，从上一泳道方框出发、穿过中间冲刺的 DORP 柱、落在下一冲刺下游泳道的方框上（因此同一 DORP 会同时收到“本泳道延续”和“上游泳道交接”两类线）。青色竖直虚线双箭头＝协作、敏捷治理与支持，双向，不代表先后或数据流。注意：冲刺 0 柱指向“敏捷业务开发”的那条短线，箭头画在柱一侧（起端箭头），按语义应读作“冲刺 0 的成果进入业务开发冲刺 1”。",
+    "misreadings_zh": [
+      "不要把三条泳道读成三个阶段：它们在同一冲刺内并行，只是成果交接晚一个冲刺。",
+      "不要以为每个冲刺都同时产出 MVBD/MVA/MVP：同一柱内的三类标记属于不同团队、不同层级的成果，通常只有部分出现。",
+      "不要把青色虚线双箭头当成数据流或依赖：它是协作与治理关系，双向且无先后。",
+      "冲刺 1 的解决方案卡是虚线边框，不代表“没有解决方案团队”，而表示该成果可交付但非必需。",
+      "不要把“业务→架构→解决方案”读成一次性的瀑布：图中每一层都在连续冲刺中滚动，交接是逐冲刺错位的。",
+      "中文稿当前引用的 figs/g210_fig3-4.svg 把三泳道改写成 MVBD→MVA→解决方案 三行方框，没有冲刺、DORP、MVP 与双向协作，不能据此理解本图。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "sprint_0",
+      "label_en": "Sprint 0",
+      "label_zh": "冲刺 0",
+      "type": "time",
+      "parent": null,
+      "order": 1,
+      "position": "第 1 根竖条左上方"
+    },
+    {
+      "id": "sprint_1",
+      "label_en": "Sprint 1",
+      "label_zh": "冲刺 1",
+      "type": "time",
+      "parent": null,
+      "order": 2,
+      "position": "第 2 根竖条左上方"
+    },
+    {
+      "id": "sprint_2",
+      "label_en": "Sprint 2",
+      "label_zh": "冲刺 2",
+      "type": "time",
+      "parent": null,
+      "order": 3,
+      "position": "第 3 根竖条左上方"
+    },
+    {
+      "id": "sprint_ellipsis",
+      "label_en": "Sprint ...",
+      "label_zh": "冲刺 …",
+      "type": "time",
+      "parent": null,
+      "order": 4,
+      "position": "第 4 根竖条左上方"
+    },
+    {
+      "id": "dorp_0",
+      "label_en": "DORP 0",
+      "label_zh": "DORP 0",
+      "type": "event",
+      "parent": null,
+      "order": 1,
+      "position": "第 1 根竖条",
+      "description_zh": "冲刺 0 的 DORP；柱内只有业务变革待办列表椭圆。"
+    },
+    {
+      "id": "dorp_1",
+      "label_en": "DORP 1",
+      "label_zh": "DORP 1",
+      "type": "event",
+      "parent": null,
+      "order": 2,
+      "position": "第 2 根竖条",
+      "description_zh": "柱内自上而下：MVBD、MVA、MVP。"
+    },
+    {
+      "id": "dorp_2",
+      "label_en": "DORP 2",
+      "label_zh": "DORP 2",
+      "type": "event",
+      "parent": null,
+      "order": 3,
+      "position": "第 3 根竖条",
+      "description_zh": "柱内自上而下：MVBD、MVA、MVP。"
+    },
+    {
+      "id": "dorp_n",
+      "label_en": "DORP n",
+      "label_zh": "DORP n",
+      "type": "event",
+      "parent": null,
+      "order": 4,
+      "position": "第 4 根竖条",
+      "description_zh": "柱内只有 MVP。"
+    },
+    {
+      "id": "bc_vision",
+      "label_en": "Business Change Vision Definition",
+      "label_zh": "业务变革愿景定义",
+      "type": "artifact",
+      "parent": null,
+      "position": "最左端方框",
+      "description_zh": "向三条泳道分别发出水平线与一上一下两条斜线。"
+    },
+    {
+      "id": "bc_backlog",
+      "label_en": "Business Change Backlog",
+      "label_zh": "业务变革待办列表",
+      "type": "artifact",
+      "parent": "dorp_0",
+      "position": "冲刺 0 竖条内的白色椭圆"
+    },
+    {
+      "id": "abd_1",
+      "label_en": "Agile Business Development",
+      "label_zh": "敏捷业务开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 1 列、上泳道方框"
+    },
+    {
+      "id": "abd_2",
+      "label_en": "Agile Business Development",
+      "label_zh": "敏捷业务开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 2 列、上泳道方框"
+    },
+    {
+      "id": "abd_ellipsis",
+      "label_en": "Agile Business Development",
+      "label_zh": "敏捷业务开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 … 列、上泳道方框"
+    },
+    {
+      "id": "ea_1",
+      "label_en": "Agile Enterprise Architecture",
+      "label_zh": "敏捷企业架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "冲刺 1 列、中泳道方框"
+    },
+    {
+      "id": "ea_2",
+      "label_en": "Agile Enterprise Architecture",
+      "label_zh": "敏捷企业架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "冲刺 2 列、中泳道方框"
+    },
+    {
+      "id": "ea_ellipsis",
+      "label_en": "Agile Enterprise Architecture",
+      "label_zh": "敏捷企业架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "冲刺 … 列、中泳道方框"
+    },
+    {
+      "id": "asd_1",
+      "label_en": "Agile Solution Development",
+      "label_zh": "敏捷解决方案开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 1 列、下泳道三张叠放卡（虚线边框）",
+      "description_zh": "该列解决方案卡以虚线绘制，对应图例“可交付但非必需”。"
+    },
+    {
+      "id": "asd_2",
+      "label_en": "Agile Solution Development",
+      "label_zh": "敏捷解决方案开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 2 列、下泳道三张叠放卡"
+    },
+    {
+      "id": "asd_ellipsis",
+      "label_en": "Agile Solution Development",
+      "label_zh": "敏捷解决方案开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 … 列、下泳道三张叠放卡"
+    },
+    {
+      "id": "mvbd_1",
+      "label_en": "MVBD",
+      "label_zh": "MVBD（最小可行业务开发）",
+      "type": "artifact",
+      "parent": "dorp_1",
+      "position": "DORP 1 柱内最上虚线圆"
+    },
+    {
+      "id": "mvbd_2",
+      "label_en": "MVBD",
+      "label_zh": "MVBD（最小可行业务开发）",
+      "type": "artifact",
+      "parent": "dorp_2",
+      "position": "DORP 2 柱内最上虚线圆"
+    },
+    {
+      "id": "mva_1",
+      "label_en": "MVA",
+      "label_zh": "MVA（最小可行架构）",
+      "type": "artifact",
+      "parent": "dorp_1",
+      "position": "DORP 1 柱内中部虚线圆"
+    },
+    {
+      "id": "mva_2",
+      "label_en": "MVA",
+      "label_zh": "MVA（最小可行架构）",
+      "type": "artifact",
+      "parent": "dorp_2",
+      "position": "DORP 2 柱内中部虚线圆"
+    },
+    {
+      "id": "mvp_1",
+      "label_en": "MVP",
+      "label_zh": "MVP（最小可行产品）",
+      "type": "artifact",
+      "parent": "dorp_1",
+      "position": "DORP 1 柱内最下白圆（外圈虚线）"
+    },
+    {
+      "id": "mvp_2",
+      "label_en": "MVP",
+      "label_zh": "MVP（最小可行产品）",
+      "type": "artifact",
+      "parent": "dorp_2",
+      "position": "DORP 2 柱内最下白圆（外圈虚线）"
+    },
+    {
+      "id": "mvp_n",
+      "label_en": "MVP",
+      "label_zh": "MVP（最小可行产品）",
+      "type": "artifact",
+      "parent": "dorp_n",
+      "position": "DORP n 柱内白圆（外圈虚线）"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_vision_d0",
+      "from": "bc_vision",
+      "to": "dorp_0",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "三条线：斜向上（业务泳道）、水平（架构泳道）、斜向下（解决方案泳道），全部汇入冲刺 0 柱"
+    },
+    {
+      "id": "r_d0_abd1",
+      "from": "dorp_0",
+      "to": "abd_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "短斜线；箭头画在柱一侧（起端箭头），方向按语义记为 柱→业务开发"
+    },
+    {
+      "id": "r_d0_ea1",
+      "from": "dorp_0",
+      "to": "ea_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d0_asd1",
+      "from": "dorp_0",
+      "to": "asd_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "由愿景框斜向下穿柱后进入解决方案卡"
+    },
+    {
+      "id": "r_abd1_d1",
+      "from": "abd_1",
+      "to": "dorp_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "水平线（业务成果）与斜向下线（向架构泳道交接）两条都止于 DORP 1"
+    },
+    {
+      "id": "r_d1_abd2",
+      "from": "dorp_1",
+      "to": "abd_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_ea1_d1",
+      "from": "ea_1",
+      "to": "dorp_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "水平线（架构成果）与斜向下线（向解决方案泳道交接）"
+    },
+    {
+      "id": "r_d1_ea2",
+      "from": "dorp_1",
+      "to": "ea_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_asd1_d1",
+      "from": "asd_1",
+      "to": "dorp_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d1_asd2",
+      "from": "dorp_1",
+      "to": "asd_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "两条短箭头（MVP 圆上方斜向、下方水平）进入同一组卡"
+    },
+    {
+      "id": "r_abd2_d2",
+      "from": "abd_2",
+      "to": "dorp_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d2_abd3",
+      "from": "dorp_2",
+      "to": "abd_ellipsis",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_ea2_d2",
+      "from": "ea_2",
+      "to": "dorp_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d2_ea3",
+      "from": "dorp_2",
+      "to": "ea_ellipsis",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_asd2_d2",
+      "from": "asd_2",
+      "to": "dorp_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d2_asd3",
+      "from": "dorp_2",
+      "to": "asd_ellipsis",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "两条短箭头进入同一组卡"
+    },
+    {
+      "id": "r_asd3_dn",
+      "from": "asd_ellipsis",
+      "to": "dorp_n",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "最后一组卡连到最后一根柱，柱内只有 MVP"
+    },
+    {
+      "id": "r_abd1_ea1",
+      "from": "abd_1",
+      "to": "ea_1",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔企业架构的协作与治理支持"
+    },
+    {
+      "id": "r_ea1_asd1",
+      "from": "ea_1",
+      "to": "asd_1",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "企业架构↔解决方案开发的协作与治理支持"
+    },
+    {
+      "id": "r_abd1_asd1",
+      "from": "abd_1",
+      "to": "asd_1",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔解决方案开发的直接协作（本图比图 3-3 多出的一条）"
+    },
+    {
+      "id": "r_abd2_ea2",
+      "from": "abd_2",
+      "to": "ea_2",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔企业架构"
+    },
+    {
+      "id": "r_ea2_asd2",
+      "from": "ea_2",
+      "to": "asd_2",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "企业架构↔解决方案开发"
+    },
+    {
+      "id": "r_abd2_asd2",
+      "from": "abd_2",
+      "to": "asd_2",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔解决方案开发"
+    },
+    {
+      "id": "r_abd3_ea3",
+      "from": "abd_ellipsis",
+      "to": "ea_ellipsis",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔企业架构"
+    },
+    {
+      "id": "r_ea3_asd3",
+      "from": "ea_ellipsis",
+      "to": "asd_ellipsis",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "企业架构↔解决方案开发"
+    },
+    {
+      "id": "r_abd3_asd3",
+      "from": "abd_ellipsis",
+      "to": "asd_ellipsis",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔解决方案开发"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_business",
+      "kind": "sequence",
+      "name_zh": "业务开发泳道",
+      "steps": [
+        "dorp_0",
+        "abd_1",
+        "dorp_1",
+        "abd_2",
+        "dorp_2",
+        "abd_ellipsis"
+      ]
+    },
+    {
+      "id": "f_ea",
+      "kind": "sequence",
+      "name_zh": "企业架构泳道",
+      "steps": [
+        "dorp_0",
+        "ea_1",
+        "dorp_1",
+        "ea_2",
+        "dorp_2",
+        "ea_ellipsis"
+      ]
+    },
+    {
+      "id": "f_solution",
+      "kind": "sequence",
+      "name_zh": "解决方案泳道",
+      "steps": [
+        "dorp_0",
+        "asd_1",
+        "dorp_1",
+        "asd_2",
+        "dorp_2",
+        "asd_ellipsis",
+        "dorp_n"
+      ]
+    },
+    {
+      "id": "f_handoff",
+      "kind": "sequence",
+      "name_zh": "恰好及时的三级交接（正文示例）",
+      "steps": [
+        "abd_1",
+        "ea_2",
+        "asd_ellipsis"
+      ],
+      "description_zh": "业务在冲刺 1 做 MVBD、架构在冲刺 2 出 MVA、解决方案在冲刺 3 交付，对应中文稿 L372 的例子。"
+    }
+  ],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "DORP = Demo, Outcome, Retrospective, Planning, & Releases",
+      "meaning_zh": "DORP＝演示、成果、回顾、规划与发布",
+      "explicit": true
+    },
+    {
+      "symbol": "MVA = Minimum Viable Architecture",
+      "meaning_zh": "MVA＝最小可行架构",
+      "explicit": true
+    },
+    {
+      "symbol": "MVBD = Minimum Viable Business Development",
+      "meaning_zh": "MVBD＝最小可行业务开发",
+      "explicit": true
+    },
+    {
+      "symbol": "MVP = Minimum Viable Product",
+      "meaning_zh": "MVP＝最小可行产品",
+      "explicit": true
+    },
+    {
+      "symbol": "Dashed outcomes mean they can be delivered but are not always necessary",
+      "meaning_zh": "虚线成果：可以交付，但并非总是必需",
+      "explicit": true
+    },
+    {
+      "symbol": "纵向橙色竖条 + 顶端 DORP 编号",
+      "meaning_zh": "一个冲刺的收口关口（DORP），纵向贯穿三条泳道",
+      "explicit": false
+    },
+    {
+      "symbol": "三张叠放卡片",
+      "meaning_zh": "同一冲刺内多个并行团队（解决方案团队）",
+      "explicit": false
+    },
+    {
+      "symbol": "青色竖直虚线双箭头",
+      "meaning_zh": "同一冲刺内泳道之间的协作、敏捷治理与支持",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "冲刺 0 柱到“Agile Business Development”的短箭头，箭头画在柱的一侧（起端箭头），与其余列方向相反；按语义记为“柱→业务开发”。",
+      "每条斜向交接线在穿过 DORP 柱时被柱体遮住，柱体两侧的线是否属同一条无法从像素上完全确认；解析按“同一折线穿过柱体”处理。",
+      "冲刺 1 的解决方案堆叠卡为虚线边框，其余列为实线；图中未注明原因，按图例“虚线成果＝可交付但非必需”理解，属推断。",
+      "每个 DORP 柱向右的两条短箭头（MVP 圆上/下）在原图中无文字说明，按“架构成果跨泳道移交 + 解决方案增量延续”处理。"
+    ],
+    "analyzed_from": [
+      "figctx.py G210/fig3-4 的 220 dpi 原图裁切（英文 PDF p27）、2x2 放大分块",
+      "英文 PDF p27–p28 正文与图题",
+      "中文稿 G210e_以敏捷冲刺应用TOGAF_ADM.md L344–L374",
+      "figs/g210_fig3-4.svg 源码（对比重绘版式与文字）",
+      "自绘 420 dpi 裁切与像素级连线/虚线位置核对（竖直虚线每列 3 条）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G210/fig3-4",
+    "asset": "figs/g210_fig3-4.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "09"
+  }
+}

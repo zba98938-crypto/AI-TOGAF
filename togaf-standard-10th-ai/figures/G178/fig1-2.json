@@ -1,0 +1,641 @@
+{
+  "schema_version": "1.0",
+  "id": "G178/fig1-2",
+  "status": "done",
+  "doc": {
+    "code": "G178",
+    "title_zh": "价值流",
+    "title_en": "Value Streams",
+    "zh_md": "G178e_价值流.md",
+    "en_pdf": "togaf-standard-10th/G178e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "1-2",
+    "title_en": "Value Stream Modeling Relationships",
+    "title_zh": "价值流建模关系",
+    "section_en": "1.4 Value Streams and their Relationship to Other Business Architecture Concepts",
+    "section_zh": "1.4 价值流与其他业务架构概念的关系",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        13
+      ],
+      "printed_page": 3,
+      "bboxes": [
+        [
+          61.1,
+          36.0,
+          550.9,
+          387.1
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        112
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g178_fig1-2.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "745cb03ebe95",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "节点不符：SVG 增加了原图没有的“组织单元”“业务模型”两个节点；原图只有 6 个概念（利益相关者、价值、价值流、价值阶段、能力、流程）——其中“价值阶段”被 SVG 写成“价值流阶段”",
+        "缺少原图的 4 条关系：Stakeholder participates in Value Stage（参与）、Stakeholder triggers Value Stream（触发）、Process operationalizes Capability（落实）、Value Stream creates Value（创造）",
+        "方向反了：原图为 Capability enables Value Stage（能力使能阶段），SVG 画成“价值流阶段 → 业务能力：支撑”；原图为 Process operationalizes Value Stage（流程落实阶段），SVG 画成“价值流阶段 → 业务流程：转化为”",
+        "SVG 新增了原图没有的关系：价值 → 价值流“由……实现”、能力 → 组织单元“由……承担”、价值流阶段 → 业务模型“落实”、价值流 → 业务模型（无标签）",
+        "原图用标签旁的实心三角表示“主语→宾语”的阅读方向，线条本身没有箭头；SVG 改成带箭头的有向线，且多处方向与原图语义相反"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "er_model",
+      "network"
+    ],
+    "notation": "非正式概念关系图（类似简化元模型）：矩形=概念，连线=关系，标签旁的实心三角指示阅读方向（主语→宾语）",
+    "concepts": [
+      "value_stream",
+      "business_capability",
+      "stakeholder_management",
+      "business_architecture",
+      "enterprise_metamodel"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "价值流建模的核心元模型：利益相关者触发价值流、参与价值阶段并接收价值；价值流由价值阶段组成并创造价值；能力使能阶段，流程落实阶段与能力。",
+    "purpose_zh": "说明价值流与其他基础业务架构概念（利益相关者、价值、能力、流程）之间的关系，为后文把价值流阶段映射到业务能力（如图 4-3）和业务流程提供概念依据。",
+    "reading_guide_zh": "每条连线都按“主语—动词—宾语”读：标签旁的实心三角指向宾语。例如“consists of ▲”位于价值阶段与价值流之间、三角朝上，读作“价值流由价值阶段组成”。线条本身没有箭头。图左侧的利益相关者通过三条线分别连到价值阶段、价值流和价值；右上方的流程与能力通过顶部的横线相连。",
+    "key_points_zh": [
+      "利益相关者在价值流中有三个角色：触发价值流（triggers）、参与其中的价值阶段（participates in）、接收最终价值（receives）。",
+      "价值流由一个或多个价值阶段组成（consists of），整体创造价值（creates）；正文说明价值流的价值是各阶段所交付增量价值项的汇总。",
+      "能力使能价值阶段（enables）：能力回答“做什么”，价值流回答“价值如何实现”，二者分离但通过“使能”关系联系起来。图 4-3 就是这条关系的实例。",
+      "流程有两条“落实（operationalizes）”关系：流程落实价值阶段，也落实能力。正文指出阶段到流程不是一对一，一个阶段可映射到一个或多个业务流程。",
+      "价值流采取由外而内（客户/最终用户）视角，流程更偏内部运营视角且粒度更细（中文稿 L116）。"
+    ],
+    "hierarchy_zh": "本图没有容器嵌套。唯一的“整体—部分”关系是价值流由价值阶段组成；其他都是同级概念之间的关联。纵向上，流程与能力位于最上层（实现与使能层），价值阶段、价值流、价值依次在下。",
+    "line_semantics_zh": "全部为细实线，没有箭头。方向只由标签旁的实心三角（▶▼▲）表示，三角指向关系的宾语（正文明确说明）。关系清单中的 from→to 即按该方向记录的主语→宾语。",
+    "misreadings_zh": [
+      "不要把标签旁的三角当作连线的箭头或数据流方向，它只表示读法。",
+      "“consists of ▲”的主语是下方的价值流，不是上方的价值阶段。",
+      "原图写的是“Value Stage（价值阶段）”，即价值流阶段；图中没有组织单元或业务模型（中文稿引用的重绘 SVG 加入了这两个节点）。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p12",
+        "summary_zh": "图 1-2 展示价值、价值流、价值阶段与其他基础业务架构概念之间的关系；例如利益相关者接收价值、价值流由一个或多个价值阶段组成；箭头方向表示“主语—动词—宾语”结构中关系的宾语。"
+      },
+      {
+        "source": "zh_md L114",
+        "summary_zh": "当组织把业务模式转化为运营模式时，价值流阶段可转化为业务流程，但这种映射不是一对一。"
+      },
+      {
+        "source": "zh_md L116",
+        "summary_zh": "价值流采取由外而内的视角，业务流程偏内部运营视角且粒度更细。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "BT",
+    "description_zh": "右列自下而上：价值 → 价值流 → 价值阶段 → 上方并列的流程与能力；左侧的利益相关者用三条横线连到右列三个框。"
+  },
+  "legend": [
+    {
+      "symbol": "矩形",
+      "meaning_zh": "业务架构概念",
+      "explicit": false
+    },
+    {
+      "symbol": "细实线 + 标签",
+      "meaning_zh": "两个概念之间的关系（标签即关系动词）",
+      "explicit": false
+    },
+    {
+      "symbol": "标签旁的实心三角 ▶▼▲",
+      "meaning_zh": "阅读方向：三角指向关系的宾语",
+      "explicit": true
+    }
+  ],
+  "elements": [
+    {
+      "id": "stakeholder",
+      "label_en": "Stakeholder",
+      "label_zh": "利益相关者",
+      "type": "stakeholder",
+      "position": "左侧中部"
+    },
+    {
+      "id": "value",
+      "label_en": "Value",
+      "label_zh": "价值",
+      "type": "goal",
+      "position": "右列底部"
+    },
+    {
+      "id": "value_stream",
+      "label_en": "Value Stream",
+      "label_zh": "价值流",
+      "type": "value_stream",
+      "position": "右列中部"
+    },
+    {
+      "id": "value_stage",
+      "label_en": "Value Stage",
+      "label_zh": "价值阶段（价值流阶段）",
+      "type": "value_stream_stage",
+      "position": "右列上部"
+    },
+    {
+      "id": "process",
+      "label_en": "Process",
+      "label_zh": "流程",
+      "type": "process",
+      "position": "顶部左"
+    },
+    {
+      "id": "capability",
+      "label_en": "Capability",
+      "label_zh": "能力",
+      "type": "capability",
+      "position": "顶部右"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "stakeholder",
+      "to": "value_stage",
+      "type": "assignment",
+      "label_en": "participates in",
+      "label_zh": "参与",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "stakeholder",
+      "to": "value_stream",
+      "type": "triggering",
+      "label_en": "triggers",
+      "label_zh": "触发",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "stakeholder",
+      "to": "value",
+      "type": "association",
+      "label_en": "receives",
+      "label_zh": "接收",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "value_stream",
+      "to": "value_stage",
+      "type": "composition",
+      "label_en": "consists of",
+      "label_zh": "由……组成",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "三角朝上指向价值阶段"
+    },
+    {
+      "from": "value_stream",
+      "to": "value",
+      "type": "produces",
+      "label_en": "creates",
+      "label_zh": "创造",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "capability",
+      "to": "value_stage",
+      "type": "serving",
+      "label_en": "enables",
+      "label_zh": "使能",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "process",
+      "to": "value_stage",
+      "type": "realization",
+      "label_en": "operationalizes",
+      "label_zh": "落实",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "process",
+      "to": "capability",
+      "type": "realization",
+      "label_en": "operationalizes",
+      "label_zh": "落实",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "顶部横线，三角朝右指向能力"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G178/fig4-2",
+      "relation": "generalizes",
+      "note_zh": "图 4-2 的招聘员工价值流是“价值流由价值阶段组成”的实例"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [],
+    "analyzed_from": [
+      "英文 PDF 第 13 页原图截图（220 dpi）",
+      "英文 PDF 第 12 页正文",
+      "中文稿 G178e_价值流.md 第 108–116 行",
+      "figs/g178_fig1-2.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G178e.pdf",
+    "pdf_sha256": "517130a041a8d956b2868dc39d570b84e2d80c64709e4c1368f9747388a3a026",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G178/fig1-2.json",
+    "interpretation_sha256": "236b4c5d7c1dfcc0f0fa03c12dee6c95471b676cf2c7394003e4bc52bc29a58f",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 13,
+        "text": "Figure 1-2: Value Stream Modeling Relationships",
+        "bbox_pdf_points": [
+          48.24,
+          391.768,
+          273.555,
+          405.334
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 13,
+      "printed_page": 3,
+      "bbox_pdf_points": [
+        61.1,
+        36.0,
+        550.9,
+        387.1
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G178/fig1-2-p0013.png",
+      "image_sha256": "8b26913017056805aa875bf02450a8e92445c77b718446657f5bf874a7fb195d",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "8b26913017056805aa875bf02450a8e92445c77b718446657f5bf874a7fb195d",
+          "status": "extracted-unverified",
+          "text": "operationalizes >\n© The Open Group\nProcess\nCapability\nWV enables\noperationalizes W\nparticipates in >\nValue Stage\nconsists of &\ntriggers >\nStakeholder\nValue Stream\ncreates W\nreceives >\nValue",
+          "words": [
+            {
+              "text": "operationalizes",
+              "confidence": 92.949509,
+              "bbox_pixels_xywh": [
+                589,
+                14,
+                180,
+                25
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 79.625465,
+              "bbox_pixels_xywh": [
+                787,
+                8,
+                23,
+                31
+              ]
+            },
+            {
+              "text": "©",
+              "confidence": 52.148277,
+              "bbox_pixels_xywh": [
+                863,
+                65,
+                7,
+                8
+              ]
+            },
+            {
+              "text": "The",
+              "confidence": 78.774078,
+              "bbox_pixels_xywh": [
+                873,
+                65,
+                17,
+                8
+              ]
+            },
+            {
+              "text": "Open",
+              "confidence": 96.870483,
+              "bbox_pixels_xywh": [
+                894,
+                65,
+                24,
+                9
+              ]
+            },
+            {
+              "text": "Group",
+              "confidence": 96.162582,
+              "bbox_pixels_xywh": [
+                922,
+                65,
+                28,
+                9
+              ]
+            },
+            {
+              "text": "Process",
+              "confidence": 96.355141,
+              "bbox_pixels_xywh": [
+                507,
+                130,
+                127,
+                26
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 95.552139,
+              "bbox_pixels_xywh": [
+                744,
+                129,
+                156,
+                34
+              ]
+            },
+            {
+              "text": "WV",
+              "confidence": 53.171585,
+              "bbox_pixels_xywh": [
+                837,
+                210,
+                29,
+                24
+              ]
+            },
+            {
+              "text": "enables",
+              "confidence": 93.837906,
+              "bbox_pixels_xywh": [
+                876,
+                213,
+                92,
+                19
+              ]
+            },
+            {
+              "text": "operationalizes",
+              "confidence": 91.072548,
+              "bbox_pixels_xywh": [
+                340,
+                213,
+                179,
+                25
+              ]
+            },
+            {
+              "text": "W",
+              "confidence": 92.553986,
+              "bbox_pixels_xywh": [
+                531,
+                210,
+                29,
+                24
+              ]
+            },
+            {
+              "text": "participates",
+              "confidence": 94.926781,
+              "bbox_pixels_xywh": [
+                285,
+                272,
+                136,
+                25
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 94.926781,
+              "bbox_pixels_xywh": [
+                431,
+                272,
+                18,
+                20
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 78.792015,
+              "bbox_pixels_xywh": [
+                461,
+                266,
+                24,
+                31
+              ]
+            },
+            {
+              "text": "Value",
+              "confidence": 96.551071,
+              "bbox_pixels_xywh": [
+                596,
+                298,
+                91,
+                27
+              ]
+            },
+            {
+              "text": "Stage",
+              "confidence": 96.225533,
+              "bbox_pixels_xywh": [
+                700,
+                298,
+                91,
+                34
+              ]
+            },
+            {
+              "text": "consists",
+              "confidence": 96.13105,
+              "bbox_pixels_xywh": [
+                517,
+                382,
+                96,
+                20
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 93.148422,
+              "bbox_pixels_xywh": [
+                622,
+                382,
+                23,
+                20
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 85.31189,
+              "bbox_pixels_xywh": [
+                654,
+                380,
+                31,
+                23
+              ]
+            },
+            {
+              "text": "triggers",
+              "confidence": 96.445847,
+              "bbox_pixels_xywh": [
+                361,
+                439,
+                88,
+                25
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 83.850037,
+              "bbox_pixels_xywh": [
+                461,
+                433,
+                24,
+                30
+              ]
+            },
+            {
+              "text": "Stakeholder",
+              "confidence": 96.682152,
+              "bbox_pixels_xywh": [
+                65,
+                468,
+                191,
+                27
+              ]
+            },
+            {
+              "text": "Value",
+              "confidence": 96.148262,
+              "bbox_pixels_xywh": [
+                585,
+                464,
+                91,
+                26
+              ]
+            },
+            {
+              "text": "Stream",
+              "confidence": 96.717987,
+              "bbox_pixels_xywh": [
+                689,
+                463,
+                112,
+                27
+              ]
+            },
+            {
+              "text": "creates",
+              "confidence": 92.477989,
+              "bbox_pixels_xywh": [
+                558,
+                553,
+                86,
+                19
+              ]
+            },
+            {
+              "text": "W",
+              "confidence": 92.234032,
+              "bbox_pixels_xywh": [
+                659,
+                550,
+                21,
+                24
+              ]
+            },
+            {
+              "text": "receives",
+              "confidence": 96.808235,
+              "bbox_pixels_xywh": [
+                352,
+                607,
+                97,
+                20
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 79.996147,
+              "bbox_pixels_xywh": [
+                461,
+                602,
+                24,
+                29
+              ]
+            },
+            {
+              "text": "Value",
+              "confidence": 96.752792,
+              "bbox_pixels_xywh": [
+                649,
+                629,
+                90,
+                27
+              ]
+            }
+          ],
+          "mean_word_confidence": 89.44,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,387 @@
+# G238/fig2-1 · BI 与分析能力——高层功能
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G238/fig2-1.md) · [JSON](../../architecture/diagrams/G238/fig2-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G238e.pdf`；SHA-256：`87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444`。
+
+## 原图 · PDF 第 13 页
+
+![英文原图](../assets/G238/fig2-1-p0013.png)
+
+PDF 坐标：`[48.2, 260.2, 563.8, 469.0]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+BI & Analytics Business Functions
+BI & Analytics Application Functions
+Aa
+Define the Strategy & Roadmaps
+Aa
+Aa
+A
+Data Storage
+Information Reporting &
+Aa
+A
+Dashboarding
+Provide Necessary Data
+Sources for BI & Analytics
+Design & Develop BI &
+Data Integration
+Purposes
+Analytics Value Chain
+Aa
+A
+Decision Support
+Data Processing
+Analysis & Visualization
+Protect Data & Ensure Compliance
+a
+Govern &
+Measure
+Define & Apply a Data Quality Framework
+a)
+A
+Data Access for Engineering & (-)
+Administration
+Data Management Use
+Leverage Metadata Management for BI & Analytics (A)
+Operate Platforms
+a
+Development
+Aa
+Communicate & Train
+Monitoring
+a)
+```
+
+## 概要（历史解释；局部修正见上）
+
+BI 与分析能力由 9 项高层业务功能与 9 项高层应用功能构成，分列左右两栏。
+
+## 目的（历史解释；局部修正见上）
+
+作为第 2 章的总览参考模型：先把 BI 与分析能力拆成业务侧与应用侧各 9 项高层功能，为 2.2/2.3 节的逐项定义提供索引，也为 4.2/4.3 节的详细功能模型提供上层框架。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+左栏黄色大容器是业务功能，右栏青色大容器是应用功能。容器内每个圆角框是一项功能，右上角的旗帜图标表示它是 ArchiMate 功能元素；同一容器内的框是并列关系，位置只反映版式分组（横贯整行的功能画在上/下，纵向长条画在侧边），不表示先后或调用。图中没有箭头。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 业务侧 9 项：定义战略与路线图、提供必要数据源、设计与开发价值链条、保护数据与确保合规、定义并应用数据质量框架、利用元数据管理、运营平台、治理与度量、沟通与培训。
+- 应用侧 9 项：数据集成、数据存储、数据处理、信息报表与仪表盘、决策支持分析与可视化、管理、面向工程与数据管理的数据访问、开发、监控。
+- 两侧的 9 项与表 2-1、表 2-2 的 9 行一一对应；正文对每一项给出定义，图本身不写定义。
+- 版式暗示两类横切功能：业务侧的 Govern & Measure 纵贯整列，应用侧的 Data Integration 纵贯左列；但原图没有箭头，不能据此断言它们“治理/集成”了其他功能。
+- 业务功能与应用功能是两套并列的参考清单，不是“业务调用应用”的映射图；正文只说能力建立在这两类参考功能之上。
+- 这是高层（宏观）视图：4.2 节把左侧展开为详细业务功能，4.3 节把右侧展开为详细应用功能。
+
+## 层级（历史解释；局部修正见上）
+
+三层：L0 为 BI & Analytics 能力（图中未单独画框，由两个容器整体表示）；L1 为业务功能域与应用功能域两个容器；L2 为 9+9 项功能。功能之间的进一步分解不在本图，见 4-2 与 4-3。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有任何连线或箭头。容器包住功能框表示“由……组成/归入该域”；同层功能并排只表示同属一个域，不表示依赖、顺序或数据流。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把左右两栏读成流程的先后（业务在前、应用在后）；两栏是同一能力的两个视角，阅读顺序没有语义。
+- 不要把 Govern & Measure 的纵向长条理解为它“治理”了左侧所有功能——原图只靠版式暗示横切，没有画治理关系。
+- 不要把左侧业务功能当成右侧应用功能的输入输出；图中没有业务→应用的箭头。
+- 右侧的 Administration、Development、Monitoring 是 BI 与分析平台自身的应用功能，不要误读为通用的 ITIL/DevOps 流程清单。
+- 中文稿引用的 figs/g238_fig2-1.svg 把应用侧压成一句文字、并给业务功能乱配颜色，不能替代原图。
+
+## 元素
+
+```json
+[
+  {
+    "id": "business_functions",
+    "label_en": "BI & Analytics Business Functions",
+    "label_zh": "BI 与分析业务功能",
+    "type": "function",
+    "parent": null,
+    "level": 1,
+    "position": "左栏大容器",
+    "description_zh": "业务功能域的容器，本身也是 ArchiMate 功能（右上角带功能图标）。"
+  },
+  {
+    "id": "application_functions",
+    "label_en": "BI & Analytics Application Functions",
+    "label_zh": "BI 与分析应用功能",
+    "type": "function",
+    "parent": null,
+    "level": 1,
+    "position": "右栏大容器",
+    "description_zh": "应用功能域的容器，本身也是 ArchiMate 功能（右上角带功能图标）。"
+  },
+  {
+    "id": "bf_strategy",
+    "label_en": "Define the Strategy & Roadmaps",
+    "label_zh": "定义战略与路线图",
+    "type": "function",
+    "parent": "business_functions",
+    "level": 2,
+    "order": 1,
+    "position": "业务容器第一行，横贯整宽"
+  },
+  {
+    "id": "bf_data_sources",
+    "label_en": "Provide Necessary Data Sources for BI & Analytics Purposes",
+    "label_zh": "为 BI 与分析提供必要数据源",
+    "type": "function",
+    "parent": "business_functions",
+    "level": 2,
+    "order": 2,
+    "position": "业务容器第二行左"
+  },
+  {
+    "id": "bf_value_chain",
+    "label_en": "Design & Develop BI & Analytics Value Chain",
+    "label_zh": "设计与开发 BI 与分析价值链条",
+    "type": "function",
+    "parent": "business_functions",
+    "level": 2,
+    "order": 3,
+    "position": "业务容器第二行右"
+  },
+  {
+    "id": "bf_protect",
+    "label_en": "Protect Data & Ensure Compliance",
+    "label_zh": "保护数据并确保合规",
+    "type": "function",
+    "parent": "business_functions",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "bf_quality",
+    "label_en": "Define & Apply a Data Quality Framework",
+    "label_zh": "定义并应用数据质量框架",
+    "type": "function",
+    "parent": "business_functions",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "bf_metadata",
+    "label_en": "Leverage Metadata Management for BI & Analytics",
+    "label_zh": "为 BI 与分析利用元数据管理",
+    "type": "function",
+    "parent": "business_functions",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "bf_operate",
+    "label_en": "Operate Platforms",
+    "label_zh": "运营平台",
+    "type": "function",
+    "parent": "business_functions",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "bf_communicate",
+    "label_en": "Communicate & Train",
+    "label_zh": "沟通与培训",
+    "type": "function",
+    "parent": "business_functions",
+    "level": 2,
+    "order": 8
+  },
+  {
+    "id": "bf_govern",
+    "label_en": "Govern & Measure",
+    "label_zh": "治理与度量",
+    "type": "function",
+    "parent": "business_functions",
+    "level": 2,
+    "order": 9,
+    "position": "业务容器右侧纵贯长条",
+    "description_zh": "纵向贯穿多行，版式上暗示横切其他业务功能。"
+  },
+  {
+    "id": "af_integration",
+    "label_en": "Data Integration",
+    "label_zh": "数据集成",
+    "type": "function",
+    "parent": "application_functions",
+    "level": 2,
+    "order": 1,
+    "position": "应用容器左侧纵贯长条"
+  },
+  {
+    "id": "af_storage",
+    "label_en": "Data Storage",
+    "label_zh": "数据存储",
+    "type": "function",
+    "parent": "application_functions",
+    "level": 2,
+    "order": 2,
+    "position": "应用容器中上左"
+  },
+  {
+    "id": "af_reporting",
+    "label_en": "Information Reporting & Dashboarding",
+    "label_zh": "信息报表与仪表盘",
+    "type": "function",
+    "parent": "application_functions",
+    "level": 2,
+    "order": 3,
+    "position": "应用容器中上右"
+  },
+  {
+    "id": "af_processing",
+    "label_en": "Data Processing",
+    "label_zh": "数据处理",
+    "type": "function",
+    "parent": "application_functions",
+    "level": 2,
+    "order": 4,
+    "position": "应用容器中下左"
+  },
+  {
+    "id": "af_decision_support",
+    "label_en": "Decision Support Analysis & Visualization",
+    "label_zh": "决策支持分析与可视化",
+    "type": "function",
+    "parent": "application_functions",
+    "level": 2,
+    "order": 5,
+    "position": "应用容器中下右"
+  },
+  {
+    "id": "af_administration",
+    "label_en": "Administration",
+    "label_zh": "管理",
+    "type": "function",
+    "parent": "application_functions",
+    "level": 2,
+    "order": 6,
+    "position": "应用容器下部左"
+  },
+  {
+    "id": "af_data_access",
+    "label_en": "Data Access for Engineering & Data Management Use",
+    "label_zh": "面向工程与数据管理的数据访问",
+    "type": "function",
+    "parent": "application_functions",
+    "level": 2,
+    "order": 7,
+    "position": "应用容器下部右"
+  },
+  {
+    "id": "af_development",
+    "label_en": "Development",
+    "label_zh": "开发",
+    "type": "function",
+    "parent": "application_functions",
+    "level": 2,
+    "order": 8,
+    "position": "应用容器倒数第二行，横贯整宽"
+  },
+  {
+    "id": "af_monitoring",
+    "label_en": "Monitoring",
+    "label_zh": "监控",
+    "type": "function",
+    "parent": "application_functions",
+    "level": 2,
+    "order": 9,
+    "position": "应用容器底行，横贯整宽"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "黄色容器",
+    "meaning_zh": "BI & Analytics 业务功能域",
+    "explicit": false
+  },
+  {
+    "symbol": "青色容器",
+    "meaning_zh": "BI & Analytics 应用功能域",
+    "explicit": false
+  },
+  {
+    "symbol": "圆角框 + 右上角旗帜图标",
+    "meaning_zh": "ArchiMate 功能元素（业务功能或应用功能）",
+    "explicit": false
+  },
+  {
+    "symbol": "容器内嵌套",
+    "meaning_zh": "该功能属于此功能域（组成关系）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "左右两个并排的大容器：左侧黄色业务功能容器，右侧青色应用功能容器。左侧第一行“定义战略与路线图”横贯整宽，第二行“提供必要数据源”与“设计与开发价值链条”并排，Govern & Measure 为右侧纵贯长条，其余 5 项横贯整行；右侧 Data Integration 为左侧纵贯长条，中间 2×2 为 Data Storage、Information Reporting & Dashboarding、Data Processing、Decision Support Analysis & Visualization，Administration 与 Data Access 并排一行，Development、Monitoring 横贯底部。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G238/fig4-2",
+    "relation": "overview_of",
+    "note_zh": "图 2-1 左栏 9 项业务功能在 4-2 中展开为 9 个功能组与 45 项子功能。"
+  },
+  {
+    "target": "G238/fig4-3",
+    "relation": "overview_of",
+    "note_zh": "图 2-1 右栏 9 项应用功能在 4-3 中展开为 9 个功能组与 52 项子功能。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "Govern & Measure 与 Data Integration 的纵向长条只是版式上的横切暗示，原图没有画出它们与其他功能的关系。",
+    "英文图题用 en dash（BI & Analytics Capability – High-Level Functions），中文稿标题为“BI 与分析能力——高层功能”。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 13 页图 2-1 截图与 2×2 放大分块",
+    "英文 PDF 第 13 页 2.1 节正文",
+    "中文稿 G238e_信息架构_商业智能与分析.md 第 118–154 行",
+    "figs/g238_fig2-1.svg 源码"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

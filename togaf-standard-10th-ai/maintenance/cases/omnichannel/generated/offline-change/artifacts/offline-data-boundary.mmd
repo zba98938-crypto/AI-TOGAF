@@ -1,0 +1,8 @@
+flowchart LR
+  %% Specialized notation is in the SVG; this source is the complete labelled relation projection.
+  %% entity-id: LOCAL-ORDER-RECORD
+  n0["门店本地待同步订单记录"]
+  %% entity-id: CENTRAL-ORDER-RECORD
+  n1["中央接收与承诺记录"]
+  %% relationship-id: RECONCILE-RECORDS
+  n0 -->|"按事件/订单标识逐笔对账；保留冲突与检查点"| n1

@@ -1,0 +1,1911 @@
+{
+  "schema_version": "1.0",
+  "id": "G242/fig1-2",
+  "status": "done",
+  "doc": {
+    "code": "G242",
+    "title_zh": "环境可持续的信息系统",
+    "title_en": "Environmentally Sustainable Information Systems",
+    "zh_md": "G242e_环境可持续的信息系统.md",
+    "en_pdf": "togaf-standard-10th/G242e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "1-2",
+    "title_en": "Causal Loop Diagram Representing the Dynamic of the ICT Sector [The Shift Project, from the Work Group Leveraging Vensim® Software]",
+    "title_zh": "表征 ICT 行业动态的因果回路图",
+    "section_en": "1.1 ICT Growth and Greenhouse Gas Emissions",
+    "section_zh": "1.1 ICT 增长与温室气体排放",
+    "attribution": "The Shift Project，Lean-ICT 工作组，使用 Vensim® 绘制（图题标注）",
+    "en_location": {
+      "pages": [
+        22
+      ],
+      "printed_page": 4,
+      "bboxes": [
+        [
+          74.0,
+          212.4,
+          538.0,
+          652.0
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        206
+      ],
+      "label_table_lines": [
+        210,
+        232
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g242_fig1-2_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "b0945423d62f",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.996（≥0.9 通常为同一图）",
+        "与英文 PDF 原图一致（自动缩略图相似度 0.996）",
+        "中文稿正文并未引用此 PNG，引用的是 figs/zh/g242_fig1-2_zh.svg"
+      ]
+    },
+    {
+      "path": "G242e_环境可持续的信息系统.md#L210-L232",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "d0529edbae29",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "11 个变量、R1/R2/B1 与图例各条的英文—中文对照均正确",
+        "未单列“Digital Margin”以外的图例细项，但已有条目无错译"
+      ]
+    },
+    {
+      "path": "figs/zh/g242_fig1-2_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "b521355174f1",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "关键连线被改：原图为“数字成本 → 基础设施（−）”，重绘图改成“数字成本 → 数字使用（−）”，于是 B1 回路从“基础设施↔数字成本”变成“基础设施→数字成本→数字使用→基础设施”，改变了平衡回路的构成",
+        "原图 11 个变量均为纯文字节点，重绘图改为圆角矩形；属版式改动，尚可接受",
+        "原图 3 个回路标记 R1/B1/R2 是带箭头的圆形符号，重绘图改为带圆圈的字母，含义保留",
+        "原图图例 6 行置底，重绘图译为中文并保留；R/B 说明一致",
+        "重绘图把“污染（CO2、废弃物……）；能源消耗、金属开采”拆成三行放在同一框内，语义未变",
+        "其余符号（成瘾性算法−、数字充足性−、能源与金属价格+、数字利润空间↔数字成本 双向+、R2 三条+）与原图一致"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "causal_loop",
+      "network"
+    ],
+    "notation": "系统动力学因果回路图（CLD，Vensim 绘制）：变量文字节点 + 实线箭头 + 箭头旁的 +/− 极性；R1/B1/R2 为带圆形箭头的回路标记",
+    "concepts": [
+      "sustainability",
+      "digital_enterprise",
+      "causal_loop",
+      "ghg_emissions"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "数字使用与基础设施互相强化（R1），成本平衡回路（B1）被性能提升削弱，导致 ICT 指数增长。",
+    "purpose_zh": "作者用系统动力学而不是线性因果来解释 ICT 增长与排放：数字使用和基础设施之间是增强型回路，本应起刹车作用的成本/性能平衡回路在 ICT 中被削弱，因此行业呈现指数级动态。它把“为什么数字化越多、排放越高”从直觉变成可追踪的变量结构，并为后文“必须设置约束、走充足性路线”提供理论依据。",
+    "reading_guide_zh": "先找到中部的 Digital Usages 与 Infrastructure 两个核心变量，沿箭头读 R1：使用增加 → 基础设施增加（+），基础设施增加又推动使用增加（+）。再看下方的 B1：基础设施增加 → 数字成本增加（+），数字成本增加 → 基础设施减少（−）。最后看右下 R2：数字利润空间 → 数字投资（+）→ 数字性能（+）→ 数字利润空间（+）。箭头旁的 + 表示同向变化、− 表示反向变化，与数值大小无关。",
+    "key_points_zh": [
+      "R1 是数字使用与基础设施之间的双向正反馈：用得多就建得多，建得多又被推广使用，形成自我加速。",
+      "B1 本应平衡 R1：基础设施越多成本越高（+），成本越高越抑制基础设施（−）；但数字性能提升会压低成本（数字性能 → 数字成本为 −），使刹车变弱。",
+      "R2 说明性能提升带来利润空间，利润再投资于性能，形成另一个增强回路，进一步强化当前不稳定的增长动态。",
+      "两类业务与数字使用之间都是双向正反馈：依赖化石能源的业务与再生生物圈的业务都会推动数字使用，数字使用也反过来扩大这两类业务。",
+      "污染节点是复合变量：CO2、废弃物、能源消耗、金属开采合一；依赖化石能源的业务与基础设施都增加污染（+），再生生物圈的业务减少污染（−）。",
+      "成瘾性算法与数字充足性都指向数字使用，原图均标为负号（−），即两者都抑制使用；这与“充足性减少使用”的直觉一致，但成瘾性算法标负与常识相反，按原图照录。",
+      "能源与金属价格上涨会推高数字成本（+），是外生的成本压力。",
+      "整体结论：增强回路未被有效平衡，产生指数动态；正文称生产与运行数字设备所需终端能源每年增长 6.2%。"
+    ],
+    "hierarchy_zh": "无层级，是一张由 11 个变量构成的因果网络；R1、B1、R2 只是回路标记，不是变量或容器。变量之间没有上下级，只有带极性的因果关系。",
+    "line_semantics_zh": "全部为蓝色实线箭头，箭头指向被影响变量；箭尾旁或箭头旁的 +/− 表示极性：+ 为同向（A 增则 B 增），− 为反向（A 增则 B 减）。R1/B1/R2 旁的圆形箭头只标识回路及其类型（R 增强、B 平衡），不表示额外因果。回路方向按“从变量出发沿箭头回到该变量”读取。",
+    "misreadings_zh": [
+      "+/− 是因果极性，不是“好坏”或数值正负；− 只表示反向变化。",
+      "R1、R2 是增强型回路、B1 是平衡型回路，字母不是变量名；不能把 R1 当作某个节点。",
+      "数字使用与两类业务之间各有两条独立箭头（一去一回），不是一条双向箭头，含义是互为强化。",
+      "原图中数字成本与数字利润空间之间两条箭头都标 +（成本↑→利润↑、利润↑→成本↑），按图照录；不要自行改成“成本↑→利润↓”。",
+      "中文稿当前引用的 figs/zh/g242_fig1-2_zh.svg 把“数字成本→基础设施”改成了“数字成本→数字使用”，B1 的构成与原图不同；理解原图时应以英文 PDF 为准。",
+      "图中的“污染”不是单一排放指标，而是 CO2、废弃物、能耗与金属开采的合并变量。",
+      "中文稿正文把 B1 解释为“成本越高，使用越少”，但原图的负号落在“数字成本 → 基础设施”上；图与正文措辞不完全一致，按图应读作成本抑制基础设施。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "ICT 增长与温室气体排放背后的动力复杂，系统思维可表征其结构；图 1-2 是在起作用的增强型反馈回路示意。"
+      },
+      {
+        "source": "zh_md L204",
+        "summary_zh": "图 1-2 展示了正在起作用的增强型反馈回路（reinforcing feedback loop）。"
+      },
+      {
+        "source": "zh_md L235",
+        "summary_zh": "中文稿逐条解释 R1：业务使用要求越多，部署的基础设施越多；基础设施越多，运营方推广使用，又进一步增加使用。"
+      },
+      {
+        "source": "zh_md L236",
+        "summary_zh": "R1 本应由 B1 平衡：基础设施越多成本越高、成本越高使用越少；但基础设施与数字服务的性能提升都会降低成本并使其有利可图。"
+      },
+      {
+        "source": "zh_md L237",
+        "summary_zh": "因此 R1 未被平衡，产生指数级动态，终端能源消费每年增长 6.2%。"
+      },
+      {
+        "source": "zh_md L238",
+        "summary_zh": "R2 表明性能提升为行业带来收入，使其能投资于性能改进，强化当前不稳定动态。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "自由布局的因果网络：Business 类变量在左上，Digital Usages 居中偏左，Infrastructure 居中偏右，Pollution 在右上；成本/利润/性能/投资构成右下回路群；图例位于底部。"
+  },
+  "legend": [
+    {
+      "symbol": "Causal linkage A->B",
+      "meaning_zh": "因果连接：A 的变化触发 B 的变化",
+      "explicit": true
+    },
+    {
+      "symbol": "+（positive）",
+      "meaning_zh": "正相关：A 增加导致 B 增加",
+      "explicit": true
+    },
+    {
+      "symbol": "−（negative）",
+      "meaning_zh": "负相关：A 增加导致 B 减少",
+      "explicit": true
+    },
+    {
+      "symbol": "« Feedback loop »",
+      "meaning_zh": "反馈回路：输出变量反过来影响输入变量",
+      "explicit": true
+    },
+    {
+      "symbol": "R（Reinforcing feedback loop）",
+      "meaning_zh": "增强型反馈回路：导致变量的指数动态",
+      "explicit": true
+    },
+    {
+      "symbol": "B（Balancing feedback loop）",
+      "meaning_zh": "平衡型反馈回路：导致平衡动态",
+      "explicit": true
+    }
+  ],
+  "elements": [
+    {
+      "id": "biz_fossil",
+      "label_en": "Business needing fossils energy & non renewable",
+      "label_zh": "依赖化石能源与非可再生能源的业务",
+      "type": "concept",
+      "parent": null,
+      "position": "上部偏左",
+      "description_zh": "以化石能源/不可再生资源为基础的业务类型变量。"
+    },
+    {
+      "id": "biz_biosphere",
+      "label_en": "Business regenerating biosphere",
+      "label_zh": "再生生物圈的业务",
+      "type": "concept",
+      "parent": null,
+      "position": "左上角",
+      "description_zh": "以再生生物圈方式运营的业务类型变量。"
+    },
+    {
+      "id": "digital_usages",
+      "label_en": "Digital Usages",
+      "label_zh": "数字使用",
+      "type": "concept",
+      "parent": null,
+      "position": "中部偏左，网络核心",
+      "description_zh": "核心变量；与基础设施构成 R1。"
+    },
+    {
+      "id": "infrastructure",
+      "label_en": "Infrastructure",
+      "label_zh": "基础设施",
+      "type": "concept",
+      "parent": null,
+      "position": "中部偏右",
+      "description_zh": "数字基础设施；与数字使用构成 R1，与数字成本构成 B1。"
+    },
+    {
+      "id": "pollution",
+      "label_en": "Pollution (CO2, waste...); energy consumption, metal mining",
+      "label_zh": "污染（CO2、废弃物……）；能源消耗、金属开采",
+      "type": "concept",
+      "parent": null,
+      "position": "右上部",
+      "description_zh": "复合环境影响变量。"
+    },
+    {
+      "id": "addictive_algorithm",
+      "label_en": "Addictive algorithm",
+      "label_zh": "成瘾性算法",
+      "type": "concept",
+      "parent": null,
+      "position": "左中部，数字使用下方",
+      "description_zh": "影响数字使用的设计因素；原图标 −。"
+    },
+    {
+      "id": "digital_sufficiency",
+      "label_en": "Digital Sufficiency",
+      "label_zh": "数字充足性",
+      "type": "concept",
+      "parent": null,
+      "position": "左下部，数字使用下方",
+      "description_zh": "节制/够用原则；原图标 −，抑制使用。"
+    },
+    {
+      "id": "price_energy_metals",
+      "label_en": "Price of energy & metals",
+      "label_zh": "能源与金属价格",
+      "type": "concept",
+      "parent": null,
+      "position": "左下",
+      "description_zh": "外生成本驱动。"
+    },
+    {
+      "id": "cost_digital",
+      "label_en": "Cost of Digital",
+      "label_zh": "数字成本",
+      "type": "concept",
+      "parent": null,
+      "position": "中下",
+      "description_zh": "数字服务/基础设施的成本；B1 的另一端。"
+    },
+    {
+      "id": "digital_margin",
+      "label_en": "Digital Margin",
+      "label_zh": "数字利润空间",
+      "type": "concept",
+      "parent": null,
+      "position": "下中",
+      "description_zh": "数字业务的利润空间；R2 的起点。"
+    },
+    {
+      "id": "digital_performance",
+      "label_en": "Digital Performance",
+      "label_zh": "数字性能",
+      "type": "concept",
+      "parent": null,
+      "position": "右下偏上",
+      "description_zh": "数字服务/设备性能；影响成本、利润与基础设施。"
+    },
+    {
+      "id": "digital_investments",
+      "label_en": "Digital Investments",
+      "label_zh": "数字投资",
+      "type": "concept",
+      "parent": null,
+      "position": "右下角",
+      "description_zh": "对数字性能的再投资。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r01",
+      "from": "biz_fossil",
+      "to": "digital_usages",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "依赖化石能源的业务越多，数字使用越多。"
+    },
+    {
+      "id": "r02",
+      "from": "digital_usages",
+      "to": "biz_fossil",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "数字使用扩大该类业务（箭尾在数字使用、箭头指向业务变量）。"
+    },
+    {
+      "id": "r03",
+      "from": "biz_biosphere",
+      "to": "digital_usages",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "再生生物圈的业务也推动数字使用。"
+    },
+    {
+      "id": "r04",
+      "from": "digital_usages",
+      "to": "biz_biosphere",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "数字使用反过来扩大再生生物圈业务。"
+    },
+    {
+      "id": "r05",
+      "from": "biz_fossil",
+      "to": "pollution",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "沿顶部大弧线指向污染，箭头旁标 +。"
+    },
+    {
+      "id": "r06",
+      "from": "biz_biosphere",
+      "to": "pollution",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "-",
+      "description_zh": "沿最上方长弧线指向污染，箭头旁标 −。"
+    },
+    {
+      "id": "r07",
+      "from": "addictive_algorithm",
+      "to": "digital_usages",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "-",
+      "description_zh": "原图箭头旁标 −（与直觉相反，按图照录）。"
+    },
+    {
+      "id": "r08",
+      "from": "digital_sufficiency",
+      "to": "digital_usages",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "-",
+      "description_zh": "数字充足性抑制数字使用。"
+    },
+    {
+      "id": "r09",
+      "from": "digital_usages",
+      "to": "infrastructure",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "R1 上半环：使用增加推动基础设施建设。"
+    },
+    {
+      "id": "r10",
+      "from": "infrastructure",
+      "to": "digital_usages",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "R1 下半环：基础设施增加又带动使用。"
+    },
+    {
+      "id": "r11",
+      "from": "infrastructure",
+      "to": "pollution",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "水平短箭头，箭头旁标 +。"
+    },
+    {
+      "id": "r12",
+      "from": "digital_usages",
+      "to": "cost_digital",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "使用越多，数字成本越高。"
+    },
+    {
+      "id": "r13",
+      "from": "infrastructure",
+      "to": "cost_digital",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "B1 上半环：基础设施越多成本越高。"
+    },
+    {
+      "id": "r14",
+      "from": "cost_digital",
+      "to": "infrastructure",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "-",
+      "description_zh": "B1 下半环：成本上升抑制基础设施。"
+    },
+    {
+      "id": "r15",
+      "from": "digital_performance",
+      "to": "infrastructure",
+      "type": "influence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": null,
+      "description_zh": "无极性标记的斜线，箭头指向基础设施；性能提升推动更多基础设施部署。"
+    },
+    {
+      "id": "r16",
+      "from": "digital_performance",
+      "to": "cost_digital",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "-",
+      "description_zh": "水平箭头向左，箭头旁标 −：性能提升降低成本。"
+    },
+    {
+      "id": "r17",
+      "from": "price_energy_metals",
+      "to": "cost_digital",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "能源与金属价格上涨推高数字成本。"
+    },
+    {
+      "id": "r18",
+      "from": "digital_margin",
+      "to": "cost_digital",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "左侧弯曲线，箭头在数字成本端，标 +。"
+    },
+    {
+      "id": "r19",
+      "from": "cost_digital",
+      "to": "digital_margin",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "右侧弯曲线，箭头在数字利润空间端，标 +。"
+    },
+    {
+      "id": "r20",
+      "from": "digital_performance",
+      "to": "digital_margin",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "长斜线，箭头指向利润空间。"
+    },
+    {
+      "id": "r21",
+      "from": "digital_margin",
+      "to": "digital_investments",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "R2：利润空间带来投资。"
+    },
+    {
+      "id": "r22",
+      "from": "digital_investments",
+      "to": "digital_performance",
+      "type": "causal",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "polarity": "+",
+      "description_zh": "R2：投资提升性能。"
+    }
+  ],
+  "flows": [
+    {
+      "id": "loop_r1",
+      "kind": "loop",
+      "name_zh": "R1 数字使用—基础设施增强回路",
+      "steps": [
+        "digital_usages",
+        "infrastructure"
+      ],
+      "loop_type": "reinforcing",
+      "description_zh": "数字使用 ↑ → 基础设施 ↑ → 数字使用 ↑。"
+    },
+    {
+      "id": "loop_b1",
+      "kind": "loop",
+      "name_zh": "B1 基础设施—数字成本平衡回路",
+      "steps": [
+        "infrastructure",
+        "cost_digital"
+      ],
+      "loop_type": "balancing",
+      "description_zh": "基础设施 ↑ → 数字成本 ↑ → 基础设施 ↓；性能提升压低成本后又削弱该刹车。"
+    },
+    {
+      "id": "loop_r2",
+      "kind": "loop",
+      "name_zh": "R2 利润—投资—性能增强回路",
+      "steps": [
+        "digital_margin",
+        "digital_investments",
+        "digital_performance"
+      ],
+      "loop_type": "reinforcing",
+      "description_zh": "利润空间 ↑ → 数字投资 ↑ → 数字性能 ↑ → 利润空间 ↑。"
+    }
+  ],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G242/fig1-1",
+      "relation": "follows",
+      "note_zh": "图 1-1 给出数据量增长的规模，本图解释其背后的回路动力"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "“Addictive algorithm → Digital Usages”在原图标为 −，与常识（成瘾性算法会增加使用）相反；放大核对了箭头旁符号，仍按图照录，可能为原图笔误。",
+      "“Digital Performance → Infrastructure”这条线没有极性标记，方向按箭头位置判为指向基础设施，含义需结合正文理解。",
+      "数字成本与数字利润空间之间的两条箭头都标 +；按图照录，但其中一条可能本意为 −。",
+      "顶部两条长弧线（两类业务→污染）在图中相互交叉，只能按端点与 +/− 符号配对，存在配对错误的可能。",
+      "原图分辨率有限，个别 +/− 与箭头归属靠放大判读。",
+      "正文对 B1 的文字解释（成本高→使用少）与原图连线（成本高→基础设施少）不完全对应，可能影响对 B1 的复述。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 22 页原图截图（1115×1057）与 4 个 2×2 放大分块",
+      "原图局部放大：数字使用簇、成本—利润、污染—性能、基础设施底部",
+      "英文 PDF 第 22 页正文",
+      "中文稿 G242e_环境可持续的信息系统.md 第 200–236 行",
+      "figs/zh/g242_fig1-2_zh.svg 源码",
+      "figs/g242_fig1-2_en.png（缩略图相似度核对）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G242e.pdf",
+    "pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G242/fig1-2.json",
+    "interpretation_sha256": "f00d68944c03d534f580df882b2a6f50a0b1867b0f8870aa53b3f93bc52eb37b",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 22,
+        "text": "Figure 1-2: Causal Loop Diagram Representing the Dynamic of the ICT Sector [The Shift Project, from the Work",
+        "bbox_pdf_points": [
+          48.24,
+          656.666,
+          559.907,
+          670.232
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 22,
+      "printed_page": 4,
+      "bbox_pdf_points": [
+        74.0,
+        212.4,
+        538.0,
+        652.0
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G242/fig1-2-p0022.png",
+      "image_sha256": "2604bf3d0945482e088a9f2e98ee0d3565ac382f8e6c393c71eedee562fa5f71",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "2604bf3d0945482e088a9f2e98ee0d3565ac382f8e6c393c71eedee562fa5f71",
+          "status": "extracted-unverified",
+          "text": "Business n¢\nfossils ene\n&\nnon renew:\nile\n+\nBusiness\nbiosphere\n+\n+\n+\nPollution (CO2,\nDigital Usages\nInfrastructure\n—— waste.) ;energy\nAddictive\nax\nalgorithm\nSufficiency\nDigital\nDigital\nPrice of energy & ae Cost of Digital\n3\nPerformance\nmetals\n+\n6. \\\nDigital Margin “—_____ 4\nDigital\nInvestments\nLegend\nCausal linkage A->B : change of element « A » triggers the change of « B »\n+ + (positive): increase of « A » triggers the increase of « B »\n+ = (negative): increase of « A » triggers the decrease of « B »\n« Feedback loop » output variables influence input ones\n+R: Reinforcing feedback loop: causes exponential dynamic in the evolution of variables\n+B: Balancing feedback loop: causes balancing dynamics",
+          "words": [
+            {
+              "text": "Business",
+              "confidence": 91.389183,
+              "bbox_pixels_xywh": [
+                257,
+                78,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "n¢",
+              "confidence": 87.235359,
+              "bbox_pixels_xywh": [
+                316,
+                81,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "fossils",
+              "confidence": 96.798119,
+              "bbox_pixels_xywh": [
+                259,
+                93,
+                42,
+                12
+              ]
+            },
+            {
+              "text": "ene",
+              "confidence": 83.074387,
+              "bbox_pixels_xywh": [
+                304,
+                96,
+                15,
+                9
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 91.772491,
+              "bbox_pixels_xywh": [
+                350,
+                94,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "non",
+              "confidence": 91.115128,
+              "bbox_pixels_xywh": [
+                264,
+                101,
+                20,
+                28
+              ]
+            },
+            {
+              "text": "renew:",
+              "confidence": 95.890396,
+              "bbox_pixels_xywh": [
+                290,
+                101,
+                40,
+                28
+              ]
+            },
+            {
+              "text": "ile",
+              "confidence": 27.865648,
+              "bbox_pixels_xywh": [
+                342,
+                109,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.533936,
+              "bbox_pixels_xywh": [
+                257,
+                138,
+                10,
+                8
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 94.685509,
+              "bbox_pixels_xywh": [
+                19,
+                214,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "biosphere",
+              "confidence": 91.712898,
+              "bbox_pixels_xywh": [
+                15,
+                244,
+                62,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.224327,
+              "bbox_pixels_xywh": [
+                290,
+                317,
+                9,
+                8
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.617378,
+              "bbox_pixels_xywh": [
+                628,
+                318,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.401375,
+              "bbox_pixels_xywh": [
+                760,
+                340,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "Pollution",
+              "confidence": 93.280289,
+              "bbox_pixels_xywh": [
+                807,
+                334,
+                59,
+                12
+              ]
+            },
+            {
+              "text": "(CO2,",
+              "confidence": 91.690857,
+              "bbox_pixels_xywh": [
+                870,
+                334,
+                38,
+                14
+              ]
+            },
+            {
+              "text": "Digital",
+              "confidence": 92.723915,
+              "bbox_pixels_xywh": [
+                260,
+                351,
+                43,
+                16
+              ]
+            },
+            {
+              "text": "Usages",
+              "confidence": 92.723915,
+              "bbox_pixels_xywh": [
+                307,
+                352,
+                45,
+                15
+              ]
+            },
+            {
+              "text": "Infrastructure",
+              "confidence": 95.037582,
+              "bbox_pixels_xywh": [
+                607,
+                352,
+                85,
+                12
+              ]
+            },
+            {
+              "text": "——",
+              "confidence": 73.06916,
+              "bbox_pixels_xywh": [
+                713,
+                353,
+                68,
+                11
+              ]
+            },
+            {
+              "text": "waste.)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                801,
+                350,
+                58,
+                16
+              ]
+            },
+            {
+              "text": ";energy",
+              "confidence": 26.592531,
+              "bbox_pixels_xywh": [
+                863,
+                353,
+                43,
+                12
+              ]
+            },
+            {
+              "text": "Addictive",
+              "confidence": 90.103622,
+              "bbox_pixels_xywh": [
+                121,
+                419,
+                59,
+                12
+              ]
+            },
+            {
+              "text": "ax",
+              "confidence": 15.181637,
+              "bbox_pixels_xywh": [
+                195,
+                370,
+                130,
+                68
+              ]
+            },
+            {
+              "text": "algorithm",
+              "confidence": 90.856262,
+              "bbox_pixels_xywh": [
+                120,
+                435,
+                60,
+                16
+              ]
+            },
+            {
+              "text": "Sufficiency",
+              "confidence": 95.077835,
+              "bbox_pixels_xywh": [
+                215,
+                462,
+                72,
+                12
+              ]
+            },
+            {
+              "text": "Digital",
+              "confidence": 95.818588,
+              "bbox_pixels_xywh": [
+                230,
+                447,
+                43,
+                15
+              ]
+            },
+            {
+              "text": "Digital",
+              "confidence": 94.191093,
+              "bbox_pixels_xywh": [
+                725,
+                541,
+                43,
+                15
+              ]
+            },
+            {
+              "text": "Price",
+              "confidence": 96.75724,
+              "bbox_pixels_xywh": [
+                237,
+                549,
+                34,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.932724,
+              "bbox_pixels_xywh": [
+                276,
+                548,
+                14,
+                12
+              ]
+            },
+            {
+              "text": "energy",
+              "confidence": 93.290535,
+              "bbox_pixels_xywh": [
+                293,
+                548,
+                56,
+                17
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.282982,
+              "bbox_pixels_xywh": [
+                341,
+                544,
+                12,
+                26
+              ]
+            },
+            {
+              "text": "ae",
+              "confidence": 48.628128,
+              "bbox_pixels_xywh": [
+                363,
+                534,
+                62,
+                36
+              ]
+            },
+            {
+              "text": "Cost",
+              "confidence": 92.971016,
+              "bbox_pixels_xywh": [
+                440,
+                544,
+                29,
+                26
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 92.830444,
+              "bbox_pixels_xywh": [
+                473,
+                547,
+                14,
+                13
+              ]
+            },
+            {
+              "text": "Digital",
+              "confidence": 92.830444,
+              "bbox_pixels_xywh": [
+                492,
+                534,
+                43,
+                35
+              ]
+            },
+            {
+              "text": "3",
+              "confidence": 62.459297,
+              "bbox_pixels_xywh": [
+                563,
+                569,
+                8,
+                2
+              ]
+            },
+            {
+              "text": "Performance",
+              "confidence": 90.403275,
+              "bbox_pixels_xywh": [
+                704,
+                556,
+                82,
+                12
+              ]
+            },
+            {
+              "text": "metals",
+              "confidence": 81.326599,
+              "bbox_pixels_xywh": [
+                274,
+                564,
+                41,
+                12
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.60955,
+              "bbox_pixels_xywh": [
+                442,
+                566,
+                9,
+                8
+              ]
+            },
+            {
+              "text": "6.",
+              "confidence": 32.045002,
+              "bbox_pixels_xywh": [
+                552,
+                548,
+                237,
+                117
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 66.768372,
+              "bbox_pixels_xywh": [
+                752,
+                544,
+                39,
+                153
+              ]
+            },
+            {
+              "text": "Digital",
+              "confidence": 94.551178,
+              "bbox_pixels_xywh": [
+                438,
+                658,
+                51,
+                34
+              ]
+            },
+            {
+              "text": "Margin",
+              "confidence": 85.792709,
+              "bbox_pixels_xywh": [
+                494,
+                658,
+                46,
+                34
+              ]
+            },
+            {
+              "text": "“—_____",
+              "confidence": 23.396267,
+              "bbox_pixels_xywh": [
+                551,
+                672,
+                190,
+                16
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 37.336658,
+              "bbox_pixels_xywh": [
+                707,
+                658,
+                37,
+                34
+              ]
+            },
+            {
+              "text": "Digital",
+              "confidence": 96.675522,
+              "bbox_pixels_xywh": [
+                775,
+                674,
+                43,
+                15
+              ]
+            },
+            {
+              "text": "Investments",
+              "confidence": 89.083923,
+              "bbox_pixels_xywh": [
+                758,
+                690,
+                74,
+                11
+              ]
+            },
+            {
+              "text": "Legend",
+              "confidence": 95.951126,
+              "bbox_pixels_xywh": [
+                181,
+                718,
+                46,
+                13
+              ]
+            },
+            {
+              "text": "Causal",
+              "confidence": 94.648933,
+              "bbox_pixels_xywh": [
+                181,
+                741,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "linkage",
+              "confidence": 93.305992,
+              "bbox_pixels_xywh": [
+                226,
+                741,
+                41,
+                13
+              ]
+            },
+            {
+              "text": "A->B",
+              "confidence": 65.609787,
+              "bbox_pixels_xywh": [
+                271,
+                741,
+                29,
+                10
+              ]
+            },
+            {
+              "text": ":",
+              "confidence": 92.170845,
+              "bbox_pixels_xywh": [
+                302,
+                732,
+                6,
+                29
+              ]
+            },
+            {
+              "text": "change",
+              "confidence": 94.044052,
+              "bbox_pixels_xywh": [
+                312,
+                741,
+                42,
+                13
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.461761,
+              "bbox_pixels_xywh": [
+                358,
+                741,
+                11,
+                10
+              ]
+            },
+            {
+              "text": "element",
+              "confidence": 87.322266,
+              "bbox_pixels_xywh": [
+                373,
+                741,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "«",
+              "confidence": 87.322266,
+              "bbox_pixels_xywh": [
+                424,
+                744,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 89.851929,
+              "bbox_pixels_xywh": [
+                434,
+                741,
+                9,
+                10
+              ]
+            },
+            {
+              "text": "»",
+              "confidence": 89.851929,
+              "bbox_pixels_xywh": [
+                447,
+                744,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "triggers",
+              "confidence": 90.922394,
+              "bbox_pixels_xywh": [
+                457,
+                742,
+                44,
+                12
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.572426,
+              "bbox_pixels_xywh": [
+                505,
+                741,
+                18,
+                10
+              ]
+            },
+            {
+              "text": "change",
+              "confidence": 96.349258,
+              "bbox_pixels_xywh": [
+                527,
+                741,
+                42,
+                13
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 93.21489,
+              "bbox_pixels_xywh": [
+                573,
+                741,
+                12,
+                10
+              ]
+            },
+            {
+              "text": "«",
+              "confidence": 92.859818,
+              "bbox_pixels_xywh": [
+                589,
+                744,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "B",
+              "confidence": 80.160332,
+              "bbox_pixels_xywh": [
+                600,
+                741,
+                7,
+                10
+              ]
+            },
+            {
+              "text": "»",
+              "confidence": 80.160332,
+              "bbox_pixels_xywh": [
+                612,
+                744,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 69.278046,
+              "bbox_pixels_xywh": [
+                181,
+                767,
+                4,
+                4
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 69.278046,
+              "bbox_pixels_xywh": [
+                198,
+                766,
+                6,
+                6
+              ]
+            },
+            {
+              "text": "(positive):",
+              "confidence": 78.573875,
+              "bbox_pixels_xywh": [
+                209,
+                764,
+                53,
+                13
+              ]
+            },
+            {
+              "text": "increase",
+              "confidence": 95.932793,
+              "bbox_pixels_xywh": [
+                269,
+                767,
+                49,
+                7
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 93.286133,
+              "bbox_pixels_xywh": [
+                322,
+                755,
+                10,
+                29
+              ]
+            },
+            {
+              "text": "«",
+              "confidence": 93.28376,
+              "bbox_pixels_xywh": [
+                338,
+                767,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 91.634811,
+              "bbox_pixels_xywh": [
+                348,
+                764,
+                9,
+                10
+              ]
+            },
+            {
+              "text": "»",
+              "confidence": 91.634811,
+              "bbox_pixels_xywh": [
+                361,
+                767,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "triggers",
+              "confidence": 83.483154,
+              "bbox_pixels_xywh": [
+                371,
+                765,
+                44,
+                12
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.920723,
+              "bbox_pixels_xywh": [
+                419,
+                764,
+                17,
+                10
+              ]
+            },
+            {
+              "text": "increase",
+              "confidence": 92.727943,
+              "bbox_pixels_xywh": [
+                441,
+                767,
+                49,
+                7
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 93.25428,
+              "bbox_pixels_xywh": [
+                494,
+                764,
+                11,
+                10
+              ]
+            },
+            {
+              "text": "«",
+              "confidence": 93.105324,
+              "bbox_pixels_xywh": [
+                509,
+                767,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "B",
+              "confidence": 52.917336,
+              "bbox_pixels_xywh": [
+                520,
+                764,
+                8,
+                10
+              ]
+            },
+            {
+              "text": "»",
+              "confidence": 52.917336,
+              "bbox_pixels_xywh": [
+                533,
+                767,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 63.472157,
+              "bbox_pixels_xywh": [
+                181,
+                790,
+                4,
+                4
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 61.020954,
+              "bbox_pixels_xywh": [
+                197,
+                793,
+                4,
+                1
+              ]
+            },
+            {
+              "text": "(negative):",
+              "confidence": 95.348732,
+              "bbox_pixels_xywh": [
+                206,
+                787,
+                57,
+                13
+              ]
+            },
+            {
+              "text": "increase",
+              "confidence": 96.633751,
+              "bbox_pixels_xywh": [
+                271,
+                790,
+                49,
+                7
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 93.290955,
+              "bbox_pixels_xywh": [
+                324,
+                787,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "«",
+              "confidence": 93.272194,
+              "bbox_pixels_xywh": [
+                341,
+                778,
+                6,
+                29
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 91.867279,
+              "bbox_pixels_xywh": [
+                350,
+                787,
+                8,
+                10
+              ]
+            },
+            {
+              "text": "»",
+              "confidence": 91.867279,
+              "bbox_pixels_xywh": [
+                363,
+                790,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "triggers",
+              "confidence": 75.404434,
+              "bbox_pixels_xywh": [
+                373,
+                788,
+                44,
+                12
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 95.042305,
+              "bbox_pixels_xywh": [
+                420,
+                787,
+                18,
+                10
+              ]
+            },
+            {
+              "text": "decrease",
+              "confidence": 96.906433,
+              "bbox_pixels_xywh": [
+                442,
+                787,
+                54,
+                10
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 93.256516,
+              "bbox_pixels_xywh": [
+                500,
+                787,
+                11,
+                10
+              ]
+            },
+            {
+              "text": "«",
+              "confidence": 91.02948,
+              "bbox_pixels_xywh": [
+                515,
+                790,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "B",
+              "confidence": 85.935196,
+              "bbox_pixels_xywh": [
+                526,
+                787,
+                8,
+                10
+              ]
+            },
+            {
+              "text": "»",
+              "confidence": 85.935196,
+              "bbox_pixels_xywh": [
+                539,
+                790,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "«",
+              "confidence": 22.790581,
+              "bbox_pixels_xywh": [
+                181,
+                813,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "Feedback",
+              "confidence": 91.793175,
+              "bbox_pixels_xywh": [
+                192,
+                810,
+                57,
+                10
+              ]
+            },
+            {
+              "text": "loop",
+              "confidence": 90.364868,
+              "bbox_pixels_xywh": [
+                254,
+                810,
+                24,
+                13
+              ]
+            },
+            {
+              "text": "»",
+              "confidence": 93.130531,
+              "bbox_pixels_xywh": [
+                283,
+                813,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "output",
+              "confidence": 96.831207,
+              "bbox_pixels_xywh": [
+                293,
+                811,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "variables",
+              "confidence": 94.708672,
+              "bbox_pixels_xywh": [
+                333,
+                810,
+                52,
+                10
+              ]
+            },
+            {
+              "text": "influence",
+              "confidence": 93.134155,
+              "bbox_pixels_xywh": [
+                390,
+                810,
+                51,
+                10
+              ]
+            },
+            {
+              "text": "input",
+              "confidence": 96.807884,
+              "bbox_pixels_xywh": [
+                446,
+                811,
+                28,
+                12
+              ]
+            },
+            {
+              "text": "ones",
+              "confidence": 94.403053,
+              "bbox_pixels_xywh": [
+                478,
+                813,
+                28,
+                7
+              ]
+            },
+            {
+              "text": "+R:",
+              "confidence": 24.849272,
+              "bbox_pixels_xywh": [
+                181,
+                833,
+                25,
+                10
+              ]
+            },
+            {
+              "text": "Reinforcing",
+              "confidence": 96.680931,
+              "bbox_pixels_xywh": [
+                218,
+                833,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "feedback",
+              "confidence": 82.689034,
+              "bbox_pixels_xywh": [
+                288,
+                833,
+                53,
+                10
+              ]
+            },
+            {
+              "text": "loop:",
+              "confidence": 85.566238,
+              "bbox_pixels_xywh": [
+                345,
+                833,
+                25,
+                13
+              ]
+            },
+            {
+              "text": "causes",
+              "confidence": 96.744087,
+              "bbox_pixels_xywh": [
+                377,
+                836,
+                41,
+                7
+              ]
+            },
+            {
+              "text": "exponential",
+              "confidence": 94.004265,
+              "bbox_pixels_xywh": [
+                423,
+                833,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "dynamic",
+              "confidence": 87.909988,
+              "bbox_pixels_xywh": [
+                493,
+                833,
+                49,
+                13
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 96.698654,
+              "bbox_pixels_xywh": [
+                547,
+                836,
+                9,
+                7
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.933708,
+              "bbox_pixels_xywh": [
+                560,
+                833,
+                18,
+                10
+              ]
+            },
+            {
+              "text": "evolution",
+              "confidence": 93.666092,
+              "bbox_pixels_xywh": [
+                582,
+                833,
+                52,
+                10
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 95.805893,
+              "bbox_pixels_xywh": [
+                638,
+                824,
+                11,
+                29
+              ]
+            },
+            {
+              "text": "variables",
+              "confidence": 64.764954,
+              "bbox_pixels_xywh": [
+                653,
+                833,
+                52,
+                10
+              ]
+            },
+            {
+              "text": "+B:",
+              "confidence": 55.370335,
+              "bbox_pixels_xywh": [
+                181,
+                856,
+                24,
+                10
+              ]
+            },
+            {
+              "text": "Balancing",
+              "confidence": 96.213127,
+              "bbox_pixels_xywh": [
+                217,
+                856,
+                57,
+                13
+              ]
+            },
+            {
+              "text": "feedback",
+              "confidence": 85.242989,
+              "bbox_pixels_xywh": [
+                278,
+                856,
+                54,
+                10
+              ]
+            },
+            {
+              "text": "loop:",
+              "confidence": 89.783653,
+              "bbox_pixels_xywh": [
+                336,
+                856,
+                24,
+                13
+              ]
+            },
+            {
+              "text": "causes",
+              "confidence": 95.747124,
+              "bbox_pixels_xywh": [
+                368,
+                859,
+                41,
+                7
+              ]
+            },
+            {
+              "text": "balancing",
+              "confidence": 96.75444,
+              "bbox_pixels_xywh": [
+                413,
+                856,
+                56,
+                13
+              ]
+            },
+            {
+              "text": "dynamics",
+              "confidence": 75.241501,
+              "bbox_pixels_xywh": [
+                473,
+                856,
+                55,
+                13
+              ]
+            }
+          ],
+          "mean_word_confidence": 83.93,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

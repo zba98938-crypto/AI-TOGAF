@@ -1,0 +1,3938 @@
+{
+  "schema_version": "2.1-addenda",
+  "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 所有表结构为源方法的项目操作化，独立业务评审/公开官方定义核验仍待完成。",
+  "work_products": [
+    {
+      "id": "implementation-factor-catalog",
+      "artifact_id": "implementation-factor-catalog",
+      "name": "实施因素目录",
+      "name_zh": "实施因素目录",
+      "name_en": "Implementation Factor Catalog",
+      "owner": "togaf-migration-roadmap",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G186 §7.4.1"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "哪些组织文化、转型能力和技能因素改变变革实施安排？",
+      "stakeholders": [
+        "架构工作发起人",
+        "项目经理/架构师",
+        "业务利益相关者与SME"
+      ],
+      "concerns": [
+        "哪些组织文化、转型能力和技能因素改变变革实施安排？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围、五维语境、所用目标与交付物版本",
+        "原始计划/访谈/验收/估算及来源ID",
+        "组织授权和容差规则；缺失时不代推"
+      ],
+      "optional_inputs": [
+        "历史项目及组织模板"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:implementation_factor"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "unit",
+        "change_attribute",
+        "observation",
+        "evidence_refs",
+        "effect",
+        "required_action",
+        "owner",
+        "timing",
+        "confidence",
+        "decision_record"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "实施因素",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "unit": {
+          "meaning": "业务单元/企业范围",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "change_attribute": {
+          "meaning": "文化、转型能力或技能等具体因素",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "observation": {
+          "meaning": "原始观察与当前情况",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "材料ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "effect": {
+          "meaning": "对方案/工作包/时点的实际影响",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "required_action": {
+          "meaning": "补强动作及其进入条件",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "owner": {
+          "meaning": "动作责任",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "timing": {
+          "meaning": "可用窗口与业务约束",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "confidence": {
+          "meaning": "依据局限，不使用无依据分数",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "decision_record": {
+          "meaning": "为何采纳此处理及谁仍需确认",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:implementation_factor": [
+          "unit",
+          "change_attribute",
+          "observation",
+          "evidence_refs",
+          "effect",
+          "required_action",
+          "owner",
+          "timing",
+          "confidence",
+          "decision_record"
+        ]
+      },
+      "relation_semantics": "跨记录ID明确表达前置、分组或引用；PM工作任务与TOGAF变革工作包保持不同身份。表格相邻不代表依赖。",
+      "analysis": [
+        "按业务单元与企业层收集转型属性",
+        "区分观察事实、解释和未知",
+        "将每个因素连接到具体实施工作或选择影响",
+        "记录处理动作、责任、窗口与决策理由",
+        "资源/文化变化后重新审视路线与风险"
+      ],
+      "analysis_steps": [
+        "按业务单元与企业层收集转型属性",
+        "区分观察事实、解释和未知",
+        "将每个因素连接到具体实施工作或选择影响",
+        "记录处理动作、责任、窗口与决策理由",
+        "资源/文化变化后重新审视路线与风险"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "只记录具体因素及影响，不默认文化可用分数衡量",
+        "访谈说有能力不等于已演练、可用容量或正式承诺"
+      ],
+      "checks": [
+        "只记录具体因素及影响，不默认文化可用分数衡量",
+        "访谈说有能力不等于已演练、可用容量或正式承诺"
+      ],
+      "misreadings": [
+        "只记录具体因素及影响，不默认文化可用分数衡量",
+        "访谈说有能力不等于已演练、可用容量或正式承诺"
+      ],
+      "related_deliverables": [
+        "implementation-migration-plan",
+        "capability-assessment"
+      ],
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-implementation-factor-catalog-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 factors",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#factors"
+          }
+        ],
+        "entities": [
+          {
+            "id": "implementation-factor-catalog-default-1",
+            "type": "guide:implementation_factor",
+            "name": "东仓专家容量与集成技能",
+            "attributes": {
+              "unit": "东仓",
+              "change_attribute": "转型容量/技能",
+              "observation": "2名专家各4小时/周；无事件集成经验",
+              "evidence_refs": [
+                "IF-01"
+              ],
+              "effect": "每周8专家小时上限；技术培训和外部集成支持是前置",
+              "required_action": "安排培训并验证集成演练，容量计划按8小时而非2FTE",
+              "owner": "东仓负责人/技术负责人",
+              "timing": "设计评审前",
+              "confidence": "访谈自述，尚无演练证据",
+              "decision_record": "候选约束，待资源负责人确认"
+            },
+            "evidence": [
+              "src-implementation-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "implementation-factor-catalog-default-2",
+            "type": "guide:implementation_factor",
+            "name": "西仓关账窗口",
+            "attributes": {
+              "unit": "西仓",
+              "change_attribute": "运营窗口",
+              "observation": "关账期间不可参与",
+              "evidence_refs": [
+                "IF-01"
+              ],
+              "effect": "不能将跨仓访谈排在关账期",
+              "required_action": "取得具体关账日历并调整依赖",
+              "owner": "西仓负责人",
+              "timing": "日期unknown",
+              "confidence": "日期未确定",
+              "decision_record": "阻断精确排程，不臆造日期"
+            },
+            "evidence": [
+              "src-implementation-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "implementation-factor-catalog-default-3",
+            "type": "guide:implementation_factor",
+            "name": "共享客户数据责任分歧",
+            "attributes": {
+              "unit": "企业数据团队",
+              "change_attribute": "组织文化/治理责任",
+              "observation": "尚不接受中央治理；目标要求跨仓单号唯一",
+              "evidence_refs": [
+                "IF-02"
+              ],
+              "effect": "不能凭技术方案认定变革可吸收",
+              "required_action": "安排授权利益相关者澄清责任与权衡，形成控制和培训",
+              "owner": "数据负责人/发起人",
+              "timing": "目标批准前",
+              "confidence": "分歧已记录、解决未证实",
+              "decision_record": "不以低成熟度标签替代具体障碍"
+            },
+            "evidence": [
+              "src-implementation-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-implementation-factor-catalog-default",
+          "artifact_id": "implementation-factor-catalog",
+          "profile_id": "implementation-factor-catalog-default",
+          "title": "实施因素决策档案",
+          "entity_ids": [
+            "implementation-factor-catalog-default-1",
+            "implementation-factor-catalog-default-2",
+            "implementation-factor-catalog-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "从IF-01/02提取容量、运营窗口、责任文化三项因素；8小时是原料数量相乘所得项目容量，不是TOGAF评分。未知日期阻断排程。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "factors"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/implementation-factor-catalog.md",
+      "modification_example": {
+        "change": "新增演练结果证明东仓已掌握集成",
+        "expected": "技能缺口可关闭，专家每周8小时容量不自动变多"
+      },
+      "counterexample": {
+        "input": "只写“成熟度低”无具体观察或证据",
+        "expected": "factor-evidence-gap"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "portfolio-theme-work-package-register",
+      "artifact_id": "portfolio-theme-work-package-register",
+      "name": "组合主题工作包分组",
+      "name_zh": "组合主题工作包分组",
+      "name_en": "Portfolio Theme Work Package Register",
+      "owner": "togaf-migration-roadmap",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G186 §8.2表8-2、§8.3–8.5"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "如何把工作包按主题排序并识别依赖、投资和资源？",
+      "stakeholders": [
+        "架构工作发起人",
+        "项目经理/架构师",
+        "业务利益相关者与SME"
+      ],
+      "concerns": [
+        "如何把工作包按主题排序并识别依赖、投资和资源？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围、五维语境、所用目标与交付物版本",
+        "原始计划/访谈/验收/估算及来源ID",
+        "组织授权和容差规则；缺失时不代推"
+      ],
+      "optional_inputs": [
+        "历史项目及组织模板"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:portfolio_assignment"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "theme",
+        "work_package_id",
+        "change_kind",
+        "continuation",
+        "required_work_packages",
+        "importance",
+        "impact_start",
+        "effort",
+        "investment",
+        "evidence_refs",
+        "allocation_note"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "分组记录",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "theme": {
+          "meaning": "组合主题及目标来源",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "work_package_id": {
+          "meaning": "TOGAF变革工作包稳定ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "change_kind": {
+          "meaning": "保持/改进/新差异化/新市场的项目分类",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "continuation": {
+          "meaning": "新工作或本财年续作",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "required_work_packages": {
+          "meaning": "前置工作包ID，方向本项依赖所列项",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "importance": {
+          "meaning": "继承战略重要性及依据，不发明权重",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "impact_start": {
+          "meaning": "影响预计开始时间而非全部任务完成期",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "effort": {
+          "meaning": "工作量/单位/估算依据",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "investment": {
+          "meaning": "金额/币种/估算范围",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "材料ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "allocation_note": {
+          "meaning": "多主题复用不重复计资，分组理由",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:portfolio_assignment": [
+          "theme",
+          "work_package_id",
+          "change_kind",
+          "continuation",
+          "required_work_packages",
+          "importance",
+          "impact_start",
+          "effort",
+          "investment",
+          "evidence_refs",
+          "allocation_note"
+        ]
+      },
+      "relation_semantics": "跨记录ID明确表达前置、分组或引用；PM工作任务与TOGAF变革工作包保持不同身份。表格相邻不代表依赖。",
+      "analysis": [
+        "从战略目标、当前路线和在建项目建立主题",
+        "按稳定工作包ID区分新/续作与保持/改进分类",
+        "记录战略重要性和前置依赖",
+        "收集同口径工作量/投资/影响时点并标未齐字段",
+        "检查循环、跨主题复用和资源争用后形成候选顺序"
+      ],
+      "analysis_steps": [
+        "从战略目标、当前路线和在建项目建立主题",
+        "按稳定工作包ID区分新/续作与保持/改进分类",
+        "记录战略重要性和前置依赖",
+        "收集同口径工作量/投资/影响时点并标未齐字段",
+        "检查循环、跨主题复用和资源争用后形成候选顺序"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "表8-2空格表示架构信息未完整，不用0替代",
+        "TOGAF变革工作包与PM的WBS叶任务不是同一概念",
+        "一个工作包不同时承担保持和改进分类；共享ID不重复预算"
+      ],
+      "checks": [
+        "表8-2空格表示架构信息未完整，不用0替代",
+        "TOGAF变革工作包与PM的WBS叶任务不是同一概念",
+        "一个工作包不同时承担保持和改进分类；共享ID不重复预算"
+      ],
+      "misreadings": [
+        "表8-2空格表示架构信息未完整，不用0替代",
+        "TOGAF变革工作包与PM的WBS叶任务不是同一概念",
+        "一个工作包不同时承担保持和改进分类；共享ID不重复预算"
+      ],
+      "related_deliverables": [
+        "architecture-roadmaps",
+        "implementation-migration-plan"
+      ],
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-portfolio-theme-work-package-register-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 themes",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#themes"
+          }
+        ],
+        "entities": [
+          {
+            "id": "portfolio-theme-work-package-register-default-1",
+            "type": "guide:portfolio_assignment",
+            "name": "单号唯一基础",
+            "attributes": {
+              "theme": "可靠交付",
+              "work_package_id": "WP-ID",
+              "change_kind": "improve",
+              "continuation": "new",
+              "required_work_packages": [],
+              "importance": "战略强制（TH-01）",
+              "impact_start": "2027-01",
+              "effort": {
+                "value": 20,
+                "unit": "person-day",
+                "basis": "TH-03项目估算"
+              },
+              "investment": {
+                "value": 100000,
+                "currency": "CNY",
+                "basis": "TH-03项目估算"
+              },
+              "evidence_refs": [
+                "TH-01",
+                "TH-03"
+              ],
+              "allocation_note": "共享基础只记一次资金，其他主题可引用"
+            },
+            "evidence": [
+              "src-portfolio-theme-work-package-register-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-theme-work-package-register-default-2",
+            "type": "guide:portfolio_assignment",
+            "name": "签收改进",
+            "attributes": {
+              "theme": "可靠交付",
+              "work_package_id": "WP-SIGN",
+              "change_kind": "improve",
+              "continuation": "continuation",
+              "required_work_packages": [
+                "WP-ID"
+              ],
+              "importance": "支撑签收目标（TH-02）",
+              "impact_start": "2027-03",
+              "effort": {
+                "value": 40,
+                "unit": "person-day",
+                "basis": "TH-03余工作估算"
+              },
+              "investment": {
+                "value": 200000,
+                "currency": "CNY",
+                "basis": "TH-03待重新确认"
+              },
+              "evidence_refs": [
+                "TH-02",
+                "TH-03"
+              ],
+              "allocation_note": "续作不自动获得优先投资；仍需依据目标价值"
+            },
+            "evidence": [
+              "src-portfolio-theme-work-package-register-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-theme-work-package-register-default-3",
+            "type": "guide:portfolio_assignment",
+            "name": "扫描设备维护",
+            "attributes": {
+              "theme": "运营优化",
+              "work_package_id": "WP-KEEP",
+              "change_kind": "keep",
+              "continuation": "new",
+              "required_work_packages": [],
+              "importance": "保持现有运营（TH-02）",
+              "impact_start": "2026-12",
+              "effort": {
+                "value": 5,
+                "unit": "person-day",
+                "basis": "TH-03"
+              },
+              "investment": {
+                "value": 20000,
+                "currency": "CNY",
+                "basis": "TH-03"
+              },
+              "evidence_refs": [
+                "TH-02",
+                "TH-03"
+              ],
+              "allocation_note": "保持现状包不承担签收改进，避免一包混合不同价值分类"
+            },
+            "evidence": [
+              "src-portfolio-theme-work-package-register-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-portfolio-theme-work-package-register-default",
+          "artifact_id": "portfolio-theme-work-package-register",
+          "profile_id": "portfolio-theme-work-package-register-default",
+          "title": "组合主题工作包分组",
+          "entity_ids": [
+            "portfolio-theme-work-package-register-default-1",
+            "portfolio-theme-work-package-register-default-2",
+            "portfolio-theme-work-package-register-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "依表8-2列主题、名称、所需工作包、重要性、影响时点、工作量及投资；WP-SIGN依赖WP-ID，维护独立保持类，全部估算明确项目来源。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "themes"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/portfolio-theme-work-package-register.md",
+      "modification_example": {
+        "change": "WP-SIGN新增等待数据责任批准的前置WP-GOV",
+        "expected": "新增前置记录，签收不能沿旧依赖序列启动"
+      },
+      "counterexample": {
+        "input": "WP-ID依赖WP-SIGN形成循环；或一包同时keep/improve",
+        "expected": "dependency-cycle或ambiguous-change-kind"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "portfolio-estimate-sufficiency-check",
+      "artifact_id": "portfolio-estimate-sufficiency-check",
+      "name": "组合估算充分性检查",
+      "name_zh": "组合估算充分性检查",
+      "name_en": "Portfolio Estimate Sufficiency Check",
+      "owner": "togaf-migration-roadmap",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G186 §8.4.2"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "继续细化是否仍有足够收益，预算决策是否已有充分依据？",
+      "stakeholders": [
+        "架构工作发起人",
+        "项目经理/架构师",
+        "业务利益相关者与SME"
+      ],
+      "concerns": [
+        "继续细化是否仍有足够收益，预算决策是否已有充分依据？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围、五维语境、所用目标与交付物版本",
+        "原始计划/访谈/验收/估算及来源ID",
+        "组织授权和容差规则；缺失时不代推"
+      ],
+      "optional_inputs": [
+        "历史项目及组织模板"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:estimate_check"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "sequence",
+        "question",
+        "finding",
+        "evidence_refs",
+        "rule",
+        "calculation",
+        "limitation",
+        "next_action"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "充分性检查项",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "sequence": {
+          "meaning": "来源十问顺序",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "question": {
+          "meaning": "检查问题",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "finding": {
+          "meaning": "事实/回答而非统一分数",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "材料ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "rule": {
+          "meaning": "源指南建议或项目规则的归属",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "calculation": {
+          "meaning": "如适用显示数据和计算过程",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "limitation": {
+          "meaning": "缺口/时效/不可比限制",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "next_action": {
+          "meaning": "继续调查或提交决策者的建议",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:estimate_check": [
+          "sequence",
+          "question",
+          "finding",
+          "evidence_refs",
+          "rule",
+          "calculation",
+          "limitation",
+          "next_action"
+        ]
+      },
+      "relation_semantics": "跨记录ID明确表达前置、分组或引用；PM工作任务与TOGAF变革工作包保持不同身份。表格相邻不代表依赖。",
+      "analysis": [
+        "逐项回答来源十问，保留第6问负向语义和第10问数量",
+        "比较各轮同范围估算与覆盖计数",
+        "只在项目明示公式/应急参数时计算第8/9信号",
+        "指出风险、时效和关键未知对建议的影响",
+        "给停止/继续调查的有据建议，不自动批准预算"
+      ],
+      "analysis_steps": [
+        "逐项回答来源十问，保留第6问负向语义和第10问数量",
+        "比较各轮同范围估算与覆盖计数",
+        "只在项目明示公式/应急参数时计算第8/9信号",
+        "指出风险、时效和关键未知对建议的影响",
+        "给停止/继续调查的有据建议，不自动批准预算"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "第6问“有无担忧”与其他问不是同方向，禁止全是即通过",
+        "第10问是数量，不能硬转是/否",
+        "8/9为该指南收益递减信号，项目缓冲和公式须明确来源",
+        "缺范围可比性或深度分母为零时保留未知"
+      ],
+      "checks": [
+        "第6问“有无担忧”与其他问不是同方向，禁止全是即通过",
+        "第10问是数量，不能硬转是/否",
+        "8/9为该指南收益递减信号，项目缓冲和公式须明确来源",
+        "缺范围可比性或深度分母为零时保留未知"
+      ],
+      "misreadings": [
+        "第6问“有无担忧”与其他问不是同方向，禁止全是即通过",
+        "第10问是数量，不能硬转是/否",
+        "8/9为该指南收益递减信号，项目缓冲和公式须明确来源",
+        "缺范围可比性或深度分母为零时保留未知"
+      ],
+      "related_deliverables": [
+        "implementation-migration-plan"
+      ],
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-portfolio-estimate-sufficiency-check-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 sufficiency",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#sufficiency"
+          }
+        ],
+        "entities": [
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-1",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q1",
+            "attributes": {
+              "sequence": 1,
+              "question": "每主题工作包按能力连续谱分类且不混保持/改进？",
+              "finding": "保持/改进已分离",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-2",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q2",
+            "attributes": {
+              "sequence": 2,
+              "question": "依赖与级联影响获决策者和实施者认可？",
+              "finding": "依赖已由虚构团队确认",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-3",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q3",
+            "attributes": {
+              "sequence": 3,
+              "question": "EA全景探索是否连续？",
+              "finding": "覆盖继续扩展",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-4",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q4",
+            "attributes": {
+              "sequence": 4,
+              "question": "风险缓解与控制是否加入组合？",
+              "finding": "风险控制已纳入",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-5",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q5",
+            "attributes": {
+              "sequence": 5,
+              "question": "各主题兼顾运营卓越与适用性？",
+              "finding": "两类目标均已考虑",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-6",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q6",
+            "attributes": {
+              "sequence": 6,
+              "question": "是否存在时效性担忧？",
+              "finding": "无已知担忧",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-7",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q7",
+            "attributes": {
+              "sequence": 7,
+              "question": "是否已有粗略估算与应急系数？",
+              "finding": "项目10%应急缓冲",
+              "evidence_refs": [
+                "ES-02",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-8",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q8",
+            "attributes": {
+              "sequence": 8,
+              "question": "覆盖广度增长/深度增长比是否递减？",
+              "finding": "是：2小于3",
+              "evidence_refs": [
+                "ES-02",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": {
+                "previous_breadth": 6,
+                "previous_depth": 2,
+                "current_breadth": 4,
+                "current_depth": 2,
+                "previous_ratio": 3,
+                "current_ratio": 2
+              },
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-9",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q9",
+            "attributes": {
+              "sequence": 9,
+              "question": "相邻迭代估算差异是否小于应急系数？",
+              "finding": "是：6%小于10%",
+              "evidence_refs": [
+                "ES-02",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": {
+                "previous_CNY": 1000000,
+                "current_CNY": 1060000,
+                "relative_change": 0.06,
+                "contingency": 0.1
+              },
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-10",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q10",
+            "attributes": {
+              "sequence": 10,
+              "question": "多少工作为一次性转型执行？",
+              "finding": "1项一次性；2项持续运营",
+              "evidence_refs": [
+                "ES-04",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-portfolio-estimate-sufficiency-check-default",
+          "artifact_id": "portfolio-estimate-sufficiency-check",
+          "profile_id": "portfolio-estimate-sufficiency-check-default",
+          "title": "组合估算充分性十问",
+          "entity_ids": [
+            "portfolio-estimate-sufficiency-check-default-1",
+            "portfolio-estimate-sufficiency-check-default-2",
+            "portfolio-estimate-sufficiency-check-default-3",
+            "portfolio-estimate-sufficiency-check-default-4",
+            "portfolio-estimate-sufficiency-check-default-5",
+            "portfolio-estimate-sufficiency-check-default-6",
+            "portfolio-estimate-sufficiency-check-default-7",
+            "portfolio-estimate-sufficiency-check-default-8",
+            "portfolio-estimate-sufficiency-check-default-9",
+            "portfolio-estimate-sufficiency-check-default-10"
+          ],
+          "relationship_ids": [],
+          "analysis": "覆盖比3降到2，估算变化6%小于项目10%缓冲，两项文献收益递减信号均达到；建议转预算决策，不将估算当承诺或权重评分。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "sufficiency"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/portfolio-estimate-sufficiency-check.md",
+      "modification_example": {
+        "change": "本轮估算106万改125万，覆盖比从2改4",
+        "expected": "估算变化25%超过缓冲、比值未下降；收益递减信号均未达到，继续针对高不确定项调查"
+      },
+      "counterexample": {
+        "input": "缺应急系数却生成10%默认值",
+        "expected": "missing-project-contingency"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-work-package-authorization",
+      "artifact_id": "project-work-package-authorization",
+      "name": "项目工作包授权记录",
+      "name_zh": "项目工作包授权记录",
+      "name_en": "Project Work Package Authorization",
+      "owner": "togaf-migration-roadmap",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G188 §2.3、§3.4.1–3.4.3"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "项目WBS工作能否开始，产品、前提和授权是否齐备？",
+      "stakeholders": [
+        "架构工作发起人",
+        "项目经理/架构师",
+        "业务利益相关者与SME"
+      ],
+      "concerns": [
+        "项目WBS工作能否开始，产品、前提和授权是否齐备？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围、五维语境、所用目标与交付物版本",
+        "原始计划/访谈/验收/估算及来源ID",
+        "组织授权和容差规则；缺失时不代推"
+      ],
+      "optional_inputs": [
+        "历史项目及组织模板"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:project_authorization"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "project_task_id",
+        "wbs_parent",
+        "work_package_kind",
+        "deliverable",
+        "preconditions",
+        "cost_time_tolerance",
+        "quality_configuration",
+        "reporting",
+        "authority",
+        "authorization",
+        "evidence_refs",
+        "next_action"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "授权事项",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "project_task_id": {
+          "meaning": "项目任务稳定ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "wbs_parent": {
+          "meaning": "WBS父项",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "work_package_kind": {
+          "meaning": "必须明确project-wbs-leaf，非TOGAF变革包",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "deliverable": {
+          "meaning": "应交付产品及范围",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "preconditions": {
+          "meaning": "前置产品验收与其他进入条件",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "cost_time_tolerance": {
+          "meaning": "成本/工期/容差及项目规则出处",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "quality_configuration": {
+          "meaning": "质量准则、版本/配置要求",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "reporting": {
+          "meaning": "检查点频率和信息分发",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "authority": {
+          "meaning": "谁有权授权以及授权范围",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "authorization": {
+          "meaning": "未授权/授权证据，不能从空闲推断",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "材料ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "next_action": {
+          "meaning": "允许开始或缺口处理",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:project_authorization": [
+          "project_task_id",
+          "wbs_parent",
+          "work_package_kind",
+          "deliverable",
+          "preconditions",
+          "cost_time_tolerance",
+          "quality_configuration",
+          "reporting",
+          "authority",
+          "authorization",
+          "evidence_refs",
+          "next_action"
+        ]
+      },
+      "relation_semantics": "跨记录ID明确表达前置、分组或引用；PM工作任务与TOGAF变革工作包保持不同身份。表格相邻不代表依赖。",
+      "analysis": [
+        "识别PM项目工作包及其WBS/产品范围",
+        "核实前置产品验收及所有进入条件",
+        "确认成本/工期/容差、质量配置及报告要求",
+        "取得权限范围内PM明确授权并留记录",
+        "完成并接受产品后才允许后续工作包重新走授权"
+      ],
+      "analysis_steps": [
+        "识别PM项目工作包及其WBS/产品范围",
+        "核实前置产品验收及所有进入条件",
+        "确认成本/工期/容差、质量配置及报告要求",
+        "取得权限范围内PM明确授权并留记录",
+        "完成并接受产品后才允许后续工作包重新走授权"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "依赖完成不等于已授权，团队空闲不等于允许开始",
+        "PM工作包与变革工作包分开建模",
+        "无授权记录不得转为已开始或已完成"
+      ],
+      "checks": [
+        "依赖完成不等于已授权，团队空闲不等于允许开始",
+        "PM工作包与变革工作包分开建模",
+        "无授权记录不得转为已开始或已完成"
+      ],
+      "misreadings": [
+        "依赖完成不等于已授权，团队空闲不等于允许开始",
+        "PM工作包与变革工作包分开建模",
+        "无授权记录不得转为已开始或已完成"
+      ],
+      "related_deliverables": [
+        "statement-of-work",
+        "implementation-migration-plan"
+      ],
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-work-package-authorization-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 authorization",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#authorization"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-work-package-authorization-default-1",
+            "type": "guide:project_authorization",
+            "name": "接口数据分析授权",
+            "attributes": {
+              "project_task_id": "PM-WP-DATA",
+              "wbs_parent": "WBS-RELATIONS",
+              "work_package_kind": "project-wbs-leaf",
+              "deliverable": "DEL-DATA：接口数据分析；依赖DEL-APPS-v2",
+              "preconditions": [
+                {
+                  "id": "DEL-APPS-v2",
+                  "accepted": false,
+                  "evidence": "AU-02待业务签字"
+                }
+              ],
+              "cost_time_tolerance": {
+                "duration": 3,
+                "duration_unit": "workday",
+                "effort": 40,
+                "effort_unit": "person-hour",
+                "cost": 8000,
+                "currency": "CNY",
+                "time_tolerance": 1,
+                "cost_tolerance": 1000,
+                "rule_status": "项目提案，待PM确认"
+              },
+              "quality_configuration": "应用关系与CRUD分开；存储库data-analysis-v1；验收引用AC-DATA",
+              "reporting": "每周检查点；异常向PM报告",
+              "authority": "项目经理；依据项目章程，范围待核实",
+              "authorization": "not-authorized",
+              "evidence_refs": [
+                "AU-01",
+                "AU-02",
+                "AU-03"
+              ],
+              "next_action": "前置产品未接受且无明确授权，不开始；先取得签字和PM授权"
+            },
+            "evidence": [
+              "src-project-work-package-authorization-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-work-package-authorization-default",
+          "artifact_id": "project-work-package-authorization",
+          "profile_id": "project-work-package-authorization-default",
+          "title": "项目工作包授权记录",
+          "entity_ids": [
+            "project-work-package-authorization-default-1"
+          ],
+          "relationship_ids": [],
+          "analysis": "AU-02前置交付物未获接受，也没有PM明确授权；团队空闲不能替代任一条件。成本/时间容差仍是提案。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "authorization"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/project-work-package-authorization.md",
+      "modification_example": {
+        "change": "DEL-APPS-v2已接受且PM确认规则并发授权",
+        "expected": "状态改为authorized-in-fixture，可在虚构案例开始；不授予真实人工作权限"
+      },
+      "counterexample": {
+        "input": "无授权却请求开始",
+        "expected": "authorization-not-ready"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-stage-closure-record",
+      "artifact_id": "project-stage-closure-record",
+      "name": "阶段边界与项目收尾记录",
+      "name_zh": "阶段边界与项目收尾记录",
+      "name_en": "Project Stage Closure Record",
+      "owner": "togaf-artifact-review",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G188 §3.5.1–3.6.3"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "是否继续、修改或终止阶段/项目，责任与成果是否可交接？",
+      "stakeholders": [
+        "架构工作发起人",
+        "项目经理/架构师",
+        "业务利益相关者与SME"
+      ],
+      "concerns": [
+        "是否继续、修改或终止阶段/项目，责任与成果是否可交接？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围、五维语境、所用目标与交付物版本",
+        "原始计划/访谈/验收/估算及来源ID",
+        "组织授权和容差规则；缺失时不代推"
+      ],
+      "optional_inputs": [
+        "历史项目及组织模板"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:closure_record"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "closure_kind",
+        "closure_reason",
+        "products",
+        "performance",
+        "risks_issues",
+        "handover",
+        "next_stage",
+        "authority",
+        "decision",
+        "evidence_refs",
+        "follow_up"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "收尾/边界记录",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "closure_kind": {
+          "meaning": "stage-boundary或project-closure",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "closure_reason": {
+          "meaning": "完成或提前终止及依据",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "products": {
+          "meaning": "产品验收状态与未完成处置",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "performance": {
+          "meaning": "计划/实际时间成本质量范围风险收益；不合并成单分",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "risks_issues": {
+          "meaning": "风险问题剩余责任和处置",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "handover": {
+          "meaning": "接收方与足以开展后续工作的条件",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "next_stage": {
+          "meaning": "下一阶段计划或不适用",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "authority": {
+          "meaning": "决定继续/变更/终止的监督机构",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "decision": {
+          "meaning": "建议与批准分开",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "材料ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "follow_up": {
+          "meaning": "所需补证、变更或资源释放条件",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:closure_record": [
+          "closure_kind",
+          "closure_reason",
+          "products",
+          "performance",
+          "risks_issues",
+          "handover",
+          "next_stage",
+          "authority",
+          "decision",
+          "evidence_refs",
+          "follow_up"
+        ]
+      },
+      "relation_semantics": "跨记录ID明确表达前置、分组或引用；PM工作任务与TOGAF变革工作包保持不同身份。表格相邻不代表依赖。",
+      "analysis": [
+        "区分阶段边界、成功完成和提前终止",
+        "核对所有产品状态及验收/撤销/移交去向",
+        "比较计划/实际并保留容差未知",
+        "提交剩余风险、项目影响与下一阶段或关闭建议",
+        "监督机构决定并记录正式接受，之后才能释放/重新授权资源"
+      ],
+      "analysis_steps": [
+        "区分阶段边界、成功完成和提前终止",
+        "核对所有产品状态及验收/撤销/移交去向",
+        "比较计划/实际并保留容差未知",
+        "提交剩余风险、项目影响与下一阶段或关闭建议",
+        "监督机构决定并记录正式接受，之后才能释放/重新授权资源"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "阶段产品验收、边界决策、下一阶段授权是不同事实",
+        "商业论证失效可以提前终止，不能假装全部产品成功交付",
+        "计划/实际偏差不自动证明超过未给出的容差"
+      ],
+      "checks": [
+        "阶段产品验收、边界决策、下一阶段授权是不同事实",
+        "商业论证失效可以提前终止，不能假装全部产品成功交付",
+        "计划/实际偏差不自动证明超过未给出的容差"
+      ],
+      "misreadings": [
+        "阶段产品验收、边界决策、下一阶段授权是不同事实",
+        "商业论证失效可以提前终止，不能假装全部产品成功交付",
+        "计划/实际偏差不自动证明超过未给出的容差"
+      ],
+      "related_deliverables": [
+        "statement-of-work",
+        "compliance-assessment"
+      ],
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-stage-closure-record-stage",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 stage-close",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#stage-close"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-stage-closure-record-stage-1",
+            "type": "guide:closure_record",
+            "name": "流程分析阶段",
+            "attributes": {
+              "closure_kind": "stage-boundary",
+              "closure_reason": "completed-proposed",
+              "products": [
+                {
+                  "id": "DEL-FLOW",
+                  "accepted": true
+                },
+                {
+                  "id": "DEL-DESC",
+                  "accepted": false
+                }
+              ],
+              "performance": {
+                "planned_days": 10,
+                "actual_days": 11,
+                "planned_hours": 60,
+                "actual_hours": 68,
+                "tolerances": "unknown"
+              },
+              "risks_issues": "新增门店增加后续工作；DEL-DESC未接受",
+              "handover": "流程图可供内部建模；说明表缺口未关闭",
+              "next_stage": "建模计划草拟，尚未批准",
+              "authority": "项目监督机构/发起人",
+              "decision": "pending",
+              "evidence_refs": [
+                "SC-01",
+                "SC-02"
+              ],
+              "follow_up": "修正说明表并取得接受；确认容差与下一阶段计划，不能自行宣布完成"
+            },
+            "evidence": [
+              "src-project-stage-closure-record-stage"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-stage-closure-record-stage",
+          "artifact_id": "project-stage-closure-record",
+          "profile_id": "project-stage-closure-record-stage",
+          "title": "阶段边界报告",
+          "entity_ids": [
+            "project-stage-closure-record-stage-1"
+          ],
+          "relationship_ids": [],
+          "analysis": "阶段实际比计划多1天8小时，但容差未知不能断言越权；未接受说明表阻断完成型收尾。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "stage-close"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/project-stage-closure-record.md",
+      "modification_example": {
+        "change": "说明表修订获接受并批准下一阶段；项目终止获发起人接受",
+        "expected": "阶段可关闭并另行授权下一阶段；项目按终止结案，保持未交付目标事实"
+      },
+      "counterexample": {
+        "input": "未接受产品且无终止理由就宣布completed",
+        "expected": "closure-products-not-accepted"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-learning-record",
+      "artifact_id": "project-learning-record",
+      "name": "项目经验记录与教训报告",
+      "name_zh": "项目经验记录与教训报告",
+      "name_en": "Project Learning Record",
+      "owner": "togaf-ea-capability",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G188 §3.1.3、§3.6.3示例3-37及注释2"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "哪些观察应成为后续项目和EA能力改进的输入？",
+      "stakeholders": [
+        "架构工作发起人",
+        "项目经理/架构师",
+        "业务利益相关者与SME"
+      ],
+      "concerns": [
+        "哪些观察应成为后续项目和EA能力改进的输入？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围、五维语境、所用目标与交付物版本",
+        "原始计划/访谈/验收/估算及来源ID",
+        "组织授权和容差规则；缺失时不代推"
+      ],
+      "optional_inputs": [
+        "历史项目及组织模板"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:project_learning"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "record_kind",
+        "expected",
+        "actual",
+        "difference",
+        "cause_hypothesis",
+        "evidence_refs",
+        "impact",
+        "recommendation",
+        "owner",
+        "verification",
+        "status",
+        "follow_up_reference"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "经验事项",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "record_kind": {
+          "meaning": "ongoing-log或final-lessons-report",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "expected": {
+          "meaning": "当初计划或假设",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "actual": {
+          "meaning": "实际观察",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "difference": {
+          "meaning": "具体差异，不把因果当事实",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "cause_hypothesis": {
+          "meaning": "已证实原因或待验证假设",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "材料ID/访谈/记录",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "impact": {
+          "meaning": "对项目的实际影响",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "recommendation": {
+          "meaning": "下一项目可执行改进",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "owner": {
+          "meaning": "负责采取改进的人",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "verification": {
+          "meaning": "如何验证建议有效",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "status": {
+          "meaning": "观察/原因待证/建议待试点等",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "follow_up_reference": {
+          "meaning": "能力变更请求或后续项目引用",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:project_learning": [
+          "record_kind",
+          "expected",
+          "actual",
+          "difference",
+          "cause_hypothesis",
+          "evidence_refs",
+          "impact",
+          "recommendation",
+          "owner",
+          "verification",
+          "status",
+          "follow_up_reference"
+        ]
+      },
+      "relation_semantics": "跨记录ID明确表达前置、分组或引用；PM工作任务与TOGAF变革工作包保持不同身份。表格相邻不代表依赖。",
+      "analysis": [
+        "持续日志从以往经验和本项目观察开始",
+        "AAR分别记录预期/实际/原因/改进",
+        "区别证据支持原因与待验证假设",
+        "收尾筛选关键教训并指定改进责任与验证",
+        "将可执行能力改进形成H变更请求并向后续项目传递"
+      ],
+      "analysis_steps": [
+        "持续日志从以往经验和本项目观察开始",
+        "AAR分别记录预期/实际/原因/改进",
+        "区别证据支持原因与待验证假设",
+        "收尾筛选关键教训并指定改进责任与验证",
+        "将可执行能力改进形成H变更请求并向后续项目传递"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "持续Lessons Log与最终Lessons Learned/Report不是同一个状态",
+        "参加复盘或提出建议不等于改进已验证",
+        "无原计划/实绩不能编造差异；未经验证原因不能写成确定事实"
+      ],
+      "checks": [
+        "持续Lessons Log与最终Lessons Learned/Report不是同一个状态",
+        "参加复盘或提出建议不等于改进已验证",
+        "无原计划/实绩不能编造差异；未经验证原因不能写成确定事实"
+      ],
+      "misreadings": [
+        "持续Lessons Log与最终Lessons Learned/Report不是同一个状态",
+        "参加复盘或提出建议不等于改进已验证",
+        "无原计划/实绩不能编造差异；未经验证原因不能写成确定事实"
+      ],
+      "related_deliverables": [
+        "change-request",
+        "architecture-repository"
+      ],
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-learning-record-log",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 lessons",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#lessons"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-learning-record-log-1",
+            "type": "guide:project_learning",
+            "name": "应用边界导致返工",
+            "attributes": {
+              "record_kind": "ongoing-log",
+              "expected": "10天确认应用清单",
+              "actual": "22天，3次返工",
+              "difference": "多12天",
+              "cause_hypothesis": "各部门应用边界不同；访谈尚未完成，因果待确认",
+              "evidence_refs": [
+                "LS-01"
+              ],
+              "impact": "增派两人追赶；具体额外工时尚未收集",
+              "recommendation": "启动时定义应用边界并用统一模板试填",
+              "owner": "架构方法负责人",
+              "verification": "下一项目记录确认用时与返工次数，保持范围可比",
+              "status": "observed; cause-pending; action-proposed",
+              "follow_up_reference": "CR-EA-TEMPLATE（候选）"
+            },
+            "evidence": [
+              "src-project-learning-record-log"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "project-learning-record-log-2",
+            "type": "guide:project_learning",
+            "name": "CFO成本关注缺失",
+            "attributes": {
+              "record_kind": "ongoing-log",
+              "expected": "阶段评审可支持成本决策",
+              "actual": "许可/维护成本未采集，补录延迟3天",
+              "difference": "关注点覆盖不足",
+              "cause_hypothesis": "初始视角只覆盖功能技术；LS-02可验证资料缺项，尚不推断个人动机",
+              "evidence_refs": [
+                "LS-02",
+                "LS-03"
+              ],
+              "impact": "CFO视图返工，决策延迟3天",
+              "recommendation": "需求确认时加入CFO并将许可/维护成本纳入选定视角",
+              "owner": "项目经理/财务代表",
+              "verification": "下一项目启动评审检查全部关注点信息覆盖",
+              "status": "ongoing-observation",
+              "follow_up_reference": "CR-EA-VIEWPOINT（候选）"
+            },
+            "evidence": [
+              "src-project-learning-record-log"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-learning-record-log",
+          "artifact_id": "project-learning-record",
+          "profile_id": "project-learning-record-log",
+          "title": "持续经验记录",
+          "entity_ids": [
+            "project-learning-record-log-1",
+            "project-learning-record-log-2"
+          ],
+          "relationship_ids": [],
+          "analysis": "按AAR比较预期、实际、差异原因和改进；日志连续保留事实，最终报告筛选可行动教训。建议尚未经过试点，不宣称已消除延期。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "lessons"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/project-learning-record.md",
+      "modification_example": {
+        "change": "下一项目采用模板后同范围清单确认8天、返工1次",
+        "expected": "记录试点结果和可比性，改进证据增强但不能由单例证明普遍因果"
+      },
+      "counterexample": {
+        "input": "仅写“沟通不好，要加强沟通”无预期实际和证据",
+        "expected": "learning-evidence-gap"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-deliverable-charter",
+      "artifact_id": "project-deliverable-charter",
+      "name": "交付物章程与验收流程",
+      "name_zh": "交付物章程与验收流程",
+      "name_en": "Project Deliverable Charter",
+      "owner": "togaf-artifact-review",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G188 §3.1.8示例3-14、§3.2.2–3.2.3、§3.5.1"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "交付物要交什么、如何核验、由谁接受？",
+      "stakeholders": [
+        "架构工作发起人",
+        "项目经理/架构师",
+        "业务利益相关者与SME"
+      ],
+      "concerns": [
+        "交付物要交什么、如何核验、由谁接受？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围、五维语境、所用目标与交付物版本",
+        "原始计划/访谈/验收/估算及来源ID",
+        "组织授权和容差规则；缺失时不代推"
+      ],
+      "optional_inputs": [
+        "历史项目及组织模板"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:deliverable_charter"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "deliverable_id",
+        "scope",
+        "exclusions",
+        "required_inputs",
+        "acceptance_criteria",
+        "acceptance_process",
+        "decision_roles",
+        "review_observations",
+        "status",
+        "evidence_refs",
+        "next_action"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "交付物章程名称",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "deliverable_id": {
+          "meaning": "交付物稳定ID与版本",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "scope": {
+          "meaning": "内容与范围",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "exclusions": {
+          "meaning": "明确排除",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "required_inputs": {
+          "meaning": "输入及其版本/就绪情况",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "acceptance_criteria": {
+          "meaning": "可检验条件与既有单项验收准则ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "acceptance_process": {
+          "meaning": "按组织规则的移交/评审/修订/终审流程",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "decision_roles": {
+          "meaning": "评审/修订/最终接受角色分开",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "review_observations": {
+          "meaning": "实际评审发现与证据",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "status": {
+          "meaning": "候选/评审/接受/拒绝；生成不等于接受",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "材料ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "next_action": {
+          "meaning": "补缺或下一验收动作",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:deliverable_charter": [
+          "deliverable_id",
+          "scope",
+          "exclusions",
+          "required_inputs",
+          "acceptance_criteria",
+          "acceptance_process",
+          "decision_roles",
+          "review_observations",
+          "status",
+          "evidence_refs",
+          "next_action"
+        ]
+      },
+      "relation_semantics": "跨记录ID明确表达前置、分组或引用；PM工作任务与TOGAF变革工作包保持不同身份。表格相邻不代表依赖。",
+      "analysis": [
+        "从决策和利益相关者定义产品范围与排除",
+        "确认输入与版本并找缺口",
+        "写可观察验收准则，引用已有architecture-acceptance-criteria记录",
+        "规定评审与修订流程及有权接受者",
+        "逐条实际评审，保留拒绝/重作路径；接受后再进入阶段/项目关闭"
+      ],
+      "analysis_steps": [
+        "从决策和利益相关者定义产品范围与排除",
+        "确认输入与版本并找缺口",
+        "写可观察验收准则，引用已有architecture-acceptance-criteria记录",
+        "规定评审与修订流程及有权接受者",
+        "逐条实际评审，保留拒绝/重作路径；接受后再进入阶段/项目关闭"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "文档与软件可有不同验收流程，不复制时长为TOGAF要求",
+        "生成、移交、评审与接受是不同状态",
+        "一项未满足准则不能被其他已满足项的数量抵消"
+      ],
+      "checks": [
+        "文档与软件可有不同验收流程，不复制时长为TOGAF要求",
+        "生成、移交、评审与接受是不同状态",
+        "一项未满足准则不能被其他已满足项的数量抵消"
+      ],
+      "misreadings": [
+        "文档与软件可有不同验收流程，不复制时长为TOGAF要求",
+        "生成、移交、评审与接受是不同状态",
+        "一项未满足准则不能被其他已满足项的数量抵消"
+      ],
+      "related_deliverables": [
+        "statement-of-work",
+        "compliance-assessment"
+      ],
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-deliverable-charter-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 charter",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#charter"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-deliverable-charter-default-1",
+            "type": "guide:deliverable_charter",
+            "name": "应用关系与信息使用说明章程",
+            "attributes": {
+              "deliverable_id": "DEL-REL-v1",
+              "scope": "城东/城西两仓订单与库存接口，12应用",
+              "exclusions": [
+                "薪酬系统"
+              ],
+              "required_inputs": [
+                {
+                  "id": "DEL-APPS-v2",
+                  "status": "provided"
+                },
+                {
+                  "id": "DATA-INTERVIEWS",
+                  "status": "APP-12资料缺失"
+                }
+              ],
+              "acceptance_criteria": [
+                {
+                  "id": "AC-COVERAGE",
+                  "rule": "12应用全部覆盖",
+                  "required_total": 12,
+                  "observed": 11,
+                  "result": "not-met"
+                },
+                {
+                  "id": "AC-DIRECTION",
+                  "rule": "方向来自接口记录",
+                  "result": "needs-review"
+                },
+                {
+                  "id": "AC-USEMOD",
+                  "rule": "信息使用/修改分别表达",
+                  "result": "needs-review"
+                },
+                {
+                  "id": "AC-UNKNOWN",
+                  "rule": "未知带ID与责任人",
+                  "result": "needs-review"
+                }
+              ],
+              "acceptance_process": [
+                {
+                  "step": "初审",
+                  "duration": 5,
+                  "unit": "workday",
+                  "role": "业务代表"
+                },
+                {
+                  "step": "处理意见",
+                  "duration": 3,
+                  "unit": "workday",
+                  "role": "架构师"
+                },
+                {
+                  "step": "终审",
+                  "duration": 2,
+                  "unit": "workday",
+                  "role": "业务负责人",
+                  "outcomes": [
+                    "accept",
+                    "reject",
+                    "rework"
+                  ]
+                }
+              ],
+              "decision_roles": "业务代表评审、架构师修订、业务负责人接受；项目经理记录",
+              "review_observations": "APP-12接口缺失，当前只覆盖11应用",
+              "status": "in-review; not-accepted",
+              "evidence_refs": [
+                "DC-01",
+                "DC-02",
+                "DC-03",
+                "DC-04"
+              ],
+              "next_action": "补APP-12数据并复核其余条件；终审不预设通过"
+            },
+            "evidence": [
+              "src-project-deliverable-charter-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-deliverable-charter-default",
+          "artifact_id": "project-deliverable-charter",
+          "profile_id": "project-deliverable-charter-default",
+          "title": "交付物章程与验收流程",
+          "entity_ids": [
+            "project-deliverable-charter-default-1"
+          ],
+          "relationship_ids": [],
+          "analysis": "从DC-01/02区分范围、排除、输入和四条验收准则；DC-03是项目5/3/2日流程，不照搬G188示例的2周等时长。11/12覆盖不满足准则。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "charter"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/project-deliverable-charter.md",
+      "modification_example": {
+        "change": "补齐APP-12且四项准则都得到验证，仍未取得业务负责人接受",
+        "expected": "准则已满足但状态仍awaiting-acceptance，不能自动accepted"
+      },
+      "counterexample": {
+        "input": "覆盖11/12却标全部准则通过",
+        "expected": "criterion-result-contradiction"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "implementation-factor-catalog-default",
+      "artifact_id": "implementation-factor-catalog",
+      "name": "实施因素决策档案",
+      "name_zh": "实施因素决策档案",
+      "owner": "togaf-migration-roadmap",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G186 §7.4.1"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:implementation_factor": [
+          "unit",
+          "change_attribute",
+          "observation",
+          "evidence_refs",
+          "effect",
+          "required_action",
+          "owner",
+          "timing",
+          "confidence",
+          "decision_record"
+        ]
+      },
+      "entity_types": [
+        "guide:implementation_factor"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "只记录具体因素及影响，不默认文化可用分数衡量",
+        "访谈说有能力不等于已演练、可用容量或正式承诺"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "implementation-factor-catalog-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-implementation-factor-catalog-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 factors",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#factors"
+          }
+        ],
+        "entities": [
+          {
+            "id": "implementation-factor-catalog-default-1",
+            "type": "guide:implementation_factor",
+            "name": "东仓专家容量与集成技能",
+            "attributes": {
+              "unit": "东仓",
+              "change_attribute": "转型容量/技能",
+              "observation": "2名专家各4小时/周；无事件集成经验",
+              "evidence_refs": [
+                "IF-01"
+              ],
+              "effect": "每周8专家小时上限；技术培训和外部集成支持是前置",
+              "required_action": "安排培训并验证集成演练，容量计划按8小时而非2FTE",
+              "owner": "东仓负责人/技术负责人",
+              "timing": "设计评审前",
+              "confidence": "访谈自述，尚无演练证据",
+              "decision_record": "候选约束，待资源负责人确认"
+            },
+            "evidence": [
+              "src-implementation-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "implementation-factor-catalog-default-2",
+            "type": "guide:implementation_factor",
+            "name": "西仓关账窗口",
+            "attributes": {
+              "unit": "西仓",
+              "change_attribute": "运营窗口",
+              "observation": "关账期间不可参与",
+              "evidence_refs": [
+                "IF-01"
+              ],
+              "effect": "不能将跨仓访谈排在关账期",
+              "required_action": "取得具体关账日历并调整依赖",
+              "owner": "西仓负责人",
+              "timing": "日期unknown",
+              "confidence": "日期未确定",
+              "decision_record": "阻断精确排程，不臆造日期"
+            },
+            "evidence": [
+              "src-implementation-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "implementation-factor-catalog-default-3",
+            "type": "guide:implementation_factor",
+            "name": "共享客户数据责任分歧",
+            "attributes": {
+              "unit": "企业数据团队",
+              "change_attribute": "组织文化/治理责任",
+              "observation": "尚不接受中央治理；目标要求跨仓单号唯一",
+              "evidence_refs": [
+                "IF-02"
+              ],
+              "effect": "不能凭技术方案认定变革可吸收",
+              "required_action": "安排授权利益相关者澄清责任与权衡，形成控制和培训",
+              "owner": "数据负责人/发起人",
+              "timing": "目标批准前",
+              "confidence": "分歧已记录、解决未证实",
+              "decision_record": "不以低成熟度标签替代具体障碍"
+            },
+            "evidence": [
+              "src-implementation-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-implementation-factor-catalog-default",
+          "artifact_id": "implementation-factor-catalog",
+          "profile_id": "implementation-factor-catalog-default",
+          "title": "实施因素决策档案",
+          "entity_ids": [
+            "implementation-factor-catalog-default-1",
+            "implementation-factor-catalog-default-2",
+            "implementation-factor-catalog-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "从IF-01/02提取容量、运营窗口、责任文化三项因素；8小时是原料数量相乘所得项目容量，不是TOGAF评分。未知日期阻断排程。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "factors"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "portfolio-theme-work-package-register-default",
+      "artifact_id": "portfolio-theme-work-package-register",
+      "name": "组合主题工作包分组",
+      "name_zh": "组合主题工作包分组",
+      "owner": "togaf-migration-roadmap",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G186 §8.2表8-2、§8.3–8.5"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:portfolio_assignment": [
+          "theme",
+          "work_package_id",
+          "change_kind",
+          "continuation",
+          "required_work_packages",
+          "importance",
+          "impact_start",
+          "effort",
+          "investment",
+          "evidence_refs",
+          "allocation_note"
+        ]
+      },
+      "entity_types": [
+        "guide:portfolio_assignment"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "表8-2空格表示架构信息未完整，不用0替代",
+        "TOGAF变革工作包与PM的WBS叶任务不是同一概念",
+        "一个工作包不同时承担保持和改进分类；共享ID不重复预算"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "portfolio-theme-work-package-register-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-portfolio-theme-work-package-register-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 themes",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#themes"
+          }
+        ],
+        "entities": [
+          {
+            "id": "portfolio-theme-work-package-register-default-1",
+            "type": "guide:portfolio_assignment",
+            "name": "单号唯一基础",
+            "attributes": {
+              "theme": "可靠交付",
+              "work_package_id": "WP-ID",
+              "change_kind": "improve",
+              "continuation": "new",
+              "required_work_packages": [],
+              "importance": "战略强制（TH-01）",
+              "impact_start": "2027-01",
+              "effort": {
+                "value": 20,
+                "unit": "person-day",
+                "basis": "TH-03项目估算"
+              },
+              "investment": {
+                "value": 100000,
+                "currency": "CNY",
+                "basis": "TH-03项目估算"
+              },
+              "evidence_refs": [
+                "TH-01",
+                "TH-03"
+              ],
+              "allocation_note": "共享基础只记一次资金，其他主题可引用"
+            },
+            "evidence": [
+              "src-portfolio-theme-work-package-register-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-theme-work-package-register-default-2",
+            "type": "guide:portfolio_assignment",
+            "name": "签收改进",
+            "attributes": {
+              "theme": "可靠交付",
+              "work_package_id": "WP-SIGN",
+              "change_kind": "improve",
+              "continuation": "continuation",
+              "required_work_packages": [
+                "WP-ID"
+              ],
+              "importance": "支撑签收目标（TH-02）",
+              "impact_start": "2027-03",
+              "effort": {
+                "value": 40,
+                "unit": "person-day",
+                "basis": "TH-03余工作估算"
+              },
+              "investment": {
+                "value": 200000,
+                "currency": "CNY",
+                "basis": "TH-03待重新确认"
+              },
+              "evidence_refs": [
+                "TH-02",
+                "TH-03"
+              ],
+              "allocation_note": "续作不自动获得优先投资；仍需依据目标价值"
+            },
+            "evidence": [
+              "src-portfolio-theme-work-package-register-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-theme-work-package-register-default-3",
+            "type": "guide:portfolio_assignment",
+            "name": "扫描设备维护",
+            "attributes": {
+              "theme": "运营优化",
+              "work_package_id": "WP-KEEP",
+              "change_kind": "keep",
+              "continuation": "new",
+              "required_work_packages": [],
+              "importance": "保持现有运营（TH-02）",
+              "impact_start": "2026-12",
+              "effort": {
+                "value": 5,
+                "unit": "person-day",
+                "basis": "TH-03"
+              },
+              "investment": {
+                "value": 20000,
+                "currency": "CNY",
+                "basis": "TH-03"
+              },
+              "evidence_refs": [
+                "TH-02",
+                "TH-03"
+              ],
+              "allocation_note": "保持现状包不承担签收改进，避免一包混合不同价值分类"
+            },
+            "evidence": [
+              "src-portfolio-theme-work-package-register-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-portfolio-theme-work-package-register-default",
+          "artifact_id": "portfolio-theme-work-package-register",
+          "profile_id": "portfolio-theme-work-package-register-default",
+          "title": "组合主题工作包分组",
+          "entity_ids": [
+            "portfolio-theme-work-package-register-default-1",
+            "portfolio-theme-work-package-register-default-2",
+            "portfolio-theme-work-package-register-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "依表8-2列主题、名称、所需工作包、重要性、影响时点、工作量及投资；WP-SIGN依赖WP-ID，维护独立保持类，全部估算明确项目来源。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "themes"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "portfolio-estimate-sufficiency-check-default",
+      "artifact_id": "portfolio-estimate-sufficiency-check",
+      "name": "组合估算充分性十问",
+      "name_zh": "组合估算充分性十问",
+      "owner": "togaf-migration-roadmap",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G186 §8.4.2"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:estimate_check": [
+          "sequence",
+          "question",
+          "finding",
+          "evidence_refs",
+          "rule",
+          "calculation",
+          "limitation",
+          "next_action"
+        ]
+      },
+      "entity_types": [
+        "guide:estimate_check"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "第6问“有无担忧”与其他问不是同方向，禁止全是即通过",
+        "第10问是数量，不能硬转是/否",
+        "8/9为该指南收益递减信号，项目缓冲和公式须明确来源",
+        "缺范围可比性或深度分母为零时保留未知"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "portfolio-estimate-sufficiency-check-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-portfolio-estimate-sufficiency-check-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 sufficiency",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#sufficiency"
+          }
+        ],
+        "entities": [
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-1",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q1",
+            "attributes": {
+              "sequence": 1,
+              "question": "每主题工作包按能力连续谱分类且不混保持/改进？",
+              "finding": "保持/改进已分离",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-2",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q2",
+            "attributes": {
+              "sequence": 2,
+              "question": "依赖与级联影响获决策者和实施者认可？",
+              "finding": "依赖已由虚构团队确认",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-3",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q3",
+            "attributes": {
+              "sequence": 3,
+              "question": "EA全景探索是否连续？",
+              "finding": "覆盖继续扩展",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-4",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q4",
+            "attributes": {
+              "sequence": 4,
+              "question": "风险缓解与控制是否加入组合？",
+              "finding": "风险控制已纳入",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-5",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q5",
+            "attributes": {
+              "sequence": 5,
+              "question": "各主题兼顾运营卓越与适用性？",
+              "finding": "两类目标均已考虑",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-6",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q6",
+            "attributes": {
+              "sequence": 6,
+              "question": "是否存在时效性担忧？",
+              "finding": "无已知担忧",
+              "evidence_refs": [
+                "ES-01",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-7",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q7",
+            "attributes": {
+              "sequence": 7,
+              "question": "是否已有粗略估算与应急系数？",
+              "finding": "项目10%应急缓冲",
+              "evidence_refs": [
+                "ES-02",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-8",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q8",
+            "attributes": {
+              "sequence": 8,
+              "question": "覆盖广度增长/深度增长比是否递减？",
+              "finding": "是：2小于3",
+              "evidence_refs": [
+                "ES-02",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": {
+                "previous_breadth": 6,
+                "previous_depth": 2,
+                "current_breadth": 4,
+                "current_depth": 2,
+                "previous_ratio": 3,
+                "current_ratio": 2
+              },
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-9",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q9",
+            "attributes": {
+              "sequence": 9,
+              "question": "相邻迭代估算差异是否小于应急系数？",
+              "finding": "是：6%小于10%",
+              "evidence_refs": [
+                "ES-02",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": {
+                "previous_CNY": 1000000,
+                "current_CNY": 1060000,
+                "relative_change": 0.06,
+                "contingency": 0.1
+              },
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "portfolio-estimate-sufficiency-check-default-10",
+            "type": "guide:estimate_check",
+            "name": "组合充分性 Q10",
+            "attributes": {
+              "sequence": 10,
+              "question": "多少工作为一次性转型执行？",
+              "finding": "1项一次性；2项持续运营",
+              "evidence_refs": [
+                "ES-04",
+                "ES-03"
+              ],
+              "rule": "G186 §8.4.2第8或9项指示收益递减；差额归一化公式与10%仅本项目规则",
+              "calculation": "not-applicable",
+              "limitation": "估算为假设，不代表交付保证；十问无加权总分",
+              "next_action": "第8/9信号达到，可建议停止本轮细化并提预算，仍由授权方决定"
+            },
+            "evidence": [
+              "src-portfolio-estimate-sufficiency-check-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-portfolio-estimate-sufficiency-check-default",
+          "artifact_id": "portfolio-estimate-sufficiency-check",
+          "profile_id": "portfolio-estimate-sufficiency-check-default",
+          "title": "组合估算充分性十问",
+          "entity_ids": [
+            "portfolio-estimate-sufficiency-check-default-1",
+            "portfolio-estimate-sufficiency-check-default-2",
+            "portfolio-estimate-sufficiency-check-default-3",
+            "portfolio-estimate-sufficiency-check-default-4",
+            "portfolio-estimate-sufficiency-check-default-5",
+            "portfolio-estimate-sufficiency-check-default-6",
+            "portfolio-estimate-sufficiency-check-default-7",
+            "portfolio-estimate-sufficiency-check-default-8",
+            "portfolio-estimate-sufficiency-check-default-9",
+            "portfolio-estimate-sufficiency-check-default-10"
+          ],
+          "relationship_ids": [],
+          "analysis": "覆盖比3降到2，估算变化6%小于项目10%缓冲，两项文献收益递减信号均达到；建议转预算决策，不将估算当承诺或权重评分。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "sufficiency"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-work-package-authorization-default",
+      "artifact_id": "project-work-package-authorization",
+      "name": "项目工作包授权记录",
+      "name_zh": "项目工作包授权记录",
+      "owner": "togaf-migration-roadmap",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G188 §2.3、§3.4.1–3.4.3"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:project_authorization": [
+          "project_task_id",
+          "wbs_parent",
+          "work_package_kind",
+          "deliverable",
+          "preconditions",
+          "cost_time_tolerance",
+          "quality_configuration",
+          "reporting",
+          "authority",
+          "authorization",
+          "evidence_refs",
+          "next_action"
+        ]
+      },
+      "entity_types": [
+        "guide:project_authorization"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "依赖完成不等于已授权，团队空闲不等于允许开始",
+        "PM工作包与变革工作包分开建模",
+        "无授权记录不得转为已开始或已完成"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "project-work-package-authorization-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-work-package-authorization-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 authorization",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#authorization"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-work-package-authorization-default-1",
+            "type": "guide:project_authorization",
+            "name": "接口数据分析授权",
+            "attributes": {
+              "project_task_id": "PM-WP-DATA",
+              "wbs_parent": "WBS-RELATIONS",
+              "work_package_kind": "project-wbs-leaf",
+              "deliverable": "DEL-DATA：接口数据分析；依赖DEL-APPS-v2",
+              "preconditions": [
+                {
+                  "id": "DEL-APPS-v2",
+                  "accepted": false,
+                  "evidence": "AU-02待业务签字"
+                }
+              ],
+              "cost_time_tolerance": {
+                "duration": 3,
+                "duration_unit": "workday",
+                "effort": 40,
+                "effort_unit": "person-hour",
+                "cost": 8000,
+                "currency": "CNY",
+                "time_tolerance": 1,
+                "cost_tolerance": 1000,
+                "rule_status": "项目提案，待PM确认"
+              },
+              "quality_configuration": "应用关系与CRUD分开；存储库data-analysis-v1；验收引用AC-DATA",
+              "reporting": "每周检查点；异常向PM报告",
+              "authority": "项目经理；依据项目章程，范围待核实",
+              "authorization": "not-authorized",
+              "evidence_refs": [
+                "AU-01",
+                "AU-02",
+                "AU-03"
+              ],
+              "next_action": "前置产品未接受且无明确授权，不开始；先取得签字和PM授权"
+            },
+            "evidence": [
+              "src-project-work-package-authorization-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-work-package-authorization-default",
+          "artifact_id": "project-work-package-authorization",
+          "profile_id": "project-work-package-authorization-default",
+          "title": "项目工作包授权记录",
+          "entity_ids": [
+            "project-work-package-authorization-default-1"
+          ],
+          "relationship_ids": [],
+          "analysis": "AU-02前置交付物未获接受，也没有PM明确授权；团队空闲不能替代任一条件。成本/时间容差仍是提案。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "authorization"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-stage-closure-record-stage",
+      "artifact_id": "project-stage-closure-record",
+      "name": "阶段边界报告",
+      "name_zh": "阶段边界报告",
+      "owner": "togaf-artifact-review",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G188 §3.5.1–3.6.3"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:closure_record": [
+          "closure_kind",
+          "closure_reason",
+          "products",
+          "performance",
+          "risks_issues",
+          "handover",
+          "next_stage",
+          "authority",
+          "decision",
+          "evidence_refs",
+          "follow_up"
+        ]
+      },
+      "entity_types": [
+        "guide:closure_record"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "阶段产品验收、边界决策、下一阶段授权是不同事实",
+        "商业论证失效可以提前终止，不能假装全部产品成功交付",
+        "计划/实际偏差不自动证明超过未给出的容差"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "project-stage-closure-record-stage",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-stage-closure-record-stage",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 stage-close",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#stage-close"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-stage-closure-record-stage-1",
+            "type": "guide:closure_record",
+            "name": "流程分析阶段",
+            "attributes": {
+              "closure_kind": "stage-boundary",
+              "closure_reason": "completed-proposed",
+              "products": [
+                {
+                  "id": "DEL-FLOW",
+                  "accepted": true
+                },
+                {
+                  "id": "DEL-DESC",
+                  "accepted": false
+                }
+              ],
+              "performance": {
+                "planned_days": 10,
+                "actual_days": 11,
+                "planned_hours": 60,
+                "actual_hours": 68,
+                "tolerances": "unknown"
+              },
+              "risks_issues": "新增门店增加后续工作；DEL-DESC未接受",
+              "handover": "流程图可供内部建模；说明表缺口未关闭",
+              "next_stage": "建模计划草拟，尚未批准",
+              "authority": "项目监督机构/发起人",
+              "decision": "pending",
+              "evidence_refs": [
+                "SC-01",
+                "SC-02"
+              ],
+              "follow_up": "修正说明表并取得接受；确认容差与下一阶段计划，不能自行宣布完成"
+            },
+            "evidence": [
+              "src-project-stage-closure-record-stage"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-stage-closure-record-stage",
+          "artifact_id": "project-stage-closure-record",
+          "profile_id": "project-stage-closure-record-stage",
+          "title": "阶段边界报告",
+          "entity_ids": [
+            "project-stage-closure-record-stage-1"
+          ],
+          "relationship_ids": [],
+          "analysis": "阶段实际比计划多1天8小时，但容差未知不能断言越权；未接受说明表阻断完成型收尾。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "stage-close"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-stage-closure-record-project",
+      "artifact_id": "project-stage-closure-record",
+      "name": "项目收尾建议",
+      "name_zh": "项目收尾建议",
+      "owner": "togaf-artifact-review",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G188 §3.5.1–3.6.3"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:closure_record": [
+          "closure_kind",
+          "closure_reason",
+          "products",
+          "performance",
+          "risks_issues",
+          "handover",
+          "next_stage",
+          "authority",
+          "decision",
+          "evidence_refs",
+          "follow_up"
+        ]
+      },
+      "entity_types": [
+        "guide:closure_record"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "阶段产品验收、边界决策、下一阶段授权是不同事实",
+        "商业论证失效可以提前终止，不能假装全部产品成功交付",
+        "计划/实际偏差不自动证明超过未给出的容差"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "project-stage-closure-record-project",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-stage-closure-record-project",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 project-close",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#project-close"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-stage-closure-record-project-1",
+            "type": "guide:closure_record",
+            "name": "门店合并架构终止",
+            "attributes": {
+              "closure_kind": "project-closure",
+              "closure_reason": "terminated-business-case-invalid",
+              "products": [
+                {
+                  "id": "DEL-INTERFACE-PART",
+                  "accepted": false,
+                  "disposition": "交PMO保存为部分成果"
+                },
+                {
+                  "id": "TARGET-CANDIDATE",
+                  "accepted": false,
+                  "disposition": "撤销候选，不计成功交付"
+                }
+              ],
+              "performance": {
+                "planned_outcome": "合并目标架构",
+                "actual_outcome": "部分接口分析",
+                "benefits": "未实现，不以完成统计代替"
+              },
+              "risks_issues": "R-DATA转运营负责人跟踪",
+              "handover": "PMO保存部分分析；运营承接数据风险",
+              "next_stage": "not-applicable",
+              "authority": "执行发起人",
+              "decision": "termination-recommended; approval-pending",
+              "evidence_refs": [
+                "PC-01",
+                "PC-02"
+              ],
+              "follow_up": "取得正式收尾接受后释放资源；记录未完内容与风险去向"
+            },
+            "evidence": [
+              "src-project-stage-closure-record-project"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-stage-closure-record-project",
+          "artifact_id": "project-stage-closure-record",
+          "profile_id": "project-stage-closure-record-project",
+          "title": "项目收尾建议",
+          "entity_ids": [
+            "project-stage-closure-record-project-1"
+          ],
+          "relationship_ids": [],
+          "analysis": "商业论证失效允许提出提前终止；不要求把所有未完成产品虚假标已接受，但必须明确去向、风险移交与授权。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "project-close"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-learning-record-log",
+      "artifact_id": "project-learning-record",
+      "name": "持续经验记录",
+      "name_zh": "持续经验记录",
+      "owner": "togaf-ea-capability",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G188 §3.1.3、§3.6.3示例3-37及注释2"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:project_learning": [
+          "record_kind",
+          "expected",
+          "actual",
+          "difference",
+          "cause_hypothesis",
+          "evidence_refs",
+          "impact",
+          "recommendation",
+          "owner",
+          "verification",
+          "status",
+          "follow_up_reference"
+        ]
+      },
+      "entity_types": [
+        "guide:project_learning"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "持续Lessons Log与最终Lessons Learned/Report不是同一个状态",
+        "参加复盘或提出建议不等于改进已验证",
+        "无原计划/实绩不能编造差异；未经验证原因不能写成确定事实"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "project-learning-record-log",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-learning-record-log",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 lessons",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#lessons"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-learning-record-log-1",
+            "type": "guide:project_learning",
+            "name": "应用边界导致返工",
+            "attributes": {
+              "record_kind": "ongoing-log",
+              "expected": "10天确认应用清单",
+              "actual": "22天，3次返工",
+              "difference": "多12天",
+              "cause_hypothesis": "各部门应用边界不同；访谈尚未完成，因果待确认",
+              "evidence_refs": [
+                "LS-01"
+              ],
+              "impact": "增派两人追赶；具体额外工时尚未收集",
+              "recommendation": "启动时定义应用边界并用统一模板试填",
+              "owner": "架构方法负责人",
+              "verification": "下一项目记录确认用时与返工次数，保持范围可比",
+              "status": "observed; cause-pending; action-proposed",
+              "follow_up_reference": "CR-EA-TEMPLATE（候选）"
+            },
+            "evidence": [
+              "src-project-learning-record-log"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "project-learning-record-log-2",
+            "type": "guide:project_learning",
+            "name": "CFO成本关注缺失",
+            "attributes": {
+              "record_kind": "ongoing-log",
+              "expected": "阶段评审可支持成本决策",
+              "actual": "许可/维护成本未采集，补录延迟3天",
+              "difference": "关注点覆盖不足",
+              "cause_hypothesis": "初始视角只覆盖功能技术；LS-02可验证资料缺项，尚不推断个人动机",
+              "evidence_refs": [
+                "LS-02",
+                "LS-03"
+              ],
+              "impact": "CFO视图返工，决策延迟3天",
+              "recommendation": "需求确认时加入CFO并将许可/维护成本纳入选定视角",
+              "owner": "项目经理/财务代表",
+              "verification": "下一项目启动评审检查全部关注点信息覆盖",
+              "status": "ongoing-observation",
+              "follow_up_reference": "CR-EA-VIEWPOINT（候选）"
+            },
+            "evidence": [
+              "src-project-learning-record-log"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-learning-record-log",
+          "artifact_id": "project-learning-record",
+          "profile_id": "project-learning-record-log",
+          "title": "持续经验记录",
+          "entity_ids": [
+            "project-learning-record-log-1",
+            "project-learning-record-log-2"
+          ],
+          "relationship_ids": [],
+          "analysis": "按AAR比较预期、实际、差异原因和改进；日志连续保留事实，最终报告筛选可行动教训。建议尚未经过试点，不宣称已消除延期。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "lessons"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-learning-record-report",
+      "artifact_id": "project-learning-record",
+      "name": "项目最终经验教训",
+      "name_zh": "项目最终经验教训",
+      "owner": "togaf-ea-capability",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G188 §3.1.3、§3.6.3示例3-37及注释2"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:project_learning": [
+          "record_kind",
+          "expected",
+          "actual",
+          "difference",
+          "cause_hypothesis",
+          "evidence_refs",
+          "impact",
+          "recommendation",
+          "owner",
+          "verification",
+          "status",
+          "follow_up_reference"
+        ]
+      },
+      "entity_types": [
+        "guide:project_learning"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "持续Lessons Log与最终Lessons Learned/Report不是同一个状态",
+        "参加复盘或提出建议不等于改进已验证",
+        "无原计划/实绩不能编造差异；未经验证原因不能写成确定事实"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "project-learning-record-report",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-learning-record-report",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 lessons",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#lessons"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-learning-record-report-1",
+            "type": "guide:project_learning",
+            "name": "应用边界导致返工",
+            "attributes": {
+              "record_kind": "final-lessons-report",
+              "expected": "10天确认应用清单",
+              "actual": "22天，3次返工",
+              "difference": "多12天",
+              "cause_hypothesis": "各部门应用边界不同；访谈尚未完成，因果待确认",
+              "evidence_refs": [
+                "LS-01"
+              ],
+              "impact": "增派两人追赶；具体额外工时尚未收集",
+              "recommendation": "启动时定义应用边界并用统一模板试填",
+              "owner": "架构方法负责人",
+              "verification": "下一项目记录确认用时与返工次数，保持范围可比",
+              "status": "observed; cause-pending; action-proposed",
+              "follow_up_reference": "CR-EA-TEMPLATE（候选）"
+            },
+            "evidence": [
+              "src-project-learning-record-report"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "project-learning-record-report-2",
+            "type": "guide:project_learning",
+            "name": "CFO成本关注缺失",
+            "attributes": {
+              "record_kind": "final-lessons-report",
+              "expected": "阶段评审可支持成本决策",
+              "actual": "许可/维护成本未采集，补录延迟3天",
+              "difference": "关注点覆盖不足",
+              "cause_hypothesis": "初始视角只覆盖功能技术；LS-02可验证资料缺项，尚不推断个人动机",
+              "evidence_refs": [
+                "LS-02",
+                "LS-03"
+              ],
+              "impact": "CFO视图返工，决策延迟3天",
+              "recommendation": "需求确认时加入CFO并将许可/维护成本纳入选定视角",
+              "owner": "项目经理/财务代表",
+              "verification": "下一项目启动评审检查全部关注点信息覆盖",
+              "status": "lesson-selected",
+              "follow_up_reference": "CR-EA-VIEWPOINT（候选）"
+            },
+            "evidence": [
+              "src-project-learning-record-report"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-learning-record-report",
+          "artifact_id": "project-learning-record",
+          "profile_id": "project-learning-record-report",
+          "title": "项目最终经验教训",
+          "entity_ids": [
+            "project-learning-record-report-1",
+            "project-learning-record-report-2"
+          ],
+          "relationship_ids": [],
+          "analysis": "按AAR比较预期、实际、差异原因和改进；日志连续保留事实，最终报告筛选可行动教训。建议尚未经过试点，不宣称已消除延期。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "lessons"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    },
+    {
+      "id": "project-deliverable-charter-default",
+      "artifact_id": "project-deliverable-charter",
+      "name": "交付物章程与验收流程",
+      "name_zh": "交付物章程与验收流程",
+      "owner": "togaf-artifact-review",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G188 §3.1.8示例3-14、§3.2.2–3.2.3、§3.5.1"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:deliverable_charter": [
+          "deliverable_id",
+          "scope",
+          "exclusions",
+          "required_inputs",
+          "acceptance_criteria",
+          "acceptance_process",
+          "decision_roles",
+          "review_observations",
+          "status",
+          "evidence_refs",
+          "next_action"
+        ]
+      },
+      "entity_types": [
+        "guide:deliverable_charter"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "文档与软件可有不同验收流程，不复制时长为TOGAF要求",
+        "生成、移交、评审与接受是不同状态",
+        "一项未满足准则不能被其他已满足项的数量抵消"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "project-deliverable-charter-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。",
+        "sources": [
+          {
+            "id": "src-project-deliverable-charter-default",
+            "kind": "example",
+            "description": "虚构海岚配送架构项目；所有访谈、估算、任务与批准资料仅用于方法演示。 材料组 charter",
+            "locator": "examples/addenda/project-management/raw-business-materials.json#charter"
+          }
+        ],
+        "entities": [
+          {
+            "id": "project-deliverable-charter-default-1",
+            "type": "guide:deliverable_charter",
+            "name": "应用关系与信息使用说明章程",
+            "attributes": {
+              "deliverable_id": "DEL-REL-v1",
+              "scope": "城东/城西两仓订单与库存接口，12应用",
+              "exclusions": [
+                "薪酬系统"
+              ],
+              "required_inputs": [
+                {
+                  "id": "DEL-APPS-v2",
+                  "status": "provided"
+                },
+                {
+                  "id": "DATA-INTERVIEWS",
+                  "status": "APP-12资料缺失"
+                }
+              ],
+              "acceptance_criteria": [
+                {
+                  "id": "AC-COVERAGE",
+                  "rule": "12应用全部覆盖",
+                  "required_total": 12,
+                  "observed": 11,
+                  "result": "not-met"
+                },
+                {
+                  "id": "AC-DIRECTION",
+                  "rule": "方向来自接口记录",
+                  "result": "needs-review"
+                },
+                {
+                  "id": "AC-USEMOD",
+                  "rule": "信息使用/修改分别表达",
+                  "result": "needs-review"
+                },
+                {
+                  "id": "AC-UNKNOWN",
+                  "rule": "未知带ID与责任人",
+                  "result": "needs-review"
+                }
+              ],
+              "acceptance_process": [
+                {
+                  "step": "初审",
+                  "duration": 5,
+                  "unit": "workday",
+                  "role": "业务代表"
+                },
+                {
+                  "step": "处理意见",
+                  "duration": 3,
+                  "unit": "workday",
+                  "role": "架构师"
+                },
+                {
+                  "step": "终审",
+                  "duration": 2,
+                  "unit": "workday",
+                  "role": "业务负责人",
+                  "outcomes": [
+                    "accept",
+                    "reject",
+                    "rework"
+                  ]
+                }
+              ],
+              "decision_roles": "业务代表评审、架构师修订、业务负责人接受；项目经理记录",
+              "review_observations": "APP-12接口缺失，当前只覆盖11应用",
+              "status": "in-review; not-accepted",
+              "evidence_refs": [
+                "DC-01",
+                "DC-02",
+                "DC-03",
+                "DC-04"
+              ],
+              "next_action": "补APP-12数据并复核其余条件；终审不预设通过"
+            },
+            "evidence": [
+              "src-project-deliverable-charter-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-project-deliverable-charter-default",
+          "artifact_id": "project-deliverable-charter",
+          "profile_id": "project-deliverable-charter-default",
+          "title": "交付物章程与验收流程",
+          "entity_ids": [
+            "project-deliverable-charter-default-1"
+          ],
+          "relationship_ids": [],
+          "analysis": "从DC-01/02区分范围、排除、输入和四条验收准则；DC-03是项目5/3/2日流程，不照搬G188示例的2周等时长。11/12覆盖不满足准则。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "charter"
+      },
+      "execution_evidence": "examples/addenda/project-management/execution-audit.json"
+    }
+  ],
+  "default_profiles": {
+    "implementation-factor-catalog": "implementation-factor-catalog-default",
+    "portfolio-theme-work-package-register": "portfolio-theme-work-package-register-default",
+    "portfolio-estimate-sufficiency-check": "portfolio-estimate-sufficiency-check-default",
+    "project-work-package-authorization": "project-work-package-authorization-default",
+    "project-stage-closure-record": "project-stage-closure-record-stage",
+    "project-learning-record": "project-learning-record-log",
+    "project-deliverable-charter": "project-deliverable-charter-default"
+  },
+  "patches": [],
+  "source_conflicts": [
+    {
+      "id": "G188-example-duration",
+      "source": "G188示例3-27/3-28",
+      "resolution": "5周阶段与后例3+1+1+1周不一致；使用真实项目日历/资源，不把示例总数当已验证排程。"
+    },
+    {
+      "id": "project-work-package-term",
+      "source": "G188 §2.3、§3.2.7",
+      "resolution": "WBS叶任务与TOGAF E/F变革工作包分离建模，用不同ID及work_package_kind。"
+    }
+  ],
+  "candidate_resolutions": {
+    "implementation-factor-catalog": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "implementation-factor-catalog"
+      ],
+      "profile_ids": [
+        "implementation-factor-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "factors",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "implementation-factor-catalog-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:implementation-factor-catalog": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "implementation-factor-catalog"
+      ],
+      "profile_ids": [
+        "implementation-factor-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "factors",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "implementation-factor-catalog-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "portfolio-theme-work-package-register": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "portfolio-theme-work-package-register"
+      ],
+      "profile_ids": [
+        "portfolio-theme-work-package-register-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "themes",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "portfolio-theme-work-package-register-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:portfolio-theme-work-package-register": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "portfolio-theme-work-package-register"
+      ],
+      "profile_ids": [
+        "portfolio-theme-work-package-register-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "themes",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "portfolio-theme-work-package-register-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "portfolio-estimate-sufficiency-check": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "portfolio-estimate-sufficiency-check"
+      ],
+      "profile_ids": [
+        "portfolio-estimate-sufficiency-check-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "sufficiency",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "portfolio-estimate-sufficiency-check-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:portfolio-estimate-sufficiency-check": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "portfolio-estimate-sufficiency-check"
+      ],
+      "profile_ids": [
+        "portfolio-estimate-sufficiency-check-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "sufficiency",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "portfolio-estimate-sufficiency-check-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "project-work-package-authorization": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-work-package-authorization"
+      ],
+      "profile_ids": [
+        "project-work-package-authorization-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "authorization",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-work-package-authorization-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:project-work-package-authorization": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-work-package-authorization"
+      ],
+      "profile_ids": [
+        "project-work-package-authorization-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "authorization",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-work-package-authorization-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "project-stage-boundary-report": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-stage-closure-record"
+      ],
+      "profile_ids": [
+        "project-stage-closure-record-stage"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "closure",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-stage-closure-record-stage"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:project-stage-boundary-report": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-stage-closure-record"
+      ],
+      "profile_ids": [
+        "project-stage-closure-record-stage"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "closure",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-stage-closure-record-stage"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "project-closure-lessons-report": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-stage-closure-record",
+        "project-learning-record"
+      ],
+      "profile_ids": [
+        "project-stage-closure-record-project",
+        "project-learning-record-report"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "closure;lessons",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-stage-closure-record-project",
+        "project-learning-record-report"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:project-closure-lessons-report": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-stage-closure-record",
+        "project-learning-record"
+      ],
+      "profile_ids": [
+        "project-stage-closure-record-project",
+        "project-learning-record-report"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "closure;lessons",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-stage-closure-record-project",
+        "project-learning-record-report"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "project-lessons-log": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-learning-record"
+      ],
+      "profile_ids": [
+        "project-learning-record-log"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "lessons",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-learning-record-log"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:project-lessons-log": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-learning-record"
+      ],
+      "profile_ids": [
+        "project-learning-record-log"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "lessons",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-learning-record-log"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "project-lessons-learned-report": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-learning-record"
+      ],
+      "profile_ids": [
+        "project-learning-record-report"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "lessons",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-learning-record-report"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:project-lessons-learned-report": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-learning-record"
+      ],
+      "profile_ids": [
+        "project-learning-record-report"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "lessons",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-learning-record-report"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "project-deliverable-charter": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-deliverable-charter"
+      ],
+      "profile_ids": [
+        "project-deliverable-charter-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "charter",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-deliverable-charter-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:project-deliverable-charter": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "project-deliverable-charter"
+      ],
+      "profile_ids": [
+        "project-deliverable-charter-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "charter",
+        "entrypoint": "examples/addenda/project-management/methods.py"
+      },
+      "case_evidence": "examples/addenda/project-management/execution-audit.json",
+      "case_profile_ids": [
+        "project-deliverable-charter-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "project-management-strategy": {
+      "status": "pending",
+      "reason": "本包未实现独立管理策略/要点报告工作产品；授权和收尾只覆盖相关局部。"
+    },
+    "project-status-highlight-report": {
+      "status": "pending",
+      "reason": "本包未实现独立管理策略/要点报告工作产品；授权和收尾只覆盖相关局部。"
+    }
+  }
+}

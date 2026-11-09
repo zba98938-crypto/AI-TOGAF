@@ -1,0 +1,459 @@
+# G210/fig3-2 · ADM 中的企业架构开发冲刺
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G210/fig3-2.md) · [JSON](../../architecture/diagrams/G210/fig3-2.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G210e.pdf`；SHA-256：`289803b369a49bc7f49c0d587b7f4af87899eebea8d834a6f52cbb2c3a657a58`。
+
+## 原图 · PDF 第 24 页
+
+![英文原图](../assets/G210/fig3-2-p0024.png)
+
+PDF 坐标：`[61.1, 142.7, 550.9, 430.3]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Sprint 0
+DORP
+Sprint 4
+DORP
+Sprint 2
+DORP
+Sprint...
+eae
+Business
+Business
+Final Product
+Change Vision
+Change
+Enterprise
+Enterprise
+Enterprise
+Definition
+Bockiog
+Architecture
+Architecture
+Architecture
+Architecture
+_
+—_
+_
+| wa f
+| wva [
+q wa |
+—
+—
+—~
+DORP = Demo, Outcome, Retrospective, Planning, & Releases
+MVA
+inimum Viable Architecture
+© The Open Group
+Dashed outcomes mean they can be delivered but are not always necessary
+```
+
+## 概要（历史解释；局部修正见上）
+
+只用 EA 冲刺做架构：ADM 切片逐冲刺产出 MVA，全部架构完成后再实施。
+
+## 目的（历史解释；局部修正见上）
+
+说明最基础的协作方式（企业架构开发敏捷）：把交付企业架构所需的 ADM 阶段 A–F 切成切片分到各冲刺，每个冲刺以 DORP 收尾并交付一个 MVA，整个企业架构完成、得到最终产品架构后才开始实施。它是后三种协作方式（图 3-3 至 3-5）的基线。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左往右读。最左是企业架构团队与业务的输入“业务变革愿景定义”；它进入冲刺 0 的 DORP（橙色竖条）——竖条内的白色椭圆是冲刺 0 的成果“业务变革待办列表”。之后每一根竖条是一个冲刺末的 DORP，竖条之间的“Enterprise Architecture”框是该冲刺产出的架构切片，竖条内的虚线圆圈 MVA 是该冲刺交付的最小可行架构。最后一根竖条之后收束为“最终产品架构”。竖条不是活动框，而是“冲刺边界 + 演示/成果/回顾/规划/发布”的关口。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 时间轴分四段：冲刺 0（只产出愿景与待办列表）、冲刺 1、冲刺 2、冲刺 …（开放结尾，表示可继续任意次）。
+- 每个架构冲刺产出“企业架构”的一个切片；切片可包含 ADM 阶段 A–F 中任何相关内容（正文 L307）。
+- 冲刺 0 的成果是业务变革待办列表（实线椭圆＝必需成果）；从冲刺 1 起每个 DORP 交付 MVA（虚线圆＝可交付但非总是必需）。
+- 整个企业架构在实施开始前完成，最后的交付物是“最终产品架构”；本方式是四种协作方式中唯一“先架构、后实施”的，这正是它与图 3-3/3-4 的分水岭。
+- MVA 是最小可行架构，不是完整架构：每个冲刺交付的是可演示、可评审的增量，多个增量累积成最终产品架构。
+- DORP 画在冲刺之间而不是冲刺内部，说明它是冲刺的收口动作（演示、成果、回顾、规划与发布），下一冲刺的输入从这里产生。
+
+## 层级（历史解释；局部修正见上）
+
+两层：上层是时间轴（冲刺 0 → 1 → 2 → …），下层是各冲刺的产出物。纵向 DORP 竖条是冲刺关口，竖条内的椭圆/圆圈（待办列表、MVA）视觉上从属该竖条；企业架构框位于两根竖条之间，属于左侧冲刺的产出。
+
+## 线条含义（历史解释；局部修正见上）
+
+蓝色细箭头自左向右表示成果流转：业务变革愿景定义 →（冲刺 0 的 DORP）→ 企业架构（冲刺 1）→（DORP 1）→ 企业架构（冲刺 2）→ … → 最终产品架构。箭头从竖条后穿过而不在竖条上转向，竖条只“截获”成果并标注；全部为实线单向箭头，没有反馈回路。虚线只用于 MVA 圆圈边框，表示该成果可交付但非必需。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把橙色竖条当成“实施阶段”或“团队”：它是冲刺末的 DORP 关口，竖条数量＝冲刺数量。
+- 不要把 MVA 圆圈当成流程节点：它是该冲刺交付物的标记，没有连线指向或离开它。
+- 冲刺 0 交付的是待办列表而非 MVA——这是本图与图 3-3 最容易被忽略的差别。
+- 图只画到“最终产品架构”，实施没有展开（正文 p24/L301 说架构完成后才开始实施，某些情况下部分解决方案可并行）。
+- 中文稿当前引用的 figs/g210_fig3-2.svg 丢掉了 DORP、愿景、待办列表与最终产品架构，还把冲刺 3 后直接接到“实施”，并自加“战略冲刺”，不能据它理解本图。
+
+## 元素
+
+```json
+[
+  {
+    "id": "sprint_0",
+    "label_en": "Sprint 0",
+    "label_zh": "冲刺 0",
+    "type": "time",
+    "parent": null,
+    "order": 1,
+    "position": "第 1 根竖条左上方",
+    "description_zh": "准备冲刺（正文 3.3.4 亦称冲刺零/战略冲刺），只产出愿景与待办列表。"
+  },
+  {
+    "id": "sprint_1",
+    "label_en": "Sprint 1",
+    "label_zh": "冲刺 1",
+    "type": "time",
+    "parent": null,
+    "order": 2,
+    "position": "第 2 根竖条左上方"
+  },
+  {
+    "id": "sprint_2",
+    "label_en": "Sprint 2",
+    "label_zh": "冲刺 2",
+    "type": "time",
+    "parent": null,
+    "order": 3,
+    "position": "第 3 根竖条左上方"
+  },
+  {
+    "id": "sprint_ellipsis",
+    "label_en": "Sprint ...",
+    "label_zh": "冲刺 …",
+    "type": "time",
+    "parent": null,
+    "order": 4,
+    "position": "第 4 根竖条左上方",
+    "description_zh": "省略号表示后续冲刺可继续任意次。"
+  },
+  {
+    "id": "dorp_0",
+    "label_en": "DORP 0",
+    "label_zh": "DORP 0",
+    "type": "event",
+    "parent": null,
+    "order": 1,
+    "position": "第 1 根纵向竖条",
+    "description_zh": "冲刺 0 末的演示/成果/回顾/规划/发布关口；柱内是业务变革待办列表。"
+  },
+  {
+    "id": "dorp_1",
+    "label_en": "DORP 1",
+    "label_zh": "DORP 1",
+    "type": "event",
+    "parent": null,
+    "order": 2,
+    "position": "第 2 根纵向竖条",
+    "description_zh": "冲刺 1 的 DORP；柱内是 MVA。"
+  },
+  {
+    "id": "dorp_2",
+    "label_en": "DORP 2",
+    "label_zh": "DORP 2",
+    "type": "event",
+    "parent": null,
+    "order": 3,
+    "position": "第 3 根纵向竖条",
+    "description_zh": "冲刺 2 的 DORP；柱内是 MVA。"
+  },
+  {
+    "id": "dorp_ellipsis",
+    "label_en": "DORP ...",
+    "label_zh": "DORP …",
+    "type": "event",
+    "parent": null,
+    "order": 4,
+    "position": "第 4 根纵向竖条",
+    "description_zh": "后续冲刺的 DORP，柱内是 MVA。"
+  },
+  {
+    "id": "bc_vision",
+    "label_en": "Business Change Vision Definition",
+    "label_zh": "业务变革愿景定义",
+    "type": "artifact",
+    "parent": null,
+    "position": "最左端方框",
+    "description_zh": "整条时间轴的输入。"
+  },
+  {
+    "id": "bc_backlog",
+    "label_en": "Business Change Backlog",
+    "label_zh": "业务变革待办列表",
+    "type": "artifact",
+    "parent": "dorp_0",
+    "position": "冲刺 0 竖条内的白色椭圆",
+    "description_zh": "冲刺 0 的成果，实线边框表示必需成果。"
+  },
+  {
+    "id": "mva_1",
+    "label_en": "MVA",
+    "label_zh": "MVA（最小可行架构）",
+    "type": "artifact",
+    "parent": "dorp_1",
+    "position": "DORP 1 竖条内的虚线圆",
+    "description_zh": "冲刺 1 交付的最小可行架构。"
+  },
+  {
+    "id": "mva_2",
+    "label_en": "MVA",
+    "label_zh": "MVA（最小可行架构）",
+    "type": "artifact",
+    "parent": "dorp_2",
+    "position": "DORP 2 竖条内的虚线圆"
+  },
+  {
+    "id": "mva_ellipsis",
+    "label_en": "MVA",
+    "label_zh": "MVA（最小可行架构）",
+    "type": "artifact",
+    "parent": "dorp_ellipsis",
+    "position": "DORP … 竖条内的虚线圆"
+  },
+  {
+    "id": "ea_1",
+    "label_en": "Enterprise Architecture",
+    "label_zh": "企业架构",
+    "type": "artifact",
+    "parent": null,
+    "position": "冲刺 1 列的方框",
+    "description_zh": "冲刺 1 产出的企业架构切片。"
+  },
+  {
+    "id": "ea_2",
+    "label_en": "Enterprise Architecture",
+    "label_zh": "企业架构",
+    "type": "artifact",
+    "parent": null,
+    "position": "冲刺 2 列的方框"
+  },
+  {
+    "id": "ea_ellipsis",
+    "label_en": "Enterprise Architecture",
+    "label_zh": "企业架构",
+    "type": "artifact",
+    "parent": null,
+    "position": "冲刺 … 列的方框"
+  },
+  {
+    "id": "final_arch",
+    "label_en": "Final Product Architecture",
+    "label_zh": "最终产品架构",
+    "type": "artifact",
+    "parent": null,
+    "position": "最右端方框",
+    "description_zh": "全部架构冲刺完成后得到的最终产品架构，实施在它之后开始。"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "id": "r_vision_d0",
+    "from": "bc_vision",
+    "to": "dorp_0",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "愿景定义进入冲刺 0，柱内生成待办列表"
+  },
+  {
+    "id": "r_d0_ea1",
+    "from": "dorp_0",
+    "to": "ea_1",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "待办列表驱动冲刺 1 的架构切片"
+  },
+  {
+    "id": "r_ea1_d1",
+    "from": "ea_1",
+    "to": "dorp_1",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "冲刺 1 的架构成果在 DORP 1 演示并形成 MVA"
+  },
+  {
+    "id": "r_d1_ea2",
+    "from": "dorp_1",
+    "to": "ea_2",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "id": "r_ea2_d2",
+    "from": "ea_2",
+    "to": "dorp_2",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "id": "r_d2_ea3",
+    "from": "dorp_2",
+    "to": "ea_ellipsis",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "id": "r_ea3_d3",
+    "from": "ea_ellipsis",
+    "to": "dorp_ellipsis",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "id": "r_d3_final",
+    "from": "dorp_ellipsis",
+    "to": "final_arch",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "最后一根 DORP 之后收束为最终产品架构"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_sprints",
+    "kind": "sequence",
+    "name_zh": "冲刺序列",
+    "steps": [
+      "sprint_0",
+      "sprint_1",
+      "sprint_2",
+      "sprint_ellipsis"
+    ]
+  },
+  {
+    "id": "f_ea",
+    "kind": "sequence",
+    "name_zh": "企业架构切片逐冲刺累积",
+    "steps": [
+      "bc_vision",
+      "ea_1",
+      "ea_2",
+      "ea_ellipsis",
+      "final_arch"
+    ]
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "DORP = Demo, Outcome, Retrospective, Planning, & Releases",
+    "meaning_zh": "DORP＝演示、成果、回顾、规划与发布（每个冲刺末的四项活动，图例原文含 Releases）",
+    "explicit": true
+  },
+  {
+    "symbol": "MVA = Minimum Viable Architecture",
+    "meaning_zh": "MVA＝最小可行架构",
+    "explicit": true
+  },
+  {
+    "symbol": "Dashed outcomes mean they can be delivered but are not always necessary",
+    "meaning_zh": "虚线成果：可以交付，但并非总是必需",
+    "explicit": true
+  },
+  {
+    "symbol": "纵向橙色圆角竖条 + 顶端 DORP 编号",
+    "meaning_zh": "一个冲刺及其收口关口（DORP），位于冲刺之间",
+    "explicit": false
+  },
+  {
+    "symbol": "白色椭圆（实线边框）",
+    "meaning_zh": "冲刺 0 的成果：业务变革待办列表（必需成果）",
+    "explicit": false
+  },
+  {
+    "symbol": "蓝色细箭头",
+    "meaning_zh": "成果从上一冲刺流入下一冲刺的方向",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "横向时间轴：左端一个愿景框，其后 4 根纵向橙色竖条（DORP 0/1/2/…）等距排列，竖条之间夹着 3 个“Enterprise Architecture”框，最右为“Final Product Architecture”；冲刺名（Sprint 0/1/2/…）标在各竖条左上方，缩写图例在图下方左侧。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G210/fig3-3",
+    "relation": "precedes",
+    "note_zh": "下一级协作方式（解决方案协作）：在本图单泳道基础上加入解决方案泳道，MVA 交给下一冲刺的解决方案团队"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "冲刺 0 竖条内只有待办列表、没有 MVA，与“每个冲刺交付一个 MVA”的正文表述略有张力；按图如实记录为“冲刺 0 产出待办列表”。",
+    "竖条宽度较窄，MVA 圆圈压在竖条边框上，圆圈是否完全属于竖条内部按视觉包含处理。"
+  ],
+  "analyzed_from": [
+    "figctx.py G210/fig3-2 的 220 dpi 原图裁切（英文 PDF p24）与 2x2 放大分块、整页 80 dpi 概览",
+    "英文 PDF p23–p24 正文与图题",
+    "中文稿 G210e_以敏捷冲刺应用TOGAF_ADM.md L281–L307",
+    "figs/g210_fig3-2.svg 源码（对比重绘版式与文字）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

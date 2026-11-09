@@ -1,0 +1,2735 @@
+{
+  "package_id": "metadata-repair",
+  "version": "2.3",
+  "profiles": [
+    {
+      "id": "metadata-business-function-map",
+      "artifact_id": "functional-decomposition-diagram",
+      "name": "元数据业务功能参考地图",
+      "name_zh": "元数据业务功能参考地图",
+      "owner": "togaf-information-data",
+      "version": "2.3",
+      "source_refs": [
+        "G234 §5.1",
+        "G234/fig5-1",
+        "references/source-tables/metadata-functions.json"
+      ],
+      "renderer": "metadata-map",
+      "output_kind": "diagram",
+      "entity_types": [
+        "function",
+        "role",
+        "visual_container"
+      ],
+      "relationship_types": [
+        "decomposes",
+        "visually_contains"
+      ],
+      "required_attributes": {
+        "function": [
+          "level",
+          "definition"
+        ],
+        "role": [
+          "responsibility"
+        ],
+        "visual_container": [
+          "definition"
+        ]
+      },
+      "checks": [
+        "对象、关系、必要属性均可追溯并得到表达",
+        "参考内容不自动成为项目事实；未知项保持显式",
+        "团队四角色在参考模板同一行，团队不是功能节点",
+        "业务/应用总范围容器保持独立",
+        "分解是职责包含，不推导执行顺序",
+        "源功能定义完整，不能在句号或换行处任意截断",
+        "图5-2采集顶部、集成右侧纵向、管理底部，治理/报表/参考数据管理独立",
+        "裁剪未选项及理由在评审登记"
+      ],
+      "definition_status": "source-derived-project-operational-contract",
+      "template": {
+        "id": "metadata-business-function-map",
+        "version": "2.3",
+        "source_verified": false,
+        "layout_notes": "按已核查的来源结构参数化；参考图与业务实例的验收分别进行。",
+        "structure": "business",
+        "source_assets": [
+          {
+            "path": "reviews/source-template-bases/G234-fig5-1-p31-0.png",
+            "figure_id": "G234/fig5-1",
+            "pdf_page": 31,
+            "sha256": "8a1c3ca521098339e8f975010c63109938f31ff5d4825d55d40634e4991796c8",
+            "source_version": "G234e.pdf",
+            "source_pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+            "verification_scope": "actual image opened; structural layout and readable labels compared; tiny embedded screenshots excluded"
+          }
+        ],
+        "structure_basis": "实际打开可信来源图；主图保留容器和组带，详细属性按同一稳定ID可见呈现；空间位置不增加语义关系。",
+        "reference_rows": [
+          1,
+          2,
+          3,
+          3,
+          3,
+          4,
+          4,
+          5,
+          5,
+          6
+        ]
+      },
+      "example": {
+        "notice": "虚构业务案例；采用来源结构及术语，不代表真实实施或批准。",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构社区服务机构的访谈、记录和项目约定"
+          }
+        ],
+        "entities": [
+          {
+            "id": "metadata-team",
+            "type": "visual_container",
+            "name": "元数据管理团队",
+            "attributes": {
+              "definition": "角色协作范围，具体任命与RACI另行确定",
+              "g234:slot": "team"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-functions",
+            "type": "visual_container",
+            "name": "元数据管理业务功能",
+            "attributes": {
+              "definition": "G234参考功能范围；分组位置不表示执行顺序或实现状态",
+              "g234:slot": "functions"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-1",
+            "type": "function",
+            "name": "战略与路线图定义",
+            "attributes": {
+              "level": 1,
+              "definition": "战略与路线图定义功能组；不是流程阶段",
+              "reference_row": 1,
+              "reference_column": 0,
+              "g234:slot": "1"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-560",
+            "type": "function",
+            "name": "定义业务驱动因素与需求",
+            "attributes": {
+              "level": 2,
+              "definition": "描述元数据管理能力必须支持的愿景、语境与战略。捕获并记录业务用例与优先级。随时间维护该清单。",
+              "source_row": "G234 表5-1 L560"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-561",
+            "type": "function",
+            "name": "定义角色与职责",
+            "attributes": {
+              "level": 2,
+              "definition": "定义每个参与者（业务、IT）在元数据管理能力建设与运行中的角色与职责。",
+              "source_row": "G234 表5-1 L561"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-562",
+            "type": "function",
+            "name": "构建路线图",
+            "attributes": {
+              "level": 2,
+              "definition": "构建并维护路线图。形成已记录、排好优先级的业务需求清单，以实施元数据管理能力。定义目标与整体旅程。",
+              "source_row": "G234 表5-1 L562"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-563",
+            "type": "function",
+            "name": "识别并培养赞助支持",
+            "attributes": {
+              "level": 2,
+              "definition": "让 IT 与业务赞助人参与元数据管理平台的治理。",
+              "source_row": "G234 表5-1 L563"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-564",
+            "type": "function",
+            "name": "定义 KPI",
+            "attributes": {
+              "level": 2,
+              "definition": "定义关键绩效指标（KPI），以衡量并引导元数据管理平台交付业务目标的有效性。",
+              "source_row": "G234 表5-1 L564"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-2",
+            "type": "function",
+            "name": "治理与度量",
+            "attributes": {
+              "level": 1,
+              "definition": "治理与度量功能组；不是流程阶段",
+              "reference_row": 2,
+              "reference_column": 0,
+              "g234:slot": "2"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-565",
+            "type": "function",
+            "name": "定义业务数据域",
+            "attributes": {
+              "level": 2,
+              "definition": "为治理目的定义数据域。数据域是数据与元数据资产的一致分组，便于落实数据与元数据资产的管家职责与所有权。",
+              "source_row": "G234 表5-1 L565"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-566",
+            "type": "function",
+            "name": "按数据域吸纳并任命数据管家、业务数据所有者、数据隐私官",
+            "attributes": {
+              "level": 2,
+              "definition": "识别将维护与治理元数据存储库的关键利益相关者。",
+              "source_row": "G234 表5-1 L566"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-567",
+            "type": "function",
+            "name": "度量元数据文档质量与使用",
+            "attributes": {
+              "level": 2,
+              "definition": "定义 KPI 以监控存储库中元数据的质量与使用情况。",
+              "source_row": "G234 表5-1 L567"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-3",
+            "type": "function",
+            "name": "业务术语表文档",
+            "attributes": {
+              "level": 1,
+              "definition": "业务术语表文档功能组；不是流程阶段",
+              "reference_row": 3,
+              "reference_column": 0,
+              "g234:slot": "3"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-568",
+            "type": "function",
+            "name": "记录业务概念",
+            "attributes": {
+              "level": 2,
+              "definition": "定义业务概念的名称与语义，例如业务术语、业务数据对象、业务数据元素或任何其他有意义的业务概念。",
+              "source_row": "G234 表5-1 L568"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-569",
+            "type": "function",
+            "name": "对数据对象与数据元素分类（隐私、业务关键性）",
+            "attributes": {
+              "level": 2,
+              "definition": "为安全与合规目的对数据分类。识别对业务有价值的数据资产（关键数据、“皇冠明珠”）。",
+              "source_row": "G234 表5-1 L569"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-4",
+            "type": "function",
+            "name": "数据字典文档",
+            "attributes": {
+              "level": 1,
+              "definition": "数据字典文档功能组；不是流程阶段",
+              "reference_row": 3,
+              "reference_column": 1,
+              "g234:slot": "4"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-570",
+            "type": "function",
+            "name": "记录应用",
+            "attributes": {
+              "level": 2,
+              "definition": "描述并维护应用间的数据流；识别数据位置与数据采集点；记录并维护应用清单及相关 IT 经理信息；记录联系人信息（包括由第三方管理的应用）；为存储或处理关键数据元素的应用收集并维护 SLA。",
+              "source_row": "G234 表5-1 L570"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-571",
+            "type": "function",
+            "name": "记录数据库",
+            "attributes": {
+              "level": 2,
+              "definition": "记录存储数据的数据库系统。识别要纳入运营数据治理的相关数据保管人。此处数据库可理解为存储数据集合的任何手段。",
+              "source_row": "G234 表5-1 L571"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-572",
+            "type": "function",
+            "name": "记录数据集与数据字段",
+            "attributes": {
+              "level": 2,
+              "definition": "在每个数据库系统中捕获相关数据集与数据字段，使数据文档可供所有人使用，以促进复用并落实数据治理与合规。",
+              "source_row": "G234 表5-1 L572"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-5",
+            "type": "function",
+            "name": "数据使用文档",
+            "attributes": {
+              "level": 1,
+              "definition": "数据使用文档功能组；不是流程阶段",
+              "reference_row": 3,
+              "reference_column": 2,
+              "g234:slot": "5"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-573",
+            "type": "function",
+            "name": "记录数据处理活动",
+            "attributes": {
+              "level": 2,
+              "definition": "记录数据使用与操作，例如收集、记录、组织、结构化、存储、改编或变更、检索、咨询、使用、通过传输披露、传播或以其他方式提供、对齐或组合、限制、擦除或销毁。",
+              "source_row": "G234 表5-1 L573"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-574",
+            "type": "function",
+            "name": "记录数据传输",
+            "attributes": {
+              "level": 2,
+              "definition": "记录在数据使用语境下向第三方传输披露任何个人数据所适用的法律条件；记录在数据使用语境下接收个人数据的第三方。",
+              "source_row": "G234 表5-1 L574"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-575",
+            "type": "function",
+            "name": "记录 DPIA 结果",
+            "attributes": {
+              "level": 2,
+              "definition": "当数据使用与操作涉及个人数据处理时，记录数据保护影响评估（DPIA）结果。",
+              "source_row": "G234 表5-1 L575"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-6",
+            "type": "function",
+            "name": "规则与政策文档",
+            "attributes": {
+              "level": 1,
+              "definition": "规则与政策文档功能组；不是流程阶段",
+              "reference_row": 4,
+              "reference_column": 0,
+              "g234:slot": "6"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-576",
+            "type": "function",
+            "name": "记录业务规则",
+            "attributes": {
+              "level": 2,
+              "definition": "记录适用于数据的删除、质量及其他相关业务规则。",
+              "source_row": "G234 表5-1 L576"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-577",
+            "type": "function",
+            "name": "记录数据政策",
+            "attributes": {
+              "level": 2,
+              "definition": "记录应由数据治理委员会执行的数据政策。",
+              "source_row": "G234 表5-1 L577"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-7",
+            "type": "function",
+            "name": "数据问题文档",
+            "attributes": {
+              "level": 1,
+              "definition": "数据问题文档功能组；不是流程阶段",
+              "reference_row": 4,
+              "reference_column": 1,
+              "g234:slot": "7"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-578",
+            "type": "function",
+            "name": "记录业务数据问题",
+            "attributes": {
+              "level": 2,
+              "definition": "记录业务问题及相关业务影响（定量与定性）。",
+              "source_row": "G234 表5-1 L578"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-579",
+            "type": "function",
+            "name": "记录数据质量问题",
+            "attributes": {
+              "level": 2,
+              "definition": "记录信息生命周期分析中识别的数据质量问题。记录差质量成本与改进数据质量的成本。",
+              "source_row": "G234 表5-1 L579"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-8",
+            "type": "function",
+            "name": "业务资产与技术资产关联",
+            "attributes": {
+              "level": 1,
+              "definition": "业务资产与技术资产关联功能组；不是流程阶段",
+              "reference_row": 5,
+              "reference_column": 0,
+              "g234:slot": "8"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-580",
+            "type": "function",
+            "name": "记录业务术语表概念与其在信息系统中的实现之间的链接",
+            "attributes": {
+              "level": 2,
+              "definition": "记录业务数据对象/数据元素/业务术语与应用/数据库/数据集/数据字段之间的链接。",
+              "source_row": "G234 表5-1 L580"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-581",
+            "type": "function",
+            "name": "记录数据使用与支撑该使用的系统之间的链接",
+            "attributes": {
+              "level": 2,
+              "definition": "记录数据处理活动与参与该数据使用的应用/数据库之间的链接。",
+              "source_row": "G234 表5-1 L581"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-582",
+            "type": "function",
+            "name": "把业务规则链接到数据处理活动",
+            "attributes": {
+              "level": 2,
+              "definition": "记录数据使用和/或操作中涉及的业务规则。",
+              "source_row": "G234 表5-1 L582"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-583",
+            "type": "function",
+            "name": "把业务规则链接到业务数据元素",
+            "attributes": {
+              "level": 2,
+              "definition": "记录每条业务规则要评估的数据元素。",
+              "source_row": "G234 表5-1 L583"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-9",
+            "type": "function",
+            "name": "元数据存储库设计",
+            "attributes": {
+              "level": 1,
+              "definition": "元数据存储库设计功能组；不是流程阶段",
+              "reference_row": 5,
+              "reference_column": 1,
+              "g234:slot": "9"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-584",
+            "type": "function",
+            "name": "设计元数据存储库模型",
+            "attributes": {
+              "level": 2,
+              "definition": "设计元数据存储库的底层数据模型。",
+              "source_row": "G234 表5-1 L584"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-585",
+            "type": "function",
+            "name": "设计元数据访问模型",
+            "attributes": {
+              "level": 2,
+              "definition": "定义、管理与控制元数据的访问方式。",
+              "source_row": "G234 表5-1 L585"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-586",
+            "type": "function",
+            "name": "设计工作流",
+            "attributes": {
+              "level": 2,
+              "definition": "定义评审与校验元数据的工作流与流程，以保证元数据的一致性与完整性，或简化元数据采集（在元数据入口层面最少控制）。",
+              "source_row": "G234 表5-1 L586"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-group-10",
+            "type": "function",
+            "name": "沟通与培训",
+            "attributes": {
+              "level": 1,
+              "definition": "沟通与培训功能组；不是流程阶段",
+              "reference_row": 6,
+              "reference_column": 0,
+              "g234:slot": "10"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-587",
+            "type": "function",
+            "name": "培训最终用户",
+            "attributes": {
+              "level": 2,
+              "definition": "培训最终用户，促进元数据管理流程与工具的采用。",
+              "source_row": "G234 表5-1 L587"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-588",
+            "type": "function",
+            "name": "沟通存储库中当前可用的元数据",
+            "attributes": {
+              "level": 2,
+              "definition": "向广泛受众说明已记录的元数据范围，以及如何用它为组织创造价值。",
+              "source_row": "G234 表5-1 L588"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-function-589",
+            "type": "function",
+            "name": "沟通可用元数据的使用情况",
+            "attributes": {
+              "level": 2,
+              "definition": "向广泛受众说明已记录元数据的实际使用情况，以提升认知。",
+              "source_row": "G234 表5-1 L589"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-role-1",
+            "type": "role",
+            "name": "数据所有者",
+            "attributes": {
+              "responsibility": "按数据域参与元数据治理；具体授权待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-role-2",
+            "type": "role",
+            "name": "数据管家",
+            "attributes": {
+              "responsibility": "按数据域参与元数据治理；具体授权待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-role-3",
+            "type": "role",
+            "name": "数据保管人",
+            "attributes": {
+              "responsibility": "按数据域参与元数据治理；具体授权待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-role-4",
+            "type": "role",
+            "name": "数据保护官",
+            "attributes": {
+              "responsibility": "按数据域参与元数据治理；具体授权待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "scope-business-group-1",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-1",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-560",
+            "type": "decomposes",
+            "source": "business-group-1",
+            "target": "business-function-560",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-561",
+            "type": "decomposes",
+            "source": "business-group-1",
+            "target": "business-function-561",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-562",
+            "type": "decomposes",
+            "source": "business-group-1",
+            "target": "business-function-562",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-563",
+            "type": "decomposes",
+            "source": "business-group-1",
+            "target": "business-function-563",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-564",
+            "type": "decomposes",
+            "source": "business-group-1",
+            "target": "business-function-564",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-business-group-2",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-2",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-565",
+            "type": "decomposes",
+            "source": "business-group-2",
+            "target": "business-function-565",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-566",
+            "type": "decomposes",
+            "source": "business-group-2",
+            "target": "business-function-566",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-567",
+            "type": "decomposes",
+            "source": "business-group-2",
+            "target": "business-function-567",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-business-group-3",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-3",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-568",
+            "type": "decomposes",
+            "source": "business-group-3",
+            "target": "business-function-568",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-569",
+            "type": "decomposes",
+            "source": "business-group-3",
+            "target": "business-function-569",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-business-group-4",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-4",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-570",
+            "type": "decomposes",
+            "source": "business-group-4",
+            "target": "business-function-570",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-571",
+            "type": "decomposes",
+            "source": "business-group-4",
+            "target": "business-function-571",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-572",
+            "type": "decomposes",
+            "source": "business-group-4",
+            "target": "business-function-572",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-business-group-5",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-5",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-573",
+            "type": "decomposes",
+            "source": "business-group-5",
+            "target": "business-function-573",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-574",
+            "type": "decomposes",
+            "source": "business-group-5",
+            "target": "business-function-574",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-575",
+            "type": "decomposes",
+            "source": "business-group-5",
+            "target": "business-function-575",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-business-group-6",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-6",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-576",
+            "type": "decomposes",
+            "source": "business-group-6",
+            "target": "business-function-576",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-577",
+            "type": "decomposes",
+            "source": "business-group-6",
+            "target": "business-function-577",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-business-group-7",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-7",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-578",
+            "type": "decomposes",
+            "source": "business-group-7",
+            "target": "business-function-578",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-579",
+            "type": "decomposes",
+            "source": "business-group-7",
+            "target": "business-function-579",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-business-group-8",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-8",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-580",
+            "type": "decomposes",
+            "source": "business-group-8",
+            "target": "business-function-580",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-581",
+            "type": "decomposes",
+            "source": "business-group-8",
+            "target": "business-function-581",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-582",
+            "type": "decomposes",
+            "source": "business-group-8",
+            "target": "business-function-582",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-583",
+            "type": "decomposes",
+            "source": "business-group-8",
+            "target": "business-function-583",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-business-group-9",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-9",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-584",
+            "type": "decomposes",
+            "source": "business-group-9",
+            "target": "business-function-584",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-585",
+            "type": "decomposes",
+            "source": "business-group-9",
+            "target": "business-function-585",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-586",
+            "type": "decomposes",
+            "source": "business-group-9",
+            "target": "business-function-586",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-business-group-10",
+            "type": "visually_contains",
+            "source": "business-functions",
+            "target": "business-group-10",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-587",
+            "type": "decomposes",
+            "source": "business-group-10",
+            "target": "business-function-587",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-588",
+            "type": "decomposes",
+            "source": "business-group-10",
+            "target": "business-function-588",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-business-function-589",
+            "type": "decomposes",
+            "source": "business-group-10",
+            "target": "business-function-589",
+            "label": "业务职责分解",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "team-metadata-role-1",
+            "type": "visually_contains",
+            "source": "metadata-team",
+            "target": "metadata-role-1",
+            "label": "角色属于图中的团队分组；不表示人事汇报",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "team-metadata-role-2",
+            "type": "visually_contains",
+            "source": "metadata-team",
+            "target": "metadata-role-2",
+            "label": "角色属于图中的团队分组；不表示人事汇报",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "team-metadata-role-3",
+            "type": "visually_contains",
+            "source": "metadata-team",
+            "target": "metadata-role-3",
+            "label": "角色属于图中的团队分组；不表示人事汇报",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "team-metadata-role-4",
+            "type": "visually_contains",
+            "source": "metadata-team",
+            "target": "metadata-role-4",
+            "label": "角色属于图中的团队分组；不表示人事汇报",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "view": {
+          "id": "v-metadata-business-function-map",
+          "artifact_id": "functional-decomposition-diagram",
+          "profile_id": "metadata-business-function-map",
+          "title": "元数据业务功能参考地图",
+          "entity_ids": [
+            "metadata-team",
+            "business-functions",
+            "business-group-1",
+            "business-function-560",
+            "business-function-561",
+            "business-function-562",
+            "business-function-563",
+            "business-function-564",
+            "business-group-2",
+            "business-function-565",
+            "business-function-566",
+            "business-function-567",
+            "business-group-3",
+            "business-function-568",
+            "business-function-569",
+            "business-group-4",
+            "business-function-570",
+            "business-function-571",
+            "business-function-572",
+            "business-group-5",
+            "business-function-573",
+            "business-function-574",
+            "business-function-575",
+            "business-group-6",
+            "business-function-576",
+            "business-function-577",
+            "business-group-7",
+            "business-function-578",
+            "business-function-579",
+            "business-group-8",
+            "business-function-580",
+            "business-function-581",
+            "business-function-582",
+            "business-function-583",
+            "business-group-9",
+            "business-function-584",
+            "business-function-585",
+            "business-function-586",
+            "business-group-10",
+            "business-function-587",
+            "business-function-588",
+            "business-function-589",
+            "metadata-role-1",
+            "metadata-role-2",
+            "metadata-role-3",
+            "metadata-role-4"
+          ],
+          "relationship_ids": [
+            "scope-business-group-1",
+            "part-business-function-560",
+            "part-business-function-561",
+            "part-business-function-562",
+            "part-business-function-563",
+            "part-business-function-564",
+            "scope-business-group-2",
+            "part-business-function-565",
+            "part-business-function-566",
+            "part-business-function-567",
+            "scope-business-group-3",
+            "part-business-function-568",
+            "part-business-function-569",
+            "scope-business-group-4",
+            "part-business-function-570",
+            "part-business-function-571",
+            "part-business-function-572",
+            "scope-business-group-5",
+            "part-business-function-573",
+            "part-business-function-574",
+            "part-business-function-575",
+            "scope-business-group-6",
+            "part-business-function-576",
+            "part-business-function-577",
+            "scope-business-group-7",
+            "part-business-function-578",
+            "part-business-function-579",
+            "scope-business-group-8",
+            "part-business-function-580",
+            "part-business-function-581",
+            "part-business-function-582",
+            "part-business-function-583",
+            "scope-business-group-9",
+            "part-business-function-584",
+            "part-business-function-585",
+            "part-business-function-586",
+            "scope-business-group-10",
+            "part-business-function-587",
+            "part-business-function-588",
+            "part-business-function-589",
+            "team-metadata-role-1",
+            "team-metadata-role-2",
+            "team-metadata-role-3",
+            "team-metadata-role-4"
+          ],
+          "analysis": "原料：社区服务预约与补贴数据需要共享术语、字典、隐私和质量文档。以G234完整功能表为评审清单保留参考结构，再按业务需求逐项决定适用性。本图是可裁剪参考模型，未声明全部已实施；定义来自源表译文，保留版本与翻译限制。",
+          "legend": "同一ID表示同一对象；箭头依关系标签；未知不等于不存在；示例未获业务批准。"
+        }
+      }
+    },
+    {
+      "id": "metadata-application-function-map",
+      "artifact_id": "functional-decomposition-diagram",
+      "name": "元数据应用功能参考地图",
+      "name_zh": "元数据应用功能参考地图",
+      "owner": "togaf-information-data",
+      "version": "2.3",
+      "source_refs": [
+        "G234 §5.2",
+        "G234/fig5-2",
+        "references/source-tables/metadata-functions.json"
+      ],
+      "renderer": "metadata-map",
+      "output_kind": "diagram",
+      "entity_types": [
+        "function",
+        "role",
+        "visual_container"
+      ],
+      "relationship_types": [
+        "decomposes",
+        "visually_contains"
+      ],
+      "required_attributes": {
+        "function": [
+          "level",
+          "definition"
+        ],
+        "role": [
+          "responsibility"
+        ],
+        "visual_container": [
+          "definition"
+        ]
+      },
+      "checks": [
+        "对象、关系、必要属性均可追溯并得到表达",
+        "参考内容不自动成为项目事实；未知项保持显式",
+        "团队四角色在参考模板同一行，团队不是功能节点",
+        "业务/应用总范围容器保持独立",
+        "分解是职责包含，不推导执行顺序",
+        "源功能定义完整，不能在句号或换行处任意截断",
+        "图5-2采集顶部、集成右侧纵向、管理底部，治理/报表/参考数据管理独立",
+        "裁剪未选项及理由在评审登记"
+      ],
+      "definition_status": "source-derived-project-operational-contract",
+      "template": {
+        "id": "metadata-application-function-map",
+        "version": "2.3",
+        "source_verified": false,
+        "layout_notes": "按已核查的来源结构参数化；参考图与业务实例的验收分别进行。",
+        "structure": "application",
+        "source_assets": [
+          {
+            "path": "reviews/source-template-bases/G234-fig5-2-local-en.png",
+            "figure_id": "G234/fig5-2",
+            "pdf_page": 34,
+            "original_asset": "figs/g234e_fig5-2_en.png",
+            "sha256": "00c5e8212648944daa5d071f77a5829dc6187d4ee3eb87ec516ea36227470c6e",
+            "source_version": "G234e.pdf",
+            "source_pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+            "verification_scope": "actual image opened; structural layout and readable labels compared; tiny embedded screenshots excluded"
+          }
+        ],
+        "structure_basis": "实际打开可信来源图；主图保留容器和组带，详细属性按同一稳定ID可见呈现；空间位置不增加语义关系。",
+        "reference_rows": [
+          1,
+          2,
+          2,
+          3,
+          4,
+          1
+        ]
+      },
+      "example": {
+        "notice": "虚构业务案例；采用来源结构及术语，不代表真实实施或批准。",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构社区服务机构的访谈、记录和项目约定"
+          }
+        ],
+        "entities": [
+          {
+            "id": "application-functions",
+            "type": "visual_container",
+            "name": "元数据管理应用功能",
+            "attributes": {
+              "definition": "G234参考功能范围；分组位置不表示执行顺序或实现状态",
+              "g234:slot": "functions"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-group-1",
+            "type": "function",
+            "name": "采集",
+            "attributes": {
+              "level": 1,
+              "definition": "采集功能组；不是流程阶段",
+              "reference_row": 1,
+              "reference_column": 0,
+              "g234:slot": "acquisition"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-641",
+            "type": "function",
+            "name": "元数据创建、修订与删除",
+            "attributes": {
+              "level": 2,
+              "definition": "创建并维护元数据对象，包括（但不限于）：\n• 数据术语表：业务数据对象、业务数据元素、业务术语、删除/保留日期\n• 数据字典：环境、应用（及相关技术）、数据集（数据库）、表、列\n• 数据使用：数据处理活动、数据接收方、数据传输、数据保护影响评估、数据提供方、数据访问与权限、指向外部文档参考的 URL 链接\n• 数据分类：数据保密性分类、数据隐私分类、业务价值分类、定义自定义元数据分类维度\n• 规则与政策：数据政策、业务数据质量规则\n• 问题：业务数据问题（含相关业务问题与业务影响）、按数据质量规则执行后报告的数据质量问题\n• 治理资产：元数据的逻辑分组，包括（但不限于）主题域（如保单、理赔、产品）、业务领域（如家庭、汽车、旅行、健康）、地理区域（如意大利、法国、西班牙、巴黎）；数据域，即两个或以上元数据分组的组合；数据管家、数据所有者、数据经理、数据隐私官、数据保管人、应用所有者\n• 数据质量规则执行：技术数据质量规则。",
+              "source_row": "G234 表5-2 L641",
+              "g234:reference-order": 641,
+              "asset_categories": [
+                "数据术语表",
+                "数据字典",
+                "数据使用",
+                "数据分类",
+                "规则与政策",
+                "问题",
+                "治理资产",
+                "数据质量规则执行"
+              ]
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-642",
+            "type": "function",
+            "name": "元数据分类",
+            "attributes": {
+              "level": 2,
+              "definition": "对元数据分类的能力：数据保密性分类；数据隐私分类；定义自定义元数据分类维度。",
+              "source_row": "G234 表5-2 L642",
+              "g234:reference-order": 642
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-643",
+            "type": "function",
+            "name": "元数据关联",
+            "attributes": {
+              "level": 2,
+              "definition": "链接元数据资产，以描述数据的完整价值链与数据血缘。",
+              "source_row": "G234 表5-2 L643",
+              "g234:reference-order": 643
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-644",
+            "type": "function",
+            "name": "元数据推断",
+            "attributes": {
+              "level": 2,
+              "definition": "通过自动化过程（如机器学习或人工智能（AI）算法）记录元数据；例如（但不限于）：自动处理可用数据以发现元数据关系；从模式中识别元数据（电子邮件、电话号码、信用卡等）；识别数据之间的关系（相同值、分布等）；从字典中识别元数据（公司名称、城市、名字、姓氏、同义词等）。",
+              "source_row": "G234 表5-2 L644",
+              "g234:reference-order": 644
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-645",
+            "type": "function",
+            "name": "数据质量规则执行",
+            "attributes": {
+              "level": 2,
+              "definition": "执行元数据存储库中定义的数据质量规则，并捕获其结果。",
+              "source_row": "G234 表5-2 L645",
+              "g234:reference-order": 645
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-group-2",
+            "type": "function",
+            "name": "治理",
+            "attributes": {
+              "level": 1,
+              "definition": "治理功能组；不是流程阶段",
+              "reference_row": 2,
+              "reference_column": 0,
+              "g234:slot": "governance"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-646",
+            "type": "function",
+            "name": "工作流校验",
+            "attributes": {
+              "level": 2,
+              "definition": "创建工作流，可视化状态与任务。",
+              "source_row": "G234 表5-2 L646",
+              "g234:reference-order": 0
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-647",
+            "type": "function",
+            "name": "任务分配",
+            "attributes": {
+              "level": 2,
+              "definition": "向人员分配任务。",
+              "source_row": "G234 表5-2 L647",
+              "g234:reference-order": 2
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-648",
+            "type": "function",
+            "name": "影响分析",
+            "attributes": {
+              "level": 2,
+              "definition": "查看变更影响。（例如，如果我更改业务定义，有多少技术定义基于它？）",
+              "source_row": "G234 表5-2 L648",
+              "g234:reference-order": 1
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-649",
+            "type": "function",
+            "name": "元数据活动监控",
+            "attributes": {
+              "level": 2,
+              "definition": "报告元数据使用情况。",
+              "source_row": "G234 表5-2 L649",
+              "g234:reference-order": 3
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-group-3",
+            "type": "function",
+            "name": "报表",
+            "attributes": {
+              "level": 1,
+              "definition": "报表功能组；不是流程阶段",
+              "reference_row": 2,
+              "reference_column": 1,
+              "g234:slot": "reporting"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-650",
+            "type": "function",
+            "name": "数据合规报表",
+            "attributes": {
+              "level": 2,
+              "definition": "可视化端到端数据生命周期（数据起源、数据转换、数据传输、数据分类），以支持监管要求。",
+              "source_row": "G234 表5-2 L650",
+              "g234:reference-order": 650
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-651",
+            "type": "function",
+            "name": "数据文档报表",
+            "attributes": {
+              "level": 2,
+              "definition": "可视化存储库内的元数据完成情况；可视化元数据关联；度量元数据质量并在组织内共享。",
+              "source_row": "G234 表5-2 L651",
+              "g234:reference-order": 651
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-652",
+            "type": "function",
+            "name": "数据问责报表",
+            "attributes": {
+              "level": 2,
+              "definition": "以报表能力可视化组织内谁对数据负责。",
+              "source_row": "G234 表5-2 L652",
+              "g234:reference-order": 652
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-653",
+            "type": "function",
+            "name": "数据质量报表",
+            "attributes": {
+              "level": 2,
+              "definition": "按时间（历史与当前）度量数据质量，并在组织内共享。",
+              "source_row": "G234 表5-2 L653",
+              "g234:reference-order": 653
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-654",
+            "type": "function",
+            "name": "元数据搜索",
+            "attributes": {
+              "level": 2,
+              "definition": "对元数据进行多条件搜索；对元数据进行全文搜索（类似 Google™）；带自动补全的元数据搜索。",
+              "source_row": "G234 表5-2 L654",
+              "g234:reference-order": 654
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-group-4",
+            "type": "function",
+            "name": "参考数据管理",
+            "attributes": {
+              "level": 1,
+              "definition": "参考数据管理功能组；不是流程阶段",
+              "reference_row": 3,
+              "reference_column": 0,
+              "g234:slot": "reference-data"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-655",
+            "type": "function",
+            "name": "值列表管理（类别列表、代码列表等）",
+            "attributes": {
+              "level": 2,
+              "definition": "创建并维护规范化的值列表（类别列表、代码列表等）；管理参考数据（值列表）。",
+              "source_row": "G234 表5-2 L655",
+              "g234:reference-order": 655
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-group-5",
+            "type": "function",
+            "name": "管理",
+            "attributes": {
+              "level": 1,
+              "definition": "管理功能组；不是流程阶段",
+              "reference_row": 4,
+              "reference_column": 0,
+              "g234:slot": "administration"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-656",
+            "type": "function",
+            "name": "环境管理",
+            "attributes": {
+              "level": 2,
+              "definition": "管理多个环境，每个环境有自己的治理（如工作流校验）与管理（如访问管理、数据库版本管理）设置。",
+              "source_row": "G234 表5-2 L656",
+              "g234:reference-order": 656
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-657",
+            "type": "function",
+            "name": "访问管理",
+            "attributes": {
+              "level": 2,
+              "definition": "管理、创建、删除、更新元数据访问权限；创建用户与组，并根据角色授予元数据授权（包括批处理或用户角色）。",
+              "source_row": "G234 表5-2 L657",
+              "g234:reference-order": 657
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-658",
+            "type": "function",
+            "name": "国际化与本地化",
+            "attributes": {
+              "level": 2,
+              "definition": "提供使元数据管理工具适应不同语言和本地要求的手段。",
+              "source_row": "G234 表5-2 L658",
+              "g234:reference-order": 658
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-659",
+            "type": "function",
+            "name": "事件日志管理",
+            "attributes": {
+              "level": 2,
+              "definition": "记录系统中的任何事件。保留元数据修改的历史、来源与作者。",
+              "source_row": "G234 表5-2 L659",
+              "g234:reference-order": 659
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-660",
+            "type": "function",
+            "name": "数据库版本管理",
+            "attributes": {
+              "level": 2,
+              "definition": "支持元数据数据库的版本管理。",
+              "source_row": "G234 表5-2 L660",
+              "g234:reference-order": 660
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-group-6",
+            "type": "function",
+            "name": "元数据集成",
+            "attributes": {
+              "level": 1,
+              "definition": "元数据集成功能组；不是流程阶段",
+              "reference_row": 1,
+              "reference_column": 1,
+              "g234:slot": "integration"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-661",
+            "type": "function",
+            "name": "元数据查询",
+            "attributes": {
+              "level": 2,
+              "definition": "使用原生 SQL 或任何其他查询语言或接口（如 API）查询存储库中的元数据资产。",
+              "source_row": "G234 表5-2 L661",
+              "g234:reference-order": 661
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-662",
+            "type": "function",
+            "name": "批量导入",
+            "attributes": {
+              "level": 2,
+              "definition": "从文件（如 CSV、JSON、XML）或通过应用接口（如 API）把多条元数据导入元数据存储库。",
+              "source_row": "G234 表5-2 L662",
+              "g234:reference-order": 662
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-663",
+            "type": "function",
+            "name": "批量导出",
+            "attributes": {
+              "level": 2,
+              "definition": "以非专有文件格式（如 CSV）、通过 API 或任何其他应用接口从存储库导出多条元数据。",
+              "source_row": "G234 表5-2 L663",
+              "g234:reference-order": 663
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "application-function-664",
+            "type": "function",
+            "name": "事件订阅",
+            "attributes": {
+              "level": 2,
+              "definition": "监听来自事件代理的一个或多个事件。",
+              "source_row": "G234 表5-2 L664",
+              "g234:reference-order": 664
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "scope-application-group-1",
+            "type": "visually_contains",
+            "source": "application-functions",
+            "target": "application-group-1",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-641",
+            "type": "decomposes",
+            "source": "application-group-1",
+            "target": "application-function-641",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-642",
+            "type": "decomposes",
+            "source": "application-group-1",
+            "target": "application-function-642",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-643",
+            "type": "decomposes",
+            "source": "application-group-1",
+            "target": "application-function-643",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-644",
+            "type": "decomposes",
+            "source": "application-group-1",
+            "target": "application-function-644",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-645",
+            "type": "decomposes",
+            "source": "application-group-1",
+            "target": "application-function-645",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-application-group-2",
+            "type": "visually_contains",
+            "source": "application-functions",
+            "target": "application-group-2",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-646",
+            "type": "decomposes",
+            "source": "application-group-2",
+            "target": "application-function-646",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-647",
+            "type": "decomposes",
+            "source": "application-group-2",
+            "target": "application-function-647",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-648",
+            "type": "decomposes",
+            "source": "application-group-2",
+            "target": "application-function-648",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-649",
+            "type": "decomposes",
+            "source": "application-group-2",
+            "target": "application-function-649",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-application-group-3",
+            "type": "visually_contains",
+            "source": "application-functions",
+            "target": "application-group-3",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-650",
+            "type": "decomposes",
+            "source": "application-group-3",
+            "target": "application-function-650",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-651",
+            "type": "decomposes",
+            "source": "application-group-3",
+            "target": "application-function-651",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-652",
+            "type": "decomposes",
+            "source": "application-group-3",
+            "target": "application-function-652",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-653",
+            "type": "decomposes",
+            "source": "application-group-3",
+            "target": "application-function-653",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-654",
+            "type": "decomposes",
+            "source": "application-group-3",
+            "target": "application-function-654",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-application-group-4",
+            "type": "visually_contains",
+            "source": "application-functions",
+            "target": "application-group-4",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-655",
+            "type": "decomposes",
+            "source": "application-group-4",
+            "target": "application-function-655",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-application-group-5",
+            "type": "visually_contains",
+            "source": "application-functions",
+            "target": "application-group-5",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-656",
+            "type": "decomposes",
+            "source": "application-group-5",
+            "target": "application-function-656",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-657",
+            "type": "decomposes",
+            "source": "application-group-5",
+            "target": "application-function-657",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-658",
+            "type": "decomposes",
+            "source": "application-group-5",
+            "target": "application-function-658",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-659",
+            "type": "decomposes",
+            "source": "application-group-5",
+            "target": "application-function-659",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-660",
+            "type": "decomposes",
+            "source": "application-group-5",
+            "target": "application-function-660",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "scope-application-group-6",
+            "type": "visually_contains",
+            "source": "application-functions",
+            "target": "application-group-6",
+            "label": "参考模型范围的视觉包含；不表示组织归属",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-661",
+            "type": "decomposes",
+            "source": "application-group-6",
+            "target": "application-function-661",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-662",
+            "type": "decomposes",
+            "source": "application-group-6",
+            "target": "application-function-662",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-663",
+            "type": "decomposes",
+            "source": "application-group-6",
+            "target": "application-function-663",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "part-application-function-664",
+            "type": "decomposes",
+            "source": "application-group-6",
+            "target": "application-function-664",
+            "label": "应用功能分解；不表示调用顺序",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "view": {
+          "id": "v-metadata-application-function-map",
+          "artifact_id": "functional-decomposition-diagram",
+          "profile_id": "metadata-application-function-map",
+          "title": "元数据应用功能参考地图",
+          "entity_ids": [
+            "application-functions",
+            "application-group-1",
+            "application-function-641",
+            "application-function-642",
+            "application-function-643",
+            "application-function-644",
+            "application-function-645",
+            "application-group-2",
+            "application-function-646",
+            "application-function-647",
+            "application-function-648",
+            "application-function-649",
+            "application-group-3",
+            "application-function-650",
+            "application-function-651",
+            "application-function-652",
+            "application-function-653",
+            "application-function-654",
+            "application-group-4",
+            "application-function-655",
+            "application-group-5",
+            "application-function-656",
+            "application-function-657",
+            "application-function-658",
+            "application-function-659",
+            "application-function-660",
+            "application-group-6",
+            "application-function-661",
+            "application-function-662",
+            "application-function-663",
+            "application-function-664"
+          ],
+          "relationship_ids": [
+            "scope-application-group-1",
+            "part-application-function-641",
+            "part-application-function-642",
+            "part-application-function-643",
+            "part-application-function-644",
+            "part-application-function-645",
+            "scope-application-group-2",
+            "part-application-function-646",
+            "part-application-function-647",
+            "part-application-function-648",
+            "part-application-function-649",
+            "scope-application-group-3",
+            "part-application-function-650",
+            "part-application-function-651",
+            "part-application-function-652",
+            "part-application-function-653",
+            "part-application-function-654",
+            "scope-application-group-4",
+            "part-application-function-655",
+            "scope-application-group-5",
+            "part-application-function-656",
+            "part-application-function-657",
+            "part-application-function-658",
+            "part-application-function-659",
+            "part-application-function-660",
+            "scope-application-group-6",
+            "part-application-function-661",
+            "part-application-function-662",
+            "part-application-function-663",
+            "part-application-function-664"
+          ],
+          "analysis": "原料：社区服务预约与补贴数据需要共享术语、字典、隐私和质量文档。以G234完整功能表为评审清单保留参考结构，再按业务需求逐项决定适用性。本图是可裁剪参考模型，未声明全部已实施；定义来自源表译文，保留版本与翻译限制。",
+          "legend": "同一ID表示同一对象；箭头依关系标签；未知不等于不存在；示例未获业务批准。"
+        }
+      }
+    },
+    {
+      "id": "metadata-three-part-solution",
+      "artifact_id": "metadata-repository-design",
+      "name": "元数据业务需求与IT方案三要素",
+      "name_zh": "元数据业务需求与IT方案三要素",
+      "owner": "togaf-information-data",
+      "version": "2.3",
+      "source_refs": [
+        "G234 §4.3",
+        "G234/fig4-4"
+      ],
+      "renderer": "metadata-map",
+      "output_kind": "diagram",
+      "entity_types": [
+        "visual_container",
+        "requirement",
+        "metadata_solution_component"
+      ],
+      "relationship_types": [
+        "visually_contains",
+        "supports_metadata_requirement",
+        "g234:supports-requirements"
+      ],
+      "required_attributes": {
+        "visual_container": [
+          "definition"
+        ],
+        "requirement": [
+          "statement",
+          "concerns",
+          "concern_mapping_basis"
+        ],
+        "metadata_solution_component": [
+          "definition"
+        ]
+      },
+      "checks": [
+        "对象、关系、必要属性均可追溯并得到表达",
+        "参考内容不自动成为项目事实；未知项保持显式",
+        "源图支撑关系从整个IT方案指向整个业务需求",
+        "下层三要素用+表示组合，不是流程",
+        "四类关注图例齐全且不当成人员数量",
+        "虚构项目关系与来源整体支撑关系分别展示",
+        "来源错图继续保留和登记"
+      ],
+      "definition_status": "source-derived-project-operational-contract",
+      "template": {
+        "id": "metadata-three-part-solution",
+        "version": "2.3",
+        "source_verified": false,
+        "layout_notes": "按已核查的来源结构参数化；参考图与业务实例的验收分别进行。",
+        "structure": "solution",
+        "source_assets": [
+          {
+            "path": "reviews/source-template-bases/G234-fig4-4-p25-0.png",
+            "figure_id": "G234/fig4-4",
+            "pdf_page": 25,
+            "sha256": "5d9b7c920c1ee780291118ac0c3601a47dc2919e9c1d04c937216664d020497c",
+            "source_version": "G234e.pdf",
+            "source_pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+            "verification_scope": "actual image opened; structural layout and readable labels compared; tiny embedded screenshots excluded"
+          }
+        ],
+        "structure_basis": "实际打开英文PDF第25页：上下两层、下层三要素与两个+号、一条整体向上支撑箭头、四类关注图例。上方部门可替换，源图未规定部门/关注点数量映射。",
+        "verification_limit": "组件内产品界面截图是说明素材，不声称逐字复刻；模板结构和完整例另验收。",
+        "concern_legend": [
+          {
+            "label": "质量",
+            "color": "#9dc666"
+          },
+          {
+            "label": "文档化",
+            "color": "#fff3b0"
+          },
+          {
+            "label": "安全／隐私／合规",
+            "color": "#edb6c0"
+          },
+          {
+            "label": "治理",
+            "color": "#7acbd3"
+          }
+        ]
+      },
+      "example": {
+        "notice": "虚构业务案例；采用来源结构及术语，不代表真实实施或批准。",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构社区服务机构的访谈、记录和项目约定"
+          }
+        ],
+        "entities": [
+          {
+            "id": "metadata-needs",
+            "type": "visual_container",
+            "name": "业务需求",
+            "attributes": {
+              "definition": "由业务社区及质量、文档、安全隐私合规、治理关注共同确定",
+              "g234:slot": "requirements"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-solution",
+            "type": "visual_container",
+            "name": "元数据管理IT方案",
+            "attributes": {
+              "definition": "技术功能集、数据模型、流程三部分协同构成方案",
+              "g234:slot": "solution"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-need-ops",
+            "type": "requirement",
+            "name": "社区服务运营",
+            "attributes": {
+              "statement": "预约术语一致，变更后下游字典可追溯",
+              "concerns": [
+                "质量",
+                "文档化",
+                "安全／隐私／合规",
+                "治理"
+              ],
+              "concern_mapping_basis": "虚构案例的共同关注；不是源图部门与颜色的一一对应"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-need-finance",
+            "type": "requirement",
+            "name": "补贴财务",
+            "attributes": {
+              "statement": "补贴字段与业务规则匹配，报表能回溯定义",
+              "concerns": [
+                "质量",
+                "文档化",
+                "安全／隐私／合规",
+                "治理"
+              ],
+              "concern_mapping_basis": "虚构案例的共同关注；不是源图部门与颜色的一一对应"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-need-privacy",
+            "type": "requirement",
+            "name": "数据保护",
+            "attributes": {
+              "statement": "个人数据使用目的、保留规则、访问与变更职责明确",
+              "concerns": [
+                "质量",
+                "文档化",
+                "安全／隐私／合规",
+                "治理"
+              ],
+              "concern_mapping_basis": "虚构案例的共同关注；不是源图部门与颜色的一一对应"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-tech",
+            "type": "metadata_solution_component",
+            "name": "1. 技术",
+            "attributes": {
+              "definition": "术语目录、字典连接器与权限/版本服务"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-data-model",
+            "type": "metadata_solution_component",
+            "name": "2. 数据模型",
+            "attributes": {
+              "definition": "术语→业务元素→数据字段及处理活动关联，标识和值域明确定义"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "metadata-process",
+            "type": "metadata_solution_component",
+            "name": "3. 流程与工作流",
+            "attributes": {
+              "definition": "管家提交→所有者评审→发布；隐私变更由数据保护角色参与"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "group-metadata-need-ops",
+            "type": "visually_contains",
+            "source": "metadata-needs",
+            "target": "metadata-need-ops",
+            "label": "业务需求分组",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "group-metadata-need-finance",
+            "type": "visually_contains",
+            "source": "metadata-needs",
+            "target": "metadata-need-finance",
+            "label": "业务需求分组",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "group-metadata-need-privacy",
+            "type": "visually_contains",
+            "source": "metadata-needs",
+            "target": "metadata-need-privacy",
+            "label": "业务需求分组",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-metadata-tech",
+            "type": "visually_contains",
+            "source": "metadata-solution",
+            "target": "metadata-tech",
+            "label": "方案的并列组成，不是执行步骤",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "supports-metadata-tech",
+            "type": "supports_metadata_requirement",
+            "source": "metadata-tech",
+            "target": "metadata-need-finance",
+            "label": "虚构项目设计支撑，待实现验证",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "attributes": {
+              "definition_origin": "fictional-project-design; not a relation asserted by source figure"
+            }
+          },
+          {
+            "id": "solution-metadata-data-model",
+            "type": "visually_contains",
+            "source": "metadata-solution",
+            "target": "metadata-data-model",
+            "label": "方案的并列组成，不是执行步骤",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "supports-metadata-data-model",
+            "type": "supports_metadata_requirement",
+            "source": "metadata-data-model",
+            "target": "metadata-need-ops",
+            "label": "虚构项目设计支撑，待实现验证",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "attributes": {
+              "definition_origin": "fictional-project-design; not a relation asserted by source figure"
+            }
+          },
+          {
+            "id": "solution-metadata-process",
+            "type": "visually_contains",
+            "source": "metadata-solution",
+            "target": "metadata-process",
+            "label": "方案的并列组成，不是执行步骤",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "supports-metadata-process",
+            "type": "supports_metadata_requirement",
+            "source": "metadata-process",
+            "target": "metadata-need-privacy",
+            "label": "虚构项目设计支撑，待实现验证",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "attributes": {
+              "definition_origin": "fictional-project-design; not a relation asserted by source figure"
+            }
+          },
+          {
+            "id": "solution-supports-business",
+            "type": "g234:supports-requirements",
+            "source": "metadata-solution",
+            "target": "metadata-needs",
+            "label": "三个要素共同构成的IT方案支撑业务需求",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "attributes": {
+              "definition_origin": "source-structure-G234-fig4-4",
+              "scope": "whole-solution-to-whole-requirements; not three one-to-one mappings"
+            }
+          }
+        ],
+        "view": {
+          "id": "v-metadata-three-part-solution",
+          "artifact_id": "metadata-repository-design",
+          "profile_id": "metadata-three-part-solution",
+          "title": "元数据业务需求与IT方案三要素",
+          "entity_ids": [
+            "metadata-needs",
+            "metadata-solution",
+            "metadata-need-ops",
+            "metadata-need-finance",
+            "metadata-need-privacy",
+            "metadata-tech",
+            "metadata-data-model",
+            "metadata-process"
+          ],
+          "relationship_ids": [
+            "group-metadata-need-ops",
+            "group-metadata-need-finance",
+            "group-metadata-need-privacy",
+            "solution-metadata-tech",
+            "supports-metadata-tech",
+            "solution-metadata-data-model",
+            "supports-metadata-data-model",
+            "solution-metadata-process",
+            "supports-metadata-process",
+            "solution-supports-business"
+          ],
+          "analysis": "原料：三个业务社区要求质量、定义与隐私可追溯。先分出需求范围和技术/模型/流程；三者共同支撑业务需求。源图只规定整体支撑，案例另列三条待验证的组成到具体需求关系。",
+          "legend": "四类关注：质量（绿）、文档化（浅黄）、安全／隐私／合规（粉）、治理（青）；色块不是人员数量。+ 表示三要素共同具备，不是步骤；箭头从IT方案指向业务需求；项目设计关系另列。"
+        },
+        "extensions": {
+          "relationship_types": {
+            "g234:supports-requirements": {
+              "source_types": [
+                "visual_container"
+              ],
+              "target_types": [
+                "visual_container"
+              ],
+              "meaning": "G234图4-4整体元数据IT方案支撑业务需求范围；不是特定组件到部门的一一映射"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "relationship_definitions": {
+    "g234:supports-requirements": {
+      "source_types": [
+        "visual_container"
+      ],
+      "target_types": [
+        "visual_container"
+      ],
+      "meaning": "G234图4-4整体元数据IT方案支撑业务需求范围；不是特定组件到部门的一一映射"
+    }
+  },
+  "source_assets": {
+    "business": {
+      "path": "reviews/source-template-bases/G234-fig5-1-p31-0.png",
+      "figure_id": "G234/fig5-1",
+      "pdf_page": 31,
+      "sha256": "8a1c3ca521098339e8f975010c63109938f31ff5d4825d55d40634e4991796c8",
+      "source_version": "G234e.pdf",
+      "source_pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "verification_scope": "actual image opened; structural layout and readable labels compared; tiny embedded screenshots excluded"
+    },
+    "application": {
+      "path": "reviews/source-template-bases/G234-fig5-2-local-en.png",
+      "figure_id": "G234/fig5-2",
+      "pdf_page": 34,
+      "original_asset": "figs/g234e_fig5-2_en.png",
+      "sha256": "00c5e8212648944daa5d071f77a5829dc6187d4ee3eb87ec516ea36227470c6e",
+      "source_version": "G234e.pdf",
+      "source_pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "verification_scope": "actual image opened; structural layout and readable labels compared; tiny embedded screenshots excluded"
+    },
+    "solution": {
+      "path": "reviews/source-template-bases/G234-fig4-4-p25-0.png",
+      "figure_id": "G234/fig4-4",
+      "pdf_page": 25,
+      "sha256": "5d9b7c920c1ee780291118ac0c3601a47dc2919e9c1d04c937216664d020497c",
+      "source_version": "G234e.pdf",
+      "source_pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "verification_scope": "actual image opened; structural layout and readable labels compared; tiny embedded screenshots excluded"
+    }
+  },
+  "acceptance_notice": "注册不是验收；六个布局执行、目视和几何证据另存。"
+}

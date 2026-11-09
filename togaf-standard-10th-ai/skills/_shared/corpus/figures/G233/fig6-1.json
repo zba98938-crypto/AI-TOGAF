@@ -1,0 +1,1453 @@
+{
+  "schema_version": "1.0",
+  "id": "G233/fig6-1",
+  "status": "done",
+  "doc": {
+    "code": "G233",
+    "title_zh": "业务能力规划",
+    "title_en": "Business Capability Planning",
+    "zh_md": "G233e_业务能力规划.md",
+    "en_pdf": "togaf-standard-10th/G233e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "6-1",
+    "title_en": "Business Capability Catalog Model (Example)",
+    "title_zh": "业务能力目录模型（示例）",
+    "section_en": "6.2.1 Business Capability Catalog Model",
+    "section_zh": "6.2.1 业务能力目录模型",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        35
+      ],
+      "printed_page": 21,
+      "bboxes": [
+        [
+          48.2,
+          36.0,
+          563.8,
+          216.4
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        505
+      ],
+      "label_table_lines": [
+        509,
+        530
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g233e_fig6-1_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "eee02664674f",
+      "fidelity": "wrong_figure",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.913（≥0.9 通常为同一图）",
+        "截取的是同页下方的 Figure 6-2（Mapping Business Capabilities to Value Stream Stages），不是 Figure 6-1 的能力目录",
+        "内容为 Acquire Retail Product Online 价值流、五个阶段（Browse Online Store、Select Product(s)、Review Basket、Purchase Products、Deliver Products）及阶段下的能力框，完全没有 Retail Storefront / Strategic / Operations (Core) 三个目录分类",
+        "缺少原图全部 24 个能力框（16 个一级、8 个二级）与两级嵌套结构",
+        "与英文 PDF 截图的缩略图相似度仅 0.913，低于同批其他正确截图（0.98–0.99），可作为截错位置的信号"
+      ]
+    },
+    {
+      "path": "figs/zh/g233e_fig6-1_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "fa3a4ba5334d",
+      "fidelity": "wrong_figure",
+      "issues_zh": [
+        "内容是 Figure 6-2 的中文化版本：标题“在线获取零售产品价值流”，五列阶段（浏览在线商店、选择产品、查看购物篮、购买产品、交付产品），下挂门店布局管理、产品编目、身份管理、购物篮管理、库存管理、交付管理、支付处理等能力",
+        "不是业务能力目录：没有 Retail Storefront / Strategic / Operations (Core) 三个灰色分类带，也没有 Business Planning、Risk Management、Human Resource Management、Finance Management 等目录能力",
+        "底部增加了“客户成功获得零售产品”成果椭圆与“客户到店/客户”触发元素，这些属于图 6-2 的语义，图 6-1 中没有",
+        "中文稿第 6.2.1 节（L505）引用此图，读者因此完全看不到能力目录模型"
+      ]
+    },
+    {
+      "path": "G233e_业务能力规划.md#L509-L530",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "3e63bd14085b",
+      "fidelity": "wrong_figure",
+      "issues_zh": [
+        "标签表列的是图 6-2 的标签：Acquire Retail Product Online Value Stream、Customer arrives at store、Customer、五个阶段名、Customer successfully acquires retail product、Warehouse Order Fulfillment Value Stream 等",
+        "只收录了 7 个同时出现在目录图中的能力名（Store Layout Management、Catalog Products、Identity Management、Basket Management、Inventory Management、Delivery Management、Payment Processing），遗漏目录图中的 Business Planning、Market Research、Product Development、Program Management、Schedule Management、Risk Management、Contract Management、Human Resource Management、HR Position Management、Job Posting、Skills Assessment、Benefits Management、Payroll Management、Finance Management、Incentive Management、Customer Relationship Management 等",
+        "表头仍写作“图 6-1”，属于图号与内容错配，而非单纯漏译"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "hierarchy"
+    ],
+    "notation": "能力目录图：灰色分类带（Retail Storefront / Strategic / Operations (Core)）内放沙色能力框，框右上角为 ArchiMate 能力网格图标；二级能力以白色小框嵌套在一级能力框内；无连线",
+    "concepts": [
+      "capability_map",
+      "business_capability",
+      "capability_based_planning",
+      "business_architecture"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "把示例业务能力按零售前台、战略、运营（核心）三类编成目录，并用嵌套标出一级能力下的二级能力。",
+    "purpose_zh": "第 6.2.1 节给出能力目录的可视化样例：目录应覆盖组织运作所需的全部能力，并按类别/视角逻辑分组以便导航；同时用嵌套展示“一级能力—二级能力”的分解，示范目录要大到足够包容、小到可被有效导航。",
+    "reading_guide_zh": "从左到右读三个灰色分类带：Retail Storefront（门店前台）、Strategic（战略）、Operations (Core)（运营核心）。每个沙色框是一个一级业务能力；框内白色小框是其下的二级能力（如 Program Management 下的 Schedule Management）。分类带只表示目录分组，不表示流程或组织层级；全图没有箭头。",
+    "key_points_zh": [
+      "目录分三类：Retail Storefront 5 个一级能力（无二级）；Strategic 7 个一级能力（含重复的 Business Planning）＋2 个二级能力；Operations (Core) 4 个一级能力＋6 个二级能力。",
+      "Retail Storefront 的五项是 Basket Management、Catalog Products、Incentive Management、Store Layout Management、Customer Relationship Management，都直接面向线上/门店购物体验。",
+      "Strategic 含 Business Planning、Market Research、Product Development、Program Management（下含 Schedule Management）、Risk Management（下含 Identity Management）、Contract Management，以及第二个同名的 Business Planning 框。",
+      "Operations (Core) 含 Human Resource Management（下含 HR Position Management、Job Posting、Skills Assessment、Benefits Management）、Finance Management（下含 Payroll Management、Payment Processing）、Delivery Management、Inventory Management。",
+      "“Business Planning”在原图中出现两次（Strategic 左上与右中），两个框同名同级；更像原图的重复放置，而不是两个不同的能力，读图时不应据此推断存在两个业务规划能力。",
+      "Identity Management 被嵌套在 Risk Management 之下，而不是单列；这是示例作者的归类选择，不应理解为“身份管理必然属于风险管理”。",
+      "二级能力只在需要说明分解时出现：Program Management、Risk Management、Human Resource Management、Finance Management 有下级；其余一级能力不再下钻。",
+      "目录是说明性示例，不是完整清单；正文提醒目录超过 100 项时，很可能把能力实例、实例组件或价值流阶段误当成能力。"
+    ],
+    "hierarchy_zh": "三层：3 个目录分类（灰色带）→ 16 个一级能力框（Business Planning 重复一次，按 15 个唯一名称计）→ 8 个二级能力（白色小框）。分类是导航分组，不是能力上下级；能力上下级只由框套框表达。",
+    "line_semantics_zh": "图中没有任何连线；分类归属由“位于灰色带内”表达，一级/二级关系由“白色小框嵌在沙色框内”表达。关系清单把 8 条二级→一级的分解补记为隐式 composition。",
+    "misreadings_zh": [
+      "中文稿第 6.2.1 节引用的 PNG 与其标签表其实是图 6-2 的价值流—能力映射，不是本图；不能据中文稿理解能力目录，必须以英文 PDF 第 35 页上图为准。",
+      "不要把两个同名的 Business Planning 当成两个能力；原图重复，按一个能力理解、按两个框记录。",
+      "不要把 Identity Management 理解为风险管理的必然子能力；这是示例的归类选择。",
+      "不要把灰色分类带当成组织部门或价值流阶段；它们只是目录的导航分类。",
+      "不要把“能力目录”与“能力地图/热力图”混为一谈：本图只列能力及层级，不含成熟度、差距或价值流映射。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p34",
+        "summary_zh": "业务能力目录代表覆盖业务/企业/组织单元的完整、稳定能力集合；为导航目的，目录按类别或视角逻辑分组，以便有效分析与规划。"
+      },
+      {
+        "source": "en_pdf p34",
+        "summary_zh": "目录要大到足够包容、小到可有效导航并映射到价值流与阶段；一般超过 100 项时，很可能把能力实例、实例组件或价值流阶段误当成能力。"
+      },
+      {
+        "source": "en_pdf p35",
+        "summary_zh": "图 6-1 以可视化方式展示基于本文档所述业务能力形成的整体业务能力目录。"
+      },
+      {
+        "source": "zh_md L503",
+        "summary_zh": "中文稿说明图 6-1 以可视化方式展示基于本文档所述业务能力形成的整体业务能力目录。"
+      },
+      {
+        "source": "zh_md L509",
+        "summary_zh": "中文稿的图 6-1 标签对照表列出的却是图 6-2 的价值流/阶段标签，图号与内容错配。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "横向三个灰色分类带：左带窄（Retail Storefront，5 框纵排）；中带最宽（Strategic，左列 4 框、右列 3 框）；右带宽（Operations (Core)，左列 1 个大框含 4 个二级、右列 1 个大框含 2 个二级＋2 个独立一级能力）。"
+  },
+  "legend": [
+    {
+      "symbol": "灰色标签式横带",
+      "meaning_zh": "能力目录的分类/视角（Retail Storefront、Strategic、Operations (Core)）",
+      "explicit": false
+    },
+    {
+      "symbol": "沙色圆角框 + 能力网格图标",
+      "meaning_zh": "一级业务能力",
+      "explicit": false
+    },
+    {
+      "symbol": "白色小框（嵌在沙色框内）",
+      "meaning_zh": "该一级能力下的二级能力",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "cat_storefront",
+      "label_en": "Retail Storefront",
+      "label_zh": "零售前台",
+      "type": "group",
+      "parent": null,
+      "order": 1,
+      "position": "左侧灰色分类带"
+    },
+    {
+      "id": "cat_strategic",
+      "label_en": "Strategic",
+      "label_zh": "战略",
+      "type": "group",
+      "parent": null,
+      "order": 2,
+      "position": "中间灰色分类带"
+    },
+    {
+      "id": "cat_operations",
+      "label_en": "Operations (Core)",
+      "label_zh": "运营（核心）",
+      "type": "group",
+      "parent": null,
+      "order": 3,
+      "position": "右侧灰色分类带"
+    },
+    {
+      "id": "cap_basket",
+      "label_en": "Basket Management",
+      "label_zh": "购物篮管理",
+      "type": "capability",
+      "parent": "cat_storefront",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "cap_catalog_products",
+      "label_en": "Catalog Products",
+      "label_zh": "产品编目",
+      "type": "capability",
+      "parent": "cat_storefront",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "cap_incentive",
+      "label_en": "Incentive Management",
+      "label_zh": "激励管理",
+      "type": "capability",
+      "parent": "cat_storefront",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "cap_store_layout",
+      "label_en": "Store Layout Management",
+      "label_zh": "门店布局管理",
+      "type": "capability",
+      "parent": "cat_storefront",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "cap_crm",
+      "label_en": "Customer Relationship Management",
+      "label_zh": "客户关系管理",
+      "type": "capability",
+      "parent": "cat_storefront",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "cap_business_planning_1",
+      "label_en": "Business Planning",
+      "label_zh": "业务规划",
+      "type": "capability",
+      "parent": "cat_strategic",
+      "level": 1,
+      "order": 1,
+      "description_zh": "Strategic 左上；与原图右中的同名框重复。"
+    },
+    {
+      "id": "cap_market_research",
+      "label_en": "Market Research",
+      "label_zh": "市场研究",
+      "type": "capability",
+      "parent": "cat_strategic",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "cap_product_dev",
+      "label_en": "Product Development",
+      "label_zh": "产品开发",
+      "type": "capability",
+      "parent": "cat_strategic",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "cap_program",
+      "label_en": "Program Management",
+      "label_zh": "项目群管理",
+      "type": "capability",
+      "parent": "cat_strategic",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "cap_schedule",
+      "label_en": "Schedule Management",
+      "label_zh": "进度管理",
+      "type": "capability",
+      "parent": "cap_program",
+      "level": 2
+    },
+    {
+      "id": "cap_risk",
+      "label_en": "Risk Management",
+      "label_zh": "风险管理",
+      "type": "capability",
+      "parent": "cat_strategic",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "cap_identity",
+      "label_en": "Identity Management",
+      "label_zh": "身份管理",
+      "type": "capability",
+      "parent": "cap_risk",
+      "level": 2,
+      "description_zh": "原图把它嵌在 Risk Management 内，属于示例的归类选择。"
+    },
+    {
+      "id": "cap_contract",
+      "label_en": "Contract Management",
+      "label_zh": "合同管理",
+      "type": "capability",
+      "parent": "cat_strategic",
+      "level": 1,
+      "order": 6
+    },
+    {
+      "id": "cap_business_planning_2",
+      "label_en": "Business Planning",
+      "label_zh": "业务规划",
+      "type": "capability",
+      "parent": "cat_strategic",
+      "level": 1,
+      "order": 7,
+      "description_zh": "Strategic 右中；与原图左上同名框重复。"
+    },
+    {
+      "id": "cap_hr",
+      "label_en": "Human Resource Management",
+      "label_zh": "人力资源管理",
+      "type": "capability",
+      "parent": "cat_operations",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "cap_hr_position",
+      "label_en": "HR Position Management",
+      "label_zh": "人力资源岗位管理",
+      "type": "capability",
+      "parent": "cap_hr",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "cap_job_posting",
+      "label_en": "Job Posting",
+      "label_zh": "职位发布",
+      "type": "capability",
+      "parent": "cap_hr",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "cap_skills",
+      "label_en": "Skills Assessment",
+      "label_zh": "技能评估",
+      "type": "capability",
+      "parent": "cap_hr",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "cap_benefits",
+      "label_en": "Benefits Management",
+      "label_zh": "福利管理",
+      "type": "capability",
+      "parent": "cap_hr",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "cap_finance",
+      "label_en": "Finance Management",
+      "label_zh": "财务管理",
+      "type": "capability",
+      "parent": "cat_operations",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "cap_payroll",
+      "label_en": "Payroll Management",
+      "label_zh": "薪资管理",
+      "type": "capability",
+      "parent": "cap_finance",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "cap_payment_processing",
+      "label_en": "Payment Processing",
+      "label_zh": "支付处理",
+      "type": "capability",
+      "parent": "cap_finance",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "cap_delivery",
+      "label_en": "Delivery Management",
+      "label_zh": "交付管理",
+      "type": "capability",
+      "parent": "cat_operations",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "cap_inventory",
+      "label_en": "Inventory Management",
+      "label_zh": "库存管理",
+      "type": "capability",
+      "parent": "cat_operations",
+      "level": 1,
+      "order": 4
+    }
+  ],
+  "relationships": [
+    {
+      "from": "cap_schedule",
+      "to": "cap_program",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "二级能力嵌在一级能力框内，表示分解/组成。"
+    },
+    {
+      "from": "cap_identity",
+      "to": "cap_risk",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "cap_hr_position",
+      "to": "cap_hr",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "cap_job_posting",
+      "to": "cap_hr",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "cap_skills",
+      "to": "cap_hr",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "cap_benefits",
+      "to": "cap_hr",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "cap_payroll",
+      "to": "cap_finance",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "cap_payment_processing",
+      "to": "cap_finance",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_catalog",
+      "title_zh": "能力目录逐项转录（按分类带、自上而下）",
+      "columns": [
+        "分类",
+        "一级能力（L1）",
+        "二级能力（L2）"
+      ],
+      "rows": [
+        [
+          "Retail Storefront 零售前台",
+          "Basket Management 购物篮管理",
+          "—"
+        ],
+        [
+          "Retail Storefront 零售前台",
+          "Catalog Products 产品编目",
+          "—"
+        ],
+        [
+          "Retail Storefront 零售前台",
+          "Incentive Management 激励管理",
+          "—"
+        ],
+        [
+          "Retail Storefront 零售前台",
+          "Store Layout Management 门店布局管理",
+          "—"
+        ],
+        [
+          "Retail Storefront 零售前台",
+          "Customer Relationship Management 客户关系管理",
+          "—"
+        ],
+        [
+          "Strategic 战略",
+          "Business Planning 业务规划（左上）",
+          "—"
+        ],
+        [
+          "Strategic 战略",
+          "Market Research 市场研究",
+          "—"
+        ],
+        [
+          "Strategic 战略",
+          "Product Development 产品开发",
+          "—"
+        ],
+        [
+          "Strategic 战略",
+          "Program Management 项目群管理",
+          "Schedule Management 进度管理"
+        ],
+        [
+          "Strategic 战略",
+          "Risk Management 风险管理",
+          "Identity Management 身份管理"
+        ],
+        [
+          "Strategic 战略",
+          "Contract Management 合同管理",
+          "—"
+        ],
+        [
+          "Strategic 战略",
+          "Business Planning 业务规划（右中，重复框）",
+          "—"
+        ],
+        [
+          "Operations (Core) 运营（核心）",
+          "Human Resource Management 人力资源管理",
+          "HR Position Management 人力资源岗位管理；Job Posting 职位发布；Skills Assessment 技能评估；Benefits Management 福利管理"
+        ],
+        [
+          "Operations (Core) 运营（核心）",
+          "Finance Management 财务管理",
+          "Payroll Management 薪资管理；Payment Processing 支付处理"
+        ],
+        [
+          "Operations (Core) 运营（核心）",
+          "Delivery Management 交付管理",
+          "—"
+        ],
+        [
+          "Operations (Core) 运营（核心）",
+          "Inventory Management 库存管理",
+          "—"
+        ]
+      ],
+      "notes_zh": "原图中 Business Planning 出现两次，均记录；两个白框二级能力分别挂在 Program Management 与 Risk Management 下，HR 与 Finance 的二级能力各有多项。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G233/fig6-2",
+      "relation": "precedes",
+      "note_zh": "图 6-2 从本目录中挑选能力，交叉映射到 Acquire Retail Product Online 价值流的五个阶段"
+    },
+    {
+      "target": "G233/fig4-1",
+      "relation": "related",
+      "note_zh": "组织架构图提供了“能力可能存在的位置”；本图把 Finance、HR 等职能重新分组为跨组织的能力目录"
+    },
+    {
+      "target": "G233/fig6-3",
+      "relation": "basis_for",
+      "note_zh": "图 6-3 为图 6-2 选中的能力建立实例，能力名全部来自本目录"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "原图 Business Planning 重复出现两次，无法判断是刻意表示两个不同能力还是排版重复；本文按两个框记录、按一个能力解读，并在表格中标注。",
+      "Identity Management 被嵌在 Risk Management 内，无法从图上判断是刻意的归类还是排版错位；按画面记录为二级能力。",
+      "英文与中文的 fig6-1 PNG 均实际截取了图 6-2，标签表也对应图 6-2；本分析完全依据英文 PDF 第 35 页上图的能力目录。",
+      "原图部分能力框字号偏大、贴近边框（如 Customer Relationship Management、Inventory Management），但文字完整可辨。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 35 页图 6-1 截图（figctx 裁剪）与 2×2 放大分块",
+      "英文 PDF 第 34–35 页正文",
+      "英文 PDF 第 35 页上图 6-1 与下图 6-2 两个裁剪（确认二者同页上下排列）",
+      "中文稿 G233e_业务能力规划.md 第 501–530 行（含标签对照表）",
+      "figs/g233e_fig6-1_en.png、figs/zh/g233e_fig6-1_zh.png（均确认为图 6-2 内容）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G233e.pdf",
+    "pdf_sha256": "d5c62f9edb2465d10e59f0a1c9c23fb5d8a0b14e506cf7739a09886fbee07754",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G233/fig6-1.json",
+    "interpretation_sha256": "cca9207f1be3a9af67693baa5a1137dd57ad4176065e147071b2761887321330",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 35,
+        "text": "Figure 6-1: Business Capability Catalog Model (Example)",
+        "bbox_pdf_points": [
+          48.24,
+          221.074,
+          312.408,
+          234.64
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 35,
+      "printed_page": 21,
+      "bbox_pdf_points": [
+        48.2,
+        36.0,
+        563.8,
+        216.4
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G233/fig6-1-p0035.png",
+      "image_sha256": "0f2e34e37ef62678b7a7f02623797465eca32bc151062418d0f4dbf057b13e55",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "0f2e34e37ef62678b7a7f02623797465eca32bc151062418d0f4dbf057b13e55",
+          "status": "extracted-unverified",
+          "text": "Retail Storefront\nStrategic\nOperations (Core)\nBasket Management cil\nBusiness Planning i\nRisk Management af\nHuman Resource i\nFinance Management <i\nManagement\nIaentity\nc\nPayroll Management if\nManagement\nHR Position\nce}\nCatalog Products il\nMarket Research ff\nManagement\nPayment Processing ff\nContract\nEs)\nManagement\nJob Posting\nci}\nIncentive\na\nProduct Development\nManagement\nBusiness Planning <i\nDelivery Management i\nSkis Assessment ef]\n‘Store Layout\nProgram Management fi\nManagement\nInventory Management if\nSchedule\nei)\nBonofits\nce}\nManagement\nManagement\nCustomer\nRelationship\nManagement",
+          "words": [
+            {
+              "text": "Retail",
+              "confidence": 92.637207,
+              "bbox_pixels_xywh": [
+                15,
+                13,
+                34,
+                10
+              ]
+            },
+            {
+              "text": "Storefront",
+              "confidence": 96.890961,
+              "bbox_pixels_xywh": [
+                54,
+                12,
+                64,
+                11
+              ]
+            },
+            {
+              "text": "Strategic",
+              "confidence": 67.798119,
+              "bbox_pixels_xywh": [
+                230,
+                12,
+                57,
+                14
+              ]
+            },
+            {
+              "text": "Operations",
+              "confidence": 84.649384,
+              "bbox_pixels_xywh": [
+                617,
+                13,
+                69,
+                13
+              ]
+            },
+            {
+              "text": "(Core)",
+              "confidence": 96.773079,
+              "bbox_pixels_xywh": [
+                691,
+                12,
+                38,
+                14
+              ]
+            },
+            {
+              "text": "Basket",
+              "confidence": 96.487099,
+              "bbox_pixels_xywh": [
+                51,
+                49,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 63.900429,
+              "bbox_pixels_xywh": [
+                91,
+                49,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "cil",
+              "confidence": 47.213966,
+              "bbox_pixels_xywh": [
+                164,
+                47,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.694115,
+              "bbox_pixels_xywh": [
+                276,
+                49,
+                50,
+                9
+              ]
+            },
+            {
+              "text": "Planning",
+              "confidence": 83.055252,
+              "bbox_pixels_xywh": [
+                330,
+                49,
+                47,
+                12
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 70.776199,
+              "bbox_pixels_xywh": [
+                389,
+                47,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 92.793022,
+              "bbox_pixels_xywh": [
+                447,
+                49,
+                23,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 79.550087,
+              "bbox_pixels_xywh": [
+                474,
+                49,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "af",
+              "confidence": 44.746265,
+              "bbox_pixels_xywh": [
+                556,
+                47,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "Human",
+              "confidence": 95.487473,
+              "bbox_pixels_xywh": [
+                669,
+                49,
+                37,
+                9
+              ]
+            },
+            {
+              "text": "Resource",
+              "confidence": 92.269287,
+              "bbox_pixels_xywh": [
+                711,
+                49,
+                50,
+                9
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 70.418831,
+              "bbox_pixels_xywh": [
+                779,
+                47,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Finance",
+              "confidence": 96.646637,
+              "bbox_pixels_xywh": [
+                851,
+                49,
+                42,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 95.90197,
+              "bbox_pixels_xywh": [
+                897,
+                49,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "<i",
+              "confidence": 39.567181,
+              "bbox_pixels_xywh": [
+                972,
+                47,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 80.073196,
+              "bbox_pixels_xywh": [
+                680,
+                63,
+                69,
+                11
+              ]
+            },
+            {
+              "text": "Iaentity",
+              "confidence": 3.698215,
+              "bbox_pixels_xywh": [
+                478,
+                72,
+                32,
+                10
+              ]
+            },
+            {
+              "text": "c",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                537,
+                66,
+                7,
+                26
+              ]
+            },
+            {
+              "text": "Payroll",
+              "confidence": 92.653564,
+              "bbox_pixels_xywh": [
+                861,
+                72,
+                31,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 74.384033,
+              "bbox_pixels_xywh": [
+                896,
+                72,
+                60,
+                10
+              ]
+            },
+            {
+              "text": "if",
+              "confidence": 59.510136,
+              "bbox_pixels_xywh": [
+                961,
+                70,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 74.381569,
+              "bbox_pixels_xywh": [
+                463,
+                84,
+                60,
+                9
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 80.81002,
+              "bbox_pixels_xywh": [
+                687,
+                95,
+                13,
+                8
+              ]
+            },
+            {
+              "text": "Position",
+              "confidence": 81.393448,
+              "bbox_pixels_xywh": [
+                704,
+                95,
+                36,
+                8
+              ]
+            },
+            {
+              "text": "ce}",
+              "confidence": 17.942114,
+              "bbox_pixels_xywh": [
+                767,
+                93,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Catalog",
+              "confidence": 93.104309,
+              "bbox_pixels_xywh": [
+                59,
+                106,
+                41,
+                12
+              ]
+            },
+            {
+              "text": "Products",
+              "confidence": 77.501854,
+              "bbox_pixels_xywh": [
+                104,
+                106,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "il",
+              "confidence": 56.699158,
+              "bbox_pixels_xywh": [
+                164,
+                104,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Market",
+              "confidence": 81.875862,
+              "bbox_pixels_xywh": [
+                281,
+                106,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "Research",
+              "confidence": 81.875862,
+              "bbox_pixels_xywh": [
+                321,
+                106,
+                50,
+                9
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 67.241249,
+              "bbox_pixels_xywh": [
+                389,
+                104,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 71.259491,
+              "bbox_pixels_xywh": [
+                684,
+                106,
+                60,
+                10
+              ]
+            },
+            {
+              "text": "Payment",
+              "confidence": 69.557846,
+              "bbox_pixels_xywh": [
+                861,
+                129,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "Processing",
+              "confidence": 66.260193,
+              "bbox_pixels_xywh": [
+                905,
+                129,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 36.087074,
+              "bbox_pixels_xywh": [
+                961,
+                127,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Contract",
+              "confidence": 91.744827,
+              "bbox_pixels_xywh": [
+                472,
+                140,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "Es)",
+              "confidence": 22.802725,
+              "bbox_pixels_xywh": [
+                556,
+                139,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 83.373947,
+              "bbox_pixels_xywh": [
+                461,
+                154,
+                69,
+                11
+              ]
+            },
+            {
+              "text": "Job",
+              "confidence": 83.906631,
+              "bbox_pixels_xywh": [
+                688,
+                152,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "Posting",
+              "confidence": 88.069839,
+              "bbox_pixels_xywh": [
+                707,
+                152,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "ci}",
+              "confidence": 24.721886,
+              "bbox_pixels_xywh": [
+                767,
+                150,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Incentive",
+              "confidence": 95.642746,
+              "bbox_pixels_xywh": [
+                81,
+                163,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 39.459072,
+              "bbox_pixels_xywh": [
+                164,
+                161,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 96.657379,
+              "bbox_pixels_xywh": [
+                268,
+                163,
+                42,
+                9
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 6.008835,
+              "bbox_pixels_xywh": [
+                314,
+                163,
+                71,
+                11
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 94.700989,
+              "bbox_pixels_xywh": [
+                72,
+                177,
+                68,
+                11
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 93.312263,
+              "bbox_pixels_xywh": [
+                445,
+                197,
+                50,
+                9
+              ]
+            },
+            {
+              "text": "Planning",
+              "confidence": 88.41243,
+              "bbox_pixels_xywh": [
+                499,
+                197,
+                47,
+                12
+              ]
+            },
+            {
+              "text": "<i",
+              "confidence": 69.774895,
+              "bbox_pixels_xywh": [
+                556,
+                196,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "Delivery",
+              "confidence": 93.874969,
+              "bbox_pixels_xywh": [
+                850,
+                197,
+                43,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 94.637466,
+              "bbox_pixels_xywh": [
+                897,
+                197,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 65.61409,
+              "bbox_pixels_xywh": [
+                972,
+                196,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "Skis",
+              "confidence": 77.963196,
+              "bbox_pixels_xywh": [
+                673,
+                209,
+                23,
+                8
+              ]
+            },
+            {
+              "text": "Assessment",
+              "confidence": 76.456818,
+              "bbox_pixels_xywh": [
+                699,
+                209,
+                56,
+                8
+              ]
+            },
+            {
+              "text": "ef]",
+              "confidence": 53.082962,
+              "bbox_pixels_xywh": [
+                767,
+                207,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "‘Store",
+              "confidence": 88.876892,
+              "bbox_pixels_xywh": [
+                71,
+                220,
+                29,
+                9
+              ]
+            },
+            {
+              "text": "Layout",
+              "confidence": 92.498299,
+              "bbox_pixels_xywh": [
+                104,
+                220,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "Program",
+              "confidence": 96.620514,
+              "bbox_pixels_xywh": [
+                267,
+                220,
+                46,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.796455,
+              "bbox_pixels_xywh": [
+                317,
+                220,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "fi",
+              "confidence": 59.668125,
+              "bbox_pixels_xywh": [
+                389,
+                218,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 95.994568,
+              "bbox_pixels_xywh": [
+                72,
+                234,
+                68,
+                11
+              ]
+            },
+            {
+              "text": "Inventory",
+              "confidence": 91.185539,
+              "bbox_pixels_xywh": [
+                847,
+                255,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 63.150249,
+              "bbox_pixels_xywh": [
+                901,
+                253,
+                84,
+                13
+              ]
+            },
+            {
+              "text": "if",
+              "confidence": 63.150249,
+              "bbox_pixels_xywh": [
+                975,
+                243,
+                13,
+                30
+              ]
+            },
+            {
+              "text": "Schedule",
+              "confidence": 71.009529,
+              "bbox_pixels_xywh": [
+                302,
+                266,
+                42,
+                8
+              ]
+            },
+            {
+              "text": "ei)",
+              "confidence": 11.298399,
+              "bbox_pixels_xywh": [
+                370,
+                264,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "Bonofits",
+              "confidence": 40.740089,
+              "bbox_pixels_xywh": [
+                696,
+                266,
+                37,
+                8
+              ]
+            },
+            {
+              "text": "ce}",
+              "confidence": 25.615578,
+              "bbox_pixels_xywh": [
+                767,
+                264,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 73.689407,
+              "bbox_pixels_xywh": [
+                293,
+                277,
+                60,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 78.040375,
+              "bbox_pixels_xywh": [
+                684,
+                277,
+                60,
+                10
+              ]
+            },
+            {
+              "text": "Customer",
+              "confidence": 90.911194,
+              "bbox_pixels_xywh": [
+                79,
+                289,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "Relationship",
+              "confidence": 87.756187,
+              "bbox_pixels_xywh": [
+                72,
+                302,
+                67,
+                11
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.102592,
+              "bbox_pixels_xywh": [
+                72,
+                315,
+                68,
+                12
+              ]
+            }
+          ],
+          "mean_word_confidence": 72.23,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

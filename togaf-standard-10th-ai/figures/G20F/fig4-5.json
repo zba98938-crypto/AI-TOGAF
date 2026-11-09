@@ -1,0 +1,599 @@
+{
+  "schema_version": "1.0",
+  "id": "G20F/fig4-5",
+  "status": "done",
+  "doc": {
+    "code": "G20F",
+    "title_zh": "赋能企业敏捷性",
+    "title_en": "Enabling Enterprise Agility",
+    "zh_md": "G20Fe_赋能企业敏捷性.md",
+    "en_pdf": "togaf-standard-10th/G20Fe.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-5",
+    "title_en": "Agility at Different Levels of Architecture",
+    "title_zh": "不同架构层级上的敏捷性",
+    "section_en": "4.8. Agility at the Highest Levels of Architecture",
+    "section_zh": "4.8 最高层架构中的敏捷性",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        34
+      ],
+      "printed_page": 22,
+      "bboxes": [
+        [
+          48.2,
+          388.3,
+          563.8,
+          627.9
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        412
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g20fe_fig4-5_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "135d9de57ea5",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.984（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g20fe_fig4-5_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "ab3b983ba835",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "左侧竖排轴标题“More Agile, More Detailed”丢失：只剩一根短的蓝色箭头与左上角一个没有文字的蓝色小方块，转置后的中文“更敏捷更细致”被压成极小的横排字挤在左边中部，几乎不可读。",
+        "右侧竖排轴标题“Longer Iterations and Releases”丢失：蓝色长条与向上箭头都不见了，只剩右上一个残留笔画和中部一行极小的“迭代与发布更长”。",
+        "底部“Product Development/Engineering Lines”只译了一半：中文成“Product Development/工程线”，且把 Engineering Lines 误译为“工程线”。",
+        "金字塔三层的“Level”被译成“层级”，但“企业层级/分段层级/能力/产品层级”与原图 Enterprise/Segment/Capability 的层级含义可以对应，属可接受译法。",
+        "其余图内标签（待办、迭代、交付物、指导）译法正确，结构未破坏。"
+      ]
+    },
+    {
+      "path": "figs/zh/g20fe_fig4-5_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "fcf10296a4e4",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "结构与原图一致：三层金字塔、每层的待办列表→迭代→交付物、层间“指导”箭头、底部“产品开发/工程线”，左右两根轴箭头方向也正确。",
+        "自行添加了图内标题“架构层级与迭代节奏”和副标题“越靠下层越敏捷、越细化；越靠上层，迭代与发布周期越长”，原图内没有这两行文字（属于中文稿的图注，不应画进图里）。",
+        "“Deliverable(s)”译为“交付物”、“Product Development/Engineering Lines”译为“产品开发/工程线”，可接受。",
+        "原图的迭代符号是一对白色弧形箭头（chevron），SVG 改为两条半圆弧箭头，形态略有差异但不影响含义。",
+        "原图“指导”箭头从上一层的 Deliverable(s) 指向下一层的待办区，SVG 保持该走向。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "layered",
+      "flow"
+    ],
+    "notation": "色块金字塔 + 三个横向条带；每一层内用“条纹清单→弧形箭头→绿色交付物块”的固定组合表示迭代流程，层间用带“Guides”的粗白箭头连接",
+    "concepts": [
+      "architecture_levels",
+      "agile",
+      "agile_sprint",
+      "architecture_roadmap",
+      "product_development"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "三层架构各有自己的待办、迭代与交付物，上层交付物以下行“指导”箭头约束下层待办。",
+    "purpose_zh": "说明敏捷性在不同架构层级上的表现不同：越往下越敏捷、越细化；越往上迭代与发布周期越长、变更越少。图同时给出层间的衔接机制——上一层的交付物通过“指导”约束下一层的待办。",
+    "reading_guide_zh": "先看两根竖轴：左侧向下箭头写“More Agile, More Detailed”，表示越往下越敏捷、越细；右侧向上箭头写“Longer Iterations and Releases”，表示越往上迭代与发布周期越长。然后看金字塔的三层（Enterprise / Segment / Capability-Product），每层右侧都重复同一组符号：Backlog（条纹清单）→ 弯曲小箭头 → Iterations（一对弧形箭头）→ 粗箭头 → Deliverable(s)（绿色块）。再看层间的“Guides”大箭头：上层的 Deliverable(s) 指向下层的 Backlog。最下方 Deliverable(s) 向下汇入 Product Development/Engineering Lines。",
+    "key_points_zh": [
+      "三个层级都遵循同样的“待办→迭代→交付物”机制，差别在节奏与粒度，而不在流程形态。",
+      "左侧向下箭头表示越靠下层越敏捷、越细化；右侧向上箭头表示越靠上层迭代与发布周期越长。",
+      "层间不是松耦合：上层交付物用“Guides”箭头直接约束下一层的待办，形成自顶向下的指导链。",
+      "最底层交付物向下进入“Product Development/Engineering Lines”，说明能力/产品层的交付物直接喂给产品开发与工程线。",
+      "正文指出企业层的架构愿景与战略是长期、愿景性、概念性的，其发布可跨越很长时间；组织敏捷性的一个指标正是愿景与战略改变的速度。",
+      "正文强调最高层架构的变更频率与数量应低于低层；变革影响越大，越要评估对已导出或在建架构的涓滴效应。",
+      "每个过渡状态都应提供增量业务价值——这是架构师与业务伙伴持续协作的目标。"
+    ],
+    "hierarchy_zh": "三层自上而下：Enterprise Level（最上层、橙色金字塔尖）、Segment Level（中层、蓝灰）、Capability/Product Level（底层、浅灰，面积最大）。每层内部有并列的 Backlog、Iterations、Deliverable(s) 三个环节，构成层内的小流程。",
+    "line_semantics_zh": "蓝色竖线箭头（左、右）是量纲轴：左轴向下=更敏捷更细化，右轴向上=迭代与发布周期更长。层内黑色细弯箭头：待办进入迭代。层内白色粗箭头：迭代产出交付物。层间白色粗箭头（标“Guides”）：上层的交付物指导下层的待办。最底层向下的白色箭头：交付物进入产品开发/工程线。青色背景区分“工作区”，金字塔区分“层级”。",
+    "misreadings_zh": [
+      "不要把金字塔读成组织规模或预算；它表示架构层级与覆盖范围，越往下越细。",
+      "不要以为“Guides”箭头是数据流：它是指导/约束关系（上层交付物 → 下层待办）。",
+      "不要以为三层是先后阶段：三层同时存在，只是节奏不同。",
+      "中文稿正文引用的是 figs/zh/g20fe_fig4-5_zh.svg（属于较好的重绘）；同目录下的 g20fe_fig4-5_zh.png 已把左右两根轴的标签压坏，不可用于理解本图。",
+      "中文稿图注写作“图 4-5：架构层级与迭代节奏”，与原英文标题“Agility at Different Levels of Architecture”措辞不同，但指同一张图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p34",
+        "summary_zh": "最高层架构从企业层的架构愿景与战略开始，提供目标状态与业务全景的长期视图；该层交付物是愿景性、概念性的，发布可能跨越很长时间；组织敏捷性的指标之一是愿景与战略变化的速度；最高层架构的变更频率与数量应少于低层；每个过渡状态都应提供增量业务价值。"
+      },
+      {
+        "source": "zh_md L410",
+        "summary_zh": "中文稿同样说明最高层从企业层架构愿景与战略开始，交付物愿景性、概念性，发布可跨越较长时期。"
+      },
+      {
+        "source": "zh_md L416",
+        "summary_zh": "最高层架构变更的频率与数量应低于低层，可行变革量取决于组织对敏捷程度的容忍度。"
+      },
+      {
+        "source": "zh_md L418",
+        "summary_zh": "业务伙伴与架构师持续协作产出过渡状态架构，使每个过渡状态都提供增量业务价值。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "左侧是三层金字塔（橙/蓝灰/浅灰），右侧大半是青色工作区，自上而下重复三组“Backlog→Iterations→Deliverable(s)”，层间有“Guides”大箭头，最下方是“Product Development/Engineering Lines”双底框；左右各一根竖直箭头轴。"
+  },
+  "legend": [
+    {
+      "symbol": "条纹横线清单图标",
+      "meaning_zh": "Backlog（待办列表）",
+      "explicit": true
+    },
+    {
+      "symbol": "一对白色弧形箭头",
+      "meaning_zh": "Iterations（迭代循环）",
+      "explicit": true
+    },
+    {
+      "symbol": "绿色圆角块",
+      "meaning_zh": "Deliverable(s)（交付物）",
+      "explicit": true
+    },
+    {
+      "symbol": "白色粗箭头 + “Guides”",
+      "meaning_zh": "上层交付物指导下层待办",
+      "explicit": true
+    },
+    {
+      "symbol": "左侧向下蓝色箭头",
+      "meaning_zh": "越往下越敏捷、越细化（More Agile, More Detailed）",
+      "explicit": true
+    },
+    {
+      "symbol": "右侧向上蓝色箭头",
+      "meaning_zh": "越往上迭代与发布周期越长（Longer Iterations and Releases）",
+      "explicit": true
+    },
+    {
+      "symbol": "橙/蓝灰/浅灰金字塔分段",
+      "meaning_zh": "三个架构层级（企业/分段/能力-产品）",
+      "explicit": false
+    },
+    {
+      "symbol": "青色背景区",
+      "meaning_zh": "迭代与交付工作区（原图未标图例）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "pyramid",
+      "label_en": null,
+      "label_zh": "架构层级金字塔",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "左侧"
+    },
+    {
+      "id": "lvl_enterprise",
+      "label_en": "Enterprise Level",
+      "label_zh": "企业层",
+      "type": "architecture",
+      "parent": "pyramid",
+      "level": 1,
+      "order": 1,
+      "position": "金字塔顶端，橙色"
+    },
+    {
+      "id": "lvl_segment",
+      "label_en": "Segment Level",
+      "label_zh": "分段层",
+      "type": "architecture",
+      "parent": "pyramid",
+      "level": 2,
+      "order": 2,
+      "position": "金字塔中层，蓝灰"
+    },
+    {
+      "id": "lvl_capability",
+      "label_en": "Capability/Product Level",
+      "label_zh": "能力/产品层",
+      "type": "architecture",
+      "parent": "pyramid",
+      "level": 3,
+      "order": 3,
+      "position": "金字塔底层，浅灰，面积最大"
+    },
+    {
+      "id": "axis_left",
+      "label_en": "More Agile, More Detailed",
+      "label_zh": "更敏捷、更细化",
+      "type": "concept",
+      "parent": null,
+      "position": "最左侧竖排文字 + 向下箭头"
+    },
+    {
+      "id": "axis_right",
+      "label_en": "Longer Iterations and Releases",
+      "label_zh": "迭代与发布周期更长",
+      "type": "concept",
+      "parent": null,
+      "position": "最右侧竖排文字 + 向上箭头"
+    },
+    {
+      "id": "backlog_1",
+      "label_en": "Backlog",
+      "label_zh": "待办列表",
+      "type": "artifact",
+      "parent": "lvl_enterprise",
+      "position": "企业层工作区左端"
+    },
+    {
+      "id": "iterations_1",
+      "label_en": "Iterations",
+      "label_zh": "迭代",
+      "type": "process",
+      "parent": "lvl_enterprise",
+      "position": "企业层工作区中部"
+    },
+    {
+      "id": "deliverable_1",
+      "label_en": "Deliverable(s)",
+      "label_zh": "交付物",
+      "type": "artifact",
+      "parent": "lvl_enterprise",
+      "position": "企业层工作区右端"
+    },
+    {
+      "id": "backlog_2",
+      "label_en": "Backlog",
+      "label_zh": "待办列表",
+      "type": "artifact",
+      "parent": "lvl_segment",
+      "position": "分段层工作区左端"
+    },
+    {
+      "id": "iterations_2",
+      "label_en": "Iterations",
+      "label_zh": "迭代",
+      "type": "process",
+      "parent": "lvl_segment",
+      "position": "分段层工作区中部"
+    },
+    {
+      "id": "deliverable_2",
+      "label_en": "Deliverable(s)",
+      "label_zh": "交付物",
+      "type": "artifact",
+      "parent": "lvl_segment",
+      "position": "分段层工作区右端"
+    },
+    {
+      "id": "backlog_3",
+      "label_en": "Backlog",
+      "label_zh": "待办列表",
+      "type": "artifact",
+      "parent": "lvl_capability",
+      "position": "能力层工作区左端"
+    },
+    {
+      "id": "iterations_3",
+      "label_en": "Iterations",
+      "label_zh": "迭代",
+      "type": "process",
+      "parent": "lvl_capability",
+      "position": "能力层工作区中部"
+    },
+    {
+      "id": "deliverable_3",
+      "label_en": "Deliverable(s)",
+      "label_zh": "交付物",
+      "type": "artifact",
+      "parent": "lvl_capability",
+      "position": "能力层工作区右端"
+    },
+    {
+      "id": "guides_1",
+      "label_en": "Guides",
+      "label_zh": "指导",
+      "type": "note",
+      "parent": null,
+      "position": "企业层与分段层之间的白色粗箭头上"
+    },
+    {
+      "id": "guides_2",
+      "label_en": "Guides",
+      "label_zh": "指导",
+      "type": "note",
+      "parent": null,
+      "position": "分段层与能力层之间的白色粗箭头上"
+    },
+    {
+      "id": "product_dev",
+      "label_en": "Product Development/Engineering Lines",
+      "label_zh": "产品开发/工程线",
+      "type": "organization_unit",
+      "parent": null,
+      "position": "右下蓝色双底框"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "backlog_1",
+      "to": "iterations_1",
+      "type": "consumes",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "黑色细弯箭头：待办进入迭代"
+    },
+    {
+      "from": "iterations_1",
+      "to": "deliverable_1",
+      "type": "produces",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "白色粗箭头：迭代产出交付物"
+    },
+    {
+      "from": "deliverable_1",
+      "to": "backlog_2",
+      "type": "governs",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "label_en": "Guides",
+      "label_zh": "指导"
+    },
+    {
+      "from": "backlog_2",
+      "to": "iterations_2",
+      "type": "consumes",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "iterations_2",
+      "to": "deliverable_2",
+      "type": "produces",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward"
+    },
+    {
+      "from": "deliverable_2",
+      "to": "backlog_3",
+      "type": "governs",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "label_en": "Guides",
+      "label_zh": "指导"
+    },
+    {
+      "from": "backlog_3",
+      "to": "iterations_3",
+      "type": "consumes",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "iterations_3",
+      "to": "deliverable_3",
+      "type": "produces",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward"
+    },
+    {
+      "from": "deliverable_3",
+      "to": "product_dev",
+      "type": "flow",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "最底层交付物向下的白色箭头，汇入产品开发/工程线"
+    },
+    {
+      "from": "axis_left",
+      "to": "pyramid",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "向下箭头：越往下越敏捷、越细化"
+    },
+    {
+      "from": "axis_right",
+      "to": "pyramid",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "向上箭头：越往上迭代与发布周期越长"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_cascade",
+      "kind": "sequence",
+      "name_zh": "自企业层向能力层的待办与交付级联",
+      "steps": [
+        "backlog_1",
+        "iterations_1",
+        "deliverable_1",
+        "backlog_2",
+        "iterations_2",
+        "deliverable_2",
+        "backlog_3",
+        "iterations_3",
+        "deliverable_3",
+        "product_dev"
+      ]
+    }
+  ],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G20F/fig4-1",
+      "relation": "detail_of",
+      "note_zh": "图 4-1 给出三层架构的静态全景（层级/广度/时间），本图细化同一三层在待办、迭代与交付节奏上的表现。"
+    },
+    {
+      "target": "G20F/fig4-4",
+      "relation": "related",
+      "note_zh": "图 4-4 把三层映射到 SAFe/Scrum 待办与团队迭代，本图则强调各层的迭代节奏与层间“指导”。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "三个层级的青色工作区连成一片，层内“Backlog/Iterations/Deliverable(s)”三组符号靠水平分隔线区分，未画框；层级归属按分隔线判断。",
+      "右侧轴“Longer Iterations and Releases”箭头向上，其含义（越往上周期越长）依文字与箭头方向推断。",
+      "中文稿未引用英文原图 PNG，标题按英文标题直译；中文稿图注为“架构层级与迭代节奏”。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 34 页原图截图（figctx GT crop + 2x2 放大块）",
+      "英文 PDF 第 34 页正文",
+      "中文稿 G20Fe_赋能企业敏捷性.md 第 408–418 行",
+      "figs/g20fe_fig4-5_en.png、figs/zh/g20fe_fig4-5_zh.png 与 figs/zh/g20fe_fig4-5_zh.svg"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G20Fe.pdf",
+    "pdf_sha256": "a8fe6569c7d6045ce4ac8d5320c09a3abdc556a0fc1cbcd584bd76a75f3f84be",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G20F/fig4-5.json",
+    "interpretation_sha256": "5c44f86ab4906c82c669b023802acbb714c17353b336d6ed18a1b72c701abc5c",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 34,
+        "text": "Figure 4-5: Agility at Different Levels of Architecture",
+        "bbox_pdf_points": [
+          48.24,
+          632.576,
+          292.747,
+          646.143
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 34,
+      "printed_page": 22,
+      "bbox_pdf_points": [
+        48.2,
+        388.3,
+        563.8,
+        627.9
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G20F/fig4-5-p0034.png",
+      "image_sha256": "523b068c7acba74c02b44c9631f3a0fd4839d83ab772b10d6231633c3f953233",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "523b068c7acba74c02b44c9631f3a0fd4839d83ab772b10d6231633c3f953233",
+          "status": "extracted-unverified",
+          "text": "e\nSegment Level\nCapability/Product Level",
+          "words": [
+            {
+              "text": "e",
+              "confidence": 47.406281,
+              "bbox_pixels_xywh": [
+                345,
+                53,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Segment",
+              "confidence": 94.808281,
+              "bbox_pixels_xywh": [
+                230,
+                180,
+                91,
+                23
+              ]
+            },
+            {
+              "text": "Level",
+              "confidence": 94.808281,
+              "bbox_pixels_xywh": [
+                329,
+                181,
+                52,
+                17
+              ]
+            },
+            {
+              "text": "Capability/Product",
+              "confidence": 89.771889,
+              "bbox_pixels_xywh": [
+                183,
+                301,
+                184,
+                22
+              ]
+            },
+            {
+              "text": "Level",
+              "confidence": 97.00489,
+              "bbox_pixels_xywh": [
+                376,
+                301,
+                52,
+                17
+              ]
+            }
+          ],
+          "mean_word_confidence": 84.76,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

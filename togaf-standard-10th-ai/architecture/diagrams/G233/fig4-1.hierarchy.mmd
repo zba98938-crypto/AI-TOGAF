@@ -1,0 +1,72 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Retail Organization"]
+  n1["Finance"]
+  n2["Accounts Payable"]
+  n3["Accounts Receivable"]
+  n4["Cash Management"]
+  n5["Accounts Receivable"]
+  n6["Accounts Payable"]
+  n7["Supply Chain Management"]
+  n8["Purchasing"]
+  n9["Warehouse Management"]
+  n10["Clothing Warehouses"]
+  n11["Electronics Warehouses"]
+  n12["Distribution"]
+  n13["Sales"]
+  n14["Retail Stores"]
+  n15["Region A"]
+  n16["Region B"]
+  n17["Region C"]
+  n18["Region D"]
+  n19["Internet Store"]
+  n20["Human Resources"]
+  n21["Talent Management"]
+  n22["Recruiting"]
+  n23["Payroll"]
+  n0 -.->|"organization_partition"| n1
+  n1 -.->|"organization_partition"| n2
+  n1 -.->|"organization_partition"| n3
+  n3 -.->|"organization_partition"| n4
+  n3 -.->|"organization_partition"| n5
+  n3 -.->|"organization_partition"| n6
+  n0 -.->|"organization_partition"| n7
+  n7 -.->|"organization_partition"| n8
+  n7 -.->|"organization_partition"| n9
+  n9 -.->|"organization_partition"| n10
+  n9 -.->|"organization_partition"| n11
+  n7 -.->|"organization_partition"| n12
+  n0 -.->|"organization_partition"| n13
+  n13 -.->|"organization_partition"| n14
+  n14 -.->|"organization_partition"| n15
+  n14 -.->|"organization_partition"| n16
+  n14 -.->|"organization_partition"| n17
+  n14 -.->|"organization_partition"| n18
+  n13 -.->|"organization_partition"| n19
+  n0 -.->|"organization_partition"| n20
+  n20 -.->|"organization_partition"| n21
+  n20 -.->|"organization_partition"| n22
+  n20 -.->|"organization_partition"| n23
+  n0 -->|"汇报归属: reports_to"| n1
+  n0 -->|"汇报归属: reports_to"| n7
+  n0 -->|"汇报归属: reports_to"| n13
+  n0 -->|"汇报归属: reports_to"| n20
+  n1 -->|"汇报归属: reports_to"| n2
+  n1 -->|"汇报归属: reports_to"| n3
+  n3 -->|"汇报归属: reports_to"| n4
+  n3 -->|"汇报归属: reports_to"| n5
+  n3 -->|"汇报归属: reports_to"| n6
+  n7 -->|"汇报归属: reports_to"| n8
+  n7 -->|"汇报归属: reports_to"| n9
+  n7 -->|"汇报归属: reports_to"| n12
+  n9 -->|"汇报归属: reports_to"| n10
+  n9 -->|"汇报归属: reports_to"| n11
+  n13 -->|"汇报归属: reports_to"| n14
+  n13 -->|"汇报归属: reports_to"| n19
+  n14 -->|"汇报归属: reports_to"| n15
+  n14 -->|"汇报归属: reports_to"| n16
+  n14 -->|"汇报归属: reports_to"| n17
+  n14 -->|"汇报归属: reports_to"| n18
+  n20 -->|"汇报归属: reports_to"| n21
+  n20 -->|"汇报归属: reports_to"| n22
+  n20 -->|"汇报归属: reports_to"| n23

@@ -1,0 +1,2451 @@
+{
+  "schema_version": "1.0",
+  "id": "G188/fig4-2",
+  "status": "done",
+  "doc": {
+    "code": "G188",
+    "title_zh": "架构项目管理",
+    "title_en": "Architecture Project Management",
+    "zh_md": "G188e_架构项目管理.md",
+    "en_pdf": "togaf-standard-10th/G188e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-2",
+    "title_en": "TOGAF ADM and PRINCE2 Mapping (Detailed) (Derived from the TOGAF Standard and PRINCE2)",
+    "title_zh": "TOGAF ADM 与 PRINCE2 映射（详细）",
+    "section_en": "4.2 Detailed Mapping Description",
+    "section_zh": "4.2 详细映射说明",
+    "attribution": "Derived from the TOGAF Standard and PRINCE2",
+    "en_location": {
+      "pages": [
+        83
+      ],
+      "printed_page": 69,
+      "bboxes": [
+        [
+          112.5,
+          36.0,
+          499.5,
+          724.8
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        1456
+      ],
+      "label_table_lines": [
+        1460,
+        1494
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g188e_fig4-2_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "3261054e2974",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.987（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g188e_fig4-2_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "bd4983c1cf3b",
+      "fidelity": "unchecked",
+      "issues_zh": [
+        "中文稿未引用此 PNG，未逐字核对"
+      ]
+    },
+    {
+      "path": "figs/zh/g188e_fig4-2_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": false,
+      "sha1": "35a718f75381",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "原图把每个 PRINCE2 流程与它的交付物画成“流程框 → 文档形状”的独立连线（如 Prepare the Risk Management Strategy → PID: Risk Management Strategy 与 Risk Register）；重绘把交付物压成流程框下的一行小字，交付物不再是独立节点，无法看出“一个流程产出多个交付物”",
+        "原图 Starting Up 有 6 个流程（Appoint、Prepare the Outline Business Case、Capture Previous Lessons、Design and Appoint、Select the Project Approach and Assemble the Project Brief、Plan the Initiation Stage），其中 Prepare OBC 与 Capture Lessons 并列；重绘把它们排成单一竖列，丢掉了并列关系",
+        "原图 Initiation 的 Risk/Quality/Configuration 三个策略流程并列，再汇入 Prepare Communication Management Strategy；重绘同样压成竖列，并列与汇合关系丢失",
+        "原图左侧 ADM 阶段 A 的 11 个任务与 7 个交付物（业务原则、能力评估、架构原则、架构定义文档草案、架构愿景、沟通计划、已批准 SoAW）分列两侧；重绘只保留 11 个任务与一行产出说明，交付物清单不完整",
+        "重绘增加了原图没有的带圈数字解释、压缩说明与“每个阶段开始时重新评估并确认规划”等注释",
+        "B–F 控制清单、Managing the Stage Boundary、Closing、Detailed Guidance 六块与两条蓝箭头基本保留"
+      ]
+    },
+    {
+      "path": "G188e_架构项目管理.md#L1460-L1494",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "30bae39ad415",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "对照表覆盖 ADM 阶段 A 的 11 个任务、四个 PRINCE2 流程组及主要流程名，英文与原图一致",
+        "未列全部交付物（如 Project Brief: Project Product Description、Configuration Item Records、Issue Register、Benefits Review Plan）及图例项，使用时需回到原图"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "flow",
+      "matrix"
+    ],
+    "notation": "泳道式详细映射图：左列 TOGAF 9.1 ADM(A) 的 11 个任务及其交付物，中列 PRINCE2 四个流程组（Starting Up、Initiation、Managing the Stage Boundary、Closing）的 18 个流程及交付物，右列 Detailed Guidance 六节；实线/点线/虚线/粗蓝箭头四种线型",
+    "concepts": [
+      "adm",
+      "prince2",
+      "project_management",
+      "cross_mapping",
+      "adm_phase_a"
+    ],
+    "adm_phases": [
+      "adm_phase_a",
+      "adm_phase_b",
+      "adm_phase_c",
+      "adm_phase_d",
+      "adm_phase_e",
+      "adm_phase_f"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "把阶段 A 的 11 个 ADM 任务与 PRINCE2 启动/发起的 14 个流程逐个对应，并列出每个流程的交付物。",
+    "purpose_zh": "在高层次映射（图 4-1）基础上展开到任务与交付物级：完整列出 ADM 阶段 A 的 11 个任务、PRINCE2“项目启动”6 个流程与“发起”8 个流程，以及各流程产生的文档，说明架构工作如何被 PRINCE2 的计划与文档体系承接，并保持 B–F、阶段边界、收尾的映射。",
+    "reading_guide_zh": "从左上“Establish the Project”开始向下读左列 11 个 ADM 任务；每个任务右侧的文档形状是它的交付物。中列先读 Starting Up 的 6 个流程（Appoint 在最上，Capture Lessons 与 Prepare OBC 并列），再读 Initiation 的 8 个流程（三个策略并列，汇入沟通策略，再分到项目控制与项目计划，最后经细化商业论证到汇编 PID）。实线=流程依赖，点线=输入依赖，虚线=产品交付。下方 B–F 与 Managing the Stage Boundary、Closing 的读法同图 4-1。",
+    "key_points_zh": [
+      "阶段 A 的任务被拆到 11 个，且每个任务对应一个交付物：业务原则、能力评估、架构原则、架构定义文档草案、架构愿景、沟通计划、已批准的架构工作说明书。",
+      "PRINCE2“项目启动”有 6 个流程；Capture Previous Lessons 与 Prepare the Outline Business Case 并列，后者产出 Project Brief 的概要商业论证与产品描述，并向前馈入 Select the Project Approach 与 Plan the Initiation Stage。",
+      "PRINCE2“发起”有 8 个流程；风险、质量、配置三个管理策略并列编制，再汇入沟通管理策略，然后进入项目控制与项目计划两条线。",
+      "每个流程都有明确交付物：如风险策略产出 PID: Risk Management Strategy 与 Risk Register；配置策略产出 PID: Configuration Management Strategy、Configuration Item Records、Issue Register；细化商业论证产出 Benefits Review Plan 与 PID: Detailed Business Case。",
+      "ADM 任务通过点线向 PRINCE2 流程提供输入：Identify Stakeholders 与 Define Scope 的成果进入 Refine the Business Case，SoAW 直接进入 Assemble the PID。",
+      "经批准的 SoAW 被纳入 PID，这是阶段 A 与 PRINCE2 发起阶段的汇合点：架构工作的授权由此转化为项目启动文档的一部分。",
+      "B–F 仍是工作交付阶段，由 Controlling the Stage 的 8 项活动与 Managing the Stage Boundary 的 5 项活动管理；阶段边界处规划下一阶段、更新计划与商业论证、报告阶段结束、编制例外计划。",
+      "Detailed Guidance 列把每一段映射到 3.1–3.6 节；Directing the Project 覆盖 3.1–3.2，Controlling the Stage 覆盖 3.3–3.6。"
+    ],
+    "hierarchy_zh": "两个维度：纵向是时间/流程顺序（Starting Up → Initiation → 阶段边界循环 → Closing）；横向是三方对应（ADM 任务—PRINCE2 流程—Detailed Guidance 章节）。PRINCE2 流程组是流程的容器，交付物挂在流程右侧，不构成流程的上下级。",
+    "line_semantics_zh": "实线箭头=流程依赖；点线箭头=输入依赖（ADM 任务或流程产出作为另一流程的输入）；虚线箭头=产品交付（流程→文档）；粗蓝箭头=简化流程组（Directing the Project、Controlling the Stage）。交付物之间的短虚线表示同一流程产出多个文档。",
+    "misreadings_zh": [
+      "不要把 Starting Up 的流程读成单一竖列：Capture Previous Lessons 与 Prepare the Outline Business Case 并列，且 OBC 会前馈到后面的 Select 与 Plan 流程。",
+      "不要把 Initiation 的三个策略流程读成先后关系：风险、质量、配置策略并列，之后才汇入沟通策略。",
+      "不要把 PID 理解为单一文档：图中 PID: Risk Management Strategy、PID: Project Controls、PID: Project Plan 等表示 PID 的组成部分。",
+      "不要把 ADM 任务旁的文档当作 PRINCE2 流程的产出；它们是 ADM 任务的产出，方向由箭头区分。",
+      "中文稿重绘 SVG 把交付物压成流程下的一行小字并打乱并列关系，不能据它核对流程—交付物对应。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p77",
+        "summary_zh": "图 4-2 给出详细映射，包括 ADM 阶段 A 的全部任务以及 PRINCE2 项目启动与发起阶段的全部任务及交付物；本节只描述相对高层映射新增或变化的要素。"
+      },
+      {
+        "source": "zh_md L1446",
+        "summary_zh": "图 4-2 呈现 ADM 映射到 PRINCE2 项目管理流程的详细结果，目的是给出包括阶段 A 全部任务与 PRINCE2 启动/发起全部任务及交付物的映射。"
+      },
+      {
+        "source": "zh_md L1470",
+        "summary_zh": "ADM 阶段 A 的全部任务连同主要交付物均纳入详细映射。"
+      },
+      {
+        "source": "zh_md L1494",
+        "summary_zh": "图内标签对照表列出 ADM 11 个任务、PRINCE2 四组流程与主要流程名。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "左列 TOGAF 9.1 ADM(A) 大框，内部 11 个任务自上而下，任务左侧挂交付物文档；中列四个 PRINCE2 流程组自上而下：Starting Up（含并列的 OBC/Capture）、Initiation（三个策略并列）、Managing the Stage Boundary、Closing；B–F 圆与控制清单在 Managing 组左侧；右列 Detailed Guidance 六个黑块。图例在中下部。"
+  },
+  "legend": [
+    {
+      "symbol": "黑色块 + Phase According to Detailed Guidance",
+      "meaning_zh": "详细指南对应章节",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Grouping Box",
+      "meaning_zh": "流程组",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Name",
+      "meaning_zh": "流程名称",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Deliverable",
+      "meaning_zh": "流程交付物",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Flow Dependency（实线箭头）",
+      "meaning_zh": "流程依赖",
+      "explicit": true
+    },
+    {
+      "symbol": "Input Dependency（点线箭头）",
+      "meaning_zh": "输入依赖",
+      "explicit": true
+    },
+    {
+      "symbol": "Product Delivery（虚线箭头）",
+      "meaning_zh": "产品交付",
+      "explicit": true
+    },
+    {
+      "symbol": "Simplified Process Group（粗蓝箭头）",
+      "meaning_zh": "简化流程组",
+      "explicit": true
+    },
+    {
+      "symbol": "TOGAF ADM Phases B to F（圆）",
+      "meaning_zh": "ADM 阶段 B–F",
+      "explicit": true
+    },
+    {
+      "symbol": "带圈数字 / 流程旁编号",
+      "meaning_zh": "ADM 任务编号（1–11），便于与正文对应",
+      "explicit": true
+    }
+  ],
+  "elements": [
+    {
+      "id": "lane_adm",
+      "label_en": "TOGAF 9.1 ADM (A)",
+      "label_zh": "TOGAF 9.1 ADM（阶段 A）",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "左列"
+    },
+    {
+      "id": "adm_establish",
+      "label_en": "Establish the Project",
+      "label_zh": "建立项目",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "adm_stakeholders",
+      "label_en": "Identify Stakeholders, Concerns, and Bus Reqs",
+      "label_zh": "识别利益相关者、关注点与业务需求",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "adm_goals",
+      "label_en": "Confirm and Elaborate Bus. Goals, Drivers, and Constraints",
+      "label_zh": "确认并细化业务目标、驱动因素与约束",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "adm_capabilities",
+      "label_en": "Evaluate Business Capabilities",
+      "label_zh": "评估业务能力",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "adm_readiness",
+      "label_en": "Assess Readiness for Business Transformation",
+      "label_zh": "评估业务转型就绪度",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "adm_scope",
+      "label_en": "Define Scope",
+      "label_zh": "定义范围",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 6
+    },
+    {
+      "id": "adm_principles",
+      "label_en": "Confirm and Elaborate Arch. Principles, inc. Bus. Principles",
+      "label_zh": "确认并细化架构原则（含业务原则）",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 7
+    },
+    {
+      "id": "adm_vision",
+      "label_en": "Develop Architecture Vision",
+      "label_zh": "制定架构愿景",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 8
+    },
+    {
+      "id": "adm_value",
+      "label_en": "Define Target Arch. Value Propositions and KPIs",
+      "label_zh": "定义目标架构价值主张与 KPI",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 9
+    },
+    {
+      "id": "adm_risks",
+      "label_en": "Identify Bus. Transformation Risks and Mitigation Activities",
+      "label_zh": "识别业务转型风险与缓解活动",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 10
+    },
+    {
+      "id": "adm_soaw",
+      "label_en": "Develop Statement of Architecture Work; Secure Approval",
+      "label_zh": "编制架构工作说明书；获得批准",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 11
+    },
+    {
+      "id": "d_refine_principles",
+      "label_en": "Refine Statements of Business Principles, Goals, and Drivers",
+      "label_zh": "细化业务原则、目标与驱动因素说明",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "position": "ADM 列左侧"
+    },
+    {
+      "id": "d_capability_assessment",
+      "label_en": "Capability Assessment",
+      "label_zh": "能力评估",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "d_architecture_principles",
+      "label_en": "Architecture Principles",
+      "label_zh": "架构原则",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "d_draft_add",
+      "label_en": "Draft Architecture Definition Document",
+      "label_zh": "架构定义文档草案",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "d_architecture_vision",
+      "label_en": "Architecture Vision",
+      "label_zh": "架构愿景",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "d_communication_plan",
+      "label_en": "Communication Plan",
+      "label_zh": "沟通计划",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "d_approved_soaw",
+      "label_en": "Approved Statement of Architecture Work",
+      "label_zh": "已批准的架构工作说明书",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "lane_su",
+      "label_en": "PRINCE2 (Starting Up the Project)",
+      "label_zh": "PRINCE2（项目启动）",
+      "type": "group",
+      "parent": null,
+      "level": 0
+    },
+    {
+      "id": "su_appoint",
+      "label_en": "Appoint the Executive and Project Manager",
+      "label_zh": "任命执行发起人与项目经理",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "su_obc",
+      "label_en": "Prepare the Outline Business Case",
+      "label_zh": "编制概要商业论证",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "su_lessons",
+      "label_en": "Capture Previous Lessons",
+      "label_zh": "汲取以往经验",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "su_team",
+      "label_en": "Design and Appoint the Project Management Team",
+      "label_zh": "设计并任命项目管理团队",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "su_approach",
+      "label_en": "Select the Project Approach and Assemble the Project Brief",
+      "label_zh": "选择项目方法并汇编项目任务书",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "su_plan_init",
+      "label_en": "Plan the Initiation Stage",
+      "label_zh": "规划发起阶段",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 6
+    },
+    {
+      "id": "sd_role_desc",
+      "label_en": "Project Brief: Project Management Team Role Descriptions",
+      "label_zh": "项目任务书：项目管理团队角色描述",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "sd_obc",
+      "label_en": "Project Brief: Outline Business Case",
+      "label_zh": "项目任务书：概要商业论证",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "sd_product_desc",
+      "label_en": "Project Brief: Project Product Description",
+      "label_zh": "项目任务书：项目产品描述",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "sd_lessons",
+      "label_en": "Lessons Log",
+      "label_zh": "经验记录",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "sd_team_structure",
+      "label_en": "Project Brief: Project Management Team Structure",
+      "label_zh": "项目任务书：项目管理团队结构",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "sd_team_role_desc",
+      "label_en": "Project Brief: Updated Project Mgt Team Role Descriptions",
+      "label_zh": "项目任务书：更新后的项目管理团队角色描述",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "sd_approach",
+      "label_en": "Project Brief: Project Approach",
+      "label_zh": "项目任务书：项目方法",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "sd_init_plan",
+      "label_en": "Initiation Stage Plan",
+      "label_zh": "发起阶段计划",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "lane_init",
+      "label_en": "PRINCE2 (Initiation)",
+      "label_zh": "PRINCE2（发起）",
+      "type": "group",
+      "parent": null,
+      "level": 0
+    },
+    {
+      "id": "ini_risk",
+      "label_en": "Prepare the Risk Management Strategy",
+      "label_zh": "编制风险管理策略",
+      "type": "process",
+      "parent": "lane_init",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "ini_quality",
+      "label_en": "Prepare the Quality Management Strategy",
+      "label_zh": "编制质量管理策略",
+      "type": "process",
+      "parent": "lane_init",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "ini_config",
+      "label_en": "Prepare the Configuration Management Strategy",
+      "label_zh": "编制配置管理策略",
+      "type": "process",
+      "parent": "lane_init",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "ini_comm",
+      "label_en": "Prepare the Communication Management Strategy",
+      "label_zh": "编制沟通管理策略",
+      "type": "process",
+      "parent": "lane_init",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "ini_controls",
+      "label_en": "Set Up the Project Controls",
+      "label_zh": "建立项目控制",
+      "type": "process",
+      "parent": "lane_init",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "ini_plan",
+      "label_en": "Create the Project Plan",
+      "label_zh": "创建项目计划",
+      "type": "process",
+      "parent": "lane_init",
+      "level": 1,
+      "order": 6
+    },
+    {
+      "id": "ini_bc",
+      "label_en": "Refine the Business Case",
+      "label_zh": "细化商业论证",
+      "type": "process",
+      "parent": "lane_init",
+      "level": 1,
+      "order": 7
+    },
+    {
+      "id": "ini_pid",
+      "label_en": "Assemble the Project Initiation Documentation",
+      "label_zh": "汇编项目启动文档",
+      "type": "process",
+      "parent": "lane_init",
+      "level": 1,
+      "order": 8
+    },
+    {
+      "id": "id_risk_strategy",
+      "label_en": "Project Initiation Documentation: Risk Management Strategy",
+      "label_zh": "项目启动文档：风险管理策略",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_risk_register",
+      "label_en": "Risk Register",
+      "label_zh": "风险登记册",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_quality_strategy",
+      "label_en": "Project Initiation Documentation: Quality Mgmt Strategy",
+      "label_zh": "项目启动文档：质量管理策略",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_quality_register",
+      "label_en": "Quality Register",
+      "label_zh": "质量登记册",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_config_strategy",
+      "label_en": "PID: Configuration Management Strategy",
+      "label_zh": "PID：配置管理策略",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_config_records",
+      "label_en": "Configuration Item Records",
+      "label_zh": "配置项记录",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_issue_register",
+      "label_en": "Issue Register",
+      "label_zh": "问题登记册",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_comm_strategy",
+      "label_en": "PID: Communication Management Strategy",
+      "label_zh": "PID：沟通管理策略",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_controls",
+      "label_en": "PID: Project Controls",
+      "label_zh": "PID：项目控制",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_project_plan",
+      "label_en": "PID: Project Plan",
+      "label_zh": "PID：项目计划",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_benefits_plan",
+      "label_en": "Benefits Review Plan",
+      "label_zh": "收益评审计划",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_detailed_bc",
+      "label_en": "PID: Detailed Business Case",
+      "label_zh": "PID：详细商业论证",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "id_pid",
+      "label_en": "Product Initiation Documentation",
+      "label_zh": "项目启动文档（PID）",
+      "type": "artifact",
+      "parent": null,
+      "level": 2
+    },
+    {
+      "id": "adm_bf",
+      "label_en": "ADM Phases B to F",
+      "label_zh": "ADM 阶段 B–F",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "position": "中下部左侧圆"
+    },
+    {
+      "id": "controlling_box",
+      "label_en": "Controlling the Stage (8 activities)",
+      "label_zh": "控制阶段（8 项活动清单）",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "B–F 圆右侧方框"
+    },
+    {
+      "id": "ctl_authorize",
+      "label_en": "Authorize a Project Work Package",
+      "label_zh": "授权项目工作包",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "ctl_review_pkg",
+      "label_en": "Review Project Work Package Status",
+      "label_zh": "审查项目工作包状态",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "ctl_receive_pkg",
+      "label_en": "Receive Completed Project Work Package",
+      "label_zh": "接收已完成的项目工作包",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "ctl_stage_status",
+      "label_en": "Review a Stage Status",
+      "label_zh": "审查阶段状态",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "ctl_report_highlights",
+      "label_en": "Report Highlights",
+      "label_zh": "报告要点",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "ctl_capture_issues",
+      "label_en": "Capture and Examine Issues and Risks",
+      "label_zh": "捕获并审查问题与风险",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 6
+    },
+    {
+      "id": "ctl_escalate",
+      "label_en": "Escalate Issues and Risks",
+      "label_zh": "上报问题与风险",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 7
+    },
+    {
+      "id": "ctl_corrective",
+      "label_en": "Take Corrective Action",
+      "label_zh": "采取纠正措施",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 8
+    },
+    {
+      "id": "lane_msb",
+      "label_en": "PRINCE2 (Managing the Stage Boundary)",
+      "label_zh": "PRINCE2（管理阶段边界）",
+      "type": "group",
+      "parent": null,
+      "level": 0
+    },
+    {
+      "id": "msb_next",
+      "label_en": "Plan the Next Stage",
+      "label_zh": "规划下一阶段",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "msb_plans",
+      "label_en": "Update Project Plans",
+      "label_zh": "更新项目计划",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "msb_bc",
+      "label_en": "Update Business Case",
+      "label_zh": "更新商业论证",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "msb_report",
+      "label_en": "Report Stage End",
+      "label_zh": "报告阶段结束",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "msb_exception",
+      "label_en": "Produce Exception Plan",
+      "label_zh": "编制例外计划",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "lane_close",
+      "label_en": "PRINCE2 (Closing the Project)",
+      "label_zh": "PRINCE2（项目收尾）",
+      "type": "group",
+      "parent": null,
+      "level": 0
+    },
+    {
+      "id": "close_prepare",
+      "label_en": "Prepare Closure",
+      "label_zh": "准备收尾",
+      "type": "process",
+      "parent": "lane_close",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "close_handover",
+      "label_en": "Product Handover",
+      "label_zh": "产品移交",
+      "type": "process",
+      "parent": "lane_close",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "close_evaluate",
+      "label_en": "Evaluate the Project",
+      "label_zh": "评估项目",
+      "type": "process",
+      "parent": "lane_close",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "close_recommend",
+      "label_en": "Recommend Closure",
+      "label_zh": "建议收尾",
+      "type": "process",
+      "parent": "lane_close",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "lane_guidance",
+      "label_en": "Detailed Guidance",
+      "label_zh": "详细指南",
+      "type": "group",
+      "parent": null,
+      "level": 0
+    },
+    {
+      "id": "g31",
+      "label_en": "3.1 Start Up Architecture Project",
+      "label_zh": "3.1 启动架构项目",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "g32",
+      "label_en": "3.2 Architecture Project Planning",
+      "label_zh": "3.2 架构项目规划",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "g33",
+      "label_en": "3.3 Planning a Stage",
+      "label_zh": "3.3 阶段规划",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "g34",
+      "label_en": "3.4 Monitor / Manage / Control a Stage",
+      "label_zh": "3.4 监控/管理/控制阶段",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "g35",
+      "label_en": "3.5 Ending a Stage",
+      "label_zh": "3.5 阶段收尾",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "g36",
+      "label_en": "3.6 Architecture Project Closing",
+      "label_zh": "3.6 架构项目收尾",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 6
+    },
+    {
+      "id": "directing",
+      "label_en": "Directing the Project",
+      "label_zh": "指导项目",
+      "type": "note",
+      "parent": null,
+      "position": "Detailed Guidance 列蓝色箭头（3.1–3.2）"
+    },
+    {
+      "id": "controlling",
+      "label_en": "Controlling the Stage",
+      "label_zh": "控制阶段",
+      "type": "note",
+      "parent": null,
+      "position": "B–F 与清单之间的蓝箭头；Detailed Guidance 列 3.3–3.6"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "adm_stakeholders",
+      "to": "adm_goals",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_goals",
+      "to": "adm_capabilities",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_capabilities",
+      "to": "adm_readiness",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_readiness",
+      "to": "adm_scope",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_scope",
+      "to": "adm_principles",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_principles",
+      "to": "adm_vision",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_vision",
+      "to": "adm_value",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_value",
+      "to": "adm_risks",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_risks",
+      "to": "adm_soaw",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_goals",
+      "to": "d_refine_principles",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_readiness",
+      "to": "d_capability_assessment",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_principles",
+      "to": "d_architecture_principles",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_vision",
+      "to": "d_draft_add",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_vision",
+      "to": "d_architecture_vision",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_risks",
+      "to": "d_communication_plan",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_soaw",
+      "to": "d_approved_soaw",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_establish",
+      "to": "su_appoint",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_appoint",
+      "to": "su_lessons",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_lessons",
+      "to": "su_obc",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "description_zh": "箭头向左指向 Prepare the Outline Business Case"
+    },
+    {
+      "from": "su_lessons",
+      "to": "su_team",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_team",
+      "to": "su_approach",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_approach",
+      "to": "su_plan_init",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_obc",
+      "to": "su_approach",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "OBC 的连线向下汇入 Select the Project Approach"
+    },
+    {
+      "from": "su_obc",
+      "to": "su_plan_init",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_appoint",
+      "to": "sd_role_desc",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_obc",
+      "to": "sd_obc",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_obc",
+      "to": "sd_product_desc",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_lessons",
+      "to": "sd_lessons",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_team",
+      "to": "sd_team_structure",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_team",
+      "to": "sd_team_role_desc",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_approach",
+      "to": "sd_approach",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_plan_init",
+      "to": "sd_init_plan",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_plan_init",
+      "to": "adm_stakeholders",
+      "type": "triggering",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "向左箭头进入 ADM“识别利益相关者”"
+    },
+    {
+      "from": "lane_su",
+      "to": "lane_init",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_risk",
+      "to": "id_risk_strategy",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_risk",
+      "to": "id_risk_register",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_quality",
+      "to": "id_quality_strategy",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_quality",
+      "to": "id_quality_register",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_config",
+      "to": "id_config_strategy",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_config",
+      "to": "id_config_records",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_config",
+      "to": "id_issue_register",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_risk",
+      "to": "ini_comm",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_quality",
+      "to": "ini_comm",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_config",
+      "to": "ini_comm",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_comm",
+      "to": "id_comm_strategy",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_comm",
+      "to": "ini_controls",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_comm",
+      "to": "ini_plan",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_controls",
+      "to": "id_controls",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_controls",
+      "to": "ini_plan",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_plan",
+      "to": "id_project_plan",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_plan",
+      "to": "ini_bc",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_bc",
+      "to": "id_benefits_plan",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_bc",
+      "to": "id_detailed_bc",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_bc",
+      "to": "ini_pid",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_pid",
+      "to": "id_pid",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_stakeholders",
+      "to": "ini_bc",
+      "type": "consumes",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "点线横穿进入 Refine the Business Case"
+    },
+    {
+      "from": "adm_scope",
+      "to": "ini_bc",
+      "type": "consumes",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_soaw",
+      "to": "ini_pid",
+      "type": "consumes",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "d_approved_soaw",
+      "to": "ini_pid",
+      "type": "consumes",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "已批准 SoAW 纳入 PID"
+    },
+    {
+      "from": "lane_init",
+      "to": "lane_msb",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_bf",
+      "to": "msb_next",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "controlling",
+      "to": "adm_bf",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both"
+    },
+    {
+      "from": "controlling",
+      "to": "g33",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "directing",
+      "to": "g31",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "msb_next",
+      "to": "msb_plans",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "msb_plans",
+      "to": "msb_bc",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "controlling_box",
+      "to": "msb_report",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "lane_msb",
+      "to": "lane_close",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "close_prepare",
+      "to": "close_handover",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "close_handover",
+      "to": "close_evaluate",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "close_evaluate",
+      "to": "close_recommend",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "g33",
+      "to": "g34",
+      "type": "sequence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "g34",
+      "to": "g35",
+      "type": "sequence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "g35",
+      "to": "g36",
+      "type": "sequence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_su",
+      "kind": "sequence",
+      "name_zh": "PRINCE2 项目启动（含并列的经验与 OBC）",
+      "steps": [
+        "adm_establish",
+        "su_appoint",
+        "su_lessons",
+        "su_team",
+        "su_approach",
+        "su_plan_init"
+      ]
+    },
+    {
+      "id": "f_init",
+      "kind": "sequence",
+      "name_zh": "PRINCE2 发起",
+      "steps": [
+        "ini_risk",
+        "ini_comm",
+        "ini_controls",
+        "ini_plan",
+        "ini_bc",
+        "ini_pid"
+      ]
+    },
+    {
+      "id": "f_stage_loop",
+      "kind": "loop",
+      "name_zh": "B–F 阶段循环",
+      "steps": [
+        "adm_bf",
+        "msb_next",
+        "msb_plans",
+        "msb_bc",
+        "msb_report",
+        "adm_bf"
+      ]
+    },
+    {
+      "id": "f_closing",
+      "kind": "sequence",
+      "name_zh": "PRINCE2 项目收尾",
+      "steps": [
+        "close_prepare",
+        "close_handover",
+        "close_evaluate",
+        "close_recommend"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_process_deliverables",
+      "title_zh": "PRINCE2 流程与其交付物（按原图逐行转录）",
+      "columns": [
+        "流程组",
+        "流程",
+        "交付物"
+      ],
+      "rows": [
+        [
+          "Starting Up",
+          "Appoint the Executive and Project Manager",
+          "Project Brief: Project Management Team Role Descriptions"
+        ],
+        [
+          "Starting Up",
+          "Prepare the Outline Business Case",
+          "Project Brief: Outline Business Case；Project Brief: Project Product Description"
+        ],
+        [
+          "Starting Up",
+          "Capture Previous Lessons",
+          "Lessons Log"
+        ],
+        [
+          "Starting Up",
+          "Design and Appoint the Project Management Team",
+          "Project Brief: Project Management Team Structure；Project Brief: Updated Project Mgt Team Role Descriptions"
+        ],
+        [
+          "Starting Up",
+          "Select the Project Approach and Assemble the Project Brief",
+          "Project Brief: Project Approach"
+        ],
+        [
+          "Starting Up",
+          "Plan the Initiation Stage",
+          "Initiation Stage Plan"
+        ],
+        [
+          "Initiation",
+          "Prepare the Risk Management Strategy",
+          "Project Initiation Documentation: Risk Management Strategy；Risk Register"
+        ],
+        [
+          "Initiation",
+          "Prepare the Quality Management Strategy",
+          "Project Initiation Documentation: Quality Mgmt Strategy；Quality Register"
+        ],
+        [
+          "Initiation",
+          "Prepare the Configuration Management Strategy",
+          "PID: Configuration Management Strategy；Configuration Item Records；Issue Register"
+        ],
+        [
+          "Initiation",
+          "Prepare the Communication Management Strategy",
+          "PID: Communication Management Strategy"
+        ],
+        [
+          "Initiation",
+          "Set Up the Project Controls",
+          "PID: Project Controls"
+        ],
+        [
+          "Initiation",
+          "Create the Project Plan",
+          "PID: Project Plan"
+        ],
+        [
+          "Initiation",
+          "Refine the Business Case",
+          "Benefits Review Plan；PID: Detailed Business Case"
+        ],
+        [
+          "Initiation",
+          "Assemble the Project Initiation Documentation",
+          "Product Initiation Documentation"
+        ]
+      ],
+      "notes_zh": "交付物名称按原图逐字记录；PID 前缀在图中混用“Project Initiation Documentation”与“PID”。"
+    },
+    {
+      "id": "t_adm_deliverables",
+      "title_zh": "ADM 阶段 A 任务与其交付物（按原图自上而下）",
+      "columns": [
+        "序号",
+        "ADM 任务",
+        "交付物"
+      ],
+      "rows": [
+        [
+          "1",
+          "Establish the Project",
+          "—"
+        ],
+        [
+          "2",
+          "Identify Stakeholders, Concerns, and Bus Reqs",
+          "—"
+        ],
+        [
+          "3",
+          "Confirm and Elaborate Bus. Goals, Drivers, and Constraints",
+          "Refine Statements of Business Principles, Goals, and Drivers"
+        ],
+        [
+          "4",
+          "Evaluate Business Capabilities",
+          "—"
+        ],
+        [
+          "5",
+          "Assess Readiness for Business Transformation",
+          "Capability Assessment"
+        ],
+        [
+          "6",
+          "Define Scope",
+          "—"
+        ],
+        [
+          "7",
+          "Confirm and Elaborate Arch. Principles, inc. Bus. Principles",
+          "Architecture Principles"
+        ],
+        [
+          "8",
+          "Develop Architecture Vision",
+          "Draft Architecture Definition Document；Architecture Vision"
+        ],
+        [
+          "9",
+          "Define Target Arch. Value Propositions and KPIs",
+          "—"
+        ],
+        [
+          "10",
+          "Identify Bus. Transformation Risks and Mitigation Activities",
+          "Communication Plan"
+        ],
+        [
+          "11",
+          "Develop Statement of Architecture Work; Secure Approval",
+          "Approved Statement of Architecture Work"
+        ]
+      ],
+      "notes_zh": "原图并未给每个任务都画交付物；表中“—”表示该任务旁无独立文档形状。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G188/fig4-1",
+      "relation": "detail_of",
+      "note_zh": "本图把图 4-1 的 PRINCE2 流程展开到任务与交付物级，ADM 阶段 A 由 7 个任务细化为 11 个"
+    },
+    {
+      "target": "G188/fig3-3",
+      "relation": "related",
+      "note_zh": "两者都涉及交付物：图 3-3 是阶段 F 的架构交付物，本图是 PRINCE2 流程的项目管理交付物"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "Starting Up 中 Prepare the Outline Business Case 与 Capture Previous Lessons 的并列及前馈关系按连线判读；原图线条在流程组内交叉较多，OBC 到 Select/Plan 的两条线是否都直接从 OBC 出发无法完全确认。",
+      "Initiation 中三个策略流程汇入 Communication Strategy 的连线在原图被流程框遮挡，按视觉上的汇合横线判读。",
+      "ADM 任务与交付物之间多数为点线，个别（如 SoAW）为实线；本分析按可见线型记录，未对每一小段线型逐一放大验证。",
+      "“带圈数字”在原图中仅部分可见，本分析以 ADM 任务序号 1–11 记录，未额外解释跨列编号对应。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 83 页原图截图（含 3x3 放大分块）",
+      "英文 PDF 第 77、79 页相关正文",
+      "中文稿 G188e_架构项目管理.md 第 1446–1512 行及图内标签对照表 L1460–L1494",
+      "figs/g188e_fig4-2_en.png 与 figs/zh/g188e_fig4-2_zh.svg 文本内容"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G188e.pdf",
+    "pdf_sha256": "6e654af12a0bc034c7548d425a01123331ac9129c478a0bb957db89dd353dd29",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G188/fig4-2.json",
+    "interpretation_sha256": "a744e757a9e74c74d6d64037d9c83fa7d94dc87d4554d62d929fa0e3a088d3dc",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 83,
+        "text": "Figure 4-2: TOGAF ADM and PRINCE2 Mapping (Detailed) (Derived from the TOGAF Standard and PRINCE2)",
+        "bbox_pdf_points": [
+          48.24,
+          729.482,
+          552.745,
+          743.048
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 83,
+      "printed_page": 69,
+      "bbox_pdf_points": [
+        112.5,
+        36.0,
+        499.5,
+        724.8
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G188/fig4-2-p0083.png",
+      "image_sha256": "12ff5b53322b2a8bbfac80fdd3d825d4cd512144089453c7e731dc056e548396",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "12ff5b53322b2a8bbfac80fdd3d825d4cd512144089453c7e731dc056e548396",
+          "status": "extracted-unverified",
+          "text": "IGAF 9.1 ADM\nPoised\nanion\nawe,\n> Sen\nSometion\n==)\na\nSaetiet\nf\nlewd\n+} | sense | | 9] bes\n2\t1\t13\t0\t0\t0\t501\t268\t53\t7\t-1\t\n3\t1\t13\t1\t0\t0\t501\t268\t53\t7\t-1\t\n4\t1\t13\t1\t1\t0\t501\t268\t53\t7\t-1\t\n5\t1\t13\t1\t1\t1\t501\t268\t53\t7\t4.072561\tcorer\n2\t1\t14\t0\t0\t0\t429\t358\t31\t7\t-1\t\n3\t1\t14\t1\t0\t0\t429\t358\t31\t7\t-1\t\n4\t1\t14\t1\t1\t0\t429\t358\t31\t7\t-1\t\n5\t1\t14\t1\t1\t1\t429\t358\t31\t7\t39.871960\theal\n2\t1\t15\t0\t0\t0\t12\t430\t45\t5\t-1\t\n3\t1\t15\t1\t0\t0\t12\t430\t45\t5\t-1\t\n4\t1\t15\t1\t1\t0\t12\t430\t45\t5\t-1\t\n5\t1\t15\t1\t1\t1\t12\t430\t45\t5\t45.941444\ta\n2\t1\t16\t0\t0\t0\t13\t438\t50\t6\t-1\t\n3\t1\t16\t1\t0\t0\t13\t438\t50\t6\t-1\t\n4\t1\t16\t1\t1\t0\t13\t438\t50\t6\t-1\t\n5\t1\t16\t1\t1\t1\t13\t438\t50\t6\t0.000000\tSecor\n2\t1\t17\t0\t0\t0\t16\t448\t47\t5\t-1\t\n3\t1\t17\t1\t0\t0\t16\t448\t47\t5\t-1\t\n4\t1\t17\t1\t1\t0\t16\t448\t47\t5\t-1\t\n5\t1\t17\t1\t1\t1\t12\t434\t19\t28\t67.639854\tcon\n5\t1\t17\t1\t1\t2\t35\t434\t31\t28\t34.589916\tveer\n2\t1\t18\t0\t0\t0\t462\t463\t40\t7\t-1\t\n3\t1\t18\t1\t0\t0\t462\t463\t40\t7\t-1\t\n4\t1\t18\t1\t1\t0\t462\t463\t40\t7\t-1\t\n5\t1\t18\t1\t1\t1\t462\t463\t17\t7\t18.716831\toy\n5\t1\t18\t1\t1\t2\t483\t451\t19\t28\t2.188425\teae\n2\t1\t19\t0\t0\t0\t230\t505\t59\t6\t-1\t\n3\t1\t19\t1\t0\t0\t230\t505\t59\t6\t-1\t\n4\t1\t19\t1\t1\t0\t230\t505\t59\t6\t-1\t\n5\t1\t19\t1\t1\t1\t230\t505\t59\t6\t27.874031\topera\n2\t1\t20\t0\t0\t0\t578\t500\t59\t7\t-1\t\n3\t1\t20\t1\t0\t0\t578\t500\t59\t7\t-1\t\n4\t1\t20\t1\t1\t0\t578\t500\t59\t7\t-1\t\n5\t1\t20\t1\t1\t1\t578\t488\t31\t28\t13.614674\tware\n5\t1\t20\t1\t1\t2\t618\t500\t19\t7\t27.603331\tar\n2\t1\t21\t0\t0\t0\t10\t543\t56\t6\t-1\t\n3\t1\t21\t1\t0\t0\t10\t543\t56\t6\t-1\t\n4\t1\t21\t1\t1\t0\t10\t543\t56\t6\t-1\t\n5\t1\t21\t1\t1\t1\t10\t543\t56\t6\t29.854126\t——\n2\t1\t22\t0\t0\t0\t113\t543\t27\t6\t-1\t\n3\t1\t22\t1\t0\t0\t113\t543\t27\t6\t-1\t\n4\t1\t22\t1\t1\t0\t113\t543\t27\t6\t-1\t\n5\t1\t22\t1\t1\t1\t113\t543\t27\t6\t61.751839\t—\n2\t1\t23\t0\t0\t0\t114\t604\t34\t6\t-1\t\n3\t1\t23\t1\t0\t0\t114\t604\t34\t6\t-1\t\n4\t1\t23\t1\t1\t0\t114\t604\t34\t6\t-1\t\n5\t1\t23\t1\t1\t1\t110\t591\t19\t28\t35.933365\toem\n5\t1\t23\t1\t1\t2\t133\t591\t19\t28\t45.337429\tSant\n2\t1\t24\t0\t0\t0\t417\t603\t40\t5\t-1\t\n3\t1\t24\t1\t0\t0\t417\t603\t40\t5\t-1\t\n4\t1\t24\t1\t1\t0\t417\t603\t40\t5\t-1\t\n5\t1\t24\t1\t1\t1\t417\t603\t40\t5\t40.632473\teo\n2\t1\t25\t0\t0\t0\t491\t607\t59\t7\t-1\t\n3\t1\t25\t1\t0\t0\t491\t607\t59\t7\t-1\t\n4\t1\t25\t1\t1\t0\t491\t607\t59\t7\t-1\t\n5\t1\t25\t1\t1\t1\t491\t607\t59\t7\t22.152500\tscape\n2\t1\t26\t0\t0\t0\t511\t573\t91\t36\t-1\t\n3\t1\t26\t1\t0\t0\t511\t573\t91\t36\t-1\t\n4\t1\t26\t1\t1\t0\t511\t573\t91\t36\t-1\t\n5\t1\t26\t1\t1\t1\t511\t573\t91\t36\t5.724382\t==)\n=\nmae | LH\nJoes re\noo a\n==\ntote Ret\n/ mnt\nee\nPs\n=\nroxio\nereace\n+) Bence\nPoaceae\na\n—\n0\n==]\n0\n> Hh\n4\n—al|\n=\nse\n(Leese T)\n——os\n<a)\n—\n<a)\n[=]",
+          "words": [
+            {
+              "text": "IGAF",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                59,
+                7,
+                11,
+                6
+              ]
+            },
+            {
+              "text": "9.1",
+              "confidence": 88.331017,
+              "bbox_pixels_xywh": [
+                78,
+                0,
+                12,
+                22
+              ]
+            },
+            {
+              "text": "ADM",
+              "confidence": 58.565254,
+              "bbox_pixels_xywh": [
+                97,
+                7,
+                11,
+                6
+              ]
+            },
+            {
+              "text": "Poised",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                501,
+                35,
+                54,
+                5
+              ]
+            },
+            {
+              "text": "anion",
+              "confidence": 37.021297,
+              "bbox_pixels_xywh": [
+                114,
+                44,
+                29,
+                6
+              ]
+            },
+            {
+              "text": "awe,",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                419,
+                57,
+                43,
+                7
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 51.158905,
+              "bbox_pixels_xywh": [
+                483,
+                49,
+                13,
+                6
+              ]
+            },
+            {
+              "text": "Sen",
+              "confidence": 29.668575,
+              "bbox_pixels_xywh": [
+                506,
+                49,
+                42,
+                9
+              ]
+            },
+            {
+              "text": "Sometion",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                514,
+                45,
+                39,
+                5
+              ]
+            },
+            {
+              "text": "==)",
+              "confidence": 15.933647,
+              "bbox_pixels_xywh": [
+                219,
+                85,
+                75,
+                34
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 4.545097,
+              "bbox_pixels_xywh": [
+                225,
+                146,
+                53,
+                6
+              ]
+            },
+            {
+              "text": "Saetiet",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                226,
+                154,
+                43,
+                6
+              ]
+            },
+            {
+              "text": "f",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                362,
+                108,
+                16,
+                39
+              ]
+            },
+            {
+              "text": "lewd",
+              "confidence": 19.688292,
+              "bbox_pixels_xywh": [
+                522,
+                163,
+                32,
+                7
+              ]
+            },
+            {
+              "text": "+}",
+              "confidence": 44.913517,
+              "bbox_pixels_xywh": [
+                367,
+                277,
+                76,
+                6
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 44.913517,
+              "bbox_pixels_xywh": [
+                414,
+                264,
+                3,
+                28
+              ]
+            },
+            {
+              "text": "sense",
+              "confidence": 16.72883,
+              "bbox_pixels_xywh": [
+                425,
+                264,
+                34,
+                28
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 81.412369,
+              "bbox_pixels_xywh": [
+                463,
+                264,
+                5,
+                28
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 50.71067,
+              "bbox_pixels_xywh": [
+                472,
+                264,
+                6,
+                28
+              ]
+            },
+            {
+              "text": "9]",
+              "confidence": 25.886845,
+              "bbox_pixels_xywh": [
+                486,
+                264,
+                13,
+                28
+              ]
+            },
+            {
+              "text": "bes\n2\t1\t13\t0\t0\t0\t501\t268\t53\t7\t-1\t\n3\t1\t13\t1\t0\t0\t501\t268\t53\t7\t-1\t\n4\t1\t13\t1\t1\t0\t501\t268\t53\t7\t-1\t\n5\t1\t13\t1\t1\t1\t501\t268\t53\t7\t4.072561\tcorer\n2\t1\t14\t0\t0\t0\t429\t358\t31\t7\t-1\t\n3\t1\t14\t1\t0\t0\t429\t358\t31\t7\t-1\t\n4\t1\t14\t1\t1\t0\t429\t358\t31\t7\t-1\t\n5\t1\t14\t1\t1\t1\t429\t358\t31\t7\t39.871960\theal\n2\t1\t15\t0\t0\t0\t12\t430\t45\t5\t-1\t\n3\t1\t15\t1\t0\t0\t12\t430\t45\t5\t-1\t\n4\t1\t15\t1\t1\t0\t12\t430\t45\t5\t-1\t\n5\t1\t15\t1\t1\t1\t12\t430\t45\t5\t45.941444\ta\n2\t1\t16\t0\t0\t0\t13\t438\t50\t6\t-1\t\n3\t1\t16\t1\t0\t0\t13\t438\t50\t6\t-1\t\n4\t1\t16\t1\t1\t0\t13\t438\t50\t6\t-1\t\n5\t1\t16\t1\t1\t1\t13\t438\t50\t6\t0.000000\tSecor\n2\t1\t17\t0\t0\t0\t16\t448\t47\t5\t-1\t\n3\t1\t17\t1\t0\t0\t16\t448\t47\t5\t-1\t\n4\t1\t17\t1\t1\t0\t16\t448\t47\t5\t-1\t\n5\t1\t17\t1\t1\t1\t12\t434\t19\t28\t67.639854\tcon\n5\t1\t17\t1\t1\t2\t35\t434\t31\t28\t34.589916\tveer\n2\t1\t18\t0\t0\t0\t462\t463\t40\t7\t-1\t\n3\t1\t18\t1\t0\t0\t462\t463\t40\t7\t-1\t\n4\t1\t18\t1\t1\t0\t462\t463\t40\t7\t-1\t\n5\t1\t18\t1\t1\t1\t462\t463\t17\t7\t18.716831\toy\n5\t1\t18\t1\t1\t2\t483\t451\t19\t28\t2.188425\teae\n2\t1\t19\t0\t0\t0\t230\t505\t59\t6\t-1\t\n3\t1\t19\t1\t0\t0\t230\t505\t59\t6\t-1\t\n4\t1\t19\t1\t1\t0\t230\t505\t59\t6\t-1\t\n5\t1\t19\t1\t1\t1\t230\t505\t59\t6\t27.874031\topera\n2\t1\t20\t0\t0\t0\t578\t500\t59\t7\t-1\t\n3\t1\t20\t1\t0\t0\t578\t500\t59\t7\t-1\t\n4\t1\t20\t1\t1\t0\t578\t500\t59\t7\t-1\t\n5\t1\t20\t1\t1\t1\t578\t488\t31\t28\t13.614674\tware\n5\t1\t20\t1\t1\t2\t618\t500\t19\t7\t27.603331\tar\n2\t1\t21\t0\t0\t0\t10\t543\t56\t6\t-1\t\n3\t1\t21\t1\t0\t0\t10\t543\t56\t6\t-1\t\n4\t1\t21\t1\t1\t0\t10\t543\t56\t6\t-1\t\n5\t1\t21\t1\t1\t1\t10\t543\t56\t6\t29.854126\t——\n2\t1\t22\t0\t0\t0\t113\t543\t27\t6\t-1\t\n3\t1\t22\t1\t0\t0\t113\t543\t27\t6\t-1\t\n4\t1\t22\t1\t1\t0\t113\t543\t27\t6\t-1\t\n5\t1\t22\t1\t1\t1\t113\t543\t27\t6\t61.751839\t—\n2\t1\t23\t0\t0\t0\t114\t604\t34\t6\t-1\t\n3\t1\t23\t1\t0\t0\t114\t604\t34\t6\t-1\t\n4\t1\t23\t1\t1\t0\t114\t604\t34\t6\t-1\t\n5\t1\t23\t1\t1\t1\t110\t591\t19\t28\t35.933365\toem\n5\t1\t23\t1\t1\t2\t133\t591\t19\t28\t45.337429\tSant\n2\t1\t24\t0\t0\t0\t417\t603\t40\t5\t-1\t\n3\t1\t24\t1\t0\t0\t417\t603\t40\t5\t-1\t\n4\t1\t24\t1\t1\t0\t417\t603\t40\t5\t-1\t\n5\t1\t24\t1\t1\t1\t417\t603\t40\t5\t40.632473\teo\n2\t1\t25\t0\t0\t0\t491\t607\t59\t7\t-1\t\n3\t1\t25\t1\t0\t0\t491\t607\t59\t7\t-1\t\n4\t1\t25\t1\t1\t0\t491\t607\t59\t7\t-1\t\n5\t1\t25\t1\t1\t1\t491\t607\t59\t7\t22.152500\tscape\n2\t1\t26\t0\t0\t0\t511\t573\t91\t36\t-1\t\n3\t1\t26\t1\t0\t0\t511\t573\t91\t36\t-1\t\n4\t1\t26\t1\t1\t0\t511\t573\t91\t36\t-1\t\n5\t1\t26\t1\t1\t1\t511\t573\t91\t36\t5.724382\t==)",
+              "confidence": 39.790455,
+              "bbox_pixels_xywh": [
+                505,
+                277,
+                35,
+                6
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 34.622387,
+              "bbox_pixels_xywh": [
+                10,
+                655,
+                31,
+                6
+              ]
+            },
+            {
+              "text": "mae",
+              "confidence": 32.676743,
+              "bbox_pixels_xywh": [
+                127,
+                717,
+                56,
+                5
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 88.077385,
+              "bbox_pixels_xywh": [
+                153,
+                703,
+                5,
+                28
+              ]
+            },
+            {
+              "text": "LH",
+              "confidence": 28.749447,
+              "bbox_pixels_xywh": [
+                165,
+                717,
+                18,
+                5
+              ]
+            },
+            {
+              "text": "Joes",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                180,
+                687,
+                130,
+                41
+              ]
+            },
+            {
+              "text": "re",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                330,
+                687,
+                59,
+                41
+              ]
+            },
+            {
+              "text": "oo",
+              "confidence": 37.695435,
+              "bbox_pixels_xywh": [
+                261,
+                676,
+                19,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 38.284222,
+              "bbox_pixels_xywh": [
+                291,
+                689,
+                38,
+                6
+              ]
+            },
+            {
+              "text": "==",
+              "confidence": 48.522171,
+              "bbox_pixels_xywh": [
+                504,
+                674,
+                112,
+                34
+              ]
+            },
+            {
+              "text": "tote",
+              "confidence": 27.979536,
+              "bbox_pixels_xywh": [
+                519,
+                742,
+                24,
+                28
+              ]
+            },
+            {
+              "text": "Ret",
+              "confidence": 45.021172,
+              "bbox_pixels_xywh": [
+                547,
+                742,
+                24,
+                28
+              ]
+            },
+            {
+              "text": "/",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                403,
+                772,
+                7,
+                36
+              ]
+            },
+            {
+              "text": "mnt",
+              "confidence": 35.312939,
+              "bbox_pixels_xywh": [
+                429,
+                783,
+                26,
+                5
+              ]
+            },
+            {
+              "text": "ee",
+              "confidence": 2.878408,
+              "bbox_pixels_xywh": [
+                422,
+                790,
+                39,
+                6
+              ]
+            },
+            {
+              "text": "Ps",
+              "confidence": 14.891996,
+              "bbox_pixels_xywh": [
+                13,
+                867,
+                43,
+                6
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 45.922184,
+              "bbox_pixels_xywh": [
+                115,
+                876,
+                32,
+                5
+              ]
+            },
+            {
+              "text": "roxio",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                116,
+                885,
+                33,
+                5
+              ]
+            },
+            {
+              "text": "ereace",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                421,
+                876,
+                41,
+                6
+              ]
+            },
+            {
+              "text": "+)",
+              "confidence": 27.490845,
+              "bbox_pixels_xywh": [
+                506,
+                863,
+                15,
+                28
+              ]
+            },
+            {
+              "text": "Bence",
+              "confidence": 9.913101,
+              "bbox_pixels_xywh": [
+                530,
+                877,
+                39,
+                5
+              ]
+            },
+            {
+              "text": "Poaceae",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                528,
+                868,
+                43,
+                5
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 32.309456,
+              "bbox_pixels_xywh": [
+                380,
+                989,
+                99,
+                19
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 10.748568,
+              "bbox_pixels_xywh": [
+                402,
+                1024,
+                38,
+                6
+              ]
+            },
+            {
+              "text": "0",
+              "confidence": 54.62833,
+              "bbox_pixels_xywh": [
+                379,
+                1018,
+                10,
+                19
+              ]
+            },
+            {
+              "text": "==]",
+              "confidence": 7.140369,
+              "bbox_pixels_xywh": [
+                380,
+                1047,
+                98,
+                17
+              ]
+            },
+            {
+              "text": "0",
+              "confidence": 57.36002,
+              "bbox_pixels_xywh": [
+                469,
+                1018,
+                10,
+                19
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 41.226448,
+              "bbox_pixels_xywh": [
+                64,
+                1062,
+                13,
+                4
+              ]
+            },
+            {
+              "text": "Hh",
+              "confidence": 44.207451,
+              "bbox_pixels_xywh": [
+                126,
+                999,
+                76,
+                95
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 51.195099,
+              "bbox_pixels_xywh": [
+                161,
+                1084,
+                43,
+                33
+              ]
+            },
+            {
+              "text": "—al|",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                387,
+                1109,
+                91,
+                17
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 44.650032,
+              "bbox_pixels_xywh": [
+                236,
+                1232,
+                43,
+                6
+              ]
+            },
+            {
+              "text": "se",
+              "confidence": 43.93428,
+              "bbox_pixels_xywh": [
+                577,
+                1242,
+                26,
+                4
+              ]
+            },
+            {
+              "text": "(Leese",
+              "confidence": 37.663189,
+              "bbox_pixels_xywh": [
+                208,
+                1259,
+                98,
+                19
+              ]
+            },
+            {
+              "text": "T)",
+              "confidence": 58.047962,
+              "bbox_pixels_xywh": [
+                289,
+                1255,
+                20,
+                33
+              ]
+            },
+            {
+              "text": "——os",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                420,
+                1271,
+                99,
+                19
+              ]
+            },
+            {
+              "text": "<a)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                216,
+                1293,
+                91,
+                17
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 43.494526,
+              "bbox_pixels_xywh": [
+                451,
+                1304,
+                38,
+                5
+              ]
+            },
+            {
+              "text": "<a)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                216,
+                1326,
+                91,
+                17
+              ]
+            },
+            {
+              "text": "[=]",
+              "confidence": 52.755241,
+              "bbox_pixels_xywh": [
+                420,
+                1324,
+                76,
+                34
+              ]
+            }
+          ],
+          "mean_word_confidence": 28.44,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

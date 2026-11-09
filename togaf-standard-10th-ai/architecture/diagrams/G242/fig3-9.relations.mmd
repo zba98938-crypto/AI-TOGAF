@@ -1,0 +1,41 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["CO₂, CH₄, N₂O, HFCs, PFCs, SF₆"]
+  n1["CO₂"]
+  n2["CH₄"]
+  n3["N₂O"]
+  n4["HFCs"]
+  n5["PFCs"]
+  n6["SF₆"]
+  n7["Scope 2 INDIRECT"]
+  n8["Scope 1 DIRECT"]
+  n9["Scope 3 INDIRECT"]
+  n10["Scope 3 INDIRECT"]
+  n11["purchased goods and services"]
+  n12["capital goods"]
+  n13["fuel and energy related activities"]
+  n14["transportation and distribution"]
+  n15["waste generated in operations"]
+  n16["business travel"]
+  n17["employee commuting"]
+  n18["leased assets"]
+  n19["purchased electricity, steam, heating &amp; cooling for own use"]
+  n20["company facilities"]
+  n21["company vehicles"]
+  n22["transportation and distribution"]
+  n23["processing of sold products"]
+  n24["use of sold products"]
+  n25["end-of-life treatment of sold products"]
+  n26["leased assets"]
+  n27["franchises"]
+  n28["investments"]
+  n29["Upstream activities"]
+  n30["Reporting company"]
+  n31["Downstream activities"]
+  n7 -.->|"流动"| n0
+  n8 -.->|"流动"| n0
+  n9 -.->|"流动"| n0
+  n10 -.->|"流动"| n0
+  n9 -.-|"关联"| n29
+  n8 -.-|"关联"| n30
+  n10 -.-|"关联"| n31

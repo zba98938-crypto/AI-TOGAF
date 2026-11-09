@@ -1,0 +1,203 @@
+{
+  "schema_version": "2.0",
+  "id": "G184/fig6-1",
+  "title": "可能的治理层级",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      499
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "第 6.1.1 节要求识别并定义适当的治理层级，明确治理什么、如何、何时，以及升级到哪一层寻求救济。本图给出可能的层级划分，提示企业很可能已为其中部分或全部层级定义了流程，EA 治理要放进这个层级体系里考虑。",
+    "reading_guide_zh": "由外向内读：最外圈“公司治理”，向内依次是“EA 治理”“业务架构治理”“域架构治理”，最内的浅蓝圆是“实施治理”。外层包住内层，表示较高层级约束较低层级。中部那条横穿所有圆的半透明灰带是“安全与风险治理”，它不是第六层，而是横切所有层级的治理关注。",
+    "key_points_zh": [
+      "五个治理层级由外向内嵌套：公司治理 ⊃ EA 治理 ⊃ 业务架构治理 ⊃ 域架构治理 ⊃ 实施治理。正文说较低层级偏战术，较高层级约束较低层级，所以外圈约束内圈。",
+      "安全与风险治理是横贯所有层级的横带，属于横切的治理关注；正文说横切层级与较高层级一样约束较低层级。",
+      "每个层级都要明确治理什么、如何治理、何时治理，以及向哪一层升级寻求救济；层级内没有救济机制，会失去有效控制和局部自治。",
+      "企业很可能已为图中部分或全部层级定义了流程；领导者要识别这些流程，而不是另起一套。",
+      "决策权：目标架构、救济与强制执行的决策权始终属于架构的利益相关者，即使最低层级也是如此；EA 治理委员会拥有流程，以及对目标架构工作完整性与置信度的建议权。常见失败模式是 EA 治理委员会自认为拥有这些决策权。",
+      "正文引用 ISO/IEC 38500 把治理定义为“指导并控制当前与未来状态的体系”，并说治理是人人承诺遵守的决策层级体系；本图就是这种层级体系的一个划分。"
+    ],
+    "hierarchy_zh": "五层视觉嵌套，即约束范围的层级：第 1 层公司治理（最外），第 2 层 EA 治理，第 3 层业务架构治理，第 4 层域架构治理，第 5 层实施治理（最内）。安全与风险治理不在嵌套链中，它横跨全部五层。",
+    "line_semantics_zh": "图中没有连线或箭头。圆的嵌套表示外层约束内层（记为 governs，隐含）；横带与各圆重叠表示安全与风险治理横切各层（同样记为 governs，隐含）。正文中的“向更高层级升级寻求救济”方向与之相反（内层 → 外层），图中没有画出。",
+    "misreadings_zh": [
+      "嵌套圆表示约束范围（外层约束内层），不是组织汇报线，也不是时间先后。",
+      "灰色横带不是第六个层级，而是横切所有层级的安全与风险治理。",
+      "圆的颜色由深到浅只用来区分层级，没有图例，不表示重要性或资源多少。",
+      "正文第 6.2 节说“即使在最低层级（技术架构治理）”，图中没有“技术架构治理”这一名称；图中最内层是“实施治理”，技术架构治理按理属于“域架构治理”一层（推断）。",
+      "中文稿引用的 figs/g184_fig6-1.svg 是另一种示意：3 个并列方框和自拟说明，缺少原图全部 6 个标签、嵌套结构和横切的安全与风险治理，不能据它理解本图。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "corporate_gov",
+      "label_en": "Corporate Governance",
+      "label_zh": "公司治理",
+      "type": "concept",
+      "parent": null,
+      "level": 1,
+      "position": "最外圈（深青）"
+    },
+    {
+      "id": "ea_gov",
+      "label_en": "EA Governance",
+      "label_zh": "EA 治理",
+      "type": "concept",
+      "parent": "corporate_gov",
+      "level": 2,
+      "position": "第二圈"
+    },
+    {
+      "id": "ba_gov",
+      "label_en": "Business Architecture Governance",
+      "label_zh": "业务架构治理",
+      "type": "concept",
+      "parent": "ea_gov",
+      "level": 3,
+      "position": "第三圈"
+    },
+    {
+      "id": "domain_gov",
+      "label_en": "Domain Architecture Governance",
+      "label_zh": "域架构治理",
+      "type": "concept",
+      "parent": "ba_gov",
+      "level": 4,
+      "position": "第四圈（灰）"
+    },
+    {
+      "id": "impl_gov",
+      "label_en": "Implementation Governance",
+      "label_zh": "实施治理",
+      "type": "concept",
+      "parent": "domain_gov",
+      "level": 5,
+      "position": "最内圈（浅蓝）"
+    },
+    {
+      "id": "sec_risk_gov",
+      "label_en": "Security and Risk Governance",
+      "label_zh": "安全与风险治理",
+      "type": "concept",
+      "parent": null,
+      "position": "横穿所有圆的半透明横带",
+      "description_zh": "横切关注，跨越全部五个层级。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "corporate_gov",
+      "to": "ea_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "外圈包住内圈：较高层级约束较低层级"
+    },
+    {
+      "from": "ea_gov",
+      "to": "ba_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "ba_gov",
+      "to": "domain_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "domain_gov",
+      "to": "impl_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "corporate_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "横带横穿该层：横切层约束其跨越的层级"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "ea_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "ba_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "domain_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "impl_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "嵌套的圆（深青 → 浅青 → 灰 → 浅蓝）",
+      "meaning_zh": "治理层级；外圈为较高层级，约束其内各圈",
+      "explicit": false
+    },
+    {
+      "symbol": "横穿所有圆的半透明灰色横带",
+      "meaning_zh": "横切所有层级的治理关注（安全与风险治理）",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中没有连线；“外层约束内层”“横带横切各层”依据正文“横切或较高层级约束较低层级”推断。",
+      "正文第 6.2 节提到的“最低层级（技术架构治理）”在图中没有对应名称，与图中最内层“实施治理”不一致。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 61 页原图截图（220 dpi）",
+      "英文 PDF 第 59–61 页正文（第 6 章引言、6.1、6.1.1、6.2 节）",
+      "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 483–505 行",
+      "figs/g184_fig6-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G184/fig6-1",
+    "asset": "figs/g184_fig6-1.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "03"
+  }
+}

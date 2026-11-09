@@ -1,0 +1,19 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Customer"]
+  n1["Insurance File"]
+  n2["Insurance Request"]
+  n3["Insurance Policy"]
+  n4["Claim"]
+  n5["Travel Insurance Policy"]
+  n6["Homeowner&#x27;s Insurance Policy"]
+  n7["Auto Insurance Policy"]
+  n8["Legal expense Insurance Policy"]
+  n0 -->|"语义组成: aggregation"| n1
+  n1 -->|"语义组成: composition"| n2
+  n1 -->|"语义组成: composition"| n4
+  n1 -->|"语义组成: composition"| n3
+  n3 -->|"语义组成: type_specialization"| n5
+  n3 -->|"语义组成: type_specialization"| n6
+  n3 -->|"语义组成: type_specialization"| n7
+  n3 -->|"语义组成: type_specialization"| n8

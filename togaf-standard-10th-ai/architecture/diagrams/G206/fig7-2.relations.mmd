@@ -1,0 +1,49 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Global Retail Enterprises, Inc."]
+  n1["Central Operations"]
+  n2["Retail Operations"]
+  n3["Online Store"]
+  n4["HR"]
+  n5["Finance"]
+  n6["IT"]
+  n7["Product Design"]
+  n8["Sales &amp; Marketing"]
+  n9["US Stores"]
+  n10["UK Stores"]
+  n11["Japan Stores"]
+  n12["Quality Assurance"]
+  n13["Retail Strategy Team"]
+  n14["Web Services"]
+  n15["Warehouse"]
+  n16["Product Suppliers"]
+  n17["Product Management"]
+  n18["Learning Management"]
+  n0 -->|"关联"| n1
+  n0 -->|"关联"| n2
+  n0 -->|"关联"| n3
+  n1 -->|"关联"| n4
+  n1 -->|"关联"| n5
+  n1 -->|"关联"| n6
+  n1 -->|"关联"| n7
+  n1 -->|"关联"| n8
+  n8 -->|"关联"| n7
+  n8 -->|"关联"| n2
+  n2 -->|"关联"| n8
+  n2 -->|"关联"| n13
+  n13 -->|"关联"| n8
+  n2 -->|"关联"| n9
+  n2 -->|"关联"| n10
+  n2 -->|"关联"| n11
+  n2 -->|"关联"| n15
+  n3 -->|"关联"| n15
+  n3 -->|"关联"| n14
+  n1 -->|"关联"| n15
+  n7 -->|"关联"| n16
+  n7 -->|"关联"| n12
+  n16 -->|"关联"| n12
+  n6 ---|"映射"| n17
+  n8 ---|"映射"| n18
+  n15 -->|"关联"| n3
+  n15 -->|"关联"| n2
+  n8 -->|"关联"| n13

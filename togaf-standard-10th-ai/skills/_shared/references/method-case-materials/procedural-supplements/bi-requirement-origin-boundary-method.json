@@ -1,0 +1,45 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "bi-requirement-origin-boundary-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 2,
+      "declared_step": "按功能解释系统，检查原子/唯一/可验证",
+      "new_fictional_input": "新虚构R-SUP-1：审计员应从一个已发布看板指标定位源批次、规则版本和处理时间；R-SUP-2：定义看板“净收入”的版本与生效日。两个需求不含指标值，均由业务工作坊提出。",
+      "transformation": "按单一可验证结果拆分需求，赋项目ID并用验收测试字段列表检查原子性；来源只标项目工作坊，非官方需求ID。",
+      "candidate_output": "两条候选需求分别以批次/规则/时间可查和术语版本可查验收；重复项按规范化意图对照，保留来源。",
+      "adverse_variant_expected": "把两个需求合成“系统需安全高效完整”或冒用官方电子表格ID，应退回澄清。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [],
+  "candidate_records": [
+    {
+      "id": "R-SUP-1",
+      "origin": "new-fictional-project-workshop",
+      "requester": "审计员",
+      "statement": "从一个已发布看板指标查到源批次、规则版本及处理时间",
+      "acceptance_test": "对一指定已发布指标检查三个追溯字段与来源记录可定位；缺任何字段则本需求未满足",
+      "atomic_result": "该指标来源追溯可定位",
+      "duplicate_status": "与R-SUP-2结果不同",
+      "source_reference_identity": "project-only; not an official requirements ID",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "R-SUP-2",
+      "origin": "new-fictional-project-workshop",
+      "requester": "业务负责人",
+      "statement": "记录看板净收入术语的版本及生效日",
+      "acceptance_test": "指定术语可查到定义版本、生效日与负责人的候选复核记录",
+      "atomic_result": "术语定义版本可定位",
+      "duplicate_status": "与R-SUP-1结果不同",
+      "source_reference_identity": "project-only; not an official requirements ID",
+      "approval_status": "candidate"
+    }
+  ]
+}

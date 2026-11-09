@@ -1,0 +1,887 @@
+# G178/fig4-4 · 招聘员工价值流热力图
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G178/fig4-4.md) · [JSON](../../architecture/diagrams/G178/fig4-4.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G178e.pdf`；SHA-256：`517130a041a8d956b2868dc39d570b84e2d80c64709e4c1368f9747388a3a026`。
+
+## 原图 · PDF 第 23 页
+
+![英文原图](../assets/G178/fig4-4-p0023.png)
+
+PDF 坐标：`[48.2, 36.0, 563.8, 296.1]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Define
+Communicate
+Assess
+Interview
+Onboard
+Position
+Position
+Responses
+Candidates
+Employee
+Program Mgmt.
+HR Mgmt.
+HR Mgmt.
+HR Mgmt.
+HR Mgmt.
+Employ
+Supply and
+Employ
+pply and
+Dem
+mt.
+Demand Mgmt.
+crag |
+Comper
+ion Mgmt,
+Asset Mgmt.
+HR Mgmt.
+“Asset Allocation __|
+Finance Mgmt.
+‘Agreement Mgmt.
+Facilities Mgmt.
+Policy Mgmt.
+Agreement Structuring
+Space Allocation __|
+Policy Dissemination
+Security Mgmt.
+stg eons
+Information Mgmt.
+Employ
+Inform:
+lgmt.
+```
+
+## 概要（历史解释；局部修正见上）
+
+在图 4-3 交叉映射上给二级能力按差距着色的热力图：红=重大差距、黄=需调整，问题集中在“入职”阶段。
+
+## 目的（历史解释；局部修正见上）
+
+第 4.3 节热力图场景的结果图。虚构公司的录用接受率下降，HR 发起能力与价值流分析：团队先做出图 4-3 的交叉映射，再逐项评估每个能力对其上方阶段所需价值的支撑程度，得到初始热力图；一周后补充信息、找到根因，更新成本图。作者用它演示热力图如何把注意力引到差距集中的地方，并支撑决策（新增政策发布能力、提出新建入职从属价值流与价值流负责人）。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左到右读顶部 5 个 V 形箭头（价值流阶段）。每个箭头下方那一列灰框是使能该阶段的能力：灰框左上角粗体字是一级能力（不着色），框内彩色条是被选中的二级能力，颜色是该二级能力在这个阶段的评估结果。正文给出的评估方法是“沿价值流图纵向往上看”，即问每个能力条对它正上方阶段所需价值支撑得怎样。红色表示重大差距，黄色表示需要一定调整，绿色正文未定义，按热力图惯例理解为未见明显差距。图中没有连线和图例。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 本图是图 4-3 的热力图版本：阶段、一级/二级能力与图 4-3 相同，只是给二级能力条着色，并在“定义岗位”下新增了一级能力“政策管理（Policy Mgmt.）”及其二级能力“政策发布（Policy Dissemination）”。正文说明这是团队第二次开会后做出的两项关键调整之一。
+- 颜色只涂在二级能力条上，评价的是“该能力在这个阶段”的表现：同一能力（员工供需管理）在“发布职位”和“评估应聘”下各出现一次，两处都是绿色。
+- 17 个能力条中 2 红、6 黄、9 绿。2 个红色（入职跟踪、员工信息管理）都在“入职”阶段；该阶段另外 3 个（资产分配、空间分配、员工背景调查与身份）是黄色，没有一个绿色，是全图差距最集中的阶段。
+- “发布职位”“评估应聘”两个阶段全部为绿色；“面试候选人”只有协议架构设计为黄色；“定义岗位”的项目群/人力资源匹配和新增的政策发布为黄色。
+- “入职跟踪”为红色，与正文找到的根因相对应：过去由一位已退休的 IT 员工手工跟踪从入职日起的整个入职序列（入职引导、安全与身份办理、办公空间分配、资产配备、开通网络与系统访问），他退休后无人接手，缺少统筹整个入职序列的角色。
+- 项目群经理起初认为最大问题是给新员工配电脑、网络和移动设备太慢；本图中“资产分配”只是黄色，红色落在入职跟踪和员工信息管理上，与正文“问题没那么简单”的判断一致（对应关系由解析者比对图与正文得出）。
+- 正文的第二项调整（需要新建一个覆盖员工入职所涉职能、系统与角色的从属价值流，并设价值流负责人）没有画在图中，只能从正文得知。
+- 热力图的颜色是讨论和收集信息的焦点，不是结论本身：正文中 HR 总监和业务架构师建议先以初始热力图为焦点收集各差距领域的细节，再下结论。
+
+## 层级（历史解释；局部修正见上）
+
+与图 4-3 相同，共三层：“招聘员工”价值流（由 5 个阶段整体隐含表示，图中没有单独的框）→ 5 个价值流阶段；业务能力分一级能力（灰框）和二级能力（框内彩色条），二级能力嵌套在所属一级能力之内。能力与阶段之间是使能关系，不是上下级关系。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有任何连线。V 形箭头首尾相接表示阶段先后；能力与阶段的使能关系由“位于哪个阶段的正下方”隐含表达（关系清单中标为推断）；二级与一级能力的上下级由框内嵌套表达；颜色表示该二级能力在该阶段的差距评估。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 颜色评价的是“某能力在某阶段”的支撑程度，不是对能力本身的总体评分；同一能力在不同阶段可以颜色不同。
+- 这是第二次开会后更新的热力图；正文提到的初始热力图（“几个红、几个黄”）本指南没有画出，因此除新增的政策管理/政策发布外，看不出更新时哪些颜色改变了。
+- 红色不表示能力不存在，而是“交付业务价值所需与现在的运作方式之间有重大差距”；新加入的“政策发布”着黄色，也不是“缺失”。
+- 正文所说的新从属价值流和价值流负责人不在图中。
+- 同一列中灰框的上下顺序没有优先级含义；多次出现的“HR Mgmt.”是同一个一级能力。
+- 中文稿引用的 figs/g178_fig4-4.svg 是自拟的 4×4 色块网格，缺少“入职”阶段和全部能力名称，颜色位置也与原图不同，不能据它理解本图。
+
+## 元素
+
+```json
+[
+  {
+    "id": "vs_recruit",
+    "label_en": "Recruit Employee (value stream)",
+    "label_zh": "招聘员工（价值流）",
+    "type": "value_stream",
+    "parent": null,
+    "level": 0,
+    "description_zh": "图中未单独画出，由 5 个阶段整体表示；名称来自图题、图 4-2 与正文。"
+  },
+  {
+    "id": "st_define",
+    "label_en": "Define Position",
+    "label_zh": "定义岗位",
+    "type": "value_stream_stage",
+    "parent": "vs_recruit",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "st_communicate",
+    "label_en": "Communicate Position",
+    "label_zh": "发布职位",
+    "type": "value_stream_stage",
+    "parent": "vs_recruit",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "st_assess",
+    "label_en": "Assess Responses",
+    "label_zh": "评估应聘",
+    "type": "value_stream_stage",
+    "parent": "vs_recruit",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "st_interview",
+    "label_en": "Interview Candidates",
+    "label_zh": "面试候选人",
+    "type": "value_stream_stage",
+    "parent": "vs_recruit",
+    "level": 1,
+    "order": 4
+  },
+  {
+    "id": "st_onboard",
+    "label_en": "Onboard Employee",
+    "label_zh": "入职",
+    "type": "value_stream_stage",
+    "parent": "vs_recruit",
+    "level": 1,
+    "order": 5,
+    "description_zh": "差距最集中的阶段：2 红 3 黄，无绿色。"
+  },
+  {
+    "id": "c_program",
+    "label_en": "Program Mgmt.",
+    "label_zh": "项目群管理",
+    "type": "capability",
+    "parent": null,
+    "level": 1
+  },
+  {
+    "id": "c_hr",
+    "label_en": "HR Mgmt.",
+    "label_zh": "人力资源管理",
+    "type": "capability",
+    "parent": null,
+    "level": 1,
+    "description_zh": "在 5 个阶段下都出现。"
+  },
+  {
+    "id": "c_policy",
+    "label_en": "Policy Mgmt.",
+    "label_zh": "政策管理",
+    "type": "capability",
+    "parent": null,
+    "level": 1,
+    "description_zh": "图 4-3 中没有，本图新增于“定义岗位”下。"
+  },
+  {
+    "id": "c_finance",
+    "label_en": "Finance Mgmt.",
+    "label_zh": "财务管理",
+    "type": "capability",
+    "parent": null,
+    "level": 1
+  },
+  {
+    "id": "c_agreement",
+    "label_en": "Agreement Mgmt.",
+    "label_zh": "协议管理",
+    "type": "capability",
+    "parent": null,
+    "level": 1
+  },
+  {
+    "id": "c_asset",
+    "label_en": "Asset Mgmt.",
+    "label_zh": "资产管理",
+    "type": "capability",
+    "parent": null,
+    "level": 1
+  },
+  {
+    "id": "c_facilities",
+    "label_en": "Facilities Mgmt.",
+    "label_zh": "设施管理",
+    "type": "capability",
+    "parent": null,
+    "level": 1
+  },
+  {
+    "id": "c_security",
+    "label_en": "Security Mgmt.",
+    "label_zh": "安全管理",
+    "type": "capability",
+    "parent": null,
+    "level": 1
+  },
+  {
+    "id": "c_information",
+    "label_en": "Information Mgmt.",
+    "label_zh": "信息管理",
+    "type": "capability",
+    "parent": null,
+    "level": 1
+  },
+  {
+    "id": "c_prog_hr_match",
+    "label_en": "Program/Human Resource Matching",
+    "label_zh": "项目群/人力资源匹配",
+    "type": "capability",
+    "parent": "c_program",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_define": "yellow"
+      }
+    }
+  },
+  {
+    "id": "c_competency",
+    "label_en": "Competency Mgmt.",
+    "label_zh": "胜任力管理",
+    "type": "capability",
+    "parent": "c_hr",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_define": "green"
+      }
+    }
+  },
+  {
+    "id": "c_policy_dissem",
+    "label_en": "Policy Dissemination",
+    "label_zh": "政策发布",
+    "type": "capability",
+    "parent": "c_policy",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_define": "yellow"
+      }
+    },
+    "description_zh": "第二次开会后新增：团队认识到它是使能该价值流的关键能力。"
+  },
+  {
+    "id": "c_supply_demand",
+    "label_en": "Employee Supply and Demand Mgmt.",
+    "label_zh": "员工供需管理",
+    "type": "capability",
+    "parent": "c_hr",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_communicate": "green",
+        "st_assess": "green"
+      }
+    },
+    "description_zh": "同时支撑“发布职位”和“评估应聘”，两处都是绿色。"
+  },
+  {
+    "id": "c_position_ad",
+    "label_en": "Position Advertising",
+    "label_zh": "职位广告",
+    "type": "capability",
+    "parent": "c_hr",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_communicate": "green"
+      }
+    }
+  },
+  {
+    "id": "c_labor_funding",
+    "label_en": "Labor Funding",
+    "label_zh": "人工经费",
+    "type": "capability",
+    "parent": "c_finance",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_communicate": "green"
+      }
+    }
+  },
+  {
+    "id": "c_skills_assess",
+    "label_en": "Skills Assessment",
+    "label_zh": "技能评估",
+    "type": "capability",
+    "parent": "c_hr",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_assess": "green"
+      }
+    }
+  },
+  {
+    "id": "c_benefits",
+    "label_en": "Benefits Management",
+    "label_zh": "福利管理",
+    "type": "capability",
+    "parent": "c_hr",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_interview": "green"
+      }
+    }
+  },
+  {
+    "id": "c_terms",
+    "label_en": "Terms Management",
+    "label_zh": "雇佣条款管理",
+    "type": "capability",
+    "parent": "c_hr",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_interview": "green"
+      }
+    }
+  },
+  {
+    "id": "c_compensation",
+    "label_en": "Compensation Mgmt.",
+    "label_zh": "薪酬管理",
+    "type": "capability",
+    "parent": "c_hr",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_interview": "green"
+      }
+    }
+  },
+  {
+    "id": "c_agreement_struct",
+    "label_en": "Agreement Structuring",
+    "label_zh": "协议架构设计",
+    "type": "capability",
+    "parent": "c_agreement",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_interview": "yellow"
+      }
+    }
+  },
+  {
+    "id": "c_onboard_track",
+    "label_en": "Onboard Tracking",
+    "label_zh": "入职跟踪",
+    "type": "capability",
+    "parent": "c_hr",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_onboard": "red"
+      }
+    },
+    "description_zh": "对应正文根因：缺少统筹整个入职序列的角色。"
+  },
+  {
+    "id": "c_asset_alloc",
+    "label_en": "Asset Allocation",
+    "label_zh": "资产分配",
+    "type": "capability",
+    "parent": "c_asset",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_onboard": "yellow"
+      }
+    }
+  },
+  {
+    "id": "c_space_alloc",
+    "label_en": "Space Allocation",
+    "label_zh": "空间分配",
+    "type": "capability",
+    "parent": "c_facilities",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_onboard": "yellow"
+      }
+    }
+  },
+  {
+    "id": "c_background_id",
+    "label_en": "Employee Background and ID",
+    "label_zh": "员工背景调查与身份",
+    "type": "capability",
+    "parent": "c_security",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_onboard": "yellow"
+      }
+    }
+  },
+  {
+    "id": "c_employee_info",
+    "label_en": "Employee Information Mgmt.",
+    "label_zh": "员工信息管理",
+    "type": "capability",
+    "parent": "c_information",
+    "level": 2,
+    "attributes": {
+      "heat": {
+        "st_onboard": "red"
+      }
+    }
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "st_define",
+    "to": "st_communicate",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "V 形箭头首尾相接"
+  },
+  {
+    "from": "st_communicate",
+    "to": "st_assess",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "st_assess",
+    "to": "st_interview",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "st_interview",
+    "to": "st_onboard",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "c_prog_hr_match",
+    "to": "st_define",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "黄：需要一些调整"
+  },
+  {
+    "from": "c_competency",
+    "to": "st_define",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "绿"
+  },
+  {
+    "from": "c_policy_dissem",
+    "to": "st_define",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "黄；本图新增的映射"
+  },
+  {
+    "from": "c_supply_demand",
+    "to": "st_communicate",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "绿"
+  },
+  {
+    "from": "c_position_ad",
+    "to": "st_communicate",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "绿"
+  },
+  {
+    "from": "c_labor_funding",
+    "to": "st_communicate",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "绿"
+  },
+  {
+    "from": "c_supply_demand",
+    "to": "st_assess",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "绿"
+  },
+  {
+    "from": "c_skills_assess",
+    "to": "st_assess",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "绿"
+  },
+  {
+    "from": "c_benefits",
+    "to": "st_interview",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "绿"
+  },
+  {
+    "from": "c_terms",
+    "to": "st_interview",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "绿"
+  },
+  {
+    "from": "c_compensation",
+    "to": "st_interview",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "绿"
+  },
+  {
+    "from": "c_agreement_struct",
+    "to": "st_interview",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "黄"
+  },
+  {
+    "from": "c_onboard_track",
+    "to": "st_onboard",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "红：重大差距"
+  },
+  {
+    "from": "c_asset_alloc",
+    "to": "st_onboard",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "黄"
+  },
+  {
+    "from": "c_space_alloc",
+    "to": "st_onboard",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "黄"
+  },
+  {
+    "from": "c_background_id",
+    "to": "st_onboard",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "黄"
+  },
+  {
+    "from": "c_employee_info",
+    "to": "st_onboard",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "红：重大差距"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_recruit",
+    "kind": "sequence",
+    "name_zh": "招聘员工价值流",
+    "steps": [
+      "st_define",
+      "st_communicate",
+      "st_assess",
+      "st_interview",
+      "st_onboard"
+    ]
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_heatmap",
+    "title_zh": "热力图逐项转录（按原图逐列、列内自上而下，每个二级能力条一行）",
+    "columns": [
+      "价值流阶段",
+      "一级能力",
+      "二级能力",
+      "颜色"
+    ],
+    "rows": [
+      [
+        "定义岗位 Define Position",
+        "项目群管理 Program Mgmt.",
+        "项目群/人力资源匹配 Program/Human Resource Matching",
+        "黄"
+      ],
+      [
+        "定义岗位 Define Position",
+        "人力资源管理 HR Mgmt.",
+        "胜任力管理 Competency Mgmt.",
+        "绿"
+      ],
+      [
+        "定义岗位 Define Position",
+        "政策管理 Policy Mgmt.（新增）",
+        "政策发布 Policy Dissemination（新增）",
+        "黄"
+      ],
+      [
+        "发布职位 Communicate Position",
+        "人力资源管理 HR Mgmt.",
+        "员工供需管理 Employee Supply and Demand Mgmt.",
+        "绿"
+      ],
+      [
+        "发布职位 Communicate Position",
+        "人力资源管理 HR Mgmt.",
+        "职位广告 Position Advertising",
+        "绿"
+      ],
+      [
+        "发布职位 Communicate Position",
+        "财务管理 Finance Mgmt.",
+        "人工经费 Labor Funding",
+        "绿"
+      ],
+      [
+        "评估应聘 Assess Responses",
+        "人力资源管理 HR Mgmt.",
+        "员工供需管理 Employee Supply and Demand Mgmt.",
+        "绿"
+      ],
+      [
+        "评估应聘 Assess Responses",
+        "人力资源管理 HR Mgmt.",
+        "技能评估 Skills Assessment",
+        "绿"
+      ],
+      [
+        "面试候选人 Interview Candidates",
+        "人力资源管理 HR Mgmt.",
+        "福利管理 Benefits Management",
+        "绿"
+      ],
+      [
+        "面试候选人 Interview Candidates",
+        "人力资源管理 HR Mgmt.",
+        "雇佣条款管理 Terms Management",
+        "绿"
+      ],
+      [
+        "面试候选人 Interview Candidates",
+        "人力资源管理 HR Mgmt.",
+        "薪酬管理 Compensation Mgmt.",
+        "绿"
+      ],
+      [
+        "面试候选人 Interview Candidates",
+        "协议管理 Agreement Mgmt.",
+        "协议架构设计 Agreement Structuring",
+        "黄"
+      ],
+      [
+        "入职 Onboard Employee",
+        "人力资源管理 HR Mgmt.",
+        "入职跟踪 Onboard Tracking",
+        "红"
+      ],
+      [
+        "入职 Onboard Employee",
+        "资产管理 Asset Mgmt.",
+        "资产分配 Asset Allocation",
+        "黄"
+      ],
+      [
+        "入职 Onboard Employee",
+        "设施管理 Facilities Mgmt.",
+        "空间分配 Space Allocation",
+        "黄"
+      ],
+      [
+        "入职 Onboard Employee",
+        "安全管理 Security Mgmt.",
+        "员工背景调查与身份 Employee Background and ID",
+        "黄"
+      ],
+      [
+        "入职 Onboard Employee",
+        "信息管理 Information Mgmt.",
+        "员工信息管理 Employee Information Mgmt.",
+        "红"
+      ]
+    ],
+    "cell_legend": [
+      "红 = 交付业务价值所需与现状之间的重大差距（正文定义）",
+      "黄 = 需要一些调整（正文定义）",
+      "绿 = 正文未定义，按热力图惯例为未见明显差距",
+      "一级能力灰框本身不着色"
+    ],
+    "notes_zh": "合计 17 个能力条：红 2、黄 6、绿 9。与图 4-3 相比，只新增了第 3 行（政策管理/政策发布），其余行的阶段—能力对应不变。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "V 形灰色箭头（chevron）",
+    "meaning_zh": "价值流阶段，左到右为先后顺序",
+    "explicit": false
+  },
+  {
+    "symbol": "浅灰带边框的框 + 左上角粗体标题",
+    "meaning_zh": "一级业务能力（本身不着色）",
+    "explicit": false
+  },
+  {
+    "symbol": "框内彩色条",
+    "meaning_zh": "该一级能力下被选中的二级业务能力；颜色是它在该阶段的差距评估",
+    "explicit": false
+  },
+  {
+    "symbol": "红色能力条",
+    "meaning_zh": "重大差距：交付业务价值所需与现在的运作方式之间差距大（正文定义，图上无图例）",
+    "explicit": false
+  },
+  {
+    "symbol": "黄色能力条",
+    "meaning_zh": "需要一些调整（正文定义，图上无图例）",
+    "explicit": false
+  },
+  {
+    "symbol": "绿色能力条",
+    "meaning_zh": "正文未定义；按热力图惯例理解为未见明显差距",
+    "explicit": false
+  },
+  {
+    "symbol": "灰框位于某阶段箭头的正下方",
+    "meaning_zh": "该能力使能（支撑）这个阶段",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "顶部一行 5 个 V 形箭头，从左到右；每个箭头下方是一列纵向堆叠的灰色一级能力框（每列 1–5 个），框内是红/黄/绿色的二级能力条；“© The Open Group”在最后一个箭头右下方。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G178/fig4-2",
+    "relation": "based_on",
+    "note_zh": "沿用图 4-2 的 5 个价值流阶段"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "正文只定义了红色和黄色，绿色含义按热力图惯例推断。",
+    "本指南没有画出正文提到的初始热力图，无法判断更新时除新增政策管理/政策发布外还改了哪些颜色。",
+    "“政策管理”和部分二级能力的中文译名（如“协议架构设计”“人工经费”“雇佣条款管理”）由解析者拟定，与图 4-3 的解析保持一致，中文稿未给出对照。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 23 页原图截图（220 dpi）",
+    "英文 PDF 第 20–22 页正文（表 4-4、第 4.3 节）",
+    "中文稿 G178e_价值流.md 第 265–277 行",
+    "figs/g178_fig4-4.svg 源码",
+    "已完成的 G178/fig4-3 解析（逐行比对阶段—能力对应）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

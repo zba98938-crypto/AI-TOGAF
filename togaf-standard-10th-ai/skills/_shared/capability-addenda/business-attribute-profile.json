@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0",
+  "status": "production-package-implemented-pending-central-integration",
+  "portability": "Only relative references; source summaries bundled, original PDFs not required at runtime.",
+  "rule_origin_policy": "来源定义、项目操作约定与虚构案例数值逐条区分。未提供的指标权重、目标、容差和合格线不能推断为TOGAF要求。",
+  "id": "business-attribute-profile",
+  "artifact_id": "business-attribute-profile",
+  "profile_id": "business-attribute-profile-default",
+  "owner": "togaf-security-risk",
+  "sources": [
+    {
+      "guide": "G152",
+      "section": "5.10.1",
+      "english_pdf_pages": [
+        40,
+        41
+      ],
+      "evidence": "../reviews/G152-business-attribute-addendum.json",
+      "finding": "中文缺失英文属性画像的操作性细节；以本证据补层供技能使用，原文不改。"
+    }
+  ],
+  "decision_use": "把业务风险关注转成可测的安全属性，并判断运营观测是否需要纠偏。",
+  "stakeholders": [
+    "业务所有者",
+    "业务分析师",
+    "企业架构师",
+    "安全架构师",
+    "运行监控负责人"
+  ],
+  "adm_phases": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "G",
+    "Requirements Management"
+  ],
+  "required_inputs": [
+    {
+      "id": "business_case_ref",
+      "origin": "source",
+      "meaning": "当前业务论证及业务驱动"
+    },
+    {
+      "id": "attribute_definition",
+      "origin": "source",
+      "meaning": "按业务语境定义的属性，含边界"
+    },
+    {
+      "id": "measurement_approach",
+      "origin": "source",
+      "meaning": "获取和解释指标的方法"
+    },
+    {
+      "id": "metrics",
+      "origin": "source-plus-project-contract",
+      "meaning": "带单位、尺度、时期、样本、证据及计算依据的指标"
+    },
+    {
+      "id": "target",
+      "origin": "source",
+      "meaning": "与业务论证关联的绩效目标"
+    },
+    {
+      "id": "tolerable_deviation",
+      "origin": "source",
+      "meaning": "管理层在介入前允许的最大结果偏差"
+    },
+    {
+      "id": "frequency_or_cost_threshold",
+      "origin": "source-conditional",
+      "meaning": "业务采用时记录事件频率/成本阈值；不适用须说明，非强制统一指标"
+    },
+    {
+      "id": "corrective_action_trigger",
+      "origin": "source",
+      "meaning": "超过业务容忍范围时的显式管理动作"
+    }
+  ],
+  "missing_input_policy": "缺业务论证、量表、目标或容差时生成带ID草稿和阻断项；可以给出观测值，不能判定达标或违规。未知值不填零。",
+  "semantics": {
+    "model_container": "entity.extension_data['togaf-addenda:g152-bap']",
+    "entity_types": [
+      "business_attribute"
+    ],
+    "relations": [
+      "属性追溯业务论证",
+      "属性约束安全需求",
+      "控制目标独立追溯安全需求"
+    ],
+    "direction": "追溯方向在关系label中声明；目标、要求、控制不能当同义对象。",
+    "metric_rule": "比例与百分比单位区分；百分点容差不得按目标百分比乘法解释。",
+    "target_rule": "target.operator与trigger.operator均必填；等于阈值的边界必须按明示比较运算符处理。",
+    "production_container": "analyses[].inputs and typed entities[].attributes; legacy namespace remains audit history"
+  },
+  "analysis_steps": [
+    "锁定原始材料及出处",
+    "提炼业务关注，按业务语境重定义属性",
+    "明确测量样本、分子分母和口径",
+    "引用项目已声明目标及容差，不自行补值",
+    "从原始数据计算观测并解释目标差值与纠偏触发",
+    "建立业务论证—属性—要求—控制目标追溯",
+    "提交缺口和纠偏建议供实际责任人评审"
+  ],
+  "output_structure": [
+    "画像目录及可测定义",
+    "指标、目标、容差和观测证据",
+    "逐规则判定与可复算过程",
+    "纠偏触发及未决项",
+    "业务追溯关系"
+  ],
+  "notation": "目录/评估卡；目标、实际值、容忍边界和状态必须显式可见。",
+  "quality_checks": [
+    {
+      "id": "BAP-001",
+      "rule": "所有指标拥有单位、尺度、时期、数据和计算依据"
+    },
+    {
+      "id": "BAP-002",
+      "rule": "缺目标或容差不可自动判定通过"
+    },
+    {
+      "id": "BAP-003",
+      "rule": "不得将百分比与百分点混用"
+    },
+    {
+      "id": "BAP-004",
+      "rule": "频率和成本字段可以不适用，但必须写理由"
+    },
+    {
+      "id": "BAP-005",
+      "rule": "目标与触发边界显式说明包含/不包含等号"
+    },
+    {
+      "id": "BAP-006",
+      "rule": "保持需求与控制目标的独立身份"
+    }
+  ],
+  "misreadings": [
+    "SABSA属性参考集不是所有项目强制清单",
+    "99.5%、0.2个百分点等案例值不是TOGAF阈值",
+    "画像的target不是任意措施文字",
+    "没有运营数据时不能声称实时仪表板已运行"
+  ],
+  "example": "../examples/addenda/business-attribute-profile/case.json",
+  "method_reference": "../references/capability-addenda/business-attribute-profile.md",
+  "render_obligations": [
+    "business_case_ref",
+    "definition",
+    "measurement_approach",
+    "metric.unit/scale/period",
+    "target",
+    "tolerable_deviation",
+    "observation",
+    "corrective_action_trigger",
+    "evidence"
+  ],
+  "acceptance": {
+    "definition": "english-pdf-checked",
+    "model": "example-v2-validation-passed",
+    "analysis": "production-calculator-tests-passed",
+    "generation": "standard-generator-isolated-package-executed",
+    "modification": "production-baseline-and-modified-executed",
+    "review": "production-negative-and-boundary-tests-passed",
+    "visual": "table-fields-audited-visual-readability-pending"
+  },
+  "execution_evidence": "../examples/addenda/business-attribute-profile/execution-review.json",
+  "production_package": "evidence-work-products.json",
+  "production_usage": "../references/capability-addenda/production-use.md",
+  "production_example": "../examples/addenda/business-attribute-profile/production-baseline-model.json"
+}

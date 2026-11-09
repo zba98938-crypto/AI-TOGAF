@@ -1,0 +1,606 @@
+# G206/fig7-1 · 零售业务组织地图
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G206/fig7-1.md) · [JSON](../../architecture/diagrams/G206/fig7-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G206e.pdf`；SHA-256：`5de1a634ef389e88b16b11454fdf96350ab33664468a0df2a6aed513e2270c35`。
+
+## 原图 · PDF 第 22 页
+
+![英文原图](../assets/G206/fig7-1-p0022.png)
+
+PDF 坐标：`[48.2, 132.3, 563.8, 413.5]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+IT
+HR
+Key
+Finance
+en
+al
+ations
+Online
+re
+Quality
+Assurance
+Global Retail
+Department
+Enterprises,
+Inc.
+Product
+Design
+Sales &
+Marketing
+Re
+il
+Collaborative
+Team
+Retail
+Strategy
+us:
+Team
+Stores
+Japan
+Stores
+UK
+Stores
+nG
+```
+
+## 概要（历史解释；局部修正见上）
+
+以全球零售企业为中心，展示三条业务线、五个职能部门、三家门店与三类外部伙伴的关系网。
+
+## 目的（历史解释；局部修正见上）
+
+把第 3 章的通用组织地图落到零售企业：用同一套五色记法画出企业、业务线/渠道、职能部门、门店、外部伙伴与协作团队，说明组织地图既能显示组织分工，也能显示运营层面的工作关系。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从中央蓝色 Global Retail Enterprises, Inc. 开始，先看三条绿色业务线：Central Operations（共享职能）、Retail Operations（门店渠道）、Online Store（线上渠道）；再沿箭头看各业务线连接的紫色部门、橙色外部伙伴和灰色协作团队。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 全图 17 个组织单元：1 个企业、3 个业务单元、8 个部门、3 个外部伙伴、2 个协作团队。
+- 三条业务线分工不同：中央运营连接最多职能部门，形似共享服务平台；零售运营管门店渠道；在线商店是独立线上渠道。
+- 中央运营连接 HR、财务、IT、产品设计、销售与市场五个部门，是职能部门最集中的一条线。
+- 零售运营管美国、英国、日本三家门店，并与仓库、销售与市场、零售战略团队相连。
+- 在线商店连接 Web 服务与仓库，体现线上渠道对网络服务与履约的依赖。
+- 仓库在此是橙色外部伙伴，不同于图 3-2 中作为紫色部门的仓库；说明同一名称在不同企业可采用不同组织形态。
+- 销售与市场与零售运营之间有一对相反箭头，表示双向工作关系；零售战略团队向销售与市场提供输入。
+
+## 层级（历史解释；局部修正见上）
+
+按表 2-1：企业 L0；中央运营、零售运营、在线商店为 L1 业务单元/渠道；HR、财务、IT、产品设计、销售与市场及三家门店为 L2 部门；质量保证、零售战略团队为 L3 协作团队；Web 服务、仓库、产品供应商为 L2 外部伙伴。图中没有包含框，层级由颜色与围绕关系表达。
+
+## 线条含义（历史解释；局部修正见上）
+
+深青色曲线箭头，无文字标签，表示组织单元之间的工作关系/互动；方向由箭头指出。箭头不是汇报线，也不是价值流；同一对单元之间可以有两个相反箭头。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 绿色业务单元不是紫色部门的汇报上级；箭头只表示工作关系。
+- 仓库是橙色外部伙伴，不是企业内部部门。
+- 中央椭圆不是总部，而是整张地图的范围；“中央运营”才是共享服务业务线。
+- 销售与市场与零售运营之间的两条相反箭头表示双向关系，不是画错。
+- 中文重绘 SVG 只有 16 条箭头（原图 25 条），并有 7 条原图没有的连线，把 Web Services 误译为“网络服务商”，不能据它读关系。
+
+## 元素
+
+```json
+[
+  {
+    "id": "global_retail",
+    "label_en": "Global Retail Enterprises, Inc.",
+    "label_zh": "全球零售企业公司",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 0,
+    "position": "中央",
+    "attributes": {
+      "org_type": "Enterprise"
+    }
+  },
+  {
+    "id": "central_operations",
+    "label_en": "Central Operations",
+    "label_zh": "中央运营",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 1,
+    "order": 1,
+    "position": "左上",
+    "attributes": {
+      "org_type": "Business Unit"
+    }
+  },
+  {
+    "id": "retail_operations",
+    "label_en": "Retail Operations",
+    "label_zh": "零售运营",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 1,
+    "order": 2,
+    "position": "右下",
+    "attributes": {
+      "org_type": "Business Unit"
+    }
+  },
+  {
+    "id": "online_store",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 1,
+    "order": 3,
+    "position": "右上",
+    "attributes": {
+      "org_type": "Business Unit"
+    }
+  },
+  {
+    "id": "hr",
+    "label_en": "HR",
+    "label_zh": "人力资源",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "左上偏上",
+    "attributes": {
+      "org_type": "Department"
+    }
+  },
+  {
+    "id": "finance",
+    "label_en": "Finance",
+    "label_zh": "财务",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "最左偏上",
+    "attributes": {
+      "org_type": "Department"
+    }
+  },
+  {
+    "id": "it",
+    "label_en": "IT",
+    "label_zh": "IT",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "顶部偏左",
+    "attributes": {
+      "org_type": "Department"
+    }
+  },
+  {
+    "id": "product_design",
+    "label_en": "Product Design",
+    "label_zh": "产品设计",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "左下",
+    "attributes": {
+      "org_type": "Department"
+    }
+  },
+  {
+    "id": "sales_marketing",
+    "label_en": "Sales & Marketing",
+    "label_zh": "销售与市场",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "中下",
+    "attributes": {
+      "org_type": "Department"
+    }
+  },
+  {
+    "id": "us_stores",
+    "label_en": "US Stores",
+    "label_zh": "美国门店",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "下部偏右",
+    "attributes": {
+      "org_type": "Department"
+    }
+  },
+  {
+    "id": "uk_stores",
+    "label_en": "UK Stores",
+    "label_zh": "英国门店",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "最下方",
+    "attributes": {
+      "org_type": "Department"
+    }
+  },
+  {
+    "id": "japan_stores",
+    "label_en": "Japan Stores",
+    "label_zh": "日本门店",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "右下角",
+    "attributes": {
+      "org_type": "Department"
+    }
+  },
+  {
+    "id": "quality_assurance",
+    "label_en": "Quality Assurance",
+    "label_zh": "质量保证",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 3,
+    "position": "左中",
+    "attributes": {
+      "org_type": "Collaborative Team"
+    }
+  },
+  {
+    "id": "retail_strategy_team",
+    "label_en": "Retail Strategy Team",
+    "label_zh": "零售战略团队",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 3,
+    "position": "下部偏左",
+    "attributes": {
+      "org_type": "Collaborative Team"
+    }
+  },
+  {
+    "id": "web_services",
+    "label_en": "Web Services",
+    "label_zh": "Web 服务",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "右上偏上",
+    "attributes": {
+      "org_type": "External Partner"
+    }
+  },
+  {
+    "id": "warehouse",
+    "label_en": "Warehouse",
+    "label_zh": "仓库",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "顶部偏右",
+    "attributes": {
+      "org_type": "External Partner"
+    }
+  },
+  {
+    "id": "product_suppliers",
+    "label_en": "Product Suppliers",
+    "label_zh": "产品供应商",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "左下角",
+    "attributes": {
+      "org_type": "External Partner"
+    }
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "global_retail",
+    "to": "central_operations",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "global_retail",
+    "to": "retail_operations",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "global_retail",
+    "to": "online_store",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "global_retail",
+    "to": "sales_marketing",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "central_operations",
+    "to": "hr",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "central_operations",
+    "to": "finance",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "central_operations",
+    "to": "it",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "central_operations",
+    "to": "product_design",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "central_operations",
+    "to": "sales_marketing",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "central_operations",
+    "to": "web_services",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "sales_marketing",
+    "to": "product_design",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "sales_marketing",
+    "to": "retail_operations",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "retail_operations",
+    "to": "sales_marketing",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "与上一条相反方向，构成双向工作关系"
+  },
+  {
+    "from": "retail_operations",
+    "to": "retail_strategy_team",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "retail_strategy_team",
+    "to": "sales_marketing",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "retail_operations",
+    "to": "us_stores",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "retail_operations",
+    "to": "uk_stores",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "retail_operations",
+    "to": "japan_stores",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "retail_operations",
+    "to": "warehouse",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "online_store",
+    "to": "warehouse",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "online_store",
+    "to": "web_services",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "it",
+    "to": "warehouse",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "product_design",
+    "to": "product_suppliers",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "product_design",
+    "to": "quality_assurance",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "product_suppliers",
+    "to": "quality_assurance",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "蓝色椭圆 Enterprise",
+    "meaning_zh": "企业（地图范围）",
+    "explicit": true
+  },
+  {
+    "symbol": "绿色椭圆 Business Unit",
+    "meaning_zh": "业务单元/业务线或渠道",
+    "explicit": true
+  },
+  {
+    "symbol": "紫色椭圆 Department",
+    "meaning_zh": "部门",
+    "explicit": true
+  },
+  {
+    "symbol": "橙色椭圆 External Partner",
+    "meaning_zh": "外部合作伙伴",
+    "explicit": true
+  },
+  {
+    "symbol": "灰蓝色椭圆 Collaborative Team",
+    "meaning_zh": "协作团队",
+    "explicit": true
+  },
+  {
+    "symbol": "深青色曲线箭头",
+    "meaning_zh": "组织单元之间的工作关系，箭头指方向",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "radial",
+  "description_zh": "中央蓝色企业椭圆；中央运营在左上、零售运营在右下、在线商店在右上；部门围绕各业务线，仓库/Web 服务/产品供应商在右上与左下，协作团队在左下与中下；右侧独立一列 Key。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G206/fig7-2",
+    "relation": "precedes",
+    "note_zh": "图 7-2 在同一张零售组织地图上叠加两个业务能力框，演示组织单元—能力交叉映射"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "所有箭头都没有文字标签，具体语义统一记为 association",
+    "IT→仓库、零售运营→美国门店两条长曲线的起点与其它线交叉，按放大图判读；若原图绘制有误，方向仍以箭头为准",
+    "中文译名“全球零售企业公司”沿用中文稿标签表，稍显生硬",
+    "英文页脚有“© The Open Group”水印"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 22 页原图（600 dpi 裁切）及 figctx 2x2/3x3 放大分块",
+    "英文 PDF 第 22 页正文",
+    "中文稿 G206e_组织映射.md 第 253–260 行",
+    "figs/g206_fig7-1.svg 源码（节点与连线坐标）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

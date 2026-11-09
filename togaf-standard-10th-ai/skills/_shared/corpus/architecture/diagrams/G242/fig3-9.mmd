@@ -1,0 +1,65 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["CO₂, CH₄, N₂O, HFCs, PFCs, SF₆"]
+  n1["CO₂"]
+  n2["CH₄"]
+  n3["N₂O"]
+  n4["HFCs"]
+  n5["PFCs"]
+  n6["SF₆"]
+  n7["Scope 2 INDIRECT"]
+  n8["Scope 1 DIRECT"]
+  n9["Scope 3 INDIRECT"]
+  n10["Scope 3 INDIRECT"]
+  n11["purchased goods and services"]
+  n12["capital goods"]
+  n13["fuel and energy related activities"]
+  n14["transportation and distribution"]
+  n15["waste generated in operations"]
+  n16["business travel"]
+  n17["employee commuting"]
+  n18["leased assets"]
+  n19["purchased electricity, steam, heating &amp; cooling for own use"]
+  n20["company facilities"]
+  n21["company vehicles"]
+  n22["transportation and distribution"]
+  n23["processing of sold products"]
+  n24["use of sold products"]
+  n25["end-of-life treatment of sold products"]
+  n26["leased assets"]
+  n27["franchises"]
+  n28["investments"]
+  n29["Upstream activities"]
+  n30["Reporting company"]
+  n31["Downstream activities"]
+  n7 -.->|"流动"| n0
+  n8 -.->|"流动"| n0
+  n9 -.->|"流动"| n0
+  n10 -.->|"流动"| n0
+  n9 -.-|"关联"| n29
+  n8 -.-|"关联"| n30
+  n10 -.-|"关联"| n31
+  n0 -.->|"分组"| n1
+  n0 -.->|"分组"| n2
+  n0 -.->|"分组"| n3
+  n0 -.->|"分组"| n4
+  n0 -.->|"分组"| n5
+  n0 -.->|"分组"| n6
+  n9 -.->|"分组"| n11
+  n9 -.->|"分组"| n12
+  n9 -.->|"分组"| n13
+  n9 -.->|"分组"| n14
+  n9 -.->|"分组"| n15
+  n9 -.->|"分组"| n16
+  n9 -.->|"分组"| n17
+  n9 -.->|"分组"| n18
+  n7 -.->|"分组"| n19
+  n8 -.->|"分组"| n20
+  n8 -.->|"分组"| n21
+  n10 -.->|"分组"| n22
+  n10 -.->|"分组"| n23
+  n10 -.->|"分组"| n24
+  n10 -.->|"分组"| n25
+  n10 -.->|"分组"| n26
+  n10 -.->|"分组"| n27
+  n10 -.->|"分组"| n28

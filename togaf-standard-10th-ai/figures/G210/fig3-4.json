@@ -1,0 +1,1877 @@
+{
+  "schema_version": "1.0",
+  "id": "G210/fig3-4",
+  "status": "done",
+  "doc": {
+    "code": "G210",
+    "title_zh": "以敏捷冲刺应用 TOGAF ADM",
+    "title_en": "Applying the TOGAF ADM using Agile Sprints",
+    "zh_md": "G210e_以敏捷冲刺应用TOGAF_ADM.md",
+    "en_pdf": "togaf-standard-10th/G210e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-4",
+    "title_en": "Cross-Development Collaboration",
+    "title_zh": "跨开发协作",
+    "section_en": "3.3.7. Cross-Development Collaboration",
+    "section_zh": "3.3.7 跨开发协作",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        27
+      ],
+      "printed_page": 15,
+      "bboxes": [
+        [
+          48.2,
+          332.7,
+          563.8,
+          658.9
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        368
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g210_fig3-4.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "0f75e78e41ff",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "图的性质变了：原图是“三泳道（敏捷业务开发 / 敏捷企业架构 / 敏捷解决方案开发）+ 4 根 DORP 竖条 + 业务变革愿景”的冲刺时间轴；SVG 改成三行“成果标签”方框（MVBD / MVA / 解决方案），用产物名称取代了活动与团队，且完全没有冲刺列与时间轴",
+        "缺失元素：Business Change Vision Definition、Business Change Backlog、DORP 0/1/2/n 竖条、MVBD/MVA/MVP 圆形标记、Sprint 0–… 标签、图例",
+        "丢掉了“同一冲刺内三泳道并行、成果隔一个冲刺逐级交接”的核心时间关系：SVG 把 MVBD→MVA→解决方案 画成整齐的阶梯式单向连接，看起来像一次性的瀑布移交",
+        "虚线数量与含义不符：原图每个冲刺列有 3 条竖直虚线双箭头（业务↔架构、架构↔解决方案、业务↔解决方案）共 9 条，且都是双向的协作/治理关系；SVG 只有 MVBD→MVA、MVA→解决方案 的单向虚线",
+        "数量不符：原图 MVBD 2 个、MVA 2 个、MVP 3 个；SVG 画成 MVBD 4 个、MVA 4 个、解决方案 3 个",
+        "解决方案在原图用叠放的三张卡表示多个并行团队，SVG 用单个方框"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "timeline",
+      "flow"
+    ],
+    "notation": "三泳道时间轴：横向箭头链穿过若干根纵向橙色 DORP 竖条；上泳道为敏捷业务开发方框、中泳道为敏捷企业架构方框、下泳道为叠放的敏捷解决方案开发卡片；竖条内自上而下放 MVBD、MVA、MVP 标记；青色竖直虚线双箭头连接同一冲刺内的各泳道；底部为缩写图例",
+    "concepts": [
+      "adm",
+      "agile_sprint",
+      "mvp_mva",
+      "segment_solution_architecture",
+      "ea_team_organization"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "三层并行冲刺：业务开发出 MVBD、EA 下一冲刺出 MVA、解决方案再下一冲刺出 MVP。",
+    "purpose_zh": "展示“跨开发协作”：业务开发也以敏捷方式进入冲刺，三条泳道（业务开发、企业架构、解决方案）在同一冲刺内并行工作，但成果隔一个冲刺逐级交接，形成 MVBD→MVA→MVP 的恰好及时链；虚线表示三者之间在同一冲刺内的协作、治理与支持。",
+    "reading_guide_zh": "三条泳道共用一条时间轴：最上“Agile Business Development”，中间“Agile Enterprise Architecture”，最下“Agile Solution Development”（三张叠放卡＝多个团队）。橙色竖条是每个冲刺末的 DORP，柱内自上而下排列三类交付标记：MVBD（上）、MVA（中）、MVP（下）。横向细箭头是同一泳道穿过 DORP 进入下一冲刺；斜向细箭头是跨泳道交接——本冲刺的业务成果进入下一冲刺的架构，架构成果进入下一冲刺的解决方案。青色竖直虚线双箭头是同一冲刺内的协作与治理。",
+    "key_points_zh": [
+      "三条泳道并行，但交接逐级晚一个冲刺：业务团队在冲刺 1 做 MVBD，EA 团队在冲刺 2 为该 MVBD 出 MVA，解决方案团队在冲刺 3 为该 MVA 出解决方案（中文稿 L372 / 英文 p28）。",
+      "每个 DORP 柱内可同时出现三类成果标记（MVBD、MVA、MVP），分别对应三条泳道在同一冲刺末的产出。",
+      "每列有三条竖直虚线双箭头：业务↔架构、架构↔解决方案、业务↔解决方案；比图 3-3 多了“业务直接对解决方案”那一条，说明业务开发也直接参与解决方案的讨论。",
+      "冲刺 1 的解决方案堆叠卡画成虚线边框，与图例“虚线成果＝可交付但并非必需”呼应：该成熟度下解决方案冲刺可以更晚才真正启动。",
+      "冲刺 0 只产出业务变革愿景定义与待办列表，柱内没有 MVBD/MVA/MVP。",
+      "序列开放（Sprint … / DORP n）；最后一根竖条柱内只剩 MVP。",
+      "横向线只在本泳道内传递，跨泳道一律走斜线并在中间 DORP 处折向，表示“在冲刺末的演示上交接”。"
+    ],
+    "hierarchy_zh": "三层泳道（业务开发 / 企业架构 / 解决方案开发）彼此并列，不是上下级；每条泳道内的方框是该角色在各冲刺的工作，三张叠放卡表示多个并行团队。DORP 竖条纵向贯穿三条泳道，柱内标记按泳道对齐（MVBD 在上、MVA 居中、MVP 在下）。",
+    "line_semantics_zh": "实线箭头一律自左向右。横向箭头＝同一泳道经过本冲刺的 DORP 进入下一冲刺；斜向箭头＝跨泳道移交，从上一泳道方框出发、穿过中间冲刺的 DORP 柱、落在下一冲刺下游泳道的方框上（因此同一 DORP 会同时收到“本泳道延续”和“上游泳道交接”两类线）。青色竖直虚线双箭头＝协作、敏捷治理与支持，双向，不代表先后或数据流。注意：冲刺 0 柱指向“敏捷业务开发”的那条短线，箭头画在柱一侧（起端箭头），按语义应读作“冲刺 0 的成果进入业务开发冲刺 1”。",
+    "misreadings_zh": [
+      "不要把三条泳道读成三个阶段：它们在同一冲刺内并行，只是成果交接晚一个冲刺。",
+      "不要以为每个冲刺都同时产出 MVBD/MVA/MVP：同一柱内的三类标记属于不同团队、不同层级的成果，通常只有部分出现。",
+      "不要把青色虚线双箭头当成数据流或依赖：它是协作与治理关系，双向且无先后。",
+      "冲刺 1 的解决方案卡是虚线边框，不代表“没有解决方案团队”，而表示该成果可交付但非必需。",
+      "不要把“业务→架构→解决方案”读成一次性的瀑布：图中每一层都在连续冲刺中滚动，交接是逐冲刺错位的。",
+      "中文稿当前引用的 figs/g210_fig3-4.svg 把三泳道改写成 MVBD→MVA→解决方案 三行方框，没有冲刺、DORP、MVP 与双向协作，不能据此理解本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p27",
+        "summary_zh": "跨开发协作定义业务开发、EA 与解决方案团队如何在创建解决方案过程中协作；成熟度到这一级时，业务开发为下一 EA 冲刺增强业务变革，架构团队为下一解决方案冲刺产出恰好及时的 EA，两个团队支持解决方案团队，解决方案团队反馈；图 3-4 的虚线表示协作与敏捷治理和支持。"
+      },
+      {
+        "source": "en_pdf p28",
+        "summary_zh": "示例：业务团队在冲刺 1 做 MVBD，EA 团队在冲刺 2 为该 MVBD 定义恰好及时的 MVA，解决方案团队在冲刺 3 为该 MVA 创建解决方案；MVBD 可是一组增量式价值流变更及相应能力变更。"
+      },
+      {
+        "source": "zh_md L366",
+        "summary_zh": "业务开发团队为下一企业架构冲刺增强业务变革，架构团队为下一解决方案冲刺产出恰好及时的企业架构；两团队支持解决方案团队，解决方案团队对下一冲刺的业务与企业架构交付物给出反馈。"
+      },
+      {
+        "source": "zh_md L370",
+        "summary_zh": "虚线表示协作与敏捷治理和支持。"
+      },
+      {
+        "source": "zh_md L372",
+        "summary_zh": "业务团队在冲刺 1 中开展 MVBD 工作，企业架构团队在冲刺 2 中为该 MVBD 定义恰好及时的企业架构（MVA），解决方案团队在冲刺 3 中为该 MVA 创建解决方案。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "横向三泳道：最左一个愿景框，其后 4 根纵向橙色竖条等距排列（DORP 0/1/2/n）；上排 3 个“Agile Business Development”方框、中排 3 个“Agile Enterprise Architecture”方框、下排 3 组叠放的“Agile Solution Development”卡，三条泳道上下对齐；竖条之间为横向与斜向箭头，竖条上下之间为青色竖直虚线；底部左侧为 5 行缩写图例。"
+  },
+  "legend": [
+    {
+      "symbol": "DORP = Demo, Outcome, Retrospective, Planning, & Releases",
+      "meaning_zh": "DORP＝演示、成果、回顾、规划与发布",
+      "explicit": true
+    },
+    {
+      "symbol": "MVA = Minimum Viable Architecture",
+      "meaning_zh": "MVA＝最小可行架构",
+      "explicit": true
+    },
+    {
+      "symbol": "MVBD = Minimum Viable Business Development",
+      "meaning_zh": "MVBD＝最小可行业务开发",
+      "explicit": true
+    },
+    {
+      "symbol": "MVP = Minimum Viable Product",
+      "meaning_zh": "MVP＝最小可行产品",
+      "explicit": true
+    },
+    {
+      "symbol": "Dashed outcomes mean they can be delivered but are not always necessary",
+      "meaning_zh": "虚线成果：可以交付，但并非总是必需",
+      "explicit": true
+    },
+    {
+      "symbol": "纵向橙色竖条 + 顶端 DORP 编号",
+      "meaning_zh": "一个冲刺的收口关口（DORP），纵向贯穿三条泳道",
+      "explicit": false
+    },
+    {
+      "symbol": "三张叠放卡片",
+      "meaning_zh": "同一冲刺内多个并行团队（解决方案团队）",
+      "explicit": false
+    },
+    {
+      "symbol": "青色竖直虚线双箭头",
+      "meaning_zh": "同一冲刺内泳道之间的协作、敏捷治理与支持",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "sprint_0",
+      "label_en": "Sprint 0",
+      "label_zh": "冲刺 0",
+      "type": "time",
+      "parent": null,
+      "order": 1,
+      "position": "第 1 根竖条左上方"
+    },
+    {
+      "id": "sprint_1",
+      "label_en": "Sprint 1",
+      "label_zh": "冲刺 1",
+      "type": "time",
+      "parent": null,
+      "order": 2,
+      "position": "第 2 根竖条左上方"
+    },
+    {
+      "id": "sprint_2",
+      "label_en": "Sprint 2",
+      "label_zh": "冲刺 2",
+      "type": "time",
+      "parent": null,
+      "order": 3,
+      "position": "第 3 根竖条左上方"
+    },
+    {
+      "id": "sprint_ellipsis",
+      "label_en": "Sprint ...",
+      "label_zh": "冲刺 …",
+      "type": "time",
+      "parent": null,
+      "order": 4,
+      "position": "第 4 根竖条左上方"
+    },
+    {
+      "id": "dorp_0",
+      "label_en": "DORP 0",
+      "label_zh": "DORP 0",
+      "type": "event",
+      "parent": null,
+      "order": 1,
+      "position": "第 1 根竖条",
+      "description_zh": "冲刺 0 的 DORP；柱内只有业务变革待办列表椭圆。"
+    },
+    {
+      "id": "dorp_1",
+      "label_en": "DORP 1",
+      "label_zh": "DORP 1",
+      "type": "event",
+      "parent": null,
+      "order": 2,
+      "position": "第 2 根竖条",
+      "description_zh": "柱内自上而下：MVBD、MVA、MVP。"
+    },
+    {
+      "id": "dorp_2",
+      "label_en": "DORP 2",
+      "label_zh": "DORP 2",
+      "type": "event",
+      "parent": null,
+      "order": 3,
+      "position": "第 3 根竖条",
+      "description_zh": "柱内自上而下：MVBD、MVA、MVP。"
+    },
+    {
+      "id": "dorp_n",
+      "label_en": "DORP n",
+      "label_zh": "DORP n",
+      "type": "event",
+      "parent": null,
+      "order": 4,
+      "position": "第 4 根竖条",
+      "description_zh": "柱内只有 MVP。"
+    },
+    {
+      "id": "bc_vision",
+      "label_en": "Business Change Vision Definition",
+      "label_zh": "业务变革愿景定义",
+      "type": "artifact",
+      "parent": null,
+      "position": "最左端方框",
+      "description_zh": "向三条泳道分别发出水平线与一上一下两条斜线。"
+    },
+    {
+      "id": "bc_backlog",
+      "label_en": "Business Change Backlog",
+      "label_zh": "业务变革待办列表",
+      "type": "artifact",
+      "parent": "dorp_0",
+      "position": "冲刺 0 竖条内的白色椭圆"
+    },
+    {
+      "id": "abd_1",
+      "label_en": "Agile Business Development",
+      "label_zh": "敏捷业务开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 1 列、上泳道方框"
+    },
+    {
+      "id": "abd_2",
+      "label_en": "Agile Business Development",
+      "label_zh": "敏捷业务开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 2 列、上泳道方框"
+    },
+    {
+      "id": "abd_ellipsis",
+      "label_en": "Agile Business Development",
+      "label_zh": "敏捷业务开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 … 列、上泳道方框"
+    },
+    {
+      "id": "ea_1",
+      "label_en": "Agile Enterprise Architecture",
+      "label_zh": "敏捷企业架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "冲刺 1 列、中泳道方框"
+    },
+    {
+      "id": "ea_2",
+      "label_en": "Agile Enterprise Architecture",
+      "label_zh": "敏捷企业架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "冲刺 2 列、中泳道方框"
+    },
+    {
+      "id": "ea_ellipsis",
+      "label_en": "Agile Enterprise Architecture",
+      "label_zh": "敏捷企业架构",
+      "type": "artifact",
+      "parent": null,
+      "position": "冲刺 … 列、中泳道方框"
+    },
+    {
+      "id": "asd_1",
+      "label_en": "Agile Solution Development",
+      "label_zh": "敏捷解决方案开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 1 列、下泳道三张叠放卡（虚线边框）",
+      "description_zh": "该列解决方案卡以虚线绘制，对应图例“可交付但非必需”。"
+    },
+    {
+      "id": "asd_2",
+      "label_en": "Agile Solution Development",
+      "label_zh": "敏捷解决方案开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 2 列、下泳道三张叠放卡"
+    },
+    {
+      "id": "asd_ellipsis",
+      "label_en": "Agile Solution Development",
+      "label_zh": "敏捷解决方案开发",
+      "type": "process",
+      "parent": null,
+      "position": "冲刺 … 列、下泳道三张叠放卡"
+    },
+    {
+      "id": "mvbd_1",
+      "label_en": "MVBD",
+      "label_zh": "MVBD（最小可行业务开发）",
+      "type": "artifact",
+      "parent": "dorp_1",
+      "position": "DORP 1 柱内最上虚线圆"
+    },
+    {
+      "id": "mvbd_2",
+      "label_en": "MVBD",
+      "label_zh": "MVBD（最小可行业务开发）",
+      "type": "artifact",
+      "parent": "dorp_2",
+      "position": "DORP 2 柱内最上虚线圆"
+    },
+    {
+      "id": "mva_1",
+      "label_en": "MVA",
+      "label_zh": "MVA（最小可行架构）",
+      "type": "artifact",
+      "parent": "dorp_1",
+      "position": "DORP 1 柱内中部虚线圆"
+    },
+    {
+      "id": "mva_2",
+      "label_en": "MVA",
+      "label_zh": "MVA（最小可行架构）",
+      "type": "artifact",
+      "parent": "dorp_2",
+      "position": "DORP 2 柱内中部虚线圆"
+    },
+    {
+      "id": "mvp_1",
+      "label_en": "MVP",
+      "label_zh": "MVP（最小可行产品）",
+      "type": "artifact",
+      "parent": "dorp_1",
+      "position": "DORP 1 柱内最下白圆（外圈虚线）"
+    },
+    {
+      "id": "mvp_2",
+      "label_en": "MVP",
+      "label_zh": "MVP（最小可行产品）",
+      "type": "artifact",
+      "parent": "dorp_2",
+      "position": "DORP 2 柱内最下白圆（外圈虚线）"
+    },
+    {
+      "id": "mvp_n",
+      "label_en": "MVP",
+      "label_zh": "MVP（最小可行产品）",
+      "type": "artifact",
+      "parent": "dorp_n",
+      "position": "DORP n 柱内白圆（外圈虚线）"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_vision_d0",
+      "from": "bc_vision",
+      "to": "dorp_0",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "三条线：斜向上（业务泳道）、水平（架构泳道）、斜向下（解决方案泳道），全部汇入冲刺 0 柱"
+    },
+    {
+      "id": "r_d0_abd1",
+      "from": "dorp_0",
+      "to": "abd_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "短斜线；箭头画在柱一侧（起端箭头），方向按语义记为 柱→业务开发"
+    },
+    {
+      "id": "r_d0_ea1",
+      "from": "dorp_0",
+      "to": "ea_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d0_asd1",
+      "from": "dorp_0",
+      "to": "asd_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "由愿景框斜向下穿柱后进入解决方案卡"
+    },
+    {
+      "id": "r_abd1_d1",
+      "from": "abd_1",
+      "to": "dorp_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "水平线（业务成果）与斜向下线（向架构泳道交接）两条都止于 DORP 1"
+    },
+    {
+      "id": "r_d1_abd2",
+      "from": "dorp_1",
+      "to": "abd_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_ea1_d1",
+      "from": "ea_1",
+      "to": "dorp_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "水平线（架构成果）与斜向下线（向解决方案泳道交接）"
+    },
+    {
+      "id": "r_d1_ea2",
+      "from": "dorp_1",
+      "to": "ea_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_asd1_d1",
+      "from": "asd_1",
+      "to": "dorp_1",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d1_asd2",
+      "from": "dorp_1",
+      "to": "asd_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "两条短箭头（MVP 圆上方斜向、下方水平）进入同一组卡"
+    },
+    {
+      "id": "r_abd2_d2",
+      "from": "abd_2",
+      "to": "dorp_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d2_abd3",
+      "from": "dorp_2",
+      "to": "abd_ellipsis",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_ea2_d2",
+      "from": "ea_2",
+      "to": "dorp_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d2_ea3",
+      "from": "dorp_2",
+      "to": "ea_ellipsis",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_asd2_d2",
+      "from": "asd_2",
+      "to": "dorp_2",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r_d2_asd3",
+      "from": "dorp_2",
+      "to": "asd_ellipsis",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "两条短箭头进入同一组卡"
+    },
+    {
+      "id": "r_asd3_dn",
+      "from": "asd_ellipsis",
+      "to": "dorp_n",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "最后一组卡连到最后一根柱，柱内只有 MVP"
+    },
+    {
+      "id": "r_abd1_ea1",
+      "from": "abd_1",
+      "to": "ea_1",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔企业架构的协作与治理支持"
+    },
+    {
+      "id": "r_ea1_asd1",
+      "from": "ea_1",
+      "to": "asd_1",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "企业架构↔解决方案开发的协作与治理支持"
+    },
+    {
+      "id": "r_abd1_asd1",
+      "from": "abd_1",
+      "to": "asd_1",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔解决方案开发的直接协作（本图比图 3-3 多出的一条）"
+    },
+    {
+      "id": "r_abd2_ea2",
+      "from": "abd_2",
+      "to": "ea_2",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔企业架构"
+    },
+    {
+      "id": "r_ea2_asd2",
+      "from": "ea_2",
+      "to": "asd_2",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "企业架构↔解决方案开发"
+    },
+    {
+      "id": "r_abd2_asd2",
+      "from": "abd_2",
+      "to": "asd_2",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔解决方案开发"
+    },
+    {
+      "id": "r_abd3_ea3",
+      "from": "abd_ellipsis",
+      "to": "ea_ellipsis",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔企业架构"
+    },
+    {
+      "id": "r_ea3_asd3",
+      "from": "ea_ellipsis",
+      "to": "asd_ellipsis",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "企业架构↔解决方案开发"
+    },
+    {
+      "id": "r_abd3_asd3",
+      "from": "abd_ellipsis",
+      "to": "asd_ellipsis",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "description_zh": "业务开发↔解决方案开发"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_business",
+      "kind": "sequence",
+      "name_zh": "业务开发泳道",
+      "steps": [
+        "dorp_0",
+        "abd_1",
+        "dorp_1",
+        "abd_2",
+        "dorp_2",
+        "abd_ellipsis"
+      ]
+    },
+    {
+      "id": "f_ea",
+      "kind": "sequence",
+      "name_zh": "企业架构泳道",
+      "steps": [
+        "dorp_0",
+        "ea_1",
+        "dorp_1",
+        "ea_2",
+        "dorp_2",
+        "ea_ellipsis"
+      ]
+    },
+    {
+      "id": "f_solution",
+      "kind": "sequence",
+      "name_zh": "解决方案泳道",
+      "steps": [
+        "dorp_0",
+        "asd_1",
+        "dorp_1",
+        "asd_2",
+        "dorp_2",
+        "asd_ellipsis",
+        "dorp_n"
+      ]
+    },
+    {
+      "id": "f_handoff",
+      "kind": "sequence",
+      "name_zh": "恰好及时的三级交接（正文示例）",
+      "steps": [
+        "abd_1",
+        "ea_2",
+        "asd_ellipsis"
+      ],
+      "description_zh": "业务在冲刺 1 做 MVBD、架构在冲刺 2 出 MVA、解决方案在冲刺 3 交付，对应中文稿 L372 的例子。"
+    }
+  ],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G210/fig3-5",
+      "relation": "precedes",
+      "note_zh": "最高一级协作方式（跨职能敏捷）：三条泳道合并为同一批跨职能团队，DORP 与 MVP 保留"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "冲刺 0 柱到“Agile Business Development”的短箭头，箭头画在柱的一侧（起端箭头），与其余列方向相反；按语义记为“柱→业务开发”。",
+      "每条斜向交接线在穿过 DORP 柱时被柱体遮住，柱体两侧的线是否属同一条无法从像素上完全确认；解析按“同一折线穿过柱体”处理。",
+      "冲刺 1 的解决方案堆叠卡为虚线边框，其余列为实线；图中未注明原因，按图例“虚线成果＝可交付但非必需”理解，属推断。",
+      "每个 DORP 柱向右的两条短箭头（MVP 圆上/下）在原图中无文字说明，按“架构成果跨泳道移交 + 解决方案增量延续”处理。"
+    ],
+    "analyzed_from": [
+      "figctx.py G210/fig3-4 的 220 dpi 原图裁切（英文 PDF p27）、2x2 放大分块",
+      "英文 PDF p27–p28 正文与图题",
+      "中文稿 G210e_以敏捷冲刺应用TOGAF_ADM.md L344–L374",
+      "figs/g210_fig3-4.svg 源码（对比重绘版式与文字）",
+      "自绘 420 dpi 裁切与像素级连线/虚线位置核对（竖直虚线每列 3 条）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G210e.pdf",
+    "pdf_sha256": "289803b369a49bc7f49c0d587b7f4af87899eebea8d834a6f52cbb2c3a657a58",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G210/fig3-4.json",
+    "interpretation_sha256": "4a2d76d06e918f1293a6d280ec3d2a9891682cddf35d884e575ca169047ef277",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 27,
+        "text": "Figure 3-4: Cross-Development Collaboration",
+        "bbox_pdf_points": [
+          48.24,
+          663.644,
+          258.852,
+          677.21
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 27,
+      "printed_page": 15,
+      "bbox_pdf_points": [
+        48.2,
+        332.7,
+        563.8,
+        658.9
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G210/fig3-4-p0027.png",
+      "image_sha256": "a30855e08f9093e5e33eb2955bf0fc557c2c91f9f525fd73ea63697f8a807fb9",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "a30855e08f9093e5e33eb2955bf0fc557c2c91f9f525fd73ea63697f8a807fb9",
+          "status": "extracted-unverified",
+          "text": "DORP\nDORP.\nDORP.\nDORP\nSprint 0\nSprint 1\nSprint 2\nSprint...\nAgile Business\noN\nAgile Business\noN\nAgile Business\nDevelopment\nDevelopment\nDevelopment\n| mvep\n}\n| mveo\n)\n>— A\n>— A\nBusiness\nBusiness\nChange\nAgile\nAgile\nAgile\nChange Vision\nBacklog\nEnterprise\nEnterprise\nEnterprise\nDefinition\nArchitecture\n_—\nArchitecture\no~\nArchitecture\nva |\n{ mva }\n——\n—_\n{||\nAgile Solution\nAgile Solution\nAgile Solution\nry\nDevelopment\niN\nDevelopment\n2)\nDevelopment\nKL\nSUI\nNI\nNe\na\nDORI\nDemo, Outcome, Retrospective, Planning, & Releases\nMVA = Minimum Viable Architecture\nMvBt\ninimum Viable Business Development\nMVP = Minimum Viable Product\nDashed outcomes mean they can be delivered but are not always necessary",
+          "words": [
+            {
+              "text": "DORP",
+              "confidence": 12.335472,
+              "bbox_pixels_xywh": [
+                187,
+                22,
+                38,
+                12
+              ]
+            },
+            {
+              "text": "DORP.",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                446,
+                22,
+                38,
+                12
+              ]
+            },
+            {
+              "text": "DORP.",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                705,
+                22,
+                38,
+                12
+              ]
+            },
+            {
+              "text": "DORP",
+              "confidence": 29.100304,
+              "bbox_pixels_xywh": [
+                964,
+                22,
+                38,
+                12
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 96.499519,
+              "bbox_pixels_xywh": [
+                55,
+                27,
+                53,
+                20
+              ]
+            },
+            {
+              "text": "0",
+              "confidence": 94.261452,
+              "bbox_pixels_xywh": [
+                114,
+                27,
+                10,
+                16
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 96.536758,
+              "bbox_pixels_xywh": [
+                313,
+                27,
+                52,
+                20
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 90.969528,
+              "bbox_pixels_xywh": [
+                373,
+                28,
+                6,
+                14
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 96.756218,
+              "bbox_pixels_xywh": [
+                570,
+                27,
+                53,
+                20
+              ]
+            },
+            {
+              "text": "2",
+              "confidence": 96.529091,
+              "bbox_pixels_xywh": [
+                629,
+                27,
+                10,
+                16
+              ]
+            },
+            {
+              "text": "Sprint...",
+              "confidence": 41.017822,
+              "bbox_pixels_xywh": [
+                828,
+                27,
+                77,
+                20
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 96.887505,
+              "bbox_pixels_xywh": [
+                267,
+                105,
+                37,
+                16
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 90.400352,
+              "bbox_pixels_xywh": [
+                310,
+                105,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "oN",
+              "confidence": 64.948616,
+              "bbox_pixels_xywh": [
+                445,
+                115,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 96.903915,
+              "bbox_pixels_xywh": [
+                526,
+                105,
+                37,
+                16
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 89.717285,
+              "bbox_pixels_xywh": [
+                569,
+                105,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "oN",
+              "confidence": 49.06768,
+              "bbox_pixels_xywh": [
+                704,
+                115,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 96.593155,
+              "bbox_pixels_xywh": [
+                785,
+                105,
+                37,
+                16
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 87.464386,
+              "bbox_pixels_xywh": [
+                828,
+                105,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 80.512703,
+              "bbox_pixels_xywh": [
+                274,
+                125,
+                97,
+                16
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 93.971992,
+              "bbox_pixels_xywh": [
+                533,
+                125,
+                97,
+                16
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 93.514595,
+              "bbox_pixels_xywh": [
+                792,
+                125,
+                97,
+                16
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 56.366776,
+              "bbox_pixels_xywh": [
+                432,
+                141,
+                3,
+                18
+              ]
+            },
+            {
+              "text": "mvep",
+              "confidence": 28.638353,
+              "bbox_pixels_xywh": [
+                446,
+                144,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "}",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                489,
+                143,
+                8,
+                27
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 50.28706,
+              "bbox_pixels_xywh": [
+                691,
+                141,
+                3,
+                18
+              ]
+            },
+            {
+              "text": "mveo",
+              "confidence": 60.866127,
+              "bbox_pixels_xywh": [
+                705,
+                144,
+                36,
+                12
+              ]
+            },
+            {
+              "text": ")",
+              "confidence": 54.481411,
+              "bbox_pixels_xywh": [
+                748,
+                143,
+                8,
+                27
+              ]
+            },
+            {
+              "text": ">—",
+              "confidence": 55.705521,
+              "bbox_pixels_xywh": [
+                446,
+                173,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 45.526005,
+              "bbox_pixels_xywh": [
+                479,
+                165,
+                12,
+                28
+              ]
+            },
+            {
+              "text": ">—",
+              "confidence": 54.104416,
+              "bbox_pixels_xywh": [
+                705,
+                173,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 44.305729,
+              "bbox_pixels_xywh": [
+                738,
+                165,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.166039,
+              "bbox_pixels_xywh": [
+                186,
+                263,
+                40,
+                9
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.660545,
+              "bbox_pixels_xywh": [
+                43,
+                267,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "Change",
+              "confidence": 65.942169,
+              "bbox_pixels_xywh": [
+                188,
+                278,
+                35,
+                12
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 96.527687,
+              "bbox_pixels_xywh": [
+                330,
+                267,
+                37,
+                16
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 96.258263,
+              "bbox_pixels_xywh": [
+                589,
+                267,
+                37,
+                16
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 95.971687,
+              "bbox_pixels_xywh": [
+                848,
+                267,
+                37,
+                16
+              ]
+            },
+            {
+              "text": "Change",
+              "confidence": 94.612549,
+              "bbox_pixels_xywh": [
+                23,
+                287,
+                57,
+                16
+              ]
+            },
+            {
+              "text": "Vision",
+              "confidence": 96.722725,
+              "bbox_pixels_xywh": [
+                85,
+                287,
+                44,
+                13
+              ]
+            },
+            {
+              "text": "Backlog",
+              "confidence": 54.883591,
+              "bbox_pixels_xywh": [
+                188,
+                293,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 91.92923,
+              "bbox_pixels_xywh": [
+                312,
+                287,
+                74,
+                16
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 89.818329,
+              "bbox_pixels_xywh": [
+                571,
+                287,
+                74,
+                16
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 92.308784,
+              "bbox_pixels_xywh": [
+                830,
+                287,
+                74,
+                16
+              ]
+            },
+            {
+              "text": "Definition",
+              "confidence": 96.635635,
+              "bbox_pixels_xywh": [
+                43,
+                307,
+                67,
+                12
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.099968,
+              "bbox_pixels_xywh": [
+                305,
+                307,
+                87,
+                12
+              ]
+            },
+            {
+              "text": "_—",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                452,
+                314,
+                27,
+                5
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 56.292973,
+              "bbox_pixels_xywh": [
+                564,
+                307,
+                88,
+                12
+              ]
+            },
+            {
+              "text": "o~",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                710,
+                314,
+                28,
+                5
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 76.444206,
+              "bbox_pixels_xywh": [
+                823,
+                307,
+                88,
+                12
+              ]
+            },
+            {
+              "text": "va",
+              "confidence": 54.894733,
+              "bbox_pixels_xywh": [
+                709,
+                338,
+                29,
+                12
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 90.175926,
+              "bbox_pixels_xywh": [
+                749,
+                334,
+                3,
+                13
+              ]
+            },
+            {
+              "text": "{",
+              "confidence": 87.531212,
+              "bbox_pixels_xywh": [
+                437,
+                334,
+                4,
+                23
+              ]
+            },
+            {
+              "text": "mva",
+              "confidence": 63.004749,
+              "bbox_pixels_xywh": [
+                450,
+                335,
+                43,
+                15
+              ]
+            },
+            {
+              "text": "}",
+              "confidence": 72.479736,
+              "bbox_pixels_xywh": [
+                484,
+                330,
+                12,
+                31
+              ]
+            },
+            {
+              "text": "——",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                443,
+                360,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "—_",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                702,
+                361,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "{||",
+              "confidence": 31.926098,
+              "bbox_pixels_xywh": [
+                252,
+                480,
+                29,
+                14
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 95.413528,
+              "bbox_pixels_xywh": [
+                298,
+                477,
+                37,
+                16
+              ]
+            },
+            {
+              "text": "Solution",
+              "confidence": 96.44574,
+              "bbox_pixels_xywh": [
+                341,
+                477,
+                58,
+                13
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 96.632332,
+              "bbox_pixels_xywh": [
+                557,
+                477,
+                37,
+                16
+              ]
+            },
+            {
+              "text": "Solution",
+              "confidence": 96.387642,
+              "bbox_pixels_xywh": [
+                600,
+                477,
+                58,
+                13
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 96.394394,
+              "bbox_pixels_xywh": [
+                816,
+                477,
+                37,
+                16
+              ]
+            },
+            {
+              "text": "Solution",
+              "confidence": 96.627029,
+              "bbox_pixels_xywh": [
+                859,
+                477,
+                58,
+                13
+              ]
+            },
+            {
+              "text": "ry",
+              "confidence": 25.592642,
+              "bbox_pixels_xywh": [
+                266,
+                494,
+                15,
+                11
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 96.426567,
+              "bbox_pixels_xywh": [
+                301,
+                497,
+                97,
+                16
+              ]
+            },
+            {
+              "text": "iN",
+              "confidence": 73.793854,
+              "bbox_pixels_xywh": [
+                438,
+                505,
+                14,
+                11
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 96.39344,
+              "bbox_pixels_xywh": [
+                560,
+                497,
+                97,
+                16
+              ]
+            },
+            {
+              "text": "2)",
+              "confidence": 52.173847,
+              "bbox_pixels_xywh": [
+                731,
+                507,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 95.864716,
+              "bbox_pixels_xywh": [
+                819,
+                497,
+                97,
+                16
+              ]
+            },
+            {
+              "text": "KL",
+              "confidence": 21.945786,
+              "bbox_pixels_xywh": [
+                957,
+                504,
+                54,
+                12
+              ]
+            },
+            {
+              "text": "SUI",
+              "confidence": 45.62513,
+              "bbox_pixels_xywh": [
+                256,
+                505,
+                25,
+                16
+              ]
+            },
+            {
+              "text": "NI",
+              "confidence": 46.670158,
+              "bbox_pixels_xywh": [
+                270,
+                519,
+                11,
+                9
+              ]
+            },
+            {
+              "text": "Ne",
+              "confidence": 34.088173,
+              "bbox_pixels_xywh": [
+                964,
+                519,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 25.060081,
+              "bbox_pixels_xywh": [
+                294,
+                543,
+                106,
+                1
+              ]
+            },
+            {
+              "text": "DORI",
+              "confidence": 54.600204,
+              "bbox_pixels_xywh": [
+                175,
+                556,
+                31,
+                11
+              ]
+            },
+            {
+              "text": "Demo,",
+              "confidence": 95.671783,
+              "bbox_pixels_xywh": [
+                233,
+                556,
+                40,
+                12
+              ]
+            },
+            {
+              "text": "Outcome,",
+              "confidence": 95.383469,
+              "bbox_pixels_xywh": [
+                280,
+                556,
+                61,
+                12
+              ]
+            },
+            {
+              "text": "Retrospective,",
+              "confidence": 96.60424,
+              "bbox_pixels_xywh": [
+                347,
+                556,
+                91,
+                13
+              ]
+            },
+            {
+              "text": "Planning,",
+              "confidence": 83.814812,
+              "bbox_pixels_xywh": [
+                444,
+                556,
+                58,
+                13
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 92.699875,
+              "bbox_pixels_xywh": [
+                508,
+                556,
+                8,
+                10
+              ]
+            },
+            {
+              "text": "Releases",
+              "confidence": 95.81414,
+              "bbox_pixels_xywh": [
+                522,
+                556,
+                59,
+                11
+              ]
+            },
+            {
+              "text": "MVA",
+              "confidence": 92.716537,
+              "bbox_pixels_xywh": [
+                175,
+                573,
+                30,
+                11
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 94.656799,
+              "bbox_pixels_xywh": [
+                206,
+                565,
+                7,
+                28
+              ]
+            },
+            {
+              "text": "Minimum",
+              "confidence": 96.37397,
+              "bbox_pixels_xywh": [
+                223,
+                573,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "Viable",
+              "confidence": 96.749344,
+              "bbox_pixels_xywh": [
+                285,
+                573,
+                39,
+                11
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.558266,
+              "bbox_pixels_xywh": [
+                329,
+                573,
+                77,
+                11
+              ]
+            },
+            {
+              "text": "MvBt",
+              "confidence": 9.011345,
+              "bbox_pixels_xywh": [
+                175,
+                590,
+                30,
+                11
+              ]
+            },
+            {
+              "text": "inimum",
+              "confidence": 67.686134,
+              "bbox_pixels_xywh": [
+                245,
+                593,
+                45,
+                8
+              ]
+            },
+            {
+              "text": "Viable",
+              "confidence": 96.399689,
+              "bbox_pixels_xywh": [
+                295,
+                590,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 84.897697,
+              "bbox_pixels_xywh": [
+                340,
+                590,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 96.590141,
+              "bbox_pixels_xywh": [
+                403,
+                590,
+                83,
+                14
+              ]
+            },
+            {
+              "text": "MVP",
+              "confidence": 94.857132,
+              "bbox_pixels_xywh": [
+                175,
+                608,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 94.857132,
+              "bbox_pixels_xywh": [
+                210,
+                610,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "Minimum",
+              "confidence": 96.650299,
+              "bbox_pixels_xywh": [
+                223,
+                608,
+                57,
+                10
+              ]
+            },
+            {
+              "text": "Viable",
+              "confidence": 96.996178,
+              "bbox_pixels_xywh": [
+                285,
+                608,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 96.847061,
+              "bbox_pixels_xywh": [
+                330,
+                608,
+                48,
+                10
+              ]
+            },
+            {
+              "text": "Dashed",
+              "confidence": 96.969025,
+              "bbox_pixels_xywh": [
+                175,
+                625,
+                48,
+                11
+              ]
+            },
+            {
+              "text": "outcomes",
+              "confidence": 96.272209,
+              "bbox_pixels_xywh": [
+                228,
+                626,
+                62,
+                10
+              ]
+            },
+            {
+              "text": "mean",
+              "confidence": 96.976326,
+              "bbox_pixels_xywh": [
+                296,
+                628,
+                34,
+                8
+              ]
+            },
+            {
+              "text": "they",
+              "confidence": 96.70771,
+              "bbox_pixels_xywh": [
+                335,
+                625,
+                27,
+                14
+              ]
+            },
+            {
+              "text": "can",
+              "confidence": 96.929131,
+              "bbox_pixels_xywh": [
+                367,
+                628,
+                22,
+                8
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 96.929131,
+              "bbox_pixels_xywh": [
+                395,
+                625,
+                14,
+                11
+              ]
+            },
+            {
+              "text": "delivered",
+              "confidence": 96.87574,
+              "bbox_pixels_xywh": [
+                414,
+                625,
+                58,
+                11
+              ]
+            },
+            {
+              "text": "but",
+              "confidence": 96.968643,
+              "bbox_pixels_xywh": [
+                478,
+                625,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "are",
+              "confidence": 96.500175,
+              "bbox_pixels_xywh": [
+                502,
+                628,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "not",
+              "confidence": 96.569824,
+              "bbox_pixels_xywh": [
+                527,
+                626,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "always",
+              "confidence": 95.59269,
+              "bbox_pixels_xywh": [
+                551,
+                625,
+                43,
+                14
+              ]
+            },
+            {
+              "text": "necessary",
+              "confidence": 93.719566,
+              "bbox_pixels_xywh": [
+                599,
+                628,
+                64,
+                11
+              ]
+            }
+          ],
+          "mean_word_confidence": 74.43,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

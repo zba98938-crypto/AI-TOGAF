@@ -1,0 +1,559 @@
+{
+  "architecture_question_zh": "怎样把客户主数据治理、集成和业务价值作为整体能力设计？",
+  "application_inputs_zh": [
+    "客户相关业务用例",
+    "核心客户数据及隐私法规",
+    "系统权威与数据质量问题",
+    "相关项目和集成依赖"
+  ],
+  "application_outputs_zh": [
+    "核心客户数据范围及权威",
+    "业务/应用功能覆盖",
+    "集成方式组合",
+    "数据主责演进路线与合规检查"
+  ],
+  "application_steps_zh": [
+    "确定跨组织共享的核心客户信息及业务价值",
+    "识别团队、流程、人工处理和自动化边界",
+    "按参考业务和应用功能评估基线与目标",
+    "选择整合、协作或集中方式并说明权威/回写",
+    "围绕质量、复杂度、客户量及项目依赖制定迁移路径"
+  ],
+  "decision_criteria_zh": [
+    "核心数据范围是否服务真实用例",
+    "人工处理与算法不确定性是否平衡",
+    "隐私与权限要求是否约束设计",
+    "过渡时哪个系统是权威是否明确"
+  ],
+  "scope_and_misreading_zh": "参考字段不是强制全集；三种集成风格可以组合。MDM能力不是采购一个数据库即完成。",
+  "source_findings": [
+    {
+      "pdf_page": 21,
+      "quote_en": "people, processes, organizations, and systems",
+      "topic": "capability",
+      "statement_zh": "C-MDM是人员、过程、组织和系统组合，用来把核心客户数据当作资产管理。",
+      "id": "G21B:A01",
+      "context_en": "3. C-MDM Capability Evaluation Copy 3. C-MDM Capability For a given organization, C-MDM refers to people, processes, organizations, and systems put together to manage kernel customer data as an asset. It includes business value, data quality, availability, and security to deliver the required common customer data to relevant use cases. Kernel customer data is all the customer information shared across the organization’s",
+      "document_id": "G21B",
+      "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+      "printed_page_label": "11",
+      "evidence": {
+        "finding_id": "G21B:A01",
+        "document_id": "G21B",
+        "pdf_page": 21,
+        "printed_page_label": "11",
+        "source_path": "togaf-standard-10th/G21Be.pdf",
+        "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+        "quote_en": "people, processes, organizations, and systems",
+        "context_en": "3. C-MDM Capability For a given organization, C-MDM refers to people, processes, organizations, and systems put together to manage kernel customer data as an asset. It includes business value, data quality, availability, and security to deliver the required common customer data to relevant use cases. Kernel customer data is all the customer information shared across the organization’s departments: • Mandatory customer data for the organization to ensure",
+        "source_section": {
+          "id": "G21B:s0021",
+          "title": "3. C-MDM Capability",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G21B:p0021:b002",
+          "G21B:p0021:b003",
+          "G21B:p0021:b004"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G21B.md#page-21",
+        "source_json_path": "documents/G21B.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 21,
+      "quote_en": "shared across the organization’s departments",
+      "topic": "scope",
+      "statement_zh": "核心客户数据是跨部门共享的信息，包含标识、联系、偏好同意和关系等。",
+      "id": "G21B:A02",
+      "context_en": "s business value, data quality, availability, and security to deliver the required common customer data to relevant use cases. Kernel customer data is all the customer information shared across the organization’s departments: • Mandatory customer data for the organization to ensure at least minimal customer experience (name, surname, address, customer ID, etc.) • Transverse and strategic customer data for the organization that should be shared across the value chain of the organization (customer typ",
+      "document_id": "G21B",
+      "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+      "printed_page_label": "11",
+      "evidence": {
+        "finding_id": "G21B:A02",
+        "document_id": "G21B",
+        "pdf_page": 21,
+        "printed_page_label": "11",
+        "source_path": "togaf-standard-10th/G21Be.pdf",
+        "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+        "quote_en": "shared across the organization’s departments",
+        "context_en": "an asset. It includes business value, data quality, availability, and security to deliver the required common customer data to relevant use cases. Kernel customer data is all the customer information shared across the organization’s departments: • Mandatory customer data for the organization to ensure at least minimal customer experience (name, surname, address, customer ID, etc.) • Transverse and strategic customer data for the organization that should be shared across the value chain of the organization (customer type, age, professional activity category, etc.) • Data often already exi",
+        "source_section": {
+          "id": "G21B:s0021",
+          "title": "3. C-MDM Capability",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G21B:p0021:b005"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G21B.md#page-21",
+        "source_json_path": "documents/G21B.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 21,
+      "quote_en": "algorithms do not produce certainty",
+      "topic": "human-automation",
+      "statement_zh": "自动化质量及去重算法不能解决所有不确定性，需要人工流程配合。",
+      "id": "G21B:A03",
+      "context_en": ". One of the challenges for the C-MDM capability is to find a subtle balance to allow adjustment between automation (in data quality, de-duplication) and manual processes when the algorithms do not produce certainty. On the one hand a lack of automation can generate excessive manual workflow, but on the other hand the algorithm cannot solve all the data quality issues, and missing human intelligence and workforce to deal with those cases prevents them from reaching the right data quality. T",
+      "document_id": "G21B",
+      "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+      "printed_page_label": "11",
+      "evidence": {
+        "finding_id": "G21B:A03",
+        "document_id": "G21B",
+        "pdf_page": 21,
+        "printed_page_label": "11",
+        "source_path": "togaf-standard-10th/G21Be.pdf",
+        "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+        "quote_en": "algorithms do not produce certainty",
+        "context_en": "ystems Architecture). One of the challenges for the C-MDM capability is to find a subtle balance to allow adjustment between automation (in data quality, de-duplication) and manual processes when the algorithms do not produce certainty. On the one hand a lack of automation can generate excessive manual workflow, but on the other hand the algorithm cannot solve all the data quality issues, and missing human intelligence and workforce to deal with those cases prevents them from reaching the right data quality. The C-MDM capability is under the responsibility of the customer data o",
+        "source_section": {
+          "id": "G21B:s0021",
+          "title": "3. C-MDM Capability",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G21B:p0021:b013",
+          "G21B:p0021:b014",
+          "G21B:p0021:b015",
+          "G21B:p0021:b016",
+          "G21B:p0021:b017",
+          "G21B:p0021:b018",
+          "G21B:p0021:b019"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G21B.md#page-21",
+        "source_json_path": "documents/G21B.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 28,
+      "quote_en": "business value, customers volume and current quality, complexity",
+      "topic": "prioritization",
+      "statement_zh": "集成优先级可考虑业务价值、客户量、当前质量和复杂度，并结合相邻项目依赖。",
+      "id": "G21B:A04",
+      "context_en": " customer data). Qualify dependencies and potential opportunities. Use the implied applications qualification (in Phase C) to prioritize integrations through time (e.g., regarding business value, customers volume and current quality, complexity), investigate if existing initiatives and planned projects could be used to cover the C‑MDM program evolution. Define a migration roadmap and show how the mastery of kernel customer data evolves through this roadmap. Phase G: Organize a compliance review with C‑MDM projects to c",
+      "document_id": "G21B",
+      "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+      "printed_page_label": "18",
+      "evidence": {
+        "finding_id": "G21B:A04",
+        "document_id": "G21B",
+        "pdf_page": 28,
+        "printed_page_label": "18",
+        "source_path": "togaf-standard-10th/G21Be.pdf",
+        "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+        "quote_en": "business value, customers volume and current quality, complexity",
+        "context_en": "pplications managing customer data). Qualify dependencies and potential opportunities. Use the implied applications qualification (in Phase C) to prioritize integrations through time (e.g., regarding business value, customers volume and current quality, complexity), investigate if existing initiatives and planned projects could be used to cover the C‑MDM program evolution. Define a migration roadmap and show how the mastery of kernel customer data evolves through this roadmap. Phase G: Implementation Governance Organize a compliance review with C‑MDM projects to check that they respect C‑MDM principles and ",
+        "source_section": {
+          "id": "G21B:s0023",
+          "title": "4.1. TOGAF ADM Specialization for the C-MDM Capability",
+          "level": 3
+        },
+        "source_block_ids": [],
+        "source_table_ids": [
+          "G21B:p0028:t01"
+        ],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G21B.md#page-28",
+        "source_json_path": "documents/G21B.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 37,
+      "quote_en": "not be used as a mandatory guideline",
+      "topic": "reference",
+      "statement_zh": "核心客户数据字段清单是比较基线或检查表，不是无条件强制范围。",
+      "id": "G21B:A05",
+      "context_en": "a on the customers. This section provides a list of the most common fields considered as kernel data, covering physical person and organization/legal entity kernel data. It should not be used as a mandatory guideline, but as a first baseline or as a checklist to compare with the plan or existing capability in a specific organization. © The Open Group, All Rights Reserved. Evaluation Copy. Not for redistribution Information Architecture — Customer Master Data Management (C-MDM) 27",
+      "document_id": "G21B",
+      "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+      "printed_page_label": "27",
+      "evidence": {
+        "finding_id": "G21B:A05",
+        "document_id": "G21B",
+        "pdf_page": 37,
+        "printed_page_label": "27",
+        "source_path": "togaf-standard-10th/G21Be.pdf",
+        "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+        "quote_en": "not be used as a mandatory guideline",
+        "context_en": "udes transversal data on the customers. This section provides a list of the most common fields considered as kernel data, covering physical person and organization/legal entity kernel data. It should not be used as a mandatory guideline, but as a first baseline or as a checklist to compare with the plan or existing capability in a specific organization. 5. Reference Models 5.1. C-MDM Kernel Customer Data Scope Information Architecture — Customer Master Data Management (C-MDM) 27 Evaluation Copy © The Open Group, All Rights Reserved. Evaluation Copy. Not for redistribution",
+        "source_section": {
+          "id": "G21B:s0031",
+          "title": "5.1. C-MDM Kernel Customer Data Scope",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G21B:p0037:b015",
+          "G21B:p0037:b016",
+          "G21B:p0037:b017",
+          "G21B:p0037:b018"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G21B.md#page-37",
+        "source_json_path": "documents/G21B.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 48,
+      "quote_en": "not mutually-exclusive",
+      "topic": "integration",
+      "statement_zh": "整合、协作及集中三种集成风格可以组合；需要明确主数据权威及传播机制。",
+      "id": "G21B:A06",
+      "context_en": " Systems 6.1.1. C-MDM Integration Styles The three main C-MDM integration styles are: consolidation, cooperation, and centralized. They are described below. These three styles are not mutually-exclusive and can be used in combination. If the organization has not started their IT journey with the centralized style, it will have to start with consolidation and evolve toward cooperation. Consolidation Style (or Downstream MDM) All systems have their own data. Updates are pushed to",
+      "document_id": "G21B",
+      "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+      "printed_page_label": "38",
+      "evidence": {
+        "finding_id": "G21B:A06",
+        "document_id": "G21B",
+        "pdf_page": 48,
+        "printed_page_label": "38",
+        "source_path": "togaf-standard-10th/G21Be.pdf",
+        "source_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+        "quote_en": "not mutually-exclusive",
+        "context_en": "Integration of C-MDM Systems 6.1.1. C-MDM Integration Styles The three main C-MDM integration styles are: consolidation, cooperation, and centralized. They are described below. These three styles are not mutually-exclusive and can be used in combination. If the organization has not started their IT journey with the centralized style, it will have to start with consolidation and evolve toward cooperation. Consolidation Style (or Downstream MDM) All systems have their own data. Updates are pushed to the MDM hub where they are consolidated. This is the simplest to impl",
+        "source_section": {
+          "id": "G21B:s0039",
+          "title": "6.1.1. C-MDM Integration Styles",
+          "level": 4
+        },
+        "source_block_ids": [
+          "G21B:p0048:b006",
+          "G21B:p0048:b007",
+          "G21B:p0048:b008"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G21B.md#page-48",
+        "source_json_path": "documents/G21B.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    }
+  ],
+  "id": "G21B",
+  "title_zh": "信息架构_客户主数据管理",
+  "title_en": "TOGAF® Series Guide: Information Architecture: Customer Master Data Management (C-MDM)",
+  "source": {
+    "path": "togaf-standard-10th/G21Be.pdf",
+    "sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+    "bytes": 4573061,
+    "page_count": 58,
+    "format": "pdf"
+  },
+  "schema_version": "togaf-architecture-analysis/1.0",
+  "path_base": "corpus-root",
+  "content_role": "authored-source-grounded-architecture-analysis",
+  "maintenance_source": "tools/togaf_corpus/architecture-analysis-data.json",
+  "maintenance_sha256": "e13c6e5e34a20f7093548ad68049baff12d1b59800ec64075547e5fd52afafdf",
+  "semantic_policy": {
+    "status": "authored-source-grounded-navigation-model-not-the-normative-TOGAF-metamodel",
+    "evidence_policy_zh": "每条概念与关系引用已绑定PDF指纹、实体页码和原文短引的分析发现；定义为语料上下文释义，不冒充逐字规范定义。",
+    "cardinality_policy_zh": "仅在来源明确说明时记录基数。null表示未在所引证据中规定，不表示不存在、零或无限。",
+    "hierarchy_policy_zh": "严格区分组成、类型特化、分类、实现、架构约束、信息流和组织汇报；图形嵌套、位置、颜色及线条样式本身不足以新增人员汇报关系。",
+    "recommendation_policy_zh": "指南应用输入、输出、步骤、判断标准为基于证据编写的项目建议，需按本项目上下文裁剪，不表示原文强制要求。",
+    "source_scope_zh": "覆盖本文件夹26份TOGAF Series Guide。此层不声称包含本地未提供的TOGAF基础内容、配套外部电子表格或外部引用全文。"
+  },
+  "application_analysis_status": "derived-project-recommendations-not-source-mandates-or-project-facts",
+  "application_evidence_ids": [
+    "G21B:A01",
+    "G21B:A02",
+    "G21B:A03",
+    "G21B:A04",
+    "G21B:A05",
+    "G21B:A06"
+  ],
+  "concept_ids": [
+    "customer_mdm",
+    "kernel_customer_data"
+  ],
+  "relationship_ids": [
+    "R069"
+  ],
+  "figures": [
+    {
+      "id": "G21B/fig1-1",
+      "document_id": "G21B",
+      "title_en": "Generic Description of the Capabilities of the Organization",
+      "title_zh": "组织能力的通用描述",
+      "pdf_pages": [
+        12
+      ],
+      "json_path": "figures/G21B/fig1-1.json",
+      "markdown_path": "figures/G21B/fig1-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 26,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 111
+    },
+    {
+      "id": "G21B/fig1-2",
+      "document_id": "G21B",
+      "title_en": "Mapping of the Data Management Support Capabilities to the DMBoK DAMA Wheel",
+      "title_zh": "数据管理支撑能力与 DMBoK DAMA 轮盘的对应关系",
+      "pdf_pages": [
+        14
+      ],
+      "json_path": "figures/G21B/fig1-2.json",
+      "markdown_path": "figures/G21B/fig1-2.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 17,
+      "relationships": 5,
+      "graph_issue_count": 0,
+      "ocr_word_count": 36
+    },
+    {
+      "id": "G21B/fig2-1",
+      "document_id": "G21B",
+      "title_en": "ArchiMate Modeling Notation Elements Used in this Document",
+      "title_zh": "本文档使用的 ArchiMate 建模记法元素",
+      "pdf_pages": [
+        18
+      ],
+      "json_path": "figures/G21B/fig2-1.json",
+      "markdown_path": "figures/G21B/fig2-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 17,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 32
+    },
+    {
+      "id": "G21B/fig3-1",
+      "document_id": "G21B",
+      "title_en": "C-MDM Capability",
+      "title_zh": "C-MDM 能力的功能构成",
+      "pdf_pages": [
+        22
+      ],
+      "json_path": "figures/G21B/fig3-1.json",
+      "markdown_path": "figures/G21B/fig3-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 26,
+      "relationships": 13,
+      "graph_issue_count": 0,
+      "ocr_word_count": 97
+    },
+    {
+      "id": "G21B/fig4-1",
+      "document_id": "G21B",
+      "title_en": "Architecture Vision Stakeholders",
+      "title_zh": "架构愿景的利益相关者",
+      "pdf_pages": [
+        30
+      ],
+      "json_path": "figures/G21B/fig4-1.json",
+      "markdown_path": "figures/G21B/fig4-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 16,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 80
+    },
+    {
+      "id": "G21B/fig4-2",
+      "document_id": "G21B",
+      "title_en": "Reference C‑MDM Roadmap Steps",
+      "title_zh": "参考 C-MDM 路线图步骤",
+      "pdf_pages": [
+        33
+      ],
+      "json_path": "figures/G21B/fig4-2.json",
+      "markdown_path": "figures/G21B/fig4-2.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 11,
+      "relationships": 42,
+      "graph_issue_count": 0,
+      "ocr_word_count": 62
+    },
+    {
+      "id": "G21B/fig5-1",
+      "document_id": "G21B",
+      "title_en": "Physical Person Kernel Data",
+      "title_zh": "自然人内核数据",
+      "pdf_pages": [
+        38
+      ],
+      "json_path": "figures/G21B/fig5-1.json",
+      "markdown_path": "figures/G21B/fig5-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 7,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 22
+    },
+    {
+      "id": "G21B/fig5-2",
+      "document_id": "G21B",
+      "title_en": "Organization/Legal Entity Kernel Data",
+      "title_zh": "组织/法人内核数据",
+      "pdf_pages": [
+        39
+      ],
+      "json_path": "figures/G21B/fig5-2.json",
+      "markdown_path": "figures/G21B/fig5-2.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 7,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 19
+    },
+    {
+      "id": "G21B/fig5-3",
+      "document_id": "G21B",
+      "title_en": "C-MDM Detailed Business Functions Reference Model",
+      "title_zh": "C-MDM 详细业务功能参考模型",
+      "pdf_pages": [
+        41
+      ],
+      "json_path": "figures/G21B/fig5-3.json",
+      "markdown_path": "figures/G21B/fig5-3.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 41,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 253
+    },
+    {
+      "id": "G21B/fig5-4",
+      "document_id": "G21B",
+      "title_en": "C-MDM Detailed Applications Functions Reference Model",
+      "title_zh": "C-MDM 详细应用功能参考模型",
+      "pdf_pages": [
+        45
+      ],
+      "json_path": "figures/G21B/fig5-4.json",
+      "markdown_path": "figures/G21B/fig5-4.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 48,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 220
+    },
+    {
+      "id": "G21B/fig6-1",
+      "document_id": "G21B",
+      "title_en": "C-MDM Integration Styles",
+      "title_zh": "C-MDM 集成风格",
+      "pdf_pages": [
+        49
+      ],
+      "json_path": "figures/G21B/fig6-1.json",
+      "markdown_path": "figures/G21B/fig6-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 17,
+      "relationships": 11,
+      "graph_issue_count": 0,
+      "ocr_word_count": 5
+    },
+    {
+      "id": "G21B/fig6-2",
+      "document_id": "G21B",
+      "title_en": "C-MDM Data Exchange Types Overview",
+      "title_zh": "C-MDM 数据交换类型概览",
+      "pdf_pages": [
+        50
+      ],
+      "json_path": "figures/G21B/fig6-2.json",
+      "markdown_path": "figures/G21B/fig6-2.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 13,
+      "relationships": 6,
+      "graph_issue_count": 0,
+      "ocr_word_count": 158
+    },
+    {
+      "id": "G21B/fig6-3",
+      "document_id": "G21B",
+      "title_en": "Consolidation Style Patterns",
+      "title_zh": "整合式风格模式",
+      "pdf_pages": [
+        51
+      ],
+      "json_path": "figures/G21B/fig6-3.json",
+      "markdown_path": "figures/G21B/fig6-3.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 18,
+      "relationships": 9,
+      "graph_issue_count": 0,
+      "ocr_word_count": 174
+    },
+    {
+      "id": "G21B/fig6-4",
+      "document_id": "G21B",
+      "title_en": "Cooperation Style Patterns",
+      "title_zh": "协作式风格模式",
+      "pdf_pages": [
+        51
+      ],
+      "json_path": "figures/G21B/fig6-4.json",
+      "markdown_path": "figures/G21B/fig6-4.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 19,
+      "relationships": 10,
+      "graph_issue_count": 0,
+      "ocr_word_count": 127
+    },
+    {
+      "id": "G21B/fig6-5",
+      "document_id": "G21B",
+      "title_en": "Centralized Style Patterns",
+      "title_zh": "集中式风格模式",
+      "pdf_pages": [
+        52
+      ],
+      "json_path": "figures/G21B/fig6-5.json",
+      "markdown_path": "figures/G21B/fig6-5.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 19,
+      "relationships": 10,
+      "graph_issue_count": 0,
+      "ocr_word_count": 113
+    },
+    {
+      "id": "G21B/tab4-6",
+      "document_id": "G21B",
+      "title_en": "Table 4-6: C-MDM Roadmap Steps (Plateaus) — embedded step diagrams",
+      "title_zh": "表 4-6：C-MDM 路线图步骤（plateau）",
+      "pdf_pages": [
+        34,
+        35,
+        36,
+        36
+      ],
+      "json_path": "figures/G21B/tab4-6.json",
+      "markdown_path": "figures/G21B/tab4-6.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 15,
+      "relationships": 39,
+      "graph_issue_count": 0,
+      "ocr_word_count": 64
+    }
+  ],
+  "figure_notice_zh": "这里链接本指南的图记录供逐项核对，不把历史图示释义自动当作已验证原文关系；图记录的独立质量与视觉审查状态优先。",
+  "full_text": {
+    "json_path": "documents/G21B.json",
+    "markdown_path": "documents/G21B.md"
+  }
+}

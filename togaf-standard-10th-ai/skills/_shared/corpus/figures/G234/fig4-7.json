@@ -1,0 +1,786 @@
+{
+  "schema_version": "1.0",
+  "id": "G234/fig4-7",
+  "status": "done",
+  "doc": {
+    "code": "G234",
+    "title_zh": "信息架构——元数据管理",
+    "title_en": "Information Architecture — Metadata Management",
+    "zh_md": "G234e_信息架构_元数据管理.md",
+    "en_pdf": "togaf-standard-10th/G234e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-7",
+    "title_en": "Metadata Integration: Hybrid Model",
+    "title_zh": "元数据集成：混合式模型",
+    "section_en": "4.3 Metadata Management Guidelines for Information Systems Architectures (ADM Phase C)",
+    "section_zh": "4.3 信息系统架构阶段的元数据管理指南（ADM 阶段 C）",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        27
+      ],
+      "printed_page": 17,
+      "bboxes": [
+        [
+          154.3,
+          464.4,
+          346.3,
+          578.6
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        388
+      ],
+      "label_table_lines": [
+        392,
+        406
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g234e_fig4-7_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "a70d36a09c1e",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.906（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g234e_fig4-7_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "ac7949115b7d",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "“数据术语表、政策与数据质量”被压缩成极小字号，几乎不可读；原图该标签占三行、字号与其它域相当",
+        "左上角“数据术语表、政策与数据质量”与“数据治理”两个人物图标位置较挤，译文换行后与人物图标重叠",
+        "其余标签（业务流程、参考数据、应用存储库、技术与运营元数据、数据隐私、风险管理、安全管理、中央存储库）译法正确，直连/经存储库的两类连接方式与箭头方向均保留"
+      ]
+    },
+    {
+      "path": "G234e_信息架构_元数据管理.md#L392-L406",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "d59e5a34fee2",
+      "fidelity": "faithful",
+      "issues_zh": []
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "network",
+      "infographic"
+    ],
+    "notation": "中心辐射式示意图：中央圆柱为中央存储库；一部分域以人物图标直连中央库（无中间存储库），另一部分域经灰色存储库与中央库相连；青色箭头表示交换方向",
+    "concepts": [
+      "metadata_management",
+      "data_integration",
+      "architecture_repository",
+      "governance_model",
+      "adm_phase_c"
+    ],
+    "adm_phases": [
+      "adm_phase_c"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "混合式：一部分元数据以中央库为主副本并由库内流程维护，其余元数据仍由现有工具持有主副本并与中央库同步。",
+    "purpose_zh": "表 4-1 的第二种集成模型，说明迁移的中间状态：对选定子集把主副本、流程与校验工作流一起迁入中央库，其余范围保留现有工具并与之同步。",
+    "reading_guide_zh": "以中央圆柱 Central Repository 为中心。先看哪些域只有人物图标直连中央库：Data Glossary, Policies, & Data Quality、Business Processes、Reference Data，以及顶部的 Data Governance——这些表示元数据与流程都在库内。再看哪些域是“人物 + 灰色存储库”再连到中央库：Application Repository、Technical & Operational Metadata、Data Privacy、Risk Management、Security Management——这些表示现有工具仍持主副本并向中央库同步。",
+    "key_points_zh": [
+      "主副本分裂：选定子集在中央库中为主副本，现有工具迁移后退役；其余范围仍以现有工具为主副本。",
+      "对迁入子集，中央库同时承载维护流程与校验工作流；图中以“人物直连、无中间存储库”表示。",
+      "对其余范围，现有工具与中央库同步；图中以“人物 + 灰色存储库 → 中央库”表示。",
+      "Data Governance 仍以双向箭头直连中央库，跨越两种范围，负责治理监督。",
+      "直连域（Data Glossary、Business Processes、Reference Data）与中央库是双向箭头；经存储库的域是单向箭头指向中央库（同步）。",
+      "子集范围由业务架构产出决定：要接入的业务参与者、元数据校验流程、数据治理运营模式。"
+    ],
+    "hierarchy_zh": "中央存储库为中心；9 个域/治理主体分两类：库内管理（直连，4 个）与外部主副本（经存储库，5 个）。",
+    "line_semantics_zh": "人物直连 + 双向箭头 = 该域元数据与流程都在中央库内；人物 + 灰色存储库 + 单向箭头 = 该域现有工具持主副本并向中央库同步。箭头方向表示同步写入方向。",
+    "misreadings_zh": [
+      "不要以为所有域都迁入了中央库；只有子集迁入，其余仍在现有工具中。",
+      "人物直连不等于没有流程，恰恰表示流程与校验工作流在库内。",
+      "不要把灰色存储库都当成来源；在混合式中它们是仍持主副本的现有工具。",
+      "双向箭头只出现在直连域与 Data Governance 上，不要把它套到经存储库的域。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p27",
+        "summary_zh": "表 4-1 的 Hybrid 行说明：对一部分元数据，存储库持有主副本，并支持维护这些元数据所需的流程与校验工作流；现有工具预计在迁移后退役；其余范围由现有工具持主副本并与存储库同步。"
+      },
+      {
+        "source": "zh_md L366",
+        "summary_zh": "中文稿表 4-1 对混合式的说明与英文一致。"
+      },
+      {
+        "source": "zh_md L388",
+        "summary_zh": "中文稿在此插入图 4-7。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "radial",
+    "description_zh": "中央圆柱居中；左上与正左为直连域人物，右上为直连的参考数据；左下、正下、右侧三个经存储库的域；Data Governance 在顶部直连。"
+  },
+  "legend": [
+    {
+      "symbol": "青色圆柱 Central Repository",
+      "meaning_zh": "中央元数据存储库（子集的主副本）",
+      "explicit": true
+    },
+    {
+      "symbol": "人物图标直连中央库",
+      "meaning_zh": "该域元数据与流程都在中央库内",
+      "explicit": false
+    },
+    {
+      "symbol": "人物 + 灰色圆柱再连中央库",
+      "meaning_zh": "该域现有工具持主副本，向中央库同步",
+      "explicit": false
+    },
+    {
+      "symbol": "双向箭头",
+      "meaning_zh": "库内域与中央库双向交换",
+      "explicit": false
+    },
+    {
+      "symbol": "单向箭头",
+      "meaning_zh": "外部主副本向中央库同步",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "central_repository",
+      "label_en": "Central Repository",
+      "label_zh": "中央存储库",
+      "type": "artifact",
+      "parent": null,
+      "level": 0,
+      "position": "图中央",
+      "description_zh": "对迁入子集持有主副本并承载流程。"
+    },
+    {
+      "id": "data_governance",
+      "label_en": "Data Governance",
+      "label_zh": "数据治理",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 1,
+      "position": "顶部中央",
+      "description_zh": "直连中央库的治理主体。"
+    },
+    {
+      "id": "data_glossary",
+      "label_en": "Data Glossary, Policies, & Data Quality",
+      "label_zh": "数据术语表、政策与数据质量",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "position": "左上",
+      "description_zh": "仅人物图标，直连中央库。"
+    },
+    {
+      "id": "business_processes",
+      "label_en": "Business Processes",
+      "label_zh": "业务流程",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "position": "左侧",
+      "description_zh": "仅人物图标，直连中央库。"
+    },
+    {
+      "id": "reference_data",
+      "label_en": "Reference Data",
+      "label_zh": "参考数据",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "position": "右上",
+      "description_zh": "仅人物图标，直连中央库。"
+    },
+    {
+      "id": "application_repository",
+      "label_en": "Application Repository",
+      "label_zh": "应用存储库",
+      "type": "artifact",
+      "parent": null,
+      "level": 1,
+      "position": "左下",
+      "description_zh": "人物 + 灰色存储库，向中央库同步。"
+    },
+    {
+      "id": "technical_operational",
+      "label_en": "Technical & Operational Metadata",
+      "label_zh": "技术与运营元数据",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "position": "左下偏底",
+      "description_zh": "人物 + 灰色存储库，向中央库同步。"
+    },
+    {
+      "id": "data_privacy",
+      "label_en": "Data Privacy",
+      "label_zh": "数据隐私",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "position": "右侧居中",
+      "description_zh": "人物 + 灰色存储库，向中央库同步。"
+    },
+    {
+      "id": "risk_management",
+      "label_en": "Risk Management",
+      "label_zh": "风险管理",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "position": "右下",
+      "description_zh": "人物 + 灰色存储库，向中央库同步。"
+    },
+    {
+      "id": "security_management",
+      "label_en": "Security Management",
+      "label_zh": "安全管理",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "position": "右下偏底",
+      "description_zh": "人物 + 灰色存储库，向中央库同步。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "data_governance",
+      "to": "central_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both"
+    },
+    {
+      "from": "data_glossary",
+      "to": "central_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both"
+    },
+    {
+      "from": "business_processes",
+      "to": "central_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both"
+    },
+    {
+      "from": "reference_data",
+      "to": "central_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both"
+    },
+    {
+      "from": "application_repository",
+      "to": "central_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "现有工具持主副本，向中央库同步。"
+    },
+    {
+      "from": "technical_operational",
+      "to": "central_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "data_privacy",
+      "to": "central_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "risk_management",
+      "to": "central_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "security_management",
+      "to": "central_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G234/fig4-6",
+      "relation": "follows",
+      "note_zh": "从集中式（只有副本）演进到混合式（部分主副本入库）"
+    },
+    {
+      "target": "G234/fig4-8",
+      "relation": "precedes",
+      "note_zh": "混合式进一步演进为统一式（全范围主副本与流程入库）"
+    },
+    {
+      "target": "G234/fig4-5",
+      "relation": "related",
+      "note_zh": "决定哪些资产迁入中央库的依据是图 4-5 的资产清单"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中没有文字说明“直连 = 库内主副本、经存储库 = 外部主副本”，该对应关系由表 4-1 与版式推断。",
+      "Data Governance 只有人物、无存储库，按治理主体处理。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 27 页原图截图（2x2 放大分块）",
+      "英文 PDF 第 27 页表 4-1 文字",
+      "中文稿 G234e_信息架构_元数据管理.md 第 353–406 行",
+      "figs/g234e_fig4-7_en.png、figs/zh/g234e_fig4-7_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G234e.pdf",
+    "pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G234/fig4-7.json",
+    "interpretation_sha256": "cbbc64b5f041adc99a2bfebf76ae582bd868fc734dea087078a201725af1b79f",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 27,
+        "text": "Figure 4-7: Metadata Integration: Hybrid Model",
+        "bbox_pdf_points": [
+          154.344,
+          583.256,
+          346.001,
+          594.884
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 27,
+      "printed_page": 17,
+      "bbox_pdf_points": [
+        154.3,
+        464.4,
+        346.3,
+        578.6
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G234/fig4-7-p0027.png",
+      "image_sha256": "4003c2562e29e5aa3fe5f9d29cda44a35577943a1cde548f87a51237f019afd5",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "4003c2562e29e5aa3fe5f9d29cda44a35577943a1cde548f87a51237f019afd5",
+          "status": "extracted-unverified",
+          "text": "Date\nGovernance\nDataiglossany.\nReference\n(bate Quality\nPolicies. &\naes\nData\n| _Blisinest\n| Processes\nas,\n\\|\nmad\nPrivacy\n‘Applitaten\na ~-\nRepostay,\nTechnical &\n)\nRisk\nManagement\nrational\ns— \\ a\nicadsta\nma\n‘Security\nManagement",
+          "words": [
+            {
+              "text": "Date",
+              "confidence": 91.937637,
+              "bbox_pixels_xywh": [
+                197,
+                6,
+                21,
+                11
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 81.631805,
+              "bbox_pixels_xywh": [
+                179,
+                20,
+                56,
+                10
+              ]
+            },
+            {
+              "text": "Dataiglossany.",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                82,
+                37,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "Reference",
+              "confidence": 55.232346,
+              "bbox_pixels_xywh": [
+                270,
+                42,
+                47,
+                8
+              ]
+            },
+            {
+              "text": "(bate",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                87,
+                51,
+                29,
+                29
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 61.243073,
+              "bbox_pixels_xywh": [
+                118,
+                51,
+                32,
+                29
+              ]
+            },
+            {
+              "text": "Policies.",
+              "confidence": 50.400486,
+              "bbox_pixels_xywh": [
+                95,
+                50,
+                56,
+                10
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 50.400486,
+              "bbox_pixels_xywh": [
+                147,
+                40,
+                7,
+                28
+              ]
+            },
+            {
+              "text": "aes",
+              "confidence": 17.545338,
+              "bbox_pixels_xywh": [
+                165,
+                37,
+                93,
+                30
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 89.61219,
+              "bbox_pixels_xywh": [
+                270,
+                55,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 56.998138,
+              "bbox_pixels_xywh": [
+                62,
+                85,
+                1,
+                6
+              ]
+            },
+            {
+              "text": "_Blisinest",
+              "confidence": 0.682421,
+              "bbox_pixels_xywh": [
+                76,
+                83,
+                43,
+                9
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 82.512642,
+              "bbox_pixels_xywh": [
+                63,
+                99,
+                1,
+                5
+              ]
+            },
+            {
+              "text": "Processes",
+              "confidence": 64.910156,
+              "bbox_pixels_xywh": [
+                70,
+                95,
+                49,
+                8
+              ]
+            },
+            {
+              "text": "as,",
+              "confidence": 46.116558,
+              "bbox_pixels_xywh": [
+                130,
+                81,
+                46,
+                23
+              ]
+            },
+            {
+              "text": "\\|",
+              "confidence": 59.31411,
+              "bbox_pixels_xywh": [
+                56,
+                112,
+                9,
+                10
+              ]
+            },
+            {
+              "text": "mad",
+              "confidence": 34.964558,
+              "bbox_pixels_xywh": [
+                257,
+                108,
+                75,
+                24
+              ]
+            },
+            {
+              "text": "Privacy",
+              "confidence": 87.832802,
+              "bbox_pixels_xywh": [
+                340,
+                125,
+                34,
+                10
+              ]
+            },
+            {
+              "text": "‘Applitaten",
+              "confidence": 35.636566,
+              "bbox_pixels_xywh": [
+                12,
+                129,
+                51,
+                13
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 6.278372,
+              "bbox_pixels_xywh": [
+                66,
+                128,
+                108,
+                24
+              ]
+            },
+            {
+              "text": "~-",
+              "confidence": 6.278372,
+              "bbox_pixels_xywh": [
+                155,
+                124,
+                21,
+                40
+              ]
+            },
+            {
+              "text": "Repostay,",
+              "confidence": 5.256157,
+              "bbox_pixels_xywh": [
+                14,
+                143,
+                50,
+                15
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 85.212234,
+              "bbox_pixels_xywh": [
+                17,
+                177,
+                54,
+                13
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 91.791565,
+              "bbox_pixels_xywh": [
+                67,
+                173,
+                7,
+                26
+              ]
+            },
+            {
+              "text": ")",
+              "confidence": 65.704475,
+              "bbox_pixels_xywh": [
+                65,
+                166,
+                4,
+                10
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 94.73278,
+              "bbox_pixels_xywh": [
+                310,
+                167,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 95.229118,
+              "bbox_pixels_xywh": [
+                310,
+                179,
+                61,
+                10
+              ]
+            },
+            {
+              "text": "rational",
+              "confidence": 5.300493,
+              "bbox_pixels_xywh": [
+                32,
+                194,
+                39,
+                8
+              ]
+            },
+            {
+              "text": "s—",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                82,
+                155,
+                99,
+                46
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 67.944481,
+              "bbox_pixels_xywh": [
+                198,
+                163,
+                9,
+                34
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 29.410645,
+              "bbox_pixels_xywh": [
+                212,
+                153,
+                92,
+                36
+              ]
+            },
+            {
+              "text": "icadsta",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                37,
+                206,
+                33,
+                8
+              ]
+            },
+            {
+              "text": "ma",
+              "confidence": 49.511013,
+              "bbox_pixels_xywh": [
+                207,
+                197,
+                76,
+                25
+              ]
+            },
+            {
+              "text": "‘Security",
+              "confidence": 84.482277,
+              "bbox_pixels_xywh": [
+                293,
+                204,
+                37,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 75.464874,
+              "bbox_pixels_xywh": [
+                293,
+                216,
+                61,
+                9
+              ]
+            }
+          ],
+          "mean_word_confidence": 49.42,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

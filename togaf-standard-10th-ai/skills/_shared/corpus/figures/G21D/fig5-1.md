@@ -1,0 +1,395 @@
+# G21D/fig5-1 · 拟议的青少年与教育部门 L1–L3 要素的结构与内容概览
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G21D/fig5-1.md) · [JSON](../../architecture/diagrams/G21D/fig5-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G21De.pdf`；SHA-256：`220ead5fef846c52417b9b7a915ff4a64f327680b384c369840926b85958786a`。
+
+## 原图 · PDF 第 36 页
+
+![英文原图](../assets/G21D/fig5-1-p0036.png)
+
+PDF 坐标：`[74.0, 148.1, 538.0, 413.0]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+e Open Gi
+If
+\
+/
+{
+Children’s Service
+{
+Education
+Higher Education and
+Skills
+(
+Looked After Children
+)
+Primary Schools
+Higher Education
+Fostering and Adoption
+)
+Secondary Schools
+Early Careers
+)
+~ Children’s Social Care >)
+Specialist Teaching
+Apprenticeships
+and Safeguarding
+Standards and
+Family and Parenting
+Achievement
+i
+Early Years
+)
+Curriculum
+.
+J
+“Children and Adolescent >
+(
+\
+Services
+_
+y
+```
+
+## 概要（历史解释；局部修正见上）
+
+政府参考模型中“青少年与教育”部门的 L1–L3 分解：1 个部门、3 个功能、14 项服务。
+
+## 目的（历史解释；局部修正见上）
+
+第 5 章开篇用这张图概览“青少年与教育”部门（L1）下的功能（L2）与服务（L3），随后的表 5-1 逐项给出说明。它是图 1-1 三层结构在本部门的具体展开，与其余 10 个部门图采用同一模板，附录 A 第 49 页把它与图 6-1 汇总在同一页。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+最外层浅蓝色大框是 L1 部门，顶部白色粗体字是部门名称。框内三个等宽的白色圆角框是 L2 功能，从左到右依次为儿童服务、教育、高等教育与技能。每个功能框里自上而下排列的胶囊形小框是 L3 服务。图中没有连线或箭头，上下级关系完全由框的嵌套表达，同一功能内的服务是并列的。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 本部门分为 3 个 L2 功能：儿童服务（6 项服务）、教育（5 项）、高等教育与技能（3 项），共 14 项 L3 服务。
+- 按表 5-1 的功能说明：儿童服务对应社会服务，以及早期阶段的额外保护、青少年支持与家长支持；教育通过学校教育向儿童提供技能与知识，并遵循国家期望与标准；高等教育与技能支持工作相关学科的继续教育与培训，包括学徒制、在职培训，以及与行业和高等教育机构的沟通。
+- 三个功能从左到右依次覆盖儿童的照护与保护、学校教育、中学之后的教育与就业技能。
+- 早期教育（Early Years）归在儿童服务下而不在教育下：表 5-1 说明它是支持儿童入学前学习、发展与照护的活动。
+- 儿童服务以照护与保护类服务为主（受照料儿童、寄养与收养、儿童社会照护与保护、家庭与育儿）；面向成人的对应服务（成人社会照护、成人保护）在健康与社区福祉部门（图 6-1）。
+- 教育功能除小学、中学和特殊教育外，还包括管理性服务：标准与成就（开发课程、学习与考试材料，管理考试并认证资质）和课程（规定必修课程，确保各教育机构一致）。
+- 与青少年相关的服务还分布在其他部门：学生贷款与助学金（学生资助）在一般政府与地方服务部门的客户服务下（图 4-1），青少年犯罪在司法、治安与内政部门的刑事司法与罪犯管理下（图 7-1）。
+
+## 层级（历史解释；局部修正见上）
+
+三层严格树形：L1 部门“青少年与教育”（最外层框）→ 3 个 L2 功能（白色圆角框）→ 14 个 L3 服务（胶囊框）。每项服务只属于一个功能，对应图 1-1 中“部门—功能—服务”的组成关系。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有任何连线或箭头。服务框位于功能框内，表示该服务属于该功能；功能框位于部门框内，表示该功能属于本部门（图 1-1 用菱形组合线表示同样的组成关系）。元素清单用 parent/level 记录这种嵌套，因此关系清单为空。
+
+## 易误读点（历史解释；局部修正见上）
+
+- “Early Years（早期教育）”指儿童入学前的学习、发展与照护，不是小学低年级。
+- “Specialist Teaching（特殊教育）”指为学生提供额外帮助、调整后的课程或学习环境、特定设备或材料，不是分学科的专科教学。
+- “Early Careers（早期职业）”指通过工作场所与实习提供的职业起步培训，与儿童的“早期”无关。
+- “Looked After Children（受照料儿童）”是英国用语，指因强制照护令或父母协议而由地方当局照料的儿童；表 5-1 写作 Looked-after Children，元素按图记录。
+- 同一功能内服务的上下次序不表示优先级或流程先后。
+- 中文稿引用的中文化 PNG 字号混乱（部分服务标签比功能标题还大），不能用字号判断层级，应以框的嵌套为准。
+- 图框下方的浅灰色弧线是 PDF 评估版水印的残影，不属于图的内容。
+
+## 元素
+
+```json
+[
+  {
+    "id": "l1_young_people_education",
+    "label_en": "Young People and Education",
+    "label_zh": "青少年与教育",
+    "type": "other",
+    "notation_type": "GRM L1 部门（Sector）",
+    "parent": null,
+    "level": 1,
+    "position": "最外层浅蓝色框，标题在顶部居中",
+    "description_zh": "GRM 第 1 层“部门”，即政府的一个业务领域；词表没有对应类型，故用 other。"
+  },
+  {
+    "id": "l2_childrens_service",
+    "label_en": "Children’s Service",
+    "label_zh": "儿童服务",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_young_people_education",
+    "level": 2,
+    "order": 1,
+    "position": "左",
+    "description_zh": "对应社会服务，以及早期阶段的额外保护、青少年支持与家长支持（表 5-1）。"
+  },
+  {
+    "id": "l2_education",
+    "label_en": "Education",
+    "label_zh": "教育",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_young_people_education",
+    "level": 2,
+    "order": 2,
+    "position": "中",
+    "description_zh": "通过学校教育向儿童提供技能与知识，并遵循国家期望与标准（表 5-1）。"
+  },
+  {
+    "id": "l2_higher_education_skills",
+    "label_en": "Higher Education and Skills",
+    "label_zh": "高等教育与技能",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_young_people_education",
+    "level": 2,
+    "order": 3,
+    "position": "右",
+    "description_zh": "支持工作相关学科的继续教育与培训，包括学徒制、在职培训，以及与行业和高等教育机构的沟通（表 5-1）。"
+  },
+  {
+    "id": "l3_looked_after_children",
+    "label_en": "Looked After Children",
+    "label_zh": "受照料儿童",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_childrens_service",
+    "level": 3,
+    "order": 1,
+    "description_zh": "因强制照护令或父母协议而由地方当局照料的儿童；表 5-1 写作 Looked-after Children。",
+    "attributes": {
+      "table_label_en": "Looked-after Children"
+    }
+  },
+  {
+    "id": "l3_fostering_adoption",
+    "label_en": "Fostering and Adoption",
+    "label_zh": "寄养与收养",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_childrens_service",
+    "level": 3,
+    "order": 2
+  },
+  {
+    "id": "l3_childrens_social_care",
+    "label_en": "Children’s Social Care and Safeguarding",
+    "label_zh": "儿童社会照护与保护",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_childrens_service",
+    "level": 3,
+    "order": 3,
+    "description_zh": "保护培训、政策与流程，确保所有儿童免受伤害。"
+  },
+  {
+    "id": "l3_family_parenting",
+    "label_en": "Family and Parenting",
+    "label_zh": "家庭与育儿",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_childrens_service",
+    "level": 3,
+    "order": 4
+  },
+  {
+    "id": "l3_early_years",
+    "label_en": "Early Years",
+    "label_zh": "早期教育",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_childrens_service",
+    "level": 3,
+    "order": 5,
+    "description_zh": "支持儿童入学前的学习、发展与照护。"
+  },
+  {
+    "id": "l3_children_adolescent_services",
+    "label_en": "Children and Adolescent Services",
+    "label_zh": "儿童与青少年服务",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_childrens_service",
+    "level": 3,
+    "order": 6,
+    "description_zh": "在迈向成年的各个过渡阶段提供支持与指导。"
+  },
+  {
+    "id": "l3_primary_schools",
+    "label_en": "Primary Schools",
+    "label_zh": "小学",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_education",
+    "level": 3,
+    "order": 1
+  },
+  {
+    "id": "l3_secondary_schools",
+    "label_en": "Secondary Schools",
+    "label_zh": "中学",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_education",
+    "level": 3,
+    "order": 2
+  },
+  {
+    "id": "l3_specialist_teaching",
+    "label_en": "Specialist Teaching",
+    "label_zh": "特殊教育",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_education",
+    "level": 3,
+    "order": 3,
+    "description_zh": "为学生提供额外帮助、调整后的课程或学习环境、特定设备或材料。"
+  },
+  {
+    "id": "l3_standards_achievement",
+    "label_en": "Standards and Achievement",
+    "label_zh": "标准与成就",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_education",
+    "level": 3,
+    "order": 4,
+    "description_zh": "开发符合教育标准的课程、学习与考试材料，管理考试并认证资质。"
+  },
+  {
+    "id": "l3_curriculum",
+    "label_en": "Curriculum",
+    "label_zh": "课程",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_education",
+    "level": 3,
+    "order": 5,
+    "description_zh": "规定必修课程与单元，确保各教育机构一致。"
+  },
+  {
+    "id": "l3_higher_education",
+    "label_en": "Higher Education",
+    "label_zh": "高等教育",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_higher_education_skills",
+    "level": 3,
+    "order": 1,
+    "description_zh": "中学之后的教育。"
+  },
+  {
+    "id": "l3_early_careers",
+    "label_en": "Early Careers",
+    "label_zh": "早期职业",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_higher_education_skills",
+    "level": 3,
+    "order": 2,
+    "description_zh": "通过工作场所与实习提供培训。"
+  },
+  {
+    "id": "l3_apprenticeships",
+    "label_en": "Apprenticeships",
+    "label_zh": "学徒制",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_higher_education_skills",
+    "level": 3,
+    "order": 3,
+    "description_zh": "在职培训与课堂培训相结合。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "浅蓝色大圆角框 + 顶部白色粗体标题",
+    "meaning_zh": "L1 部门（Sector）",
+    "explicit": false
+  },
+  {
+    "symbol": "白色圆角框 + 黑色粗体标题",
+    "meaning_zh": "L2 功能（Function），属于所在部门",
+    "explicit": false
+  },
+  {
+    "symbol": "白色胶囊形小框（细灰边）",
+    "meaning_zh": "L3 服务（Service），属于所在功能",
+    "explicit": false
+  },
+  {
+    "symbol": "框的嵌套",
+    "meaning_zh": "组成/归属关系，与图 1-1 中菱形组合线表达的“部门—功能—服务”关系相同",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "最外层浅蓝色圆角框（顶部居中为部门标题，右上角为版权署名）内，三个等宽功能框从左到右并排：儿童服务（6 项）、教育（5 项）、高等教育与技能（3 项）；各框内服务自上而下单列排列。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G21D/fig1-1",
+    "relation": "detail_of",
+    "note_zh": "图 1-1 的三层结构（L1 部门—L2 功能—L3 服务）在“青少年与教育”部门的展开"
+  },
+  {
+    "target": "G21D/fig6-1",
+    "relation": "complements",
+    "note_zh": "同一模板的相邻部门概览（健康与社区福祉）；儿童的社会照护与保护在本图，成人社会照护与成人保护在图 6-1"
+  },
+  {
+    "target": "G21D/appA-p49",
+    "relation": "related",
+    "note_zh": "附录 A 第 49 页（PDF 第 69 页）原样收录本图，与图 6-1 同页"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [],
+  "analyzed_from": [
+    "英文 PDF 第 36 页原图截图",
+    "英文 PDF 第 36–37 页正文（第 5 章开篇、表 5-1）及第 21–24 页（1.3–1.4 节）",
+    "英文 PDF 第 69 页附录 A 图示（同内容面板，用于复核标签）",
+    "中文稿 G21De_政府参考模型.md 第 461–515 行",
+    "figs/zh/g21de_fig5-1_zh.png（逐项对照）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

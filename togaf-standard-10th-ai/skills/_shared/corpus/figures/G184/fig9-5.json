@@ -1,0 +1,483 @@
+{
+  "schema_version": "1.0",
+  "id": "G184/fig9-5",
+  "status": "done",
+  "doc": {
+    "code": "G184",
+    "title_zh": "领导者指南：建立并演进 EA 能力",
+    "title_en": "The TOGAF Leader's Guide to Establishing and Evolving an EA Capability",
+    "zh_md": "G184e_领导者指南_建立并演进EA能力.md",
+    "en_pdf": "togaf-standard-10th/G184e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "9-5",
+    "title_en": "Security as a Cross-Cutting Concern through the Architecture",
+    "title_zh": "安全作为贯穿架构的横切关注点",
+    "section_en": "9.5.2 Domains and Layers",
+    "section_zh": "9.5.2 域与层",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        91
+      ],
+      "printed_page": 77,
+      "bboxes": [
+        [
+          177.1,
+          296.7,
+          434.9,
+          566.3
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        1006
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g184e_fig9-5_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "7a68f74884ed",
+      "fidelity": "unchecked",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.988（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g184e_fig9-5_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "dac83cce7ff4",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "四个横条标签“业务/数据/应用/技术”与竖列标签“安全”均已翻译，结构与颜色一致；但每个文字后面留有明显的浅色矩形补丁，是本地化覆盖原文字留下的痕迹。",
+        "字号不一致：四个横条标签明显大于竖列顶部的“安全”，且“业务”比“数据”小，排印层级与原图不统一。",
+        "“安全”竖列顶部文字的基线略低于原图，竖列的半透明白色填充与四条横条的叠放关系保持不变。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "layered"
+    ],
+    "notation": "叠加示意图：四条等宽灰色圆角横条自上而下堆叠（Business、Data、Application、Technology），一条浅色圆角竖列 Security 覆盖在四条之上、上下均超出堆叠范围；无箭头、无连线。",
+    "concepts": [
+      "security_architecture",
+      "cross_cutting_concern",
+      "architecture_domains"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "安全是一条纵贯业务、数据、应用、技术四层的横切关注点，而不是第五层。",
+    "purpose_zh": "用最简的叠加图说明安全架构的定位：四个架构域横向分层，安全以一条竖列同时穿过四层，因此是横切关注点；它为四个域提供安全、隐私与运营风险视角，并影响/输入四个域。",
+    "reading_guide_zh": "自上而下读四条灰色横条：Business、Data、Application、Technology，它们是四个架构域（层）。然后把视线移到中间偏右的浅色竖列 Security：它从第一层上方一直延伸到第四层下方，压过四条横条，表示安全同时作用于四层，而不是其中某一层。图中没有箭头，关系完全由覆盖/穿过表达。",
+    "key_points_zh": [
+      "四条横条自上而下为业务、数据、应用、技术，顺序与 TOGAF 的四个架构域一致。",
+      "Security 是一条竖列，覆盖全部四层并上下超出堆叠范围，强调它不受任一架构域边界限制。",
+      "安全不是第五个架构域，而是横切关注点，贯穿整个 EA。",
+      "正文：安全架构影响并告知业务、应用、数据与技术架构；它可能常在企业架构范围之外组织，但其部分内容必须与架构整合开发。",
+      "竖列遮住横条中段只是前后叠放，不表示四层在此断开或缺失。",
+      "图中没有说明竖列上下超出的额外含义（例如代表架构范围之外的安全组织），不要过度解读。"
+    ],
+    "hierarchy_zh": "四个域并列堆叠，没有上下级包含；Security 是跨四域的竖列，不是四域之上的第五层，也不是某一个域的子元素。",
+    "line_semantics_zh": "图中没有连线或箭头。横切关系由竖列覆盖四条横条表达；竖列的白色填充遮住横条中段是绘制层次（前景/背景），不是关系线。",
+    "misreadings_zh": [
+      "不要把 Security 当作第五层或第五个架构域；它是横切关注点。",
+      "不要把竖列遮住横条读成四层在此中断；横条在竖列后面是连续的。",
+      "不要因为竖列位置偏右就以为它只作用于应用/技术层；它覆盖全部四层。",
+      "不要把竖列上下超出堆叠范围解释为“安全在架构之外”的正式编码；图内没有这个说明。",
+      "中文资产在文字后留下浅色矩形补丁且字号不一，这是本地化痕迹，不是图中的语义编码。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p90",
+        "summary_zh": "正文在解释图 9-4 时指向图 9-5，说明各层如何交互以及什么是横切关注点；安全架构影响并告知业务、应用、数据与技术架构。"
+      },
+      {
+        "source": "en_pdf p91",
+        "summary_zh": "图 9-5 图题为 Security as a Cross-Cutting Concern through the Architecture；同页正文列出常用层（表示/用户体验、服务、业务规则与逻辑、集成与工作流、存储）并说明层随云、移动与 IoT 变化。"
+      },
+      {
+        "source": "zh_md L1004",
+        "summary_zh": "作为横切关注点，安全架构影响并告知业务、应用、数据与技术架构；图 9-5 展示各层如何交互以及横切关注点。"
+      },
+      {
+        "source": "zh_md L1014",
+        "summary_zh": "中文稿列出常用层：表示或用户体验（客户端层）、服务（端点或前端层）、业务规则与逻辑（中间层）、集成与工作流（中间层）、存储（数据层）。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "四条等宽灰色圆角横条自上而下堆叠，间距均匀；一条浅色圆角竖列位于画面中部偏右，纵向覆盖四条横条并上下各伸出一段，竖列顶部写 Security。"
+  },
+  "legend": [
+    {
+      "symbol": "灰色横向圆角长条",
+      "meaning_zh": "一个架构域（业务/数据/应用/技术），图中按层堆叠",
+      "explicit": false
+    },
+    {
+      "symbol": "浅色竖向圆角长列",
+      "meaning_zh": "Security——横切四个架构域的关注点",
+      "explicit": false
+    },
+    {
+      "symbol": "竖列覆盖横条并上下超出",
+      "meaning_zh": "安全穿透并超出任一架构域的边界",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "business",
+      "label_en": "Business",
+      "label_zh": "业务层",
+      "type": "architecture",
+      "parent": null,
+      "level": 1,
+      "order": 1,
+      "position": "最上层横条",
+      "description_zh": "业务架构域，图中以第一层横条表示。"
+    },
+    {
+      "id": "data",
+      "label_en": "Data",
+      "label_zh": "数据层",
+      "type": "architecture",
+      "parent": null,
+      "level": 2,
+      "order": 2,
+      "position": "第二层横条",
+      "description_zh": "数据架构域，图中以第二层横条表示。"
+    },
+    {
+      "id": "application",
+      "label_en": "Application",
+      "label_zh": "应用层",
+      "type": "architecture",
+      "parent": null,
+      "level": 3,
+      "order": 3,
+      "position": "第三层横条",
+      "description_zh": "应用架构域，图中以第三层横条表示。"
+    },
+    {
+      "id": "technology",
+      "label_en": "Technology",
+      "label_zh": "技术层",
+      "type": "architecture",
+      "parent": null,
+      "level": 4,
+      "order": 4,
+      "position": "最下层横条",
+      "description_zh": "技术架构域，图中以第四层横条表示。"
+    },
+    {
+      "id": "security",
+      "label_en": "Security",
+      "label_zh": "安全（横切关注点）",
+      "type": "architecture",
+      "parent": null,
+      "position": "纵贯四层的浅色竖列，标签在列顶",
+      "description_zh": "代表安全架构：安全、隐私与运营风险视角的视图/视角/制品集合；横切四个架构域。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_sec_business",
+      "from": "security",
+      "to": "business",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "由竖列覆盖该横条表达横切影响。"
+    },
+    {
+      "id": "r_sec_data",
+      "from": "security",
+      "to": "data",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "同上，安全竖列覆盖数据层。"
+    },
+    {
+      "id": "r_sec_application",
+      "from": "security",
+      "to": "application",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "同上，安全竖列覆盖应用层。"
+    },
+    {
+      "id": "r_sec_technology",
+      "from": "security",
+      "to": "technology",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "同上，安全竖列覆盖技术层。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G184/fig9-4",
+      "relation": "complements",
+      "note_zh": "图 9-4 给出四个域与集成/安全两个圆，本图把四域画成层，并把安全画成贯穿四层的竖列。"
+    },
+    {
+      "target": "G152/fig4-1",
+      "relation": "same_as",
+      "note_zh": "G152 图 4-1 使用同一图题与同一结构（四条横条 + Security 竖列），是同一张图的另一种语言版本。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中没有箭头；“Security 影响四个域”的方向依据正文 impacts and informs，而非图内符号。",
+      "四条横条称为“层”还是“域”，正文在 9.5.2 节两种说法都用；本分析把 label_zh 定为“层”，description 说明它们是架构域。",
+      "Security 竖列上下超出堆叠范围是否有额外含义（如代表架构范围之外的安全组织），图内无说明，未作推断。",
+      "中文资产的文字补丁与字号差异不改变结构，但会影响阅读观感。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 91 页图 9-5 截图与 2x2 放大分块",
+      "英文 PDF 第 90、91 页正文",
+      "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 996-1014 行",
+      "figs/zh/g184e_fig9-5_zh.png",
+      "figs/ai/G152/fig4-1.json（同图分析）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G184e.pdf",
+    "pdf_sha256": "85fe5653767b184c3c8c9c1bef9f5738adbb2bf6661fb50ee95e72d16bc9f614",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G184/fig9-5.json",
+    "interpretation_sha256": "c329d56be1fdd7df54ffe063e502a67bc557a1d6e379e8231aff0d0b375e7f59",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 91,
+        "text": "Figure 9-5: Security as a Cross-Cutting Concern through the Architecture",
+        "bbox_pdf_points": [
+          48.24,
+          571.042,
+          386.832,
+          584.608
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 91,
+      "printed_page": 77,
+      "bbox_pdf_points": [
+        177.1,
+        296.7,
+        434.9,
+        566.3
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G184/fig9-5-p0091.png",
+      "image_sha256": "2b7cf6b2b4cc15d0c740e222ac3ff3d3ac27bff8f9681c495fce7bd0cdfdb3da",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "2b7cf6b2b4cc15d0c740e222ac3ff3d3ac27bff8f9681c495fce7bd0cdfdb3da",
+          "status": "extracted-unverified",
+          "text": "Security\n=\n—,\nBusiness\n=.\nData\nwas\nApplication\nYT\nSF\nTechnology\nYS\nThe Open Group",
+          "words": [
+            {
+              "text": "Security",
+              "confidence": 96.386879,
+              "bbox_pixels_xywh": [
+                332,
+                21,
+                86,
+                19
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 22.105408,
+              "bbox_pixels_xywh": [
+                11,
+                28,
+                24,
+                36
+              ]
+            },
+            {
+              "text": "—,",
+              "confidence": 49.269753,
+              "bbox_pixels_xywh": [
+                446,
+                46,
+                56,
+                13
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 95.494278,
+              "bbox_pixels_xywh": [
+                32,
+                89,
+                120,
+                21
+              ]
+            },
+            {
+              "text": "=.",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                14,
+                158,
+                289,
+                13
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.703773,
+              "bbox_pixels_xywh": [
+                30,
+                201,
+                63,
+                21
+              ]
+            },
+            {
+              "text": "was",
+              "confidence": 14.02791,
+              "bbox_pixels_xywh": [
+                14,
+                269,
+                289,
+                13
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 96.678589,
+              "bbox_pixels_xywh": [
+                28,
+                311,
+                159,
+                27
+              ]
+            },
+            {
+              "text": "YT",
+              "confidence": 31.168032,
+              "bbox_pixels_xywh": [
+                14,
+                360,
+                289,
+                16
+              ]
+            },
+            {
+              "text": "SF",
+              "confidence": 35.447411,
+              "bbox_pixels_xywh": [
+                14,
+                381,
+                289,
+                13
+              ]
+            },
+            {
+              "text": "Technology",
+              "confidence": 96.638168,
+              "bbox_pixels_xywh": [
+                28,
+                423,
+                161,
+                27
+              ]
+            },
+            {
+              "text": "YS",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                10,
+                467,
+                73,
+                30
+              ]
+            },
+            {
+              "text": "The",
+              "confidence": 96.550972,
+              "bbox_pixels_xywh": [
+                53,
+                515,
+                24,
+                10
+              ]
+            },
+            {
+              "text": "Open",
+              "confidence": 95.914902,
+              "bbox_pixels_xywh": [
+                83,
+                515,
+                35,
+                13
+              ]
+            },
+            {
+              "text": "Group",
+              "confidence": 95.914902,
+              "bbox_pixels_xywh": [
+                125,
+                515,
+                39,
+                12
+              ]
+            }
+          ],
+          "mean_word_confidence": 61.49,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

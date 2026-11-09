@@ -1,0 +1,105 @@
+{
+  "policy": {
+    "policy_id": "POLICY-STOCK",
+    "policy_version": "v1",
+    "capability_id": "CAP-RESERVE",
+    "offline_item_limit": 2,
+    "max_pending_hours": 24,
+    "confirmation": "central-atomic-reservation-only",
+    "logistics_entry": "ORDER-CONFIRMED",
+    "origin": "explicit-fictional-business-material",
+    "real_business_approval": "not-granted"
+  },
+  "interface": {
+    "protocol": "候选持久队列与批量重放",
+    "payload": "event_id, order_id, sku, quantity, accepted_at, policy_version；按v1核对限量与期限",
+    "version": "候选v2",
+    "source_role": "authored-design-candidate",
+    "policy": {
+      "policy_id": "POLICY-STOCK",
+      "policy_version": "v1",
+      "capability_id": "CAP-RESERVE",
+      "offline_item_limit": 2,
+      "max_pending_hours": 24,
+      "confirmation": "central-atomic-reservation-only",
+      "logistics_entry": "ORDER-CONFIRMED",
+      "origin": "explicit-fictional-business-material",
+      "real_business_approval": "not-granted"
+    }
+  },
+  "risk": {
+    "risk": "旧政策事件、过期受理及库存冲突",
+    "action": "演练断连、重连、幂等重放、库存不足、丢失恢复和回退",
+    "owner": "库存分段架构师",
+    "due_date": "2026-12-04",
+    "control": "按v1隔离超额/过期，中央重验库存；不把待确认订单发物流",
+    "expected_residual": "待演练，不填概率或残余风险分数",
+    "start": "2026-11-09",
+    "end": "2026-12-04",
+    "policy": {
+      "policy_id": "POLICY-STOCK",
+      "policy_version": "v1",
+      "capability_id": "CAP-RESERVE",
+      "offline_item_limit": 2,
+      "max_pending_hours": 24,
+      "confirmation": "central-atomic-reservation-only",
+      "logistics_entry": "ORDER-CONFIRMED",
+      "origin": "explicit-fictional-business-material",
+      "real_business_approval": "not-granted"
+    }
+  },
+  "operations": {
+    "pending_item_limit": 2,
+    "max_pending_hours": 24,
+    "owner": "虚构库存运营负责人",
+    "escalation": "超额/过期隔离并人工联系，不自动发货"
+  },
+  "transition": {
+    "definition": "按当前版本限量和期限持久受理待确认；中央重验库存后确认，过期及冲突转人工",
+    "operating_conditions": {
+      "operations": "库存运营每班巡检队列；24小时临界记录进入人工处理",
+      "data_consistency": "中央原子预占成功才确认",
+      "dependencies": "版本化接口和混合队列演练",
+      "controls": "幂等、超额、过期与冲突隔离",
+      "rollback": "停止新离线受理，保留存量逐笔对账"
+    },
+    "ordinal": 2,
+    "start": "2026-11-21",
+    "end": "2026-12-04",
+    "source_role": "authored-design-candidate",
+    "policy": {
+      "policy_id": "POLICY-STOCK",
+      "policy_version": "v1",
+      "capability_id": "CAP-RESERVE",
+      "offline_item_limit": 2,
+      "max_pending_hours": 24,
+      "confirmation": "central-atomic-reservation-only",
+      "logistics_entry": "ORDER-CONFIRMED",
+      "origin": "explicit-fictional-business-material",
+      "real_business_approval": "not-granted"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "TEST-LIMIT",
+      "policy_version": "v1",
+      "accept_quantity": 2,
+      "exception_quantity": 3
+    },
+    {
+      "id": "TEST-EXPIRY",
+      "policy_version": "v1",
+      "boundary_hours": 24
+    },
+    {
+      "id": "TEST-DUPLICATE",
+      "policy_version": "v1",
+      "expect": "同事件同订单幂等，不同订单隔离"
+    },
+    {
+      "id": "TEST-FULFIL",
+      "policy_version": "v1",
+      "expect": "只允许确认订单进入物流"
+    }
+  ]
+}

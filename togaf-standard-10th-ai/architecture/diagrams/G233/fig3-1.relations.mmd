@@ -1,0 +1,37 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Stakeholder"]
+  n1["Value"]
+  n2["Goal"]
+  n3["Outcome"]
+  n4["Value Stream"]
+  n5["Value Stream Stage"]
+  n6["Business Capability"]
+  n7["Business Capability Instance"]
+  n8["Business Event"]
+  n9["Business Object"]
+  n10["Application Component"]
+  n11["Data Object"]
+  n12["Application Process"]
+  n13["Resource"]
+  n14["Business Process"]
+  n15["Business Role"]
+  n0 -->|"关联"| n4
+  n0 -->|"关联"| n1
+  n4 -->|"关联"| n1
+  n4 -->|"关联"| n2
+  n4 -->|"包含组成"| n5
+  n1 -->|"作为价值项用于"| n5
+  n8 -->|"触发"| n4
+  n6 -->|"支撑/服务"| n5
+  n7 -->|"实例化"| n6
+  n6 -->|"产生/交付"| n3
+  n9 -->|"映射"| n6
+  n9 -->|"映射"| n11
+  n10 -->|"映射"| n7
+  n13 -->|"支撑/服务"| n7
+  n14 -->|"使能"| n7
+  n15 -->|"参与/分配"| n14
+  n15 -->|"使用"| n10
+  n2 -->|"产生/交付"| n3
+  n1 -->|"关联"| n3

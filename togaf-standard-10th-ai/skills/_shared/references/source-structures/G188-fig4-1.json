@@ -1,0 +1,961 @@
+{
+  "schema_version": "2.0",
+  "id": "G188/fig4-1",
+  "title": "TOGAF ADM 与 PRINCE2 映射（高层）",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      1376
+    ],
+    "label_table_lines": [
+      1380,
+      1414
+    ]
+  },
+  "reading": {
+    "purpose_zh": "给出 TOGAF ADM 与 PRINCE2 的高层映射：说明阶段 A 的工作如何由 PRINCE2 的“项目启动”和“发起”流程支撑，B–F 如何作为工作交付阶段在“管理阶段边界”和“控制阶段”下运行，以及这些 PRINCE2 流程分别对应本指南第 3 章的哪一节。",
+    "reading_guide_zh": "原图应从左上“Establish the Project”开始向下读：ADM 阶段 A 的任务列在左，PRINCE2 流程列在中。先看“Starting Up the Project”五个流程自上而下，再进入“Initiation”五个流程；ADM 任务与 PRINCE2 流程之间的实线箭头表示流程依赖，点线表示 ADM 产出作为 PRINCE2 流程的输入（Define Scope/Constraints→Project Controls、Identify Stakeholders→Create Project Plan、SoAW→Assemble PID），虚线表示产品交付（Stage Plan、Handover）。下方 B–F 圆代表阶段执行，其右侧是 Controlling the Stage 的 8 项活动与 Managing the Stage Boundary 的 5 项活动，最后进入 Closing。右侧 Detailed Guidance 列说明每一段对应的章节。",
+    "key_points_zh": [
+      "ADM 阶段 A 被拆成七个任务，与 PRINCE2 的“项目启动”和“发起”两个流程组并行对应，而不是阶段 A 整体对应一个 PRINCE2 流程。",
+      "“项目启动”的五个流程按顺序执行：任命执行发起人与项目经理→设计项目管理团队→编制概要商业论证→选择项目方法并汇编项目任务书→规划发起阶段；最后产出 Stage Plan (Initiation)。",
+      "“发起”的五个流程：编制管理策略→建立项目控制→创建项目计划→细化商业论证→汇编项目启动文档；Prepare Management Strategy 还展开为风险、配置、质量、沟通四项管理策略。",
+      "点线表示 ADM 任务为 PRINCE2 流程提供输入：定义范围与定义约束输入“项目控制”，识别利益相关者输入“创建项目计划”，架构工作说明书输入“汇编项目启动文档”。",
+      "B–F 不作为单个 PRINCE2 流程，而是作为工作交付阶段，在“管理阶段边界”（规划下一阶段、更新计划与商业论证、报告阶段结束、编制例外计划）和“控制阶段”下循环。",
+      "Controlling the Stage 的 8 项活动从授权工作包到采取纠正措施，覆盖工作包全生命周期与阶段状态报告；它是 PRINCE2 对 B–F 日常控制的抓手。",
+      "阶段 F 之后进入 PRINCE2“项目收尾”：准备收尾→产品移交→评估项目→建议收尾。",
+      "右侧 Detailed Guidance 列把映射落到本指南章节：3.1 启动、3.2 规划、3.3 阶段规划、3.4 执行监控、3.5 阶段收尾、3.6 项目收尾。"
+    ],
+    "hierarchy_zh": "横向三个泳道：ADM（阶段 A）、PRINCE2（四个流程组）、Detailed Guidance（第 3 章六节）。PRINCE2 内部再分流程组（大框）与流程（小框），流程组是流程的容器；Controlling the Stage 的 8 项活动是 B–F 阶段执行活动的清单，不是流程组的下级流程。",
+    "line_semantics_zh": "实线箭头=流程依赖（前一个流程/任务完成后进入下一个）；点线箭头=输入依赖（左侧 ADM 任务的产出被右侧 PRINCE2 流程使用）；虚线箭头=产品交付（流程产出文档，如 Stage Plan、Handover）；粗蓝箭头=简化流程组（Directing the Project、Controlling the Stage），把多个流程归并为一个管理动作。箭头方向一律从左到右或从上到下，表示时间/输入流向。",
+    "misreadings_zh": [
+      "不要把 ADM 阶段 A 与 PRINCE2“发起”当成一一对应：阶段 A 的任务与“项目启动”“发起”两个流程组并行，且只是部分任务有输入关系。",
+      "不要把 B–F 当成一个 PRINCE2 流程；它是被“管理阶段边界”和“控制阶段”管理的一组工作交付阶段。",
+      "不要把点线当成流程顺序：点线只表示输入依赖，可能跨越多个流程。",
+      "不要把 Controlling the Stage 的 8 项活动漏掉；中文稿重绘 SVG 未画这 8 项，是本图最容易被误读的地方。",
+      "右侧黑色块是 Detailed Guidance 的章节索引，不是 PRINCE2 阶段。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "lane_adm",
+      "label_en": "ADM (A)",
+      "label_zh": "ADM（阶段 A）",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "左列大框"
+    },
+    {
+      "id": "adm_establish",
+      "label_en": "Establish the Project",
+      "label_zh": "建立项目",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "adm_goals",
+      "label_en": "Identify Business Goals & Business Drivers",
+      "label_zh": "识别业务目标与业务驱动因素",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "adm_principles",
+      "label_en": "Review Architecture Principles inc. Business Principles",
+      "label_zh": "评审架构原则（含业务原则）",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "adm_scope",
+      "label_en": "Define Scope",
+      "label_zh": "定义范围",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "adm_constraints",
+      "label_en": "Define Constraints",
+      "label_zh": "定义约束",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "adm_stakeholders",
+      "label_en": "Identify Stakeholders & Concerns, Bus Reqs & Arch Vision",
+      "label_zh": "识别利益相关者与关注点、业务需求与架构愿景",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 6
+    },
+    {
+      "id": "adm_soaw",
+      "label_en": "Define Statement of Architecture Work and Secure Approval",
+      "label_zh": "编制架构工作说明书并获得批准",
+      "type": "process",
+      "parent": "lane_adm",
+      "level": 1,
+      "order": 7
+    },
+    {
+      "id": "lane_su",
+      "label_en": "PRINCE2 (Starting Up the Project)",
+      "label_zh": "PRINCE2（项目启动）",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "中列上部"
+    },
+    {
+      "id": "su_appoint",
+      "label_en": "Appoint Project Executives and Project Manager",
+      "label_zh": "任命项目执行发起人与项目经理",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "su_team",
+      "label_en": "Design a Project Management Team",
+      "label_zh": "设计项目管理团队",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "su_business_case",
+      "label_en": "Prepare Outline Business Case",
+      "label_zh": "编制概要商业论证",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "su_brief",
+      "label_en": "Prepare Project Approach and Assemble Project Brief",
+      "label_zh": "选择项目方法并汇编项目任务书",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "su_plan_initiation",
+      "label_en": "Plan the Initiation Stage",
+      "label_zh": "规划发起阶段",
+      "type": "process",
+      "parent": "lane_su",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "stage_plan_init",
+      "label_en": "Stage Plan (Initiation)",
+      "label_zh": "阶段计划（发起）",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "position": "Starting Up 组右侧"
+    },
+    {
+      "id": "lane_initiation",
+      "label_en": "PRINCE2 (Initiation)",
+      "label_zh": "PRINCE2（发起）",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "中列中部"
+    },
+    {
+      "id": "ini_mgmt_strategy",
+      "label_en": "Prepare Management Strategy",
+      "label_zh": "编制管理策略",
+      "type": "process",
+      "parent": "lane_initiation",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "ini_controls",
+      "label_en": "Project Controls",
+      "label_zh": "项目控制",
+      "type": "process",
+      "parent": "lane_initiation",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "ini_project_plan",
+      "label_en": "Create Project Plan",
+      "label_zh": "创建项目计划",
+      "type": "process",
+      "parent": "lane_initiation",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "ini_business_case",
+      "label_en": "Refine the Business Case",
+      "label_zh": "细化商业论证",
+      "type": "process",
+      "parent": "lane_initiation",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "ini_pid",
+      "label_en": "Assemble the Project Initiation Document",
+      "label_zh": "汇编项目启动文档",
+      "type": "process",
+      "parent": "lane_initiation",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "strategy_set",
+      "label_en": "Prepare the: Risk Mgmt Strategy / Configuration Mgmt Strategy / Quality Mgmt Strategy / Communication Mgmt Strategy",
+      "label_zh": "编制风险管理策略、配置管理策略、质量管理策略、沟通管理策略",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "position": "Initiation 组右侧注释框"
+    },
+    {
+      "id": "handover",
+      "label_en": "Handover",
+      "label_zh": "移交",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "position": "Initiation 组右侧"
+    },
+    {
+      "id": "adm_bf",
+      "label_en": "ADM Phases B to F",
+      "label_zh": "ADM 阶段 B–F",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "position": "中下部左侧圆"
+    },
+    {
+      "id": "controlling_box",
+      "label_en": "Controlling the Stage (8 activities)",
+      "label_zh": "控制阶段（8 项活动清单）",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "B–F 圆右侧方框",
+      "description_zh": "原图方框无标题，标题来自旁边的蓝色箭头。"
+    },
+    {
+      "id": "ctl_authorize",
+      "label_en": "Authorize a Project Work Package",
+      "label_zh": "授权项目工作包",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "ctl_review_pkg",
+      "label_en": "Review Project Work Package Status",
+      "label_zh": "审查项目工作包状态",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "ctl_receive_pkg",
+      "label_en": "Receive Completed Project Work Package",
+      "label_zh": "接收已完成的项目工作包",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "ctl_stage_status",
+      "label_en": "Review a Stage Status",
+      "label_zh": "审查阶段状态",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "ctl_report_highlights",
+      "label_en": "Report Highlights",
+      "label_zh": "报告要点",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "ctl_capture_issues",
+      "label_en": "Capture and Examine Issues and Risks",
+      "label_zh": "捕获并审查问题与风险",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 6
+    },
+    {
+      "id": "ctl_escalate",
+      "label_en": "Escalate Issues and Risks",
+      "label_zh": "上报问题与风险",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 7
+    },
+    {
+      "id": "ctl_corrective",
+      "label_en": "Take Corrective Action",
+      "label_zh": "采取纠正措施",
+      "type": "process",
+      "parent": "controlling_box",
+      "level": 2,
+      "order": 8
+    },
+    {
+      "id": "lane_msb",
+      "label_en": "PRINCE2 (Managing the Stage Boundary)",
+      "label_zh": "PRINCE2（管理阶段边界）",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "中下部右侧"
+    },
+    {
+      "id": "msb_next_stage",
+      "label_en": "Plan the Next Stage",
+      "label_zh": "规划下一阶段",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "msb_update_plans",
+      "label_en": "Update Project Plans",
+      "label_zh": "更新项目计划",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "msb_update_bc",
+      "label_en": "Update Business Case",
+      "label_zh": "更新商业论证",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "msb_report_end",
+      "label_en": "Report Stage End",
+      "label_zh": "报告阶段结束",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "msb_exception",
+      "label_en": "Produce Exception Plan",
+      "label_zh": "编制例外计划",
+      "type": "process",
+      "parent": "lane_msb",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "lane_closing",
+      "label_en": "PRINCE2 (Closing the Project)",
+      "label_zh": "PRINCE2（项目收尾）",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "底部中央"
+    },
+    {
+      "id": "close_prepare",
+      "label_en": "Prepare Closure",
+      "label_zh": "准备收尾",
+      "type": "process",
+      "parent": "lane_closing",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "close_handover",
+      "label_en": "Product Handover",
+      "label_zh": "产品移交",
+      "type": "process",
+      "parent": "lane_closing",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "close_evaluate",
+      "label_en": "Evaluate the Project",
+      "label_zh": "评估项目",
+      "type": "process",
+      "parent": "lane_closing",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "close_recommend",
+      "label_en": "Recommend Closure",
+      "label_zh": "建议收尾",
+      "type": "process",
+      "parent": "lane_closing",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "lane_guidance",
+      "label_en": "Detailed Guidance",
+      "label_zh": "详细指南",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "右列"
+    },
+    {
+      "id": "g31",
+      "label_en": "3.1 Start Up Architecture Project",
+      "label_zh": "3.1 启动架构项目",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "g32",
+      "label_en": "3.2 Architecture Project Planning",
+      "label_zh": "3.2 架构项目规划",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "g33",
+      "label_en": "3.3 Planning a Stage",
+      "label_zh": "3.3 阶段规划",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "g34",
+      "label_en": "3.4 Monitor / Manage / Control a Stage",
+      "label_zh": "3.4 监控/管理/控制阶段",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "g35",
+      "label_en": "3.5 Ending a Stage",
+      "label_zh": "3.5 阶段收尾",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "g36",
+      "label_en": "3.6 Architecture Project Closing",
+      "label_zh": "3.6 架构项目收尾",
+      "type": "phase",
+      "parent": "lane_guidance",
+      "level": 1,
+      "order": 6
+    },
+    {
+      "id": "directing_project",
+      "label_en": "Directing the Project",
+      "label_zh": "指导项目",
+      "type": "note",
+      "parent": null,
+      "position": "Detailed Guidance 列左侧蓝箭头（3.1–3.2）"
+    },
+    {
+      "id": "controlling_stage",
+      "label_en": "Controlling the Stage",
+      "label_zh": "控制阶段",
+      "type": "note",
+      "parent": null,
+      "position": "B–F 与清单之间的蓝箭头；Detailed Guidance 列 3.3–3.6 左侧"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "adm_goals",
+      "to": "adm_principles",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_principles",
+      "to": "adm_scope",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_scope",
+      "to": "adm_constraints",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_constraints",
+      "to": "adm_stakeholders",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_stakeholders",
+      "to": "adm_soaw",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_establish",
+      "to": "su_appoint",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_appoint",
+      "to": "su_team",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_team",
+      "to": "su_business_case",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_business_case",
+      "to": "su_brief",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_brief",
+      "to": "su_plan_initiation",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "su_plan_initiation",
+      "to": "stage_plan_init",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "虚线产品交付"
+    },
+    {
+      "from": "su_plan_initiation",
+      "to": "adm_goals",
+      "type": "triggering",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "向左箭头指向 ADM“识别业务目标”"
+    },
+    {
+      "from": "lane_su",
+      "to": "lane_initiation",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "Starting Up 组底部指向 Initiation 组顶部"
+    },
+    {
+      "from": "ini_mgmt_strategy",
+      "to": "ini_controls",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_controls",
+      "to": "ini_project_plan",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_project_plan",
+      "to": "ini_business_case",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_business_case",
+      "to": "ini_pid",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "ini_mgmt_strategy",
+      "to": "strategy_set",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "右侧注释框展开四项策略"
+    },
+    {
+      "from": "ini_pid",
+      "to": "handover",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "adm_scope",
+      "to": "ini_controls",
+      "type": "consumes",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "点线输入依赖"
+    },
+    {
+      "from": "adm_constraints",
+      "to": "ini_controls",
+      "type": "consumes",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "点线输入依赖；与 Define Scope 的点线汇合后进入 Project Controls"
+    },
+    {
+      "from": "adm_stakeholders",
+      "to": "ini_project_plan",
+      "type": "consumes",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "实线箭头直接进入“创建项目计划”"
+    },
+    {
+      "from": "adm_soaw",
+      "to": "ini_pid",
+      "type": "consumes",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "SoAW 输入“汇编项目启动文档”"
+    },
+    {
+      "from": "lane_initiation",
+      "to": "lane_msb",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "Initiation 组底部箭头指向 Managing the Stage Boundary 组顶部"
+    },
+    {
+      "from": "adm_bf",
+      "to": "msb_next_stage",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "B–F 圆顶部引线向右进入“规划下一阶段”"
+    },
+    {
+      "from": "controlling_stage",
+      "to": "adm_bf",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "description_zh": "粗蓝双箭头连接 B–F 与 8 项活动清单"
+    },
+    {
+      "from": "controlling_stage",
+      "to": "g33",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "Detailed Guidance 列蓝色箭头贯穿 3.3–3.6"
+    },
+    {
+      "from": "directing_project",
+      "to": "g31",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "蓝色箭头贯穿 3.1–3.2"
+    },
+    {
+      "from": "msb_next_stage",
+      "to": "msb_update_plans",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "msb_update_plans",
+      "to": "msb_update_bc",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "controlling_box",
+      "to": "msb_report_end",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "lane_msb",
+      "to": "lane_closing",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "close_prepare",
+      "to": "close_handover",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "close_handover",
+      "to": "close_evaluate",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "close_evaluate",
+      "to": "close_recommend",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "g33",
+      "to": "g34",
+      "type": "sequence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "Detailed Guidance 列按章节顺序自上而下"
+    },
+    {
+      "from": "g34",
+      "to": "g35",
+      "type": "sequence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "g35",
+      "to": "g36",
+      "type": "sequence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_startup",
+      "kind": "sequence",
+      "name_zh": "PRINCE2 项目启动流程",
+      "steps": [
+        "adm_establish",
+        "su_appoint",
+        "su_team",
+        "su_business_case",
+        "su_brief",
+        "su_plan_initiation"
+      ]
+    },
+    {
+      "id": "f_initiation",
+      "kind": "sequence",
+      "name_zh": "PRINCE2 发起流程",
+      "steps": [
+        "ini_mgmt_strategy",
+        "ini_controls",
+        "ini_project_plan",
+        "ini_business_case",
+        "ini_pid"
+      ]
+    },
+    {
+      "id": "f_stage_cycle",
+      "kind": "loop",
+      "name_zh": "B–F 阶段循环（管理阶段边界）",
+      "steps": [
+        "adm_bf",
+        "msb_next_stage",
+        "msb_update_plans",
+        "msb_update_bc",
+        "msb_report_end",
+        "adm_bf"
+      ]
+    },
+    {
+      "id": "f_closing",
+      "kind": "sequence",
+      "name_zh": "PRINCE2 项目收尾流程",
+      "steps": [
+        "close_prepare",
+        "close_handover",
+        "close_evaluate",
+        "close_recommend"
+      ]
+    }
+  ],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "黑色块 + “Phase According to Detailed Guidance”",
+      "meaning_zh": "详细指南中对应章节的阶段块",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Grouping Box（矩形大框）",
+      "meaning_zh": "流程组",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Name（两端带竖线矩形）",
+      "meaning_zh": "流程名称",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Deliverable（波浪底文档形状）",
+      "meaning_zh": "流程交付物",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Flow Dependency（实线箭头）",
+      "meaning_zh": "流程依赖",
+      "explicit": true
+    },
+    {
+      "symbol": "Input Dependency（点线箭头）",
+      "meaning_zh": "输入依赖",
+      "explicit": true
+    },
+    {
+      "symbol": "Product Delivery（虚线箭头）",
+      "meaning_zh": "产品交付",
+      "explicit": true
+    },
+    {
+      "symbol": "Simplified Process Group（粗蓝箭头）",
+      "meaning_zh": "简化流程组",
+      "explicit": true
+    },
+    {
+      "symbol": "TOGAF ADM Phases B to F（圆）",
+      "meaning_zh": "ADM 阶段 B–F 的执行",
+      "explicit": true
+    }
+  ],
+  "uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "原图中 Define Scope 与 Define Constraints 的点线在进入 Project Controls 前是否合并为一条，放大后仍有一条竖线连接两段点线；本分析记录为两条输入，汇合后进入同一流程。",
+      "“Identify Stakeholders & Concerns, Bus Reqs & Arch Vision”到“Create Project Plan”的线为实线，但按语义是输入依赖；原图线型在小尺寸下难辨，本文按实线记录并在描述中说明。",
+      "Detailed Guidance 列两条点线（3.3→3.5、3.4→3.6）的确切起止因黑块遮挡不易判断，本分析只记录章节顺序的隐含关系，未单列这两条点线。",
+      "B–F 圆与“Plan the Next Stage”的连线在穿过 MSB 组边框处没有明显箭头，方向按流程阅读判断。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 79 页原图截图（含 3x3 放大分块）",
+      "英文 PDF 第 77–79 页正文",
+      "中文稿 G188e_架构项目管理.md 第 1370–1414 行及图内标签对照表 L1380–L1414",
+      "figs/g188e_fig4-1_en.png 与 figs/zh/g188e_fig4-1_zh.svg 文本内容"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G188/fig4-1",
+    "asset": "figs/g188e_fig4-1_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "06"
+  }
+}

@@ -1,0 +1,818 @@
+{
+  "schema_version": "capability-addenda/1",
+  "id": "field-contracts-02",
+  "status": "registered-not-accepted",
+  "owner": "togaf-architecture-workbench",
+  "notice": "项目操作契约；复用现有指南摘要，不表示TOGAF官方语义验收。旧检查显式保留为专业review；机器断言仅限绑定的真实执行器。",
+  "patches": [
+    {
+      "group": "work_products",
+      "id": "rollback-plan",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "回退不是仅写恢复备份，应说明业务与数据恢复条件",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "回退不是仅写恢复备份，应说明业务与数据恢复条件",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "rollback_step"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-impact-analysis",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "图可达只是候选影响，不能自动认定所有对象受损",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "图可达只是候选影响，不能自动认定所有对象受损",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "security_impact"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-audit-record",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "生成审计表不能证明渗透测试或控制运行已经完成",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "生成审计表不能证明渗透测试或控制运行已经完成",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "audit_finding"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-training-plan",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "计划中的培训不等于完成或达到熟练度",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "计划中的培训不等于完成或达到熟练度",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "training_need"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-maturity-model",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "ACMM 六级九要素是指南示例，不是所有 TOGAF 项目的统一评级",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "ACMM 六级九要素是指南示例，不是所有 TOGAF 项目的统一评级",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-maturity-scorecard",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "加权等级与各级达成百分比是互补结果，不能互相替代",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "加权等级与各级达成百分比是互补结果，不能互相替代",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "maturity_observation",
+                "assessment_result"
+              ]
+            }
+          }
+        ],
+        "entity_attribute_semantics": {
+          "assessment_result": {
+            "subject_ref": {
+              "meaning": "评估对象的稳定引用",
+              "value_rule": "评估对象的稳定引用；与范围、方法和期间一起确定结果适用对象",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G203 §2.2–2.3"
+              ]
+            },
+            "method_ref": {
+              "meaning": "评估结果采用的方法引用",
+              "value_rule": "评估结果采用的方法引用；与评分口径及版本可定位关联",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G203 §2.2–2.3"
+              ]
+            },
+            "result_value": {
+              "meaning": "评估结果值及尺度",
+              "value_rule": "评估结果值及尺度；原始分项与聚合分开，无方法依据不得算总分",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  {
+                    "type": "object",
+                    "minProperties": 1
+                  }
+                ]
+              },
+              "source_refs": [
+                "G203 §2.2–2.3"
+              ]
+            },
+            "unit": {
+              "meaning": "评估结果的单位或量表标识",
+              "value_rule": "评估结果的单位或量表标识；不可将不同单位结果直接相加",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G203 §2.2–2.3"
+              ]
+            },
+            "period": {
+              "meaning": "结果或核算记录的时间窗",
+              "value_rule": "结果或核算记录的时间窗；注明起止、周期口径，不混合不同期间的值",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  {
+                    "type": "object",
+                    "minProperties": 1
+                  }
+                ]
+              },
+              "source_refs": [
+                "G203 §2.2–2.3"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "digital-adoption-position",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "ABCD 不是由低到高的优劣或成熟度等级",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "ABCD 不是由低到高的优劣或成熟度等级",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "adoption_option"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "digital-readiness-questionnaire",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "问卷答案不是客观测量值，需说明参与者与共识过程",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "问卷答案不是客观测量值，需说明参与者与共识过程",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "readiness_question"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "digital-readiness-assessment",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "没有来源或用户规则时不创建统一总分合格线",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "没有来源或用户规则时不创建统一总分合格线",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "readiness_factor"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "readiness-consequence-analysis",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "背景重复因素列表不表示全连接依赖，后果未自带概率和严重度",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "背景重复因素列表不表示全连接依赖，后果未自带概率和严重度",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "adoption-factor-progression",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "射线长度和角度不是定量评分，因素层次不等于 ADM 阶段",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "基础、影响、持续三层完整；类型1/2/3不是实施步骤",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "类型2满足基础与影响；类型3还须满足持续因素",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "日期不进入因素递进图；项目分类须以明确评估证据支持",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "readiness_factor",
+                "assessment_result"
+              ]
+            }
+          }
+        ],
+        "entity_attribute_semantics": {
+          "assessment_result": {
+            "organization_type": {
+              "meaning": "采用就绪类型1/2/3；解释性类别，表示满足列明因素层，不是实施步骤或已批准企业评定",
+              "value_rule": "整数1、2或3；类型1仅基础层，类型2基础与影响，类型3三层均满足。不得把类型当成项目阶段。",
+              "definition_origin": "project-operational-convention-guided-by-cited-source",
+              "value_schema": {
+                "type": "integer",
+                "enum": [
+                  1,
+                  2,
+                  3
+                ]
+              },
+              "source_refs": [
+                "G212 §5.4",
+                "图5-4"
+              ]
+            },
+            "fulfilled_layers": {
+              "meaning": "该评估情形已声明满足的因素层",
+              "value_rule": "数组，元素仅限 foundational/impact/sustaining；须与 organization_type 的层定义一致，不能由射线长度推断。",
+              "definition_origin": "project-operational-convention-guided-by-cited-source",
+              "value_schema": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "foundational",
+                    "impact",
+                    "sustaining"
+                  ]
+                }
+              },
+              "source_refs": [
+                "G212 §5.4",
+                "图5-4"
+              ]
+            },
+            "interpretation": {
+              "meaning": "评估结果的业务解释与排除边界",
+              "value_rule": "非空文字，须说明不是项目步骤、分数或已批准评定。",
+              "definition_origin": "project-operational-convention-guided-by-cited-source",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G212 §5.4",
+                "图5-4"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "business-scenario-document",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "业务场景不能由单张用例图替代，也不能预设技术答案",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "业务场景不能由单张用例图替代，也不能预设技术答案",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "scenario"
+              ]
+            }
+          },
+          {
+            "id": "checks-gap-closure-1",
+            "text": "业务场景各步骤清单和SMART目的分别记录，勾选完成不等于场景被接受",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-gap-closure-1",
+            "text": "业务场景各步骤清单和SMART目的分别记录，勾选完成不等于场景被接受",
+            "mode": "review",
+            "source": "semantic_checks"
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "scenario-traceability-matrix",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "矩阵关联不等于流程控制顺序或 CRUD",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "矩阵关联不等于流程控制顺序或 CRUD",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-5",
+            "text": "每个规范条目可追溯只读原始记录与转换步骤",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-6",
+            "text": "复合陈述不得丢失子句",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-7",
+            "text": "每个痛点至少一个成果",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-8",
+            "text": "矩阵关系没有未经原文授权的CRUD/顺序/责任编码",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-9",
+            "text": "同ID复用、重名不同ID不合并",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-10",
+            "text": "单一制品请求仍可输出本矩阵和最小必要追溯，不强制全套成果",
+            "mode": "review",
+            "source": "semantic_checks"
+          }
+        ]
+      }
+    }
+  ]
+}

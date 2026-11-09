@@ -1,0 +1,1074 @@
+{
+  "schema_version": "capability-addenda/1",
+  "id": "field-contracts-09",
+  "status": "registered-not-accepted",
+  "owner": "togaf-architecture-workbench",
+  "notice": "项目操作契约；复用现有指南摘要，不表示TOGAF官方语义验收。旧检查显式保留为专业review；机器断言仅限绑定的真实执行器。",
+  "patches": [
+    {
+      "group": "work_products",
+      "id": "interoperability-assessment",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "网络连通不能证明语义和业务互操作",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "网络连通不能证明语义和业务互操作",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "interoperability_issue",
+                "equipment"
+              ]
+            }
+          }
+        ],
+        "entity_attribute_semantics": {
+          "equipment": {
+            "equipment_class": {
+              "meaning": "设备业务或技术分类",
+              "value_rule": "设备业务或技术分类；引用分类规则，不以设备名称自行推断分类",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G217 §4.4.4、附录C.4表C-5"
+              ]
+            },
+            "work_center_ref": {
+              "meaning": "设备归属工作中心的稳定引用",
+              "value_rule": "设备归属工作中心的稳定引用；位置相近不自动表示归属或产线依赖",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G217 §4.4.4、附录C.4表C-5"
+              ]
+            },
+            "criticality": {
+              "meaning": "对象对业务连续性的关键程度",
+              "value_rule": "对象对业务连续性的关键程度；声明量表和损失依据，不无来源赋高低分",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  {
+                    "type": "object",
+                    "minProperties": 1
+                  }
+                ]
+              },
+              "source_refs": [
+                "G217 §4.4.4、附录C.4表C-5"
+              ]
+            },
+            "maintenance_plan_ref": {
+              "meaning": "设备维护计划引用",
+              "value_rule": "设备维护计划引用；关联版本与有效期，未执行计划不当作设备可用证据",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    }
+                  }
+                ]
+              },
+              "source_refs": [
+                "G217 §4.4.4、附录C.4表C-5"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "ea-value-map",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "相关性或贡献假设不能直接断言为确定收益因果",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "相关性或贡献假设不能直接断言为确定收益因果",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "ea_value"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "ea-team-capacity-plan",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "人数不等于可用容量，技能熟练度不等于工时",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "人数不等于可用容量，技能熟练度不等于工时",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "ea_capacity"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-skill-matrix",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "G249 四级熟练度不等于组织成熟度，参考等级可以裁剪",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "G249 四级熟练度不等于组织成熟度，参考等级可以裁剪",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "skill"
+              ]
+            }
+          },
+          {
+            "id": "g249-semantic_checks-0",
+            "text": "原文参考目标绑定原始技能与六个角色列；Chief和通用Segment不得伪造列",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "g249-semantic_checks-1",
+            "text": "评级必须绑定量表和语义；未评价保留null，非法等级报错",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "g249-semantic_checks-2",
+            "text": "项目目标保留任务和裁剪理由；个人观察保留正向行为证据与时点",
+            "mode": "review",
+            "source": "semantic_checks"
+          }
+        ],
+        "entity_attribute_semantics": {
+          "skill": {
+            "skill_name": {
+              "meaning": "技能的业务名称",
+              "value_rule": "技能的业务名称；保留来源技能类别，不能用持有人岗位名称替代技能",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G249 §5表5-1、5-2",
+                "G198 §4.4、§5表5-1至5-7（已被G249取代）"
+              ]
+            },
+            "proficiency_level": {
+              "meaning": "技能熟练度及量表锚点",
+              "value_rule": "技能熟练度及量表锚点；须注明评估方式，未评估不赋最低分",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  {
+                    "type": "object",
+                    "minProperties": 1
+                  }
+                ]
+              },
+              "source_refs": [
+                "G249 §5表5-1、5-2",
+                "G198 §4.4、§5表5-1至5-7（已被G249取代）"
+              ]
+            },
+            "holder_ref": {
+              "meaning": "技能持有人或角色的稳定引用",
+              "value_rule": "技能持有人或角色的稳定引用；未评估人员不能据此视为已具备能力",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    }
+                  }
+                ]
+              },
+              "source_refs": [
+                "G249 §5表5-1、5-2",
+                "G198 §4.4、§5表5-1至5-7（已被G249取代）"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-development-plan",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "参加培训不自动提升为专家等级",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "参加培训不自动提升为专家等级",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "skill_development"
+              ]
+            }
+          },
+          {
+            "id": "g249-semantic_checks-0",
+            "text": "每项发展行动绑定技能、任务要求和量表，目标与当前证据分开",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "g249-semantic_checks-1",
+            "text": "完成培训不自动提升评级；复评完成须引用实测评价和行为证据",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "g249-semantic_checks-2",
+            "text": "历史证据不覆盖；目标不随观察值变化；未证明高级不自动降为低级",
+            "mode": "review",
+            "source": "semantic_checks"
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-project-wbs",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "架构项目在该指南限 A–F，不代表所有架构工作都限于 A–F",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "架构项目在该指南限 A–F，不代表所有架构工作都限于 A–F",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "architecture_task"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-project-schedule",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "没有依赖和工期证据不能宣称算出关键路径",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "没有依赖和工期证据不能宣称算出关键路径",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "architecture_activity",
+                "milestone"
+              ]
+            }
+          }
+        ],
+        "entity_attribute_semantics": {
+          "milestone": {
+            "due_date": {
+              "meaning": "里程碑计划到期日",
+              "value_rule": "里程碑计划到期日；使用ISO 8601日历日期，变更须保持依赖与退出条件一致",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S",
+                "format": "date"
+              },
+              "source_refs": [
+                "G188 §3.2.6–3.2.7",
+                "G210 §3.3–3.3.8"
+              ]
+            },
+            "exit_criteria": {
+              "meaning": "里程碑退出条件",
+              "value_rule": "里程碑退出条件；列可核实结果、验收责任与证据，日期到达不等于满足",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  {
+                    "type": "object",
+                    "minProperties": 1
+                  }
+                ]
+              },
+              "source_refs": [
+                "G188 §3.2.6–3.2.7",
+                "G210 §3.3–3.3.8"
+              ]
+            },
+            "owner": {
+              "meaning": "本记录、行动或计划的责任方",
+              "value_rule": "本记录、行动或计划的责任方；给出可识别角色或人员，责任不自动意味着批准权",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G188 §3.2.6–3.2.7",
+                "G210 §3.3–3.3.8"
+              ]
+            },
+            "dependency": {
+              "meaning": "里程碑前置依赖ID",
+              "value_rule": "里程碑前置依赖ID；列清外部依赖与未满足条件，不能把时间相邻当依赖",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    }
+                  }
+                ]
+              },
+              "source_refs": [
+                "G188 §3.2.6–3.2.7",
+                "G210 §3.3–3.3.8"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-acceptance-criteria",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "工件不要求各自成为独立文档，数量不是验收目标",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "工件不要求各自成为独立文档，数量不是验收目标",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "acceptance_criterion"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "environmental-is-assessment",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "抵消单列，不能把不同边界和单位直接相加",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "抵消单列，不能把不同边界和单位直接相加",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-5",
+            "text": "单位、期间、组织边界和来源齐全",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-6",
+            "text": "市场法/地区法不可相加",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-7",
+            "text": "总Scope3与设备子集不可相加",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-8",
+            "text": "毛排放不扣抵消",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-9",
+            "text": "选择统一组织视角并防重复归属",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-10",
+            "text": "月与年口径不明即阻断自动汇总",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-11",
+            "text": "印刷数与复算数分存，不能自动解释为舍入",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-12",
+            "text": "数据缺失时只能称小计或估计，不能称完整实测",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "environment_measure",
+                "phosphogypsum_record"
+              ]
+            }
+          }
+        ],
+        "entity_attribute_semantics": {
+          "environment_measure": {
+            "overlap_group": {
+              "meaning": "环境措施潜在重叠效益分组",
+              "value_rule": "环境措施潜在重叠效益分组；同组措施汇总前须消除双计，不等同自动互斥",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G242 §3.6, §3.6.1–3.6.3; Figure3-10",
+                "G242 Chapter6; English PDF98–99"
+              ]
+            },
+            "boundary_id": {
+              "meaning": "环境核算边界标识",
+              "value_rule": "环境核算边界标识；同一比较或汇总须引用同一边界定义",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G242 §3.6, §3.6.1–3.6.3; Figure3-10",
+                "G242 Chapter6; English PDF98–99"
+              ]
+            },
+            "period_kind": {
+              "meaning": "环境核算期间类型",
+              "value_rule": "环境核算期间类型；区分瞬时、期间与累计口径，不跨口径直接相加",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G242 §3.6, §3.6.1–3.6.3; Figure3-10",
+                "G242 Chapter6; English PDF98–99"
+              ]
+            },
+            "value_basis": {
+              "meaning": "环境量值口径",
+              "value_rule": "环境量值口径；实测、估算或假设明确区分，估算须方法与来源，不当作实测",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "source_refs": [
+                "G242 §3.6, §3.6.1–3.6.3; Figure3-10",
+                "G242 Chapter6; English PDF98–99"
+              ]
+            }
+          },
+          "phosphogypsum_record": {
+            "generated_tonnage": {
+              "meaning": "核算期内磷石膏产生量",
+              "value_rule": "核算期内磷石膏产生量；单位吨、非负，期初堆存不得计为当期产生",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "number",
+                "minimum": 0
+              },
+              "source_refs": [
+                "G242 §3.6, §3.6.1–3.6.3; Figure3-10",
+                "G242 Chapter6; English PDF98–99"
+              ]
+            },
+            "utilised_tonnage": {
+              "meaning": "核算期内磷石膏利用量",
+              "value_rule": "核算期内磷石膏利用量；单位吨、非负，历史堆存利用须标明口径避免误算当期率",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "number",
+                "minimum": 0
+              },
+              "source_refs": [
+                "G242 §3.6, §3.6.1–3.6.3; Figure3-10",
+                "G242 Chapter6; English PDF98–99"
+              ]
+            },
+            "stockpiled_tonnage": {
+              "meaning": "核算期末磷石膏堆存量",
+              "value_rule": "核算期末磷石膏堆存量；单位吨、非负，库存不是当期新增量",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "number",
+                "minimum": 0
+              },
+              "source_refs": [
+                "G242 §3.6, §3.6.1–3.6.3; Figure3-10",
+                "G242 Chapter6; English PDF98–99"
+              ]
+            },
+            "utilisation_rate": {
+              "meaning": "磷石膏当期综合利用率",
+              "value_rule": "磷石膏当期综合利用率；采用utilised/generated的0至1比例，分母为零不计算",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "source_refs": [
+                "G242 §3.6, §3.6.1–3.6.3; Figure3-10",
+                "G242 Chapter6; English PDF98–99"
+              ]
+            },
+            "period": {
+              "meaning": "结果或核算记录的时间窗",
+              "value_rule": "结果或核算记录的时间窗；注明起止、周期口径，不混合不同期间的值",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  {
+                    "type": "object",
+                    "minProperties": 1
+                  }
+                ]
+              },
+              "source_refs": [
+                "G242 §3.6, §3.6.1–3.6.3; Figure3-10",
+                "G242 Chapter6; English PDF98–99"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "sustainability-review-canvas",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "图3-14存在数值疑点，应保留来源值与差异，不能强行消解",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "图3-14存在数值疑点，应保留来源值与差异，不能强行消解",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "sustainability_action"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "environmental-debt-register",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "环境债务不是仅有碳排总量，责任和决策也需记录",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "环境债务不是仅有碳排总量，责任和决策也需记录",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "environmental_debt"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "environmental-decision-log",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "低环境影响方案是否采用仍取决于明确权衡，不能伪造批准",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "低环境影响方案是否采用仍取决于明确权衡，不能伪造批准",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "environmental_decision"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+{
+  "schema_version": "2.0",
+  "id": "G152/fig3-3",
+  "title": "ISO 31000:2009 风险管理模型",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      202
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "给出本指南采用的 ERM 过程模型：说明风险管理不是一次性的孤立活动，而是一个持续生命周期；沟通与协商、监督与评审贯穿全过程，风险处置之后还要回到语境，体现“管理到预期目标”的循环。",
+    "reading_guide_zh": "先看中央自上而下的主链：Establishing the Context → Risk Identification → Risk Analysis → Risk Evaluation → Risk Treatment，箭头向下。中间三步被 Risk Assessment 容器括住，表示它们合起来构成风险评估。再看左右两条竖长条：Communication and Consultation 在左、Monitoring and Review 在右，它们与每一个步骤都有横向连线（无箭头），表示贯穿每一步。最后看两条回路：Risk Treatment 底部向右绕到 Monitoring and Review，再由其顶部绕回 Establishing the Context 顶部，形成闭环。",
+    "key_points_zh": [
+      "主流程 5 步：建立语境 → 风险识别 → 风险分析 → 风险评价 → 风险处置，箭头单向向下。",
+      "风险识别、风险分析、风险评价三步被 Risk Assessment 容器括在一起，说明它们共同构成“风险评估”，不是三个独立阶段。",
+      "沟通与协商（左）与监督与评审（右）不是流程前后的步骤，而是贯穿全部 5 步的持续活动；图中每个步骤都向两侧各引出一条横线。",
+      "风险处置之后有两条去向：横向连到监督与评审，以及底部回路绕到监督与评审，表示处置结果必须被监督。",
+      "顶部回路从监督与评审回到建立语境，说明监督结果会重新界定风险语境，过程因此是持续生命周期而非一次性项目。",
+      "该模型是正文“风险管理应深植于所有业务活动、是持续生命周期”的图形依据；本指南采用 ISO 31000:2009 的风险定义。",
+      "图中没有画出“风险处置”之后直接回到识别的内环，闭环的唯一入口是建立语境，这一点容易被误读为处置后重新识别。"
+    ],
+    "hierarchy_zh": "两层。外层是 5 个顺序步骤 + 2 个贯穿性活动（左右长条）；内层是 Risk Assessment 容器及其包含的 3 个步骤（识别、分析、评价）。Risk Treatment 在容器之外，位于主链末端。左右长条与步骤之间是并列的“伴随”关系，不是上下级。",
+    "line_semantics_zh": "带箭头的实线表示过程方向：4 条向下的步骤箭头、1 条从风险处置底部绕到监督与评审的回路、1 条从监督与评审顶部绕回建立语境的回路。无箭头的横线表示该步骤与沟通/协商或监督/评审之间的双向联系。每个框右上角的小空心双线箭头是装饰性的“输出”标记，不承担流程语义（原图无图例）。",
+    "misreadings_zh": [
+      "不要把左右两条竖长条读成流程的开始和结束步骤：它们贯穿所有步骤，没有先后。",
+      "顶部回路的箭头落在 Establishing the Context，而不是 Risk Identification；监督结果先回到语境，再重新进入识别。",
+      "Risk Assessment 不是第 6 个步骤，而是包住识别/分析/评价三步的范围框。",
+      "横向连线没有箭头，不能读成“步骤把结果单向送给监督/沟通”。",
+      "框右上角的小空心箭头不是 ArchiMate 或其他标准记法，原图没有图例，不应据此推断元素类型。",
+      "中文稿引用的 figs/g152_fig3-3.svg 丢掉了分组与全部回路，不能据它理解本图的闭环结构。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "comm_consult",
+      "label_en": "Communication and Consultation",
+      "label_zh": "沟通与协商",
+      "type": "process",
+      "parent": null,
+      "position": "左侧竖长条（贯穿全部步骤）"
+    },
+    {
+      "id": "monitor_review",
+      "label_en": "Monitoring and Review",
+      "label_zh": "监督与评审",
+      "type": "process",
+      "parent": null,
+      "position": "右侧竖长条（贯穿全部步骤）"
+    },
+    {
+      "id": "context",
+      "label_en": "Establishing the Context",
+      "label_zh": "建立语境",
+      "type": "process",
+      "parent": null,
+      "order": 1,
+      "position": "中央主链第 1 步"
+    },
+    {
+      "id": "risk_assessment",
+      "label_en": "Risk Assessment",
+      "label_zh": "风险评估（范围框）",
+      "type": "group",
+      "parent": null,
+      "position": "包住中间三步的容器"
+    },
+    {
+      "id": "identification",
+      "label_en": "Risk Identification",
+      "label_zh": "风险识别",
+      "type": "process",
+      "parent": "risk_assessment",
+      "order": 2,
+      "position": "中央主链第 2 步"
+    },
+    {
+      "id": "analysis",
+      "label_en": "Risk Analysis",
+      "label_zh": "风险分析",
+      "type": "process",
+      "parent": "risk_assessment",
+      "order": 3,
+      "position": "中央主链第 3 步"
+    },
+    {
+      "id": "evaluation",
+      "label_en": "Risk Evaluation",
+      "label_zh": "风险评价",
+      "type": "process",
+      "parent": "risk_assessment",
+      "order": 4,
+      "position": "中央主链第 4 步"
+    },
+    {
+      "id": "treatment",
+      "label_en": "Risk Treatment",
+      "label_zh": "风险处置",
+      "type": "process",
+      "parent": null,
+      "order": 5,
+      "position": "中央主链第 5 步"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r1",
+      "from": "context",
+      "to": "identification",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r2",
+      "from": "identification",
+      "to": "analysis",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r3",
+      "from": "analysis",
+      "to": "evaluation",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r4",
+      "from": "evaluation",
+      "to": "treatment",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r5",
+      "from": "treatment",
+      "to": "monitor_review",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "风险处置底部向下、向右、再向上绕到监督与评审底部。"
+    },
+    {
+      "id": "r6",
+      "from": "monitor_review",
+      "to": "context",
+      "type": "iteration",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "顶部大回路：从监督与评审顶部绕到建立语境顶部，箭头向下进入 Establishing the Context。"
+    },
+    {
+      "id": "r7",
+      "from": "comm_consult",
+      "to": "context",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r8",
+      "from": "comm_consult",
+      "to": "identification",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r9",
+      "from": "comm_consult",
+      "to": "analysis",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r10",
+      "from": "comm_consult",
+      "to": "evaluation",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r11",
+      "from": "comm_consult",
+      "to": "treatment",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r12",
+      "from": "monitor_review",
+      "to": "context",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "与顶部回路分开的一条横向连线。"
+    },
+    {
+      "id": "r13",
+      "from": "monitor_review",
+      "to": "identification",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r14",
+      "from": "monitor_review",
+      "to": "analysis",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r15",
+      "from": "monitor_review",
+      "to": "evaluation",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r16",
+      "from": "monitor_review",
+      "to": "treatment",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_iso_process",
+      "kind": "cycle",
+      "name_zh": "ISO 31000 风险管理过程闭环",
+      "steps": [
+        "context",
+        "identification",
+        "analysis",
+        "evaluation",
+        "treatment",
+        "monitor_review"
+      ],
+      "description_zh": "主链自建立语境到风险处置，再经监督与评审回到建立语境（图中上下两条回路）。"
+    },
+    {
+      "id": "f_risk_assessment",
+      "kind": "sequence",
+      "name_zh": "风险评估三步",
+      "steps": [
+        "identification",
+        "analysis",
+        "evaluation"
+      ],
+      "description_zh": "Risk Assessment 容器内的顺序。"
+    }
+  ],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "圆角矩形",
+      "meaning_zh": "风险管理过程的一个步骤",
+      "explicit": false
+    },
+    {
+      "symbol": "包住三步的圆角容器（右上角标 Risk Assessment）",
+      "meaning_zh": "风险评估范围（识别+分析+评价）",
+      "explicit": false
+    },
+    {
+      "symbol": "左右竖长条",
+      "meaning_zh": "贯穿全过程的持续活动：沟通与协商、监督与评审",
+      "explicit": false
+    },
+    {
+      "symbol": "带箭头的实线",
+      "meaning_zh": "过程顺序或反馈回路的方向",
+      "explicit": false
+    },
+    {
+      "symbol": "无箭头横线",
+      "meaning_zh": "步骤与持续活动之间的联系",
+      "explicit": false
+    },
+    {
+      "symbol": "每个框右上角的小空心双线箭头",
+      "meaning_zh": "原图装饰性的“输出”标记，无语义说明",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "框右上角的小空心双线箭头无图例；本分析按装饰性输出标记处理，未赋予语义。",
+      "Risk Assessment 在原图是包住三步的容器（本分析用 group 表示）；G184 同一张图的分析把它记为 process，两处类型不同但不影响关系。",
+      "“建立语境”在 G184 的分析中译作“建立情境”，本图沿用中文稿所引 SVG 的“建立语境”，两种译法指同一 ISO 31000 步骤。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 24 页原图截图（220 dpi）及 2x2 放大分块",
+      "英文 PDF 第 23–24 页正文",
+      "中文稿 G152e_将风险与安全融入TOGAF企业架构.md 第 198–202 行",
+      "figs/g152_fig3-3.svg 源码",
+      "G184/fig6-3 已完成分析（对照同一张图的元素与连线）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G152/fig3-3",
+    "asset": "figs/g152_fig3-3.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "01"
+  }
+}

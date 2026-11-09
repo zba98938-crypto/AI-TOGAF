@@ -1,0 +1,264 @@
+# G184/fig4-4 · Everett Rogers 创新采用模型（又称技术扩散模型）
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G184/fig4-4.md) · [JSON](../../architecture/diagrams/G184/fig4-4.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G184e.pdf`；SHA-256：`85fe5653767b184c3c8c9c1bef9f5738adbb2bf6661fb50ee95e72d16bc9f614`。
+
+## 原图 · PDF 第 42 页
+
+![英文原图](../assets/G184/fig4-4-p0042.png)
+
+PDF 坐标：`[74.0, 101.3, 538.0, 334.8]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+2.5%
+13.5%
+34%
+34%
+16%
+Innovators '
+Early
+Early
+Late
+Laggards
+Adopters
+Majority
+Majority
+```
+
+## 概要（历史解释；局部修正见上）
+
+创新采用者按先后分为五类：创新者 2.5%、早期采用者 13.5%、早期大众 34%、晚期大众 34%、落后者 16%。
+
+## 目的（历史解释；局部修正见上）
+
+第 4.2.7 节要求领导者识别企业采用的风险管理模型和风险偏好。当架构路线图包含采用新技术或启动转型时，作者用这条钟形曲线提问：企业落在曲线的哪个位置？企业的不同部分可能落在不同位置，需要识别并编目。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左到右读：横轴下方依次是五个采用者类别，竖直虚线是类别分界，每段上方的百分比是该类别占全部采用者的比例。中间那条虚线位于曲线峰值，把“大众”分成早期和晚期两半。越靠左，采用新事物越早。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 五个采用者类别及占比：创新者 2.5%、早期采用者 13.5%、早期大众 34%、晚期大众 34%、落后者 16%，合计 100%。
+- （背景知识）横轴表示采用时间，四条虚线分别位于平均采用时间之前 2 个和 1 个标准差、平均值、之后 1 个标准差，所以各段比例来自正态分布；落后者 16% 是 +1 个标准差以外的全部尾部。
+- 本文档把这条曲线放在风险偏好问题中：采用新技术或启动转型时，要判断企业在曲线上的位置；企业不同部分的位置可能不同，需要识别并编目。
+- 同组的其他风险偏好问题：可接受的成本偏差是多少（例如首年 10%，第二、三年 25%）；哪些类型和规模的项目要经过额外治理；若做了 SWOT 分析，威胁缓解策略是什么、如何量化；是否接受供应商锁定、利率波动等单点失败；多久复核一次风险与缓解效果，在企业何处处理。
+- 正文举例：汽车保险商面对车企推出的防盗技术，可能因盗窃减少而降低理赔成本，也可能技术无效、风险敞口不变；它可以自己做防盗研究，或与执法机构和竞争对手交换数据来验证并缓解未知影响。领导者要找出企业惯用的应对模式。
+- 若企业的 ERM 方法不清楚，应发起定义工作；正文推荐以 ISO 31000 风险管理标准和 The Open Group《将风险与安全融入 TOGAF 企业架构》指南（G152）为起点。
+
+## 层级（历史解释；局部修正见上）
+
+没有上下级。五个采用者类别是同级的分段，按采用先后从左到右排列，合起来覆盖全部采用者。
+
+## 线条含义（历史解释；局部修正见上）
+
+实线是采用者分布的钟形曲线；四条竖直虚线是类别分界，不是流程箭头。类别之间的先后只由横向位置表示，记在 flows 中。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 纵轴没有标注，曲线高度表示各时段采用者的相对数量（背景知识），不是采用率；不要把它与累计采用的 S 形曲线混淆。
+- 百分比是 Rogers 模型的理想化分布，不是某个企业或某项技术的实测数据。
+- 图本身不评价哪一类更好；正文只用它判断企业对新技术的风险偏好。
+- 图题中的“Everett Roger’s”是原文拼写，人名应为 Everett Rogers。
+- 中文稿第 4.2.7 节（L247–249）把英文本节压缩为一段，没有收录本图，也没有收录这组风险偏好问题。
+
+## 元素
+
+```json
+[
+  {
+    "id": "innovators",
+    "label_en": "Innovators",
+    "label_zh": "创新者",
+    "type": "concept",
+    "order": 1,
+    "position": "最左段",
+    "attributes": {
+      "share": "2.5%"
+    }
+  },
+  {
+    "id": "early_adopters",
+    "label_en": "Early Adopters",
+    "label_zh": "早期采用者",
+    "type": "concept",
+    "order": 2,
+    "position": "左二段",
+    "attributes": {
+      "share": "13.5%"
+    }
+  },
+  {
+    "id": "early_majority",
+    "label_en": "Early Majority",
+    "label_zh": "早期大众",
+    "type": "concept",
+    "order": 3,
+    "position": "峰值左侧",
+    "attributes": {
+      "share": "34%"
+    }
+  },
+  {
+    "id": "late_majority",
+    "label_en": "Late Majority",
+    "label_zh": "晚期大众",
+    "type": "concept",
+    "order": 4,
+    "position": "峰值右侧",
+    "attributes": {
+      "share": "34%"
+    }
+  },
+  {
+    "id": "laggards",
+    "label_en": "Laggards",
+    "label_zh": "落后者",
+    "type": "concept",
+    "order": 5,
+    "position": "最右段",
+    "attributes": {
+      "share": "16%"
+    }
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_adoption_order",
+    "kind": "sequence",
+    "name_zh": "采用先后（左早右晚）",
+    "steps": [
+      "innovators",
+      "early_adopters",
+      "early_majority",
+      "late_majority",
+      "laggards"
+    ],
+    "description_zh": "顺序由横向位置给出；横轴代表采用时间属背景知识，图中未标注。"
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_categories",
+    "title_zh": "采用者类别与占比（按原图转录）",
+    "columns": [
+      "采用者类别",
+      "图中占比",
+      "自左向右位置",
+      "分界（背景知识）"
+    ],
+    "rows": [
+      [
+        "创新者 Innovators",
+        "2.5%",
+        "1",
+        "平均采用时间 −2σ 之前"
+      ],
+      [
+        "早期采用者 Early Adopters",
+        "13.5%",
+        "2",
+        "−2σ 至 −1σ"
+      ],
+      [
+        "早期大众 Early Majority",
+        "34%",
+        "3",
+        "−1σ 至平均值"
+      ],
+      [
+        "晚期大众 Late Majority",
+        "34%",
+        "4",
+        "平均值至 +1σ"
+      ],
+      [
+        "落后者 Laggards",
+        "16%",
+        "5",
+        "+1σ 之后"
+      ]
+    ],
+    "notes_zh": "前三列照录原图；第四列的标准差分界是 Rogers 模型的通常说明，原图没有写。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "钟形实线曲线",
+    "meaning_zh": "采用者随时间的分布（背景知识：横轴为采用时间）",
+    "explicit": false
+  },
+  {
+    "symbol": "竖直虚线",
+    "meaning_zh": "相邻采用者类别的分界",
+    "explicit": false
+  },
+  {
+    "symbol": "段上方的百分比",
+    "meaning_zh": "该类别占全部采用者的比例",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "一条横轴上的对称钟形曲线，四条竖直虚线把曲线下区域分成五段；百分比写在各段中部，类别名称写在横轴下方。"
+}
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "采用者类别的中文译名（创新者、早期采用者、早期大众、晚期大众、落后者）按常见译法拟定；中文稿未收录本图。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 42 页原图截图（220 dpi）",
+    "英文 PDF 第 41–42 页正文（第 4.2.7 节）、第 45 页第 4 章尾注 [3]",
+    "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 247–249 行（本图未被中文稿引用）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

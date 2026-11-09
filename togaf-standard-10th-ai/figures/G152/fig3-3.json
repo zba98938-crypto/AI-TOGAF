@@ -1,0 +1,714 @@
+{
+  "schema_version": "1.0",
+  "id": "G152/fig3-3",
+  "status": "done",
+  "doc": {
+    "code": "G152",
+    "title_zh": "将风险与安全融入 TOGAF 企业架构",
+    "title_en": "Integrating Risk and Security within a TOGAF EA",
+    "zh_md": "G152e_将风险与安全融入TOGAF企业架构.md",
+    "en_pdf": "togaf-standard-10th/G152e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-3",
+    "title_en": "ISO 31000:2009 Model for Risk Management (Derived from ISO 31000)",
+    "title_zh": "ISO 31000:2009 风险管理模型",
+    "section_en": "3.1.2 Core Concepts for Enterprise Risk Management",
+    "section_zh": "3.1.2 ERM 的核心概念",
+    "attribution": "Derived from ISO 31000; © The Open Group",
+    "en_location": {
+      "pages": [
+        24
+      ],
+      "printed_page": 12,
+      "bboxes": [
+        [
+          61.1,
+          36.0,
+          550.9,
+          357.1
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        202
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g152_fig3-3.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "907961504a05",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "版式被改成横向：原图为“中央竖向 5 步流程 + 左右两条竖长条”，SVG 把 5 步排成一行，并把沟通与协商、监督与评审改成流程下方两条通栏横条",
+        "丢失原图的反馈回路：Risk Treatment → Monitoring and Review → Establishing the Context 的上下两条大回路在 SVG 中完全没有",
+        "丢失 Risk Assessment 分组框（原图把 Risk Identification/Analysis/Evaluation 三步括在一起，表示它们同属风险评估）",
+        "丢失 10 条横向连线：原图中沟通与协商、监督与评审与每一个步骤都有连线，SVG 只用两条通栏横条代替，无法表达“贯穿每一步”",
+        "SVG 给每个步骤加了原图没有的英文小字（Context、Identification、Analysis、Evaluation、Treatment），并把“风险处置”单独着绿色",
+        "保留并正确翻译了 5 个步骤与 2 个持续活动的核心语义，因此仍能读出主流程，但不能代替原图的结构"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "flow"
+    ],
+    "notation": "ISO 31000 过程框图：中央 5 个圆角步骤框自上而下排列，中间三步被“Risk Assessment”圆角容器包住；左右各一条竖长条（Communication and Consultation、Monitoring and Review）；步骤与两侧长条之间有横向连线；顶部与底部各有一条反馈回路。",
+    "concepts": [
+      "iso31000",
+      "risk_management"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "ISO 31000:2009 风险管理过程：建立语境后依次识别、分析、评价、处置风险，沟通与监督贯穿每一步并形成闭环。",
+    "purpose_zh": "给出本指南采用的 ERM 过程模型：说明风险管理不是一次性的孤立活动，而是一个持续生命周期；沟通与协商、监督与评审贯穿全过程，风险处置之后还要回到语境，体现“管理到预期目标”的循环。",
+    "reading_guide_zh": "先看中央自上而下的主链：Establishing the Context → Risk Identification → Risk Analysis → Risk Evaluation → Risk Treatment，箭头向下。中间三步被 Risk Assessment 容器括住，表示它们合起来构成风险评估。再看左右两条竖长条：Communication and Consultation 在左、Monitoring and Review 在右，它们与每一个步骤都有横向连线（无箭头），表示贯穿每一步。最后看两条回路：Risk Treatment 底部向右绕到 Monitoring and Review，再由其顶部绕回 Establishing the Context 顶部，形成闭环。",
+    "key_points_zh": [
+      "主流程 5 步：建立语境 → 风险识别 → 风险分析 → 风险评价 → 风险处置，箭头单向向下。",
+      "风险识别、风险分析、风险评价三步被 Risk Assessment 容器括在一起，说明它们共同构成“风险评估”，不是三个独立阶段。",
+      "沟通与协商（左）与监督与评审（右）不是流程前后的步骤，而是贯穿全部 5 步的持续活动；图中每个步骤都向两侧各引出一条横线。",
+      "风险处置之后有两条去向：横向连到监督与评审，以及底部回路绕到监督与评审，表示处置结果必须被监督。",
+      "顶部回路从监督与评审回到建立语境，说明监督结果会重新界定风险语境，过程因此是持续生命周期而非一次性项目。",
+      "该模型是正文“风险管理应深植于所有业务活动、是持续生命周期”的图形依据；本指南采用 ISO 31000:2009 的风险定义。",
+      "图中没有画出“风险处置”之后直接回到识别的内环，闭环的唯一入口是建立语境，这一点容易被误读为处置后重新识别。"
+    ],
+    "hierarchy_zh": "两层。外层是 5 个顺序步骤 + 2 个贯穿性活动（左右长条）；内层是 Risk Assessment 容器及其包含的 3 个步骤（识别、分析、评价）。Risk Treatment 在容器之外，位于主链末端。左右长条与步骤之间是并列的“伴随”关系，不是上下级。",
+    "line_semantics_zh": "带箭头的实线表示过程方向：4 条向下的步骤箭头、1 条从风险处置底部绕到监督与评审的回路、1 条从监督与评审顶部绕回建立语境的回路。无箭头的横线表示该步骤与沟通/协商或监督/评审之间的双向联系。每个框右上角的小空心双线箭头是装饰性的“输出”标记，不承担流程语义（原图无图例）。",
+    "misreadings_zh": [
+      "不要把左右两条竖长条读成流程的开始和结束步骤：它们贯穿所有步骤，没有先后。",
+      "顶部回路的箭头落在 Establishing the Context，而不是 Risk Identification；监督结果先回到语境，再重新进入识别。",
+      "Risk Assessment 不是第 6 个步骤，而是包住识别/分析/评价三步的范围框。",
+      "横向连线没有箭头，不能读成“步骤把结果单向送给监督/沟通”。",
+      "框右上角的小空心箭头不是 ArchiMate 或其他标准记法，原图没有图例，不应据此推断元素类型。",
+      "中文稿引用的 figs/g152_fig3-3.svg 丢掉了分组与全部回路，不能据它理解本图的闭环结构。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p23",
+        "summary_zh": "ISO 31000:2009 给出风险管理过程模型（图 3-3），并明确风险管理应深植于所有业务活动，是持续的生命周期而非孤立活动；有效风险管理的核心是“管理到预期目标”，每一步都有需要管理的风险要素。"
+      },
+      {
+        "source": "en_pdf p24",
+        "summary_zh": "图题：ISO 31000:2009 风险管理模型（Derived from ISO 31000）；同页列出 ERM 的重要概念：关键风险领域、业务影响分析、风险评估、业务风险模型/登记册、风险偏好、风险缓解/处置计划。"
+      },
+      {
+        "source": "zh_md L198",
+        "summary_zh": "据 ISO 31000:2009，风险管理过程通过考虑不确定性以及未来事件或情形及其对既定目标的影响来辅助决策；标准给出过程模型，并明确风险管理应深植于所有业务活动，是持续的生命周期。"
+      },
+      {
+        "source": "zh_md L200",
+        "summary_zh": "该定义的核心是：有效的风险管理就是“管理到预期目标”；每一步都有需要管理的风险要素，每个结果都不确定。"
+      },
+      {
+        "source": "zh_md L202",
+        "summary_zh": "中文稿在此处插入图 3-3（当前引用 figs/g152_fig3-3.svg）。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "中央一列 5 个步骤框自上而下；中间三步外包 Risk Assessment 容器；左右各一条竖长条，与每个步骤横向相连；顶部与底部各一条回路。"
+  },
+  "legend": [
+    {
+      "symbol": "圆角矩形",
+      "meaning_zh": "风险管理过程的一个步骤",
+      "explicit": false
+    },
+    {
+      "symbol": "包住三步的圆角容器（右上角标 Risk Assessment）",
+      "meaning_zh": "风险评估范围（识别+分析+评价）",
+      "explicit": false
+    },
+    {
+      "symbol": "左右竖长条",
+      "meaning_zh": "贯穿全过程的持续活动：沟通与协商、监督与评审",
+      "explicit": false
+    },
+    {
+      "symbol": "带箭头的实线",
+      "meaning_zh": "过程顺序或反馈回路的方向",
+      "explicit": false
+    },
+    {
+      "symbol": "无箭头横线",
+      "meaning_zh": "步骤与持续活动之间的联系",
+      "explicit": false
+    },
+    {
+      "symbol": "每个框右上角的小空心双线箭头",
+      "meaning_zh": "原图装饰性的“输出”标记，无语义说明",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "comm_consult",
+      "label_en": "Communication and Consultation",
+      "label_zh": "沟通与协商",
+      "type": "process",
+      "parent": null,
+      "position": "左侧竖长条（贯穿全部步骤）"
+    },
+    {
+      "id": "monitor_review",
+      "label_en": "Monitoring and Review",
+      "label_zh": "监督与评审",
+      "type": "process",
+      "parent": null,
+      "position": "右侧竖长条（贯穿全部步骤）"
+    },
+    {
+      "id": "context",
+      "label_en": "Establishing the Context",
+      "label_zh": "建立语境",
+      "type": "process",
+      "parent": null,
+      "order": 1,
+      "position": "中央主链第 1 步"
+    },
+    {
+      "id": "risk_assessment",
+      "label_en": "Risk Assessment",
+      "label_zh": "风险评估（范围框）",
+      "type": "group",
+      "parent": null,
+      "position": "包住中间三步的容器"
+    },
+    {
+      "id": "identification",
+      "label_en": "Risk Identification",
+      "label_zh": "风险识别",
+      "type": "process",
+      "parent": "risk_assessment",
+      "order": 2,
+      "position": "中央主链第 2 步"
+    },
+    {
+      "id": "analysis",
+      "label_en": "Risk Analysis",
+      "label_zh": "风险分析",
+      "type": "process",
+      "parent": "risk_assessment",
+      "order": 3,
+      "position": "中央主链第 3 步"
+    },
+    {
+      "id": "evaluation",
+      "label_en": "Risk Evaluation",
+      "label_zh": "风险评价",
+      "type": "process",
+      "parent": "risk_assessment",
+      "order": 4,
+      "position": "中央主链第 4 步"
+    },
+    {
+      "id": "treatment",
+      "label_en": "Risk Treatment",
+      "label_zh": "风险处置",
+      "type": "process",
+      "parent": null,
+      "order": 5,
+      "position": "中央主链第 5 步"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r1",
+      "from": "context",
+      "to": "identification",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r2",
+      "from": "identification",
+      "to": "analysis",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r3",
+      "from": "analysis",
+      "to": "evaluation",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r4",
+      "from": "evaluation",
+      "to": "treatment",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "id": "r5",
+      "from": "treatment",
+      "to": "monitor_review",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "风险处置底部向下、向右、再向上绕到监督与评审底部。"
+    },
+    {
+      "id": "r6",
+      "from": "monitor_review",
+      "to": "context",
+      "type": "iteration",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "顶部大回路：从监督与评审顶部绕到建立语境顶部，箭头向下进入 Establishing the Context。"
+    },
+    {
+      "id": "r7",
+      "from": "comm_consult",
+      "to": "context",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r8",
+      "from": "comm_consult",
+      "to": "identification",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r9",
+      "from": "comm_consult",
+      "to": "analysis",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r10",
+      "from": "comm_consult",
+      "to": "evaluation",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r11",
+      "from": "comm_consult",
+      "to": "treatment",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r12",
+      "from": "monitor_review",
+      "to": "context",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "与顶部回路分开的一条横向连线。"
+    },
+    {
+      "id": "r13",
+      "from": "monitor_review",
+      "to": "identification",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r14",
+      "from": "monitor_review",
+      "to": "analysis",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r15",
+      "from": "monitor_review",
+      "to": "evaluation",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "r16",
+      "from": "monitor_review",
+      "to": "treatment",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_iso_process",
+      "kind": "cycle",
+      "name_zh": "ISO 31000 风险管理过程闭环",
+      "steps": [
+        "context",
+        "identification",
+        "analysis",
+        "evaluation",
+        "treatment",
+        "monitor_review"
+      ],
+      "description_zh": "主链自建立语境到风险处置，再经监督与评审回到建立语境（图中上下两条回路）。"
+    },
+    {
+      "id": "f_risk_assessment",
+      "kind": "sequence",
+      "name_zh": "风险评估三步",
+      "steps": [
+        "identification",
+        "analysis",
+        "evaluation"
+      ],
+      "description_zh": "Risk Assessment 容器内的顺序。"
+    }
+  ],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G184/fig6-3",
+      "relation": "same_as",
+      "note_zh": "G184 图 6-3 是同一张 ISO 31000 风险管理标准模型（英文原图与中文重绘），元素与连线一致。"
+    },
+    {
+      "target": "G152/fig3-2",
+      "relation": "complements",
+      "note_zh": "本图给出风险管理的通用过程，图 3-2 给出 SABSA 的正负结果平衡模型，正文并列使用。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "框右上角的小空心双线箭头无图例；本分析按装饰性输出标记处理，未赋予语义。",
+      "Risk Assessment 在原图是包住三步的容器（本分析用 group 表示）；G184 同一张图的分析把它记为 process，两处类型不同但不影响关系。",
+      "“建立语境”在 G184 的分析中译作“建立情境”，本图沿用中文稿所引 SVG 的“建立语境”，两种译法指同一 ISO 31000 步骤。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 24 页原图截图（220 dpi）及 2x2 放大分块",
+      "英文 PDF 第 23–24 页正文",
+      "中文稿 G152e_将风险与安全融入TOGAF企业架构.md 第 198–202 行",
+      "figs/g152_fig3-3.svg 源码",
+      "G184/fig6-3 已完成分析（对照同一张图的元素与连线）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G152e.pdf",
+    "pdf_sha256": "919c53bfa4259a4b3a9686762f37c0576a1cd2f8e77e74648826d9f9c84ed6e0",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G152/fig3-3.json",
+    "interpretation_sha256": "62102c87b992688578f5dabb51c649a364e5ab699e988d0c161d30e0515e7564",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 24,
+        "text": "Figure 3-3: ISO 31000:2009 Model for Risk Management (Derived from ISO 31000)",
+        "bbox_pdf_points": [
+          48.24,
+          361.803,
+          428.607,
+          375.369
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 24,
+      "printed_page": 12,
+      "bbox_pdf_points": [
+        61.1,
+        36.0,
+        550.9,
+        357.1
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G152/fig3-3-p0024.png",
+      "image_sha256": "8384777dd6fc1a5fed86114fd8010e0f34a163b84f44cdcae5d1ed8878b414e4",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "8384777dd6fc1a5fed86114fd8010e0f34a163b84f44cdcae5d1ed8878b414e4",
+          "status": "extracted-unverified",
+          "text": "[\nCommunication =>)\nEstablishing the Context\nand\nMonitoring and <>)\nReview\nConsultation\nRisk Assessment\nRisk Identification\nRisk Analysis\nRisk Evaluation\nRisk Treatment",
+          "words": [
+            {
+              "text": "[",
+              "confidence": 82.168961,
+              "bbox_pixels_xywh": [
+                476,
+                27,
+                17,
+                67
+              ]
+            },
+            {
+              "text": "Communication",
+              "confidence": 93.013901,
+              "bbox_pixels_xywh": [
+                41,
+                102,
+                111,
+                13
+              ]
+            },
+            {
+              "text": "=>)",
+              "confidence": 32.015114,
+              "bbox_pixels_xywh": [
+                155,
+                103,
+                23,
+                18
+              ]
+            },
+            {
+              "text": "Establishing",
+              "confidence": 96.808342,
+              "bbox_pixels_xywh": [
+                396,
+                102,
+                84,
+                15
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.997238,
+              "bbox_pixels_xywh": [
+                485,
+                102,
+                22,
+                13
+              ]
+            },
+            {
+              "text": "Context",
+              "confidence": 96.18145,
+              "bbox_pixels_xywh": [
+                512,
+                102,
+                56,
+                13
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 95.763908,
+              "bbox_pixels_xywh": [
+                83,
+                120,
+                26,
+                12
+              ]
+            },
+            {
+              "text": "Monitoring",
+              "confidence": 96.664818,
+              "bbox_pixels_xywh": [
+                831,
+                102,
+                76,
+                20
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 94.452278,
+              "bbox_pixels_xywh": [
+                912,
+                102,
+                26,
+                13
+              ]
+            },
+            {
+              "text": "<>)",
+              "confidence": 27.297735,
+              "bbox_pixels_xywh": [
+                943,
+                103,
+                23,
+                18
+              ]
+            },
+            {
+              "text": "Review",
+              "confidence": 93.586563,
+              "bbox_pixels_xywh": [
+                860,
+                120,
+                48,
+                12
+              ]
+            },
+            {
+              "text": "Consultation",
+              "confidence": 91.727219,
+              "bbox_pixels_xywh": [
+                51,
+                137,
+                89,
+                13
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 95.858215,
+              "bbox_pixels_xywh": [
+                301,
+                190,
+                28,
+                12
+              ]
+            },
+            {
+              "text": "Assessment",
+              "confidence": 96.187904,
+              "bbox_pixels_xywh": [
+                334,
+                190,
+                84,
+                12
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 96.140251,
+              "bbox_pixels_xywh": [
+                419,
+                225,
+                28,
+                13
+              ]
+            },
+            {
+              "text": "Identification",
+              "confidence": 95.497856,
+              "bbox_pixels_xywh": [
+                453,
+                224,
+                92,
+                14
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 96.977501,
+              "bbox_pixels_xywh": [
+                435,
+                313,
+                28,
+                12
+              ]
+            },
+            {
+              "text": "Analysis",
+              "confidence": 84.235924,
+              "bbox_pixels_xywh": [
+                468,
+                313,
+                58,
+                14
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 96.840195,
+              "bbox_pixels_xywh": [
+                428,
+                401,
+                28,
+                12
+              ]
+            },
+            {
+              "text": "Evaluation",
+              "confidence": 96.623871,
+              "bbox_pixels_xywh": [
+                462,
+                401,
+                71,
+                12
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 96.403412,
+              "bbox_pixels_xywh": [
+                428,
+                506,
+                28,
+                13
+              ]
+            },
+            {
+              "text": "Treatment",
+              "confidence": 96.818596,
+              "bbox_pixels_xywh": [
+                461,
+                506,
+                73,
+                13
+              ]
+            }
+          ],
+          "mean_word_confidence": 88.56,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

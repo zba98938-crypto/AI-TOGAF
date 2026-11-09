@@ -1,0 +1,238 @@
+{
+  "schema_version": "2.0",
+  "project": {
+    "id": "g249-omnichannel",
+    "name": "输入充分的虚构全渠道履约 v1",
+    "version": "fictional-v1",
+    "context": {
+      "domains": [
+        "business",
+        "data",
+        "application",
+        "technology"
+      ],
+      "landscape": "segment",
+      "purpose": "project",
+      "abstraction": "logical",
+      "evolution": "target"
+    },
+    "is_example": true,
+    "approval_status": "candidate",
+    "implementation_status": "not-started"
+  },
+  "view": {
+    "id": "development-plan",
+    "artifact_id": "architecture-development-plan",
+    "profile_id": "architecture-development-plan-default",
+    "title": "人员发展行动与复评条件",
+    "context": {
+      "domains": [
+        "business",
+        "data",
+        "application",
+        "technology"
+      ],
+      "landscape": "segment",
+      "purpose": "project",
+      "abstraction": "logical",
+      "evolution": "target"
+    },
+    "entity_ids": [
+      "DEV-A"
+    ],
+    "relationship_ids": [],
+    "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+    "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+  },
+  "computed_analyses": [],
+  "entities": [
+    {
+      "id": "DEV-A",
+      "type": "skill_development",
+      "name": "异常接口分析实践与复评",
+      "attributes": {
+        "person": "PERSON-A",
+        "role": "ROLE-SOL",
+        "skill_id": "G249:skill:application:integration-and-interoperability",
+        "task_refs": [
+          "TASK-SOL"
+        ],
+        "requirement_refs": [
+          "REQ-SKILL-SOL"
+        ],
+        "current_proficiency": 3,
+        "target_proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_gap": "历史上缺异常设计评审证据；本次新增行为观察另列，不覆盖旧记录",
+        "action": "11月10日课程；11月29日提交实践；12月02日独立评审",
+        "owner": "虚构方案负责人",
+        "due": "2026-12-03",
+        "success_criteria": [
+          "独立完成异常接口设计并经评审"
+        ],
+        "reassessment": {
+          "assessor": "虚构独立专业评审人",
+          "due_on": "2026-12-02",
+          "criteria": [
+            "独立完成异常接口设计并经评审"
+          ],
+          "status": "completed",
+          "evidence": [
+            "FICTIONAL-BEHAVIOR"
+          ],
+          "assessment_ref": "BEH-SOL"
+        },
+        "history": [
+          {
+            "observed_on": "2026-11-05",
+            "assessment_ref": "OBS-A",
+            "proficiency": null,
+            "evidence": [
+              "CASE-PERSON"
+            ],
+            "status": "evidence_insufficient",
+            "rationale": "缺少三级实操评审证据；无二级评级依据，保留未知。"
+          },
+          {
+            "observed_on": "2026-11-10",
+            "status": "course-completed-no-rating-change",
+            "rationale": "仅完成课程，尚未新增实践行为证据，保留原未评价状态",
+            "proficiency": null,
+            "evidence": [
+              "CASE-PERSON"
+            ]
+          },
+          {
+            "observed_on": "2026-12-02",
+            "status": "assessed",
+            "rationale": "虚构材料明确给出任务实践、异常分析和独立评审记录，按对应行为准则本次评价3级",
+            "assessment_ref": "BEH-SOL",
+            "proficiency": 3,
+            "evidence": [
+              "FICTIONAL-BEHAVIOR"
+            ]
+          }
+        ],
+        "start": "2026-11-10",
+        "end": "2026-12-03",
+        "evidence": [
+          "CASE-PERSON",
+          "CASE-ROLE-TARGET"
+        ],
+        "current_assessment_state": "assessed"
+      },
+      "evidence": [
+        "CASE-PERSON",
+        "CASE-ROLE-TARGET"
+      ],
+      "certainty": "assumed"
+    }
+  ],
+  "relationships": [],
+  "sources": [
+    {
+      "id": "CASE-MANDATE",
+      "kind": "example",
+      "description": "虚构架构工作委托",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-mandate"
+    },
+    {
+      "id": "CASE-BASELINE",
+      "kind": "example",
+      "description": "虚构现状及未决要求",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-baseline"
+    },
+    {
+      "id": "CASE-CHANGE",
+      "kind": "example",
+      "description": "虚构离线门店销售新增约束",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-change"
+    },
+    {
+      "id": "CASE-REVIEW",
+      "kind": "example",
+      "description": "虚构项目分析约定",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-review"
+    },
+    {
+      "id": "CASE-PERSON",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-PERSON",
+      "locator": "sufficient-role-skill-inputs.json"
+    },
+    {
+      "id": "CASE-EXPERT",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-EXPERT",
+      "locator": "sufficient-role-skill-inputs.json"
+    },
+    {
+      "id": "CASE-ROLE-TARGET",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-ROLE-TARGET",
+      "locator": "sufficient-role-skill-inputs.json"
+    },
+    {
+      "id": "FICTIONAL-POLICY",
+      "kind": "example",
+      "description": "明确虚构的政策、行为或容量声明",
+      "locator": "sufficient-business-materials.md"
+    },
+    {
+      "id": "FICTIONAL-BEHAVIOR",
+      "kind": "example",
+      "description": "明确虚构的政策、行为或容量声明",
+      "locator": "sufficient-business-materials.md"
+    },
+    {
+      "id": "FICTIONAL-CAPACITY",
+      "kind": "example",
+      "description": "明确虚构的政策、行为或容量声明",
+      "locator": "sufficient-business-materials.md"
+    },
+    {
+      "id": "g249-table-source",
+      "kind": "official",
+      "description": "G249 §5 Tables 5-1/5-2：参考等级与量表；不证明任何人员已具备能力",
+      "locator": "corpus/sources/pdf/G249e.pdf#page=27"
+    },
+    {
+      "id": "example-source",
+      "kind": "example",
+      "description": "虚构项目要求、辅导应用记录与复评计划；非实际人员评价",
+      "locator": "sufficient-role-skill-inputs.json"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GAP-STORE-ONLINE",
+      "description": "门店在线销售与中央库存的当前交互尚未调查",
+      "impact": "不能由线上订单接口推断门店在线行为",
+      "needed_input": "门店在线流程、接口与失败处理材料"
+    },
+    {
+      "id": "GAP-LOGISTICS-HANDOFF",
+      "description": "已确认订单交给物流的具体接口和责任未提供",
+      "impact": "只明确确认前不进入物流，交接规格待定",
+      "needed_input": "物流接收契约与责任方"
+    },
+    {
+      "id": "GAP-OFFLINE-DURATION",
+      "description": "最大断连时间未知",
+      "impact": "阻断离线候选方案接受与运营状态进入",
+      "needed_input": "断连上限与存储容量依据"
+    },
+    {
+      "id": "GAP-LOSS",
+      "description": "可容忍的数据丢失窗口未知",
+      "impact": "阻断离线候选方案接受与运营状态进入",
+      "needed_input": "持久成功标准、故障演练与数据丢失容忍"
+    },
+    {
+      "id": "GAP-EXCEPTION-OWNER",
+      "description": "冲突、补偿与回退责任待确认",
+      "impact": "阻断离线候选方案接受与运营状态进入",
+      "needed_input": "业务与运营责任人的交接接受记录"
+    }
+  ]
+}

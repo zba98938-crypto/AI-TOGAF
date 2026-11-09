@@ -1,0 +1,798 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:togaf-skills:model:1.0",
+  "title": "TOGAF skill collection project model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project",
+    "sources",
+    "entities",
+    "relationships",
+    "views",
+    "deliverables",
+    "gaps"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "version",
+        "context",
+        "is_example",
+        "decision_status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "domains",
+            "landscape",
+            "purpose",
+            "abstraction",
+            "evolution"
+          ],
+          "properties": {
+            "domains": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "business",
+                  "data",
+                  "application",
+                  "technology"
+                ]
+              }
+            },
+            "landscape": {
+              "enum": [
+                "strategic",
+                "segment",
+                "capability"
+              ]
+            },
+            "purpose": {
+              "enum": [
+                "strategy",
+                "portfolio",
+                "project",
+                "solution-delivery"
+              ]
+            },
+            "abstraction": {
+              "enum": [
+                "context",
+                "conceptual",
+                "logical",
+                "physical"
+              ]
+            },
+            "evolution": {
+              "enum": [
+                "baseline",
+                "transition",
+                "target"
+              ]
+            }
+          }
+        },
+        "is_example": {
+          "type": "boolean"
+        },
+        "decision_status": {
+          "enum": [
+            "candidate",
+            "approved",
+            "realized"
+          ]
+        },
+        "approval_evidence": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+          },
+          "kind": {
+            "enum": [
+              "user",
+              "official",
+              "local-translation",
+              "figure-interpretation",
+              "assumption",
+              "example"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "type",
+          "attributes",
+          "evidence",
+          "certainty"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "certainty": {
+            "enum": [
+              "confirmed",
+              "assumed",
+              "uncertain"
+            ]
+          },
+          "concept_id": {
+            "type": "string"
+          },
+          "context": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "domains",
+              "landscape",
+              "purpose",
+              "abstraction",
+              "evolution"
+            ],
+            "properties": {
+              "domains": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "business",
+                    "data",
+                    "application",
+                    "technology"
+                  ]
+                }
+              },
+              "landscape": {
+                "enum": [
+                  "strategic",
+                  "segment",
+                  "capability"
+                ]
+              },
+              "purpose": {
+                "enum": [
+                  "strategy",
+                  "portfolio",
+                  "project",
+                  "solution-delivery"
+                ]
+              },
+              "abstraction": {
+                "enum": [
+                  "context",
+                  "conceptual",
+                  "logical",
+                  "physical"
+                ]
+              },
+              "evolution": {
+                "enum": [
+                  "baseline",
+                  "transition",
+                  "target"
+                ]
+              }
+            }
+          },
+          "attributes": {
+            "type": "object"
+          },
+          "evolution": {
+            "enum": [
+              "baseline",
+              "transition",
+              "target"
+            ]
+          },
+          "decision_status": {
+            "enum": [
+              "candidate",
+              "approved",
+              "realized"
+            ]
+          },
+          "approval_evidence": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "source",
+          "target",
+          "label",
+          "evidence",
+          "certainty"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "certainty": {
+            "enum": [
+              "confirmed",
+              "assumed",
+              "uncertain"
+            ]
+          },
+          "codes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "attributes": {
+            "type": "object"
+          },
+          "cardinality": {
+            "type": "object",
+            "required": [
+              "source",
+              "target"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "source": {
+                "enum": [
+                  "one",
+                  "zero-or-one",
+                  "many",
+                  "one-or-more",
+                  "unknown"
+                ]
+              },
+              "target": {
+                "enum": [
+                  "one",
+                  "zero-or-one",
+                  "many",
+                  "one-or-more",
+                  "unknown"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "artifact_id",
+          "title",
+          "context",
+          "entity_ids",
+          "relationship_ids",
+          "analysis",
+          "legend"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+          },
+          "artifact_id": {
+            "enum": [
+              "constraints-catalog",
+              "location-catalog",
+              "principles-catalog",
+              "requirements-catalog",
+              "business-capabilities-catalog",
+              "business-glossary-catalog",
+              "business-service-function-catalog",
+              "contract-measure-catalog",
+              "driver-goal-objective-catalog",
+              "organization-actor-catalog",
+              "process-event-control-product-catalog",
+              "role-catalog",
+              "stakeholder-catalog",
+              "value-stream-catalog",
+              "value-stream-stages-catalog",
+              "application-portfolio-catalog",
+              "interface-catalog",
+              "data-entity-data-component-catalog",
+              "technology-portfolio-catalog",
+              "technology-standards-catalog",
+              "actor-role-matrix",
+              "application-function-matrix",
+              "application-organization-matrix",
+              "business-interaction-matrix",
+              "capability-organization-matrix",
+              "data-entity-business-function-matrix",
+              "role-application-matrix",
+              "strategy-capability-matrix",
+              "value-stream-capability-matrix",
+              "application-interaction-matrix",
+              "application-data-matrix",
+              "application-technology-matrix",
+              "environments-and-locations-diagram",
+              "application-and-user-location-diagram",
+              "benefits-diagram",
+              "business-capability-map",
+              "business-event-diagram",
+              "business-footprint-diagram",
+              "business-model-diagram",
+              "business-service-information-diagram",
+              "business-use-case-diagram",
+              "conceptual-data-diagram",
+              "functional-decomposition-diagram",
+              "goal-objective-service-diagram",
+              "information-map",
+              "organization-decomposition-diagram",
+              "organization-map",
+              "process-flow-diagram",
+              "process-application-realization-diagram",
+              "product-lifecycle-diagram",
+              "project-context-diagram",
+              "value-chain-diagram",
+              "value-stream-map",
+              "application-communication-diagram",
+              "application-migration-diagram",
+              "application-use-case-diagram",
+              "processing-diagram",
+              "software-distribution-diagram",
+              "software-engineering-diagram",
+              "solution-concept-diagram",
+              "data-dissemination-diagram",
+              "data-lifecycle-diagram",
+              "data-migration-diagram",
+              "data-security-diagram",
+              "logical-data-diagram",
+              "enterprise-manageability-diagram",
+              "network-and-communications-diagram",
+              "networked-computing-hardware-diagram",
+              "platform-decomposition-diagram",
+              "requirements-impact-assessment"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "context": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "domains",
+              "landscape",
+              "purpose",
+              "abstraction",
+              "evolution"
+            ],
+            "properties": {
+              "domains": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "business",
+                    "data",
+                    "application",
+                    "technology"
+                  ]
+                }
+              },
+              "landscape": {
+                "enum": [
+                  "strategic",
+                  "segment",
+                  "capability"
+                ]
+              },
+              "purpose": {
+                "enum": [
+                  "strategy",
+                  "portfolio",
+                  "project",
+                  "solution-delivery"
+                ]
+              },
+              "abstraction": {
+                "enum": [
+                  "context",
+                  "conceptual",
+                  "logical",
+                  "physical"
+                ]
+              },
+              "evolution": {
+                "enum": [
+                  "baseline",
+                  "transition",
+                  "target"
+                ]
+              }
+            }
+          },
+          "entity_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "relationship_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "analysis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "legend": {
+            "type": "string",
+            "minLength": 1
+          },
+          "allow_mixed_evolution": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "deliverable_id",
+          "title",
+          "view_ids",
+          "entity_ids",
+          "sections",
+          "decision_status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+          },
+          "deliverable_id": {
+            "enum": [
+              "architecture-building-blocks",
+              "architecture-contract",
+              "architecture-definition-document",
+              "architecture-requirements-specification",
+              "architecture-principles",
+              "architecture-repository",
+              "architecture-roadmaps",
+              "architecture-vision",
+              "business-goals-objectives",
+              "business-principles",
+              "business-drivers",
+              "capability-assessment",
+              "change-request",
+              "communications-plan",
+              "compliance-assessment",
+              "implementation-migration-plan",
+              "organization-model",
+              "request-for-architecture-work",
+              "requirements-impact-assessment",
+              "solution-building-blocks",
+              "statement-of-work",
+              "tailored-architecture-framework",
+              "implementation-governance-model"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "view_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "entity_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "sections": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "decision_status": {
+            "enum": [
+              "candidate",
+              "approved",
+              "realized"
+            ]
+          },
+          "approval_evidence": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description",
+          "impact",
+          "needed_input"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "impact": {
+            "type": "string",
+            "minLength": 1
+          },
+          "needed_input": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entity_types": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "relationship_types": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "source_types",
+              "target_types",
+              "meaning"
+            ],
+            "properties": {
+              "source_types": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "target_types": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "meaning": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "comparisons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "baseline_ids",
+          "target_ids",
+          "basis",
+          "gap_ids",
+          "transition_checks"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+          },
+          "baseline_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "target_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "gap_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "transition_checks": {
+            "type": "object",
+            "required": [
+              "operations",
+              "data_consistency",
+              "dependencies",
+              "controls",
+              "rollback"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

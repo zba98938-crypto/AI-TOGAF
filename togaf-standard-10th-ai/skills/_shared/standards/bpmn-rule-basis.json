@@ -1,0 +1,47 @@
+{
+  "schema_version": "bounded-bpmn-rule-basis/1",
+  "language": "BPMN",
+  "version": "2.0.2",
+  "normative_source": {
+    "url": "https://www.omg.org/spec/BPMN/2.0.2/PDF",
+    "sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+    "bytes": 7296515,
+    "local_acquisition_record": "output/full-closure-20261108/modeling/source-discovery/bpmn-pdf-source.json"
+  },
+  "rules": {
+    "sequence-scope": "Sections 7.6.1 and 8.4.13; Sequence Flow cannot cross a process or subprocess boundary.",
+    "sequence-endpoint-type": "Table 8.51 and FlowNode text, printed pages 97-98; sourceRef and targetRef have type FlowNode with process/choreography restrictions.",
+    "flow-node-association": "Table 8.52, printed page 98; incoming/outgoing identify Sequence Flows connected to the FlowNode. Optional serialized lists are checked when provided.",
+    "default-flow": "Table 10.3 and Gateway attribute tables; default identifies an outgoing SequenceFlow of its owner. A condition on a default flow is ignored, not rejected by this family.",
+    "event-direction": "Sections 10.5.2 and 10.5.3; Start/End Events have no incoming/outgoing Sequence Flows respectively.",
+    "boundary-attachment": "Section 10.5.4 and BoundaryEvent model association; attachment is a process Activity in the same scope. Table 11.7 also permits boundary Events on Choreography Activities; complete trigger and participant-band depiction restrictions remain unverified.",
+    "boundary-flow": "Section 10.5.4; attached Intermediate Events have no incoming Sequence Flow.",
+    "event-subprocess-flow": "Section 10.3.5 Event Sub-Processes; triggeredByEvent subprocesses do not participate in normal Sequence Flow.",
+    "parallel-conditions": "Section 10.6.4 Parallel Gateway; outgoing Sequence Flows have no conditionExpression.",
+    "event-gateway-target": "Section 10.6.6, printed pages 296-297; process targets are intermediate catching events or Receive Tasks. Section 11.7.2, page 349 permits Choreography Activities and Timer/Signal Intermediate Events.",
+    "event-gateway-conditions": "Section 10.6.6, printed pages 296-297; outgoing Sequence Flows have no conditionExpression; the EventBasedGateway metamodel/XSD has no default attribute.",
+    "event-gateway-cardinality": "Section 10.6.6, printed page 296; at least two outgoing Sequence Flows.",
+    "event-gateway-configuration": "Section 10.6.6, printed page 297; allowed Message/Signal/Timer/Conditional/Multiple triggers, Message-catch/ReceiveTask exclusion, no attached events on ReceiveTasks and no additional incoming flow to targets.",
+    "event-gateway-instantiation": "Section 10.6.6 and Table 10.127, printed pages 298-299; Parallel requires instantiate=true; instantiating process gateways have no incoming Sequence Flow. Section 13.4.4, page 437 limits Parallel start gateways to message-based triggers; correlation information remains unverified. Choreography instantiation remains a separate unverified obligation.",
+    "compensation-flow": "Sections 10.5.4/10.7 and Activity isForCompensation; compensation activities are outside normal Sequence Flow.",
+    "cancel-scope": "Cancel event description in sections 10.5.3/10.5.4/10.5.5; process Cancel ends a Transaction or is attached to one. Table 10.90, page 254 requires interruption; Table 11.7, page 342 permits interrupting Cancel catch on Choreography Activities. Referenced root definitions are evaluated in the using event's context. Participant-band depiction and complete choreography lifecycle remain unverified.",
+    "throw-trigger": "Section 10.5.1; Timer and Conditional are implicit triggers caught by Events, not explicitly thrown.",
+    "message-pool": "Section 7.6.2 and Message Flow section 9.4; Message Flow cannot connect elements of the same Pool.",
+    "message-endpoint-type": "Table 9.8 and section 9.4.1, printed page 122; sourceRef/targetRef are Participants, Activities or Events, excluding Gateways and Data Objects.",
+    "choreography-participants": "ChoreographyActivity initiatingParticipantRef association; initiator is one of its participantRefs. Message-flow participation/cardinality is a remaining separate obligation.",
+    "di-shape": "Section 12.2.3.3 and Annex B Bounds; semantic reference and finite coordinates with positive dimensions. Coordinate positivity and complete notation constraints remain outside this family.",
+    "di-edge": "Section 12.2.3.5 and Annex B Edge/Point; semantic connector, at least two waypoints, coordinates of type Real. Complete data-association exceptions and notation remain unverified."
+  },
+  "reference_resolution": "Section 15.3.2, printed pages 476-477; QName local part identifies the ID. Only same-targetNamespace prefixes resolve locally; external/undeclared/shadowed prefixes remain blocked. SequenceFlow sourceRef/targetRef remain IDREFs under the official XSD.",
+  "coverage_status": "bounded-implemented-subset",
+  "independent_human_acceptance": false,
+  "full_language_conformance": false,
+  "remaining": [
+    "Complete BPMN normative rule inventory and independent rule oracle",
+    "External file resolution, full referenced-definition metamodel typing and profile/vendor semantics",
+    "Event-direction refinement, throwing/catching trigger matrix and executable behavior semantics",
+    "Complete choreography/conversation constraints and notation visual acceptance",
+    "Choreography event gateway sender/receiver agreement, timer participation, lifecycle and reflected participant-process behavior",
+    "DI coordinate positivity, data-association edge exception and complete symbol constraints"
+  ]
+}

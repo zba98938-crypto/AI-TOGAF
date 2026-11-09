@@ -1,0 +1,58 @@
+flowchart LR
+  %% Specialized notation is in the SVG; this source is the complete labelled relation projection.
+  %% entity-id: ROLE-CHIEF
+  n0["首席架构师"]
+  %% entity-id: ROLE-EA
+  n1["企业架构师"]
+  %% entity-id: ROLE-SEG
+  n2["库存分段架构师"]
+  %% entity-id: ROLE-SOL
+  n3["履约解决方案架构师"]
+  %% entity-id: TASK-CH
+  n4["战略优先与业务承诺边界"]
+  %% entity-id: TASK-EA
+  n5["跨分段互操作原则"]
+  %% entity-id: TASK-SEG
+  n6["库存语义与运营条件"]
+  %% entity-id: TASK-SOL
+  n7["预占接口候选比较"]
+  %% entity-id: BEH-CH.evidence
+  n8["PERSON-CH：BEH-CH"]
+  %% entity-id: BEH-EA.evidence
+  n9["PERSON-EA：BEH-EA"]
+  %% entity-id: BEH-SEG.evidence
+  n10["PERSON-SEG：BEH-SEG"]
+  %% entity-id: BEH-SOL.evidence
+  n11["PERSON-A：BEH-SOL"]
+  %% entity-id: ASSIGN-CH
+  n12["PERSON-CH候选配置"]
+  %% entity-id: ASSIGN-EA
+  n13["PERSON-EA候选配置"]
+  %% entity-id: ASSIGN-SEG
+  n14["PERSON-SEG候选配置"]
+  %% entity-id: ASSIGN-A
+  n15["PERSON-A候选配置"]
+  %% relationship-id: work-projection.6bb0140bc708e4bbb096
+  n0 -->|"本次任务职责；不是人事汇报"| n4
+  %% relationship-id: work-projection.5aa5498d92502bf7da41
+  n1 -->|"本次任务职责；不是人事汇报"| n5
+  %% relationship-id: work-projection.4eb7c710941c2fc9bd50
+  n2 -->|"本次任务职责；不是人事汇报"| n6
+  %% relationship-id: work-projection.db99e6eb17404474021f
+  n3 -->|"本次任务职责；不是人事汇报"| n7
+  %% relationship-id: work-projection.0c4fe3f44093d9f50fec
+  n12 -->|"候选承担；未批准"| n4
+  %% relationship-id: work-projection.9216799023b9b1fffcd4
+  n12 -->|"配置依赖的人员/支持证据"| n8
+  %% relationship-id: work-projection.06a88de2ec5a26c2fca0
+  n13 -->|"候选承担；未批准"| n5
+  %% relationship-id: work-projection.440b9262d69aeaa8953a
+  n13 -->|"配置依赖的人员/支持证据"| n9
+  %% relationship-id: work-projection.ae03e8809cb9bfce5fa0
+  n14 -->|"候选承担；未批准"| n6
+  %% relationship-id: work-projection.710d6c5a67f4b472155f
+  n14 -->|"配置依赖的人员/支持证据"| n10
+  %% relationship-id: work-projection.554aee97e4fbf2c66416
+  n15 -->|"候选承担；未批准"| n7
+  %% relationship-id: work-projection.221f533dc7d14014d128
+  n15 -->|"配置依赖的人员/支持证据"| n11

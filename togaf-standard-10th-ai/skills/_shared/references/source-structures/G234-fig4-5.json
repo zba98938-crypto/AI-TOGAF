@@ -1,0 +1,536 @@
+{
+  "schema_version": "2.0",
+  "id": "G234/fig4-5",
+  "title": "关键元数据资产",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      303
+    ],
+    "label_table_lines": [
+      307,
+      350
+    ]
+  },
+  "reading": {
+    "purpose_zh": "正文说元数据常分为业务、技术、运营三类，图 4-5 给出“为支持数据治理应捕获的关键元数据资产”的基线建议，并按数据管理维度组织，便于架构师按维度查漏、按类型分工。",
+    "reading_guide_zh": "先读横轴四个维度：Data Quality、Data Documentation、Data Security & Privacy、Metadata Governance；再读纵轴三类元数据：Business、Technical、Operational。读某个维度时纵向扫一列，读某类元数据时横向扫一行。单元格里的标签就是资产，空格表示该组合未列资产。",
+    "key_points_zh": [
+      "业务元数据资产最多，四个维度都有覆盖；技术元数据集中在数据质量、数据文档化与数据安全隐私；运营元数据每个维度只有 1 项。",
+      "Data Documentation 列最密：业务 9 项、技术 5 项、运营 1 项，是元数据存储库的主体内容。",
+      "Data Quality 列以规则、问题、异常为主：Business Data Issue、Business Data Quality Rule、Technical Data Quality Rule、Data Quality Anomaly。",
+      "Data Security & Privacy 列以处理活动、评估、删除规则、访问事件为主，业务与技术各有一条删除规则。",
+      "Metadata Governance 列只有业务元数据（Role、Data Policy、Business Data Domain、SLAs、Organization）和运营元数据（Metadata Activity Logs）；技术元数据为空。",
+      "技术元数据在 Metadata Governance 单元格为空是原图事实，不是漏画；技术元数据的治理通过业务层的角色/政策与运营层的活动日志体现。"
+    ],
+    "hierarchy_zh": "两维坐标，不存在上下级：4 个维度（列）× 3 个类型（行），每个单元格内的资产并列。",
+    "line_semantics_zh": "虚线是单元格分隔线，没有箭头；位置（行与列）就是唯一的语义。",
+    "misreadings_zh": [
+      "不要把空单元格理解为“不允许”或“不存在”，它只表示基线清单未列。",
+      "Data Volume 属运营元数据 × Data Documentation，不在 Data Quality 列。",
+      "Metadata Activity Logs 属运营元数据 × Metadata Governance，不是技术元数据。",
+      "中文图的“数据安全与隐私”和“元数据治理”表头挤在一行，不要把它们当成一个维度。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "dim_quality",
+      "label_en": "Data Quality",
+      "label_zh": "数据质量",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 1 列表头"
+    },
+    {
+      "id": "dim_documentation",
+      "label_en": "Data Documentation",
+      "label_zh": "数据文档化",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 2 列表头"
+    },
+    {
+      "id": "dim_security_privacy",
+      "label_en": "Data Security & Privacy",
+      "label_zh": "数据安全与隐私",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 3 列表头"
+    },
+    {
+      "id": "dim_governance",
+      "label_en": "Metadata Governance",
+      "label_zh": "元数据治理",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 4 列表头"
+    },
+    {
+      "id": "a_business_issue",
+      "label_en": "Business Data Issue",
+      "label_zh": "业务数据问题",
+      "type": "data",
+      "parent": "dim_quality",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_dq_rule",
+      "label_en": "Business Data Quality Rule",
+      "label_zh": "业务数据质量规则",
+      "type": "principle",
+      "parent": "dim_quality",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_term",
+      "label_en": "Business Term",
+      "label_zh": "业务术语",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_data_object",
+      "label_en": "Business Data Object",
+      "label_zh": "业务数据对象",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_data_element",
+      "label_en": "Business Data Element",
+      "label_zh": "业务数据元素",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_process",
+      "label_en": "Process",
+      "label_zh": "流程",
+      "type": "process",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_class_taxonomies",
+      "label_en": "Data Classification Taxonomies",
+      "label_zh": "数据分类体系",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_rule",
+      "label_en": "Business Rule",
+      "label_zh": "业务规则",
+      "type": "principle",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_code_set",
+      "label_en": "Code Set",
+      "label_zh": "代码集",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_code_value",
+      "label_en": "Code Value",
+      "label_zh": "代码值",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_activity",
+      "label_en": "Activity",
+      "label_zh": "活动",
+      "type": "process",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_processing_activity",
+      "label_en": "Data Processing Activity",
+      "label_zh": "数据处理活动",
+      "type": "process",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_privacy_assessment",
+      "label_en": "Data Privacy Assessment",
+      "label_zh": "数据隐私评估",
+      "type": "artifact",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_deletion_rule",
+      "label_en": "Business Data Deletion Rule",
+      "label_zh": "业务数据删除规则",
+      "type": "principle",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_role",
+      "label_en": "Role",
+      "label_zh": "角色",
+      "type": "role",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_data_policy",
+      "label_en": "Data Policy",
+      "label_zh": "数据政策",
+      "type": "principle",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_domain",
+      "label_en": "Business Data Domain",
+      "label_zh": "业务数据域",
+      "type": "data",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_slas",
+      "label_en": "SLAs",
+      "label_zh": "服务水平协议",
+      "type": "artifact",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_organization",
+      "label_en": "Organization",
+      "label_zh": "组织",
+      "type": "organization_unit",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "t_technical_dq_rule",
+      "label_en": "Technical Data Quality Rule",
+      "label_zh": "技术数据质量规则",
+      "type": "principle",
+      "parent": "dim_quality",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_application",
+      "label_en": "Application",
+      "label_zh": "应用",
+      "type": "application",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_data_flow",
+      "label_en": "Data Flow",
+      "label_zh": "数据流",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_database",
+      "label_en": "Database",
+      "label_zh": "数据库",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_data_set",
+      "label_en": "Data Set",
+      "label_zh": "数据集",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_data_field",
+      "label_en": "Data Field",
+      "label_zh": "数据字段",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_technical_deletion_rule",
+      "label_en": "Technical Data Deletion Rule",
+      "label_zh": "技术数据删除规则",
+      "type": "principle",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "o_dq_anomaly",
+      "label_en": "Data Quality Anomaly",
+      "label_zh": "数据质量异常",
+      "type": "data",
+      "parent": "dim_quality",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Operational"
+      }
+    },
+    {
+      "id": "o_data_volume",
+      "label_en": "Data Volume",
+      "label_zh": "数据量",
+      "type": "metric",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Operational"
+      }
+    },
+    {
+      "id": "o_access_event",
+      "label_en": "Data Access Event",
+      "label_zh": "数据访问事件",
+      "type": "event",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Operational"
+      }
+    },
+    {
+      "id": "o_activity_logs",
+      "label_en": "Metadata Activity Logs",
+      "label_zh": "元数据活动日志",
+      "type": "data",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Operational"
+      }
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_asset_matrix",
+      "title_zh": "元数据类型 × 数据管理维度：关键元数据资产（逐格转录）",
+      "columns": [
+        "元数据类型",
+        "数据管理维度",
+        "元数据资产"
+      ],
+      "rows": [
+        [
+          "Business 业务",
+          "Data Quality 数据质量",
+          "Business Data Issue；Business Data Quality Rule"
+        ],
+        [
+          "Business 业务",
+          "Data Documentation 数据文档化",
+          "Business Term；Business Data Object；Business Data Element；Process；Data Classification Taxonomies；Business Rule；Code Set；Code Value；Activity"
+        ],
+        [
+          "Business 业务",
+          "Data Security & Privacy 数据安全与隐私",
+          "Data Processing Activity；Data Privacy Assessment；Business Data Deletion Rule"
+        ],
+        [
+          "Business 业务",
+          "Metadata Governance 元数据治理",
+          "Role；Data Policy；Business Data Domain；SLAs；Organization"
+        ],
+        [
+          "Technical 技术",
+          "Data Quality 数据质量",
+          "Technical Data Quality Rule"
+        ],
+        [
+          "Technical 技术",
+          "Data Documentation 数据文档化",
+          "Application；Data Flow；Database；Data Set；Data Field"
+        ],
+        [
+          "Technical 技术",
+          "Data Security & Privacy 数据安全与隐私",
+          "Technical Data Deletion Rule"
+        ],
+        [
+          "Technical 技术",
+          "Metadata Governance 元数据治理",
+          ""
+        ],
+        [
+          "Operational 运营",
+          "Data Quality 数据质量",
+          "Data Quality Anomaly"
+        ],
+        [
+          "Operational 运营",
+          "Data Documentation 数据文档化",
+          "Data Volume"
+        ],
+        [
+          "Operational 运营",
+          "Data Security & Privacy 数据安全与隐私",
+          "Data Access Event"
+        ],
+        [
+          "Operational 运营",
+          "Metadata Governance 元数据治理",
+          "Metadata Activity Logs"
+        ]
+      ],
+      "notes_zh": "Data Documentation 业务格在原图中分两小列排列：左列 Business Term/Business Data Object/Business Data Element/Process/Data Classification Taxonomies，右列 Business Rule/Code Set/Code Value/Activity；行内顺序按原图自上而下、先左列后右列。"
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "深色顶栏 DATA MANAGEMENT DIMENSIONS",
+      "meaning_zh": "横轴：数据管理维度",
+      "explicit": true
+    },
+    {
+      "symbol": "左侧竖排 METADATA TYPE",
+      "meaning_zh": "纵轴：元数据类型",
+      "explicit": true
+    },
+    {
+      "symbol": "灰底圆角标签",
+      "meaning_zh": "一项关键元数据资产",
+      "explicit": false
+    },
+    {
+      "symbol": "虚线网格",
+      "meaning_zh": "维度与类型的单元格边界",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图 Data Documentation 业务格分两小列，未标注小列含义；本分析按阅读顺序合并转录。",
+      "SLAs 在图中未展开，按中文稿译作“服务水平协议”。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 26 页原图截图",
+      "英文 PDF 第 26 页正文",
+      "中文稿 G234e_信息架构_元数据管理.md 第 295–350 行（图内标签对照）",
+      "figs/g234e_fig4-5_en.png、figs/zh/g234e_fig4-5_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": {
+    "figure_id": "G234/fig4-5",
+    "review_date": "2026-11-01",
+    "review_kind": "MD-body + actual image + JSON",
+    "status": "reviewed",
+    "note_zh": "3类元数据乘4个管理维度的资产覆盖模板；空格不代表禁止或没有资产。",
+    "source_md": "G234e_信息架构_元数据管理.md",
+    "assets_opened": [
+      "figs/g234e_fig4-5_en.png"
+    ],
+    "limit": "仅证明所列观察；未据此声明全图所有字段或全部来源图已逐项复核。"
+  },
+  "visual_structure_review": {
+    "id": "G234/fig4-5",
+    "asset": "figs/g234e_fig4-5_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "16"
+  }
+}

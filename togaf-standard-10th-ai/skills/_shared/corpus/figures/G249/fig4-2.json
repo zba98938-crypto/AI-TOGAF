@@ -1,0 +1,2380 @@
+{
+  "schema_version": "1.0",
+  "id": "G249/fig4-2",
+  "status": "done",
+  "doc": {
+    "code": "G249",
+    "title_zh": "架构角色与技能",
+    "title_en": "Architecture Roles and Skills",
+    "zh_md": "G249e_架构角色与技能.md",
+    "en_pdf": "togaf-standard-10th/G249e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-2",
+    "title_en": "Entity Relationship Diagram for Architecture Level Concepts",
+    "title_zh": "架构层级概念的实体关系图",
+    "section_en": "4.3 Segment Architect (Business and Technical)",
+    "section_zh": "4.3 分段架构师（业务与技术）",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        21
+      ],
+      "printed_page": 11,
+      "bboxes": [
+        [
+          61.1,
+          363.7,
+          550.9,
+          617.5
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        239
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g249_fig4-2.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "2900c7f724de",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "画的不是本图：原图是带基数（1..*、0..*）和关系标签（has、offers、enables、performed by、implemented by、utilizes capabilities from 等）的实体关系图，实体包括 Enterprise Strategic、Segment、Capability、Service、System、Building Block、Other Domains、Business Domain、IS/IT Domain、Data、Application、Technology；SVG 是“架构—企业级—分段/领域—解决方案—过渡架构—业务域—数据/应用/技术域”的简单层级框",
+        "SVG 没有基数、没有 ERD 关系标签、没有 System/Building Block/Other Domains/XX 子域，也没有顶部的四段角色说明；无法据它理解架构层级概念之间的关系"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "er_model",
+      "hierarchy"
+    ],
+    "notation": "实体关系图（ERD）：矩形为实体，连线两端的 1..*、0..* 为基数，线上标签为关系动词；上方 Level 框把企业战略、分段、能力、服务归为层级概念，System 内嵌 Building Block",
+    "concepts": [
+      "segment_solution_architecture",
+      "architecture_levels",
+      "architecture_domains",
+      "enterprise_metamodel"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "架构层级概念的 ERD：企业战略拥有分段，分段提供能力，能力使能服务；服务由系统执行，能力由构建块实现；业务域使用 IS/IT 域的能力，IS/IT 域细分为数据、应用、技术域。",
+    "purpose_zh": "第 4.3 节用本图说明分段架构师工作的概念结构：分段是为管理与控制而对能力做的连贯分组；域是能力的另一种有用分组。图把企业战略、分段、能力、服务、系统、构建块与业务/IS/IT 域放在同一 ERD 中，说明它们之间的组成、使能、实现与使用关系。",
+    "reading_guide_zh": "先看 Level 框内的横向链：Enterprise Strategic —has→ Segment —offers→ Capability —enables→ Service；反向读作 enables、organized by、utilizes。再看下方：Service —performed by→ System，System 内含 Building Block，Capability —implemented by→ Building Block。左侧 Business Domain 通过 utilizes capabilities from 使用 IS/IT Domain 的能力；Business Domain 下含若干 XX 子域，IS/IT Domain 下含 Data、Application、Technology 三个域。顶部四段文字分别说明企业架构师、分段架构师、能力设计/构建者、解决方案架构师的职责。",
+    "key_points_zh": [
+      "层级链：Enterprise Strategic 1..* has Segment 1..*；Segment 1..* offers Capability 1..*；Capability 1..* enables Service 1..*。反向标签分别为 enables、organized by、utilizes。",
+      "Service 1..* is performed by System 1..*；System 1..* contains Building Block 1..*。",
+      "Capability 1..* is implemented by Building Block 1..*；反向为 implements。",
+      "Business Domain 1..* utilizes capabilities from IS/IT Domain 0..*；反向为 IS/IT Domain provides capabilities to Business Domain。",
+      "Business Domain 下可继续分解为若干业务子域（图中用 XX、XX、.. 表示）；IS/IT Domain 下含 Data、Application、Technology 三个起始域，技术域还可继续分解为 Software、Servers、User Devices、Execution Environments、Networks、Buildings、Mechanical Devices 等。",
+      "顶部四段说明：企业架构师跨分段演进/治理；分段架构师在分段内演进/治理能力；能力设计/构建者创建/变更构建块中的能力；解决方案架构师把能力组织成新的/变更的解决方案以交付服务。",
+      "图中把 System 画成一个包含 Building Block 的大框，表示系统由构建块组成；服务由系统执行，能力由构建块实现。"
+    ],
+    "hierarchy_zh": "Level 框包含 Enterprise Strategic、Segment、Capability、Service 四个层级实体；System 框包含 Building Block；Business Domain 包含 XX 子域；IS/IT Domain 包含 Data、Application、Technology。这是实体包含/分类，不是组织汇报。",
+    "line_semantics_zh": "连线为 ERD 关系，标签说明主语→宾语，两端数字为基数：has/enables（企业战略↔分段）、offers/organized by（分段↔能力）、enables/utilizes（能力↔服务）、performed by（服务→系统）、implemented by/implements（能力↔构建块）、utilizes capabilities from/provides capabilities to（业务域↔IS/IT 域）。System 到 Building Block 的连线表示组成；Business Domain 到 XX、IS/IT Domain 到 Data/Application/Technology 的连线表示细分。",
+    "misreadings_zh": [
+      "Level 框不是组织层级，而是架构层级概念的集合；Enterprise Strategic、Segment、Capability、Service 是概念类型，不是四个部门。",
+      "Business Domain 与 IS/IT Domain 是并列的域，不是上下级；Business Domain 使用 IS/IT Domain 提供的能力。",
+      "System 与 Building Block 是包含关系，不是同一个概念；服务由系统执行，能力由构建块实现。",
+      "顶部四段文字是角色职责说明，不是 ERD 实体或关系。",
+      "中文稿引用的 figs/g249_fig4-2.svg 是简单的架构层级框，没有基数与关系标签，不能据它理解 ERD。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p21",
+        "summary_zh": "分段是为管理与控制目的而对能力进行的连贯分组，通常作为能力组合或特定变革项目群管理；域是能力的另一种有用分组；在管理包含信息系统的架构全景时，有业务、应用、数据、技术四个基于分段的视角（图 4-2）。"
+      },
+      {
+        "source": "en_pdf p21",
+        "summary_zh": "图 4-2 的顶部说明：企业架构师跨分段演进/治理；分段架构师在分段内演进/治理能力；能力设计/构建者创建/变更构建块中的能力；解决方案架构师把能力组织成新的/变更的解决方案以交付服务。"
+      },
+      {
+        "source": "en_pdf p21",
+        "summary_zh": "图 4-2 的底部注：TOGAF 标准识别一个总体业务域，可进一步分解为业务职能/流程组合（如财务、制造、法务、人力资源、客户管理、服务与支持）；识别三个起始信息系统域（数据、应用、技术），技术域可继续分解为软件、服务器、用户设备、执行环境、网络、建筑、机械设备等。"
+      },
+      {
+        "source": "zh_md L237",
+        "summary_zh": "中文稿：分段是能力的管理与控制分组；域是能力的另一种分组；管理包含信息系统的架构全景时有业务、应用、数据、技术四个基于分段的视角（图 4-2）。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "顶部一个 Level 大框，横向排列 Enterprise Strategic、Segment、Capability、Service；右上为 System 大框内含 Building Block；左下为 Other Domains、Business Domain（内含 XX/XX/..），中下为 IS/IT Domain（内含 Data/Application/Technology）；顶部有四个角色说明注记。"
+  },
+  "legend": [
+    {
+      "symbol": "矩形实体",
+      "meaning_zh": "架构层级概念/域/系统/构建块",
+      "explicit": false
+    },
+    {
+      "symbol": "连线 + 1..* / 0..*",
+      "meaning_zh": "实体关系及基数",
+      "explicit": true
+    },
+    {
+      "symbol": "Level 大框",
+      "meaning_zh": "企业战略、分段、能力、服务四个层级概念的集合",
+      "explicit": true
+    },
+    {
+      "symbol": "顶部四段文字",
+      "meaning_zh": "企业/分段/能力/解决方案架构师的职责说明",
+      "explicit": true
+    }
+  ],
+  "elements": [
+    {
+      "id": "level",
+      "label_en": "Level",
+      "label_zh": "层级",
+      "type": "group",
+      "parent": null,
+      "position": "顶部大框"
+    },
+    {
+      "id": "enterprise_strategic",
+      "label_en": "Enterprise Strategic",
+      "label_zh": "企业战略层",
+      "type": "architecture",
+      "parent": "level",
+      "order": 1
+    },
+    {
+      "id": "segment",
+      "label_en": "Segment",
+      "label_zh": "分段",
+      "type": "architecture",
+      "parent": "level",
+      "order": 2
+    },
+    {
+      "id": "capability",
+      "label_en": "Capability",
+      "label_zh": "能力",
+      "type": "capability",
+      "parent": "level",
+      "order": 3
+    },
+    {
+      "id": "service",
+      "label_en": "Service",
+      "label_zh": "服务",
+      "type": "service",
+      "parent": "level",
+      "order": 4
+    },
+    {
+      "id": "system",
+      "label_en": "System",
+      "label_zh": "系统",
+      "type": "application",
+      "parent": null,
+      "position": "右上大框"
+    },
+    {
+      "id": "building_block",
+      "label_en": "Building Block",
+      "label_zh": "构建块",
+      "type": "building_block",
+      "parent": "system",
+      "position": "System 框内"
+    },
+    {
+      "id": "other_domains",
+      "label_en": "Other Domains",
+      "label_zh": "其他域",
+      "type": "group",
+      "parent": null,
+      "position": "左下"
+    },
+    {
+      "id": "business_domain",
+      "label_en": "Business Domain",
+      "label_zh": "业务域",
+      "type": "group",
+      "parent": null,
+      "position": "左下中"
+    },
+    {
+      "id": "business_subdomains",
+      "label_en": "XX, XX, ..",
+      "label_zh": "业务子域",
+      "type": "group",
+      "parent": "business_domain",
+      "position": "业务域下方"
+    },
+    {
+      "id": "isit_domain",
+      "label_en": "IS/IT Domain",
+      "label_zh": "IS/IT 域",
+      "type": "group",
+      "parent": null,
+      "position": "中下"
+    },
+    {
+      "id": "data_domain",
+      "label_en": "Data",
+      "label_zh": "数据域",
+      "type": "architecture",
+      "parent": "isit_domain",
+      "order": 1
+    },
+    {
+      "id": "application_domain",
+      "label_en": "Application",
+      "label_zh": "应用域",
+      "type": "architecture",
+      "parent": "isit_domain",
+      "order": 2
+    },
+    {
+      "id": "technology_domain",
+      "label_en": "Technology",
+      "label_zh": "技术域",
+      "type": "architecture",
+      "parent": "isit_domain",
+      "order": 3
+    },
+    {
+      "id": "note_ea",
+      "label_en": "Enterprise Architects evolve and govern aspects across and between segments to achieve goals and objectives.",
+      "label_zh": "企业架构师跨分段演进与治理，以达成目标与目的。",
+      "type": "note",
+      "parent": null,
+      "position": "顶部左一"
+    },
+    {
+      "id": "note_segment",
+      "label_en": "Segment Architects evolve and govern capabilities within segments to achieve goals and objectives.",
+      "label_zh": "分段架构师在分段内演进与治理能力，以达成目标与目的。",
+      "type": "note",
+      "parent": null,
+      "position": "顶部左二"
+    },
+    {
+      "id": "note_capability",
+      "label_en": "Capability (specialist) designers and builders create and change capability in building blocks to satisfy requirements.",
+      "label_zh": "能力（专家）设计与构建者创建并变更构建块中的能力，以满足需求。",
+      "type": "note",
+      "parent": null,
+      "position": "顶部右二"
+    },
+    {
+      "id": "note_solution",
+      "label_en": "Solution Architects organize capabilities into new or changed solutions delivering services to meet requirements.",
+      "label_zh": "解决方案架构师把能力组织成新的/变更的解决方案，交付服务以满足需求。",
+      "type": "note",
+      "parent": null,
+      "position": "顶部右一"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "enterprise_strategic",
+      "to": "segment",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "has >",
+      "label_zh": "拥有",
+      "cardinality": "1..* → 1..*",
+      "description_zh": "反向读作 < enables"
+    },
+    {
+      "from": "segment",
+      "to": "capability",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "offers >",
+      "label_zh": "提供",
+      "cardinality": "1..* → 1..*",
+      "description_zh": "反向读作 < organized by"
+    },
+    {
+      "from": "capability",
+      "to": "service",
+      "type": "serving",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "enables >",
+      "label_zh": "使能",
+      "cardinality": "1..* → 1..*",
+      "description_zh": "反向读作 < utilizes"
+    },
+    {
+      "from": "service",
+      "to": "system",
+      "type": "realization",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "performed by v",
+      "label_zh": "由……执行",
+      "cardinality": "1..* → 1..*"
+    },
+    {
+      "from": "system",
+      "to": "building_block",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "label_zh": "包含",
+      "cardinality": "1..* → 1..*",
+      "description_zh": "System 框内包含 Building Block；连线两端标 v/^ 与 1..*"
+    },
+    {
+      "from": "capability",
+      "to": "building_block",
+      "type": "realization",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "implemented by >",
+      "label_zh": "由……实现",
+      "cardinality": "1..* → 1..*",
+      "description_zh": "反向读作 < implements"
+    },
+    {
+      "from": "business_domain",
+      "to": "isit_domain",
+      "type": "serving",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "utilizes capabilities from >",
+      "label_zh": "使用……的能力",
+      "cardinality": "1..* → 0..*",
+      "description_zh": "反向读作 < provides capabilities to"
+    },
+    {
+      "from": "business_domain",
+      "to": "business_subdomains",
+      "type": "composition",
+      "explicit": false,
+      "line": "solid",
+      "arrow": "forward",
+      "label_zh": "细分为",
+      "description_zh": "业务域下方画出 XX、XX、.. 子域；原图未标关系文字"
+    },
+    {
+      "from": "isit_domain",
+      "to": "data_domain",
+      "type": "composition",
+      "explicit": false,
+      "line": "solid",
+      "arrow": "forward",
+      "label_zh": "细分为",
+      "description_zh": "IS/IT 域下方画出 Data、Application、Technology；原图未标关系文字"
+    },
+    {
+      "from": "isit_domain",
+      "to": "application_domain",
+      "type": "composition",
+      "explicit": false,
+      "line": "solid",
+      "arrow": "forward",
+      "label_zh": "细分为"
+    },
+    {
+      "from": "isit_domain",
+      "to": "technology_domain",
+      "type": "composition",
+      "explicit": false,
+      "line": "solid",
+      "arrow": "forward",
+      "label_zh": "细分为"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_relations",
+      "title_zh": "ERD 关系与基数（按原图转录）",
+      "columns": [
+        "主语",
+        "关系",
+        "宾语",
+        "基数"
+      ],
+      "rows": [
+        [
+          "Enterprise Strategic",
+          "has（反向 enables）",
+          "Segment",
+          "1..* → 1..*"
+        ],
+        [
+          "Segment",
+          "offers（反向 organized by）",
+          "Capability",
+          "1..* → 1..*"
+        ],
+        [
+          "Capability",
+          "enables（反向 utilizes）",
+          "Service",
+          "1..* → 1..*"
+        ],
+        [
+          "Service",
+          "performed by",
+          "System",
+          "1..* → 1..*"
+        ],
+        [
+          "System",
+          "contains",
+          "Building Block",
+          "1..* → 1..*"
+        ],
+        [
+          "Capability",
+          "implemented by（反向 implements）",
+          "Building Block",
+          "1..* → 1..*"
+        ],
+        [
+          "Business Domain",
+          "utilizes capabilities from（反向 provides capabilities to）",
+          "IS/IT Domain",
+          "1..* → 0..*"
+        ]
+      ]
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G249/fig4-1",
+      "relation": "follows",
+      "note_zh": "图 4-1 给出架构角色层级；本图用 ERD 说明架构层级概念与域的关系，正文随后定义分段架构师"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "Business Domain 与 Segment 之间、Other Domains 与 Business Domain 之间的连线在原图中没有清晰的关系标签；本解析未把它们列为关系，只保留有标签的关系。",
+      "System–Building Block 的连线两端有 1..* 与 v/^ 记号，本解析按“系统包含构建块”记录；原图没有文字标签。",
+      "顶部四段角色说明是注记，不是实体关系；本解析将其作为 note 元素并在语义中说明。",
+      "中文稿引用的 SVG 与本图无关，已判 not_equivalent。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 21 页原图截图（600 dpi）",
+      "英文 PDF 第 21 页正文",
+      "中文稿 G249e_架构角色与技能.md 第 235–247 行",
+      "figs/g249_fig4-2.svg 源码（确认与原图不对应）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G249e.pdf",
+    "pdf_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G249/fig4-2.json",
+    "interpretation_sha256": "01e9a956187618e1d07068787bb3dec4adf593a06c61e2feb10ca0161f934cb8",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 21,
+        "text": "Figure 4-2: Entity Relationship Diagram for Architecture Level Concepts",
+        "bbox_pdf_points": [
+          48.24,
+          622.231,
+          380.667,
+          635.797
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 21,
+      "printed_page": 11,
+      "bbox_pdf_points": [
+        61.1,
+        363.7,
+        550.9,
+        617.5
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G249/fig4-2-p0021.png",
+      "image_sha256": "5adb21e1a1ddba070f6a57a14da4cf5edf794d8f549a1bccced0152c0fe0c09e",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "5adb21e1a1ddba070f6a57a14da4cf5edf794d8f549a1bccced0152c0fe0c09e",
+          "status": "extracted-unverified",
+          "text": "Enterprise Architects evolve and\n‘Segment Architects evolve and\nCapability (specialist) designers and\nSolution Architects organize capabilities\ngovern aspects across and\n‘govern capabilities within\nbuild\n‘feate and change capability\ninto new or changed solutions delivering\nbetween segments to achieve\n‘segments to achieve goals and\nin building blocks to satisfy\nservices to meet requirements.\ngoals and objectives.\nobjectives,\nrequirements.\nLevel\n1\nhas >\nte\nq\noffs >\n1\nenables >\nService\nEnterprise\nSegment\nCapability\nStrategic\n< enables\n<tganized by\n< utiizes\n1\nLe\nPerformed by v\n1\n‘System\nte\na\n[\nOther\nBiisiness,\nhh\n‘tlizes capabilies trom >\noe\nIst\nimplemented by >\n1\nBuilding Block\nDomains\nDomain\nDomain\n< implements\n+\n< provides, capabilities to\nfo rs |\nata\nApplication\nTechnology\n‘The TOGAF Standard identifies one overall business\n‘The TOGAF Standard identifies three starting\ndomain that may be broken down further e.g. business\ninformation system domains which may be broken down\nfunction/process portfolios depending on what a\nfurthe\ng.. (Technology) into Software, Servers, User\nbusiness does, e.g., Finance, Manufacturing, Legal, HR,\nDevices, Execution Environments, Networks, Buildings,\nCustomer Management, Service, and Support.\nand Mechanical Devices.",
+          "words": [
+            {
+              "text": "Enterprise",
+              "confidence": 96.918793,
+              "bbox_pixels_xywh": [
+                12,
+                8,
+                63,
+                12
+              ]
+            },
+            {
+              "text": "Architects",
+              "confidence": 96.678886,
+              "bbox_pixels_xywh": [
+                78,
+                8,
+                63,
+                10
+              ]
+            },
+            {
+              "text": "evolve",
+              "confidence": 96.154045,
+              "bbox_pixels_xywh": [
+                145,
+                8,
+                36,
+                10
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.771713,
+              "bbox_pixels_xywh": [
+                186,
+                8,
+                20,
+                9
+              ]
+            },
+            {
+              "text": "‘Segment",
+              "confidence": 91.321213,
+              "bbox_pixels_xywh": [
+                261,
+                7,
+                54,
+                13
+              ]
+            },
+            {
+              "text": "Architects",
+              "confidence": 96.881958,
+              "bbox_pixels_xywh": [
+                318,
+                8,
+                63,
+                10
+              ]
+            },
+            {
+              "text": "evolve",
+              "confidence": 95.526352,
+              "bbox_pixels_xywh": [
+                385,
+                8,
+                36,
+                10
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 95.593704,
+              "bbox_pixels_xywh": [
+                425,
+                8,
+                21,
+                9
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 93.52713,
+              "bbox_pixels_xywh": [
+                505,
+                7,
+                56,
+                13
+              ]
+            },
+            {
+              "text": "(specialist)",
+              "confidence": 96.73999,
+              "bbox_pixels_xywh": [
+                565,
+                7,
+                61,
+                12
+              ]
+            },
+            {
+              "text": "designers",
+              "confidence": 96.248161,
+              "bbox_pixels_xywh": [
+                630,
+                7,
+                55,
+                13
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.248161,
+              "bbox_pixels_xywh": [
+                689,
+                7,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "Solution",
+              "confidence": 88.16256,
+              "bbox_pixels_xywh": [
+                731,
+                8,
+                51,
+                10
+              ]
+            },
+            {
+              "text": "Architects",
+              "confidence": 94.444214,
+              "bbox_pixels_xywh": [
+                786,
+                8,
+                62,
+                10
+              ]
+            },
+            {
+              "text": "organize",
+              "confidence": 96.87326,
+              "bbox_pixels_xywh": [
+                852,
+                11,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "capabilities",
+              "confidence": 63.914749,
+              "bbox_pixels_xywh": [
+                905,
+                8,
+                63,
+                12
+              ]
+            },
+            {
+              "text": "govern",
+              "confidence": 70.94194,
+              "bbox_pixels_xywh": [
+                32,
+                25,
+                39,
+                10
+              ]
+            },
+            {
+              "text": "aspects",
+              "confidence": 96.707748,
+              "bbox_pixels_xywh": [
+                75,
+                23,
+                44,
+                12
+              ]
+            },
+            {
+              "text": "across",
+              "confidence": 94.296478,
+              "bbox_pixels_xywh": [
+                123,
+                25,
+                37,
+                8
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.519432,
+              "bbox_pixels_xywh": [
+                165,
+                23,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "‘govern",
+              "confidence": 94.526054,
+              "bbox_pixels_xywh": [
+                282,
+                25,
+                39,
+                10
+              ]
+            },
+            {
+              "text": "capabilities",
+              "confidence": 84.183228,
+              "bbox_pixels_xywh": [
+                325,
+                23,
+                63,
+                12
+              ]
+            },
+            {
+              "text": "within",
+              "confidence": 95.742081,
+              "bbox_pixels_xywh": [
+                392,
+                23,
+                32,
+                10
+              ]
+            },
+            {
+              "text": "build",
+              "confidence": 87.792534,
+              "bbox_pixels_xywh": [
+                502,
+                22,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "‘feate",
+              "confidence": 49.449844,
+              "bbox_pixels_xywh": [
+                550,
+                23,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.844955,
+              "bbox_pixels_xywh": [
+                590,
+                22,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "change",
+              "confidence": 93.081123,
+              "bbox_pixels_xywh": [
+                615,
+                22,
+                41,
+                13
+              ]
+            },
+            {
+              "text": "capability",
+              "confidence": 82.544266,
+              "bbox_pixels_xywh": [
+                660,
+                22,
+                53,
+                13
+              ]
+            },
+            {
+              "text": "into",
+              "confidence": 92.790138,
+              "bbox_pixels_xywh": [
+                736,
+                24,
+                20,
+                9
+              ]
+            },
+            {
+              "text": "new",
+              "confidence": 96.578888,
+              "bbox_pixels_xywh": [
+                760,
+                26,
+                23,
+                7
+              ]
+            },
+            {
+              "text": "or",
+              "confidence": 96.7295,
+              "bbox_pixels_xywh": [
+                787,
+                26,
+                12,
+                7
+              ]
+            },
+            {
+              "text": "changed",
+              "confidence": 96.905327,
+              "bbox_pixels_xywh": [
+                802,
+                23,
+                48,
+                13
+              ]
+            },
+            {
+              "text": "solutions",
+              "confidence": 94.512459,
+              "bbox_pixels_xywh": [
+                855,
+                23,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "delivering",
+              "confidence": 95.604897,
+              "bbox_pixels_xywh": [
+                909,
+                23,
+                54,
+                13
+              ]
+            },
+            {
+              "text": "between",
+              "confidence": 91.358536,
+              "bbox_pixels_xywh": [
+                25,
+                38,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "segments",
+              "confidence": 94.563889,
+              "bbox_pixels_xywh": [
+                77,
+                38,
+                54,
+                12
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 95.654106,
+              "bbox_pixels_xywh": [
+                136,
+                38,
+                10,
+                10
+              ]
+            },
+            {
+              "text": "achieve",
+              "confidence": 86.583839,
+              "bbox_pixels_xywh": [
+                150,
+                38,
+                44,
+                10
+              ]
+            },
+            {
+              "text": "‘segments",
+              "confidence": 90.453247,
+              "bbox_pixels_xywh": [
+                265,
+                38,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 96.518379,
+              "bbox_pixels_xywh": [
+                325,
+                38,
+                10,
+                10
+              ]
+            },
+            {
+              "text": "achieve",
+              "confidence": 96.413612,
+              "bbox_pixels_xywh": [
+                339,
+                38,
+                44,
+                10
+              ]
+            },
+            {
+              "text": "goals",
+              "confidence": 96.721634,
+              "bbox_pixels_xywh": [
+                387,
+                38,
+                30,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.574852,
+              "bbox_pixels_xywh": [
+                421,
+                38,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 94.028282,
+              "bbox_pixels_xywh": [
+                532,
+                40,
+                9,
+                7
+              ]
+            },
+            {
+              "text": "building",
+              "confidence": 85.618042,
+              "bbox_pixels_xywh": [
+                546,
+                37,
+                43,
+                13
+              ]
+            },
+            {
+              "text": "blocks",
+              "confidence": 93.985306,
+              "bbox_pixels_xywh": [
+                593,
+                37,
+                36,
+                10
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 93.780151,
+              "bbox_pixels_xywh": [
+                633,
+                38,
+                10,
+                9
+              ]
+            },
+            {
+              "text": "satisfy",
+              "confidence": 92.551392,
+              "bbox_pixels_xywh": [
+                647,
+                37,
+                36,
+                13
+              ]
+            },
+            {
+              "text": "services",
+              "confidence": 93.657898,
+              "bbox_pixels_xywh": [
+                762,
+                41,
+                47,
+                7
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 96.85714,
+              "bbox_pixels_xywh": [
+                813,
+                39,
+                10,
+                9
+              ]
+            },
+            {
+              "text": "meet",
+              "confidence": 90.992996,
+              "bbox_pixels_xywh": [
+                827,
+                39,
+                28,
+                9
+              ]
+            },
+            {
+              "text": "requirements.",
+              "confidence": 89.646187,
+              "bbox_pixels_xywh": [
+                860,
+                39,
+                74,
+                11
+              ]
+            },
+            {
+              "text": "goals",
+              "confidence": 79.111977,
+              "bbox_pixels_xywh": [
+                49,
+                54,
+                30,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.873833,
+              "bbox_pixels_xywh": [
+                84,
+                54,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "objectives.",
+              "confidence": 92.30056,
+              "bbox_pixels_xywh": [
+                109,
+                54,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "objectives,",
+              "confidence": 85.84864,
+              "bbox_pixels_xywh": [
+                323,
+                54,
+                57,
+                12
+              ]
+            },
+            {
+              "text": "requirements.",
+              "confidence": 88.032944,
+              "bbox_pixels_xywh": [
+                569,
+                54,
+                74,
+                12
+              ]
+            },
+            {
+              "text": "Level",
+              "confidence": 95.097595,
+              "bbox_pixels_xywh": [
+                70,
+                90,
+                34,
+                12
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 80.156883,
+              "bbox_pixels_xywh": [
+                165,
+                118,
+                4,
+                8
+              ]
+            },
+            {
+              "text": "has",
+              "confidence": 54.534039,
+              "bbox_pixels_xywh": [
+                213,
+                118,
+                26,
+                8
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 89.264275,
+              "bbox_pixels_xywh": [
+                234,
+                107,
+                8,
+                28
+              ]
+            },
+            {
+              "text": "te",
+              "confidence": 27.995996,
+              "bbox_pixels_xywh": [
+                264,
+                118,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "q",
+              "confidence": 64.899498,
+              "bbox_pixels_xywh": [
+                427,
+                118,
+                3,
+                8
+              ]
+            },
+            {
+              "text": "offs",
+              "confidence": 8.119144,
+              "bbox_pixels_xywh": [
+                463,
+                118,
+                26,
+                8
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 32.716606,
+              "bbox_pixels_xywh": [
+                493,
+                119,
+                5,
+                5
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 42.409706,
+              "bbox_pixels_xywh": [
+                674,
+                118,
+                3,
+                8
+              ]
+            },
+            {
+              "text": "enables",
+              "confidence": 60.886555,
+              "bbox_pixels_xywh": [
+                710,
+                118,
+                37,
+                8
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 92.930672,
+              "bbox_pixels_xywh": [
+                750,
+                119,
+                6,
+                5
+              ]
+            },
+            {
+              "text": "Service",
+              "confidence": 89.283867,
+              "bbox_pixels_xywh": [
+                845,
+                120,
+                43,
+                10
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 92.265747,
+              "bbox_pixels_xywh": [
+                80,
+                123,
+                58,
+                12
+              ]
+            },
+            {
+              "text": "Segment",
+              "confidence": 72.211693,
+              "bbox_pixels_xywh": [
+                331,
+                121,
+                51,
+                12
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 48.996181,
+              "bbox_pixels_xywh": [
+                590,
+                121,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Strategic",
+              "confidence": 86.619102,
+              "bbox_pixels_xywh": [
+                84,
+                138,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "<",
+              "confidence": 27.673756,
+              "bbox_pixels_xywh": [
+                200,
+                145,
+                5,
+                5
+              ]
+            },
+            {
+              "text": "enables",
+              "confidence": 27.673756,
+              "bbox_pixels_xywh": [
+                207,
+                143,
+                38,
+                8
+              ]
+            },
+            {
+              "text": "<tganized",
+              "confidence": 59.142498,
+              "bbox_pixels_xywh": [
+                442,
+                142,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 90.816513,
+              "bbox_pixels_xywh": [
+                501,
+                143,
+                10,
+                10
+              ]
+            },
+            {
+              "text": "<",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                706,
+                144,
+                6,
+                5
+              ]
+            },
+            {
+              "text": "utiizes",
+              "confidence": 21.773067,
+              "bbox_pixels_xywh": [
+                716,
+                143,
+                26,
+                8
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 30.612507,
+              "bbox_pixels_xywh": [
+                872,
+                160,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "Le",
+              "confidence": 31.453552,
+              "bbox_pixels_xywh": [
+                626,
+                164,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "Performed",
+              "confidence": 87.770576,
+              "bbox_pixels_xywh": [
+                759,
+                169,
+                74,
+                11
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 89.349701,
+              "bbox_pixels_xywh": [
+                811,
+                160,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "v",
+              "confidence": 54.156807,
+              "bbox_pixels_xywh": [
+                827,
+                160,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 38.025436,
+              "bbox_pixels_xywh": [
+                871,
+                185,
+                15,
+                7
+              ]
+            },
+            {
+              "text": "‘System",
+              "confidence": 92.070366,
+              "bbox_pixels_xywh": [
+                804,
+                206,
+                42,
+                12
+              ]
+            },
+            {
+              "text": "te",
+              "confidence": 29.101601,
+              "bbox_pixels_xywh": [
+                818,
+                230,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 45.102432,
+              "bbox_pixels_xywh": [
+                845,
+                237,
+                6,
+                6
+              ]
+            },
+            {
+              "text": "[",
+              "confidence": 18.068113,
+              "bbox_pixels_xywh": [
+                175,
+                233,
+                3,
+                18
+              ]
+            },
+            {
+              "text": "Other",
+              "confidence": 94.936462,
+              "bbox_pixels_xywh": [
+                43,
+                260,
+                32,
+                10
+              ]
+            },
+            {
+              "text": "Biisiness,",
+              "confidence": 33.844315,
+              "bbox_pixels_xywh": [
+                148,
+                258,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "hh",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                237,
+                262,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "‘tlizes",
+              "confidence": 26.283604,
+              "bbox_pixels_xywh": [
+                281,
+                263,
+                32,
+                8
+              ]
+            },
+            {
+              "text": "capabilies",
+              "confidence": 26.729198,
+              "bbox_pixels_xywh": [
+                317,
+                262,
+                52,
+                10
+              ]
+            },
+            {
+              "text": "trom",
+              "confidence": 83.063026,
+              "bbox_pixels_xywh": [
+                372,
+                262,
+                21,
+                9
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 95.604996,
+              "bbox_pixels_xywh": [
+                397,
+                264,
+                6,
+                5
+              ]
+            },
+            {
+              "text": "oe",
+              "confidence": 58.648239,
+              "bbox_pixels_xywh": [
+                446,
+                263,
+                16,
+                9
+              ]
+            },
+            {
+              "text": "Ist",
+              "confidence": 42.128849,
+              "bbox_pixels_xywh": [
+                519,
+                258,
+                27,
+                11
+              ]
+            },
+            {
+              "text": "implemented",
+              "confidence": 86.595688,
+              "bbox_pixels_xywh": [
+                629,
+                259,
+                60,
+                10
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 90.433723,
+              "bbox_pixels_xywh": [
+                693,
+                259,
+                11,
+                10
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 96.468491,
+              "bbox_pixels_xywh": [
+                707,
+                260,
+                6,
+                5
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 33.114738,
+              "bbox_pixels_xywh": [
+                752,
+                258,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "Building",
+              "confidence": 96.245407,
+              "bbox_pixels_xywh": [
+                822,
+                259,
+                44,
+                13
+              ]
+            },
+            {
+              "text": "Block",
+              "confidence": 96.761658,
+              "bbox_pixels_xywh": [
+                871,
+                259,
+                31,
+                10
+              ]
+            },
+            {
+              "text": "Domains",
+              "confidence": 96.760849,
+              "bbox_pixels_xywh": [
+                35,
+                275,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "Domain",
+              "confidence": 94.302895,
+              "bbox_pixels_xywh": [
+                154,
+                274,
+                43,
+                10
+              ]
+            },
+            {
+              "text": "Domain",
+              "confidence": 96.836151,
+              "bbox_pixels_xywh": [
+                511,
+                274,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "<",
+              "confidence": 4.726954,
+              "bbox_pixels_xywh": [
+                632,
+                289,
+                5,
+                5
+              ]
+            },
+            {
+              "text": "implements",
+              "confidence": 4.726954,
+              "bbox_pixels_xywh": [
+                641,
+                288,
+                54,
+                10
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 42.241997,
+              "bbox_pixels_xywh": [
+                173,
+                307,
+                6,
+                6
+              ]
+            },
+            {
+              "text": "<",
+              "confidence": 87.665764,
+              "bbox_pixels_xywh": [
+                284,
+                296,
+                5,
+                5
+              ]
+            },
+            {
+              "text": "provides,",
+              "confidence": 66.830887,
+              "bbox_pixels_xywh": [
+                293,
+                294,
+                34,
+                10
+              ]
+            },
+            {
+              "text": "capabilities",
+              "confidence": 37.726509,
+              "bbox_pixels_xywh": [
+                336,
+                294,
+                52,
+                10
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 73.117371,
+              "bbox_pixels_xywh": [
+                392,
+                295,
+                8,
+                7
+              ]
+            },
+            {
+              "text": "fo",
+              "confidence": 17.689981,
+              "bbox_pixels_xywh": [
+                52,
+                339,
+                59,
+                47
+              ]
+            },
+            {
+              "text": "rs",
+              "confidence": 15.051069,
+              "bbox_pixels_xywh": [
+                416,
+                339,
+                114,
+                37
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 50.763401,
+              "bbox_pixels_xywh": [
+                593,
+                343,
+                57,
+                20
+              ]
+            },
+            {
+              "text": "ata",
+              "confidence": 77.023628,
+              "bbox_pixels_xywh": [
+                412,
+                373,
+                17,
+                8
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 93.481743,
+              "bbox_pixels_xywh": [
+                497,
+                372,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "Technology",
+              "confidence": 93.224152,
+              "bbox_pixels_xywh": [
+                612,
+                372,
+                72,
+                12
+              ]
+            },
+            {
+              "text": "‘The",
+              "confidence": 93.254974,
+              "bbox_pixels_xywh": [
+                26,
+                424,
+                22,
+                10
+              ]
+            },
+            {
+              "text": "TOGAF",
+              "confidence": 93.283073,
+              "bbox_pixels_xywh": [
+                52,
+                423,
+                43,
+                11
+              ]
+            },
+            {
+              "text": "Standard",
+              "confidence": 96.891403,
+              "bbox_pixels_xywh": [
+                100,
+                424,
+                51,
+                10
+              ]
+            },
+            {
+              "text": "identifies",
+              "confidence": 69.136963,
+              "bbox_pixels_xywh": [
+                156,
+                424,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "one",
+              "confidence": 96.920265,
+              "bbox_pixels_xywh": [
+                210,
+                426,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "overall",
+              "confidence": 96.3367,
+              "bbox_pixels_xywh": [
+                234,
+                424,
+                37,
+                10
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 69.753143,
+              "bbox_pixels_xywh": [
+                276,
+                424,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "‘The",
+              "confidence": 93.262978,
+              "bbox_pixels_xywh": [
+                403,
+                426,
+                22,
+                10
+              ]
+            },
+            {
+              "text": "TOGAF",
+              "confidence": 93.099747,
+              "bbox_pixels_xywh": [
+                428,
+                426,
+                44,
+                10
+              ]
+            },
+            {
+              "text": "Standard",
+              "confidence": 96.897308,
+              "bbox_pixels_xywh": [
+                477,
+                426,
+                51,
+                10
+              ]
+            },
+            {
+              "text": "identifies",
+              "confidence": 89.906242,
+              "bbox_pixels_xywh": [
+                532,
+                426,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "three",
+              "confidence": 87.336647,
+              "bbox_pixels_xywh": [
+                586,
+                426,
+                29,
+                10
+              ]
+            },
+            {
+              "text": "starting",
+              "confidence": 93.348633,
+              "bbox_pixels_xywh": [
+                619,
+                426,
+                42,
+                12
+              ]
+            },
+            {
+              "text": "domain",
+              "confidence": 78.441528,
+              "bbox_pixels_xywh": [
+                21,
+                439,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "that",
+              "confidence": 94.647629,
+              "bbox_pixels_xywh": [
+                67,
+                439,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "may",
+              "confidence": 96.32592,
+              "bbox_pixels_xywh": [
+                92,
+                441,
+                24,
+                10
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 96.32592,
+              "bbox_pixels_xywh": [
+                120,
+                439,
+                14,
+                10
+              ]
+            },
+            {
+              "text": "broken",
+              "confidence": 96.682907,
+              "bbox_pixels_xywh": [
+                138,
+                439,
+                38,
+                10
+              ]
+            },
+            {
+              "text": "down",
+              "confidence": 95.41214,
+              "bbox_pixels_xywh": [
+                181,
+                439,
+                29,
+                10
+              ]
+            },
+            {
+              "text": "further",
+              "confidence": 96.910065,
+              "bbox_pixels_xywh": [
+                214,
+                439,
+                48,
+                10
+              ]
+            },
+            {
+              "text": "e.g.",
+              "confidence": 94.954819,
+              "bbox_pixels_xywh": [
+                266,
+                441,
+                7,
+                10
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 85.651543,
+              "bbox_pixels_xywh": [
+                281,
+                439,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "information",
+              "confidence": 90.472214,
+              "bbox_pixels_xywh": [
+                373,
+                441,
+                62,
+                10
+              ]
+            },
+            {
+              "text": "system",
+              "confidence": 96.847534,
+              "bbox_pixels_xywh": [
+                440,
+                441,
+                40,
+                12
+              ]
+            },
+            {
+              "text": "domains",
+              "confidence": 91.967545,
+              "bbox_pixels_xywh": [
+                484,
+                441,
+                48,
+                10
+              ]
+            },
+            {
+              "text": "which",
+              "confidence": 91.967545,
+              "bbox_pixels_xywh": [
+                536,
+                441,
+                32,
+                10
+              ]
+            },
+            {
+              "text": "may",
+              "confidence": 90.347054,
+              "bbox_pixels_xywh": [
+                573,
+                443,
+                24,
+                10
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 95.972885,
+              "bbox_pixels_xywh": [
+                601,
+                441,
+                13,
+                10
+              ]
+            },
+            {
+              "text": "broken",
+              "confidence": 95.972885,
+              "bbox_pixels_xywh": [
+                619,
+                441,
+                38,
+                10
+              ]
+            },
+            {
+              "text": "down",
+              "confidence": 96.712212,
+              "bbox_pixels_xywh": [
+                661,
+                441,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "function/process",
+              "confidence": 79.3554,
+              "bbox_pixels_xywh": [
+                40,
+                454,
+                93,
+                12
+              ]
+            },
+            {
+              "text": "portfolios",
+              "confidence": 96.33036,
+              "bbox_pixels_xywh": [
+                138,
+                454,
+                51,
+                12
+              ]
+            },
+            {
+              "text": "depending",
+              "confidence": 96.181686,
+              "bbox_pixels_xywh": [
+                193,
+                454,
+                59,
+                12
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 96.932564,
+              "bbox_pixels_xywh": [
+                256,
+                456,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "what",
+              "confidence": 96.919624,
+              "bbox_pixels_xywh": [
+                274,
+                454,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 82.055702,
+              "bbox_pixels_xywh": [
+                305,
+                456,
+                7,
+                8
+              ]
+            },
+            {
+              "text": "furthe",
+              "confidence": 51.272682,
+              "bbox_pixels_xywh": [
+                377,
+                456,
+                25,
+                10
+              ]
+            },
+            {
+              "text": "g..",
+              "confidence": 49.305538,
+              "bbox_pixels_xywh": [
+                431,
+                458,
+                7,
+                10
+              ]
+            },
+            {
+              "text": "(Technology)",
+              "confidence": 96.517235,
+              "bbox_pixels_xywh": [
+                450,
+                456,
+                72,
+                12
+              ]
+            },
+            {
+              "text": "into",
+              "confidence": 96.921646,
+              "bbox_pixels_xywh": [
+                527,
+                456,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "Software,",
+              "confidence": 93.381439,
+              "bbox_pixels_xywh": [
+                551,
+                456,
+                53,
+                11
+              ]
+            },
+            {
+              "text": "Servers,",
+              "confidence": 91.154175,
+              "bbox_pixels_xywh": [
+                609,
+                456,
+                47,
+                11
+              ]
+            },
+            {
+              "text": "User",
+              "confidence": 91.154175,
+              "bbox_pixels_xywh": [
+                661,
+                456,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 96.599617,
+              "bbox_pixels_xywh": [
+                17,
+                470,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "does,",
+              "confidence": 93.305481,
+              "bbox_pixels_xywh": [
+                71,
+                470,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "e.g.,",
+              "confidence": 87.99955,
+              "bbox_pixels_xywh": [
+                105,
+                472,
+                18,
+                10
+              ]
+            },
+            {
+              "text": "Finance,",
+              "confidence": 96.189186,
+              "bbox_pixels_xywh": [
+                135,
+                470,
+                47,
+                11
+              ]
+            },
+            {
+              "text": "Manufacturing,",
+              "confidence": 94.916527,
+              "bbox_pixels_xywh": [
+                187,
+                470,
+                84,
+                12
+              ]
+            },
+            {
+              "text": "Legal,",
+              "confidence": 96.835297,
+              "bbox_pixels_xywh": [
+                276,
+                470,
+                30,
+                12
+              ]
+            },
+            {
+              "text": "HR,",
+              "confidence": 96.11747,
+              "bbox_pixels_xywh": [
+                315,
+                470,
+                17,
+                10
+              ]
+            },
+            {
+              "text": "Devices,",
+              "confidence": 91.847183,
+              "bbox_pixels_xywh": [
+                375,
+                472,
+                48,
+                11
+              ]
+            },
+            {
+              "text": "Execution",
+              "confidence": 93.796242,
+              "bbox_pixels_xywh": [
+                428,
+                472,
+                55,
+                10
+              ]
+            },
+            {
+              "text": "Environments,",
+              "confidence": 95.074036,
+              "bbox_pixels_xywh": [
+                488,
+                472,
+                81,
+                11
+              ]
+            },
+            {
+              "text": "Networks,",
+              "confidence": 93.795723,
+              "bbox_pixels_xywh": [
+                574,
+                472,
+                52,
+                10
+              ]
+            },
+            {
+              "text": "Buildings,",
+              "confidence": 88.44207,
+              "bbox_pixels_xywh": [
+                634,
+                472,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "Customer",
+              "confidence": 75.528496,
+              "bbox_pixels_xywh": [
+                44,
+                477,
+                56,
+                28
+              ]
+            },
+            {
+              "text": "Management,",
+              "confidence": 96.502625,
+              "bbox_pixels_xywh": [
+                107,
+                477,
+                71,
+                28
+              ]
+            },
+            {
+              "text": "Service,",
+              "confidence": 96.811348,
+              "bbox_pixels_xywh": [
+                185,
+                485,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.956818,
+              "bbox_pixels_xywh": [
+                235,
+                485,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "Support.",
+              "confidence": 96.4748,
+              "bbox_pixels_xywh": [
+                261,
+                485,
+                44,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 80.714401,
+              "bbox_pixels_xywh": [
+                461,
+                487,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "Mechanical",
+              "confidence": 93.47477,
+              "bbox_pixels_xywh": [
+                486,
+                487,
+                64,
+                10
+              ]
+            },
+            {
+              "text": "Devices.",
+              "confidence": 94.21022,
+              "bbox_pixels_xywh": [
+                555,
+                487,
+                44,
+                10
+              ]
+            }
+          ],
+          "mean_word_confidence": 80.04,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

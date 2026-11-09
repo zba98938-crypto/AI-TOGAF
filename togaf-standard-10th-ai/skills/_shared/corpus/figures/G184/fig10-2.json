@@ -1,0 +1,420 @@
+{
+  "schema_version": "1.0",
+  "id": "G184/fig10-2",
+  "status": "done",
+  "doc": {
+    "code": "G184",
+    "title_zh": "领导者指南：建立并演进 EA 能力",
+    "title_en": "The TOGAF Leader's Guide to Establishing and Evolving an EA Capability",
+    "zh_md": "G184e_领导者指南_建立并演进EA能力.md",
+    "en_pdf": "togaf-standard-10th/G184e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "10-2",
+    "title_en": "Execution Process Integration",
+    "title_zh": "执行流程集成",
+    "section_en": "10.1.2 Execution Process Integration Model",
+    "section_zh": "10.1.2 执行流程集成模型",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        97
+      ],
+      "printed_page": 83,
+      "bboxes": [
+        [
+          151.3,
+          36.0,
+          460.7,
+          313.4
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        1090
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g184e_fig10-2_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "8a358d0580dd",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.978（≥0.9 通常为同一图）",
+        "与英文 PDF 第 97 页图一致（自动相似度 0.978），七个标签、三条箭头和上下层次均无缺失。"
+      ]
+    },
+    {
+      "path": "figs/zh/g184e_fig10-2_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "f25cc46c6beb",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "结构与箭头完全保留，译文逐项可对应：执行流程、规划流程、流程治理、执行、建议、指导与约束、报表、架构支持。",
+        "“Reporting”译为“报表”偏名词化；此处指 EA 向治理流程提供报告的行为/机制，译为“报告”更贴切。",
+        "白字在橙色底上字号偏小，但整体可读。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "flow",
+      "layered"
+    ],
+    "notation": "非正式方框流程图：蓝色横幅标示领域，橙色方框为流程/支持组成，粗黑箭头表示交互方向；上下分层、无泳道",
+    "concepts": [
+      "ea_capability",
+      "architecture_governance",
+      "implementation_governance"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "EA 能力通过架构支持向执行流程提供建议/方向/约束与报告，并接受执行对架构支持的调用。",
+    "purpose_zh": "说明 EA 能力与“执行流程”之间的固定交互模型：一端把前瞻性的建议、方向与约束送入规划流程，另一端把执行变更的报告送入流程治理；无论执行流程属于组合/项目群、项目执行、运营变更还是运营，这个模型都不变。",
+    "reading_guide_zh": "先看顶部蓝色横幅“Execution Process”，它标明整张图讨论的是执行流程领域。其下三个框是执行流程的组成：左侧规划流程、右侧流程治理、中间小框“Execution”代表实际执行活动。底部宽条“Architecture Support”代表 EA 提供的架构支持；叠在它上面的“Advice, Direction, and Constraints”和“Reporting”是架构支持产生的两类输出。沿两条向上箭头读：左侧输出进入规划流程，右侧输出进入流程治理；中间向下箭头表示执行活动调用/触发架构支持。",
+    "key_points_zh": [
+      "EA 能力对执行流程的介入分为两条通道：向规划流程提供建议、方向与约束（事前），向流程治理提供报告（事后/过程）。",
+      "“Advice, Direction, and Constraints”和“Reporting”是架构支持的两个输出框，不是与架构支持并列的独立流程。",
+      "中间小框“Execution”向下指向“Architecture Support”，表示实际执行发生时需要调用架构支持；这是图中唯一的向下箭头。",
+      "规划流程与流程治理之间没有箭头，二者是执行流程中并列的两个治理/规划环节，不存在先后顺序。",
+      "正文强调该交互模型不随执行流程类型（组合/项目群管理、项目执行、运营变更、运营）而改变，改变的是交互的具体内容和时机。",
+      "图只表达交互通道，不表达组织归属、时间顺序或交付物细节；具体建议/报告内容在 10.1.3–10.1.9 分节展开。"
+    ],
+    "hierarchy_zh": "顶部蓝色“Execution Process”是领域标题，统辖其下三个执行流程组成：Planning Process、Execution、Process Governance。底部“Architecture Support”是 EA 支持层，其上方叠放两个输出：Advice, Direction, and Constraints 与 Reporting。两层之间是交互关系，不是上下级组织关系。",
+    "line_semantics_zh": "三条粗黑实线箭头：Advice, Direction, and Constraints → Planning Process（向上，输入规划）；Reporting → Process Governance（向上，输入治理）；Execution → Architecture Support（向下，执行调用架构支持）。图中没有其他连线；输出框与架构支持带的重叠表示前者由后者产生（隐含关系）。",
+    "misreadings_zh": [
+      "不要把 Planning Process 与 Process Governance 读成先后步骤：两者之间没有箭头，是并列的两个环节。",
+      "“Advice, Direction, and Constraints”并不直接指向小框“Execution”，而是向上进入 Planning Process。",
+      "底部“Architecture Support”不是执行结束后的一个阶段，而是持续存在、被执行的各个环节调用的 EA 支持职能。",
+      "蓝色“Execution Process”是领域标题，不是把三个子流程包在里面的外框；图中没有包含边框。",
+      "“Reporting”的方向是 EA 向流程治理报告，不是执行方向 EA 汇报。",
+      "中文图把 Reporting 译成“报表”，不要据此把它理解成一张静态报表；它是报告机制/报告内容。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p96",
+        "summary_zh": "EA 能力向执行流程提供建议、方向与约束；并支持治理流程，就执行流程所做的变更在目标架构范围内提供报告，用于确认执行、识别目标架构变更需要或及早调整执行。"
+      },
+      {
+        "source": "en_pdf p96",
+        "summary_zh": "无论执行流程类型和重大转型项目如何，图 10-2 所示的交互模型保持不变；白皮书把 EA 可连接的执行管理流程分为组合/项目群管理、项目执行、运营变更、运营四类。"
+      },
+      {
+        "source": "en_pdf p97",
+        "summary_zh": "图 10-2 位于 10.1.2 节，随后 10.1.3 起分节讨论战略制定、组合与项目群、项目启动/变更、预算等具体执行流程。"
+      },
+      {
+        "source": "zh_md L1084",
+        "summary_zh": "方向以待填补的差距与工作包形式提供，约束以架构需求规格说明定义，建议以实施指导与不合规建议提供；三者共同用于变更执行与运营。"
+      },
+      {
+        "source": "zh_md L1086",
+        "summary_zh": "为支持治理流程，EA 能力就执行流程所做的变更提供报告，用于确认执行、识别变更目标架构的潜在需要，或及早引入执行变更。"
+      },
+      {
+        "source": "zh_md L1088",
+        "summary_zh": "上述交互模型及图 10-2 保持不变；交互取决于执行流程类型与执行发生的时间，并列出四种执行管理流程。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "自上而下三层：顶部蓝色领域横幅；第二层左“规划流程”、右“流程治理”，中间夹一个小“执行”框；底部一条横贯的“架构支持”带，左右两端上方分别叠放“建议、指导与约束”和“报表”。"
+  },
+  "legend": [
+    {
+      "symbol": "蓝色横幅",
+      "meaning_zh": "执行流程领域标题",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色方框",
+      "meaning_zh": "执行流程的组成环节或 EA 架构支持的输出",
+      "explicit": false
+    },
+    {
+      "symbol": "粗黑实线箭头",
+      "meaning_zh": "交互/调用方向（向上为 EA 输出进入执行流程，向下为执行调用架构支持）",
+      "explicit": false
+    },
+    {
+      "symbol": "叠放在“架构支持”带上的输出框",
+      "meaning_zh": "由架构支持产生的输出",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "execution_process",
+      "label_en": "Execution Process",
+      "label_zh": "执行流程",
+      "type": "process",
+      "parent": null,
+      "level": 0,
+      "position": "顶部蓝色横幅",
+      "description_zh": "标示整张图的领域，不是可执行的具体流程步骤。"
+    },
+    {
+      "id": "planning_process",
+      "label_en": "Planning Process",
+      "label_zh": "规划流程",
+      "type": "process",
+      "parent": "execution_process",
+      "level": 1,
+      "position": "第二层左侧"
+    },
+    {
+      "id": "execution",
+      "label_en": "Execution",
+      "label_zh": "执行",
+      "type": "process",
+      "parent": "execution_process",
+      "level": 1,
+      "position": "第二层中部，嵌在规划流程与流程治理之间"
+    },
+    {
+      "id": "process_governance",
+      "label_en": "Process Governance",
+      "label_zh": "流程治理",
+      "type": "process",
+      "parent": "execution_process",
+      "level": 1,
+      "position": "第二层右侧"
+    },
+    {
+      "id": "architecture_support",
+      "label_en": "Architecture Support",
+      "label_zh": "架构支持",
+      "type": "process",
+      "parent": null,
+      "level": 0,
+      "position": "底部横贯宽条",
+      "description_zh": "EA 能力面向执行流程的支持职能；两个输出框叠放在其上方。"
+    },
+    {
+      "id": "advice_direction_constraints",
+      "label_en": "Advice, Direction, and Constraints",
+      "label_zh": "建议、指导与约束",
+      "type": "artifact",
+      "parent": "architecture_support",
+      "level": 1,
+      "position": "左下方，叠放在架构支持带左端上方",
+      "description_zh": "EA 输出包：建议（实施指导/不合规建议）、方向（差距与工作包）、约束（架构需求规格说明）。"
+    },
+    {
+      "id": "reporting",
+      "label_en": "Reporting",
+      "label_zh": "报表",
+      "type": "artifact",
+      "parent": "architecture_support",
+      "level": 1,
+      "position": "右下方，叠放在架构支持带右端上方",
+      "description_zh": "就执行流程在目标架构范围内所做变更提交的报告。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "advice_direction_constraints",
+      "to": "planning_process",
+      "type": "serving",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "左侧粗黑箭头向上，EA 的建议/方向/约束输入规划流程。"
+    },
+    {
+      "from": "reporting",
+      "to": "process_governance",
+      "type": "serving",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "右侧粗黑箭头向上，EA 的报告输入流程治理。"
+    },
+    {
+      "from": "execution",
+      "to": "architecture_support",
+      "type": "triggering",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "中间粗黑箭头向下，实际执行活动调用/触发架构支持。"
+    },
+    {
+      "from": "architecture_support",
+      "to": "advice_direction_constraints",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "输出框叠放在架构支持带上，表示由架构支持产生。"
+    },
+    {
+      "from": "architecture_support",
+      "to": "reporting",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "输出框叠放在架构支持带上，表示由架构支持产生。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G184/fig10-1",
+      "relation": "complements",
+      "note_zh": "图 10-1 是同一交互模型在决策流程上的对应图（Decision-Making Process Integration），两图共同说明 EA 与治理/决策/执行的接口。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "小框“Execution”与外层标题“Execution Process”同名，图中未说明其确切范围；解析按“实际执行活动”理解。",
+      "“Execution → Architecture Support”箭头只表明调用方向，未区分请求、咨询还是介入治理。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 97 页原图截图与 2×2 放大分块",
+      "英文 PDF 第 96 页正文（10.1.2 节）",
+      "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 1081–1099 行",
+      "figs/zh/g184e_fig10-2_zh.png 与 figs/g184e_fig10-2_en.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G184e.pdf",
+    "pdf_sha256": "85fe5653767b184c3c8c9c1bef9f5738adbb2bf6661fb50ee95e72d16bc9f614",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G184/fig10-2.json",
+    "interpretation_sha256": "792ae316f7caf2c6cf7856e32fe52618d2750614cfd2e4efe58e2649cc1913ca",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 97,
+        "text": "Figure 10-2: Execution Process Integration",
+        "bbox_pdf_points": [
+          48.24,
+          318.116,
+          247.61,
+          331.682
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 97,
+      "printed_page": 83,
+      "bbox_pdf_points": [
+        151.3,
+        36.0,
+        460.7,
+        313.4
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G184/fig10-2-p0097.png",
+      "image_sha256": "a9561c8905910bf66613c84e4fc5c6c7e79fca6d1c8999f79409d9ba73e86122",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "a9561c8905910bf66613c84e4fc5c6c7e79fca6d1c8999f79409d9ba73e86122",
+          "status": "extracted-unverified",
+          "text": "Execution\nProcess\nProcess\nPlanning\nProcess\nGovernance",
+          "words": [
+            {
+              "text": "Execution",
+              "confidence": 96.515511,
+              "bbox_pixels_xywh": [
+                200,
+                49,
+                223,
+                34
+              ]
+            },
+            {
+              "text": "Process",
+              "confidence": 96.338455,
+              "bbox_pixels_xywh": [
+                221,
+                106,
+                181,
+                35
+              ]
+            },
+            {
+              "text": "Process",
+              "confidence": 96.945412,
+              "bbox_pixels_xywh": [
+                415,
+                214,
+                109,
+                21
+              ]
+            },
+            {
+              "text": "Planning",
+              "confidence": 96.903694,
+              "bbox_pixels_xywh": [
+                95,
+                214,
+                118,
+                27
+              ]
+            },
+            {
+              "text": "Process",
+              "confidence": 96.700089,
+              "bbox_pixels_xywh": [
+                100,
+                249,
+                108,
+                21
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 96.699036,
+              "bbox_pixels_xywh": [
+                387,
+                248,
+                164,
+                22
+              ]
+            }
+          ],
+          "mean_word_confidence": 96.68,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

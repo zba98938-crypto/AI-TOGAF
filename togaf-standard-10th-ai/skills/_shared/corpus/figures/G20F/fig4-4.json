@@ -1,0 +1,2302 @@
+{
+  "schema_version": "1.0",
+  "id": "G20F/fig4-4",
+  "status": "done",
+  "doc": {
+    "code": "G20F",
+    "title_zh": "赋能企业敏捷性",
+    "title_en": "Enabling Enterprise Agility",
+    "zh_md": "G20Fe_赋能企业敏捷性.md",
+    "en_pdf": "togaf-standard-10th/G20Fe.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-4",
+    "title_en": "ADM Levels Mapped to Agile Delivery Concepts",
+    "title_zh": "ADM 层级与敏捷交付概念的映射",
+    "section_en": "4.5. ADM Levels and Phases Mapped to Agile Concepts",
+    "section_zh": "4.5 ADM 层级与阶段映射到敏捷概念",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        28
+      ],
+      "printed_page": 16,
+      "bboxes": [
+        [
+          48.2,
+          127.6,
+          563.8,
+          417.5
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        310
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g20f_fig4-4.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "5ec5d2ceaf38",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "原图是 3 行 × 3 列的对照画布：列为“TOGAF ADM – Levels”“SAFe/Agile/Scrum Layers”“Characteristic Agile Team Iterations”，行为战略/分段/能力三层；SVG 改成三张并排卡片，行列对照关系消失。",
+        "丢失原图第二列的原始措辞（如“SAFe – Strategic Themes – Enterprise Portfolio Delivery”“Agile/SAFe – Product/Portfolio Backlog – Change Plans – Epics”以及能力层的四条 backlog），SVG 用自拟短语“战略主题、产品组合待办顶层”“Epic、特性、跨团队依赖”“用户故事、冲刺、CI/CD”替代。",
+        "丢失第三列的全部内容：Planning Iteration (Time-Boxed)、蓝色环形迭代箭头、Enterprise/Segment Portfolio – Epics、Business/Technical/Operational Team 与人形图标、Build Iteration/Solution Team/Daily Stand-Up/Solution Runway、Delivery Iteration/Delivery Team (Dev Ops)/Agile Development Continuous Integration/Delivery。",
+        "丢失三个 ADM 轮盘缩略图，以及从战略轮指向分段轮、从分段轮指向能力轮的浅蓝虚线箭头。",
+        "SVG 自拟了原图没有的结论式文字（如“重点：预备（能力）与 A/B”“层与层之间通过待办列表与反馈环衔接”“不存在唯一正确编排”）。",
+        "SVG 把“三个层级各自循环 A–G”写成正文说明，而原图是用三个轮盘 + 三层 backlog 对照来表达的。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "matrix",
+      "flow"
+    ],
+    "notation": "对照画布：三列表头 + 三行层级，单元格内混用 ADM 轮盘缩略图、文字 backlog 说明、环形迭代箭头、人形图标；行用蓝色大括号与虚线框分组，无统一建模记法",
+    "concepts": [
+      "adm",
+      "architecture_levels",
+      "agile",
+      "agile_sprint",
+      "product_development",
+      "enterprise_context"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "把战略、分段、能力三层架构逐行对照到 SAFe/Scrum 的待办层次与各自特征性的迭代方式。",
+    "purpose_zh": "4.5 节要回答“ADM 的层级与阶段如何落到敏捷交付概念上”。这张图把三个架构层（左列）、对应的 SAFe/Agile/Scrum 待办层次（中列）和典型团队迭代形态（右列）排成对照表，说明三层可以各自循环 A–G，但重点、待办粒度与迭代节奏不同。",
+    "reading_guide_zh": "横向按列读：左列是 TOGAF ADM 的三个层级及其定位，中列是该层级在 SAFe/敏捷/Scrum 中对应的待办层次，右列是特征性的团队迭代形态。纵向按行读：第一行战略层（与分段层共用同一个大的规划迭代框），第三行能力层拆成 Build Iteration 与 Delivery Iteration 两个并行框。左列的三个轮盘之间还有浅蓝虚线箭头，表示层级自上而下的驱动。",
+    "key_points_zh": [
+      "同一个 ADM 在三个层级重复：左列三个轮盘都含完整 A–H，说明每层都可循环经历全部阶段，只是重点不同。",
+      "战略层（第一行）重点是方向设定（Direction-setting at an executive level），对应 SAFe 的战略主题与企业组合交付，迭代是时间盒的规划迭代（Planning Iteration）。",
+      "分段层（第二行）重点是按项目群/组合组织运营与解决方案变更，对应 Product/Portfolio Backlog – Change Plans – Epics；它与战略层共用右上那个大的规划迭代框，说明两层共用企业/分段组合与 Epic 这一层待办。",
+      "能力层（第三行）重点是变更活动与路线图、实现能力增量，对应四条更细的待办：Product/Solution Backlog（Capabilities to be Delivered）、Product/Program Backlog（Capability Increments / Features）、Program Team Backlog（Deliverable User Stories）、Scrum Sprint Team Backlog（Deliverable User Stories）。",
+      "能力层内部还有 Build Iteration 与 Delivery Iteration 两条并行迭代线：前者由 Solution Team 做每日站会并维护 Solution Runway，后者由 Delivery Team (Dev Ops) 做每日站会并负责持续集成/交付。",
+      "团队构成随层级变化：规划迭代由 Business Team、Technical Team、Operational Team 混合组成（人形图标蓝橙相间），能力层则按 Solution Team / Delivery Team 分工。",
+      "正文补充：三层也可以由一个跨层集成团队在连贯冲刺中推进，具体编排取决于企业复杂度与敏捷实施方式，图只是“典型”形态。"
+    ],
+    "hierarchy_zh": "两级结构：外层是三行（战略→分段→能力，自上而下详细程度递增）；每行内部是三列（ADM 层级 / 敏捷层 / 团队迭代）。左列三个 ADM 轮盘之间用虚线箭头自上而下连接，表示上层驱动下层。能力层内部再分为 Build 与 Delivery 两个并列迭代框。",
+    "line_semantics_zh": "浅蓝虚线箭头：从战略轮盘下方指向分段轮盘的 A、从分段轮盘指向能力轮盘的 A，表示层级间的向下驱动。蓝色/紫色/青色环形箭头：迭代循环（绕 ADM 轮盘一圈），表示该层在自己的待办上反复迭代。粗平箭头：把迭代产出向右推给团队/下一环节。橙色与紫色/青色虚线圆角框：把一组活动框成一个迭代单元（Planning / Build / Delivery）。蓝色大括号：把一行三列括在一起，强调“同一层级”。",
+    "misreadings_zh": [
+      "不要把三行读成“先后三个阶段”：它们是三个并行存在的架构层级，可以同时进行。",
+      "不要以为战略层的规划迭代框只属于第一行：橙色虚线框横跨战略与分段两行，右下的“Enterprise/Segment Portfolio – Epics”同时服务这两层。",
+      "不要把 Build 与 Delivery 当作严格先后：图中两者并列，正文说它们由不同团队（Solution Team / Delivery Team）分别推进。",
+      "不要把人形图标当作精确人数统计，它只是表示跨职能混合团队。",
+      "中文稿引用的 figs/g20f_fig4-4.svg 只剩三张概括卡片，看不到三列对照、三层轮盘、两个能力层迭代框，不能据它理解本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p28",
+        "summary_zh": "ADM 可在战略、分段、能力三个详细层级上并行、分区地交付；图 4-4 用 SAFe/Scrum 概念说明各层的迭代边界；每层都可循环 A–G，但重点不同：战略层侧重预备阶段（若需变更架构能力）与 A、B，对应战略主题与企业产品组合待办的最高层。"
+      },
+      {
+        "source": "en_pdf p29",
+        "summary_zh": "分段层侧重把行动方案按组织单元分区，输出 Epic 与基于分段的初始组合/待办；能力层通过 B–D 识别解决方案规格、经 E/F 形成 SBB，实施单元与能力增量对齐，最小能力层级即 MVP，待办细化到冲刺待办。"
+      },
+      {
+        "source": "zh_md L308",
+        "summary_zh": "敏捷技术认为可由一个跨所有层级的集成团队在单一连贯冲刺中推进，或跨图 4-4 所示各类边界（可能相连但风格不同）推进。"
+      },
+      {
+        "source": "zh_md L312",
+        "summary_zh": "战略层更侧重预备阶段与阶段 A、B，产出称为“行动方案”的高层计划，对应高层战略主题与企业产品组合待办的最高层。"
+      },
+      {
+        "source": "zh_md L316",
+        "summary_zh": "分段层侧重把行动方案划分到相关组织单元，若 A/B 信息不足则更强调 B、C、D。"
+      },
+      {
+        "source": "zh_md L320",
+        "summary_zh": "能力层在 B–D 识别面向解决方案的架构规格，经 E/F 形成 SBB；实施单元与能力增量对齐，最小能力层级通常称为 MVP。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "grid",
+    "description_zh": "3 列 × 3 行的对照画布。左列每行一个 ADM 轮盘缩略图配两段文字；中列是待办层次文字（能力层有四段）；右列第一、二行共用一个橙色虚线大框（含规划迭代环形箭头与团队），第三行是两个并列的紫色/青色虚线框。行与行之间用细蓝线与大括号分隔。"
+  },
+  "legend": [
+    {
+      "symbol": "浅蓝虚线箭头",
+      "meaning_zh": "层级间自上而下的驱动（战略→分段→能力）",
+      "explicit": true
+    },
+    {
+      "symbol": "环形箭头（蓝/紫/青）",
+      "meaning_zh": "一轮迭代循环，中心嵌 ADM 轮盘",
+      "explicit": false
+    },
+    {
+      "symbol": "粗平箭头",
+      "meaning_zh": "迭代产出流向团队或下一环节",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色虚线圆角框",
+      "meaning_zh": "规划迭代单元（横跨战略与分段两层）",
+      "explicit": false
+    },
+    {
+      "symbol": "紫色/青色虚线圆角框",
+      "meaning_zh": "能力层的 Build Iteration 与 Delivery Iteration 两个并行迭代单元",
+      "explicit": false
+    },
+    {
+      "symbol": "蓝色大括号",
+      "meaning_zh": "把同一层级的三列括为一组",
+      "explicit": false
+    },
+    {
+      "symbol": "人形图标",
+      "meaning_zh": "团队规模示意（蓝/橙或紫/青表示不同团队混合）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "hdr_adm",
+      "label_en": "TOGAF ADM – Levels",
+      "label_zh": "TOGAF ADM——层级",
+      "type": "note",
+      "parent": null,
+      "position": "第一列表头"
+    },
+    {
+      "id": "hdr_agile",
+      "label_en": "SAFe/Agile/Scrum Layers",
+      "label_zh": "SAFe/敏捷/Scrum 层",
+      "type": "note",
+      "parent": null,
+      "position": "第二列表头"
+    },
+    {
+      "id": "hdr_iter",
+      "label_en": "Characteristic Agile Team Iterations",
+      "label_zh": "特征性的敏捷团队迭代",
+      "type": "note",
+      "parent": null,
+      "position": "第三列表头（右上角有 © The Open Group）"
+    },
+    {
+      "id": "row_strategic",
+      "label_en": null,
+      "label_zh": "战略层（第一行）",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第一行"
+    },
+    {
+      "id": "r1_level",
+      "label_en": "Strategic Architecture",
+      "label_zh": "战略架构",
+      "type": "architecture",
+      "parent": "row_strategic",
+      "level": 1,
+      "position": "第一行左列标题"
+    },
+    {
+      "id": "r1_desc",
+      "label_en": "Direction-setting at an executive level",
+      "label_zh": "高管层级的定方向",
+      "type": "note",
+      "parent": "row_strategic",
+      "position": "第一行左列第二段"
+    },
+    {
+      "id": "r1_wheel",
+      "label_en": null,
+      "label_zh": "ADM 轮盘缩略图",
+      "type": "architecture",
+      "parent": "row_strategic",
+      "position": "第一行左列",
+      "description_zh": "与图 3-1 相同的 ADM 轮盘微缩图（Preliminary、A–H、Requirements Management）。"
+    },
+    {
+      "id": "r1_safe",
+      "label_en": "SAFe – Strategic Themes – Enterprise Portfolio Delivery",
+      "label_zh": "SAFe——战略主题——企业组合交付",
+      "type": "note",
+      "parent": "row_strategic",
+      "position": "第一行中列"
+    },
+    {
+      "id": "frame_planning",
+      "label_en": null,
+      "label_zh": "规划迭代框（橙色虚线，横跨第一、二行）",
+      "type": "group",
+      "parent": null,
+      "position": "第三列第一、二行"
+    },
+    {
+      "id": "r1_iterbox",
+      "label_en": "Planning Iteration (Time-Boxed)",
+      "label_zh": "规划迭代（时间盒）",
+      "type": "phase",
+      "parent": "frame_planning",
+      "position": "规划迭代框左上，青色字"
+    },
+    {
+      "id": "r1_loop",
+      "label_en": null,
+      "label_zh": "蓝色环形迭代箭头",
+      "type": "other",
+      "parent": "frame_planning",
+      "position": "规划迭代框中部",
+      "description_zh": "绕 ADM 轮盘一圈的粗蓝箭头，表示迭代循环。"
+    },
+    {
+      "id": "r1_wheel_loop",
+      "label_en": null,
+      "label_zh": "ADM 轮盘（环内）",
+      "type": "architecture",
+      "parent": "frame_planning",
+      "position": "环形箭头中心",
+      "description_zh": "缩略的 A–H 轮盘。"
+    },
+    {
+      "id": "r1_push",
+      "label_en": null,
+      "label_zh": "粗平箭头（右推）",
+      "type": "other",
+      "parent": "frame_planning",
+      "position": "环形箭头下方",
+      "description_zh": "把迭代结果推向右侧团队方向的粗箭头。"
+    },
+    {
+      "id": "r1_portfolio",
+      "label_en": "Enterprise/Segment Portfolio – Epics",
+      "label_zh": "企业/分段组合——史诗（Epics）",
+      "type": "artifact",
+      "parent": "frame_planning",
+      "position": "规划迭代框下部"
+    },
+    {
+      "id": "r1_team_business",
+      "label_en": "Business Team",
+      "label_zh": "业务团队",
+      "type": "organization_unit",
+      "parent": "frame_planning",
+      "position": "规划迭代框右上（青色）"
+    },
+    {
+      "id": "r1_team_technical",
+      "label_en": "Technical Team",
+      "label_zh": "技术团队",
+      "type": "organization_unit",
+      "parent": "frame_planning",
+      "position": "规划迭代框右侧（橙色）"
+    },
+    {
+      "id": "r1_team_operational",
+      "label_en": "Operational Team",
+      "label_zh": "运营团队",
+      "type": "organization_unit",
+      "parent": "frame_planning",
+      "position": "规划迭代框右侧（橙色）"
+    },
+    {
+      "id": "r1_people",
+      "label_en": null,
+      "label_zh": "团队人形图标",
+      "type": "organization_unit",
+      "parent": "frame_planning",
+      "position": "规划迭代框右下",
+      "description_zh": "两排共 10 个人形图标，蓝橙相间，表示跨职能混合团队。"
+    },
+    {
+      "id": "row_segment",
+      "label_en": null,
+      "label_zh": "分段层（第二行）",
+      "type": "group",
+      "parent": null,
+      "level": 2,
+      "position": "第二行"
+    },
+    {
+      "id": "r2_level",
+      "label_en": "Segment Architecture",
+      "label_zh": "分段架构",
+      "type": "architecture",
+      "parent": "row_segment",
+      "level": 2,
+      "position": "第二行左列标题"
+    },
+    {
+      "id": "r2_desc",
+      "label_en": "Organizing for operational and solution change at a program or portfolio level",
+      "label_zh": "在项目群或组合层级组织运营与解决方案变更",
+      "type": "note",
+      "parent": "row_segment",
+      "position": "第二行左列第二段"
+    },
+    {
+      "id": "r2_wheel",
+      "label_en": null,
+      "label_zh": "ADM 轮盘缩略图",
+      "type": "architecture",
+      "parent": "row_segment",
+      "position": "第二行左列"
+    },
+    {
+      "id": "r2_safe",
+      "label_en": "Agile/SAFe – Product/Portfolio Backlog – Change Plans – Epics",
+      "label_zh": "敏捷/SAFe——产品/组合待办——变更计划——史诗",
+      "type": "note",
+      "parent": "row_segment",
+      "position": "第二行中列"
+    },
+    {
+      "id": "row_capability",
+      "label_en": null,
+      "label_zh": "能力层（第三行）",
+      "type": "group",
+      "parent": null,
+      "level": 3,
+      "position": "第三行"
+    },
+    {
+      "id": "r3_level",
+      "label_en": "Capability Architecture",
+      "label_zh": "能力架构",
+      "type": "architecture",
+      "parent": "row_capability",
+      "level": 3,
+      "position": "第三行左列标题"
+    },
+    {
+      "id": "r3_desc",
+      "label_en": "Organizing framework for change activity and roadmaps realizing capability increments",
+      "label_zh": "组织变更活动与路线图、实现能力增量的框架",
+      "type": "note",
+      "parent": "row_capability",
+      "position": "第三行左列第二段"
+    },
+    {
+      "id": "r3_wheel",
+      "label_en": null,
+      "label_zh": "ADM 轮盘缩略图",
+      "type": "architecture",
+      "parent": "row_capability",
+      "position": "第三行左列"
+    },
+    {
+      "id": "r3_backlog_1",
+      "label_en": "Agile/SAFe – Product/Solution Backlog – Capabilities to be Delivered",
+      "label_zh": "敏捷/SAFe——产品/解决方案待办——待交付的能力",
+      "type": "artifact",
+      "parent": "row_capability",
+      "position": "第三行中列第 1 条"
+    },
+    {
+      "id": "r3_backlog_2",
+      "label_en": "Agile/SAFe – Product/Program Backlog – Capability Increments (Features)",
+      "label_zh": "敏捷/SAFe——产品/项目群待办——能力增量（特性）",
+      "type": "artifact",
+      "parent": "row_capability",
+      "position": "第三行中列第 2 条"
+    },
+    {
+      "id": "r3_backlog_3",
+      "label_en": "Agile/SAFe – Program Team Backlog – Deliverable User Stories",
+      "label_zh": "敏捷/SAFe——项目群团队待办——可交付的用户故事",
+      "type": "artifact",
+      "parent": "row_capability",
+      "position": "第三行中列第 3 条"
+    },
+    {
+      "id": "r3_backlog_4",
+      "label_en": "Scrum – Sprint Team Backlog – Deliverable User Stories",
+      "label_zh": "Scrum——冲刺团队待办——可交付的用户故事",
+      "type": "artifact",
+      "parent": "row_capability",
+      "position": "第三行中列第 4 条"
+    },
+    {
+      "id": "frame_build",
+      "label_en": null,
+      "label_zh": "Build Iteration 框（紫色虚线）",
+      "type": "group",
+      "parent": "row_capability",
+      "position": "第三行右列左侧"
+    },
+    {
+      "id": "r3_build",
+      "label_en": "Build Iteration",
+      "label_zh": "构建迭代",
+      "type": "phase",
+      "parent": "frame_build",
+      "position": "紫框左上（紫色字）"
+    },
+    {
+      "id": "r3_solution_team",
+      "label_en": "Solution Team",
+      "label_zh": "解决方案团队",
+      "type": "organization_unit",
+      "parent": "frame_build",
+      "position": "紫框右上"
+    },
+    {
+      "id": "r3_standup_1",
+      "label_en": "Daily Stand-Up",
+      "label_zh": "每日站会",
+      "type": "process",
+      "parent": "frame_build",
+      "position": "紫框右中"
+    },
+    {
+      "id": "r3_build_loop",
+      "label_en": null,
+      "label_zh": "紫色环形迭代箭头",
+      "type": "other",
+      "parent": "frame_build",
+      "position": "紫框左侧"
+    },
+    {
+      "id": "r3_build_wheel",
+      "label_en": null,
+      "label_zh": "ADM 轮盘（紫环内）",
+      "type": "architecture",
+      "parent": "frame_build",
+      "position": "紫环中心"
+    },
+    {
+      "id": "r3_build_push",
+      "label_en": null,
+      "label_zh": "紫色粗箭头（右推）",
+      "type": "other",
+      "parent": "frame_build",
+      "position": "紫框下部"
+    },
+    {
+      "id": "r3_build_people",
+      "label_en": null,
+      "label_zh": "解决方案团队人形图标",
+      "type": "organization_unit",
+      "parent": "frame_build",
+      "position": "紫框中右（5 个紫色图标）"
+    },
+    {
+      "id": "r3_runway",
+      "label_en": "Solution Runway",
+      "label_zh": "解决方案跑道",
+      "type": "artifact",
+      "parent": "frame_build",
+      "position": "紫框右下"
+    },
+    {
+      "id": "frame_delivery",
+      "label_en": null,
+      "label_zh": "Delivery Iteration 框（青色虚线）",
+      "type": "group",
+      "parent": "row_capability",
+      "position": "第三行右列右侧"
+    },
+    {
+      "id": "r3_delivery",
+      "label_en": "Delivery Iteration",
+      "label_zh": "交付迭代",
+      "type": "phase",
+      "parent": "frame_delivery",
+      "position": "青框左上（青色字）"
+    },
+    {
+      "id": "r3_delivery_team",
+      "label_en": "Delivery Team (Dev Ops)",
+      "label_zh": "交付团队（DevOps）",
+      "type": "organization_unit",
+      "parent": "frame_delivery",
+      "position": "青框右上"
+    },
+    {
+      "id": "r3_standup_2",
+      "label_en": "Daily Stand-Up",
+      "label_zh": "每日站会",
+      "type": "process",
+      "parent": "frame_delivery",
+      "position": "青框右中"
+    },
+    {
+      "id": "r3_deliv_loop",
+      "label_en": null,
+      "label_zh": "青色环形迭代箭头",
+      "type": "other",
+      "parent": "frame_delivery",
+      "position": "青框左侧"
+    },
+    {
+      "id": "r3_deliv_wheel",
+      "label_en": null,
+      "label_zh": "ADM 轮盘（青环内）",
+      "type": "architecture",
+      "parent": "frame_delivery",
+      "position": "青环中心"
+    },
+    {
+      "id": "r3_deliv_push",
+      "label_en": null,
+      "label_zh": "青色粗箭头（右推）",
+      "type": "other",
+      "parent": "frame_delivery",
+      "position": "青框下部"
+    },
+    {
+      "id": "r3_deliv_people",
+      "label_en": null,
+      "label_zh": "交付团队人形图标",
+      "type": "organization_unit",
+      "parent": "frame_delivery",
+      "position": "青框中右（5 个深青图标）"
+    },
+    {
+      "id": "r3_cicd",
+      "label_en": "Agile Development Continuous Integration/Delivery",
+      "label_zh": "敏捷开发持续集成/交付",
+      "type": "capability",
+      "parent": "frame_delivery",
+      "position": "青框右下"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "r1_wheel",
+      "to": "r2_wheel",
+      "type": "sequence",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "浅蓝虚线箭头自上而下，指入分段轮盘的 A"
+    },
+    {
+      "from": "r2_wheel",
+      "to": "r3_wheel",
+      "type": "sequence",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "浅蓝虚线箭头指入能力轮盘的 A"
+    },
+    {
+      "from": "r1_loop",
+      "to": "r1_wheel_loop",
+      "type": "iteration",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "环形箭头绕轮盘一周，表示规划迭代循环"
+    },
+    {
+      "from": "r1_push",
+      "to": "r1_people",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "粗箭头把迭代结果推向团队一侧"
+    },
+    {
+      "from": "r1_iterbox",
+      "to": "r1_portfolio",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "规划迭代的产出是企业/分段组合与 Epic"
+    },
+    {
+      "from": "r3_build_loop",
+      "to": "r3_build_wheel",
+      "type": "iteration",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "r3_build_push",
+      "to": "r3_runway",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "r3_deliv_loop",
+      "to": "r3_deliv_wheel",
+      "type": "iteration",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "r3_deliv_push",
+      "to": "r3_cicd",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "r3_backlog_4",
+      "to": "r3_build",
+      "type": "consumes",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "能力层冲刺团队待办是 Build/Delivery 迭代的输入（依位置与正文）"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_planning_iteration",
+      "kind": "cycle",
+      "name_zh": "规划迭代循环",
+      "steps": [
+        "r1_iterbox",
+        "r1_portfolio"
+      ],
+      "description_zh": "时间盒的规划迭代反复产出企业/分段组合与 Epic。"
+    },
+    {
+      "id": "f_build_delivery",
+      "kind": "parallel",
+      "name_zh": "能力层的构建与交付并行",
+      "steps": [
+        "r3_build",
+        "r3_delivery"
+      ],
+      "description_zh": "Solution Team 与 Delivery Team 各自迭代，并分别产出 Solution Runway 与持续集成/交付。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_levels",
+      "title_zh": "三层 × 三列对照（按原图逐格转录）",
+      "columns": [
+        "TOGAF ADM – Levels",
+        "SAFe/Agile/Scrum Layers",
+        "Characteristic Agile Team Iterations"
+      ],
+      "rows": [
+        [
+          "Strategic Architecture；Direction-setting at an executive level（附 ADM 轮盘缩略图）",
+          "SAFe – Strategic Themes – Enterprise Portfolio Delivery",
+          "Planning Iteration (Time-Boxed)；环形迭代箭头 + ADM 轮盘；Enterprise/Segment Portfolio – Epics；Business Team / Technical Team / Operational Team；团队人形图标（10 个）"
+        ],
+        [
+          "Segment Architecture；Organizing for operational and solution change at a program or portfolio level（附 ADM 轮盘缩略图）",
+          "Agile/SAFe – Product/Portfolio Backlog – Change Plans – Epics",
+          "（与战略层共用同一个橙色虚线规划迭代框，本行右列无独立内容）"
+        ],
+        [
+          "Capability Architecture；Organizing framework for change activity and roadmaps realizing capability increments（附 ADM 轮盘缩略图）",
+          "Agile/SAFe – Product/Solution Backlog – Capabilities to be Delivered；Agile/SAFe – Product/Program Backlog – Capability Increments (Features)；Agile/SAFe – Program Team Backlog – Deliverable User Stories；Scrum – Sprint Team Backlog – Deliverable User Stories",
+          "Build Iteration：Solution Team / Daily Stand-Up / 紫色环形箭头 + ADM 轮盘 / 5 个人形图标 / Solution Runway；Delivery Iteration：Delivery Team (Dev Ops) / Daily Stand-Up / 青色环形箭头 + ADM 轮盘 / 5 个人形图标 / Agile Development Continuous Integration/Delivery"
+        ]
+      ],
+      "notes_zh": "列标题取自原图三列表头；单元格内多行文字按原图自上而下顺序合并。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G20F/fig3-1",
+      "relation": "uses_legend",
+      "note_zh": "左列三个层级都用同一张 TOGAF ADM 轮盘缩略图（与图 3-1 相同）。"
+    },
+    {
+      "target": "G20F/fig5-4",
+      "relation": "complements",
+      "note_zh": "图 5-4 进一步展示架构如何支撑产品待办与冲刺待办的定义。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "人形图标数量按像素计为 10 个（两排各 5 个）与 5 个（能力层两个框各 5 个），仅作团队规模示意。",
+      "橙色虚线规划迭代框横跨第一、二行的判断依据框线走向，原文未明说。",
+      "左列轮盘内的 A–H 缩略标签极小，按与图 3-1 一致的轮盘结构识别，未逐字转录。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 28 页原图截图（figctx GT crop + 2x2 放大块 + 400dpi 局部）",
+      "英文 PDF 第 28 页与第 29 页正文",
+      "中文稿 G20Fe_赋能企业敏捷性.md 第 306–320 行",
+      "figs/g20f_fig4-4.svg 源码与文本"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G20Fe.pdf",
+    "pdf_sha256": "a8fe6569c7d6045ce4ac8d5320c09a3abdc556a0fc1cbcd584bd76a75f3f84be",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G20F/fig4-4.json",
+    "interpretation_sha256": "1dc90e2e6f6bbf28ec39b0b5616f113820ba5de2bb4965c4f74ec6e798546f84",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 28,
+        "text": "Figure 4-4: ADM Levels Mapped to Agile Delivery Concepts",
+        "bbox_pdf_points": [
+          48.24,
+          422.253,
+          321.525,
+          435.818
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 28,
+      "printed_page": 16,
+      "bbox_pdf_points": [
+        48.2,
+        127.6,
+        563.8,
+        417.5
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G20F/fig4-4-p0028.png",
+      "image_sha256": "04cc28b9d088473d17d5347c71a05acf6c415a965ca55c5fa0671b917bd20aef",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "04cc28b9d088473d17d5347c71a05acf6c415a965ca55c5fa0671b917bd20aef",
+          "status": "extracted-unverified",
+          "text": "he O\noop\nTOGAF ADM - Levels\nSAFe/Agile/Scrum Layers\nCharacteristic Agile Team Iterations\n—=\nSAFe ~ Strategic Themes —\nStrategic\nEnterprise Portfolio Delivery\nArchitecture\nPlanning\nBusiness Team\nIteration\nDirection-\nTechnical Team\ntting at an\nOperational Team\n(Time-Boxed)\nlevel\nis\nQS\nSo\n<5)\nSegment\nAgile/SAF\nProduct/Portfolio Backlog ~\ncece\nArchitecture\nChange Plans - Epics\nos\nLS)\nOrganizing for\noperational and\nsolution\n3\nchange at a\nEnterprise/Segment Portfolio - Epics\nprogram or\nei\nA\nportfolio level\nCapability\nAgile/SAFe — Product/Solution Backlog ~\null\nSolution Team *;\n‘Delivery\nDelivery Team\nArchitecture\nCapabilities to be Delivered\nIteration\nH\nIteration\n(Dev Ops)\nAgile/SAFe - Produc/Program Backlog ~\nDaily Stand-Up |\nDaily Stand-Up\nframework for\nOrganizing\nCapability Increments (Features)\nar\nchange activity\nAgile/SAF\nProgram Team Backlog ~\nand roadmaps\nDeliverable User Stories\ni\nrealizing\nais\ni\nH\ncapability\nincrements\nScrum ~ Sprint Te\nBacklog—\nSolut\nyn Runway,’\nAgile Development\nDeliverable Us\nries,\nContinuous Inte;\nti\nDeli",
+          "words": [
+            {
+              "text": "he",
+              "confidence": 41.874245,
+              "bbox_pixels_xywh": [
+                946,
+                16,
+                4,
+                5
+              ]
+            },
+            {
+              "text": "O",
+              "confidence": 59.494022,
+              "bbox_pixels_xywh": [
+                959,
+                15,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "oop",
+              "confidence": 42.581642,
+              "bbox_pixels_xywh": [
+                995,
+                17,
+                14,
+                6
+              ]
+            },
+            {
+              "text": "TOGAF",
+              "confidence": 93.003983,
+              "bbox_pixels_xywh": [
+                30,
+                25,
+                65,
+                15
+              ]
+            },
+            {
+              "text": "ADM",
+              "confidence": 93.293388,
+              "bbox_pixels_xywh": [
+                100,
+                25,
+                42,
+                15
+              ]
+            },
+            {
+              "text": "-",
+              "confidence": 75.105026,
+              "bbox_pixels_xywh": [
+                148,
+                33,
+                11,
+                2
+              ]
+            },
+            {
+              "text": "Levels",
+              "confidence": 91.953011,
+              "bbox_pixels_xywh": [
+                166,
+                25,
+                54,
+                15
+              ]
+            },
+            {
+              "text": "SAFe/Agile/Scrum",
+              "confidence": 90.169159,
+              "bbox_pixels_xywh": [
+                267,
+                24,
+                156,
+                19
+              ]
+            },
+            {
+              "text": "Layers",
+              "confidence": 96.489517,
+              "bbox_pixels_xywh": [
+                430,
+                24,
+                57,
+                19
+              ]
+            },
+            {
+              "text": "Characteristic",
+              "confidence": 96.848297,
+              "bbox_pixels_xywh": [
+                617,
+                23,
+                117,
+                14
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 96.620743,
+              "bbox_pixels_xywh": [
+                738,
+                23,
+                43,
+                18
+              ]
+            },
+            {
+              "text": "Team",
+              "confidence": 96.612602,
+              "bbox_pixels_xywh": [
+                787,
+                23,
+                46,
+                14
+              ]
+            },
+            {
+              "text": "Iterations",
+              "confidence": 89.727234,
+              "bbox_pixels_xywh": [
+                841,
+                23,
+                77,
+                14
+              ]
+            },
+            {
+              "text": "—=",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                576,
+                64,
+                25,
+                1
+              ]
+            },
+            {
+              "text": "SAFe",
+              "confidence": 78.349403,
+              "bbox_pixels_xywh": [
+                250,
+                69,
+                29,
+                10
+              ]
+            },
+            {
+              "text": "~",
+              "confidence": 39.72752,
+              "bbox_pixels_xywh": [
+                283,
+                74,
+                7,
+                2
+              ]
+            },
+            {
+              "text": "Strategic",
+              "confidence": 96.623062,
+              "bbox_pixels_xywh": [
+                293,
+                69,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "Themes",
+              "confidence": 93.302422,
+              "bbox_pixels_xywh": [
+                347,
+                69,
+                44,
+                10
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 39.587765,
+              "bbox_pixels_xywh": [
+                394,
+                74,
+                7,
+                2
+              ]
+            },
+            {
+              "text": "Strategic",
+              "confidence": 80.606888,
+              "bbox_pixels_xywh": [
+                27,
+                86,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 95.250793,
+              "bbox_pixels_xywh": [
+                250,
+                84,
+                58,
+                11
+              ]
+            },
+            {
+              "text": "Portfolio",
+              "confidence": 96.798027,
+              "bbox_pixels_xywh": [
+                312,
+                84,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "Delivery",
+              "confidence": 95.383873,
+              "bbox_pixels_xywh": [
+                364,
+                84,
+                45,
+                11
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 82.089783,
+              "bbox_pixels_xywh": [
+                27,
+                101,
+                69,
+                9
+              ]
+            },
+            {
+              "text": "Planning",
+              "confidence": 91.430946,
+              "bbox_pixels_xywh": [
+                549,
+                104,
+                53,
+                12
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.605263,
+              "bbox_pixels_xywh": [
+                865,
+                103,
+                56,
+                9
+              ]
+            },
+            {
+              "text": "Team",
+              "confidence": 95.561729,
+              "bbox_pixels_xywh": [
+                925,
+                103,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "Iteration",
+              "confidence": 82.631203,
+              "bbox_pixels_xywh": [
+                549,
+                120,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "Direction-",
+              "confidence": 88.860199,
+              "bbox_pixels_xywh": [
+                27,
+                129,
+                55,
+                9
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 96.483444,
+              "bbox_pixels_xywh": [
+                863,
+                126,
+                58,
+                9
+              ]
+            },
+            {
+              "text": "Team",
+              "confidence": 96.781326,
+              "bbox_pixels_xywh": [
+                926,
+                126,
+                31,
+                9
+              ]
+            },
+            {
+              "text": "tting",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                40,
+                144,
+                25,
+                11
+              ]
+            },
+            {
+              "text": "at",
+              "confidence": 96.614609,
+              "bbox_pixels_xywh": [
+                69,
+                144,
+                10,
+                8
+              ]
+            },
+            {
+              "text": "an",
+              "confidence": 88.208298,
+              "bbox_pixels_xywh": [
+                82,
+                145,
+                13,
+                7
+              ]
+            },
+            {
+              "text": "Operational",
+              "confidence": 93.369621,
+              "bbox_pixels_xywh": [
+                857,
+                141,
+                71,
+                12
+              ]
+            },
+            {
+              "text": "Team",
+              "confidence": 96.626633,
+              "bbox_pixels_xywh": [
+                932,
+                141,
+                32,
+                10
+              ]
+            },
+            {
+              "text": "(Time-Boxed)",
+              "confidence": 92.514137,
+              "bbox_pixels_xywh": [
+                548,
+                151,
+                82,
+                12
+              ]
+            },
+            {
+              "text": "level",
+              "confidence": 83.758606,
+              "bbox_pixels_xywh": [
+                27,
+                172,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "is",
+              "confidence": 17.528925,
+              "bbox_pixels_xywh": [
+                179,
+                161,
+                35,
+                34
+              ]
+            },
+            {
+              "text": "QS",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                668,
+                226,
+                26,
+                11
+              ]
+            },
+            {
+              "text": "So",
+              "confidence": 23.514757,
+              "bbox_pixels_xywh": [
+                689,
+                204,
+                25,
+                27
+              ]
+            },
+            {
+              "text": "<5)",
+              "confidence": 40.872665,
+              "bbox_pixels_xywh": [
+                708,
+                227,
+                27,
+                13
+              ]
+            },
+            {
+              "text": "Segment",
+              "confidence": 72.104042,
+              "bbox_pixels_xywh": [
+                27,
+                246,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "Agile/SAF",
+              "confidence": 49.298752,
+              "bbox_pixels_xywh": [
+                249,
+                240,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Product/Portfolio",
+              "confidence": 39.997066,
+              "bbox_pixels_xywh": [
+                326,
+                240,
+                95,
+                9
+              ]
+            },
+            {
+              "text": "Backlog",
+              "confidence": 93.183403,
+              "bbox_pixels_xywh": [
+                425,
+                240,
+                45,
+                12
+              ]
+            },
+            {
+              "text": "~",
+              "confidence": 49.090633,
+              "bbox_pixels_xywh": [
+                474,
+                245,
+                7,
+                2
+              ]
+            },
+            {
+              "text": "cece",
+              "confidence": 66.658981,
+              "bbox_pixels_xywh": [
+                873,
+                200,
+                144,
+                50
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 84.701492,
+              "bbox_pixels_xywh": [
+                27,
+                260,
+                69,
+                9
+              ]
+            },
+            {
+              "text": "Change",
+              "confidence": 83.394112,
+              "bbox_pixels_xywh": [
+                250,
+                254,
+                43,
+                12
+              ]
+            },
+            {
+              "text": "Plans",
+              "confidence": 91.646423,
+              "bbox_pixels_xywh": [
+                297,
+                254,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "-",
+              "confidence": 47.12072,
+              "bbox_pixels_xywh": [
+                331,
+                259,
+                7,
+                2
+              ]
+            },
+            {
+              "text": "Epics",
+              "confidence": 96.063103,
+              "bbox_pixels_xywh": [
+                341,
+                254,
+                31,
+                12
+              ]
+            },
+            {
+              "text": "os",
+              "confidence": 67.122078,
+              "bbox_pixels_xywh": [
+                670,
+                238,
+                31,
+                24
+              ]
+            },
+            {
+              "text": "LS)",
+              "confidence": 55.532372,
+              "bbox_pixels_xywh": [
+                702,
+                244,
+                26,
+                18
+              ]
+            },
+            {
+              "text": "Organizing",
+              "confidence": 79.523209,
+              "bbox_pixels_xywh": [
+                27,
+                288,
+                61,
+                12
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 96.036018,
+              "bbox_pixels_xywh": [
+                91,
+                288,
+                16,
+                9
+              ]
+            },
+            {
+              "text": "operational",
+              "confidence": 79.648216,
+              "bbox_pixels_xywh": [
+                27,
+                302,
+                63,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.46991,
+              "bbox_pixels_xywh": [
+                93,
+                303,
+                21,
+                9
+              ]
+            },
+            {
+              "text": "solution",
+              "confidence": 93.125381,
+              "bbox_pixels_xywh": [
+                27,
+                317,
+                45,
+                9
+              ]
+            },
+            {
+              "text": "3",
+              "confidence": 56.955776,
+              "bbox_pixels_xywh": [
+                168,
+                279,
+                46,
+                47
+              ]
+            },
+            {
+              "text": "change",
+              "confidence": 77.94899,
+              "bbox_pixels_xywh": [
+                27,
+                331,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "at",
+              "confidence": 96.193268,
+              "bbox_pixels_xywh": [
+                71,
+                332,
+                11,
+                8
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 94.82338,
+              "bbox_pixels_xywh": [
+                88,
+                333,
+                3,
+                7
+              ]
+            },
+            {
+              "text": "Enterprise/Segment",
+              "confidence": 92.445862,
+              "bbox_pixels_xywh": [
+                574,
+                325,
+                121,
+                13
+              ]
+            },
+            {
+              "text": "Portfolio",
+              "confidence": 89.220261,
+              "bbox_pixels_xywh": [
+                700,
+                325,
+                52,
+                10
+              ]
+            },
+            {
+              "text": "-",
+              "confidence": 79.596962,
+              "bbox_pixels_xywh": [
+                756,
+                330,
+                7,
+                2
+              ]
+            },
+            {
+              "text": "Epics",
+              "confidence": 93.483948,
+              "bbox_pixels_xywh": [
+                767,
+                325,
+                34,
+                12
+              ]
+            },
+            {
+              "text": "program",
+              "confidence": 94.236366,
+              "bbox_pixels_xywh": [
+                27,
+                347,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "or",
+              "confidence": 96.866737,
+              "bbox_pixels_xywh": [
+                78,
+                347,
+                12,
+                7
+              ]
+            },
+            {
+              "text": "ei",
+              "confidence": 44.526421,
+              "bbox_pixels_xywh": [
+                144,
+                327,
+                34,
+                34
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 63.101162,
+              "bbox_pixels_xywh": [
+                170,
+                335,
+                26,
+                27
+              ]
+            },
+            {
+              "text": "portfolio",
+              "confidence": 77.876465,
+              "bbox_pixels_xywh": [
+                27,
+                359,
+                47,
+                12
+              ]
+            },
+            {
+              "text": "level",
+              "confidence": 89.397522,
+              "bbox_pixels_xywh": [
+                78,
+                359,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 87.886551,
+              "bbox_pixels_xywh": [
+                27,
+                415,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "Agile/SAFe",
+              "confidence": 81.508041,
+              "bbox_pixels_xywh": [
+                250,
+                409,
+                62,
+                12
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 20.067978,
+              "bbox_pixels_xywh": [
+                315,
+                414,
+                7,
+                2
+              ]
+            },
+            {
+              "text": "Product/Solution",
+              "confidence": 91.10498,
+              "bbox_pixels_xywh": [
+                326,
+                409,
+                94,
+                10
+              ]
+            },
+            {
+              "text": "Backlog",
+              "confidence": 93.260643,
+              "bbox_pixels_xywh": [
+                424,
+                409,
+                45,
+                12
+              ]
+            },
+            {
+              "text": "~",
+              "confidence": 59.407444,
+              "bbox_pixels_xywh": [
+                473,
+                414,
+                6,
+                2
+              ]
+            },
+            {
+              "text": "ull",
+              "confidence": 47.023716,
+              "bbox_pixels_xywh": [
+                550,
+                412,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "Solution",
+              "confidence": 95.777466,
+              "bbox_pixels_xywh": [
+                652,
+                411,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "Team",
+              "confidence": 91.242241,
+              "bbox_pixels_xywh": [
+                707,
+                411,
+                32,
+                10
+              ]
+            },
+            {
+              "text": "*;",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                751,
+                415,
+                3,
+                11
+              ]
+            },
+            {
+              "text": "‘Delivery",
+              "confidence": 49.368019,
+              "bbox_pixels_xywh": [
+                766,
+                410,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "Delivery",
+              "confidence": 96.909424,
+              "bbox_pixels_xywh": [
+                894,
+                411,
+                49,
+                12
+              ]
+            },
+            {
+              "text": "Team",
+              "confidence": 94.421921,
+              "bbox_pixels_xywh": [
+                947,
+                411,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 93.815132,
+              "bbox_pixels_xywh": [
+                26,
+                429,
+                70,
+                9
+              ]
+            },
+            {
+              "text": "Capabilities",
+              "confidence": 95.978752,
+              "bbox_pixels_xywh": [
+                250,
+                424,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 96.972763,
+              "bbox_pixels_xywh": [
+                319,
+                424,
+                11,
+                9
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 96.750008,
+              "bbox_pixels_xywh": [
+                334,
+                424,
+                13,
+                9
+              ]
+            },
+            {
+              "text": "Delivered",
+              "confidence": 83.897942,
+              "bbox_pixels_xywh": [
+                351,
+                424,
+                52,
+                9
+              ]
+            },
+            {
+              "text": "Iteration",
+              "confidence": 87.212868,
+              "bbox_pixels_xywh": [
+                541,
+                427,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "H",
+              "confidence": 74.137779,
+              "bbox_pixels_xywh": [
+                753,
+                430,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "Iteration",
+              "confidence": 78.414375,
+              "bbox_pixels_xywh": [
+                776,
+                427,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "(Dev",
+              "confidence": 91.261223,
+              "bbox_pixels_xywh": [
+                907,
+                426,
+                26,
+                12
+              ]
+            },
+            {
+              "text": "Ops)",
+              "confidence": 91.261223,
+              "bbox_pixels_xywh": [
+                938,
+                426,
+                28,
+                12
+              ]
+            },
+            {
+              "text": "Agile/SAFe",
+              "confidence": 80.269073,
+              "bbox_pixels_xywh": [
+                249,
+                451,
+                63,
+                12
+              ]
+            },
+            {
+              "text": "-",
+              "confidence": 46.043468,
+              "bbox_pixels_xywh": [
+                315,
+                456,
+                7,
+                2
+              ]
+            },
+            {
+              "text": "Produc/Program",
+              "confidence": 50.439358,
+              "bbox_pixels_xywh": [
+                326,
+                451,
+                95,
+                12
+              ]
+            },
+            {
+              "text": "Backlog",
+              "confidence": 93.156662,
+              "bbox_pixels_xywh": [
+                425,
+                451,
+                46,
+                12
+              ]
+            },
+            {
+              "text": "~",
+              "confidence": 42.086872,
+              "bbox_pixels_xywh": [
+                474,
+                456,
+                7,
+                2
+              ]
+            },
+            {
+              "text": "Daily",
+              "confidence": 93.464401,
+              "bbox_pixels_xywh": [
+                650,
+                445,
+                30,
+                12
+              ]
+            },
+            {
+              "text": "Stand-Up",
+              "confidence": 88.026817,
+              "bbox_pixels_xywh": [
+                684,
+                444,
+                57,
+                13
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 44.167053,
+              "bbox_pixels_xywh": [
+                753,
+                437,
+                1,
+                18
+              ]
+            },
+            {
+              "text": "Daily",
+              "confidence": 95.72731,
+              "bbox_pixels_xywh": [
+                891,
+                444,
+                30,
+                12
+              ]
+            },
+            {
+              "text": "Stand-Up",
+              "confidence": 94.221161,
+              "bbox_pixels_xywh": [
+                925,
+                444,
+                57,
+                12
+              ]
+            },
+            {
+              "text": "framework",
+              "confidence": 90.85717,
+              "bbox_pixels_xywh": [
+                26,
+                472,
+                60,
+                9
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 90.85717,
+              "bbox_pixels_xywh": [
+                89,
+                472,
+                16,
+                9
+              ]
+            },
+            {
+              "text": "Organizing",
+              "confidence": 90.506645,
+              "bbox_pixels_xywh": [
+                27,
+                458,
+                61,
+                11
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 95.430664,
+              "bbox_pixels_xywh": [
+                250,
+                465,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Increments",
+              "confidence": 93.377213,
+              "bbox_pixels_xywh": [
+                310,
+                465,
+                62,
+                10
+              ]
+            },
+            {
+              "text": "(Features)",
+              "confidence": 90.466644,
+              "bbox_pixels_xywh": [
+                376,
+                465,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "ar",
+              "confidence": 33.966923,
+              "bbox_pixels_xywh": [
+                141,
+                449,
+                56,
+                38
+              ]
+            },
+            {
+              "text": "change",
+              "confidence": 74.655663,
+              "bbox_pixels_xywh": [
+                27,
+                486,
+                41,
+                12
+              ]
+            },
+            {
+              "text": "activity",
+              "confidence": 96.512665,
+              "bbox_pixels_xywh": [
+                71,
+                486,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "Agile/SAF",
+              "confidence": 34.898598,
+              "bbox_pixels_xywh": [
+                249,
+                494,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Program",
+              "confidence": 94.251221,
+              "bbox_pixels_xywh": [
+                326,
+                494,
+                47,
+                12
+              ]
+            },
+            {
+              "text": "Team",
+              "confidence": 96.800583,
+              "bbox_pixels_xywh": [
+                377,
+                494,
+                30,
+                9
+              ]
+            },
+            {
+              "text": "Backlog",
+              "confidence": 93.065056,
+              "bbox_pixels_xywh": [
+                412,
+                494,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "~",
+              "confidence": 54.579754,
+              "bbox_pixels_xywh": [
+                462,
+                484,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 91.043518,
+              "bbox_pixels_xywh": [
+                27,
+                500,
+                20,
+                9
+              ]
+            },
+            {
+              "text": "roadmaps",
+              "confidence": 91.043518,
+              "bbox_pixels_xywh": [
+                51,
+                500,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Deliverable",
+              "confidence": 96.185638,
+              "bbox_pixels_xywh": [
+                250,
+                508,
+                45,
+                9
+              ]
+            },
+            {
+              "text": "User",
+              "confidence": 96.965004,
+              "bbox_pixels_xywh": [
+                318,
+                498,
+                22,
+                28
+              ]
+            },
+            {
+              "text": "Stories",
+              "confidence": 95.286957,
+              "bbox_pixels_xywh": [
+                338,
+                508,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 18.200569,
+              "bbox_pixels_xywh": [
+                753,
+                516,
+                12,
+                6
+              ]
+            },
+            {
+              "text": "realizing",
+              "confidence": 95.325348,
+              "bbox_pixels_xywh": [
+                27,
+                514,
+                47,
+                12
+              ]
+            },
+            {
+              "text": "ais",
+              "confidence": 69.423828,
+              "bbox_pixels_xywh": [
+                132,
+                485,
+                94,
+                45
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 16.124468,
+              "bbox_pixels_xywh": [
+                753,
+                524,
+                12,
+                5
+              ]
+            },
+            {
+              "text": "H",
+              "confidence": 60.940544,
+              "bbox_pixels_xywh": [
+                991,
+                525,
+                2,
+                4
+              ]
+            },
+            {
+              "text": "capability",
+              "confidence": 85.778336,
+              "bbox_pixels_xywh": [
+                27,
+                529,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "increments",
+              "confidence": 67.900162,
+              "bbox_pixels_xywh": [
+                27,
+                543,
+                62,
+                9
+              ]
+            },
+            {
+              "text": "Scrum",
+              "confidence": 82.741631,
+              "bbox_pixels_xywh": [
+                250,
+                531,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "~",
+              "confidence": 56.951454,
+              "bbox_pixels_xywh": [
+                289,
+                536,
+                7,
+                1
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 90.915527,
+              "bbox_pixels_xywh": [
+                300,
+                531,
+                33,
+                11
+              ]
+            },
+            {
+              "text": "Te",
+              "confidence": 93.941498,
+              "bbox_pixels_xywh": [
+                337,
+                531,
+                13,
+                9
+              ]
+            },
+            {
+              "text": "Backlog—",
+              "confidence": 30.14287,
+              "bbox_pixels_xywh": [
+                371,
+                531,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "Solut",
+              "confidence": 92.65213,
+              "bbox_pixels_xywh": [
+                643,
+                540,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "yn",
+              "confidence": 38.568157,
+              "bbox_pixels_xywh": [
+                687,
+                543,
+                7,
+                7
+              ]
+            },
+            {
+              "text": "Runway,’",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                699,
+                540,
+                53,
+                12
+              ]
+            },
+            {
+              "text": "Agile",
+              "confidence": 93.646477,
+              "bbox_pixels_xywh": [
+                864,
+                531,
+                31,
+                13
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 89.4132,
+              "bbox_pixels_xywh": [
+                899,
+                531,
+                80,
+                12
+              ]
+            },
+            {
+              "text": "Deliverable",
+              "confidence": 96.217438,
+              "bbox_pixels_xywh": [
+                250,
+                545,
+                45,
+                9
+              ]
+            },
+            {
+              "text": "Us",
+              "confidence": 96.757263,
+              "bbox_pixels_xywh": [
+                316,
+                545,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "ries,",
+              "confidence": 54.89505,
+              "bbox_pixels_xywh": [
+                365,
+                545,
+                20,
+                9
+              ]
+            },
+            {
+              "text": "Continuous",
+              "confidence": 96.210274,
+              "bbox_pixels_xywh": [
+                784,
+                547,
+                71,
+                9
+              ]
+            },
+            {
+              "text": "Inte;",
+              "confidence": 61.245525,
+              "bbox_pixels_xywh": [
+                860,
+                547,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "ti",
+              "confidence": 68.407494,
+              "bbox_pixels_xywh": [
+                902,
+                547,
+                7,
+                9
+              ]
+            },
+            {
+              "text": "Deli",
+              "confidence": 6.945448,
+              "bbox_pixels_xywh": [
+                926,
+                547,
+                26,
+                9
+              ]
+            }
+          ],
+          "mean_word_confidence": 75.46,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

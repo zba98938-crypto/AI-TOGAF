@@ -1,0 +1,97 @@
+{
+  "schema_version": "portable-method-reference/1",
+  "source": "G210§3.3–3.3.8；source-structures/G210-fig3-2..5历史解释",
+  "identity": "4可选协作方式，非成熟度量尺/必经顺序",
+  "patterns": [
+    {
+      "id": "ea",
+      "profile_id": "agile-ea-development",
+      "name": "企业架构开发敏捷",
+      "figure": "G210/fig3-2",
+      "lanes": [
+        "企业架构团队"
+      ],
+      "handoff": "EA完整后实施",
+      "markers": [
+        "MVA"
+      ],
+      "zero_sprint": "愿景/待办，不虚构MVA/MVP/MVBD",
+      "time": "开放序列，不固定3/4/5次"
+    },
+    {
+      "id": "solution",
+      "profile_id": "agile-solution-collaboration",
+      "name": "解决方案协作",
+      "figure": "G210/fig3-3",
+      "lanes": [
+        "企业架构团队",
+        "解决方案团队"
+      ],
+      "handoff": "MVA→后续方案；MVBD→后续EA",
+      "markers": [
+        "MVA",
+        "MVP"
+      ],
+      "zero_sprint": "愿景/待办，不虚构MVA/MVP/MVBD",
+      "time": "开放序列，不固定3/4/5次"
+    },
+    {
+      "id": "cross",
+      "profile_id": "agile-cross-development",
+      "name": "跨开发协作",
+      "figure": "G210/fig3-4",
+      "lanes": [
+        "业务开发团队",
+        "企业架构团队",
+        "解决方案团队"
+      ],
+      "handoff": "MVA→后续方案；MVBD→后续EA",
+      "markers": [
+        "MVBD",
+        "MVA",
+        "MVP"
+      ],
+      "zero_sprint": "愿景/待办，不虚构MVA/MVP/MVBD",
+      "time": "开放序列，不固定3/4/5次"
+    },
+    {
+      "id": "functional",
+      "profile_id": "agile-cross-functional",
+      "name": "跨职能敏捷",
+      "figure": "G210/fig3-5",
+      "lanes": [
+        "混合跨职能团队"
+      ],
+      "handoff": "每队三能力；DORP末协调",
+      "markers": [
+        "MVP"
+      ],
+      "zero_sprint": "愿景/待办，不虚构MVA/MVP/MVBD",
+      "time": "开放序列，不固定3/4/5次"
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "G210-four-patterns-not-score",
+      "fields": [
+        "fig3-1.reading.purpose_zh",
+        "fig3-1.relationships",
+        "fig3-1.legend",
+        "fig3-5.reading.purpose_zh",
+        "fig3-5.reading.misreadings_zh"
+      ],
+      "basis": "正文L200依组织需要、常与成熟度一致；没有量尺/阈值/强制晋级",
+      "handling": "四模式可选择/裁剪，历史JSON最高成熟度/终点不作量尺"
+    },
+    {
+      "id": "G210-crossfunctional-body-figure",
+      "basis": "§3.3.8 L391仍提演示MVBD/MVA；历史图3-5仅MVP",
+      "handling": "图不补伪原图MVA/MVBD节点；不推断业务/EA工作取消"
+    },
+    {
+      "id": "G210-redraw-deviations",
+      "basis": "现有SVG3-2..5缺DORP/成果/时间结构，历史issues详列",
+      "handling": "不能以错误重绘当可信结构；本模板根据正文与未核实历史图解释"
+    }
+  ]
+}

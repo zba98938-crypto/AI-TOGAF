@@ -1,0 +1,643 @@
+{
+  "schema_version": "2.0",
+  "id": "G186/fig13-2",
+  "title": "架构的影响分析",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      1834
+    ],
+    "label_table_lines": [
+      1838,
+      1872
+    ]
+  },
+  "reading": {
+    "purpose_zh": "示范第 13.2 节的同一比较概念如何用于逐年修改分析：工具允许实践者把变更追溯到基线或修订版本；图 13-2 在结果树上打开 Show In Explorer 菜单，用于定位源架构或目标架构。",
+    "reading_guide_zh": "先读顶部“From: Baseline, To: Target”，注意方向与图 13-1 相反。树与颜色规则相同：黄色=子项不同，蓝色=属性不同。结果树第三行“Integrated Operations Outputs”被深蓝选中，右键菜单覆盖在树上：第一项定位源架构，第二项定位目标架构，第二项当前高亮。最后看差异摘要与图例。",
+    "key_points_zh": [
+      "比较方向是 Baseline→Target（基线→目标），与图 13-1 的 Target→Baseline 正好相反；这是逐年/版本间影响分析的常见方向。",
+      "结果树与图 13-1 相同：Business Domain、Capability 为黄色（子项不同）；九个二级能力中六个为蓝色（属性不同），三个未高亮。",
+      "“Integrated Operations Outputs”整行处于深蓝选中状态，菜单由该行触发；选中状态与“属性不同”的浅蓝色是两种不同的视觉编码。",
+      "菜单提供两项命令：Show In Explorer (From Architecture)… 与 Show In Explorer (To Architecture)…；后者高亮，表示当前指向目标架构。",
+      "正文说明该工具允许把变更追溯到基线或修订版本，因此本图用于分析架构的逐年修改影响。",
+      "菜单只是导航命令，不改变比较结果；差异摘要仍只列 Property Values Different。",
+      "折叠分支（Business Term、Logical Process - APQC、NA Construction Process、Organization、BIE）中可能还有未显示的差异。"
+    ],
+    "hierarchy_zh": "结果树四层：比较根（From/To）→ 顶层目录 → Capability → 九个二级能力；BIE 下另有 Business Function、Business Service。上下文菜单是浮在树上的临时控件，不属于树层级。",
+    "line_semantics_zh": "图中没有箭头。树包含关系由缩进、+/- 图标和浅灰连接线表达；差异由文字底色表达。上下文菜单与树之间没有连线，只通过弹出位置表示“针对当前选中行”。",
+    "misreadings_zh": [
+      "不要把深蓝色选中行当作第三种差异类型；选中状态只表示菜单作用对象。",
+      "不要把 Baseline→Target 与图 13-1 的 Target→Baseline 混为一谈。",
+      "菜单中的“From Architecture / To Architecture”是查看源/目标架构的命令，不是两次不同的比较运行。",
+      "不要因为菜单遮住了几行就认为这些行没有差异；被遮住的行仍属于结果树。",
+      "中文 SVG 把 Business Function、Business Service 误涂为蓝色，不能据此判断这两项属性变化。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "dlg",
+      "label_en": null,
+      "label_zh": "比较结果对话框",
+      "type": "application",
+      "parent": null,
+      "level": 0,
+      "description_zh": "工具截图窗口，带米色外框。"
+    },
+    {
+      "id": "results_label",
+      "label_en": "Results:",
+      "label_zh": "结果：",
+      "type": "note",
+      "parent": "dlg",
+      "level": 1
+    },
+    {
+      "id": "result_tree",
+      "label_en": null,
+      "label_zh": "结果树",
+      "type": "group",
+      "parent": "dlg",
+      "level": 1
+    },
+    {
+      "id": "root_compare",
+      "label_en": "From: Baseline, To: Target",
+      "label_zh": "从：基线，到：目标",
+      "type": "artifact",
+      "parent": "result_tree",
+      "level": 2,
+      "description_zh": "比较根节点；方向与图 13-1 相反。"
+    },
+    {
+      "id": "strategy",
+      "label_en": "Strategy",
+      "label_zh": "战略",
+      "type": "group",
+      "parent": "result_tree",
+      "level": 3
+    },
+    {
+      "id": "business_domain",
+      "label_en": "Business Domain",
+      "label_zh": "业务域",
+      "type": "group",
+      "parent": "result_tree",
+      "level": 3,
+      "attributes": {
+        "diff": "different_children"
+      }
+    },
+    {
+      "id": "capability",
+      "label_en": "Capability",
+      "label_zh": "能力",
+      "type": "capability",
+      "parent": "business_domain",
+      "level": 4,
+      "attributes": {
+        "diff": "different_children"
+      }
+    },
+    {
+      "id": "cap_project_controls",
+      "label_en": "Project Controls",
+      "label_zh": "项目控制",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "cap_financial_mgmt",
+      "label_en": "Financial Management",
+      "label_zh": "财务管理",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "unchanged"
+      }
+    },
+    {
+      "id": "cap_integrated_ops",
+      "label_en": "Integrated Operations Outputs",
+      "label_zh": "集成运营输出",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes",
+        "selected": true
+      }
+    },
+    {
+      "id": "cap_estimation_bidding",
+      "label_en": "Consistent Estimation & Bidding",
+      "label_zh": "一致估算与投标",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "cap_contract_mgmt",
+      "label_en": "Contract Management",
+      "label_zh": "合同管理",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "cap_skills_dev",
+      "label_en": "Skills Development",
+      "label_zh": "技能发展",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "unchanged"
+      }
+    },
+    {
+      "id": "cap_eod_reporting",
+      "label_en": "EOD Reporting / Book Closure",
+      "label_zh": "日终报告/账务关闭",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "cap_fleet_mgmt",
+      "label_en": "Fleet Management",
+      "label_zh": "车队管理",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "unchanged"
+      }
+    },
+    {
+      "id": "cap_customer_intimacy",
+      "label_en": "Customer Intimacy",
+      "label_zh": "客户亲密度",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "business_term",
+      "label_en": "Business Term",
+      "label_zh": "业务术语",
+      "type": "data",
+      "parent": "result_tree",
+      "level": 3
+    },
+    {
+      "id": "logical_process_apqc",
+      "label_en": "Logical Process - APQC",
+      "label_zh": "逻辑流程 - APQC",
+      "type": "process",
+      "parent": "result_tree",
+      "level": 3
+    },
+    {
+      "id": "na_construction_process",
+      "label_en": "NA Construction Process",
+      "label_zh": "NA 建造流程",
+      "type": "process",
+      "parent": "result_tree",
+      "level": 3
+    },
+    {
+      "id": "organization",
+      "label_en": "Organization",
+      "label_zh": "组织",
+      "type": "organization_unit",
+      "parent": "result_tree",
+      "level": 3
+    },
+    {
+      "id": "bie",
+      "label_en": "BIE",
+      "label_zh": "BIE",
+      "type": "data",
+      "parent": "result_tree",
+      "level": 3
+    },
+    {
+      "id": "business_function",
+      "label_en": "Business Function",
+      "label_zh": "业务职能",
+      "type": "function",
+      "parent": "bie",
+      "level": 4
+    },
+    {
+      "id": "business_service",
+      "label_en": "Business Service",
+      "label_zh": "业务服务",
+      "type": "service",
+      "parent": "bie",
+      "level": 4,
+      "description_zh": "原图中被结果区下边缘截断。"
+    },
+    {
+      "id": "context_menu",
+      "label_en": null,
+      "label_zh": "上下文菜单",
+      "type": "group",
+      "parent": "dlg",
+      "level": 1,
+      "position": "浮在结果树中部"
+    },
+    {
+      "id": "menu_show_from",
+      "label_en": "Show In Explorer (From Architecture)...",
+      "label_zh": "在资源管理器中显示（源架构）……",
+      "type": "note",
+      "parent": "context_menu",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "menu_show_to",
+      "label_en": "Show In Explorer (To Architecture)...",
+      "label_zh": "在资源管理器中显示（目标架构）……",
+      "type": "note",
+      "parent": "context_menu",
+      "level": 2,
+      "order": 2,
+      "position": "蓝色高亮项"
+    },
+    {
+      "id": "differences_summary",
+      "label_en": "Differences Summary:",
+      "label_zh": "差异摘要：",
+      "type": "note",
+      "parent": "dlg",
+      "level": 1
+    },
+    {
+      "id": "property_values_different",
+      "label_en": "Property Values Different",
+      "label_zh": "属性值不同",
+      "type": "note",
+      "parent": "differences_summary",
+      "level": 2
+    },
+    {
+      "id": "legend_box",
+      "label_en": "Legend:",
+      "label_zh": "图例：",
+      "type": "note",
+      "parent": "dlg",
+      "level": 1
+    },
+    {
+      "id": "legend_added",
+      "label_en": "Added:",
+      "label_zh": "新增：",
+      "type": "note",
+      "parent": "legend_box",
+      "level": 2
+    },
+    {
+      "id": "legend_deleted",
+      "label_en": "Deleted:",
+      "label_zh": "删除：",
+      "type": "note",
+      "parent": "legend_box",
+      "level": 2
+    },
+    {
+      "id": "legend_diff_attributes",
+      "label_en": "Different Attributes:",
+      "label_zh": "属性不同：",
+      "type": "note",
+      "parent": "legend_box",
+      "level": 2
+    },
+    {
+      "id": "legend_diff_children",
+      "label_en": "Different Children:",
+      "label_zh": "子项不同：",
+      "type": "note",
+      "parent": "legend_box",
+      "level": 2
+    },
+    {
+      "id": "ok_button",
+      "label_en": "OK",
+      "label_zh": "确定",
+      "type": "note",
+      "parent": "dlg",
+      "level": 1,
+      "position": "右下角"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "root_compare",
+      "to": "strategy",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "business_domain",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "business_term",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "logical_process_apqc",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "na_construction_process",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "organization",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "bie",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "business_domain",
+      "to": "capability",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_project_controls",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_financial_mgmt",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_integrated_ops",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_estimation_bidding",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_contract_mgmt",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_skills_dev",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_eod_reporting",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_fleet_mgmt",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_customer_intimacy",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "bie",
+      "to": "business_function",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "bie",
+      "to": "business_service",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "cap_integrated_ops",
+      "to": "context_menu",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "菜单由选中行触发并覆盖在树上方；无连线，仅位置相邻。"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_capability_diff",
+      "title_zh": "Capability 下九个二级能力的差异状态（比较方向 Baseline→Target）",
+      "columns": [
+        "二级能力（英文）",
+        "二级能力（中文）",
+        "高亮/选中",
+        "差异类型"
+      ],
+      "rows": [
+        [
+          "Project Controls",
+          "项目控制",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ],
+        [
+          "Financial Management",
+          "财务管理",
+          "无",
+          "未高亮"
+        ],
+        [
+          "Integrated Operations Outputs",
+          "集成运营输出",
+          "浅蓝 + 深蓝选中",
+          "Different Attributes（属性不同），且为菜单作用行"
+        ],
+        [
+          "Consistent Estimation & Bidding",
+          "一致估算与投标",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ],
+        [
+          "Contract Management",
+          "合同管理",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ],
+        [
+          "Skills Development",
+          "技能发展",
+          "无",
+          "未高亮"
+        ],
+        [
+          "EOD Reporting / Book Closure",
+          "日终报告/账务关闭",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ],
+        [
+          "Fleet Management",
+          "车队管理",
+          "无",
+          "未高亮"
+        ],
+        [
+          "Customer Intimacy",
+          "客户亲密度",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ]
+      ],
+      "notes_zh": "Business Domain 与 Capability 为黄色（Different Children）。菜单两项：Show In Explorer (From Architecture)… 与 Show In Explorer (To Architecture)…，后者高亮。"
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "绿色方块",
+      "meaning_zh": "Added：新增项",
+      "explicit": true
+    },
+    {
+      "symbol": "红色方块",
+      "meaning_zh": "Deleted：删除项",
+      "explicit": true
+    },
+    {
+      "symbol": "浅蓝色方块",
+      "meaning_zh": "Different Attributes：属性不同",
+      "explicit": true
+    },
+    {
+      "symbol": "黄色方块",
+      "meaning_zh": "Different Children：子项不同",
+      "explicit": true
+    },
+    {
+      "symbol": "深蓝色整行底色",
+      "meaning_zh": "当前选中的结果行（上下文菜单的作用对象）",
+      "explicit": false
+    },
+    {
+      "symbol": "白色浮出菜单 + 蓝色高亮项",
+      "meaning_zh": "Show In Explorer 命令菜单；蓝色项为当前指向的命令",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "菜单遮住了“集成运营输出”“一致估算与投标”“合同管理”几行的部分文字，无法确认被遮住部分是否还有额外标记。",
+      "Business Service 行在原图中被结果区下边缘截断，只能看到上半行。",
+      "“BIE”缩写在图中未展开，含义未说明。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 133 页图 13-2 截图（整图与 2x2 放大块）",
+      "英文 PDF 第 133 页正文",
+      "中文稿 G186e_实践者方法_按TOGAF_ADM开发企业架构.md 第 1833–1874 行",
+      "figs/zh/g186e_fig13-2_zh.png 与 figs/zh/g186e_fig13-2_zh.svg"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G186/fig13-2",
+    "asset": "figs/g186e_fig13-2_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "04"
+  }
+}

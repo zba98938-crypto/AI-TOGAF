@@ -1,0 +1,573 @@
+{
+  "schema_version": "2.0",
+  "id": "G184/fig10-3",
+  "title": "风格化架构开发甘特图",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      1207
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "用一张进度图反驳“ADM=线性瀑布”的误读：所有开发候选架构的阶段（B–E）必须与阶段 A 同时进行，直到候选架构按利益相关者需求通过验收，然后这些阶段才关闭，以便完成支撑域的特定要素。图的重点不是活动顺序，而是何时必须交付什么。",
+    "reading_guide_zh": "先从左侧任务表看行号 2–17 与 Predecessor 列，再沿时间轴从左（2015-09-27）向右（2015-11-16）读条块。黑色细长括号是汇总行（第 2、4、11 行），括住其子任务；浅蓝条是任务持续期；青色菱形加“月-日”是里程碑；细折线箭头从紧前任务末端指向紧后任务起点。第 3–10 行是第一轮（为完成阶段 A），第 12–17 行是第二轮（完成候选架构与路线图）；两轮之间以 10-22 里程碑分隔。",
+    "key_points_zh": [
+      "阶段 A 不是先做完再启动 B–E：第一轮阶段 B–E 从 10-02 就开始，与阶段 A 的“制定愿景”并行，直到 10-20 前后才汇入“编制架构工作说明书”。",
+      "阶段 A 的关闭点是 10-22；此前必须先完成架构工作说明书（第 9 行），其前置是阶段 B、C、D、E 四项（5,6,7,8）。",
+      "第二轮从 10-22 起再次并行执行阶段 B–E，四者同一天启动，分别在不同日期结束，最后统一汇入 11-16 的“完成候选架构”。",
+      "11-16 同时是“完成候选架构”和“完成路线图”两个里程碑；图上另有一条从候选架构里程碑指向路线图里程碑的箭头（Predecessor 单元格被截断，未明确显示 16）。",
+      "两轮 B–E 的持续时间不同：第一轮约 10-02 至 10-20，第二轮约 10-22 至 11-15，说明迭代不是简单重复，而是按当下需要的深度执行。",
+      "全图没有回环箭头；“迭代”通过两轮并行波次和阶段关闭/重开表现，而不是 ADM 圆环。",
+      "正文明确这是风格化示例，真实世界更复杂；条长只表示大致时机，不应作为精确工期。"
+    ],
+    "hierarchy_zh": "四层任务大纲：阶段 A（第 2 行，汇总）下含“阶段 A 步骤”（第 3 行）与“制定愿景”（第 4 行，汇总）；“制定愿景”下含第一轮阶段 B、C、D、E（第 5–8 行）；“编制架构工作说明书”（第 9 行）与“完成阶段 A”里程碑（第 10 行）挂在阶段 A 之后。“架构开发阶段”（第 11 行，汇总）下含第二轮阶段 B、C、D、E（第 12–15 行）；“完成候选架构”（第 16 行）与“完成路线图”（第 17 行）是顶层里程碑。",
+    "line_semantics_zh": "条块长度=任务持续期；第 2、4、11 行的细长黑色括号=汇总条，覆盖其子任务的时间跨度；青色菱形+“10-22”“11-16”=里程碑（月-日）；细青色折线箭头=完成—开始（FS）依赖，从紧前任务末端下折到紧后任务起点。依赖值也写在 Predecessor 列，两者一致。图中没有表示资源、成本或关键路径的线。",
+    "misreadings_zh": [
+      "不要按行从上到下当作执行顺序：第一轮阶段 B–E 与阶段 A 是并行的，行序只是任务表顺序。",
+      "第一轮阶段 B–E 不是“完整阶段”，而是为完成阶段 A 所需的局部工作；第二轮才是产出候选架构的完整一轮。",
+      "10-22 与 11-16 是里程碑日期（2015 年的月-日），不是任务编号或版本号。",
+      "“Develop the Vision”是汇总行，不是单一任务；其条块括住第一轮 B–E，不能把它的工期当成一个活动。",
+      "图中没有 ADM 圆环或反馈箭头；迭代由两轮波次表达，不能据此认为阶段之间没有回路。",
+      "中文重绘 SVG 漏画了“制定愿景”汇总条和三个依赖箭头；中文 PNG 的任务名重叠严重，二者都不应替代英文原图。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "t2",
+      "label_en": "Phase A",
+      "label_zh": "阶段 A",
+      "type": "phase",
+      "parent": null,
+      "level": 0,
+      "order": 2,
+      "position": "第 2 行",
+      "description_zh": "汇总行，覆盖阶段 A 步骤、制定愿景及其第一轮子阶段。"
+    },
+    {
+      "id": "t3",
+      "label_en": "Phase A Steps",
+      "label_zh": "阶段 A 步骤",
+      "type": "process",
+      "parent": "t2",
+      "level": 1,
+      "order": 3,
+      "position": "第 3 行"
+    },
+    {
+      "id": "t4",
+      "label_en": "Develop the Vision",
+      "label_zh": "制定愿景",
+      "type": "phase",
+      "parent": "t2",
+      "level": 1,
+      "order": 4,
+      "position": "第 4 行",
+      "description_zh": "汇总行，括住第一轮阶段 B–E；原图中有一条 10-02 至 10-20 的黑色汇总条。"
+    },
+    {
+      "id": "t5",
+      "label_en": "Phase B",
+      "label_zh": "阶段 B",
+      "type": "phase",
+      "parent": "t4",
+      "level": 2,
+      "order": 5,
+      "position": "第 5 行（第一轮）"
+    },
+    {
+      "id": "t6",
+      "label_en": "Phase C",
+      "label_zh": "阶段 C",
+      "type": "phase",
+      "parent": "t4",
+      "level": 2,
+      "order": 6,
+      "position": "第 6 行（第一轮）"
+    },
+    {
+      "id": "t7",
+      "label_en": "Phase D",
+      "label_zh": "阶段 D",
+      "type": "phase",
+      "parent": "t4",
+      "level": 2,
+      "order": 7,
+      "position": "第 7 行（第一轮）"
+    },
+    {
+      "id": "t8",
+      "label_en": "Phase E",
+      "label_zh": "阶段 E",
+      "type": "phase",
+      "parent": "t4",
+      "level": 2,
+      "order": 8,
+      "position": "第 8 行（第一轮）"
+    },
+    {
+      "id": "t9",
+      "label_en": "Develop Statement of Architecture Work",
+      "label_zh": "编制架构工作说明书",
+      "type": "process",
+      "parent": "t2",
+      "level": 1,
+      "order": 9,
+      "position": "第 9 行",
+      "description_zh": "前置为第一轮阶段 B–E（5,6,7,8）。"
+    },
+    {
+      "id": "t10",
+      "label_en": "Complete Phase A",
+      "label_zh": "完成阶段 A",
+      "type": "event",
+      "parent": null,
+      "level": 0,
+      "order": 10,
+      "position": "第 10 行",
+      "description_zh": "里程碑 10-22，前置为第 9 行。"
+    },
+    {
+      "id": "t11",
+      "label_en": "Architecture Development Phases",
+      "label_zh": "架构开发阶段",
+      "type": "phase",
+      "parent": null,
+      "level": 0,
+      "order": 11,
+      "position": "第 11 行",
+      "description_zh": "汇总行，覆盖第二轮阶段 B–E。"
+    },
+    {
+      "id": "t12",
+      "label_en": "Phase B",
+      "label_zh": "阶段 B",
+      "type": "phase",
+      "parent": "t11",
+      "level": 1,
+      "order": 12,
+      "position": "第 12 行（第二轮）",
+      "description_zh": "前置为里程碑 10-22。"
+    },
+    {
+      "id": "t13",
+      "label_en": "Phase C",
+      "label_zh": "阶段 C",
+      "type": "phase",
+      "parent": "t11",
+      "level": 1,
+      "order": 13,
+      "position": "第 13 行（第二轮）",
+      "description_zh": "前置为里程碑 10-22。"
+    },
+    {
+      "id": "t14",
+      "label_en": "Phase D",
+      "label_zh": "阶段 D",
+      "type": "phase",
+      "parent": "t11",
+      "level": 1,
+      "order": 14,
+      "position": "第 14 行（第二轮）",
+      "description_zh": "前置为里程碑 10-22。"
+    },
+    {
+      "id": "t15",
+      "label_en": "Phase E",
+      "label_zh": "阶段 E",
+      "type": "phase",
+      "parent": "t11",
+      "level": 1,
+      "order": 15,
+      "position": "第 15 行（第二轮）",
+      "description_zh": "前置为里程碑 10-22。"
+    },
+    {
+      "id": "t16",
+      "label_en": "Complete Candidate Architecture",
+      "label_zh": "完成候选架构",
+      "type": "event",
+      "parent": null,
+      "level": 0,
+      "order": 16,
+      "position": "第 16 行",
+      "description_zh": "里程碑 11-16，前置为第二轮阶段 B–E。"
+    },
+    {
+      "id": "t17",
+      "label_en": "Complete Roadmap",
+      "label_zh": "完成路线图",
+      "type": "event",
+      "parent": null,
+      "level": 0,
+      "order": 17,
+      "position": "第 17 行",
+      "description_zh": "里程碑 11-16，前置为第二轮阶段 B–E，并紧随完成候选架构。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "t3",
+      "to": "t4",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "阶段 A 步骤完成后进入制定愿景（FS）。"
+    },
+    {
+      "from": "t8",
+      "to": "t9",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第一轮阶段 E 完成后开始编制架构工作说明书（FS）。"
+    },
+    {
+      "from": "t9",
+      "to": "t10",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "架构工作说明书完成后到达里程碑 10-22。"
+    },
+    {
+      "from": "t10",
+      "to": "t12",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "里程碑 10-22 触发第二轮阶段 B 启动（Predecessor=10）。"
+    },
+    {
+      "from": "t10",
+      "to": "t13",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "里程碑 10-22 同时触发第二轮阶段 C 启动。"
+    },
+    {
+      "from": "t10",
+      "to": "t14",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "里程碑 10-22 同时触发第二轮阶段 D 启动。"
+    },
+    {
+      "from": "t10",
+      "to": "t15",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "里程碑 10-22 同时触发第二轮阶段 E 启动。"
+    },
+    {
+      "from": "t12",
+      "to": "t16",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第二轮阶段 B 完成后汇入里程碑 11-16。"
+    },
+    {
+      "from": "t13",
+      "to": "t16",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第二轮阶段 C 完成后汇入里程碑 11-16。"
+    },
+    {
+      "from": "t14",
+      "to": "t16",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第二轮阶段 D 完成后汇入里程碑 11-16。"
+    },
+    {
+      "from": "t15",
+      "to": "t16",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第二轮阶段 E 完成后汇入里程碑 11-16。"
+    },
+    {
+      "from": "t16",
+      "to": "t17",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "完成候选架构后完成路线图（两个 11-16 菱形之间的向下箭头）。"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_phase_a",
+      "kind": "sequence",
+      "name_zh": "阶段 A 的收口路径",
+      "steps": [
+        "t3",
+        "t4",
+        "t9",
+        "t10"
+      ],
+      "description_zh": "阶段 A 步骤 → 制定愿景（内含第一轮 B–E）→ 编制架构工作说明书 → 完成阶段 A（10-22）。"
+    },
+    {
+      "id": "f_wave1",
+      "kind": "parallel",
+      "name_zh": "第一轮并行架构开发",
+      "steps": [
+        "t5",
+        "t6",
+        "t7",
+        "t8"
+      ],
+      "description_zh": "阶段 B–E 在 10-02 同日启动，为阶段 A 提供必要输入。"
+    },
+    {
+      "id": "f_wave2",
+      "kind": "parallel",
+      "name_zh": "第二轮并行架构开发",
+      "steps": [
+        "t12",
+        "t13",
+        "t14",
+        "t15"
+      ],
+      "description_zh": "阶段 B–E 在 10-22 同日启动，产出候选架构。"
+    },
+    {
+      "id": "f_close",
+      "kind": "sequence",
+      "name_zh": "收尾",
+      "steps": [
+        "t16",
+        "t17"
+      ],
+      "description_zh": "完成候选架构（11-16）→ 完成路线图（11-16）。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_gantt_rows",
+      "title_zh": "甘特图任务表逐行转录（按原图行号 2–17）",
+      "columns": [
+        "行号",
+        "Task Name（原图）",
+        "Predecessor（原图）",
+        "开始（≈）",
+        "完成（≈）",
+        "行类型"
+      ],
+      "rows": [
+        [
+          "2",
+          "Phase A",
+          "",
+          "2015-09-27",
+          "2015-10-22",
+          "汇总"
+        ],
+        [
+          "3",
+          "Phase A Steps",
+          "",
+          "2015-09-27",
+          "2015-10-02",
+          "任务"
+        ],
+        [
+          "4",
+          "Develop the Vision",
+          "3",
+          "2015-10-02",
+          "2015-10-20",
+          "汇总"
+        ],
+        [
+          "5",
+          "Phase B",
+          "",
+          "2015-10-02",
+          "2015-10-07",
+          "任务（第一轮）"
+        ],
+        [
+          "6",
+          "Phase C",
+          "",
+          "2015-10-02",
+          "2015-10-10",
+          "任务（第一轮）"
+        ],
+        [
+          "7",
+          "Phase D",
+          "",
+          "2015-10-02",
+          "2015-10-15",
+          "任务（第一轮）"
+        ],
+        [
+          "8",
+          "Phase E",
+          "",
+          "2015-10-02",
+          "2015-10-20",
+          "任务（第一轮）"
+        ],
+        [
+          "9",
+          "Develop Statement of Architecture Work",
+          "5,6,7,8",
+          "2015-10-20",
+          "2015-10-22",
+          "任务"
+        ],
+        [
+          "10",
+          "Complete Phase A",
+          "9",
+          "2015-10-22",
+          "2015-10-22",
+          "里程碑 10-22"
+        ],
+        [
+          "11",
+          "Architecture Development Phases",
+          "",
+          "2015-10-22",
+          "2015-11-16",
+          "汇总"
+        ],
+        [
+          "12",
+          "Phase B",
+          "10",
+          "2015-10-22",
+          "2015-10-29",
+          "任务（第二轮）"
+        ],
+        [
+          "13",
+          "Phase C",
+          "10",
+          "2015-10-22",
+          "2015-11-04",
+          "任务（第二轮）"
+        ],
+        [
+          "14",
+          "Phase D",
+          "10",
+          "2015-10-22",
+          "2015-11-11",
+          "任务（第二轮）"
+        ],
+        [
+          "15",
+          "Phase E",
+          "10",
+          "2015-10-22",
+          "2015-11-15",
+          "任务（第二轮）"
+        ],
+        [
+          "16",
+          "Complete Candidate Architecture",
+          "12,13,14,15（原图单元格截断为 12,13,14,1）",
+          "2015-11-16",
+          "2015-11-16",
+          "里程碑 11-16"
+        ],
+        [
+          "17",
+          "Complete Roadmap",
+          "12,13,14,15（可见 12,13,14,1；另有来自里程碑 16 的箭头）",
+          "2015-11-16",
+          "2015-11-16",
+          "里程碑 11-16"
+        ]
+      ],
+      "cell_legend": [
+        "浅蓝条=任务；黑色细长括号=汇总；青色菱形+月-日=里程碑；细折线箭头=完成—开始依赖",
+        "开始/完成日期由条块像素位置按 10-22、11-16 两个里程碑校准换算，精度约 ±1 天；带“≈”含义见标题"
+      ],
+      "notes_zh": "顶部周刻度为 '15 Sep 27、'15 Oct 04、'15 Oct 11、'15 Oct 18、'15 Oct 25、'15 Nov 01、'15 Nov 08、'15 Nov 15；其下日刻度每两日一格（F/S/T/T…）。原图为 MS Project 截图，时间轴从 2015-09-27 到 2015-11-15（右侧虚线约 11-18）；表中日期为按条块起止估算的结果，里程碑日期为图上标注的精确值。第 16、17 行的 Predecessor 在原图中被列宽裁掉末位：第 16 行按四个阶段补全为 12,13,14,15；第 17 行另有来自里程碑 16 的箭头，单元格是否还含 16 无法确认。"
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "浅蓝色横条",
+      "meaning_zh": "任务持续期（按时间轴长度表示工期）",
+      "explicit": false
+    },
+    {
+      "symbol": "细长黑色括号（带向下端帽）",
+      "meaning_zh": "阶段汇总条，覆盖其子任务的起止",
+      "explicit": false
+    },
+    {
+      "symbol": "青色菱形 + “10-22”/“11-16”",
+      "meaning_zh": "里程碑，标签为月-日",
+      "explicit": false
+    },
+    {
+      "symbol": "细青色折线箭头",
+      "meaning_zh": "完成—开始（FS）任务依赖",
+      "explicit": false
+    },
+    {
+      "symbol": "灰白相间的竖向条带",
+      "meaning_zh": "周末/非工作时段底色（MS Project 默认）",
+      "explicit": false
+    },
+    {
+      "symbol": "左侧行号与折叠三角",
+      "meaning_zh": "任务大纲层级；带三角的汇总行可展开",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "条块起止日期由像素位置估算，精度约 ±1 天；原图未标具体日期的任务起止，不应视为精确计划。",
+      "第 16、17 行 Predecessor 在 PDF 原图中被列宽截断为“12,13,14,1”；第 16 行按第二轮四个阶段补全为 12,13,14,15，第 17 行另有一条来自里程碑 16 的箭头，无法确认单元格是否还含 16。",
+      "“Develop the Vision”是汇总行还是任务行，需结合缩进与黑色汇总条判断；本分析按汇总行处理（其下含第一轮 B–E）。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 102 页原图截图与 3×3 放大分块",
+      "英文 PDF 第 101、102、125 页正文",
+      "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 1201–1211 行",
+      "figs/zh/g184e_fig10-3_zh.svg 源码与 figs/zh/g184e_fig10-3_zh.png",
+      "对嵌入的 2141×963 甘特图位图所做的条块/里程碑像素测量（以 10-22、11-16 校准日尺度）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G184/fig10-3",
+    "asset": "figs/g184e_fig10-3_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "02"
+  }
+}

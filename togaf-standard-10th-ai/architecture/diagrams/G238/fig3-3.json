@@ -1,0 +1,3264 @@
+{
+  "schema_version": "architecture-diagrams/1.0",
+  "id": "G238/fig3-3",
+  "document_id": "G238",
+  "content_role": "derived-architecture-analysis",
+  "title_zh": "步骤 3——新一代平台成长",
+  "title_en": "Step 3 – The New Generation Platform Grows",
+  "category": "system-or-data-reference-architecture",
+  "diagram_types": [
+    "network",
+    "flow"
+  ],
+  "concepts": [
+    "bi_analytics",
+    "data_architecture",
+    "data_integration",
+    "transition_architecture",
+    "baseline_target_gap"
+  ],
+  "source": {
+    "pdf_path": "togaf-standard-10th/G238e.pdf",
+    "pdf_sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+    "pdf_pages": [
+      22
+    ],
+    "figure_record_path": "figures/G238/fig3-3.json",
+    "figure_record_sha256": "847ced3a3ebd55af3449920cefbee09219d9f6ade2a08e434071fdc4536b4ccb",
+    "source_role": "source-figure-with-historical-interpretation",
+    "images": [
+      {
+        "image_path": "figures/assets/G238/fig3-3-p0022.png",
+        "image_sha256": "5fe962dd12c09264d555e93c1e7abe2ef0db288a0e0ebbfa0373fc5f6cea772e",
+        "pdf_page": 22,
+        "bbox_pdf_points": [
+          48.2,
+          105.8,
+          563.8,
+          472.2
+        ],
+        "region_source": "historical-bbox-checked-within-original-page"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label_en": "Business Intelligence & Analytics Data Platforms",
+      "label_zh": "商业智能与分析数据平台",
+      "type": "group",
+      "level": 0,
+      "position": "大虚线框",
+      "description_zh": "平台范围边界。",
+      "id": "G238/fig3-3#platform_scope",
+      "local_id": "platform_scope",
+      "meaning_zh": "平台范围边界。",
+      "notation_type": null,
+      "source_position": "大虚线框",
+      "source_parent": null,
+      "visual_parent": null,
+      "group_parent": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "ancestors": [],
+      "children": [
+        "G238/fig3-3#edw",
+        "G238/fig3-3#ng_platform",
+        "G238/fig3-3#data_mart_1",
+        "G238/fig3-3#data_mart_2",
+        "G238/fig3-3#app_1",
+        "G238/fig3-3#data_mart_3",
+        "G238/fig3-3#app_2",
+        "G238/fig3-3#app_3"
+      ],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "platform_scope",
+        "label_en": "Business Intelligence & Analytics Data Platforms",
+        "label_zh": "商业智能与分析数据平台",
+        "type": "group",
+        "parent": null,
+        "level": 0,
+        "position": "大虚线框",
+        "description_zh": "平台范围边界。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0
+    },
+    {
+      "label_en": "Transactional Application #1",
+      "label_zh": "事务型应用 #1",
+      "type": "application",
+      "level": 1,
+      "position": "左上",
+      "description_zh": "蓝框；只向新平台供数（无至数仓的箭头）。",
+      "id": "G238/fig3-3#txn_app_1",
+      "local_id": "txn_app_1",
+      "meaning_zh": "蓝框；只向新平台供数（无至数仓的箭头）。",
+      "notation_type": null,
+      "source_position": "左上",
+      "source_parent": null,
+      "visual_parent": null,
+      "group_parent": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "ancestors": [],
+      "children": [
+        "G238/fig3-3#db_txn_1"
+      ],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "txn_app_1",
+        "label_en": "Transactional Application #1",
+        "label_zh": "事务型应用 #1",
+        "type": "application",
+        "parent": null,
+        "level": 1,
+        "position": "左上",
+        "description_zh": "蓝框；只向新平台供数（无至数仓的箭头）。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [
+        "G238/fig3-3#r0001",
+        "G238/fig3-3#r0018"
+      ],
+      "participating_relation_count": 2
+    },
+    {
+      "label_en": "Transactional Application #2",
+      "label_zh": "事务型应用 #2",
+      "type": "application",
+      "level": 1,
+      "position": "左中",
+      "description_zh": "蓝框；同时向数仓与新平台供数。",
+      "id": "G238/fig3-3#txn_app_2",
+      "local_id": "txn_app_2",
+      "meaning_zh": "蓝框；同时向数仓与新平台供数。",
+      "notation_type": null,
+      "source_position": "左中",
+      "source_parent": null,
+      "visual_parent": null,
+      "group_parent": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "ancestors": [],
+      "children": [
+        "G238/fig3-3#db_txn_2"
+      ],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "txn_app_2",
+        "label_en": "Transactional Application #2",
+        "label_zh": "事务型应用 #2",
+        "type": "application",
+        "parent": null,
+        "level": 1,
+        "position": "左中",
+        "description_zh": "蓝框；同时向数仓与新平台供数。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [
+        "G238/fig3-3#r0002",
+        "G238/fig3-3#r0003",
+        "G238/fig3-3#r0019"
+      ],
+      "participating_relation_count": 3
+    },
+    {
+      "label_en": "Transactional Application Including Embedded BI & Analytic Capabilities",
+      "label_zh": "含内嵌 BI 与分析能力的事务型应用",
+      "type": "application",
+      "level": 1,
+      "position": "左下",
+      "description_zh": "蓝框；同时向数仓与新平台供数。",
+      "id": "G238/fig3-3#txn_app_bi",
+      "local_id": "txn_app_bi",
+      "meaning_zh": "蓝框；同时向数仓与新平台供数。",
+      "notation_type": null,
+      "source_position": "左下",
+      "source_parent": null,
+      "visual_parent": null,
+      "group_parent": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "ancestors": [],
+      "children": [
+        "G238/fig3-3#db_txn_bi",
+        "G238/fig3-3#db_other_bi"
+      ],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "txn_app_bi",
+        "label_en": "Transactional Application Including Embedded BI & Analytic Capabilities",
+        "label_zh": "含内嵌 BI 与分析能力的事务型应用",
+        "type": "application",
+        "parent": null,
+        "level": 1,
+        "position": "左下",
+        "description_zh": "蓝框；同时向数仓与新平台供数。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [
+        "G238/fig3-3#r0004",
+        "G238/fig3-3#r0005",
+        "G238/fig3-3#r0020",
+        "G238/fig3-3#r0021"
+      ],
+      "participating_relation_count": 4
+    },
+    {
+      "label_en": "Connected Devices, Open Data, Log, ...",
+      "label_zh": "互联设备、开放数据、日志等",
+      "type": "data",
+      "level": 1,
+      "position": "左下",
+      "description_zh": "橙框=目标；新数据源。",
+      "id": "G238/fig3-3#connected_devices",
+      "local_id": "connected_devices",
+      "meaning_zh": "橙框=目标；新数据源。",
+      "notation_type": null,
+      "source_position": "左下",
+      "source_parent": null,
+      "visual_parent": null,
+      "group_parent": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "ancestors": [],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "connected_devices",
+        "label_en": "Connected Devices, Open Data, Log, ...",
+        "label_zh": "互联设备、开放数据、日志等",
+        "type": "data",
+        "parent": null,
+        "level": 1,
+        "position": "左下",
+        "description_zh": "橙框=目标；新数据源。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [
+        "G238/fig3-3#r0006"
+      ],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "Enterprise Data Warehouse",
+      "label_zh": "企业数据仓库",
+      "type": "data",
+      "level": 1,
+      "position": "中央上",
+      "description_zh": "蓝框灰底；仍保留的历史数据仓库。",
+      "id": "G238/fig3-3#edw",
+      "local_id": "edw",
+      "meaning_zh": "蓝框灰底；仍保留的历史数据仓库。",
+      "notation_type": null,
+      "source_position": "中央上",
+      "source_parent": "platform_scope",
+      "visual_parent": "G238/fig3-3#platform_scope",
+      "group_parent": "G238/fig3-3#platform_scope",
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#platform_scope"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "edw",
+        "label_en": "Enterprise Data Warehouse",
+        "label_zh": "企业数据仓库",
+        "type": "data",
+        "parent": "platform_scope",
+        "level": 1,
+        "position": "中央上",
+        "description_zh": "蓝框灰底；仍保留的历史数据仓库。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0002",
+        "G238/fig3-3#r0004",
+        "G238/fig3-3#r0008"
+      ],
+      "outgoing_relations": [
+        "G238/fig3-3#r0007",
+        "G238/fig3-3#r0009",
+        "G238/fig3-3#r0010",
+        "G238/fig3-3#r0011"
+      ],
+      "participating_relation_count": 7
+    },
+    {
+      "label_en": "New Generation BI & Analytics Data Platforms",
+      "label_zh": "新一代 BI 与分析数据平台",
+      "type": "application",
+      "level": 1,
+      "position": "中央下",
+      "description_zh": "橙框灰底；已存储原始/集成/加工数据。",
+      "id": "G238/fig3-3#ng_platform",
+      "local_id": "ng_platform",
+      "meaning_zh": "橙框灰底；已存储原始/集成/加工数据。",
+      "notation_type": null,
+      "source_position": "中央下",
+      "source_parent": "platform_scope",
+      "visual_parent": "G238/fig3-3#platform_scope",
+      "group_parent": "G238/fig3-3#platform_scope",
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#platform_scope"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "ng_platform",
+        "label_en": "New Generation BI & Analytics Data Platforms",
+        "label_zh": "新一代 BI 与分析数据平台",
+        "type": "application",
+        "parent": "platform_scope",
+        "level": 1,
+        "position": "中央下",
+        "description_zh": "橙框灰底；已存储原始/集成/加工数据。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0001",
+        "G238/fig3-3#r0003",
+        "G238/fig3-3#r0005",
+        "G238/fig3-3#r0006",
+        "G238/fig3-3#r0007",
+        "G238/fig3-3#r0015",
+        "G238/fig3-3#r0017"
+      ],
+      "outgoing_relations": [
+        "G238/fig3-3#r0008",
+        "G238/fig3-3#r0012",
+        "G238/fig3-3#r0013",
+        "G238/fig3-3#r0014",
+        "G238/fig3-3#r0016"
+      ],
+      "participating_relation_count": 12
+    },
+    {
+      "label_en": "Data Mart #1",
+      "label_zh": "数据集市 #1",
+      "type": "data",
+      "level": 1,
+      "position": "右上",
+      "description_zh": "蓝框；仍只由数仓供数。",
+      "id": "G238/fig3-3#data_mart_1",
+      "local_id": "data_mart_1",
+      "meaning_zh": "蓝框；仍只由数仓供数。",
+      "notation_type": null,
+      "source_position": "右上",
+      "source_parent": "platform_scope",
+      "visual_parent": "G238/fig3-3#platform_scope",
+      "group_parent": "G238/fig3-3#platform_scope",
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#platform_scope"
+      ],
+      "children": [
+        "G238/fig3-3#db_dm_1"
+      ],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "data_mart_1",
+        "label_en": "Data Mart #1",
+        "label_zh": "数据集市 #1",
+        "type": "data",
+        "parent": "platform_scope",
+        "level": 1,
+        "position": "右上",
+        "description_zh": "蓝框；仍只由数仓供数。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0009"
+      ],
+      "outgoing_relations": [
+        "G238/fig3-3#r0022"
+      ],
+      "participating_relation_count": 2
+    },
+    {
+      "label_en": "Data Mart #2",
+      "label_zh": "数据集市 #2",
+      "type": "data",
+      "level": 1,
+      "position": "右中上",
+      "description_zh": "蓝框；仍只由数仓供数。",
+      "id": "G238/fig3-3#data_mart_2",
+      "local_id": "data_mart_2",
+      "meaning_zh": "蓝框；仍只由数仓供数。",
+      "notation_type": null,
+      "source_position": "右中上",
+      "source_parent": "platform_scope",
+      "visual_parent": "G238/fig3-3#platform_scope",
+      "group_parent": "G238/fig3-3#platform_scope",
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#platform_scope"
+      ],
+      "children": [
+        "G238/fig3-3#db_dm_2"
+      ],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "data_mart_2",
+        "label_en": "Data Mart #2",
+        "label_zh": "数据集市 #2",
+        "type": "data",
+        "parent": "platform_scope",
+        "level": 1,
+        "position": "右中上",
+        "description_zh": "蓝框；仍只由数仓供数。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0010"
+      ],
+      "outgoing_relations": [
+        "G238/fig3-3#r0023"
+      ],
+      "participating_relation_count": 2
+    },
+    {
+      "label_en": "Application #1",
+      "label_zh": "应用 #1",
+      "type": "application",
+      "level": 1,
+      "position": "右中",
+      "description_zh": "橙框；同时由数仓与新平台供数。",
+      "id": "G238/fig3-3#app_1",
+      "local_id": "app_1",
+      "meaning_zh": "橙框；同时由数仓与新平台供数。",
+      "notation_type": null,
+      "source_position": "右中",
+      "source_parent": "platform_scope",
+      "visual_parent": "G238/fig3-3#platform_scope",
+      "group_parent": "G238/fig3-3#platform_scope",
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#platform_scope"
+      ],
+      "children": [
+        "G238/fig3-3#db_app_1"
+      ],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "app_1",
+        "label_en": "Application #1",
+        "label_zh": "应用 #1",
+        "type": "application",
+        "parent": "platform_scope",
+        "level": 1,
+        "position": "右中",
+        "description_zh": "橙框；同时由数仓与新平台供数。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0011",
+        "G238/fig3-3#r0012"
+      ],
+      "outgoing_relations": [
+        "G238/fig3-3#r0024"
+      ],
+      "participating_relation_count": 3
+    },
+    {
+      "label_en": "Data Mart #3",
+      "label_zh": "数据集市 #3",
+      "type": "data",
+      "level": 1,
+      "position": "右下上",
+      "description_zh": "橙框；只由新平台供数。",
+      "id": "G238/fig3-3#data_mart_3",
+      "local_id": "data_mart_3",
+      "meaning_zh": "橙框；只由新平台供数。",
+      "notation_type": null,
+      "source_position": "右下上",
+      "source_parent": "platform_scope",
+      "visual_parent": "G238/fig3-3#platform_scope",
+      "group_parent": "G238/fig3-3#platform_scope",
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#platform_scope"
+      ],
+      "children": [
+        "G238/fig3-3#db_dm_3"
+      ],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "data_mart_3",
+        "label_en": "Data Mart #3",
+        "label_zh": "数据集市 #3",
+        "type": "data",
+        "parent": "platform_scope",
+        "level": 1,
+        "position": "右下上",
+        "description_zh": "橙框；只由新平台供数。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0013"
+      ],
+      "outgoing_relations": [
+        "G238/fig3-3#r0025"
+      ],
+      "participating_relation_count": 2
+    },
+    {
+      "label_en": "Application #2",
+      "label_zh": "应用 #2",
+      "type": "application",
+      "level": 1,
+      "position": "右下中",
+      "description_zh": "橙框；与新平台双向交换。",
+      "id": "G238/fig3-3#app_2",
+      "local_id": "app_2",
+      "meaning_zh": "橙框；与新平台双向交换。",
+      "notation_type": null,
+      "source_position": "右下中",
+      "source_parent": "platform_scope",
+      "visual_parent": "G238/fig3-3#platform_scope",
+      "group_parent": "G238/fig3-3#platform_scope",
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#platform_scope"
+      ],
+      "children": [
+        "G238/fig3-3#db_app_2"
+      ],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "app_2",
+        "label_en": "Application #2",
+        "label_zh": "应用 #2",
+        "type": "application",
+        "parent": "platform_scope",
+        "level": 1,
+        "position": "右下中",
+        "description_zh": "橙框；与新平台双向交换。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0014"
+      ],
+      "outgoing_relations": [
+        "G238/fig3-3#r0015",
+        "G238/fig3-3#r0026"
+      ],
+      "participating_relation_count": 3
+    },
+    {
+      "label_en": "Application #3",
+      "label_zh": "应用 #3",
+      "type": "application",
+      "level": 1,
+      "position": "右下",
+      "description_zh": "橙框；与新平台双向交换。",
+      "id": "G238/fig3-3#app_3",
+      "local_id": "app_3",
+      "meaning_zh": "橙框；与新平台双向交换。",
+      "notation_type": null,
+      "source_position": "右下",
+      "source_parent": "platform_scope",
+      "visual_parent": "G238/fig3-3#platform_scope",
+      "group_parent": "G238/fig3-3#platform_scope",
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#platform_scope"
+      ],
+      "children": [
+        "G238/fig3-3#db_app_3"
+      ],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "app_3",
+        "label_en": "Application #3",
+        "label_zh": "应用 #3",
+        "type": "application",
+        "parent": "platform_scope",
+        "level": 1,
+        "position": "右下",
+        "description_zh": "橙框；与新平台双向交换。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0016"
+      ],
+      "outgoing_relations": [
+        "G238/fig3-3#r0017",
+        "G238/fig3-3#r0027"
+      ],
+      "participating_relation_count": 3
+    },
+    {
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "level": 2,
+      "position": "事务型应用 #1 左侧",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_txn_1",
+      "local_id": "db_txn_1",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "事务型应用 #1 左侧",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#txn_app_1",
+      "group_parent": "G238/fig3-3#txn_app_1",
+      "hierarchy_kind": "application_encapsulation",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#txn_app_1"
+      ],
+      "children": [],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "db_txn_1",
+        "label_en": "RDBMS",
+        "label_zh": "关系型数据库（RDBMS）",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "事务型应用 #1 左侧"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0018"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "level": 2,
+      "position": "事务型应用 #2 左侧",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_txn_2",
+      "local_id": "db_txn_2",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "事务型应用 #2 左侧",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#txn_app_2",
+      "group_parent": "G238/fig3-3#txn_app_2",
+      "hierarchy_kind": "application_encapsulation",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#txn_app_2"
+      ],
+      "children": [],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "db_txn_2",
+        "label_en": "RDBMS",
+        "label_zh": "关系型数据库（RDBMS）",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "事务型应用 #2 左侧"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0019"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "level": 2,
+      "position": "内嵌 BI 应用左侧上",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_txn_bi",
+      "local_id": "db_txn_bi",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "内嵌 BI 应用左侧上",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#txn_app_bi",
+      "group_parent": "G238/fig3-3#txn_app_bi",
+      "hierarchy_kind": "application_encapsulation",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#txn_app_bi"
+      ],
+      "children": [],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "db_txn_bi",
+        "label_en": "RDBMS",
+        "label_zh": "关系型数据库（RDBMS）",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "内嵌 BI 应用左侧上"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0020"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "Other",
+      "label_zh": "其他",
+      "type": "data",
+      "level": 2,
+      "position": "内嵌 BI 应用左侧下",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_other_bi",
+      "local_id": "db_other_bi",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "内嵌 BI 应用左侧下",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#txn_app_bi",
+      "group_parent": "G238/fig3-3#txn_app_bi",
+      "hierarchy_kind": "application_encapsulation",
+      "depth": 1,
+      "ancestors": [
+        "G238/fig3-3#txn_app_bi"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "db_other_bi",
+        "label_en": "Other",
+        "label_zh": "其他",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "内嵌 BI 应用左侧下"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0021"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "level": 2,
+      "position": "Data Mart #1 右侧",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_dm_1",
+      "local_id": "db_dm_1",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "Data Mart #1 右侧",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#data_mart_1",
+      "group_parent": "G238/fig3-3#data_mart_1",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 2,
+      "ancestors": [
+        "G238/fig3-3#platform_scope",
+        "G238/fig3-3#data_mart_1"
+      ],
+      "children": [],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "db_dm_1",
+        "label_en": "RDBMS",
+        "label_zh": "关系型数据库（RDBMS）",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "Data Mart #1 右侧"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0022"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "level": 2,
+      "position": "Data Mart #2 右侧",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_dm_2",
+      "local_id": "db_dm_2",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "Data Mart #2 右侧",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#data_mart_2",
+      "group_parent": "G238/fig3-3#data_mart_2",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 2,
+      "ancestors": [
+        "G238/fig3-3#platform_scope",
+        "G238/fig3-3#data_mart_2"
+      ],
+      "children": [],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "db_dm_2",
+        "label_en": "RDBMS",
+        "label_zh": "关系型数据库（RDBMS）",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "Data Mart #2 右侧"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0023"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "level": 2,
+      "position": "Application #1 右侧",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_app_1",
+      "local_id": "db_app_1",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "Application #1 右侧",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#app_1",
+      "group_parent": "G238/fig3-3#app_1",
+      "hierarchy_kind": "application_encapsulation",
+      "depth": 2,
+      "ancestors": [
+        "G238/fig3-3#platform_scope",
+        "G238/fig3-3#app_1"
+      ],
+      "children": [],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "db_app_1",
+        "label_en": "RDBMS",
+        "label_zh": "关系型数据库（RDBMS）",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "Application #1 右侧"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0024"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "level": 2,
+      "position": "Data Mart #3 右侧",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_dm_3",
+      "local_id": "db_dm_3",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "Data Mart #3 右侧",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#data_mart_3",
+      "group_parent": "G238/fig3-3#data_mart_3",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 2,
+      "ancestors": [
+        "G238/fig3-3#platform_scope",
+        "G238/fig3-3#data_mart_3"
+      ],
+      "children": [],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "db_dm_3",
+        "label_en": "RDBMS",
+        "label_zh": "关系型数据库（RDBMS）",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "Data Mart #3 右侧",
+        "description_zh": "橙框圆柱=目标。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0025"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "RDBMS or NoSQL",
+      "label_zh": "关系型数据库或 NoSQL",
+      "type": "data",
+      "level": 2,
+      "position": "Application #2 右侧",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_app_2",
+      "local_id": "db_app_2",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "Application #2 右侧",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#app_2",
+      "group_parent": "G238/fig3-3#app_2",
+      "hierarchy_kind": "application_encapsulation",
+      "depth": 2,
+      "ancestors": [
+        "G238/fig3-3#platform_scope",
+        "G238/fig3-3#app_2"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "db_app_2",
+        "label_en": "RDBMS or NoSQL",
+        "label_zh": "关系型数据库或 NoSQL",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "Application #2 右侧",
+        "description_zh": "橙框圆柱=目标。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0026"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "RDBMS or NoSQL",
+      "label_zh": "关系型数据库或 NoSQL",
+      "type": "data",
+      "level": 2,
+      "position": "Application #3 右侧",
+      "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "id": "G238/fig3-3#db_app_3",
+      "local_id": "db_app_3",
+      "meaning_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。",
+      "notation_type": null,
+      "source_position": "Application #3 右侧",
+      "source_parent": null,
+      "visual_parent": "G238/fig3-3#app_3",
+      "group_parent": "G238/fig3-3#app_3",
+      "hierarchy_kind": "application_encapsulation",
+      "depth": 2,
+      "ancestors": [
+        "G238/fig3-3#platform_scope",
+        "G238/fig3-3#app_3"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "db_app_3",
+        "label_en": "RDBMS or NoSQL",
+        "label_zh": "关系型数据库或 NoSQL",
+        "type": "data",
+        "parent": null,
+        "level": 2,
+        "position": "Application #3 右侧",
+        "description_zh": "橙框圆柱=目标。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G238/fig3-3#r0027"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    }
+  ],
+  "edges": [
+    {
+      "id": "G238/fig3-3#r0001",
+      "source_relation_index": 0,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#txn_app_1",
+      "to": "G238/fig3-3#ng_platform",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "description_zh": "橙色虚线；图 3-3 中事务型应用 #1 不再连数仓。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "dashed",
+        "arrow": "forward",
+        "from": "G238/fig3-3#txn_app_1",
+        "to": "G238/fig3-3#ng_platform",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "txn_app_1",
+        "to": "ng_platform",
+        "type": "flow",
+        "label_en": "Inbound Flow",
+        "label_zh": "入站流",
+        "explicit": true,
+        "line": "dashed",
+        "arrow": "forward",
+        "description_zh": "橙色虚线；图 3-3 中事务型应用 #1 不再连数仓。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0002",
+      "source_relation_index": 1,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#txn_app_2",
+      "to": "G238/fig3-3#edw",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "灰色实线，箭头指向数仓；图例把实线定义为出站流，但此处方向是入站，原图未在线旁标注，线型与图 3-1/3-2 的虚线不一致。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#txn_app_2",
+        "to": "G238/fig3-3#edw",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "txn_app_2",
+        "to": "edw",
+        "type": "flow",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "灰色实线，箭头指向数仓；图例把实线定义为出站流，但此处方向是入站，原图未在线旁标注，线型与图 3-1/3-2 的虚线不一致。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0003",
+      "source_relation_index": 2,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#txn_app_2",
+      "to": "G238/fig3-3#ng_platform",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "description_zh": "橙色虚线。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "dashed",
+        "arrow": "forward",
+        "from": "G238/fig3-3#txn_app_2",
+        "to": "G238/fig3-3#ng_platform",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "txn_app_2",
+        "to": "ng_platform",
+        "type": "flow",
+        "label_en": "Inbound Flow",
+        "label_zh": "入站流",
+        "explicit": true,
+        "line": "dashed",
+        "arrow": "forward",
+        "description_zh": "橙色虚线。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0004",
+      "source_relation_index": 3,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#txn_app_bi",
+      "to": "G238/fig3-3#edw",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "灰色实线，箭头指向数仓；线型与图例的入站流（虚线）不一致，原图未标注。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#txn_app_bi",
+        "to": "G238/fig3-3#edw",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "txn_app_bi",
+        "to": "edw",
+        "type": "flow",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "灰色实线，箭头指向数仓；线型与图例的入站流（虚线）不一致，原图未标注。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0005",
+      "source_relation_index": 4,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#txn_app_bi",
+      "to": "G238/fig3-3#ng_platform",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "description_zh": "橙色虚线。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "dashed",
+        "arrow": "forward",
+        "from": "G238/fig3-3#txn_app_bi",
+        "to": "G238/fig3-3#ng_platform",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "txn_app_bi",
+        "to": "ng_platform",
+        "type": "flow",
+        "label_en": "Inbound Flow",
+        "label_zh": "入站流",
+        "explicit": true,
+        "line": "dashed",
+        "arrow": "forward",
+        "description_zh": "橙色虚线。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0006",
+      "source_relation_index": 5,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#connected_devices",
+      "to": "G238/fig3-3#ng_platform",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "description_zh": "橙色虚线。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "dashed",
+        "arrow": "forward",
+        "from": "G238/fig3-3#connected_devices",
+        "to": "G238/fig3-3#ng_platform",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "connected_devices",
+        "to": "ng_platform",
+        "type": "flow",
+        "label_en": "Inbound Flow",
+        "label_zh": "入站流",
+        "explicit": true,
+        "line": "dashed",
+        "arrow": "forward",
+        "description_zh": "橙色虚线。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0007",
+      "source_relation_index": 6,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#edw",
+      "to": "G238/fig3-3#ng_platform",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "description_zh": "橙色实线，向下。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#edw",
+        "to": "G238/fig3-3#ng_platform",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "edw",
+        "to": "ng_platform",
+        "type": "flow",
+        "label_en": "Outbound Flow",
+        "label_zh": "出站流",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "橙色实线，向下。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0008",
+      "source_relation_index": 7,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#ng_platform",
+      "to": "G238/fig3-3#edw",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "description_zh": "橙色实线，向上；新平台向数仓提供新数据。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#ng_platform",
+        "to": "G238/fig3-3#edw",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "ng_platform",
+        "to": "edw",
+        "type": "flow",
+        "label_en": "Outbound Flow",
+        "label_zh": "出站流",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "橙色实线，向上；新平台向数仓提供新数据。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0009",
+      "source_relation_index": 8,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#edw",
+      "to": "G238/fig3-3#data_mart_1",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "description_zh": "灰色实线。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#edw",
+        "to": "G238/fig3-3#data_mart_1",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "edw",
+        "to": "data_mart_1",
+        "type": "flow",
+        "label_en": "Outbound Flow",
+        "label_zh": "出站流",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "灰色实线。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0010",
+      "source_relation_index": 9,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#edw",
+      "to": "G238/fig3-3#data_mart_2",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "description_zh": "灰色实线。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#edw",
+        "to": "G238/fig3-3#data_mart_2",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "edw",
+        "to": "data_mart_2",
+        "type": "flow",
+        "label_en": "Outbound Flow",
+        "label_zh": "出站流",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "灰色实线。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0011",
+      "source_relation_index": 10,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#edw",
+      "to": "G238/fig3-3#app_1",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "description_zh": "橙色实线，从数仓右下方进入应用 #1。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#edw",
+        "to": "G238/fig3-3#app_1",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "edw",
+        "to": "app_1",
+        "type": "flow",
+        "label_en": "Outbound Flow",
+        "label_zh": "出站流",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "橙色实线，从数仓右下方进入应用 #1。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0012",
+      "source_relation_index": 11,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#ng_platform",
+      "to": "G238/fig3-3#app_1",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "description_zh": "橙色实线；应用 #1 因此双供数。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#ng_platform",
+        "to": "G238/fig3-3#app_1",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "ng_platform",
+        "to": "app_1",
+        "type": "flow",
+        "label_en": "Outbound Flow",
+        "label_zh": "出站流",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "橙色实线；应用 #1 因此双供数。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0013",
+      "source_relation_index": 12,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#ng_platform",
+      "to": "G238/fig3-3#data_mart_3",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "description_zh": "橙色实线。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#ng_platform",
+        "to": "G238/fig3-3#data_mart_3",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "ng_platform",
+        "to": "data_mart_3",
+        "type": "flow",
+        "label_en": "Outbound Flow",
+        "label_zh": "出站流",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "橙色实线。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0014",
+      "source_relation_index": 13,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#ng_platform",
+      "to": "G238/fig3-3#app_2",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "description_zh": "橙色实线。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#ng_platform",
+        "to": "G238/fig3-3#app_2",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "ng_platform",
+        "to": "app_2",
+        "type": "flow",
+        "label_en": "Outbound Flow",
+        "label_zh": "出站流",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "橙色实线。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0015",
+      "source_relation_index": 14,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#app_2",
+      "to": "G238/fig3-3#ng_platform",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "description_zh": "橙色虚线，箭头指向新平台。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "dashed",
+        "arrow": "forward",
+        "from": "G238/fig3-3#app_2",
+        "to": "G238/fig3-3#ng_platform",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "app_2",
+        "to": "ng_platform",
+        "type": "flow",
+        "label_en": "Inbound Flow",
+        "label_zh": "入站流",
+        "explicit": true,
+        "line": "dashed",
+        "arrow": "forward",
+        "description_zh": "橙色虚线，箭头指向新平台。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0016",
+      "source_relation_index": 15,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#ng_platform",
+      "to": "G238/fig3-3#app_3",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "description_zh": "橙色实线。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "G238/fig3-3#ng_platform",
+        "to": "G238/fig3-3#app_3",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "ng_platform",
+        "to": "app_3",
+        "type": "flow",
+        "label_en": "Outbound Flow",
+        "label_zh": "出站流",
+        "explicit": true,
+        "line": "solid",
+        "arrow": "forward",
+        "description_zh": "橙色实线。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0017",
+      "source_relation_index": 16,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#app_3",
+      "to": "G238/fig3-3#ng_platform",
+      "predicate": "flow",
+      "predicate_zh": "流动",
+      "direction": "subject-to-object",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "description_zh": "橙色虚线，箭头指向新平台。",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "dashed",
+        "arrow": "forward",
+        "from": "G238/fig3-3#app_3",
+        "to": "G238/fig3-3#ng_platform",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "app_3",
+        "to": "ng_platform",
+        "type": "flow",
+        "label_en": "Inbound Flow",
+        "label_zh": "入站流",
+        "explicit": true,
+        "line": "dashed",
+        "arrow": "forward",
+        "description_zh": "橙色虚线，箭头指向新平台。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0018",
+      "source_relation_index": 17,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#txn_app_1",
+      "to": "G238/fig3-3#db_txn_1",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "圆柱紧贴宿主，原图未画线。",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#txn_app_1",
+        "to": "G238/fig3-3#db_txn_1",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "txn_app_1",
+        "to": "db_txn_1",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none",
+        "description_zh": "圆柱紧贴宿主，原图未画线。"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0019",
+      "source_relation_index": 18,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#txn_app_2",
+      "to": "G238/fig3-3#db_txn_2",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "访问",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#txn_app_2",
+        "to": "G238/fig3-3#db_txn_2",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "txn_app_2",
+        "to": "db_txn_2",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0020",
+      "source_relation_index": 19,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#txn_app_bi",
+      "to": "G238/fig3-3#db_txn_bi",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "访问",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#txn_app_bi",
+        "to": "G238/fig3-3#db_txn_bi",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "txn_app_bi",
+        "to": "db_txn_bi",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0021",
+      "source_relation_index": 20,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#txn_app_bi",
+      "to": "G238/fig3-3#db_other_bi",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "访问",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#txn_app_bi",
+        "to": "G238/fig3-3#db_other_bi",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "txn_app_bi",
+        "to": "db_other_bi",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0022",
+      "source_relation_index": 21,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#data_mart_1",
+      "to": "G238/fig3-3#db_dm_1",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "访问",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#data_mart_1",
+        "to": "G238/fig3-3#db_dm_1",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "data_mart_1",
+        "to": "db_dm_1",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0023",
+      "source_relation_index": 22,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#data_mart_2",
+      "to": "G238/fig3-3#db_dm_2",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "访问",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#data_mart_2",
+        "to": "G238/fig3-3#db_dm_2",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "data_mart_2",
+        "to": "db_dm_2",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0024",
+      "source_relation_index": 23,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#app_1",
+      "to": "G238/fig3-3#db_app_1",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "访问",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#app_1",
+        "to": "G238/fig3-3#db_app_1",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "app_1",
+        "to": "db_app_1",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0025",
+      "source_relation_index": 24,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#data_mart_3",
+      "to": "G238/fig3-3#db_dm_3",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "访问",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#data_mart_3",
+        "to": "G238/fig3-3#db_dm_3",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "data_mart_3",
+        "to": "db_dm_3",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0026",
+      "source_relation_index": 25,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#app_2",
+      "to": "G238/fig3-3#db_app_2",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "访问",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#app_2",
+        "to": "G238/fig3-3#db_app_2",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "app_2",
+        "to": "db_app_2",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G238/fig3-3#r0027",
+      "source_relation_index": 26,
+      "source_relation_id": null,
+      "from": "G238/fig3-3#app_3",
+      "to": "G238/fig3-3#db_app_3",
+      "predicate": "access",
+      "predicate_zh": "访问",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "访问",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G238/fig3-3#app_3",
+        "to": "G238/fig3-3#db_app_3",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "app_3",
+        "to": "db_app_3",
+        "type": "access",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    }
+  ],
+  "rejected_nodes": [],
+  "rejected_edges": [],
+  "hierarchy": {
+    "containment_and_grouping": [
+      {
+        "id": "G238/fig3-3#h-edw",
+        "parent": "G238/fig3-3#platform_scope",
+        "child": "G238/fig3-3#edw",
+        "kind": "visual_grouping",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-ng_platform",
+        "parent": "G238/fig3-3#platform_scope",
+        "child": "G238/fig3-3#ng_platform",
+        "kind": "visual_grouping",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-data_mart_1",
+        "parent": "G238/fig3-3#platform_scope",
+        "child": "G238/fig3-3#data_mart_1",
+        "kind": "visual_grouping",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-data_mart_2",
+        "parent": "G238/fig3-3#platform_scope",
+        "child": "G238/fig3-3#data_mart_2",
+        "kind": "visual_grouping",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-app_1",
+        "parent": "G238/fig3-3#platform_scope",
+        "child": "G238/fig3-3#app_1",
+        "kind": "visual_grouping",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-data_mart_3",
+        "parent": "G238/fig3-3#platform_scope",
+        "child": "G238/fig3-3#data_mart_3",
+        "kind": "visual_grouping",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-app_2",
+        "parent": "G238/fig3-3#platform_scope",
+        "child": "G238/fig3-3#app_2",
+        "kind": "visual_grouping",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-app_3",
+        "parent": "G238/fig3-3#platform_scope",
+        "child": "G238/fig3-3#app_3",
+        "kind": "visual_grouping",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_txn_1",
+        "parent": "G238/fig3-3#txn_app_1",
+        "child": "G238/fig3-3#db_txn_1",
+        "kind": "application_encapsulation",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "应用组件包含其数据、行为或子组件。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_txn_2",
+        "parent": "G238/fig3-3#txn_app_2",
+        "child": "G238/fig3-3#db_txn_2",
+        "kind": "application_encapsulation",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "应用组件包含其数据、行为或子组件。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_txn_bi",
+        "parent": "G238/fig3-3#txn_app_bi",
+        "child": "G238/fig3-3#db_txn_bi",
+        "kind": "application_encapsulation",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "应用组件包含其数据、行为或子组件。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_other_bi",
+        "parent": "G238/fig3-3#txn_app_bi",
+        "child": "G238/fig3-3#db_other_bi",
+        "kind": "application_encapsulation",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "应用组件包含其数据、行为或子组件。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_dm_1",
+        "parent": "G238/fig3-3#data_mart_1",
+        "child": "G238/fig3-3#db_dm_1",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_dm_2",
+        "parent": "G238/fig3-3#data_mart_2",
+        "child": "G238/fig3-3#db_dm_2",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_app_1",
+        "parent": "G238/fig3-3#app_1",
+        "child": "G238/fig3-3#db_app_1",
+        "kind": "application_encapsulation",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "应用组件包含其数据、行为或子组件。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_dm_3",
+        "parent": "G238/fig3-3#data_mart_3",
+        "child": "G238/fig3-3#db_dm_3",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_app_2",
+        "parent": "G238/fig3-3#app_2",
+        "child": "G238/fig3-3#db_app_2",
+        "kind": "application_encapsulation",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "应用组件包含其数据、行为或子组件。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G238/fig3-3#h-db_app_3",
+        "parent": "G238/fig3-3#app_3",
+        "child": "G238/fig3-3#db_app_3",
+        "kind": "application_encapsulation",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "应用组件包含其数据、行为或子组件。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      }
+    ],
+    "semantic_hierarchy": [],
+    "organizational_reporting_edge_ids": [],
+    "governance_edge_ids": [],
+    "instantiation_edge_ids": [],
+    "views": {
+      "visual_or_classification": {
+        "links": [
+          {
+            "id": "G238/fig3-3#h-edw",
+            "parent": "G238/fig3-3#platform_scope",
+            "child": "G238/fig3-3#edw",
+            "kind": "visual_grouping",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-ng_platform",
+            "parent": "G238/fig3-3#platform_scope",
+            "child": "G238/fig3-3#ng_platform",
+            "kind": "visual_grouping",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-data_mart_1",
+            "parent": "G238/fig3-3#platform_scope",
+            "child": "G238/fig3-3#data_mart_1",
+            "kind": "visual_grouping",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-data_mart_2",
+            "parent": "G238/fig3-3#platform_scope",
+            "child": "G238/fig3-3#data_mart_2",
+            "kind": "visual_grouping",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-app_1",
+            "parent": "G238/fig3-3#platform_scope",
+            "child": "G238/fig3-3#app_1",
+            "kind": "visual_grouping",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-data_mart_3",
+            "parent": "G238/fig3-3#platform_scope",
+            "child": "G238/fig3-3#data_mart_3",
+            "kind": "visual_grouping",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-app_2",
+            "parent": "G238/fig3-3#platform_scope",
+            "child": "G238/fig3-3#app_2",
+            "kind": "visual_grouping",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-app_3",
+            "parent": "G238/fig3-3#platform_scope",
+            "child": "G238/fig3-3#app_3",
+            "kind": "visual_grouping",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "框、泳道、域或分类组的成员归属；没有额外证据不提升为业务组合或管理关系。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_txn_1",
+            "parent": "G238/fig3-3#txn_app_1",
+            "child": "G238/fig3-3#db_txn_1",
+            "kind": "application_encapsulation",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "应用组件包含其数据、行为或子组件。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_txn_2",
+            "parent": "G238/fig3-3#txn_app_2",
+            "child": "G238/fig3-3#db_txn_2",
+            "kind": "application_encapsulation",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "应用组件包含其数据、行为或子组件。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_txn_bi",
+            "parent": "G238/fig3-3#txn_app_bi",
+            "child": "G238/fig3-3#db_txn_bi",
+            "kind": "application_encapsulation",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "应用组件包含其数据、行为或子组件。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_other_bi",
+            "parent": "G238/fig3-3#txn_app_bi",
+            "child": "G238/fig3-3#db_other_bi",
+            "kind": "application_encapsulation",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "应用组件包含其数据、行为或子组件。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_dm_1",
+            "parent": "G238/fig3-3#data_mart_1",
+            "child": "G238/fig3-3#db_dm_1",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_dm_2",
+            "parent": "G238/fig3-3#data_mart_2",
+            "child": "G238/fig3-3#db_dm_2",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_app_1",
+            "parent": "G238/fig3-3#app_1",
+            "child": "G238/fig3-3#db_app_1",
+            "kind": "application_encapsulation",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "应用组件包含其数据、行为或子组件。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_dm_3",
+            "parent": "G238/fig3-3#data_mart_3",
+            "child": "G238/fig3-3#db_dm_3",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_app_2",
+            "parent": "G238/fig3-3#app_2",
+            "child": "G238/fig3-3#db_app_2",
+            "kind": "application_encapsulation",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "应用组件包含其数据、行为或子组件。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G238/fig3-3#h-db_app_3",
+            "parent": "G238/fig3-3#app_3",
+            "child": "G238/fig3-3#db_app_3",
+            "kind": "application_encapsulation",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "应用组件包含其数据、行为或子组件。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          }
+        ],
+        "roots": [
+          "G238/fig3-3#platform_scope",
+          "G238/fig3-3#txn_app_1",
+          "G238/fig3-3#txn_app_2",
+          "G238/fig3-3#txn_app_bi"
+        ],
+        "nodes": [
+          {
+            "id": "G238/fig3-3#app_1",
+            "parents": [
+              "G238/fig3-3#platform_scope"
+            ],
+            "children": [
+              "G238/fig3-3#db_app_1"
+            ],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#app_2",
+            "parents": [
+              "G238/fig3-3#platform_scope"
+            ],
+            "children": [
+              "G238/fig3-3#db_app_2"
+            ],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#app_3",
+            "parents": [
+              "G238/fig3-3#platform_scope"
+            ],
+            "children": [
+              "G238/fig3-3#db_app_3"
+            ],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#data_mart_1",
+            "parents": [
+              "G238/fig3-3#platform_scope"
+            ],
+            "children": [
+              "G238/fig3-3#db_dm_1"
+            ],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#data_mart_2",
+            "parents": [
+              "G238/fig3-3#platform_scope"
+            ],
+            "children": [
+              "G238/fig3-3#db_dm_2"
+            ],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#data_mart_3",
+            "parents": [
+              "G238/fig3-3#platform_scope"
+            ],
+            "children": [
+              "G238/fig3-3#db_dm_3"
+            ],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#db_app_1",
+            "parents": [
+              "G238/fig3-3#app_1"
+            ],
+            "children": [],
+            "shortest_root_depth": 2
+          },
+          {
+            "id": "G238/fig3-3#db_app_2",
+            "parents": [
+              "G238/fig3-3#app_2"
+            ],
+            "children": [],
+            "shortest_root_depth": 2
+          },
+          {
+            "id": "G238/fig3-3#db_app_3",
+            "parents": [
+              "G238/fig3-3#app_3"
+            ],
+            "children": [],
+            "shortest_root_depth": 2
+          },
+          {
+            "id": "G238/fig3-3#db_dm_1",
+            "parents": [
+              "G238/fig3-3#data_mart_1"
+            ],
+            "children": [],
+            "shortest_root_depth": 2
+          },
+          {
+            "id": "G238/fig3-3#db_dm_2",
+            "parents": [
+              "G238/fig3-3#data_mart_2"
+            ],
+            "children": [],
+            "shortest_root_depth": 2
+          },
+          {
+            "id": "G238/fig3-3#db_dm_3",
+            "parents": [
+              "G238/fig3-3#data_mart_3"
+            ],
+            "children": [],
+            "shortest_root_depth": 2
+          },
+          {
+            "id": "G238/fig3-3#db_other_bi",
+            "parents": [
+              "G238/fig3-3#txn_app_bi"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#db_txn_1",
+            "parents": [
+              "G238/fig3-3#txn_app_1"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#db_txn_2",
+            "parents": [
+              "G238/fig3-3#txn_app_2"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#db_txn_bi",
+            "parents": [
+              "G238/fig3-3#txn_app_bi"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#edw",
+            "parents": [
+              "G238/fig3-3#platform_scope"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#ng_platform",
+            "parents": [
+              "G238/fig3-3#platform_scope"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G238/fig3-3#platform_scope",
+            "parents": [],
+            "children": [
+              "G238/fig3-3#app_1",
+              "G238/fig3-3#app_2",
+              "G238/fig3-3#app_3",
+              "G238/fig3-3#data_mart_1",
+              "G238/fig3-3#data_mart_2",
+              "G238/fig3-3#data_mart_3",
+              "G238/fig3-3#edw",
+              "G238/fig3-3#ng_platform"
+            ],
+            "shortest_root_depth": 0
+          },
+          {
+            "id": "G238/fig3-3#txn_app_1",
+            "parents": [],
+            "children": [
+              "G238/fig3-3#db_txn_1"
+            ],
+            "shortest_root_depth": 0
+          },
+          {
+            "id": "G238/fig3-3#txn_app_2",
+            "parents": [],
+            "children": [
+              "G238/fig3-3#db_txn_2"
+            ],
+            "shortest_root_depth": 0
+          },
+          {
+            "id": "G238/fig3-3#txn_app_bi",
+            "parents": [],
+            "children": [
+              "G238/fig3-3#db_other_bi",
+              "G238/fig3-3#db_txn_bi"
+            ],
+            "shortest_root_depth": 0
+          }
+        ],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      },
+      "semantic_composition": {
+        "links": [],
+        "roots": [],
+        "nodes": [],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      },
+      "organizational_reporting": {
+        "links": [],
+        "roots": [],
+        "nodes": [],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      },
+      "governance_scope": {
+        "links": [],
+        "roots": [],
+        "nodes": [],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      },
+      "type_and_instance": {
+        "links": [],
+        "roots": [],
+        "nodes": [],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      }
+    }
+  },
+  "role_node_ids": [],
+  "flows": [],
+  "source_flows": [],
+  "source_flows_role": "archived-inherited-interpretation-see-current-flows",
+  "tables": [],
+  "source_tables": [],
+  "source_tables_role": "archived-inherited-transcription-see-current-tables",
+  "legend": [
+    {
+      "symbol": "灰色/橙色虚线 + 箭头",
+      "meaning_zh": "入站流 Inbound Flow",
+      "explicit": true
+    },
+    {
+      "symbol": "灰色/橙色实线 + 箭头",
+      "meaning_zh": "出站流 Outbound Flow",
+      "explicit": true
+    },
+    {
+      "symbol": "蓝色边框方框",
+      "meaning_zh": "现状架构 As-Is Architecture",
+      "explicit": true
+    },
+    {
+      "symbol": "橙色边框方框",
+      "meaning_zh": "目标架构 To-Be Architecture",
+      "explicit": true
+    },
+    {
+      "symbol": "圆柱",
+      "meaning_zh": "RDBMS 或 RDBMS/NoSQL 数据存储，紧贴宿主",
+      "explicit": false
+    },
+    {
+      "symbol": "深蓝点线大框",
+      "meaning_zh": "BI & Analytics 数据平台范围",
+      "explicit": false
+    }
+  ],
+  "source_legend": [
+    {
+      "symbol": "灰色/橙色虚线 + 箭头",
+      "meaning_zh": "入站流 Inbound Flow",
+      "explicit": true
+    },
+    {
+      "symbol": "灰色/橙色实线 + 箭头",
+      "meaning_zh": "出站流 Outbound Flow",
+      "explicit": true
+    },
+    {
+      "symbol": "蓝色边框方框",
+      "meaning_zh": "现状架构 As-Is Architecture",
+      "explicit": true
+    },
+    {
+      "symbol": "橙色边框方框",
+      "meaning_zh": "目标架构 To-Be Architecture",
+      "explicit": true
+    },
+    {
+      "symbol": "圆柱",
+      "meaning_zh": "RDBMS 或 RDBMS/NoSQL 数据存储，紧贴宿主",
+      "explicit": false
+    },
+    {
+      "symbol": "深蓝点线大框",
+      "meaning_zh": "BI & Analytics 数据平台范围",
+      "explicit": false
+    }
+  ],
+  "source_legend_role": "archived-inherited-interpretation-see-current-legend",
+  "analysis": {
+    "author_purpose_zh": "展示新平台成熟后的过渡状态：它开始保存原始/集成/加工数据并与数仓双向交换，逐步替代暂存区或 ODS，数据集市与应用按机会分步从数仓切走；同时说明“双份历史存储、双摄取流”的过渡代价（表 3-4）。",
+    "reading_sequence_zh": "先看中央：上方是蓝框的企业数据仓库，下方是橙框的新一代平台，两者之间有两条方向相反的橙色实线箭头，表示双向交换。左侧事务型应用 #2 与内嵌 BI 应用同时有灰色箭头（指向数仓）和橙色虚线（指向新平台）；事务型应用 #1 只有橙色虚线。右侧 Application #1 收到来自数仓和新平台的两条橙色实线；Data Mart #1/#2 仍只收数仓的灰色实线；Data Mart #3 只收新平台；Application #2/#3 既有来自新平台的橙色实线，也有指回新平台的橙色虚线。",
+    "source_logic_zh": [
+      "数仓与新平台之间出现一对方向相反的橙色实线箭头：数仓→新平台与新平台→数仓，表示两者双向交换数据（正文：新平台向数仓提供新数据并覆盖原始数据全貌）。",
+      "事务型应用 #1 只保留指向新平台的橙色虚线入站流，不再有指向数仓的灰色箭头；事务型应用 #2 与内嵌 BI 应用仍同时向数仓（灰色实线）和新平台（橙色虚线）供数。",
+      "应用 #1 已改为双供数：同时收到来自数仓和来自新平台的橙色实线箭头；Data Mart #3 只由新平台供数。",
+      "Data Mart #1、Data Mart #2 仍只由数仓供数（灰色实线），尚未迁移。",
+      "应用 #2、应用 #3 与新平台之间是双向流：新平台向它们供数，它们又以橙色虚线把新产生的数据回写给新平台。",
+      "平台范围容器内已包含数仓、新平台与全部集市/应用；事务型应用与 Connected Devices 仍在范围外。",
+      "表 3-4 的缺失能力仍是历史数据双份存储、没有单一事实来源、需维护双摄取流、成本翻倍。"
+    ],
+    "structure_findings_zh": [
+      "本图有 23 个具名或隐含元素、27 条关系和 18 条包含/分组记录。",
+      "包含/分组树最大深度为 2；根节点为 商业智能与分析数据平台、事务型应用 #1、事务型应用 #2、含内嵌 BI 与分析能力的事务型应用、互联设备、开放数据、日志等。",
+      "本图没有可直接确认为人员直属汇报的关系；视觉上下位置、能力分解和治理职责分别读取。"
+    ],
+    "application_zh": [
+      "先划定平台边界，登记应用、存储、数据来源及消费者，再逐条读取输入/输出流。",
+      "区分基线、过渡与目标架构，以及现有、保留与新增对象；范围包含不自动表示组件实现或组织管理。"
+    ],
+    "hierarchy_explanation_zh": "两层：平台范围容器包含企业数据仓库、新一代平台、Data Mart #1/#2/#3 与 Application #1/#2/#3；三个事务型应用与 Connected Devices 在容器外。每个应用/集市的圆柱是其本地存储。数仓与新平台是并列的两个历史数据存储，本步骤尚未合并。",
+    "line_explanation_zh": "橙色虚线箭头=入站流（事务型应用/联网设备进入新平台）；灰色实线箭头=现状出站流（数仓→DM#1/#2）；橙色实线箭头=目标出站流（数仓→App#1、数仓↔新平台、新平台→App#1/DM#3/App#2/App#3）；橙色虚线从 App#2/#3 指回新平台=应用回写的入站流。箭头指向接收方。",
+    "misreadings_zh": [
+      "数仓与新平台之间的两条垂直箭头不是重复：一条向下（数仓→新平台），一条向上（新平台→数仓），表示双向交换。",
+      "不要把 App#2/App#3 指向新平台的橙色虚线读成平台向应用供数；箭头指向新平台，是应用回写的入站流。",
+      "事务型应用 #1 没有指向数仓的箭头，不应假定是漏画；图中它只向新平台供数，但正文没有解释这一变化的业务原因。",
+      "英文原文 p22 举例“Transaction Application #1”被两者同时供数，与图 3-3 不符：图中双供数的是右侧 Application #1，左侧 Transactional Application #1 只连新平台。以图为准。",
+      "不要把 Data Mart #1/#2 的灰色箭头当成已迁移：它们仍只由数仓供数，迁移是分步的。",
+      "中文稿引用的中文化 PNG 把第三个事务型应用框画成两条竖线，容易让人以为该元素被删除。"
+    ],
+    "current_findings_zh": [
+      "逐一核对全部23标签及17条显式平台/应用数据流，保留原图入站虚线、出站实线、现状蓝边、目标橙边以及平台边界。",
+      "数据库圆柱按宿主分组；已有access关系保持隐式，不能作为额外显式流。",
+      "相邻正文举例写Transactional Application #1，但图中接受两个平台输出的是右侧Application #1。保留图上端点，不把文字中的名称替换进图；这是一处源文名称差异。"
+    ],
+    "strongly_connected_note": "Cycles in process/feedback views are not automatically errors.",
+    "source_semantics_status": "inherited-with-listed-current-overrides",
+    "overridden_legacy_fields": [],
+    "components": [
+      [
+        "G238/fig3-3#app_1",
+        "G238/fig3-3#app_2",
+        "G238/fig3-3#app_3",
+        "G238/fig3-3#connected_devices",
+        "G238/fig3-3#data_mart_1",
+        "G238/fig3-3#data_mart_2",
+        "G238/fig3-3#data_mart_3",
+        "G238/fig3-3#db_app_1",
+        "G238/fig3-3#db_app_2",
+        "G238/fig3-3#db_app_3",
+        "G238/fig3-3#db_dm_1",
+        "G238/fig3-3#db_dm_2",
+        "G238/fig3-3#db_dm_3",
+        "G238/fig3-3#db_other_bi",
+        "G238/fig3-3#db_txn_1",
+        "G238/fig3-3#db_txn_2",
+        "G238/fig3-3#db_txn_bi",
+        "G238/fig3-3#edw",
+        "G238/fig3-3#ng_platform",
+        "G238/fig3-3#platform_scope",
+        "G238/fig3-3#txn_app_1",
+        "G238/fig3-3#txn_app_2",
+        "G238/fig3-3#txn_app_bi"
+      ]
+    ],
+    "structural_hubs": [
+      {
+        "node_id": "G238/fig3-3#ng_platform",
+        "incident_relation_count": 12
+      },
+      {
+        "node_id": "G238/fig3-3#edw",
+        "incident_relation_count": 7
+      },
+      {
+        "node_id": "G238/fig3-3#txn_app_bi",
+        "incident_relation_count": 4
+      },
+      {
+        "node_id": "G238/fig3-3#txn_app_2",
+        "incident_relation_count": 3
+      },
+      {
+        "node_id": "G238/fig3-3#app_1",
+        "incident_relation_count": 3
+      },
+      {
+        "node_id": "G238/fig3-3#app_2",
+        "incident_relation_count": 3
+      },
+      {
+        "node_id": "G238/fig3-3#app_3",
+        "incident_relation_count": 3
+      },
+      {
+        "node_id": "G238/fig3-3#txn_app_1",
+        "incident_relation_count": 2
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "id": "pdf-p22",
+      "document_id": "G238",
+      "pdf_page": 22,
+      "page_markdown": "documents/G238.md#page-22",
+      "quotes": [
+        {
+          "text": "In this transition step, some may now be fed by both the new generation BI & Analytics data platform and the enterprise data warehouse, like “Transactional Application #1” in Figure 3-3.",
+          "source_block_ids": [
+            "G238:p0022:b012",
+            "G238:p0022:b013"
+          ]
+        }
+      ],
+      "selection": "caption-reference-and-nearby-context"
+    },
+    {
+      "id": "pdf-p23",
+      "document_id": "G238",
+      "pdf_page": 23,
+      "page_markdown": "documents/G238.md#page-23",
+      "quotes": [
+        {
+          "text": "◦All the metadata from the transactional application including foreign keys, data dictionary",
+          "source_block_ids": [
+            "G238:p0023:b001"
+          ]
+        },
+        {
+          "text": "Such information is rarely explicit in the flow feeding the data warehouse. Indeed, that metadata may not be required in the data warehouse as some of this information is kept in the data warehouse modeling.",
+          "source_block_ids": [
+            "G238:p0023:b002",
+            "G238:p0023:b003",
+            "G238:p0023:b004"
+          ]
+        }
+      ],
+      "selection": "same-page-context"
+    },
+    {
+      "id": "pdf-p24",
+      "document_id": "G238",
+      "pdf_page": 24,
+      "page_markdown": "documents/G238.md#page-24",
+      "quotes": [],
+      "selection": "same-page-context"
+    },
+    {
+      "id": "source-interpretation",
+      "kind": "inherited-interpretation-and-transcription",
+      "record_path": "figures/G238/fig3-3.json",
+      "record_sha256": "847ced3a3ebd55af3449920cefbee09219d9f6ade2a08e434071fdc4536b4ccb",
+      "notice_zh": "既有解释加原文图像与转录。其历史语义不等于本轮视觉复核。"
+    },
+    {
+      "id": "current-visual-review",
+      "kind": "selected-source-visual-review",
+      "review_path": "maintenance/pipeline/architecture-diagram-reviews.json",
+      "review_record_id": "G238/fig3-3",
+      "scope": "All visible labels and symbols, connector presence/endpoints/directions, grouping, table content or absence, and relevant source-page text reviewed against original crops.",
+      "pdf_sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+      "crop_sha256": [
+        "5fe962dd12c09264d555e93c1e7abe2ef0db288a0e0ebbfa0373fc5f6cea772e"
+      ]
+    }
+  ],
+  "current_visual_review": {
+    "source_pdf_sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+    "source_crop_sha256": [
+      "5fe962dd12c09264d555e93c1e7abe2ef0db288a0e0ebbfa0373fc5f6cea772e"
+    ],
+    "scope": "All visible labels and symbols, connector presence/endpoints/directions, grouping, table content or absence, and relevant source-page text reviewed against original crops.",
+    "findings_zh": [
+      "逐一核对全部23标签及17条显式平台/应用数据流，保留原图入站虚线、出站实线、现状蓝边、目标橙边以及平台边界。",
+      "数据库圆柱按宿主分组；已有access关系保持隐式，不能作为额外显式流。",
+      "相邻正文举例写Transactional Application #1，但图中接受两个平台输出的是右侧Application #1。保留图上端点，不把文字中的名称替换进图；这是一处源文名称差异。"
+    ],
+    "source_pdf_pages": [
+      22
+    ],
+    "date": "2026-11-07",
+    "review_status": "source-content-audited",
+    "reviewed_components": [
+      "visible-labels",
+      "connector-topology",
+      "grouping",
+      "table-content-or-absence",
+      "nearby-source-text"
+    ],
+    "inspected_pdf_pages": [
+      22,
+      23,
+      24
+    ],
+    "node_overrides": {
+      "db_txn_1": {
+        "parent": "txn_app_1",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      },
+      "db_txn_2": {
+        "parent": "txn_app_2",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      },
+      "db_txn_bi": {
+        "parent": "txn_app_bi",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      },
+      "db_other_bi": {
+        "parent": "txn_app_bi",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      },
+      "db_dm_1": {
+        "parent": "data_mart_1",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      },
+      "db_dm_2": {
+        "parent": "data_mart_2",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      },
+      "db_app_1": {
+        "parent": "app_1",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      },
+      "db_dm_3": {
+        "parent": "data_mart_3",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      },
+      "db_app_2": {
+        "parent": "app_2",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      },
+      "db_app_3": {
+        "parent": "app_3",
+        "description_zh": "贴附于该应用/数据集市的存储图标；归属依据图形附属关系，图上没有另外画出的access连线。"
+      }
+    }
+  },
+  "corrections": [],
+  "source_uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "事务型应用 #2 与内嵌 BI 应用指向数仓的箭头是灰色实线，而图 3-1/3-2 中同样的入站流是虚线；图例把实线定义为出站流，二者矛盾。本分析按箭头指向记录为“流向数仓”，未强行改型。",
+      "图 3-3 中事务型应用 #1 不再连数仓，原图与正文均未解释原因；不能确定是刻意表示已切换还是绘制省略。",
+      "英文 p22 的“Transaction Application #1 双供数”与图中 Application #1 双供数不一致，本分析以图为准并记为原文笔误。",
+      "箭头颜色（灰/橙）在图例中没有单独说明，按现状/目标流解释。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 22 页图 3-3 截图与 3×3 放大分块",
+      "英文 PDF 第 22–24 页步骤 3 正文与表 3-4",
+      "中文稿 G238e_信息架构_商业智能与分析.md 第 284–325 行",
+      "figs/zh/g238e_fig3-3_zh.png、figs/g238e_fig3-3_en.png（相似度 0.988）"
+    ],
+    "date": "2026-10-31"
+  },
+  "previous_source_semantics": {
+    "one_line_zh": "过渡步骤 3：新平台成长为原始数据主库，更多集市与应用切换到新平台。",
+    "purpose_zh": "展示新平台成熟后的过渡状态：它开始保存原始/集成/加工数据并与数仓双向交换，逐步替代暂存区或 ODS，数据集市与应用按机会分步从数仓切走；同时说明“双份历史存储、双摄取流”的过渡代价（表 3-4）。",
+    "reading_guide_zh": "先看中央：上方是蓝框的企业数据仓库，下方是橙框的新一代平台，两者之间有两条方向相反的橙色实线箭头，表示双向交换。左侧事务型应用 #2 与内嵌 BI 应用同时有灰色箭头（指向数仓）和橙色虚线（指向新平台）；事务型应用 #1 只有橙色虚线。右侧 Application #1 收到来自数仓和新平台的两条橙色实线；Data Mart #1/#2 仍只收数仓的灰色实线；Data Mart #3 只收新平台；Application #2/#3 既有来自新平台的橙色实线，也有指回新平台的橙色虚线。",
+    "key_points_zh": [
+      "数仓与新平台之间出现一对方向相反的橙色实线箭头：数仓→新平台与新平台→数仓，表示两者双向交换数据（正文：新平台向数仓提供新数据并覆盖原始数据全貌）。",
+      "事务型应用 #1 只保留指向新平台的橙色虚线入站流，不再有指向数仓的灰色箭头；事务型应用 #2 与内嵌 BI 应用仍同时向数仓（灰色实线）和新平台（橙色虚线）供数。",
+      "应用 #1 已改为双供数：同时收到来自数仓和来自新平台的橙色实线箭头；Data Mart #3 只由新平台供数。",
+      "Data Mart #1、Data Mart #2 仍只由数仓供数（灰色实线），尚未迁移。",
+      "应用 #2、应用 #3 与新平台之间是双向流：新平台向它们供数，它们又以橙色虚线把新产生的数据回写给新平台。",
+      "平台范围容器内已包含数仓、新平台与全部集市/应用；事务型应用与 Connected Devices 仍在范围外。",
+      "表 3-4 的缺失能力仍是历史数据双份存储、没有单一事实来源、需维护双摄取流、成本翻倍。"
+    ],
+    "hierarchy_zh": "两层：平台范围容器包含企业数据仓库、新一代平台、Data Mart #1/#2/#3 与 Application #1/#2/#3；三个事务型应用与 Connected Devices 在容器外。每个应用/集市的圆柱是其本地存储。数仓与新平台是并列的两个历史数据存储，本步骤尚未合并。",
+    "line_semantics_zh": "橙色虚线箭头=入站流（事务型应用/联网设备进入新平台）；灰色实线箭头=现状出站流（数仓→DM#1/#2）；橙色实线箭头=目标出站流（数仓→App#1、数仓↔新平台、新平台→App#1/DM#3/App#2/App#3）；橙色虚线从 App#2/#3 指回新平台=应用回写的入站流。箭头指向接收方。",
+    "misreadings_zh": [
+      "数仓与新平台之间的两条垂直箭头不是重复：一条向下（数仓→新平台），一条向上（新平台→数仓），表示双向交换。",
+      "不要把 App#2/App#3 指向新平台的橙色虚线读成平台向应用供数；箭头指向新平台，是应用回写的入站流。",
+      "事务型应用 #1 没有指向数仓的箭头，不应假定是漏画；图中它只向新平台供数，但正文没有解释这一变化的业务原因。",
+      "英文原文 p22 举例“Transaction Application #1”被两者同时供数，与图 3-3 不符：图中双供数的是右侧 Application #1，左侧 Transactional Application #1 只连新平台。以图为准。",
+      "不要把 Data Mart #1/#2 的灰色箭头当成已迁移：它们仍只由数仓供数，迁移是分步的。",
+      "中文稿引用的中文化 PNG 把第三个事务型应用框画成两条竖线，容易让人以为该元素被删除。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "步骤 3：新一代平台向数仓提供新数据并覆盖原始数据全貌；不建议用新平台反哺数仓，集市可直接进入步骤 4；集市与应用按机会/分步从数仓切到新平台，部分同时由两者供数；从交易应用进入新平台的数据流与进入数仓的流不同（抽原始数据、全部元数据、业务对象全部可用数据），新平台充当持久原始数据历史存储并替代暂存区/ODS。"
+      },
+      {
+        "source": "en_pdf p24",
+        "summary_zh": "表 3-4 列步骤 3 的收益（新平台存原始/集成/加工数据、数据沙箱、血缘改善）与缺失能力（历史数据双份存储、无单一事实来源、需双摄取流、成本翻倍）。"
+      },
+      {
+        "source": "zh_md L284",
+        "summary_zh": "中文稿说明步骤 3 是新平台向数仓提供新数据并覆盖原始数据完整范围的过渡步骤。"
+      },
+      {
+        "source": "zh_md L318",
+        "summary_zh": "中文稿逐条转述：新平台充当持久原始数据历史存储、替代 ODS，并提醒可评估直接进入步骤 4。"
+      },
+      {
+        "source": "zh_md L327",
+        "summary_zh": "中文稿表 3-4 的缺失能力：历史数据双份存储、没有单一事实来源、成本翻倍。"
+      }
+    ]
+  },
+  "previous_source_uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "事务型应用 #2 与内嵌 BI 应用指向数仓的箭头是灰色实线，而图 3-1/3-2 中同样的入站流是虚线；图例把实线定义为出站流，二者矛盾。本分析按箭头指向记录为“流向数仓”，未强行改型。",
+      "图 3-3 中事务型应用 #1 不再连数仓，原图与正文均未解释原因；不能确定是刻意表示已切换还是绘制省略。",
+      "英文 p22 的“Transaction Application #1 双供数”与图中 Application #1 双供数不一致，本分析以图为准并记为原文笔误。",
+      "箭头颜色（灰/橙）在图例中没有单独说明，按现状/目标流解释。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 22 页图 3-3 截图与 3×3 放大分块",
+      "英文 PDF 第 22–24 页步骤 3 正文与表 3-4",
+      "中文稿 G238e_信息架构_商业智能与分析.md 第 284–325 行",
+      "figs/zh/g238e_fig3-3_zh.png、figs/g238e_fig3-3_en.png（相似度 0.988）"
+    ],
+    "date": "2026-10-31"
+  },
+  "source_conflicts": [],
+  "source_visual_transcription": null,
+  "statistics": {
+    "nodes": 23,
+    "source_relations": 27,
+    "containment_or_grouping": 18,
+    "relation_types": {
+      "access": 10,
+      "flow": 17
+    },
+    "node_types": {
+      "application": 7,
+      "data": 15,
+      "group": 1
+    },
+    "implicit_relations": 10,
+    "explicit_connections": 17,
+    "reporting_relations": 0,
+    "reporting_subject_types": {},
+    "governance_relations": 0,
+    "instantiation_relations": 0,
+    "max_group_depth": 2,
+    "components": 1,
+    "isolated_nodes": [],
+    "table_records": 0,
+    "corrections": 0,
+    "role_nodes": 0,
+    "rejected_historical_relations": 0
+  },
+  "quality": {
+    "graph_integrity": "checked",
+    "semantic_analysis": "typed-graph-and-context-analysis",
+    "visual_review": "source-content-audited",
+    "notice_zh": "所有元素/关系均有来源定位；未把历史解释重命名为本轮逐线视觉确认。源图与语义图是两种视图，布局不证明汇报或因果。"
+  }
+}

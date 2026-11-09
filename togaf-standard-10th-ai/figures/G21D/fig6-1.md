@@ -1,0 +1,501 @@
+# G21D/fig6-1 · 拟议的健康与社区福祉部门 L1–L3 要素的结构与内容概览
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G21D/fig6-1.md) · [JSON](../../architecture/diagrams/G21D/fig6-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G21De.pdf`；SHA-256：`220ead5fef846c52417b9b7a915ff4a64f327680b384c369840926b85958786a`。
+
+## 原图 · PDF 第 39 页
+
+![英文原图](../assets/G21D/fig6-1-p0039.png)
+
+PDF 坐标：`[74.0, 132.3, 538.0, 558.9]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+he Open Group
+=
+P
+/ Hospital and Community \
+Medical
+Nursing
+Services
+-
+~
+Adult Social Care
+(Medical Professional Lead
+(Nursing Strategy and >)
+(
+\
+-
+-
+y
+\
+Governance
+/
+Adult Mental Health
+Nursing Standards and >
+( : Primary Care Strategy ;
+QA
+)
+-
+Health and Community
+Preventative Health
+)
+(
+Regulatory Oversight
+y,
+(
+Nursing
+Psychotherapy
+( “Information and Strategy »
+Governance
+-
+~
+\
+Counseling
+)
+Mortality
+/
+Community Services
+Litigation
+)
+\
+Adult Safeguarding
+Pharmacy
+/
+Medical Aligned
+\
+Professions
+Hospital Inpatients
+)
+\
+Hospital Outpatients
+Facilities Management
+)
+\
+Y
+)
+Emergency Services
+_
+\
+```
+
+## 概要（历史解释；局部修正见上）
+
+政府参考模型中“健康与社区福祉”部门的 L1–L3 分解：1 个部门、3 个功能、22 项服务。
+
+## 目的（历史解释；局部修正见上）
+
+第 6 章开篇用这张图概览“健康与社区福祉”部门（L1）下的功能（L2）与服务（L3），随后的表 6-1 逐项给出说明。它是图 1-1 三层结构在本部门的具体展开，与其余 10 个部门图采用同一模板，附录 A 第 49 页把它与图 5-1 汇总在同一页。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+最外层浅蓝色大框是 L1 部门，顶部白色粗体字是部门名称。框内三个等宽的白色圆角框是 L2 功能，从左到右依次为医院与社区服务、医疗、护理。每个功能框里自上而下排列的胶囊形小框是 L3 服务。图中没有连线或箭头，上下级关系完全由框的嵌套表达，同一功能内的服务是并列的。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 本部门分为 3 个 L2 功能：医院与社区服务（12 项服务）、医疗（7 项）、护理（3 项），共 22 项 L3 服务。
+- 按表 6-1 的功能说明：医院与社区服务为保障成人的心理与身体健康而提供服务；医疗涵盖医学的类型、分类和/或专科；护理提供与照护病患及体弱者相关的服务。
+- 医院与社区服务是最大的功能，同时包含照护类服务（成人社会照护、成人心理健康、预防性健康、心理治疗、心理咨询、社区服务、成人保护、医疗相关专业）和医院运营类服务（住院、门诊、设施管理、急救服务）。
+- 医疗与护理两个功能以治理、战略与标准类服务为主：医疗专业领导、初级医疗战略、监管监督、信息与战略治理，护理战略与治理、护理标准与质量保证；只有死亡事务、诉讼、药房与健康与社区护理是具体的服务提供。这与第 6 章开篇“医疗与护理治理、战略与照护服务”的表述一致。
+- 本部门的社会照护与保护面向成人（成人社会照护、成人心理健康、成人保护）；儿童的对应服务（儿童社会照护与保护等）在青少年与教育部门（图 5-1）。
+- “急救服务”指院前照护，包括救护车、紧急响应与院外治疗；应急规划与消防服务在司法、治安与内政部门（图 7-1）。这里的“设施管理”专指医院与社区设施的维护与管理。
+
+## 层级（历史解释；局部修正见上）
+
+三层严格树形：L1 部门“健康与社区福祉”（最外层框）→ 3 个 L2 功能（白色圆角框）→ 22 个 L3 服务（胶囊框）。每项服务只属于一个功能，对应图 1-1 中“部门—功能—服务”的组成关系。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有任何连线或箭头。服务框位于功能框内，表示该服务属于该功能；功能框位于部门框内，表示该功能属于本部门（图 1-1 用菱形组合线表示同样的组成关系）。元素清单用 parent/level 记录这种嵌套，因此关系清单为空。
+
+## 易误读点（历史解释；局部修正见上）
+
+- “Counseling”指用谈话疗法帮助有心理与情绪困难的成人；中文稿译作“咨询”，应理解为心理咨询，而不是一般业务咨询。
+- “Mortality（死亡事务）”指与死亡及丧亲相关的服务与信息，不是死亡率统计；“Litigation（诉讼）”指针对公共部门医疗方提起的争议或法律行动。
+- 图中住院在门诊之前，表 6-1 中门诊在住院之前；同一功能内服务的上下次序不表示优先级或流程先后。
+- 中文稿引用的中文化 PNG 字号混乱（“医疗”“护理”两个功能标题比服务标签还小），不能用字号判断层级，应以框的嵌套为准。
+- 图框下方的浅灰色线条是 PDF 评估版水印的残影，不属于图的内容。
+
+## 元素
+
+```json
+[
+  {
+    "id": "l1_health_community_wellbeing",
+    "label_en": "Health and Community Wellbeing",
+    "label_zh": "健康与社区福祉",
+    "type": "other",
+    "notation_type": "GRM L1 部门（Sector）",
+    "parent": null,
+    "level": 1,
+    "position": "最外层浅蓝色框，标题在顶部居中",
+    "description_zh": "GRM 第 1 层“部门”，即政府的一个业务领域；词表没有对应类型，故用 other。"
+  },
+  {
+    "id": "l2_hospital_community_services",
+    "label_en": "Hospital and Community Services",
+    "label_zh": "医院与社区服务",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_health_community_wellbeing",
+    "level": 2,
+    "order": 1,
+    "position": "左",
+    "description_zh": "为保障成人的心理与身体健康而提供的服务（表 6-1）。"
+  },
+  {
+    "id": "l2_medical",
+    "label_en": "Medical",
+    "label_zh": "医疗",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_health_community_wellbeing",
+    "level": 2,
+    "order": 2,
+    "position": "中",
+    "description_zh": "涵盖医学的类型、分类和/或专科（表 6-1）。"
+  },
+  {
+    "id": "l2_nursing",
+    "label_en": "Nursing",
+    "label_zh": "护理",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_health_community_wellbeing",
+    "level": 2,
+    "order": 3,
+    "position": "右",
+    "description_zh": "提供与照护病患及体弱者相关的服务（表 6-1）。"
+  },
+  {
+    "id": "l3_adult_social_care",
+    "label_en": "Adult Social Care",
+    "label_zh": "成人社会照护",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 1,
+    "description_zh": "支持有身体或学习困难的成人。"
+  },
+  {
+    "id": "l3_adult_mental_health",
+    "label_en": "Adult Mental Health",
+    "label_zh": "成人心理健康",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 2
+  },
+  {
+    "id": "l3_preventative_health",
+    "label_en": "Preventative Health",
+    "label_zh": "预防性健康",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 3,
+    "description_zh": "为预防疾病而提供的照护。"
+  },
+  {
+    "id": "l3_psychotherapy",
+    "label_en": "Psychotherapy",
+    "label_zh": "心理治疗",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 4
+  },
+  {
+    "id": "l3_counseling",
+    "label_en": "Counseling",
+    "label_zh": "咨询（心理咨询）",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 5,
+    "description_zh": "用谈话疗法帮助有心理与情绪困难的成人；中文稿译作“咨询”。"
+  },
+  {
+    "id": "l3_community_services",
+    "label_en": "Community Services",
+    "label_zh": "社区服务",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 6,
+    "description_zh": "保护社区成员身心健康并监测社区健康服务。"
+  },
+  {
+    "id": "l3_adult_safeguarding",
+    "label_en": "Adult Safeguarding",
+    "label_zh": "成人保护",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 7
+  },
+  {
+    "id": "l3_medical_aligned_professions",
+    "label_en": "Medical Aligned Professions",
+    "label_zh": "医疗相关专业",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 8,
+    "description_zh": "由注册或合格医疗专业人员提供的诊断、技术、治疗与支持服务。"
+  },
+  {
+    "id": "l3_hospital_inpatients",
+    "label_en": "Hospital Inpatients",
+    "label_zh": "医院住院",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 9,
+    "description_zh": "至少一晚的医院照护与监护；表 6-1 中列在门诊之后。"
+  },
+  {
+    "id": "l3_hospital_outpatients",
+    "label_en": "Hospital Outpatients",
+    "label_zh": "医院门诊",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 10,
+    "description_zh": "不足一晚的医院照护与监护。"
+  },
+  {
+    "id": "l3_facilities_management",
+    "label_en": "Facilities Management",
+    "label_zh": "设施管理",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 11,
+    "description_zh": "医院与社区设施的维护与管理。"
+  },
+  {
+    "id": "l3_emergency_services",
+    "label_en": "Emergency Services",
+    "label_zh": "急救服务",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_hospital_community_services",
+    "level": 3,
+    "order": 12,
+    "description_zh": "院前照护：救护车、紧急响应与院外治疗。"
+  },
+  {
+    "id": "l3_medical_professional_lead",
+    "label_en": "Medical Professional Lead",
+    "label_zh": "医疗专业领导",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_medical",
+    "level": 3,
+    "order": 1,
+    "description_zh": "为医疗实践与医疗专业人员设定方向。"
+  },
+  {
+    "id": "l3_primary_care_strategy",
+    "label_en": "Primary Care Strategy",
+    "label_zh": "初级医疗战略",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_medical",
+    "level": 3,
+    "order": 2
+  },
+  {
+    "id": "l3_regulatory_oversight",
+    "label_en": "Regulatory Oversight",
+    "label_zh": "监管监督",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_medical",
+    "level": 3,
+    "order": 3,
+    "description_zh": "协调各项职能，确保政策一致实施。"
+  },
+  {
+    "id": "l3_info_strategy_governance",
+    "label_en": "Information and Strategy Governance",
+    "label_zh": "信息与战略治理",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_medical",
+    "level": 3,
+    "order": 4
+  },
+  {
+    "id": "l3_mortality",
+    "label_en": "Mortality",
+    "label_zh": "死亡事务",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_medical",
+    "level": 3,
+    "order": 5,
+    "description_zh": "与死亡及丧亲相关的服务与信息。"
+  },
+  {
+    "id": "l3_litigation",
+    "label_en": "Litigation",
+    "label_zh": "诉讼",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_medical",
+    "level": 3,
+    "order": 6,
+    "description_zh": "针对公共部门医疗方提起的争议或法律行动。"
+  },
+  {
+    "id": "l3_pharmacy",
+    "label_en": "Pharmacy",
+    "label_zh": "药房",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_medical",
+    "level": 3,
+    "order": 7
+  },
+  {
+    "id": "l3_nursing_strategy_governance",
+    "label_en": "Nursing Strategy and Governance",
+    "label_zh": "护理战略与治理",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_nursing",
+    "level": 3,
+    "order": 1
+  },
+  {
+    "id": "l3_nursing_standards_qa",
+    "label_en": "Nursing Standards and QA",
+    "label_zh": "护理标准与质量保证",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_nursing",
+    "level": 3,
+    "order": 2,
+    "description_zh": "评估患者照护标准与护士专业能力。"
+  },
+  {
+    "id": "l3_health_community_nursing",
+    "label_en": "Health and Community Nursing",
+    "label_zh": "健康与社区护理",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_nursing",
+    "level": 3,
+    "order": 3,
+    "description_zh": "管理社区与健康照护，领导地区护士、社区护士与支持人员团队。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "浅蓝色大圆角框 + 顶部白色粗体标题",
+    "meaning_zh": "L1 部门（Sector）",
+    "explicit": false
+  },
+  {
+    "symbol": "白色圆角框 + 黑色粗体标题",
+    "meaning_zh": "L2 功能（Function），属于所在部门",
+    "explicit": false
+  },
+  {
+    "symbol": "白色胶囊形小框（细灰边）",
+    "meaning_zh": "L3 服务（Service），属于所在功能",
+    "explicit": false
+  },
+  {
+    "symbol": "框的嵌套",
+    "meaning_zh": "组成/归属关系，与图 1-1 中菱形组合线表达的“部门—功能—服务”关系相同",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "最外层浅蓝色圆角框（顶部居中为部门标题，右上角为版权署名）内，三个等宽功能框从左到右并排：医院与社区服务（12 项）、医疗（7 项）、护理（3 项）；各框内服务自上而下单列排列。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G21D/fig1-1",
+    "relation": "detail_of",
+    "note_zh": "图 1-1 的三层结构（L1 部门—L2 功能—L3 服务）在“健康与社区福祉”部门的展开"
+  },
+  {
+    "target": "G21D/fig7-1",
+    "relation": "complements",
+    "note_zh": "同一模板的相邻部门概览（司法、治安与内政）；院前急救在本图，应急规划与消防服务在图 7-1"
+  },
+  {
+    "target": "G21D/appA-p49",
+    "relation": "related",
+    "note_zh": "附录 A 第 49 页（PDF 第 69 页）原样收录本图，与图 5-1 同页"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [],
+  "analyzed_from": [
+    "英文 PDF 第 39 页原图截图",
+    "英文 PDF 第 39–41 页正文（第 6 章开篇、表 6-1）及第 21–24 页（1.3–1.4 节）",
+    "英文 PDF 第 69 页附录 A 图示（同内容面板，用于复核标签）",
+    "中文稿 G21De_政府参考模型.md 第 543–613 行",
+    "figs/zh/g21de_fig6-1_zh.png（逐项对照）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

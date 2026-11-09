@@ -1,0 +1,1341 @@
+# G186/fig5-9 · 开发支持项目的架构的示例项目计划
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G186/fig5-9.md) · [JSON](../../architecture/diagrams/G186/fig5-9.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G186e.pdf`；SHA-256：`ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a`。
+
+## 原图 · PDF 第 69 页
+
+![英文原图](../assets/G186/fig5-9-p0069.png)
+
+PDF 坐标：`[59.5, 36.0, 552.5, 724.8]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+1 [Start Architecture Project
+0 05
+2. Ascertain Dependencies
+——
+Partial Capability Level Phase A
+4
+709.05,
+Start Partial Capabilty Level Phase A
+Verity recency
+Reaffim stakeholders, outcomes, timeline
+Define project context in EA Landscape
+Business Readiness Assessment
+‘Validating scope of change and ability to deliver
+10
+16
+Complete Partial Capabiity Level Phase A
+a
+Partial Capability Level Phases 8, C, and D
+2
+‘Start Partial Capabilty Level Phases B, C, and D
+8.16
+13
+Partial Capability Level Phase B
+4
+‘Start Partial Capabilty Level Phase B
+16
+15
+Elaborate architecture definion
+16
+Elaborate architecture specification
+7
+Define approach to minimize dependencies
+18
+Define risk controls
+13
+Partial Capability Level Phase C
+20
+an
+21
+‘Start Partial Capabilty Level Phase C
+Elaborate architecture definition
+2
+Elaborate architecture specification
+23
+Define approach to minimize dependencies
+24
+Define risk controls
+25
+Partial Capability Level Phase D
+26
+‘Start Partial Capabilty Level Phase D
+9.26
+27
+Elaborate architecture definition
+28
+Elaborate architecture specification
+29
+Define approach to minimize dependencies
+30
+Define risk controls
+31
+09-26
+Complete Partial Capability Level Phases B, C, and D
+32
+Balance Options and Suppliers
+3
+Partial Capability Level Phases B, C, and D
+34
+‘Start Partial Capabilty Level Phases B, C, and D
+r09.26
+35
+Partial Capability Level Phase B
+36
+‘Start Partial Capabilty Level Phase B
+9.26
+37
+Define the solution boundary and conditions for integration
+38
+Validate continuity in EA Landscape
+39
+Create domain-specific work packages
+40
+Partial Capability Level Phase C
+4a
+‘Start Partial Capabilty Level Phase C
+42
+Define the solution boundary and conditions for integration
+43
+Validate continuity in EA Landscape
+44
+Create domain-specific work packages
+45
+Partial Capability Level Phase D
+46
+‘Start Partial Capabilty Level Phase D
+10.08
+a7
+Define the solution boundary and conditions for integration
+48
+Validate continuity in EA Landscape
+ro
+Create domain-specific work packages
+50
+Complete Partial Capability Level Phases B, C, and D
+10:18
+51
+Partial Capability Level Phase E
+52
+Start Partial Capabilty Level Phase E
+10-18
+53
+Identify candidate Architecture Buiding Block and Solution Building Blocks
+54
+Gather estimates
+55
+Develop project timelines
+56
+Trade-off impact with superior architecture
+57
+Update roadmap
+58
+Update risk matrix
+59
+Update work package and architecture specification
+60
+Complete Partial Capability Level Phase E
+23
+61
+Finalize Scope and Budget
+t——————1
+62
+Partial Capability Level Phase F
+t—
+63
+1123
+Start Partial Capabiity Level Phase F
+64
+Finalize estimates and timeline
+65
+Update Enterprise roadmap
+66
+Populate governance and approval pian
+67
+Complete Partial Capabiity Level Phase F
+68
+Partial Capability Level Phase G
+6
+12Az
+Start Partial Capabilty Level Phase G
+70
+Perform architecture review
+n
+Confirm stakeholder approval
+2
+Complete Partial Capability Level Phase G
+12.26
+73
+Phaso A
+7%
+‘Start Phase A
+12.26
+75
+Candidate proof-of-concept work packages (as needed)
+76
+Candidate Statement of Work
+7
+Finalize stakeholder Ist
+78
+Draft success measures
+79
+Complete Phase A
+01-08
+80
+Guide Solution Delivery
+81
+Partial Program Level Phase F
+22
+Start Partial Program Level Phase F
+83
+Intiate completion of architecture work
+84
+Define target Solution Architectures
+85
+Finalize effort and resource estimates
+86
+Define variance measures in project-specific governance model
+87,
+Update risk matrix
+88
+Complete Partial Program Level Phase F
+O1-23
+89 Complete Architecture Project
+rov.23
+```
+
+## 概要（历史解释；局部修正见上）
+
+支持项目的架构项目计划：89 行任务沿“确定依赖→平衡选项与供应商→确定范围与预算→指导解决方案交付”推进。
+
+## 目的（历史解释；局部修正见上）
+
+示范第 5.2.6 节：项目架构的路径是确定依赖→平衡选项与供应商→最终确定范围与预算→准备解决方案交付治理；本图说明如何在单个项目上两轮执行能力层 B/C/D，并最终形成架构合同与交付治理安排。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+左侧自上而下读任务，粗体行是四条主线与阶段分组。右侧条形自左向右表示时间。先读四条主线：Ascertain Dependencies → Balance Options and Suppliers → Finalize Scope and Budget → Guide Solution Delivery；再读每条主线的阶段顺序。注意 B/C/D 出现两轮，第一轮侧重架构定义与规格，第二轮侧重解决方案边界、集成条件与领域工作包。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 计划共 89 行任务，四条主线是：确定依赖、平衡选项与供应商、最终确定范围与预算、指导解决方案交付。
+- 第一轮阶段 A 先验证时效性、重申利益相关者/成果/时间线、定义项目在 EA 全景中的语境、做业务就绪度评估并验证变更范围与交付能力。
+- 第一轮 B/C/D 的任务是细化架构定义与规格、定义最小化依赖的方法、定义风险控制；这是“架构定义”轮。
+- 第二轮 B/C/D 的任务换成定义解决方案边界与集成条件、验证 EA 全景连续性、创建领域特定工作包；这是“选项与供应商”轮。
+- 阶段 E 识别候选 ABB 与 SBB、收集估算、制定项目时间线、与上层架构做权衡、更新路线图/风险矩阵/工作包与架构规格。
+- 阶段 F 定稿估算与时间线、更新企业路线图、填充治理与审批计划；阶段 G 做架构评审并确认利益相关者批准；随后项目层阶段 A 准备概念验证工作包、工作说明书、利益相关者清单与成功度量。
+- 最后“指导解决方案交付”以项目群层阶段 F 收尾：启动架构工作完成、定义目标解决方案架构、定稿工作量与资源估算、定义偏差度量、更新风险矩阵。
+
+## 层级（历史解释；局部修正见上）
+
+三层：四条主线（G1）→ 阶段分组（G2，如阶段 A、B/C/D、E、F、G、项目群层 F）→ 子分组（G3，如 B/C 单阶段）→ 任务。B/C/D 在两條不同主线中各出现一轮，是两个不同的任务集。
+
+## 线条含义（历史解释；局部修正见上）
+
+深色粗横线是主线/阶段汇总条；蓝色条是任务条；细黑线加箭头是完成—开始依赖；竖向括号标出共同起止；左缘绿色窄带标记阶段。无图例。本分析只把主线/阶段之间的依赖记入 relationships；同一阶段内任务之间的细箭头未逐条枚举。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把两轮 B/C/D 当成重复劳动：第一轮产出架构定义与规格，第二轮产出解决方案边界、集成条件与领域工作包。
+- 不要把“Ascertain Dependencies”读成技术依赖清单；它包含项目语境、业务就绪度、变更范围与交付能力评估。
+- 不要根据条形长度推算日历工期；原图只有 MM-DD 标记，没有年份或完整日历轴。
+- “Guide Solution Delivery”在本图中是收尾阶段（项目群层 F），不是整个项目的开始。
+- 中文 PNG 的大量发白行不是“无任务”，而是本地化失败；第 53 行还漏掉了 ABB/SBB 区分。
+
+## 元素
+
+```json
+[
+  {
+    "id": "prj_start",
+    "label_en": "Start Architecture Project",
+    "label_zh": "启动架构项目",
+    "type": "event",
+    "parent": null,
+    "level": 0,
+    "order": 1
+  },
+  {
+    "id": "ascertain_dependencies",
+    "label_en": "Ascertain Dependencies",
+    "label_zh": "确定依赖",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "phase_a",
+    "label_en": "Partial Capability Level Phase A",
+    "label_zh": "部分能力层阶段 A",
+    "type": "phase",
+    "parent": "ascertain_dependencies",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "phases_bcd",
+    "label_en": "Partial Capability Level Phases B, C, and D",
+    "label_zh": "部分能力层阶段 B、C、D",
+    "type": "phase",
+    "parent": "ascertain_dependencies",
+    "level": 2,
+    "order": 11
+  },
+  {
+    "id": "phase_b",
+    "label_en": "Partial Capability Level Phase B",
+    "label_zh": "部分能力层阶段 B",
+    "type": "group",
+    "parent": "phases_bcd",
+    "level": 3,
+    "order": 13
+  },
+  {
+    "id": "phase_c",
+    "label_en": "Partial Capability Level Phase C",
+    "label_zh": "部分能力层阶段 C",
+    "type": "group",
+    "parent": "phases_bcd",
+    "level": 3,
+    "order": 19
+  },
+  {
+    "id": "phase_d",
+    "label_en": "Partial Capability Level Phase D",
+    "label_zh": "部分能力层阶段 D",
+    "type": "group",
+    "parent": "phases_bcd",
+    "level": 3,
+    "order": 25
+  },
+  {
+    "id": "balance_options",
+    "label_en": "Balance Options and Suppliers",
+    "label_zh": "平衡选项与供应商",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "order": 32
+  },
+  {
+    "id": "phases_bcd_2",
+    "label_en": "Partial Capability Level Phases B, C, and D",
+    "label_zh": "部分能力层阶段 B、C、D（第二轮）",
+    "type": "phase",
+    "parent": "balance_options",
+    "level": 2,
+    "order": 33
+  },
+  {
+    "id": "phase_b_2",
+    "label_en": "Partial Capability Level Phase B",
+    "label_zh": "部分能力层阶段 B（第二轮）",
+    "type": "group",
+    "parent": "phases_bcd_2",
+    "level": 3,
+    "order": 35
+  },
+  {
+    "id": "phase_c_2",
+    "label_en": "Partial Capability Level Phase C",
+    "label_zh": "部分能力层阶段 C（第二轮）",
+    "type": "group",
+    "parent": "phases_bcd_2",
+    "level": 3,
+    "order": 40
+  },
+  {
+    "id": "phase_d_2",
+    "label_en": "Partial Capability Level Phase D",
+    "label_zh": "部分能力层阶段 D（第二轮）",
+    "type": "group",
+    "parent": "phases_bcd_2",
+    "level": 3,
+    "order": 45
+  },
+  {
+    "id": "phase_e",
+    "label_en": "Partial Capability Level Phase E",
+    "label_zh": "部分能力层阶段 E",
+    "type": "phase",
+    "parent": "balance_options",
+    "level": 2,
+    "order": 51
+  },
+  {
+    "id": "finalize_scope",
+    "label_en": "Finalize Scope and Budget",
+    "label_zh": "最终确定范围与预算",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "order": 61
+  },
+  {
+    "id": "phase_f",
+    "label_en": "Partial Capability Level Phase F",
+    "label_zh": "部分能力层阶段 F",
+    "type": "phase",
+    "parent": "finalize_scope",
+    "level": 2,
+    "order": 62
+  },
+  {
+    "id": "phase_g",
+    "label_en": "Partial Capability Level Phase G",
+    "label_zh": "部分能力层阶段 G",
+    "type": "phase",
+    "parent": "finalize_scope",
+    "level": 2,
+    "order": 68
+  },
+  {
+    "id": "phase_a_2",
+    "label_en": "Phase A",
+    "label_zh": "阶段 A（项目层）",
+    "type": "phase",
+    "parent": "finalize_scope",
+    "level": 2,
+    "order": 73
+  },
+  {
+    "id": "guide_solution",
+    "label_en": "Guide Solution Delivery",
+    "label_zh": "指导解决方案交付（准备解决方案交付治理）",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "order": 80
+  },
+  {
+    "id": "program_phase_f",
+    "label_en": "Partial Program Level Phase F",
+    "label_zh": "部分项目群层阶段 F",
+    "type": "phase",
+    "parent": "guide_solution",
+    "level": 2,
+    "order": 81
+  },
+  {
+    "id": "prj_complete",
+    "label_en": "Complete Architecture Project",
+    "label_zh": "完成架构项目",
+    "type": "event",
+    "parent": null,
+    "level": 0,
+    "order": 89
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "prj_start",
+    "to": "ascertain_dependencies",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "项目启动后先确定依赖。"
+  },
+  {
+    "from": "ascertain_dependencies",
+    "to": "balance_options",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "依赖明确后平衡选项与供应商。"
+  },
+  {
+    "from": "balance_options",
+    "to": "finalize_scope",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "完成选项/供应商权衡后定稿范围与预算。"
+  },
+  {
+    "from": "finalize_scope",
+    "to": "guide_solution",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "范围与预算确定后指导解决方案交付。"
+  },
+  {
+    "from": "guide_solution",
+    "to": "prj_complete",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "项目群层阶段 F 完成后结束架构项目。"
+  },
+  {
+    "from": "phase_a",
+    "to": "phases_bcd",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "阶段 A 后进入第一轮 B/C/D。"
+  },
+  {
+    "from": "phases_bcd",
+    "to": "phases_bcd_2",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "第一轮 B/C/D 完成后，在下一主线开始第二轮 B/C/D。"
+  },
+  {
+    "from": "phases_bcd_2",
+    "to": "phase_e",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "第二轮 B/C/D 后进入阶段 E。"
+  },
+  {
+    "from": "phase_e",
+    "to": "phase_f",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "阶段 E 后进入阶段 F。"
+  },
+  {
+    "from": "phase_f",
+    "to": "phase_g",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "阶段 F 后进入阶段 G。"
+  },
+  {
+    "from": "phase_g",
+    "to": "phase_a_2",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "阶段 G 后进入项目层阶段 A。"
+  },
+  {
+    "from": "phase_a_2",
+    "to": "program_phase_f",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "项目层阶段 A 后以项目群层阶段 F 收尾。"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_main",
+    "kind": "sequence",
+    "name_zh": "四条计划主线",
+    "steps": [
+      "prj_start",
+      "ascertain_dependencies",
+      "balance_options",
+      "finalize_scope",
+      "guide_solution",
+      "prj_complete"
+    ]
+  },
+  {
+    "id": "f_phases",
+    "kind": "sequence",
+    "name_zh": "阶段顺序",
+    "steps": [
+      "phase_a",
+      "phases_bcd",
+      "balance_options",
+      "phases_bcd_2",
+      "phase_e",
+      "phase_f",
+      "phase_g",
+      "phase_a_2",
+      "program_phase_f"
+    ]
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_tasks",
+    "title_zh": "图 5-9 全部 89 行任务逐行转录",
+    "columns": [
+      "#",
+      "Task (English, as printed)",
+      "Row type / 行类型",
+      "Parent group (English)",
+      "Note / 备注"
+    ],
+    "rows": [
+      [
+        "1",
+        "Start Architecture Project",
+        "项目里程碑",
+        "",
+        ""
+      ],
+      [
+        "2",
+        "Ascertain Dependencies",
+        "主线分组",
+        "",
+        ""
+      ],
+      [
+        "3",
+        "Partial Capability Level Phase A",
+        "阶段分组",
+        "Ascertain Dependencies",
+        ""
+      ],
+      [
+        "4",
+        "Start Partial Capability Level Phase A",
+        "任务",
+        "Partial Capability Level Phase A",
+        ""
+      ],
+      [
+        "5",
+        "Verify recency",
+        "任务",
+        "Partial Capability Level Phase A",
+        ""
+      ],
+      [
+        "6",
+        "Reaffirm stakeholders, outcomes, timeline",
+        "任务",
+        "Partial Capability Level Phase A",
+        ""
+      ],
+      [
+        "7",
+        "Define project context in EA Landscape",
+        "任务",
+        "Partial Capability Level Phase A",
+        ""
+      ],
+      [
+        "8",
+        "Business Readiness Assessment",
+        "任务",
+        "Partial Capability Level Phase A",
+        ""
+      ],
+      [
+        "9",
+        "Validating scope of change and ability to deliver",
+        "任务",
+        "Partial Capability Level Phase A",
+        ""
+      ],
+      [
+        "10",
+        "Complete Partial Capability Level Phase A",
+        "任务",
+        "Partial Capability Level Phase A",
+        ""
+      ],
+      [
+        "11",
+        "Partial Capability Level Phases B, C, and D",
+        "阶段分组",
+        "Ascertain Dependencies",
+        ""
+      ],
+      [
+        "12",
+        "Start Partial Capability Level Phases B, C, and D",
+        "任务",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "13",
+        "Partial Capability Level Phase B",
+        "子分组",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "14",
+        "Start Partial Capability Level Phase B",
+        "任务",
+        "Partial Capability Level Phase B",
+        ""
+      ],
+      [
+        "15",
+        "Elaborate architecture definition",
+        "任务",
+        "Partial Capability Level Phase B",
+        ""
+      ],
+      [
+        "16",
+        "Elaborate architecture specification",
+        "任务",
+        "Partial Capability Level Phase B",
+        ""
+      ],
+      [
+        "17",
+        "Define approach to minimize dependencies",
+        "任务",
+        "Partial Capability Level Phase B",
+        ""
+      ],
+      [
+        "18",
+        "Define risk controls",
+        "任务",
+        "Partial Capability Level Phase B",
+        ""
+      ],
+      [
+        "19",
+        "Partial Capability Level Phase C",
+        "子分组",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "20",
+        "Start Partial Capability Level Phase C",
+        "任务",
+        "Partial Capability Level Phase C",
+        ""
+      ],
+      [
+        "21",
+        "Elaborate architecture definition",
+        "任务",
+        "Partial Capability Level Phase C",
+        ""
+      ],
+      [
+        "22",
+        "Elaborate architecture specification",
+        "任务",
+        "Partial Capability Level Phase C",
+        ""
+      ],
+      [
+        "23",
+        "Define approach to minimize dependencies",
+        "任务",
+        "Partial Capability Level Phase C",
+        ""
+      ],
+      [
+        "24",
+        "Define risk controls",
+        "任务",
+        "Partial Capability Level Phase C",
+        ""
+      ],
+      [
+        "25",
+        "Partial Capability Level Phase D",
+        "子分组",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "26",
+        "Start Partial Capability Level Phase D",
+        "任务",
+        "Partial Capability Level Phase D",
+        ""
+      ],
+      [
+        "27",
+        "Elaborate architecture definition",
+        "任务",
+        "Partial Capability Level Phase D",
+        ""
+      ],
+      [
+        "28",
+        "Elaborate architecture specification",
+        "任务",
+        "Partial Capability Level Phase D",
+        ""
+      ],
+      [
+        "29",
+        "Define approach to minimize dependencies",
+        "任务",
+        "Partial Capability Level Phase D",
+        ""
+      ],
+      [
+        "30",
+        "Define risk controls",
+        "任务",
+        "Partial Capability Level Phase D",
+        ""
+      ],
+      [
+        "31",
+        "Complete Partial Capability Level Phases B, C, and D",
+        "任务",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "32",
+        "Balance Options and Suppliers",
+        "主线分组",
+        "",
+        ""
+      ],
+      [
+        "33",
+        "Partial Capability Level Phases B, C, and D",
+        "阶段分组",
+        "Balance Options and Suppliers",
+        ""
+      ],
+      [
+        "34",
+        "Start Partial Capability Level Phases B, C, and D",
+        "任务",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "35",
+        "Partial Capability Level Phase B",
+        "子分组",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "36",
+        "Start Partial Capability Level Phase B",
+        "任务",
+        "Partial Capability Level Phase B",
+        ""
+      ],
+      [
+        "37",
+        "Define the solution boundary and conditions for integration",
+        "任务",
+        "Partial Capability Level Phase B",
+        ""
+      ],
+      [
+        "38",
+        "Validate continuity in EA Landscape",
+        "任务",
+        "Partial Capability Level Phase B",
+        ""
+      ],
+      [
+        "39",
+        "Create domain-specific work packages",
+        "任务",
+        "Partial Capability Level Phase B",
+        ""
+      ],
+      [
+        "40",
+        "Partial Capability Level Phase C",
+        "子分组",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "41",
+        "Start Partial Capability Level Phase C",
+        "任务",
+        "Partial Capability Level Phase C",
+        ""
+      ],
+      [
+        "42",
+        "Define the solution boundary and conditions for integration",
+        "任务",
+        "Partial Capability Level Phase C",
+        ""
+      ],
+      [
+        "43",
+        "Validate continuity in EA Landscape",
+        "任务",
+        "Partial Capability Level Phase C",
+        ""
+      ],
+      [
+        "44",
+        "Create domain-specific work packages",
+        "任务",
+        "Partial Capability Level Phase C",
+        ""
+      ],
+      [
+        "45",
+        "Partial Capability Level Phase D",
+        "子分组",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "46",
+        "Start Partial Capability Level Phase D",
+        "任务",
+        "Partial Capability Level Phase D",
+        ""
+      ],
+      [
+        "47",
+        "Define the solution boundary and conditions for integration",
+        "任务",
+        "Partial Capability Level Phase D",
+        ""
+      ],
+      [
+        "48",
+        "Validate continuity in EA Landscape",
+        "任务",
+        "Partial Capability Level Phase D",
+        ""
+      ],
+      [
+        "49",
+        "Create domain-specific work packages",
+        "任务",
+        "Partial Capability Level Phase D",
+        ""
+      ],
+      [
+        "50",
+        "Complete Partial Capability Level Phases B, C, and D",
+        "任务",
+        "Partial Capability Level Phases B, C, and D",
+        ""
+      ],
+      [
+        "51",
+        "Partial Capability Level Phase E",
+        "阶段分组",
+        "Balance Options and Suppliers",
+        ""
+      ],
+      [
+        "52",
+        "Start Partial Capability Level Phase E",
+        "任务",
+        "Partial Capability Level Phase E",
+        ""
+      ],
+      [
+        "53",
+        "Identify candidate Architecture Building Block and Solution Building Blocks",
+        "任务",
+        "Partial Capability Level Phase E",
+        ""
+      ],
+      [
+        "54",
+        "Gather estimates",
+        "任务",
+        "Partial Capability Level Phase E",
+        ""
+      ],
+      [
+        "55",
+        "Develop project timelines",
+        "任务",
+        "Partial Capability Level Phase E",
+        ""
+      ],
+      [
+        "56",
+        "Trade-off impact with superior architecture",
+        "任务",
+        "Partial Capability Level Phase E",
+        ""
+      ],
+      [
+        "57",
+        "Update roadmap",
+        "任务",
+        "Partial Capability Level Phase E",
+        ""
+      ],
+      [
+        "58",
+        "Update risk matrix",
+        "任务",
+        "Partial Capability Level Phase E",
+        ""
+      ],
+      [
+        "59",
+        "Update work package and architecture specification",
+        "任务",
+        "Partial Capability Level Phase E",
+        ""
+      ],
+      [
+        "60",
+        "Complete Partial Capability Level Phase E",
+        "任务",
+        "Partial Capability Level Phase E",
+        ""
+      ],
+      [
+        "61",
+        "Finalize Scope and Budget",
+        "主线分组",
+        "",
+        ""
+      ],
+      [
+        "62",
+        "Partial Capability Level Phase F",
+        "阶段分组",
+        "Finalize Scope and Budget",
+        ""
+      ],
+      [
+        "63",
+        "Start Partial Capability Level Phase F",
+        "任务",
+        "Partial Capability Level Phase F",
+        ""
+      ],
+      [
+        "64",
+        "Finalize estimates and timeline",
+        "任务",
+        "Partial Capability Level Phase F",
+        ""
+      ],
+      [
+        "65",
+        "Update Enterprise roadmap",
+        "任务",
+        "Partial Capability Level Phase F",
+        ""
+      ],
+      [
+        "66",
+        "Populate governance and approval plan",
+        "任务",
+        "Partial Capability Level Phase F",
+        ""
+      ],
+      [
+        "67",
+        "Complete Partial Capability Level Phase F",
+        "任务",
+        "Partial Capability Level Phase F",
+        ""
+      ],
+      [
+        "68",
+        "Partial Capability Level Phase G",
+        "阶段分组",
+        "Finalize Scope and Budget",
+        ""
+      ],
+      [
+        "69",
+        "Start Partial Capability Level Phase G",
+        "任务",
+        "Partial Capability Level Phase G",
+        ""
+      ],
+      [
+        "70",
+        "Perform architecture review",
+        "任务",
+        "Partial Capability Level Phase G",
+        ""
+      ],
+      [
+        "71",
+        "Confirm stakeholder approval",
+        "任务",
+        "Partial Capability Level Phase G",
+        ""
+      ],
+      [
+        "72",
+        "Complete Partial Capability Level Phase G",
+        "任务",
+        "Partial Capability Level Phase G",
+        ""
+      ],
+      [
+        "73",
+        "Phase A",
+        "阶段分组",
+        "Finalize Scope and Budget",
+        ""
+      ],
+      [
+        "74",
+        "Start Phase A",
+        "任务",
+        "Phase A",
+        ""
+      ],
+      [
+        "75",
+        "Candidate proof-of-concept work packages (as needed)",
+        "任务",
+        "Phase A",
+        ""
+      ],
+      [
+        "76",
+        "Candidate Statement of Work",
+        "任务",
+        "Phase A",
+        ""
+      ],
+      [
+        "77",
+        "Finalize stakeholder list",
+        "任务",
+        "Phase A",
+        ""
+      ],
+      [
+        "78",
+        "Draft success measures",
+        "任务",
+        "Phase A",
+        ""
+      ],
+      [
+        "79",
+        "Complete Phase A",
+        "任务",
+        "Phase A",
+        ""
+      ],
+      [
+        "80",
+        "Guide Solution Delivery",
+        "主线分组",
+        "",
+        ""
+      ],
+      [
+        "81",
+        "Partial Program Level Phase F",
+        "阶段分组",
+        "Guide Solution Delivery",
+        ""
+      ],
+      [
+        "82",
+        "Start Partial Program Level Phase F",
+        "任务",
+        "Partial Program Level Phase F",
+        ""
+      ],
+      [
+        "83",
+        "Initiate completion of architecture work",
+        "任务",
+        "Partial Program Level Phase F",
+        ""
+      ],
+      [
+        "84",
+        "Define target Solution Architectures",
+        "任务",
+        "Partial Program Level Phase F",
+        ""
+      ],
+      [
+        "85",
+        "Finalize effort and resource estimates",
+        "任务",
+        "Partial Program Level Phase F",
+        ""
+      ],
+      [
+        "86",
+        "Define variance measures in project-specific governance model",
+        "任务",
+        "Partial Program Level Phase F",
+        ""
+      ],
+      [
+        "87",
+        "Update risk matrix",
+        "任务",
+        "Partial Program Level Phase F",
+        ""
+      ],
+      [
+        "88",
+        "Complete Partial Program Level Phase F",
+        "任务",
+        "Partial Program Level Phase F",
+        ""
+      ],
+      [
+        "89",
+        "Complete Architecture Project",
+        "项目里程碑",
+        "",
+        ""
+      ]
+    ],
+    "notes_zh": "任务名保留英文原样；中文阶段名见 elements 的 label_zh。行类型由粗体/缩进判断。原图条形为相对周尺度，日期标记为 MM-DD，无年份，未逐条转录。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "深色粗横线（两端短竖线）",
+    "meaning_zh": "主线/阶段汇总条",
+    "explicit": false
+  },
+  {
+    "symbol": "浅蓝色矩形条",
+    "meaning_zh": "单个任务的工期条",
+    "explicit": false
+  },
+  {
+    "symbol": "细黑线 + 箭头",
+    "meaning_zh": "任务之间的完成—开始依赖",
+    "explicit": false
+  },
+  {
+    "symbol": "竖向括号（两端箭头）",
+    "meaning_zh": "一组任务或一个阶段的共同时间跨度",
+    "explicit": false
+  },
+  {
+    "symbol": "左侧绿色窄带",
+    "meaning_zh": "标记阶段分组（本图主要使用绿色）",
+    "explicit": false
+  },
+  {
+    "symbol": "粗体行 + 缩进",
+    "meaning_zh": "粗体为阶段/分组，缩进为任务",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "左侧约三分之一为编号+缩进任务清单，右侧约三分之二为按周排列的条形区；任务自上而下按计划顺序排列，条形自左向右延伸。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G186/fig5-5",
+    "relation": "instance_of",
+    "note_zh": "图 5-5 是程式化的架构开发甘特图；本图把同一模式套用到“支持项目”目的，展开为 89 行任务。"
+  },
+  {
+    "target": "G186/fig5-8",
+    "relation": "related",
+    "note_zh": "图 5-8 是“支持组合”目的的同一甘特模式实例；本图在其下游针对单个项目展开。"
+  },
+  {
+    "target": "G186/fig5-10",
+    "relation": "related",
+    "note_zh": "图 5-10 是“支持解决方案交付”目的的实例，承接本图的架构合同与交付治理。"
+  },
+  {
+    "target": "G186/fig6-1",
+    "relation": "related",
+    "note_zh": "图 6-1 第 3 栏概括支持项目目的的走查重点，与本图四条主线对应。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "medium",
+  "uncertainties_zh": [
+    "原图条形为相对周尺度，日期标记只有 MM-DD，没有年份；无法逐条还原起止日期。",
+    "任务级依赖箭头很多，本分析只记录主线/阶段级依赖，未逐条枚举。",
+    "原图第 53 行较长，中文 PNG 漏译 ABB/SBB 区分；英文原文以 PDF 截图为准。",
+    "“Guide Solution Delivery”与正文第四步“准备解决方案交付治理”措辞不同，本分析按图面标签记录。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 69 页图 5-9 截图（整图与 2x2 放大块）",
+    "英文 PDF 第 68 页 5.2.6 节正文、第 69 页图题",
+    "中文稿 G186e_实践者方法_按TOGAF_ADM开发企业架构.md 第 921–954 行",
+    "figs/zh/g186e_fig5-9_zh.png"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

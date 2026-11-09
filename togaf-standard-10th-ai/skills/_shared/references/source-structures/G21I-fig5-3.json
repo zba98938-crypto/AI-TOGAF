@@ -1,0 +1,532 @@
+{
+  "schema_version": "2.0",
+  "id": "G21I/fig5-3",
+  "title": "SOA 参考架构",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      359
+    ],
+    "label_table_lines": [
+      363,
+      376
+    ]
+  },
+  "reading": {
+    "purpose_zh": "第 5.4 节指出 MSA 参考架构仍在制定中，于是借用同类的 SOA 参考架构（ISO/IEC 18384）的分层来说明 MSA 所在的各层；正文逐层给出它们在 MSA 语境下的含义（如“微服务组件层”“微服务层”），图本身沿用 SOA 的层名。原文强调 MSA 不是完整的企业架构，只关注（微）服务所在的那些层；MSA 参考架构关注如何满足特定业务需求，SOA 参考架构关注企业集成。",
+    "reading_guide_zh": "先自上而下读白色面板里的 5 个水平层：消费者接口、业务流程、服务、服务组件、运营系统，层名在左，示意图形在右。再看面板外的 4 层嵌套色框，竖排标题由内到外为集成、服务质量、信息、治理，它们包住全部水平层，表示横切所有水平层。图形之间：粗实线树形线表示组合，带实心圆点的粗虚线表示使用/实现，细箭头表示调用（箭头指向被调用方）。",
+    "key_points_zh": [
+      "水平层自上而下：消费者接口（用户借以使用微服务的程序）→ 业务流程（业务流程及由其他业务流程和服务组成的组合）→ 服务（MSA 中为微服务及其描述、契约、策略和容器）→ 服务组件（实现微服务的软件组件，把微服务契约绑定到运营系统层中的实现）→ 运营系统（企业运营系统的程序与数据，以及支撑方案的新旧基础设施）。",
+      "4 个横切层贯穿全部水平层：集成（消息、消息转换、复杂事件处理、微服务组合、服务发现）；服务质量（性能、可靠性、可用性、可扩展性、安全性、可管理性的监控与管理）；信息（数据的管理、分析、解释与转换）；治理（治理规则与程序，以及支撑规则应用和程序运行的微服务与程序）。",
+      "示意图形表达典型的连接方式：消费者接口通过虚线使用业务流程或直接使用服务；业务流程可由其他业务流程和服务组合而成；服务由服务组件实现；服务组件再调用其他组件、运营系统中的程序和数据库。",
+      "原文在业务流程层特别说明：在 MSA 中只关心特定原子业务功能（ABF）与实现它的微服务之间的关系；由于组织和架构都是联邦式的，业务流程的需求更分散，各部分在很大程度上自主负责自己的需求。",
+      "原文在集成层特别说明：服务组合只能在应用层进行，不能发生在 MSA 内部。图中“服务”层的树形组合线是 SOA 参考架构的画法，不应理解为微服务之间互相组合。",
+      "图题为“SOA 参考架构”，图内层名是“Services”“Service Components”；正文把它们称为“微服务层”“微服务组件层”。"
+    ],
+    "hierarchy_zh": "根是 SOA 参考架构（由整张图表示）。其下 5 个水平层自上而下叠放；4 个横切层画成由内向外的嵌套色框，包住全部水平层。嵌套只是绘图方式，表示每个横切层都跨越全部水平层，横切层之间没有包含关系。各层内的示意图形以所在层为父元素。",
+    "line_semantics_zh": "粗实线（树形，带竖向分支）：组合，上方图形由下方相连的图形组成；共 6 条：业务流程 1 由业务流程 2、3 组成，业务流程 3 由服务 2、4 组成，服务 2 由服务 1、3 组成。带实心圆点的粗虚线：使用/实现，共 4 条；圆点落在消费者接口程序或服务组件 1 的边上。细实线箭头：调用，共 4 条，箭头指向被调用的组件、运营系统程序或数据库。",
+    "misreadings_zh": [
+      "4 个横切层是并列的，各自横跨全部水平层；不要因为色框嵌套就理解为“治理包含信息、信息包含服务质量”。",
+      "图中的“服务”“服务组件”是 SOA 参考架构的层名，放到 MSA 语境下对应正文的“微服务层”“微服务组件层”。",
+      "服务层里的树形组合线不表示 MSA 内部的服务组合；原文明确服务组合只能在应用层进行。",
+      "图中的图形都没有名称，只是示意各层之间的典型连接，不是某个具体系统的架构。",
+      "原图顶部和右下角的浅色空心笔画是英文 PDF 的“Evaluation Copy”水印和版权字样，不是图的内容。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "ra",
+      "label_en": "SOA Reference Architecture",
+      "label_zh": "SOA 参考架构",
+      "type": "framework",
+      "parent": null,
+      "level": 0,
+      "description_zh": "由整张图表示，名称来自图题。"
+    },
+    {
+      "id": "l_consumer",
+      "label_en": "Consumer Interfaces",
+      "label_zh": "消费者接口",
+      "type": "architecture",
+      "parent": "ra",
+      "level": 1,
+      "order": 1,
+      "description_zh": "用户借以使用微服务的程序。"
+    },
+    {
+      "id": "l_bp",
+      "label_en": "Business Processes",
+      "label_zh": "业务流程",
+      "type": "architecture",
+      "parent": "ra",
+      "level": 1,
+      "order": 2,
+      "description_zh": "业务流程，以及由其他业务流程和服务组成的组合。"
+    },
+    {
+      "id": "l_services",
+      "label_en": "Services",
+      "label_zh": "服务",
+      "type": "architecture",
+      "parent": "ra",
+      "level": 1,
+      "order": 3,
+      "description_zh": "正文称“微服务层”：微服务及其描述、契约、策略和容纳组件的容器。"
+    },
+    {
+      "id": "l_components",
+      "label_en": "Service Components",
+      "label_zh": "服务组件",
+      "type": "architecture",
+      "parent": "ra",
+      "level": 1,
+      "order": 4,
+      "description_zh": "正文称“微服务组件层”：实现微服务的软件组件，把微服务契约绑定到运营系统层中的实现。"
+    },
+    {
+      "id": "l_ops",
+      "label_en": "Operational Systems",
+      "label_zh": "运营系统",
+      "type": "architecture",
+      "parent": "ra",
+      "level": 1,
+      "order": 5,
+      "description_zh": "企业运营系统的程序与数据，以及支撑方案的新旧基础设施。"
+    },
+    {
+      "id": "x_integration",
+      "label_en": "Integration",
+      "label_zh": "集成",
+      "type": "architecture",
+      "parent": "ra",
+      "level": 1,
+      "position": "最内层色框",
+      "description_zh": "横切层：构建块之间的集成与通信，包括消息、消息转换、复杂事件处理、微服务组合、服务发现。"
+    },
+    {
+      "id": "x_qos",
+      "label_en": "Quality of Service",
+      "label_zh": "服务质量",
+      "type": "architecture",
+      "parent": "ra",
+      "level": 1,
+      "position": "第二层色框",
+      "description_zh": "横切层：性能、可靠性、可用性、可扩展性、安全性、可管理性的监控与管理。"
+    },
+    {
+      "id": "x_information",
+      "label_en": "Information",
+      "label_zh": "信息",
+      "type": "architecture",
+      "parent": "ra",
+      "level": 1,
+      "position": "第三层色框",
+      "description_zh": "横切层：数据的管理、分析、解释与转换。"
+    },
+    {
+      "id": "x_governance",
+      "label_en": "Governance",
+      "label_zh": "治理",
+      "type": "architecture",
+      "parent": "ra",
+      "level": 1,
+      "position": "最外层色框",
+      "description_zh": "横切层：治理规则与程序，以及支撑规则应用和程序运行的微服务与程序。"
+    },
+    {
+      "id": "ci_1",
+      "label_en": null,
+      "label_zh": "消费者接口程序 1（无标签矩形）",
+      "type": "application",
+      "parent": "l_consumer",
+      "level": 2,
+      "position": "消费者接口层左"
+    },
+    {
+      "id": "ci_2",
+      "label_en": null,
+      "label_zh": "消费者接口程序 2（无标签矩形）",
+      "type": "application",
+      "parent": "l_consumer",
+      "level": 2,
+      "position": "消费者接口层右"
+    },
+    {
+      "id": "bp_1",
+      "label_en": null,
+      "label_zh": "业务流程 1（组合流程，无标签椭圆）",
+      "type": "process",
+      "parent": "l_bp",
+      "level": 2,
+      "position": "业务流程层左上"
+    },
+    {
+      "id": "bp_2",
+      "label_en": null,
+      "label_zh": "业务流程 2（无标签椭圆）",
+      "type": "process",
+      "parent": "l_bp",
+      "level": 2,
+      "position": "业务流程层中"
+    },
+    {
+      "id": "bp_3",
+      "label_en": null,
+      "label_zh": "业务流程 3（无标签椭圆）",
+      "type": "process",
+      "parent": "l_bp",
+      "level": 2,
+      "position": "业务流程层右"
+    },
+    {
+      "id": "svc_1",
+      "label_en": null,
+      "label_zh": "服务 1（无标签椭圆）",
+      "type": "service",
+      "parent": "l_services",
+      "level": 2,
+      "position": "服务层左"
+    },
+    {
+      "id": "svc_2",
+      "label_en": null,
+      "label_zh": "服务 2（组合服务，无标签椭圆）",
+      "type": "service",
+      "parent": "l_services",
+      "level": 2,
+      "position": "服务层中上"
+    },
+    {
+      "id": "svc_3",
+      "label_en": null,
+      "label_zh": "服务 3（无标签椭圆）",
+      "type": "service",
+      "parent": "l_services",
+      "level": 2,
+      "position": "服务层中"
+    },
+    {
+      "id": "svc_4",
+      "label_en": null,
+      "label_zh": "服务 4（无标签椭圆）",
+      "type": "service",
+      "parent": "l_services",
+      "level": 2,
+      "position": "服务层右"
+    },
+    {
+      "id": "comp_1",
+      "label_en": null,
+      "label_zh": "服务组件 1（无标签矩形）",
+      "type": "application",
+      "parent": "l_components",
+      "level": 2,
+      "position": "服务组件层右上"
+    },
+    {
+      "id": "comp_2",
+      "label_en": null,
+      "label_zh": "服务组件 2（无标签矩形）",
+      "type": "application",
+      "parent": "l_components",
+      "level": 2,
+      "position": "服务组件层左"
+    },
+    {
+      "id": "comp_3",
+      "label_en": null,
+      "label_zh": "服务组件 3（无标签矩形）",
+      "type": "application",
+      "parent": "l_components",
+      "level": 2,
+      "position": "服务组件层中"
+    },
+    {
+      "id": "op_prog",
+      "label_en": null,
+      "label_zh": "运营系统程序（无标签矩形）",
+      "type": "application",
+      "parent": "l_ops",
+      "level": 2
+    },
+    {
+      "id": "op_db",
+      "label_en": null,
+      "label_zh": "数据库（无标签圆柱）",
+      "type": "data",
+      "parent": "l_ops",
+      "level": 2
+    }
+  ],
+  "relationships": [
+    {
+      "from": "bp_1",
+      "to": "bp_2",
+      "type": "composition",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "none",
+      "description_zh": "树形线：组合流程由其他业务流程组成"
+    },
+    {
+      "from": "bp_1",
+      "to": "bp_3",
+      "type": "composition",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "none"
+    },
+    {
+      "from": "bp_3",
+      "to": "svc_2",
+      "type": "composition",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "none",
+      "description_zh": "业务流程由服务组成"
+    },
+    {
+      "from": "bp_3",
+      "to": "svc_4",
+      "type": "composition",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "none"
+    },
+    {
+      "from": "svc_2",
+      "to": "svc_1",
+      "type": "composition",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "none",
+      "description_zh": "SOA 参考架构中的服务组合；原文指出 MSA 中服务组合只能在应用层进行"
+    },
+    {
+      "from": "svc_2",
+      "to": "svc_3",
+      "type": "composition",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "none"
+    },
+    {
+      "from": "bp_3",
+      "to": "ci_1",
+      "type": "serving",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none",
+      "description_zh": "虚线，圆点在消费者接口程序一端：消费者接口使用业务流程"
+    },
+    {
+      "from": "bp_3",
+      "to": "ci_2",
+      "type": "serving",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none",
+      "description_zh": "圆点在消费者接口程序一端"
+    },
+    {
+      "from": "svc_4",
+      "to": "ci_2",
+      "type": "serving",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none",
+      "description_zh": "消费者接口直接使用服务，绕过业务流程层；圆点在消费者接口程序一端"
+    },
+    {
+      "from": "comp_1",
+      "to": "svc_3",
+      "type": "realization",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none",
+      "description_zh": "虚线，圆点在服务组件一端：服务组件实现服务"
+    },
+    {
+      "from": "comp_1",
+      "to": "comp_2",
+      "type": "dependency",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "细箭头：组件调用其他组件"
+    },
+    {
+      "from": "comp_1",
+      "to": "comp_3",
+      "type": "dependency",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "comp_3",
+      "to": "op_prog",
+      "type": "dependency",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "组件调用运营系统中的程序"
+    },
+    {
+      "from": "comp_3",
+      "to": "op_db",
+      "type": "access",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "组件访问数据库"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_layers",
+      "title_zh": "各层说明（按原文第 5.4 节逐层转述）",
+      "columns": [
+        "层（图内标签）",
+        "类别",
+        "原文中的名称",
+        "内容"
+      ],
+      "rows": [
+        [
+          "消费者接口 Consumer Interfaces",
+          "水平层 1",
+          "Consumer Interfaces Layer",
+          "用户借以使用微服务的程序"
+        ],
+        [
+          "业务流程 Business Processes",
+          "水平层 2",
+          "Business Processes Layer",
+          "业务流程，以及由其他业务流程和服务组成的组合；MSA 只关心特定 ABF 与实现它的微服务之间的关系"
+        ],
+        [
+          "服务 Services",
+          "水平层 3",
+          "Microservices Layer",
+          "微服务及其描述、契约、策略，以及容纳微服务组件的容器"
+        ],
+        [
+          "服务组件 Service Components",
+          "水平层 4",
+          "Microservice Components Layer",
+          "实现微服务（或微服务上的操作）的软件组件，把微服务契约绑定到运营系统层中的实现"
+        ],
+        [
+          "运营系统 Operational Systems",
+          "水平层 5",
+          "Operational Systems Layer",
+          "企业运营系统的程序与数据；支撑方案所需的新旧基础设施"
+        ],
+        [
+          "集成 Integration",
+          "横切层",
+          "Integration Layer",
+          "构建块之间的集成与通信：消息、消息转换、复杂事件处理、微服务组合、服务发现；服务组合只能在应用层进行"
+        ],
+        [
+          "服务质量 Quality of Service",
+          "横切层",
+          "Quality of Service Layer",
+          "监控与管理性能、可靠性、可用性、可扩展性、安全性与可管理性"
+        ],
+        [
+          "信息 Information",
+          "横切层",
+          "Information Layer",
+          "数据的管理、分析、解释与转换"
+        ],
+        [
+          "治理 Governance",
+          "横切层",
+          "Governance Layer",
+          "治理规则与程序；支撑规则应用和程序运行的微服务与程序"
+        ]
+      ],
+      "notes_zh": "图中只有层名，内容来自英文 PDF 第 27–28 页正文（中文稿 L335–L357）。"
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "白色面板中的水平条 + 左侧层名",
+      "meaning_zh": "水平层",
+      "explicit": false
+    },
+    {
+      "symbol": "由内向外加深的嵌套蓝色色框 + 竖排标题",
+      "meaning_zh": "横切层，横跨全部水平层",
+      "explicit": false
+    },
+    {
+      "symbol": "深青色矩形",
+      "meaning_zh": "程序、组件或系统（消费者接口程序、服务组件、运营系统程序）",
+      "explicit": false
+    },
+    {
+      "symbol": "深青色椭圆",
+      "meaning_zh": "业务流程或服务",
+      "explicit": false
+    },
+    {
+      "symbol": "深青色圆柱",
+      "meaning_zh": "数据库",
+      "explicit": false
+    },
+    {
+      "symbol": "粗实线树形线",
+      "meaning_zh": "组合：上方图形由下方相连的图形组成",
+      "explicit": false
+    },
+    {
+      "symbol": "带实心圆点的粗虚线",
+      "meaning_zh": "使用/实现；圆点一端是使用方或实现方",
+      "explicit": false
+    },
+    {
+      "symbol": "细实线箭头",
+      "meaning_zh": "调用，箭头指向被调用方",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中没有图例；实线树形线、带圆点虚线、细箭头的含义是按 SOA 参考架构的惯常画法和正文逐层说明推断的，圆点所在一端为使用方/实现方也属推断。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 28 页原图截图（220 dpi）及左下放大分块",
+      "英文 PDF 第 27–28 页正文",
+      "中文稿 G21Ie_微服务架构.md 第 325–376 行（含图内标签对照表 L363–L375）",
+      "figs/zh/g21ie_fig5-3_zh.png（含右侧横切层标题处的局部放大）",
+      "figs/g21ie_fig5-3_en.png（自动相似度 0.97）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": {
+    "figure_id": "G21I/fig5-3",
+    "review_date": "2026-11-01",
+    "review_kind": "MD-body + actual image + JSON",
+    "status": "reviewed",
+    "note_zh": "这是SOA参考架构的五水平层和四横贯关注点，不能作为最终微服务部署方案。",
+    "source_md": "G21Ie_微服务架构.md",
+    "assets_opened": [
+      "figs/g21ie_fig5-3_en.png"
+    ],
+    "limit": "仅证明所列观察；未据此声明全图所有字段或全部来源图已逐项复核。"
+  },
+  "visual_structure_review": {
+    "id": "G21I/fig5-3",
+    "asset": "figs/g21ie_fig5-3_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "14"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "adm-phase-contracts-1.0",
+  "notice": "以下是基于本地指南的项目执行合同；不是 C220 完整步骤或官方强制交付物清单。阶段以信息依赖协作，输出按关注点裁剪，Requirements Management 持续贯穿。",
+  "sources": ["G184 §§4–12", "G186 §§5.2, 6.1–6.3, 15.2", "G210 §§3–5", "G248 附录 A/B"],
+  "phases": [
+    {
+      "id": "Preliminary", "name": "预备阶段：建立架构能力", "owners": ["togaf-ea-capability"],
+      "source_refs": ["G184 §§4–12"],
+      "inputs": ["企业语境、架构能力目的与期望", "现有治理、组织职责、架构资产与其他管理框架"],
+      "steps": ["定义受影响企业及架构能力范围", "确定赞助、治理、角色及能力缺口", "裁剪方法、元模型、原则与工具", "建立资产存储、维护与度量机制"],
+      "deliverables": ["organization-model", "architecture-principles", "tailored-architecture-framework", "architecture-repository"],
+      "criteria": {"capability-scope": "EA 服务目的、范围、角色和资源已明确", "governance": "决策权、治理接口、原则及升级路径已明确", "method-repository": "裁剪方法、内容元模型、工具与存储库可供架构项目使用"}
+    },
+    {
+      "id": "A", "name": "架构愿景", "owners": ["togaf-vision-scenarios", "togaf-architecture-workbench"],
+      "source_refs": ["G186 §§5.2.1–5.2.2, 6.1, 15.2.1"],
+      "inputs": ["架构工作请求及可复用的上层架构", "业务驱动、目标、利益相关者、能力与约束"],
+      "steps": ["界定架构项目问题、广度、规划期和使用目的", "识别利益相关者、关注点与上层约束", "评估团队能力、业务风险和可行性", "探索各域候选目标的概要价值与工作量", "形成工作说明与沟通安排并取得继续推进的决定"],
+      "deliverables": ["request-for-architecture-work", "architecture-vision", "statement-of-work", "communications-plan", "capability-assessment"],
+      "criteria": {"scope-purpose": "问题、范围、规划期与业务周期位置清楚", "stakeholders-constraints": "利益相关者、关注点及上层架构约束已确认", "value-effort-risk": "目标摘要、价值、工作量、风险及置信度限制可供利益相关者判断", "work-capability": "工作说明、资源与团队能力足以开展本次架构工作"}
+    },
+    {
+      "id": "B", "name": "业务架构", "owners": ["togaf-strategy-capabilities", "togaf-value-streams", "togaf-business-models-processes", "togaf-organization-roles"],
+      "source_refs": ["G186 §§5.2.2, 6.3, 15.2.1"],
+      "inputs": ["当前架构愿景、业务需求与约束", "可复用业务基线、参考模型及其他域的影响"],
+      "steps": ["选择回应关注点的业务视点", "形成同口径的目标与最低必要基线", "识别能力、价值流、组织、服务及流程差距", "分析差距所需工作、价值、成本和风险", "解决跨域影响并提交目标评审"],
+      "deliverables": ["architecture-definition-document", "architecture-requirements-specification", "architecture-building-blocks"],
+      "criteria": {"viewpoints": "视图回应已识别业务关注点", "baseline-target-gaps": "业务基线与目标可比较，保留、改变、移除和未知明确", "work-value": "差距、所需工作、价值、成本及风险可追溯", "cross-domain": "其他域、过渡状态及在建项目影响已处理"}
+    },
+    {
+      "id": "C", "name": "信息系统架构（数据与应用）", "owners": ["togaf-information-data", "togaf-application-architecture"],
+      "source_refs": ["G186 §§5.2.2, 6.3, 15.2.1"],
+      "inputs": ["当前愿景、业务架构要求及信息系统约束", "现有数据、应用、接口、质量和责任边界"],
+      "steps": ["分别选择数据与应用视点，记录先后及并行依据", "开发数据和应用目标及可比基线", "识别数据质量、生命周期、服务、接口与交互差距", "分析应用/数据一致性、迁移和跨域影响", "形成候选构建块及架构需求并评审"],
+      "deliverables": ["architecture-definition-document", "architecture-requirements-specification", "architecture-building-blocks"],
+      "criteria": {"data-architecture": "数据含义、责任、关系、质量及生命周期的目标/基线/差距明确；无数据变更须有影响判断", "application-architecture": "应用职责、接口、交互的目标/基线/差距明确；无应用变更须有影响判断", "data-application-alignment": "应用/数据使用与拥有、业务支持和集成约束一致", "work-cross-domain": "差距工作、价值、风险、迁移及其他域影响已处理"}
+    },
+    {
+      "id": "D", "name": "技术架构", "owners": ["togaf-technology-architecture", "togaf-security-risk"],
+      "source_refs": ["G186 §§5.2.2, 6.3, 15.2.1"],
+      "inputs": ["业务、数据、应用的能力和质量需求", "平台、网络、环境、标准、安全及运营基线"],
+      "steps": ["选择平台、部署、通信与运营视点", "开发技术目标与可比基线", "识别质量、容量、韧性、技术标准及运营差距", "分析技术构建块、成本、风险与依赖", "协调跨域影响并评审"],
+      "deliverables": ["architecture-definition-document", "architecture-requirements-specification", "architecture-building-blocks"],
+      "criteria": {"baseline-target-gaps": "技术目标、基线与差距可比较且有范围", "quality-operations": "质量、安全、韧性及运营要求有对应设计与验证办法", "standards-blocks": "技术标准和构建块约束可追溯", "work-cross-domain": "实现工作、价值、风险、成本及跨域影响已处理"}
+    },
+    {
+      "id": "E", "name": "机会与解决方案", "owners": ["togaf-gap-solutions"],
+      "source_refs": ["G186 §§5.2.2, 6.3.3–6.3.4", "G248 §§3–6"],
+      "inputs": ["跨域目标、差距、架构需求与依赖", "约束、候选实现、组织就绪度及价值预期"],
+      "steps": ["整合跨域差距及解决方案选择", "将差距分配到可解释的工作包", "评估复用、购买、开发等方案的约束与权衡", "定义可运营的过渡架构及依赖", "形成架构路线图与迁移策略"],
+      "deliverables": ["architecture-roadmaps", "solution-building-blocks", "architecture-definition-document"],
+      "criteria": {"gap-work-package": "工作包覆盖所选择差距并追溯价值与约束", "options": "候选方案的可行性与取舍有证据", "transitions-dependencies": "过渡状态具有运营、数据、控制、依赖及回退条件", "roadmap": "路线图说明各工作包的价值、工作量、风险和相互依赖"}
+    },
+    {
+      "id": "F", "name": "迁移规划", "owners": ["togaf-migration-roadmap"],
+      "source_refs": ["G186 §§4.1.2–4.1.3, 5.2.2"],
+      "inputs": ["架构路线图、工作包与过渡架构", "资源、预算、业务周期及实施项目约束"],
+      "steps": ["与组合和项目管理协调实施优先级", "评估收益、资源、成本、风险与依赖", "确定项目、负责人、日期和验收条件", "完善迁移计划与治理交接", "取得适当的资源与实施计划决定"],
+      "deliverables": ["implementation-migration-plan", "architecture-roadmaps"],
+      "criteria": {"priorities-resources": "优先级、预算和资源有来源；不足之处已处理", "dependencies-schedule": "项目顺序、依赖、起止日期和负责人一致", "migration-continuity": "切换、共存、数据核对、回退及过渡退出条件明确", "governance-handoff": "实施责任、架构约束与验收/治理交接明确"}
+    },
+    {
+      "id": "G", "name": "实施治理", "owners": ["togaf-implementation-governance", "togaf-security-risk"],
+      "source_refs": ["G186 §§5.1.5, 5.2.2, 15.2.2"],
+      "inputs": ["已接受目标、架构需求、实施计划和合同", "实际设计/实施证据、偏离及变更请求"],
+      "steps": ["明确合同责任、架构要求与合规判据", "核对实施范围与预期差距及工作包", "逐项检查设计和实施对架构要求的符合性", "评估偏离影响，提交强制执行/临时豁免/变更架构选项", "跟踪纠偏、限时豁免及业务运营交接"],
+      "deliverables": ["architecture-contract", "compliance-assessment", "change-request"],
+      "criteria": {"contract-controls": "要求、合同、责任与验证判据明确", "scope-compliance": "实施范围实际覆盖预期差距及工作包", "implementation-evidence": "符合性判断依据实际设计/实施证据，计划不冒充结果", "deviation-disposition": "偏离有影响评估、实际决定及纠偏/限时豁免复核", "operational-handoff": "运营交接、残余风险及后续价值监测责任明确"}
+    },
+    {
+      "id": "H", "name": "架构变更管理", "owners": ["togaf-change-value"],
+      "source_refs": ["G186 §§5.1.5, 5.2.2, 15.2.3"],
+      "inputs": ["已实施架构、预期价值和度量口径", "运营测量、业务/技术变化、风险与反馈"],
+      "steps": ["比较实际价值与利益相关者偏好及预期", "识别变化触发、架构缺口及风险", "评估维护变更、局部迭代或新周期的影响", "取得继续、修改或启动新架构工作的决定", "更新存储库、需求基线及监测安排"],
+      "deliverables": ["change-request", "request-for-architecture-work", "architecture-repository", "architecture-roadmaps"],
+      "criteria": {"value-monitoring": "实际价值测量与预期、口径及置信度限制可比较", "change-impact": "变更触发与对架构/需求/项目的影响有证据", "cycle-disposition": "维护、局部迭代或新 ADM 周期的选择有理由及决策权", "repository-feedback": "资产、需求、版本和下次监测/评审已衔接"}
+    }
+  ],
+  "requirements_management": {
+    "owners": ["togaf-requirements"],
+    "source_refs": ["G186 §§5.1.4, 6.1.1, 15.1"],
+    "steps": ["识别来源、利益相关者与目标", "澄清、优先排序、形成可验证需求并建立基线", "在每次阶段退出前复核需求与工作产品的追踪", "登记需求变更及候选影响范围，再逐项判断", "把接受、拒绝或待决处置反馈给受影响阶段并按需重开迭代"],
+    "deliverables": ["architecture-requirements-specification", "requirements-impact-assessment"],
+    "notice": "这是所有阶段的持续工作，不是 H 之后的最后一步；图可达只给出候选影响，不替代业务影响判断。"
+  },
+  "guide_usage": [{"guide_ref": "G190 §6", "phase": "A", "usage": "查找已有信息地图及其与业务能力地图等核心制品的关系", "artifact_ids": ["information-map", "business-capability-map"], "method_ids": [], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G190 §6", "phase": "B", "usage": "按范围构建信息概念、关系及与其他业务制品要素的关联", "artifact_ids": ["information-map"], "method_ids": [], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G190 §6", "phase": "C", "usage": "可能时把信息转为数据模型，并捕获与应用、技术服务和逻辑属性的关系", "artifact_ids": ["information-map", "conceptual-data-diagram", "logical-data-diagram"], "method_ids": [], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G190 §6", "phase": "D", "usage": "捕获信息与技术服务及驱动设计的逻辑属性的关系", "artifact_ids": ["information-map"], "method_ids": [], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G190 §6", "phase": "E", "usage": "更新业务架构时同步更新信息地图", "artifact_ids": ["information-map"], "method_ids": [], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G206 §6", "phase": "A", "usage": "查找并使用已有组织描述，哪怕只是传统组织架构图", "artifact_ids": ["organization-map", "organization-decomposition-diagram"], "method_ids": [], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G206 §6", "phase": "B", "usage": "构建组织地图，补充理解业务需求所需细节及与能力、信息等视图的关系；识别解决方案利益相关者", "artifact_ids": ["organization-map", "capability-organization-matrix", "stakeholder-catalog"], "method_ids": [], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G211 §6", "phase": "Preliminary", "usage": "定义EA团队与组织时引入能力，确定现有企业与业务能力", "artifact_ids": ["business-capabilities-catalog", "business-capability-map"], "method_ids": ["capability-decomposition-method"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G211 §6", "phase": "A", "usage": "识别落实战略优先级所需能力，并用能力地图形成基线与目标高层视图", "artifact_ids": ["business-capability-map", "strategy-capability-matrix"], "method_ids": [], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G211 §6", "phase": "B", "usage": "用热力映射（成熟度、有效性、绩效、价值或成本）评估能力差距；把能力映射到组织、价值流、信息系统与战略计划", "artifact_ids": ["business-capability-map", "capability-organization-matrix", "value-stream-capability-matrix"], "method_ids": [], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G21I §4–5", "phase": "Preliminary", "usage": "评估MSA组织与生命周期就绪度及治理安排", "artifact_ids": [], "method_ids": ["msa-readiness-evidence-method", "msa-federated-governance-process-method"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G21I §4、§6", "phase": "A", "usage": "在愿景中识别微服务适用范围与候选边界", "artifact_ids": [], "method_ids": ["microservice-boundary-method"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G21I §4、§7", "phase": "B", "usage": "在业务架构中细化微服务对应的业务边界", "artifact_ids": [], "method_ids": ["microservice-boundary-method"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G21I §4、§11", "phase": "F", "usage": "迁移规划中核对微服务业务价值与开发运营资源", "artifact_ids": [], "method_ids": ["msa-value-resource-evidence-method"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G21I §4、§8", "phase": "C", "usage": "面向MSA的数据分布与应用契约设计", "artifact_ids": ["application-communication-diagram", "data-dissemination-diagram"], "method_ids": ["msa-contract-consumer-evidence-method", "msa-data-distribution-conditions-method"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G21I §4、§9", "phase": "D", "usage": "面向MSA的部署与执行单元技术架构", "artifact_ids": ["software-distribution-diagram", "platform-decomposition-diagram"], "method_ids": ["msa-source-deployment-execution-method"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G21I §4、§12", "phase": "G", "usage": "双轨治理与豁免过程", "artifact_ids": [], "method_ids": ["msa-federated-governance-process-method"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G212 §6", "phase": "A", "usage": "在架构愿景阶段启动DTRA，并按表6-1在各阶段考虑相关因素", "artifact_ids": [], "method_ids": ["dtra-readiness-method", "dtra-adm-phase-alignment-review"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G186 §12.1", "phase": "G", "usage": "敏捷对齐落在阶段G：架构定义企业待办、产品边界与产品负责人约束", "artifact_ids": [], "method_ids": ["product-constraint-conformance-review"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G186 §12.2", "phase": "B", "usage": "领域架构须融入整体EA；安全按关注点贯穿其他域", "artifact_ids": [], "method_ids": ["domain-architecture-alignment-review"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G186 §12.3", "phase": "H", "usage": "事件改变风险偏好即需求变更；就目标与工作变更提供建议", "artifact_ids": [], "method_ids": ["incident-architecture-adjustment-review"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G186 附录D", "phase": "G", "usage": "用解决方案交付笔记本把架构传达给交付团队", "artifact_ids": [], "method_ids": ["solution-delivery-notebook-review"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G249 §4", "phase": "Preliminary", "usage": "建立架构实践时定义架构角色、职责与KPI", "artifact_ids": [], "method_ids": ["architecture-role-catalog-review"], "basis": "guide-statement; candidate use, not a mandatory phase output"}, {"guide_ref": "G176 §9–11", "phase": "A", "usage": "开发业务场景时按清单推进各步骤并把目的做成SMART", "artifact_ids": [], "method_ids": ["business-scenario-checklist-review", "smart-objective-review"], "basis": "guide-statement; candidate use, not a mandatory phase output"}]
+}

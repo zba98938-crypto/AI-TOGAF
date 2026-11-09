@@ -1,0 +1,298 @@
+# G184/fig4-2 · 扩展企业
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G184/fig4-2.md) · [JSON](../../architecture/diagrams/G184/fig4-2.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G184e.pdf`；SHA-256：`85fe5653767b184c3c8c9c1bef9f5738adbb2bf6661fb50ee95e72d16bc9f614`。
+
+## 原图 · PDF 第 36 页
+
+![英文原图](../assets/G184/fig4-2-p0036.png)
+
+PDF 坐标：`[61.1, 292.4, 550.9, 525.8]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Competitors,
+Laws,
+Suppliers
+Intraprise
+Distributors
+Regulations,
+and
+Customers,
+Standards,
+Logistics
+(e.g., HR,
+& Logistics
+Market
+Guidelines,
+Finance)
+Providers
+Providers
+Frameworks
+o))
+Ww
+Tne Open coun)
+```
+
+## 概要（历史解释；局部修正见上）
+
+企业的扩展视图：企业内含多个内部单元，与上游供应商、下游分销商组成扩展企业，外层是竞争、法规与客户市场构成的环境。
+
+## 目的（历史解释；局部修正见上）
+
+第 4.2.3 节讨论企业的组织模型。作者指出企业可能经由独立代理、伙伴、供应商采购原材料或补充人力，领导者要为每类“延伸”建立关键联系人及其地点的目录；本图示意需要记录的组织模型可能的样子，原文强调它不是绝对参照。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+由外向内读四层嵌套：最外层深蓝“环境”，其中左侧是外部约束框（竞争对手、法律、法规、标准、指南、框架），右侧是“客户、市场”，中间是浅蓝“扩展企业”；扩展企业内左为“供应商与物流提供商”、右为“分销商与物流提供商”、中间为“企业”；企业内是层叠的“企业内部单元（如人力资源、财务）”卡片。黄色定位图标表示团队可能所在的地理位置。从左到右大致是供应链的上下游。图中没有连线。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 四层嵌套表示范围：环境 ⊃ 扩展企业 ⊃ 企业 ⊃ 企业内部单元。第 3.2 节说明企业边界的定义有意保持灵活，可以涵盖由使命或供应链连接的不同组织。
+- 企业内部单元（Intraprise）：第 3 章尾注 [2] 定义为企业内按地理或逻辑划分的一组自治职能，其职能不一定越出企业边界；若干 Intraprise 组成一个企业。图中三张层叠卡片各带一个定位图标，表示企业内有多个这样的单元，可能分布在不同地点。
+- 扩展企业包括企业本身，以及上游的供应商与物流提供商和下游的分销商与物流提供商。正文说企业可能经由独立代理、伙伴、供应商采购原材料或补充人力，领导者应为每类“延伸”整理关键联系人及其地点的目录。
+- 环境层在扩展企业之外：一侧是竞争对手和法律、法规、标准、指南、框架等外部约束（第 4.2.2 节建议为适用的合规要求、法规和行业标准建立目录），另一侧是客户与市场。
+- 黄色定位图标表示团队可能运营的地理位置（图注）。正文要求同时记录地点、与客户的接近程度与交互方式、创新价值，以及数据主权（员工、客户、伙伴或收入数据能否跨地缘政治边界共享）、供应商和伙伴。
+- 默认的组织模型应反映业务线或业务单元；建立这种扩展视图有助于为业务架构或成本结构管理制定备选可行方案。
+- 正文随后区分三类组织模型：职能型（按 Porter 价值链分成营销、销售、制造、财务、人力资源等纵向单元）、产品型（按产品线划分，公共职能可重复设置或共享）和矩阵型（项目型执行为主）。图中“如人力资源、财务”的内部单元即职能型单元的例子。
+
+## 层级（历史解释；局部修正见上）
+
+按范围嵌套共四层：第 0 层环境；第 1 层扩展企业，以及与它并列、位于环境层内的外部约束框和客户/市场框；第 2 层是扩展企业内的供应商与物流提供商、企业、分销商与物流提供商；第 3 层是企业内的企业内部单元（层叠多张）。嵌套表示“在其范围之内”，不是汇报关系。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有连线或箭头。包含关系由框的嵌套表达（记在 parent 中）。关系清单中的供应链流向（供应商 → 企业 → 分销商 → 客户）和外部约束对扩展企业的影响，都是依据左右排列和正文推断的隐含关系。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 嵌套框表示范围边界，不是组织汇报层级。
+- 客户/市场与竞争对手/法规位于扩展企业之外的环境层，不属于扩展企业。
+- 黄色图标表示地理位置，不是风险或警示标记；图注没有给出具体地点或图标数量的含义。
+- 层叠卡片表示企业内的多个内部单元（依据 Intraprise 的定义推断），不是同一单元的多个版本。
+- 扩展企业的边界不等于法律或所有权边界：第 3.2 节说明企业的定义不与组织的法律或职能边界绑定。
+- 中文稿第 4.2.3 节（L231–233）把英文本节压缩为一段概述，没有收录本图和图注。
+
+## 元素
+
+```json
+[
+  {
+    "id": "environment",
+    "label_en": "Environment",
+    "label_zh": "环境",
+    "type": "group",
+    "parent": null,
+    "level": 0,
+    "position": "最外层深蓝框"
+  },
+  {
+    "id": "external_constraints",
+    "label_en": "Competitors, Laws, Regulations, Standards, Guidelines, Frameworks",
+    "label_zh": "竞争对手、法律、法规、标准、指南、框架",
+    "type": "other",
+    "parent": "environment",
+    "level": 1,
+    "position": "环境层左侧灰框",
+    "description_zh": "扩展企业之外的竞争者与外部约束（法规、标准、指南、框架）。"
+  },
+  {
+    "id": "extended_enterprise",
+    "label_en": "Extended Enterprise",
+    "label_zh": "扩展企业",
+    "type": "group",
+    "parent": "environment",
+    "level": 1,
+    "position": "环境层中部浅蓝框"
+  },
+  {
+    "id": "customers_market",
+    "label_en": "Customers, Market",
+    "label_zh": "客户、市场",
+    "type": "actor",
+    "parent": "environment",
+    "level": 1,
+    "position": "环境层右侧灰框"
+  },
+  {
+    "id": "suppliers",
+    "label_en": "Suppliers and Logistics Providers",
+    "label_zh": "供应商与物流提供商",
+    "type": "actor",
+    "parent": "extended_enterprise",
+    "level": 2,
+    "order": 1,
+    "position": "扩展企业内左侧灰框（左下 3 个定位图标）",
+    "attributes": {
+      "location_pins": 3
+    }
+  },
+  {
+    "id": "enterprise",
+    "label_en": "Enterprise",
+    "label_zh": "企业",
+    "type": "organization_unit",
+    "parent": "extended_enterprise",
+    "level": 2,
+    "order": 2,
+    "position": "扩展企业内中部灰蓝框"
+  },
+  {
+    "id": "distributors",
+    "label_en": "Distributors & Logistics Providers",
+    "label_zh": "分销商与物流提供商",
+    "type": "actor",
+    "parent": "extended_enterprise",
+    "level": 2,
+    "order": 3,
+    "position": "扩展企业内右侧灰框（左下 3 个定位图标）",
+    "attributes": {
+      "location_pins": 3
+    }
+  },
+  {
+    "id": "intraprise",
+    "label_en": "Intraprise (e.g., HR, Finance)",
+    "label_zh": "企业内部单元（Intraprise，如人力资源、财务）",
+    "type": "organization_unit",
+    "parent": "enterprise",
+    "level": 3,
+    "position": "企业框内三张层叠卡片，每张带一个定位图标",
+    "description_zh": "企业内按地理或逻辑划分的一组自治职能（第 3 章尾注 [2]）。中文稿图 3-1 的中文 PNG 译作“企业内部”。",
+    "attributes": {
+      "stacked_cards": 3,
+      "location_pins": 3
+    }
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "suppliers",
+    "to": "enterprise",
+    "type": "flow",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "依据左右排列与正文推断：上游供应商与物流提供商向企业供应原材料、服务或人力。"
+  },
+  {
+    "from": "enterprise",
+    "to": "distributors",
+    "type": "flow",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "依据左右排列推断：企业的产品经下游分销商与物流提供商流出。"
+  },
+  {
+    "from": "distributors",
+    "to": "customers_market",
+    "type": "flow",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "依据左右排列推断：分销商把产品与服务送达客户与市场。"
+  },
+  {
+    "from": "external_constraints",
+    "to": "extended_enterprise",
+    "type": "influence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "竞争、法律、法规、标准等外部力量构成扩展企业运营的语境与约束（第 3.2 节、第 4.2.2 节）。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "黄色定位图标",
+    "meaning_zh": "团队可能运营的地理位置（图注原文说明）",
+    "explicit": true
+  },
+  {
+    "symbol": "深蓝外框 / 浅蓝框 / 灰蓝框 / 深青色卡片",
+    "meaning_zh": "由外向内的四层范围：环境 / 扩展企业 / 企业 / 企业内部单元",
+    "explicit": false
+  },
+  {
+    "symbol": "灰色框",
+    "meaning_zh": "外部参与方（供应商、分销商、客户）或外部约束（竞争、法规、标准等）",
+    "explicit": false
+  },
+  {
+    "symbol": "层叠的卡片",
+    "meaning_zh": "企业内有多个内部单元",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "四层嵌套容器。环境层内从左到右：外部约束框、扩展企业、客户/市场框；扩展企业内从左到右：供应商与物流提供商、企业、分销商与物流提供商；企业内是三张层叠卡片。右下角有“© The Open Group”。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G184/fig3-1",
+    "relation": "complements",
+    "note_zh": "图 3-1 用带标签的流向表示经济—市场—企业—企业内部单元之间的交换；本图用嵌套表示企业内部单元、企业、扩展企业与环境的范围包含。两图共用“企业”和“Intraprise”概念。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "图中没有连线；供应链方向和外部约束的影响都由左右排列和正文推断。",
+    "Intraprise 没有通行中文译名；本文件译作“企业内部单元”，中文稿图 3-1 的中文 PNG 作“企业内部”。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 36 页原图截图（220 dpi）及图注",
+    "英文 PDF 第 22、28（尾注 [2]）、36–37 页正文",
+    "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 147–153、227–233 行（本图未被中文稿引用）",
+    "G184/fig3-1 英文原图与 figs/zh/g184e_fig3-1_zh.png（对照术语）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

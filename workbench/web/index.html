@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Atlas · 架构工作台</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23152b30'/%3E%3Ctext x='8' y='29' font-size='29' fill='%23b7e6d4'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#canvas">跳到架构画布</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="项目导航">
+      <a class="brand" href="/" aria-label="Atlas 首页"><span class="brand-mark">A<span>·</span></span><span>ATLAS<small>ARCHITECTURE WORKSPACE</small></span></a>
+      <div class="workspace-label"><span class="status-dot"></span> 本地工作空间 <span class="local-tag">LOCAL</span></div>
+      <div class="section-heading"><span>项目库</span><button id="new-project" class="icon-button" title="创建项目" aria-label="创建项目">＋</button></div>
+      <nav id="projects" class="project-list" aria-label="项目列表"></nav>
+      <div class="sidebar-rule"></div>
+      <div class="section-heading"><span>当前项目视图</span><span id="view-count" class="count">0</span></div>
+      <nav id="views" class="view-list" aria-label="架构视图"></nav>
+      <div class="sidebar-bottom"><div class="sidebar-note"><span class="status-dot"></span><span id="connection">正在连接本地服务</span></div><p>模型驱动 · 版本留存 · 显式证据</p><button id="help" class="text-button">操作说明与能力边界 ↗</button></div>
+    </aside>
+    <main class="main-shell">
+      <header class="topbar">
+        <div class="breadcrumb"><span>工作空间</span><span class="separator">/</span><strong id="project-name">架构项目</strong><span id="example-label" class="badge">虚构示例</span></div>
+        <div class="top-actions"><button id="new-project-top" class="button subtle">＋ 新建项目</button><button id="import" class="button subtle">导入模型</button><button id="export" class="button subtle" disabled>导出 JSON ↗</button><input id="import-file" type="file" accept=".json,application/json" hidden></div>
+      </header>
+      <section class="project-header" aria-label="项目操作">
+        <div><div class="eyebrow">MODEL-DRIVEN ARCHITECTURE</div><h1 id="view-title">让架构从静态走向协作</h1><div class="project-subtitle"><span id="version-label" class="version-chip">尚未载入</span><span id="dirty-label">所有更改已保存</span><span class="dot-separator">·</span><span id="review-label">本地评审记录</span></div></div>
+        <div class="header-actions"><button id="validate" class="button" disabled><span>✓</span> 校验模型</button><button id="save" class="button primary" disabled>保存新版本</button><button id="generate" class="button dark" disabled>生成制品 <span>↗</span></button></div>
+      </section>
+      <div class="workspace-tabs" role="tablist" aria-label="工作台页面">
+        <button class="tab active" data-tab="canvas" role="tab" aria-selected="true">◈ 架构画布</button><button class="tab" data-tab="model" role="tab" aria-selected="false">☷ 模型数据</button><button class="tab" data-tab="versions" role="tab" aria-selected="false">◷ 版本对比</button><button class="tab" data-tab="reviews" role="tab" aria-selected="false">◎ 评审记录</button><button class="tab" data-tab="jobs" role="tab" aria-selected="false">↗ 生成任务 <span id="job-count" class="inline-count">0</span></button>
+        <span class="tab-end"><span class="status-dot"></span><span id="validation-status">等待校验</span></span>
+      </div>
+      <section id="panel-canvas" class="workspace-panel active" role="tabpanel" aria-label="架构画布">
+        <div class="canvas-layout">
+          <div class="canvas-column">
+            <div class="canvas-toolbar"><label class="search-field"><span>⌕</span><input id="search" type="search" aria-label="搜索实体和关系" placeholder="搜索名称、ID 或关系…"><kbd>/</kbd></label><select id="type-filter" aria-label="按实体类型筛选"><option value="">全部类型</option></select><button id="add-entity" class="button small" disabled>＋ 实体</button><button id="add-relation" class="button small" disabled>＋ 关系</button></div>
+            <div id="canvas" class="canvas" tabindex="0" aria-label="交互式架构图，滚轮缩放，拖动背景平移，拖动节点布局，点击节点或连线查看详情">
+              <svg id="graph" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="模型实体与关系图"><defs><marker id="edge-arrow" markerWidth="9" markerHeight="9" refX="9" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9" fill="currentColor"/></marker></defs><g id="viewport"><g id="edges"></g><g id="nodes"></g></g></svg>
+              <div id="empty-canvas" class="empty-canvas"><div class="empty-symbol">◈</div><h2>架构有了模型，也该有工作空间</h2><p>创建项目或导入已有 JSON 模型，开始浏览和编辑。</p><button id="empty-create" class="button primary">创建第一个项目</button></div>
+              <div class="canvas-caption"><span class="status-dot"></span>交互关系投影<span>·</span>不替代专业制图语义与业务验收</div>
+              <div class="canvas-controls"><button id="zoom-out" aria-label="缩小">−</button><output id="zoom-label">100%</output><button id="zoom-in" aria-label="放大">＋</button><span></span><button id="fit" aria-label="适应画布" title="适应画布">⊡</button><button id="reset-layout" aria-label="重置布局" title="重置当前视图布局">↻</button></div>
+            </div>
+            <div class="canvas-footer"><span><i class="legend-dot teal"></i> 模型实体 <i class="legend-dot amber"></i> 当前选择 <span class="line-sample"></span> 显式关系</span><span id="graph-counts">0 个实体 · 0 条关系</span></div>
+          </div>
+          <aside id="inspector" class="inspector" aria-label="属性检查器"></aside>
+        </div>
+        <div id="issues-panel" class="issues-panel" hidden><div class="issues-heading"><strong id="issues-title">校验结果</strong><button id="close-issues" class="icon-button" aria-label="关闭校验结果">×</button></div><div id="issues-list"></div></div>
+      </section>
+      <section id="panel-model" class="workspace-panel padded" role="tabpanel" aria-label="模型数据" hidden></section>
+      <section id="panel-versions" class="workspace-panel padded" role="tabpanel" aria-label="版本对比" hidden></section>
+      <section id="panel-reviews" class="workspace-panel padded" role="tabpanel" aria-label="评审记录" hidden></section>
+      <section id="panel-jobs" class="workspace-panel padded" role="tabpanel" aria-label="生成任务" hidden></section>
+      <footer class="app-footer"><span>ATLAS / TOGAF SKILLS</span><span>本地单用户服务 · 评审为声明身份记录，不是认证签批</span><button id="theme" class="text-button" aria-label="切换深浅主题">◐ 切换主题</button></footer>
+    </main>
+  </div>
+  <dialog id="modal"><div class="dialog-top"><h2 id="modal-title"></h2><button id="modal-close" class="icon-button" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+</body>
+</html>

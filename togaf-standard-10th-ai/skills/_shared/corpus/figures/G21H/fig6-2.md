@@ -1,0 +1,263 @@
+# G21H/fig6-2 · TOGAF 架构景观分类模型汇总
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G21H/fig6-2.md) · [JSON](../../architecture/diagrams/G21H/fig6-2.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G21He.pdf`；SHA-256：`40881f73b66ae8cfabc279aba8fe3767182ac3e865823054d0aca58f6292a470`。
+
+## 原图 · PDF 第 48 页
+
+![英文原图](../assets/G21H/fig6-2-p0048.png)
+
+PDF 坐标：`[120.4, 344.2, 491.6, 686.8]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+© The Open Group
+Breadth
+Time
+Enterprise Strategic Architecture
+Segment
+Segment
+Architecture
+Architecture
+```
+
+## 概要（历史解释；局部修正见上）
+
+用三维块图表示架构景观的三个层级（企业战略/分段/能力）随广度与时间展开的分类模型。
+
+## 目的（历史解释；局部修正见上）
+
+第 6.4 节要说明架构景观中同时存在许多不同粒度的架构。这张图把 TOGAF 的汇总分类模型可视化：用 Level 轴区分企业战略架构、分段架构、能力架构三个层级，用 Breadth 轴表示同一层级可以有不同广度的多个架构，用 Time 轴表示这些架构分布在不同的时点。它帮助架构师为架构景观选择适当的粒度，并与表 6-3 的 DBRM 要素映射配合使用。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+先读三条坐标轴：左上斜向后的 Breadth（广度），顶部向右的 Time（时间），左侧向下的 Level（层级）。再读三层块体：最上面黄色的是 Enterprise Strategic Architecture（企业战略架构），中间绿色的是 Segment Architecture（分段架构），最下面紫色的是 Capability Architecture（能力架构）。企业战略层只有一个通栏大块；分段层与能力层则沿纵深（广度）和左右（时间）排列多个长方体：前排带文字的是可见实例，后排只露出顶面/侧面的是同一层级的其他架构。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 三个层级自上而下：Enterprise Strategic Architecture（最宽、只有一个前排大块）、Segment Architecture（中间层，前排可见两个块）、Capability Architecture（最下层，前排可见三个块）。
+- Breadth 轴是左上角斜向后的箭头：沿该方向（向后）广度增大，同一层级向后复制出多个块，表示企业级/分段级/能力级不同广度的多个架构。
+- Time 轴是顶部水平向右的箭头：同一层级左右排列多个块，表示架构景观持有企业在不同时点的架构视图。
+- Level 轴是左侧竖直向下的箭头：战略架构在上、分段架构居中、能力架构在下；箭头向下表示层级由高到低，不要因为箭头向下就以为能力架构是最高层。
+- 三层的数量关系是示意：越往上架构越少、覆盖范围越广（企业战略层 1 个通栏大块），越往下架构越多、覆盖范围越窄（能力层前排 3 个块，后方还有多排）。
+- 图中没有任何块与块之间的连线或箭头，三个层级之间也没有画包含/治理线；层级关系完全由垂直位置表达，这是一张分类网格而不是流程图。
+- 本图与正文表 6-3 配合：表 6-3 把战略架构、分段架构、能力架构分别映射到客户聚焦/战略语境/业务动机/生态与业务模型、业务服务与产品/运营模式/业务能力模型/数字企业、业务运营环境/数字使能。
+- 三维透视是示意性的：块的纵深、宽度和间距不代表精确的数量或时间刻度，不能据块数推算企业实际有多少架构。
+
+## 层级（历史解释；局部修正见上）
+
+三个层级：第 1 层 Enterprise Strategic Architecture（最广、覆盖整个企业），第 2 层 Segment Architecture（覆盖企业内的一个分段/领域），第 3 层 Capability Architecture（覆盖一个能力单元）。每个层级内部又有多个实例，沿 Breadth（纵深）和 Time（左右）两个方向排列；这些实例之间是并列关系，图中没有父子连线。层级之间也没有画出包含线，只有上下堆叠的位置关系。
+
+## 线条含义（历史解释；局部修正见上）
+
+全图只有三条坐标轴箭头：Breadth 从左上角斜向后上方（箭头在远端），Time 从左上角水平向右（箭头在右端），Level 从左上角竖直向下（箭头在下端）。三条轴共用一个起点（左上角），表示三个维度；它们不是要素之间的关系线，也不表示块与块之间的流向。块体之间没有任何连线；层级与实例的关系由堆叠/复制的位置表达。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把三个层级读成时间先后、成熟度阶段或实施步骤；它们是同一时点上不同粒度的架构分类，三个层级可以同时存在。
+- Breadth 斜轴指向后方，不是第三个空间维度上的“高度”；块体向后复制表示同一层级在不同广度上的多个架构，不是楼层。
+- Level 箭头向下，但层级本身是上高下低（战略在上、能力在下）；不要因为箭头向下就以为能力架构是最高层或最终目标。
+- 三维块体的数量是示意，不是精确计数；不要据后排露出的块数推断企业实际有多少个分段/能力架构。
+- 图中没有画出层级之间的包含、治理或映射关系，只有三条坐标轴；不要自行补出“战略架构包含分段架构”的连线，层级关系是分类意义上的。
+- 中文图把“层级”缩成极小横排，且同类块字号不一致（右“分段架构”很小、右“能力架构”很大），容易误读层级标签或以为字号大小有含义；以英文原图为准确认。
+
+## 元素
+
+```json
+[
+  {
+    "id": "axis_breadth",
+    "label_en": "Breadth",
+    "label_zh": "广度",
+    "type": "note",
+    "parent": null,
+    "level": null,
+    "position": "左上角斜向后上的深蓝箭头及标签",
+    "description_zh": "坐标轴，不是架构要素；箭头指向后方，表示广度增大。"
+  },
+  {
+    "id": "axis_time",
+    "label_en": "Time",
+    "label_zh": "时间",
+    "type": "note",
+    "parent": null,
+    "level": null,
+    "position": "顶部水平向右的深蓝箭头及标签",
+    "description_zh": "坐标轴，不是架构要素；箭头向右，表示时间推进。"
+  },
+  {
+    "id": "axis_level",
+    "label_en": "Level",
+    "label_zh": "层级",
+    "type": "note",
+    "parent": null,
+    "level": null,
+    "position": "左侧竖直向下的深蓝箭头及标签",
+    "description_zh": "坐标轴，不是架构要素；箭头向下，表示层级由高到低。"
+  },
+  {
+    "id": "esa",
+    "label_en": "Enterprise Strategic Architecture",
+    "label_zh": "企业战略架构",
+    "type": "architecture",
+    "parent": null,
+    "level": 1,
+    "position": "顶部黄色层，前排一个通栏宽块；其浅黄大顶面向后延伸（是同一块的顶面，不代表第二个架构）",
+    "description_zh": "最广、最少的层级；为运营与变革活动提供组织框架，支持高管层方向设定。"
+  },
+  {
+    "id": "sa_1",
+    "label_en": "Segment Architecture",
+    "label_zh": "分段架构",
+    "type": "architecture",
+    "parent": null,
+    "level": 2,
+    "order": 1,
+    "position": "中部绿色层前排左侧块"
+  },
+  {
+    "id": "sa_2",
+    "label_en": "Segment Architecture",
+    "label_zh": "分段架构",
+    "type": "architecture",
+    "parent": null,
+    "level": 2,
+    "order": 2,
+    "position": "中部绿色层前排右侧块；后方还有两排绿色块"
+  },
+  {
+    "id": "ca_1",
+    "label_en": "Capability Architecture",
+    "label_zh": "能力架构",
+    "type": "architecture",
+    "parent": null,
+    "level": 3,
+    "order": 1,
+    "position": "底部紫色层前排最左块"
+  },
+  {
+    "id": "ca_2",
+    "label_en": "Capability Architecture",
+    "label_zh": "能力架构",
+    "type": "architecture",
+    "parent": null,
+    "level": 3,
+    "order": 2,
+    "position": "底部紫色层前排中间块"
+  },
+  {
+    "id": "ca_3",
+    "label_en": "Capability Architecture",
+    "label_zh": "能力架构",
+    "type": "architecture",
+    "parent": null,
+    "level": 3,
+    "order": 3,
+    "position": "底部紫色层前排最右块；后方还有两排紫色块"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "左上斜向后的深蓝箭头 + “Breadth”",
+    "meaning_zh": "广度维度；沿箭头方向（向后）广度增大",
+    "explicit": true
+  },
+  {
+    "symbol": "顶部水平向右的深蓝箭头 + “Time”",
+    "meaning_zh": "时间维度；沿箭头方向时间推进",
+    "explicit": true
+  },
+  {
+    "symbol": "左侧竖直向下的深蓝箭头 + “Level”",
+    "meaning_zh": "层级维度；战略在上、能力在下",
+    "explicit": true
+  },
+  {
+    "symbol": "黄色大块",
+    "meaning_zh": "企业战略架构层（最广、最少）",
+    "explicit": false
+  },
+  {
+    "symbol": "绿色块",
+    "meaning_zh": "分段架构层",
+    "explicit": false
+  },
+  {
+    "symbol": "紫色块",
+    "meaning_zh": "能力架构层（最窄、最多）",
+    "explicit": false
+  },
+  {
+    "symbol": "向纵深/向右复制的同色块",
+    "meaning_zh": "同一层级在不同广度/时点上的多个架构实例",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "free",
+  "description_zh": "等轴测三维块图：左上角一个公共原点，伸出 Breadth（斜向后上）、Time（水平向右）、Level（竖直向下）三条深蓝箭头。块体分三层：顶部黄色 Enterprise Strategic Architecture 一个通栏大块（浅黄大平面是它的顶面）；中部绿色 Segment Architecture 前排两块、后方两排；底部紫色 Capability Architecture 前排三块、后方两排。越往下块越小、数量越多。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G21H/fig6-1",
+    "relation": "complements",
+    "note_zh": "同属第 6 章 TOGAF 标准采用：图 6-1 按 ADM 阶段组织内容框架，图 6-2 给出架构景观的三层分类模型；两图分别回答“阶段产出什么”与“架构景观如何分层”。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "三条坐标轴是维度标注而非要素间关系，图中也没有任何块与块的连线；本分析把轴线记入 elements（type=note）与 legend/line_semantics，未强行构造 from/to 关系。",
+    "每层后排的同色块数量与排列只能从被遮挡的顶面/侧面估读：紫色约 3 排、绿色约 2 排、黄色 1 层，具体块数不确定；元素表只列前排带文字标签的块，后排未单独建元素。",
+    "Breadth 与 Time 两个方向的具体分工（哪个方向代表分段、哪个代表时点）图中只给轴名，没有刻度；本分析按轴名直读，未推断每个块的现实含义。",
+    "中文图“层级”标签极小、同类块字号不一致，已按英文原图确认层级名称。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 48 页 figure 截图（220 dpi）与 2x2 放大分块",
+    "英文 PDF 第 48 页正文",
+    "中文稿 G21He_TOGAF数字业务参考模型.md 第 745–782 行（含图内标签对照表与表 6-3）",
+    "figs/g21he_fig6-2_en.png 与 figs/zh/g21he_fig6-2_zh.png 目视比较"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

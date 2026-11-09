@@ -1,0 +1,137 @@
+{
+  "schema_version": "architecture-role/1",
+  "id": "G186:role:auditor",
+  "source_guide": "G186",
+  "label_en": "Auditor / Peer Reviewer",
+  "label_zh": "审计者/同行评审者",
+  "scope_zh": "目标与实施的系统审查",
+  "content_role": "source-grounded-role-analysis",
+  "role_definition": [
+    {
+      "text_zh": "对目标架构和实施开展系统性审查，应在多个阶段及早发现问题。",
+      "evidence": {
+        "document_id": "G186",
+        "pdf_page": 140,
+        "quote_en": "performs systematic reviews of both the target and implementation",
+        "source_path": "togaf-standard-10th/G186e.pdf",
+        "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+        "markdown_path": "documents/G186.md#page-140"
+      },
+      "assertion_type": "source-grounded-analysis"
+    }
+  ],
+  "responsibilities": [
+    {
+      "text_zh": "对目标架构和实施开展系统性审查，应在多个阶段及早发现问题。",
+      "evidence": {
+        "document_id": "G186",
+        "pdf_page": 140,
+        "quote_en": "performs systematic reviews of both the target and implementation",
+        "source_path": "togaf-standard-10th/G186e.pdf",
+        "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+        "markdown_path": "documents/G186.md#page-140"
+      },
+      "assertion_type": "source-grounded-analysis"
+    },
+    {
+      "text_zh": "符合性评价是审计角色，与架构师后续影响分析/建议角色区分。",
+      "evidence": {
+        "document_id": "G186",
+        "pdf_page": 142,
+        "quote_en": "Compliance assessment is an auditor role",
+        "source_path": "togaf-standard-10th/G186e.pdf",
+        "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+        "markdown_path": "documents/G186.md#page-142"
+      },
+      "assertion_type": "source-grounded-analysis"
+    }
+  ],
+  "decision_authority": [],
+  "requirements": [
+    {
+      "text_zh": "可由治理机构、同行评审者或自审承担；无论组织形式如何，必须明确当前审计角色。",
+      "evidence": {
+        "document_id": "G186",
+        "pdf_page": 140,
+        "quote_en": "peer reviewer",
+        "source_path": "togaf-standard-10th/G186e.pdf",
+        "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+        "markdown_path": "documents/G186.md#page-140"
+      },
+      "assertion_type": "source-grounded-or-derived-task-capability"
+    }
+  ],
+  "inputs_outputs": [
+    {
+      "text_zh": "输入目标架构、实现和控制证据；输出符合性评价、不符合发现及需要进一步评估的问题。",
+      "assertion_type": "derived-input-output-analysis",
+      "evidence": {
+        "document_id": "G186",
+        "pdf_page": 140,
+        "quote_en": "performs systematic reviews of both the target and implementation",
+        "source_path": "togaf-standard-10th/G186e.pdf",
+        "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+        "markdown_path": "documents/G186.md#page-140"
+      }
+    }
+  ],
+  "collaboration": [],
+  "potential_kpis": [],
+  "source_material": [],
+  "skills": [],
+  "relationships": [
+    {
+      "id": "role-rel-020",
+      "from": "G186:role:auditor",
+      "to": "G186:role:implementer",
+      "predicate": "reviews_implementation_work",
+      "assertion_type": "source-explicit",
+      "is_hr_reporting_line": false,
+      "meaning_zh": "对实施工作进行系统审查，不表达雇佣隶属。",
+      "evidence": {
+        "document_id": "G186",
+        "pdf_page": 140,
+        "quote_en": "performs systematic reviews of both the target and implementation",
+        "source_path": "togaf-standard-10th/G186e.pdf",
+        "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+        "markdown_path": "documents/G186.md#page-140"
+      }
+    },
+    {
+      "id": "role-rel-021",
+      "from": "G186:role:auditor",
+      "to": "G186:role:architect-governance",
+      "predicate": "reviews_target_work",
+      "assertion_type": "source-explicit",
+      "is_hr_reporting_line": false,
+      "meaning_zh": "对目标架构工作进行系统审查，可由同行承担。",
+      "evidence": {
+        "document_id": "G186",
+        "pdf_page": 140,
+        "quote_en": "performs systematic reviews of both the target and implementation",
+        "source_path": "togaf-standard-10th/G186e.pdf",
+        "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+        "markdown_path": "documents/G186.md#page-140"
+      }
+    }
+  ],
+  "hierarchy_notice_zh": "架构领导/治理、专业范围或协作关系不自动表示人事直属汇报；岗位、角色、任务分别建模。",
+  "qualification_notice_zh": "学历、工作年限、认证、法定签字权等未在相应证据给出时保持未规定，不能从技能等级推造。",
+  "matrix_status": "not-specified-for-this-role",
+  "assessment_status": "reference-expectation-not-an-assessment-of-any-person",
+  "analysis_zh": "原文p140在审计段内把compliance decision rights写给implementer；按字面保留该条，不能擅自改成审计者。p139明确目标、豁免与强制遵守目标的决策权属于stakeholder，二者对象不同，项目仍须澄清合规裁决流程。",
+  "source_caveats": [
+    {
+      "text_zh": "原文这句明确写implementer，保持字面证据；不由此推导审计者可改目标或给予豁免。",
+      "evidence": {
+        "document_id": "G186",
+        "pdf_page": 140,
+        "quote_en": "All decision rights about compliance during the development of the architecture and implementation are vested with the implementer.",
+        "source_path": "togaf-standard-10th/G186e.pdf",
+        "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+        "markdown_path": "documents/G186.md#page-140"
+      },
+      "assertion_type": "source-grounded-analysis"
+    }
+  ]
+}

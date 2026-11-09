@@ -1,0 +1,868 @@
+{
+  "schema_version": "1.0",
+  "id": "G21I/fig4-1",
+  "status": "done",
+  "doc": {
+    "code": "G21I",
+    "title_zh": "微服务架构",
+    "title_en": "Microservices Architecture (MSA)",
+    "zh_md": "G21Ie_微服务架构.md",
+    "en_pdf": "togaf-standard-10th/G21Ie.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-1",
+    "title_en": "TOGAF Architecture Development Method (ADM)",
+    "title_zh": "TOGAF 架构开发方法（ADM）",
+    "section_en": "4. Using the TOGAF Framework for MSA",
+    "section_zh": "4. 使用 TOGAF 框架开展 MSA",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        21
+      ],
+      "printed_page": 7,
+      "bboxes": [
+        [
+          151.3,
+          36.0,
+          460.7,
+          447.5
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        192
+      ],
+      "label_table_lines": [
+        196,
+        210
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21ie_fig4-1_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "fb1b4d29a6d2",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.993（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g21ie_fig4-1_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "9789745a1e59",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "结构与原图一致：10 个圆（预备阶段、A–H、需求管理）和 17 条连线都在，位置不变，译名正确",
+        "抹字补丁是直角黄色矩形，在 H、G、C、E 等圆上伸出圆的边缘，A、B、D、F 圆内也能看到补丁边界",
+        "字号不统一：“需求管理”“预备阶段”“阶段 G：实施治理”字号很大，其余阶段名是小字；原图除预备阶段与需求管理用粗体外字号基本一致",
+        "阶段名改写为“阶段 A：架构愿景”格式（原图为“A. Architecture Vision”），与中文稿正文列表一致，不影响含义"
+      ]
+    },
+    {
+      "path": "G21Ie_微服务架构.md#L196-L210",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "146bf739051f",
+      "fidelity": "faithful",
+      "issues_zh": []
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "cycle"
+    ],
+    "notation": "TOGAF ADM 气泡图：黄色圆表示阶段，A–H 用无箭头的细弧线连成环，顶部预备阶段用竖线接入 A，中心较大的橙色圆为需求管理，用辐条连到 A–H",
+    "concepts": [
+      "adm",
+      "requirements_management",
+      "microservices"
+    ],
+    "adm_phases": [
+      "adm_preliminary",
+      "adm_phase_a",
+      "adm_phase_b",
+      "adm_phase_c",
+      "adm_phase_d",
+      "adm_phase_e",
+      "adm_phase_f",
+      "adm_phase_g",
+      "adm_phase_h",
+      "requirements_management"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "标准 TOGAF ADM 图：预备阶段接入 A–H 循环，需求管理居中并连到每个阶段。",
+    "purpose_zh": "本指南按 ADM 阶段组织：第 5–13 章依次对应预备阶段到阶段 H，说明采用 MSA 时架构师在各阶段要考虑什么、对阶段输出有何影响。本图让读者先认出熟悉的 ADM 结构，再进入逐阶段的 MSA 说明。",
+    "reading_guide_zh": "从顶部的预备阶段开始，它只连到下方的阶段 A。A–H 八个阶段围成一圈，按 TOGAF 惯例从 A 起顺时针读到 H，再回到 A。中心的需求管理用 8 条辐条与 A–H 相连。所有连线都没有箭头。",
+    "key_points_zh": [
+      "预备阶段在循环之外，只接入阶段 A：它为企业做好开展架构工作的准备，A–H 才是可重复的开发循环。",
+      "A–H 首尾相连成环：H（架构变更管理）之后回到 A，开始新一轮架构开发。",
+      "需求管理位于中心并连到每个阶段；原文把它列为“面向 MSA 的持续过程”，不是排在某个阶段之后的一步。",
+      "阶段 C 是“信息系统架构”，原文注明包括数据与应用两部分；本指南第 8 章分 8.1 数据架构、8.2 应用架构展开。",
+      "本指南第 5–13 章与图中的预备阶段、A–H 一一对应；原文说明它只讲与 MSA 相关的内容（聚焦架构中的微服务层），假定读者已了解 TOGAF 标准。"
+    ],
+    "hierarchy_zh": "没有嵌套。预备阶段、A–H 与需求管理都是 ADM 的阶段；需求管理用更大的橙色圆放在中心，表示它与所有阶段相关。",
+    "line_semantics_zh": "全部为无箭头的细实线：8 段弧线把相邻阶段连成环（A–B–C–D–E–F–G–H–A，方向按 TOGAF 惯例读出），8 条辐条把需求管理连到 A–H，1 条竖线把预备阶段连到 A。",
+    "misreadings_zh": [
+      "环上没有箭头，但 ADM 的阶段有约定次序（A 到 H 顺时针）；背景知识：TOGAF 标准也允许在阶段之间迭代，图中没有画出迭代。",
+      "需求管理不是 H 之后的第 10 步，而是贯穿全部阶段的持续过程。",
+      "预备阶段不在 A–H 循环之内。",
+      "原图右下角的空心大字是英文 PDF 的“Evaluation Copy”水印，不是图的内容。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p20",
+        "summary_zh": "ADM 把复杂的架构开发分成若干更简单的阶段：预备阶段、A 架构愿景、B 业务架构、C 信息系统架构（数据与应用）、D 技术架构、E 机会与解决方案、F 迁移规划、G 实施治理、H 架构变更管理，以及 ADM 架构需求管理（面向 MSA 的持续过程）。"
+      },
+      {
+        "source": "en_pdf p20",
+        "summary_zh": "熟悉 TOGAF 标准的读者会认出图 4-1 的 ADM 图形；本文档只关注架构中的微服务层，因此只涉及 ADM 的一个子集。"
+      },
+      {
+        "source": "en_pdf p21",
+        "summary_zh": "后续各章按 ADM 的每个阶段说明架构师在应用 MSA 时应考虑什么、对阶段输出有何影响；本文档不是独立的完整描述，省略了与 MSA 无关的内容。"
+      },
+      {
+        "source": "zh_md L177",
+        "summary_zh": "中文稿列出的阶段名称与英文一致，需求管理同样注明为面向 MSA 的持续过程（L188）。"
+      },
+      {
+        "source": "zh_md L190",
+        "summary_zh": "中文稿说明本文档只聚焦微服务层，只涉及 ADM 的一个子集。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "radial",
+    "description_zh": "预备阶段在最上方，竖线向下接到阶段 A；A–H 八个圆以 A 为顶点顺时针排成一圈；需求管理在圆心，比其他圆大。"
+  },
+  "legend": [
+    {
+      "symbol": "黄色圆",
+      "meaning_zh": "ADM 阶段",
+      "explicit": false
+    },
+    {
+      "symbol": "中心较大的橙色圆",
+      "meaning_zh": "需求管理（贯穿各阶段）",
+      "explicit": false
+    },
+    {
+      "symbol": "无箭头的细实线",
+      "meaning_zh": "环上为相邻阶段的连接；辐条为需求管理与各阶段的连接",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "ph_prelim",
+      "label_en": "Preliminary",
+      "label_zh": "预备阶段",
+      "type": "phase",
+      "order": 0,
+      "position": "顶部"
+    },
+    {
+      "id": "ph_a",
+      "label_en": "A. Architecture Vision",
+      "label_zh": "阶段 A：架构愿景",
+      "type": "phase",
+      "order": 1,
+      "position": "环顶"
+    },
+    {
+      "id": "ph_b",
+      "label_en": "B. Business Architecture",
+      "label_zh": "阶段 B：业务架构",
+      "type": "phase",
+      "order": 2,
+      "position": "右上"
+    },
+    {
+      "id": "ph_c",
+      "label_en": "C. Information Systems Architectures",
+      "label_zh": "阶段 C：信息系统架构",
+      "type": "phase",
+      "order": 3,
+      "position": "右"
+    },
+    {
+      "id": "ph_d",
+      "label_en": "D. Technology Architecture",
+      "label_zh": "阶段 D：技术架构",
+      "type": "phase",
+      "order": 4,
+      "position": "右下"
+    },
+    {
+      "id": "ph_e",
+      "label_en": "E. Opportunities and Solutions",
+      "label_zh": "阶段 E：机会与解决方案",
+      "type": "phase",
+      "order": 5,
+      "position": "环底"
+    },
+    {
+      "id": "ph_f",
+      "label_en": "F. Migration Planning",
+      "label_zh": "阶段 F：迁移规划",
+      "type": "phase",
+      "order": 6,
+      "position": "左下"
+    },
+    {
+      "id": "ph_g",
+      "label_en": "G. Implementation Governance",
+      "label_zh": "阶段 G：实施治理",
+      "type": "phase",
+      "order": 7,
+      "position": "左"
+    },
+    {
+      "id": "ph_h",
+      "label_en": "H. Architecture Change Management",
+      "label_zh": "阶段 H：架构变更管理",
+      "type": "phase",
+      "order": 8,
+      "position": "左上"
+    },
+    {
+      "id": "ph_rm",
+      "label_en": "Requirements Management",
+      "label_zh": "需求管理",
+      "type": "phase",
+      "position": "圆心",
+      "description_zh": "原文称其为面向 MSA 的持续过程。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "ph_prelim",
+      "to": "ph_a",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "竖线；预备阶段在环外，接入 A"
+    },
+    {
+      "from": "ph_a",
+      "to": "ph_b",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "环上弧线；无箭头，按 ADM 惯例顺时针读"
+    },
+    {
+      "from": "ph_b",
+      "to": "ph_c",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_c",
+      "to": "ph_d",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_d",
+      "to": "ph_e",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_e",
+      "to": "ph_f",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_f",
+      "to": "ph_g",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_g",
+      "to": "ph_h",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_h",
+      "to": "ph_a",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "闭合成环"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_a",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "辐条；需求管理贯穿所有阶段"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_b",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_c",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_d",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_e",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_f",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_g",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_h",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_adm_cycle",
+      "kind": "cycle",
+      "name_zh": "ADM 周期",
+      "steps": [
+        "ph_a",
+        "ph_b",
+        "ph_c",
+        "ph_d",
+        "ph_e",
+        "ph_f",
+        "ph_g",
+        "ph_h"
+      ],
+      "description_zh": "环上无箭头，按 TOGAF ADM 惯例从 A 顺时针到 H 再回到 A；预备阶段在环外接入 A，需求管理在中心连到各阶段。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_chapters",
+      "title_zh": "ADM 阶段与本指南章节的对应（据中文稿目录与英文正文）",
+      "columns": [
+        "ADM 阶段",
+        "本指南章节"
+      ],
+      "rows": [
+        [
+          "预备阶段 Preliminary",
+          "第 5 章（含 5.3 治理与支持策略、5.4 初始架构存储库与 MSA 参考架构）"
+        ],
+        [
+          "阶段 A：架构愿景",
+          "第 6 章"
+        ],
+        [
+          "阶段 B：业务架构",
+          "第 7 章"
+        ],
+        [
+          "阶段 C：信息系统架构（数据与应用）",
+          "第 8 章"
+        ],
+        [
+          "阶段 D：技术架构",
+          "第 9 章"
+        ],
+        [
+          "阶段 E：机会与解决方案",
+          "第 10 章"
+        ],
+        [
+          "阶段 F：迁移规划",
+          "第 11 章"
+        ],
+        [
+          "阶段 G：实施治理",
+          "第 12 章"
+        ],
+        [
+          "阶段 H：架构变更管理",
+          "第 13 章"
+        ],
+        [
+          "需求管理 Requirements Management",
+          "无单独章节（原文列为面向 MSA 的持续过程）"
+        ]
+      ],
+      "notes_zh": "图本身不含章节信息；本表帮助把图中的阶段与后文对上。"
+    }
+  ],
+  "related_figures": [],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [],
+    "analyzed_from": [
+      "英文 PDF 第 21 页原图截图（220 dpi）",
+      "英文 PDF 第 20–21 页正文",
+      "中文稿 G21Ie_微服务架构.md 第 173–215 行（含图内标签对照表 L196–L209）及全文章节标题",
+      "figs/zh/g21ie_fig4-1_zh.png",
+      "figs/g21ie_fig4-1_en.png（自动相似度 0.993）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Ie.pdf",
+    "pdf_sha256": "279f6c06124f49a147a168591965805115b2fc976eea2664e41e491ac5d163bf",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21I/fig4-1.json",
+    "interpretation_sha256": "a8633b00fe88a8208caa93c7eae3420dee0ac24afa1ca7d908140dd66518d99f",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 21,
+        "text": "Figure 4-1: TOGAF Architecture Development Method (ADM)",
+        "bbox_pdf_points": [
+          48.24,
+          452.191,
+          328.737,
+          465.757
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 21,
+      "printed_page": 7,
+      "bbox_pdf_points": [
+        151.3,
+        36.0,
+        460.7,
+        447.5
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21I/fig4-1-p0021.png",
+      "image_sha256": "cd2388305dd4e48c9328918c04a540c46a8a31760e9ebd32a4eb2a66d465e20e",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "cd2388305dd4e48c9328918c04a540c46a8a31760e9ebd32a4eb2a66d465e20e",
+          "status": "extracted-unverified",
+          "text": "Preliminary\nA.\nArchitecture\nVision\nH.\nArchitecture\nB.\nBusiness\nChange\nArchitecture\nManagement\nG.\nCc.\nRequirements\nInformation\nImplementation\nManagement\nSystems\nGovernance\nArchitectures\nF.\nD.\nMigration\nTechnology\nPlanning\nArchitecture\n=\nOpportunities\nand\nSolutions\nThe Open Group",
+          "words": [
+            {
+              "text": "Preliminary",
+              "confidence": 96.872314,
+              "bbox_pixels_xywh": [
+                264,
+                65,
+                95,
+                17
+              ]
+            },
+            {
+              "text": "A.",
+              "confidence": 80.383583,
+              "bbox_pixels_xywh": [
+                302,
+                251,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 95.868668,
+              "bbox_pixels_xywh": [
+                264,
+                261,
+                94,
+                23
+              ]
+            },
+            {
+              "text": "Vision",
+              "confidence": 96.440842,
+              "bbox_pixels_xywh": [
+                287,
+                290,
+                47,
+                13
+              ]
+            },
+            {
+              "text": "H.",
+              "confidence": 81.842499,
+              "bbox_pixels_xywh": [
+                137,
+                307,
+                10,
+                13
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 89.265572,
+              "bbox_pixels_xywh": [
+                98,
+                317,
+                93,
+                23
+              ]
+            },
+            {
+              "text": "B.",
+              "confidence": 90.241623,
+              "bbox_pixels_xywh": [
+                469,
+                318,
+                11,
+                13
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 78.735138,
+              "bbox_pixels_xywh": [
+                442,
+                329,
+                70,
+                22
+              ]
+            },
+            {
+              "text": "Change",
+              "confidence": 95.773888,
+              "bbox_pixels_xywh": [
+                114,
+                346,
+                61,
+                17
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.33255,
+              "bbox_pixels_xywh": [
+                429,
+                358,
+                94,
+                13
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 95.915741,
+              "bbox_pixels_xywh": [
+                94,
+                366,
+                102,
+                17
+              ]
+            },
+            {
+              "text": "G.",
+              "confidence": 84.975517,
+              "bbox_pixels_xywh": [
+                66,
+                487,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Cc.",
+              "confidence": 28.760487,
+              "bbox_pixels_xywh": [
+                539,
+                477,
+                11,
+                14
+              ]
+            },
+            {
+              "text": "Requirements",
+              "confidence": 90.647835,
+              "bbox_pixels_xywh": [
+                253,
+                495,
+                117,
+                17
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 94.505302,
+              "bbox_pixels_xywh": [
+                504,
+                488,
+                86,
+                22
+              ]
+            },
+            {
+              "text": "Implementation",
+              "confidence": 95.236038,
+              "bbox_pixels_xywh": [
+                15,
+                493,
+                119,
+                35
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.293068,
+              "bbox_pixels_xywh": [
+                258,
+                515,
+                107,
+                17
+              ]
+            },
+            {
+              "text": "Systems",
+              "confidence": 88.418793,
+              "bbox_pixels_xywh": [
+                514,
+                517,
+                66,
+                16
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 95.839775,
+              "bbox_pixels_xywh": [
+                27,
+                526,
+                95,
+                14
+              ]
+            },
+            {
+              "text": "Architectures",
+              "confidence": 96.158043,
+              "bbox_pixels_xywh": [
+                495,
+                536,
+                103,
+                14
+              ]
+            },
+            {
+              "text": "F.",
+              "confidence": 78.506424,
+              "bbox_pixels_xywh": [
+                139,
+                652,
+                10,
+                13
+              ]
+            },
+            {
+              "text": "D.",
+              "confidence": 87.999908,
+              "bbox_pixels_xywh": [
+                469,
+                654,
+                11,
+                13
+              ]
+            },
+            {
+              "text": "Migration",
+              "confidence": 94.910645,
+              "bbox_pixels_xywh": [
+                110,
+                662,
+                71,
+                27
+              ]
+            },
+            {
+              "text": "Technology",
+              "confidence": 93.418945,
+              "bbox_pixels_xywh": [
+                432,
+                664,
+                89,
+                27
+              ]
+            },
+            {
+              "text": "Planning",
+              "confidence": 96.621819,
+              "bbox_pixels_xywh": [
+                112,
+                692,
+                67,
+                16
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 94.083191,
+              "bbox_pixels_xywh": [
+                430,
+                694,
+                93,
+                13
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 79.336433,
+              "bbox_pixels_xywh": [
+                304,
+                713,
+                10,
+                13
+              ]
+            },
+            {
+              "text": "Opportunities",
+              "confidence": 94.214737,
+              "bbox_pixels_xywh": [
+                259,
+                719,
+                104,
+                34
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.534271,
+              "bbox_pixels_xywh": [
+                297,
+                753,
+                28,
+                13
+              ]
+            },
+            {
+              "text": "Solutions",
+              "confidence": 96.557243,
+              "bbox_pixels_xywh": [
+                275,
+                772,
+                72,
+                13
+              ]
+            },
+            {
+              "text": "The",
+              "confidence": 93.117554,
+              "bbox_pixels_xywh": [
+                500,
+                801,
+                18,
+                9
+              ]
+            },
+            {
+              "text": "Open",
+              "confidence": 93.117554,
+              "bbox_pixels_xywh": [
+                523,
+                801,
+                27,
+                9
+              ]
+            },
+            {
+              "text": "Group",
+              "confidence": 96.818336,
+              "bbox_pixels_xywh": [
+                555,
+                801,
+                32,
+                9
+              ]
+            }
+          ],
+          "mean_word_confidence": 89.81,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

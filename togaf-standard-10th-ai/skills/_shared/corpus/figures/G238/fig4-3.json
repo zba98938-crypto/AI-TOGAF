@@ -1,0 +1,3466 @@
+{
+  "schema_version": "1.0",
+  "id": "G238/fig4-3",
+  "status": "done",
+  "doc": {
+    "code": "G238",
+    "title_zh": "信息架构——商业智能与分析",
+    "title_en": "Information Architecture — BI & Analytics",
+    "zh_md": "G238e_信息架构_商业智能与分析.md",
+    "en_pdf": "togaf-standard-10th/G238e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-3",
+    "title_en": "BI & Analytics Reference Model – Detailed Level",
+    "title_zh": "BI 与分析参考模型——详细层级",
+    "section_en": "4.3 BI & Analytics Reference Model – Detailed Application Functions",
+    "section_zh": "4.3 BI 与分析参考模型——详细应用功能",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        35
+      ],
+      "printed_page": 25,
+      "bboxes": [
+        [
+          48.2,
+          89.6,
+          563.8,
+          405.1
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        522
+      ],
+      "label_table_lines": [
+        526,
+        560
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g238e_fig4-3_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "bfc43298c302",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.985（≥0.9 通常为同一图）",
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.985，71 个标签、嵌套结构、图标与配色均与原图一致。"
+      ]
+    },
+    {
+      "path": "figs/zh/g238e_fig4-3_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "a82388699d73",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "字号严重不一致：原始数据存储、元数据存储、源代码管理被放得很大（源代码管理文字溢出框外），而业务转换、外部设备连接、手工上传或下载、数据整理与数据发现工具、统计与机器学习工具等被缩得很小。",
+        "文字溢出与字号失衡：源代码管理文字超出其框边界；原始数据存储、元数据存储的字号约为同层其他标签的两倍，破坏了“同层功能等权”的视觉语义。",
+        "部分标签带浅色文字框底色，在功能框内部形成“框中框”，与左侧无底色的标签不一致。",
+        "译名与表 4-3 不完全一致：Report Authoring 图内作“报表编制”，表 4-3 作“报表创作”；Basic Data Tables Manipulation & Analysis 图内作“基础数据表操作与分析”，表作“基本数据表操作与分析”；Query Execution 图内仅“查询执行”，标签对照表作“BI 与分析查询执行”。",
+        "结构与 71 个标签完整，9 个功能组、Development 下的两个二级分组、配色与 function 图标均与原图一致（本图无连线）。"
+      ]
+    },
+    {
+      "path": "G238e_信息架构_商业智能与分析.md#L526-L560",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "65150022b569",
+      "fidelity": "incomplete",
+      "issues_zh": [
+        "只对照了 30 条标签（根节点 + 9 个功能组 + 1 个二级分组 + 19 个子功能），原图共 71 个标签，约 41 个标签未收录，例如 Data Interface/Streaming/In-Transit Encryption/Interface Management、Data Storage 的 6 项、Data Processing 的 8 项、Reporting 的 4 项、Decision Support 的 3 项、Administration 的 4 项、Development 的 9 项、Monitoring 的 5 项。",
+        "“Query Execution → BI 与分析查询执行”比图内标签“查询执行”多了“BI 与分析”，与图不一致。",
+        "“Integration & Deployment”已收录并译作“集成与部署”，但另一个二级分组“Data Engineering & Data Science Development”未收录。",
+        "已收录条目的英文拼写与原图一致，未发现错译或错图。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "hierarchy"
+    ],
+    "notation": "ArchiMate 功能分解：外层大框为 BI & Analytics 应用功能，内含 9 个功能组；Development 组内再嵌两个二级分组，其余为单层子功能；所有框右上角带 function 图标，无连线。",
+    "concepts": [
+      "bi_analytics",
+      "application_architecture",
+      "reference_model"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "把 BI 与分析应用功能分解为 9 个功能组和 61 项子功能（含 2 个二级分组）。",
+    "purpose_zh": "给出应用侧参考模型的详细层级：把图 2-1 右栏 9 项高层应用功能逐项展开，作为评估/设计 BI & Analytics 平台应用功能的清单，也是表 4-3 的图形版；4.4 节的架构需求按这些功能逐项给出。",
+    "reading_guide_zh": "从外到内读：最外层是 BI & Analytics Application Functions 总框；内部 9 个带标题的功能组（数据集成、数据存储、数据处理、信息报表与仪表盘、决策支持分析与可视化、数据访问、管理、开发、监控）；组内小框是子功能。左侧 Data Integration 纵贯一列，中央 Data Storage 与 Data Processing 上下排列，右侧 Information Reporting & Dashboarding、Decision Support、Data Access 依次向下；Administration、Development、Monitoring 横贯底部。Development 组内还分“Data Engineering & Data Science Development”和“Integration & Deployment”两个二级分组。所有框右上角的旗帜图标表示功能元素，图中没有箭头。",
+    "key_points_zh": [
+      "9 个功能组与图 2-1 右栏完全对应；子功能数为：数据集成 9、数据存储 9、数据处理 10、信息报表与仪表盘 5、决策支持分析与可视化 3、数据访问 4、管理 5、开发（2 个二级分组、共 9 项）、监控 5。",
+      "Development 是唯一有第三层的组：下设 Data Engineering & Data Science Development（IDE 开发、Notebook 开发、数据整理与发现工具、统计与机器学习工具）和 Integration & Deployment（源代码管理、分析模型管理、测试、构建管理、部署）。",
+      "数据存储组把存储分为原始、已准备、信息、敏感四类，并配以加密、复制、版本管理、归档压缩、元数据存储，体现从原始到业务可用数据的存储谱系。",
+      "数据处理组同时覆盖批处理与近实时处理，并含质量剖析、掩码、统计计算、元数据推断、删除、变更数据捕获，支撑关系型与非关系型数据。",
+      "信息报表与仪表盘（格式化在线报表、报表分发调度、报表编制、基础数据表分析）与决策支持分析与可视化（可视化数据发现、统计分析、动态数据准备）是两种不同的消费方式：前者面向固定报表/仪表盘，后者面向探索式分析。",
+      "图只给功能名称，具体定义见表 4-3；4.4 节再按功能给出架构需求示例。",
+      "嵌套只表示功能组成，不表示调用顺序、部署位置或成熟度；图中没有数据流箭头。"
+    ],
+    "hierarchy_zh": "四层：L0 为“BI & Analytics Application Functions”总容器；L1 为 9 个功能组；L2 为子功能，其中 Development 组下还有 L2 的两个二级分组（Data Engineering & Data Science Development、Integration & Deployment），这两个分组下才是 L3 子功能（各 4 项与 5 项）。其余 8 个组的子功能都直接挂在 L1 下。",
+    "line_semantics_zh": "图中没有任何连线或箭头。父子关系完全由框的包含表达（ArchiMate 组合）；同层框并排/上下排列只表示同属一个功能组，不表示顺序、依赖或数据流。",
+    "misreadings_zh": [
+      "不要因为 Data Integration 在左侧纵贯就读成“所有数据先经过集成再进入其他功能”的流水线；图中没有箭头，集成只是并列的功能组之一。",
+      "不要把 Development 组内的两个二级分组当成与 Development 平级的 9 个功能组之一；它们嵌在 Development 内部。",
+      "不要把 9 个功能组读成架构分层（如数据层/应用层）；它们同属应用功能层，只是按职责分组。",
+      "不要把 Information Reporting & Dashboarding 与 Decision Support Analysis & Visualization 混为一谈：前者是报表/仪表盘生产与分发，后者是数据发现、统计分析与动态准备。",
+      "中文稿中文化 PNG 把原始数据存储、元数据存储、源代码管理放得过大并溢出，又把若干子功能缩得很小；不能据此判断哪些功能更重要或属于不同层级。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p35",
+        "summary_zh": "4.3 节以图 4-3 给出 BI & Analytics 参考模型的详细层级；表 4-3 按 Administration 等应用功能逐项给出子功能与说明。"
+      },
+      {
+        "source": "zh_md L522",
+        "summary_zh": "中文稿在此处插入中文化图 4-3，标题为“BI 与分析参考模型——详细层级”。"
+      },
+      {
+        "source": "zh_md L565",
+        "summary_zh": "中文稿表 4-3 按 9 个应用功能组列出子功能与说明，与图 4-3 的 9 组结构对应。"
+      },
+      {
+        "source": "zh_md L629",
+        "summary_zh": "中文稿 4.4 节说明架构需求按应用功能逐项组织，图 4-3 的功能清单是需求条目化的依据。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "外层大框内：左列 Data Integration（9 项纵排）；中央上方 Data Storage（3×3 共 9 项）、下方 Data Processing（5 行×2 共 10 项）；右列自上而下 Information Reporting & Dashboarding（5 项）、Decision Support Analysis & Visualization（3 项）、Data Access for Engineering & Data Management Use（4 项）；再往下 Administration（5 项一行）、Development（内含左右两个二级分组：Data Engineering & Data Science Development 4 项、Integration & Deployment 5 项）、Monitoring（5 项一行）。"
+  },
+  "legend": [
+    {
+      "symbol": "外层大框",
+      "meaning_zh": "BI & Analytics 应用功能总体（L0）",
+      "explicit": false
+    },
+    {
+      "symbol": "带标题的功能框",
+      "meaning_zh": "应用功能组（L1，与图 2-1 右栏一致）",
+      "explicit": false
+    },
+    {
+      "symbol": "功能组内的二级分组框（仅 Development）",
+      "meaning_zh": "应用功能子域（L2 分组）",
+      "explicit": false
+    },
+    {
+      "symbol": "最内层小圆角框",
+      "meaning_zh": "具体应用功能（L2/L3）",
+      "explicit": false
+    },
+    {
+      "symbol": "右上角旗帜图标",
+      "meaning_zh": "ArchiMate 功能元素（function）",
+      "explicit": false
+    },
+    {
+      "symbol": "青色填充",
+      "meaning_zh": "应用层配色（与图 1-1 的应用功能一致）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "af_root",
+      "label_en": "BI & Analytics Application Functions",
+      "label_zh": "BI 与分析应用功能",
+      "type": "function",
+      "parent": null,
+      "level": 0,
+      "position": "最外层大框"
+    },
+    {
+      "id": "af_integration",
+      "label_en": "Data Integration",
+      "label_zh": "数据集成",
+      "type": "function",
+      "parent": "af_root",
+      "level": 1,
+      "order": 1,
+      "position": "左列纵贯"
+    },
+    {
+      "id": "af_metadata_exchange",
+      "label_en": "Metadata Exchange",
+      "label_zh": "元数据交换",
+      "type": "function",
+      "parent": "af_integration",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "af_batch_exchange",
+      "label_en": "Batch Exchange",
+      "label_zh": "批交换",
+      "type": "function",
+      "parent": "af_integration",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "af_query_execution",
+      "label_en": "Query Execution",
+      "label_zh": "查询执行",
+      "type": "function",
+      "parent": "af_integration",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "af_manual_upload",
+      "label_en": "Manual Upload or Download",
+      "label_zh": "手工上传或下载",
+      "type": "function",
+      "parent": "af_integration",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "af_data_interface",
+      "label_en": "Data Interface",
+      "label_zh": "数据接口",
+      "type": "function",
+      "parent": "af_integration",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "af_streaming",
+      "label_en": "Streaming",
+      "label_zh": "流式",
+      "type": "function",
+      "parent": "af_integration",
+      "level": 2,
+      "order": 6
+    },
+    {
+      "id": "af_external_device",
+      "label_en": "External Device Connection",
+      "label_zh": "外部设备连接",
+      "type": "function",
+      "parent": "af_integration",
+      "level": 2,
+      "order": 7
+    },
+    {
+      "id": "af_transit_encryption",
+      "label_en": "In-Transit Encryption",
+      "label_zh": "传输加密",
+      "type": "function",
+      "parent": "af_integration",
+      "level": 2,
+      "order": 8
+    },
+    {
+      "id": "af_interface_mgmt",
+      "label_en": "Interface Management",
+      "label_zh": "接口管理",
+      "type": "function",
+      "parent": "af_integration",
+      "level": 2,
+      "order": 9
+    },
+    {
+      "id": "af_storage",
+      "label_en": "Data Storage",
+      "label_zh": "数据存储",
+      "type": "function",
+      "parent": "af_root",
+      "level": 1,
+      "order": 2,
+      "position": "中央上"
+    },
+    {
+      "id": "af_raw_storage",
+      "label_en": "Raw Data Storage",
+      "label_zh": "原始数据存储",
+      "type": "function",
+      "parent": "af_storage",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "af_prepared_storage",
+      "label_en": "Prepared Data Storage",
+      "label_zh": "已准备数据存储",
+      "type": "function",
+      "parent": "af_storage",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "af_information_storage",
+      "label_en": "Information Data Storage",
+      "label_zh": "信息数据存储",
+      "type": "function",
+      "parent": "af_storage",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "af_stored_encryption",
+      "label_en": "Stored Data Encryption",
+      "label_zh": "存储数据加密",
+      "type": "function",
+      "parent": "af_storage",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "af_data_copy",
+      "label_en": "Data Copy",
+      "label_zh": "数据复制",
+      "type": "function",
+      "parent": "af_storage",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "af_sensitive_storage",
+      "label_en": "Sensitive Data Storage",
+      "label_zh": "敏感数据存储",
+      "type": "function",
+      "parent": "af_storage",
+      "level": 2,
+      "order": 6
+    },
+    {
+      "id": "af_metadata_storage",
+      "label_en": "Metadata Storage",
+      "label_zh": "元数据存储",
+      "type": "function",
+      "parent": "af_storage",
+      "level": 2,
+      "order": 7
+    },
+    {
+      "id": "af_data_versioning",
+      "label_en": "Data Versioning",
+      "label_zh": "数据版本管理",
+      "type": "function",
+      "parent": "af_storage",
+      "level": 2,
+      "order": 8
+    },
+    {
+      "id": "af_archiving",
+      "label_en": "Archiving & Compressing",
+      "label_zh": "归档与压缩",
+      "type": "function",
+      "parent": "af_storage",
+      "level": 2,
+      "order": 9
+    },
+    {
+      "id": "af_processing",
+      "label_en": "Data Processing",
+      "label_zh": "数据处理",
+      "type": "function",
+      "parent": "af_root",
+      "level": 1,
+      "order": 3,
+      "position": "中央下"
+    },
+    {
+      "id": "af_batch_processing",
+      "label_en": "Batch Processing",
+      "label_zh": "批处理",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "af_near_realtime",
+      "label_en": "Near Realtime Processing",
+      "label_zh": "近实时处理",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "af_business_transform",
+      "label_en": "Business Transformation",
+      "label_zh": "业务转换",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "af_technical_prep",
+      "label_en": "Technical Preparation",
+      "label_zh": "技术准备",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "af_quality_profiling",
+      "label_en": "Quality Profiling",
+      "label_zh": "质量剖析",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "af_masking",
+      "label_en": "Masking",
+      "label_zh": "掩码",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 6
+    },
+    {
+      "id": "af_statistical_computing",
+      "label_en": "Statistical Computing",
+      "label_zh": "统计计算",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 7
+    },
+    {
+      "id": "af_metadata_inferring",
+      "label_en": "Metadata Inferring",
+      "label_zh": "元数据推断",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 8
+    },
+    {
+      "id": "af_deletion",
+      "label_en": "Deletion",
+      "label_zh": "删除",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 9
+    },
+    {
+      "id": "af_cdc",
+      "label_en": "Change Data Capture",
+      "label_zh": "变更数据捕获",
+      "type": "function",
+      "parent": "af_processing",
+      "level": 2,
+      "order": 10
+    },
+    {
+      "id": "af_reporting",
+      "label_en": "Information Reporting & Dashboarding",
+      "label_zh": "信息报表与仪表盘",
+      "type": "function",
+      "parent": "af_root",
+      "level": 1,
+      "order": 4,
+      "position": "右上"
+    },
+    {
+      "id": "af_information_servicing",
+      "label_en": "Information Servicing",
+      "label_zh": "信息服务",
+      "type": "function",
+      "parent": "af_reporting",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "af_formatted_online",
+      "label_en": "Formatted Online Reporting",
+      "label_zh": "格式化在线报表",
+      "type": "function",
+      "parent": "af_reporting",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "af_diffusion",
+      "label_en": "Report Diffusion Scheduling",
+      "label_zh": "报表分发调度",
+      "type": "function",
+      "parent": "af_reporting",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "af_report_authoring",
+      "label_en": "Report Authoring",
+      "label_zh": "报表编制",
+      "type": "function",
+      "parent": "af_reporting",
+      "level": 2,
+      "order": 4,
+      "description_zh": "表 4-3 译作“报表创作”。"
+    },
+    {
+      "id": "af_basic_tables",
+      "label_en": "Basic Data Tables Manipulation & Analysis",
+      "label_zh": "基础数据表操作与分析",
+      "type": "function",
+      "parent": "af_reporting",
+      "level": 2,
+      "order": 5,
+      "description_zh": "表 4-3 译作“基本数据表操作与分析”。"
+    },
+    {
+      "id": "af_decision",
+      "label_en": "Decision Support Analysis & Visualization",
+      "label_zh": "决策支持分析与可视化",
+      "type": "function",
+      "parent": "af_root",
+      "level": 1,
+      "order": 5,
+      "position": "右中"
+    },
+    {
+      "id": "af_visual_discovery",
+      "label_en": "Visual Data Discovery",
+      "label_zh": "可视化数据发现",
+      "type": "function",
+      "parent": "af_decision",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "af_stat_analysis",
+      "label_en": "Statistical Analysis",
+      "label_zh": "统计分析",
+      "type": "function",
+      "parent": "af_decision",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "af_dynamic_prep",
+      "label_en": "Dynamic Data Preparation",
+      "label_zh": "动态数据准备",
+      "type": "function",
+      "parent": "af_decision",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "af_data_access",
+      "label_en": "Data Access for Engineering & Data Management Use",
+      "label_zh": "面向工程与数据管理的数据访问",
+      "type": "function",
+      "parent": "af_root",
+      "level": 1,
+      "order": 6,
+      "position": "右中下"
+    },
+    {
+      "id": "af_search_access",
+      "label_en": "Search Data Access",
+      "label_zh": "搜索数据访问",
+      "type": "function",
+      "parent": "af_data_access",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "af_sql_access",
+      "label_en": "SQL Data Access",
+      "label_zh": "SQL 数据访问",
+      "type": "function",
+      "parent": "af_data_access",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "af_data_viz",
+      "label_en": "Data Visualization",
+      "label_zh": "数据可视化",
+      "type": "function",
+      "parent": "af_data_access",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "af_metadata_exploration",
+      "label_en": "Metadata Exploration",
+      "label_zh": "元数据探索",
+      "type": "function",
+      "parent": "af_data_access",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "af_admin",
+      "label_en": "Administration",
+      "label_zh": "管理",
+      "type": "function",
+      "parent": "af_root",
+      "level": 1,
+      "order": 7,
+      "position": "中下部横贯"
+    },
+    {
+      "id": "af_resources",
+      "label_en": "Resources Management",
+      "label_zh": "资源管理",
+      "type": "function",
+      "parent": "af_admin",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "af_access_mgmt",
+      "label_en": "Access Management",
+      "label_zh": "访问管理",
+      "type": "function",
+      "parent": "af_admin",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "af_scheduling",
+      "label_en": "Scheduling",
+      "label_zh": "调度",
+      "type": "function",
+      "parent": "af_admin",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "af_service_recovery",
+      "label_en": "Service Recovery",
+      "label_zh": "服务恢复",
+      "type": "function",
+      "parent": "af_admin",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "af_lab_production",
+      "label_en": "Manage Laboratory & Production Environment",
+      "label_zh": "实验与生产环境管理",
+      "type": "function",
+      "parent": "af_admin",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "af_development",
+      "label_en": "Development",
+      "label_zh": "开发",
+      "type": "function",
+      "parent": "af_root",
+      "level": 1,
+      "order": 8,
+      "position": "下部横贯"
+    },
+    {
+      "id": "af_dev_engineering",
+      "label_en": "Data Engineering & Data Science Development",
+      "label_zh": "数据工程与数据科学开发",
+      "type": "function",
+      "parent": "af_development",
+      "level": 2,
+      "order": 1,
+      "position": "Development 内左分组",
+      "description_zh": "二级分组，本身不是叶子功能。"
+    },
+    {
+      "id": "af_ide",
+      "label_en": "Development in Integrated Development Environment (IDE)",
+      "label_zh": "集成开发环境（IDE）开发",
+      "type": "function",
+      "parent": "af_dev_engineering",
+      "level": 3,
+      "order": 1
+    },
+    {
+      "id": "af_notebook",
+      "label_en": "Interactive Notebook-Like Development",
+      "label_zh": "交互式类 Notebook 开发",
+      "type": "function",
+      "parent": "af_dev_engineering",
+      "level": 3,
+      "order": 2
+    },
+    {
+      "id": "af_wrangling_tools",
+      "label_en": "Data Wrangling & Data Discovery Tools",
+      "label_zh": "数据整理与数据发现工具",
+      "type": "function",
+      "parent": "af_dev_engineering",
+      "level": 3,
+      "order": 3
+    },
+    {
+      "id": "af_stat_ml_tools",
+      "label_en": "Statistic & Machine Learning Tools",
+      "label_zh": "统计与机器学习工具",
+      "type": "function",
+      "parent": "af_dev_engineering",
+      "level": 3,
+      "order": 4
+    },
+    {
+      "id": "af_integration_deploy",
+      "label_en": "Integration & Deployment",
+      "label_zh": "集成与部署",
+      "type": "function",
+      "parent": "af_development",
+      "level": 2,
+      "order": 2,
+      "position": "Development 内右分组",
+      "description_zh": "二级分组，本身不是叶子功能。"
+    },
+    {
+      "id": "af_source_control",
+      "label_en": "Source Code Mgmt",
+      "label_zh": "源代码管理",
+      "type": "function",
+      "parent": "af_integration_deploy",
+      "level": 3,
+      "order": 1
+    },
+    {
+      "id": "af_model_mgmt",
+      "label_en": "Analytical Model Mgmt",
+      "label_zh": "分析模型管理",
+      "type": "function",
+      "parent": "af_integration_deploy",
+      "level": 3,
+      "order": 2
+    },
+    {
+      "id": "af_testing",
+      "label_en": "Testing",
+      "label_zh": "测试",
+      "type": "function",
+      "parent": "af_integration_deploy",
+      "level": 3,
+      "order": 3
+    },
+    {
+      "id": "af_build_mgmt",
+      "label_en": "Build Mgmt",
+      "label_zh": "构建管理",
+      "type": "function",
+      "parent": "af_integration_deploy",
+      "level": 3,
+      "order": 4
+    },
+    {
+      "id": "af_deployment",
+      "label_en": "Deployment",
+      "label_zh": "部署",
+      "type": "function",
+      "parent": "af_integration_deploy",
+      "level": 3,
+      "order": 5
+    },
+    {
+      "id": "af_monitoring",
+      "label_en": "Monitoring",
+      "label_zh": "监控",
+      "type": "function",
+      "parent": "af_root",
+      "level": 1,
+      "order": 9,
+      "position": "底部横贯"
+    },
+    {
+      "id": "af_tech_monitoring",
+      "label_en": "Technical Monitoring",
+      "label_zh": "技术监控",
+      "type": "function",
+      "parent": "af_monitoring",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "af_business_monitoring",
+      "label_en": "Business Usage Monitoring",
+      "label_zh": "业务使用监控",
+      "type": "function",
+      "parent": "af_monitoring",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "af_security_monitoring",
+      "label_en": "Security Monitoring",
+      "label_zh": "安全监控",
+      "type": "function",
+      "parent": "af_monitoring",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "af_data_app_monitoring",
+      "label_en": "Data & Application Monitoring",
+      "label_zh": "数据与应用监控",
+      "type": "function",
+      "parent": "af_monitoring",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "af_lineage_audit",
+      "label_en": "Lineage & Audit",
+      "label_zh": "血缘与审计",
+      "type": "function",
+      "parent": "af_monitoring",
+      "level": 2,
+      "order": 5
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G238/fig2-1",
+      "relation": "detail_of",
+      "note_zh": "本图是图 2-1 右栏 9 项高层应用功能的细化，展开为 61 项子功能与 2 个二级分组。"
+    },
+    {
+      "target": "G238/fig4-2",
+      "relation": "complements",
+      "note_zh": "图 4-2 给出业务功能侧，本图给出应用功能侧，共同构成 BI & Analytics 参考模型。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "英文原图把 Development 下的两个分组画成带标题的框，但表 4-3 没有把“Data Engineering & Data Science Development”“Integration & Deployment”列为独立功能；本分析按图中的二级分组建模。",
+      "Development 内的“Source Code Mgmt”“Analytical Model Mgmt”“Build Mgmt”使用了缩写 Mgmt，中文按表 4-3 译。",
+      "中文图内“报表编制/基础数据表”与表 4-3 的“报表创作/基本数据表”不一致，本分析以图内标签为准并注明表格译法。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 35 页图 4-3 截图与 3×3 放大分块（逐块转录）",
+      "英文 PDF 第 35 页表 4-3 开头",
+      "中文稿 G238e_信息架构_商业智能与分析.md 第 522–690 行",
+      "figs/zh/g238e_fig4-3_zh.png、figs/g238e_fig4-3_en.png（相似度 0.985）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G238e.pdf",
+    "pdf_sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G238/fig4-3.json",
+    "interpretation_sha256": "5b0d35b617fe9695d2e8d664c99d768c5dae2c58e987cc41ce95ce0b8781bd85",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 35,
+        "text": "Figure 4-3: BI & Analytics Reference Model – Detailed Level",
+        "bbox_pdf_points": [
+          48.24,
+          409.85,
+          323.52,
+          423.416
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 35,
+      "printed_page": 25,
+      "bbox_pdf_points": [
+        48.2,
+        89.6,
+        563.8,
+        405.1
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G238/fig4-3-p0035.png",
+      "image_sha256": "ba1e1163e9a5577ddbc3c359721da9dc27554cb65f46533c00ac43279927df15",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "ba1e1163e9a5577ddbc3c359721da9dc27554cb65f46533c00ac43279927df15",
+          "status": "extracted-unverified",
+          "text": "BI & Analytics Application Functions\na\nData Integration (2)\nData Storage\na)\nInformation Reporting & Dashboarding\nA\n(\nRaw Data Storage ()\nPrepared Data Storage (9) (Information Data Storage (9)\nInformation Servicing\na\nMetadata Exchange (2)\nFormatted Onine (2)\nReport Difusion (2)\nBatch Exenange (2\n(\n‘Stored Data Encryption (9)\nData Copy\na\n‘Sensitive Data Storage (2)\n‘Query Execution\n(\nData Versioning (-)) (Archiving & Compressing (2)\nReport Authoring ()\nBasic Data Tables\nManual Upload or (9\nMetadata Storage (-))\nManipulation & Analysis,\nData Processing\na\nDecision Support Analysis & Visualization\na:\nData interface (2)\nBatch Processing\na\nNear Realtime Processing\na\nVisual Data Discovery (9)\nStatistical Analysis (9\nStreaming\nBusiness Transformation\na\n‘Technical Preparation\na\n‘Dynamic Data Preparation\ni)\nExternal Device (2)\nQuality Profiing\na\nMasking\na\nData Access for Engineering & Data Management Use (2)\nIn-Transit Encryption (9\n‘Statistical Computing\nMetadata Infering\n(\nSearch Data Access. (9\nSQL Data Access (9)\nInterface\na\na\n‘Management\na\n‘Change Data Capture\nAa\n(\nData visualization ()){ Metadata Exploration (2)\n‘Administration\na\nResources Management (2)\n‘Access Management (2)\nScreauing A)\nService Recovery\n‘Manage Laboratory & Production Environment (~)\nDevelopment\na\nData Engineering & Data Science Development\na\nIntegration & Deployment\na\nDevelopment in integrated Development\nEnvironment (IDE)\nA) (merce neebot ke Deveoment (2)\nsouce cod’) | anayica®\nA\n‘Mgmt\nDeployment\nData Wrangling & Data Discovery Tools (9) |\n‘Statistic & Machine Learning Tools (3)\n_ Mode Mgmt\nMonitoring\nTechnical Mentoring)\n‘Business Usage Monitoring (2)\nSecunty Monitoring\na\nData & Application Monitoring (_\nLUneage &Auct 9)",
+          "words": [
+            {
+              "text": "BI",
+              "confidence": 56.606499,
+              "bbox_pixels_xywh": [
+                420,
+                11,
+                10,
+                9
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 69.040962,
+              "bbox_pixels_xywh": [
+                434,
+                11,
+                7,
+                9
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 96.015633,
+              "bbox_pixels_xywh": [
+                446,
+                2,
+                45,
+                28
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 87.692184,
+              "bbox_pixels_xywh": [
+                497,
+                2,
+                57,
+                28
+              ]
+            },
+            {
+              "text": "Functions",
+              "confidence": 89.443207,
+              "bbox_pixels_xywh": [
+                559,
+                11,
+                52,
+                9
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 87.666222,
+              "bbox_pixels_xywh": [
+                1010,
+                9,
+                12,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 61.431908,
+              "bbox_pixels_xywh": [
+                50,
+                32,
+                26,
+                31
+              ]
+            },
+            {
+              "text": "Integration",
+              "confidence": 61.431908,
+              "bbox_pixels_xywh": [
+                81,
+                32,
+                60,
+                31
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 56.649837,
+              "bbox_pixels_xywh": [
+                155,
+                40,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 93.60508,
+              "bbox_pixels_xywh": [
+                391,
+                32,
+                26,
+                28
+              ]
+            },
+            {
+              "text": "Storage",
+              "confidence": 92.70359,
+              "bbox_pixels_xywh": [
+                423,
+                32,
+                43,
+                28
+              ]
+            },
+            {
+              "text": "a)",
+              "confidence": 18.023767,
+              "bbox_pixels_xywh": [
+                661,
+                41,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 89.180412,
+              "bbox_pixels_xywh": [
+                749,
+                42,
+                59,
+                9
+              ]
+            },
+            {
+              "text": "Reporting",
+              "confidence": 93.304558,
+              "bbox_pixels_xywh": [
+                812,
+                42,
+                140,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.255127,
+              "bbox_pixels_xywh": [
+                868,
+                33,
+                6,
+                28
+              ]
+            },
+            {
+              "text": "Dashboarding",
+              "confidence": 84.74408,
+              "bbox_pixels_xywh": [
+                880,
+                42,
+                72,
+                12
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 74.939697,
+              "bbox_pixels_xywh": [
+                998,
+                41,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 86.482887,
+              "bbox_pixels_xywh": [
+                186,
+                72,
+                1,
+                6
+              ]
+            },
+            {
+              "text": "Raw",
+              "confidence": 93.737679,
+              "bbox_pixels_xywh": [
+                214,
+                63,
+                24,
+                24
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 90.096725,
+              "bbox_pixels_xywh": [
+                244,
+                63,
+                22,
+                24
+              ]
+            },
+            {
+              "text": "Storage",
+              "confidence": 73.757286,
+              "bbox_pixels_xywh": [
+                270,
+                69,
+                38,
+                12
+              ]
+            },
+            {
+              "text": "()",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                324,
+                68,
+                17,
+                14
+              ]
+            },
+            {
+              "text": "Prepared",
+              "confidence": 92.644264,
+              "bbox_pixels_xywh": [
+                366,
+                68,
+                131,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.862259,
+              "bbox_pixels_xywh": [
+                417,
+                60,
+                20,
+                30
+              ]
+            },
+            {
+              "text": "Storage",
+              "confidence": 95.443314,
+              "bbox_pixels_xywh": [
+                442,
+                68,
+                38,
+                14
+              ]
+            },
+            {
+              "text": "(9)",
+              "confidence": 45.932129,
+              "bbox_pixels_xywh": [
+                484,
+                60,
+                18,
+                30
+              ]
+            },
+            {
+              "text": "(Information",
+              "confidence": 29.635448,
+              "bbox_pixels_xywh": [
+                527,
+                68,
+                141,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 92.053902,
+              "bbox_pixels_xywh": [
+                587,
+                60,
+                20,
+                30
+              ]
+            },
+            {
+              "text": "Storage",
+              "confidence": 95.383911,
+              "bbox_pixels_xywh": [
+                614,
+                68,
+                36,
+                14
+              ]
+            },
+            {
+              "text": "(9)",
+              "confidence": 54.267612,
+              "bbox_pixels_xywh": [
+                654,
+                60,
+                18,
+                30
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 91.62706,
+              "bbox_pixels_xywh": [
+                794,
+                53,
+                56,
+                28
+              ]
+            },
+            {
+              "text": "Servicing",
+              "confidence": 90.527924,
+              "bbox_pixels_xywh": [
+                856,
+                53,
+                48,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 80.599556,
+              "bbox_pixels_xywh": [
+                989,
+                61,
+                13,
+                15
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 87.266403,
+              "bbox_pixels_xywh": [
+                41,
+                63,
+                48,
+                32
+              ]
+            },
+            {
+              "text": "Exchange",
+              "confidence": 96.382141,
+              "bbox_pixels_xywh": [
+                97,
+                63,
+                46,
+                32
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 86.088036,
+              "bbox_pixels_xywh": [
+                147,
+                63,
+                17,
+                32
+              ]
+            },
+            {
+              "text": "Formatted",
+              "confidence": 57.811058,
+              "bbox_pixels_xywh": [
+                723,
+                80,
+                54,
+                32
+              ]
+            },
+            {
+              "text": "Onine",
+              "confidence": 90.237305,
+              "bbox_pixels_xywh": [
+                784,
+                80,
+                30,
+                32
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 30.509094,
+              "bbox_pixels_xywh": [
+                827,
+                80,
+                19,
+                32
+              ]
+            },
+            {
+              "text": "Report",
+              "confidence": 61.991798,
+              "bbox_pixels_xywh": [
+                886,
+                80,
+                38,
+                32
+              ]
+            },
+            {
+              "text": "Difusion",
+              "confidence": 43.13839,
+              "bbox_pixels_xywh": [
+                928,
+                80,
+                44,
+                32
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 59.28817,
+              "bbox_pixels_xywh": [
+                984,
+                80,
+                22,
+                32
+              ]
+            },
+            {
+              "text": "Batch",
+              "confidence": 49.689629,
+              "bbox_pixels_xywh": [
+                50,
+                88,
+                33,
+                35
+              ]
+            },
+            {
+              "text": "Exenange",
+              "confidence": 66.468811,
+              "bbox_pixels_xywh": [
+                87,
+                88,
+                48,
+                35
+              ]
+            },
+            {
+              "text": "(2",
+              "confidence": 23.885889,
+              "bbox_pixels_xywh": [
+                143,
+                88,
+                17,
+                35
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 90.992302,
+              "bbox_pixels_xywh": [
+                186,
+                110,
+                1,
+                5
+              ]
+            },
+            {
+              "text": "‘Stored",
+              "confidence": 91.309219,
+              "bbox_pixels_xywh": [
+                202,
+                98,
+                34,
+                29
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 93.337799,
+              "bbox_pixels_xywh": [
+                243,
+                98,
+                22,
+                29
+              ]
+            },
+            {
+              "text": "Encryption",
+              "confidence": 93.788208,
+              "bbox_pixels_xywh": [
+                268,
+                106,
+                73,
+                14
+              ]
+            },
+            {
+              "text": "(9)",
+              "confidence": 29.851723,
+              "bbox_pixels_xywh": [
+                325,
+                98,
+                20,
+                29
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 94.558449,
+              "bbox_pixels_xywh": [
+                394,
+                98,
+                26,
+                28
+              ]
+            },
+            {
+              "text": "Copy",
+              "confidence": 96.190041,
+              "bbox_pixels_xywh": [
+                426,
+                98,
+                27,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 85.094009,
+              "bbox_pixels_xywh": [
+                484,
+                106,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "‘Sensitive",
+              "confidence": 88.270729,
+              "bbox_pixels_xywh": [
+                532,
+                107,
+                113,
+                12
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.515976,
+              "bbox_pixels_xywh": [
+                582,
+                100,
+                20,
+                24
+              ]
+            },
+            {
+              "text": "Storage",
+              "confidence": 84.768181,
+              "bbox_pixels_xywh": [
+                608,
+                107,
+                37,
+                12
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 28.655968,
+              "bbox_pixels_xywh": [
+                655,
+                106,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "‘Query",
+              "confidence": 85.075096,
+              "bbox_pixels_xywh": [
+                49,
+                120,
+                34,
+                29
+              ]
+            },
+            {
+              "text": "Execution",
+              "confidence": 42.300053,
+              "bbox_pixels_xywh": [
+                87,
+                120,
+                52,
+                29
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 92.05365,
+              "bbox_pixels_xywh": [
+                186,
+                145,
+                1,
+                6
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 92.549171,
+              "bbox_pixels_xywh": [
+                381,
+                133,
+                27,
+                29
+              ]
+            },
+            {
+              "text": "Versioning",
+              "confidence": 40.34832,
+              "bbox_pixels_xywh": [
+                412,
+                133,
+                59,
+                29
+              ]
+            },
+            {
+              "text": "(-))",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                484,
+                142,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "(Archiving",
+              "confidence": 38.180462,
+              "bbox_pixels_xywh": [
+                526,
+                142,
+                142,
+                14
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.288918,
+              "bbox_pixels_xywh": [
+                576,
+                133,
+                6,
+                29
+              ]
+            },
+            {
+              "text": "Compressing",
+              "confidence": 87.189911,
+              "bbox_pixels_xywh": [
+                588,
+                142,
+                62,
+                14
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 49.585594,
+              "bbox_pixels_xywh": [
+                654,
+                133,
+                17,
+                29
+              ]
+            },
+            {
+              "text": "Report",
+              "confidence": 68.446404,
+              "bbox_pixels_xywh": [
+                723,
+                128,
+                38,
+                28
+              ]
+            },
+            {
+              "text": "Authoring",
+              "confidence": 58.087978,
+              "bbox_pixels_xywh": [
+                765,
+                128,
+                54,
+                28
+              ]
+            },
+            {
+              "text": "()",
+              "confidence": 58.28952,
+              "bbox_pixels_xywh": [
+                828,
+                128,
+                15,
+                28
+              ]
+            },
+            {
+              "text": "Basic",
+              "confidence": 96.243904,
+              "bbox_pixels_xywh": [
+                886,
+                136,
+                87,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.674294,
+              "bbox_pixels_xywh": [
+                917,
+                126,
+                21,
+                28
+              ]
+            },
+            {
+              "text": "Tables",
+              "confidence": 96.52903,
+              "bbox_pixels_xywh": [
+                942,
+                136,
+                31,
+                9
+              ]
+            },
+            {
+              "text": "Manual",
+              "confidence": 88.283478,
+              "bbox_pixels_xywh": [
+                47,
+                148,
+                40,
+                30
+              ]
+            },
+            {
+              "text": "Upload",
+              "confidence": 95.34726,
+              "bbox_pixels_xywh": [
+                92,
+                148,
+                33,
+                30
+              ]
+            },
+            {
+              "text": "or",
+              "confidence": 72.923637,
+              "bbox_pixels_xywh": [
+                129,
+                148,
+                11,
+                30
+              ]
+            },
+            {
+              "text": "(9",
+              "confidence": 18.353224,
+              "bbox_pixels_xywh": [
+                148,
+                156,
+                12,
+                15
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 82.136528,
+              "bbox_pixels_xywh": [
+                215,
+                137,
+                50,
+                24
+              ]
+            },
+            {
+              "text": "Storage",
+              "confidence": 43.582008,
+              "bbox_pixels_xywh": [
+                269,
+                137,
+                44,
+                24
+              ]
+            },
+            {
+              "text": "(-))",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                324,
+                142,
+                26,
+                15
+              ]
+            },
+            {
+              "text": "Manipulation",
+              "confidence": 76.575661,
+              "bbox_pixels_xywh": [
+                871,
+                149,
+                116,
+                11
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.23941,
+              "bbox_pixels_xywh": [
+                939,
+                140,
+                3,
+                28
+              ]
+            },
+            {
+              "text": "Analysis,",
+              "confidence": 66.712021,
+              "bbox_pixels_xywh": [
+                948,
+                149,
+                39,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.104233,
+              "bbox_pixels_xywh": [
+                382,
+                176,
+                26,
+                28
+              ]
+            },
+            {
+              "text": "Processing",
+              "confidence": 96.220322,
+              "bbox_pixels_xywh": [
+                414,
+                176,
+                62,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 87.16053,
+              "bbox_pixels_xywh": [
+                661,
+                184,
+                12,
+                14
+              ]
+            },
+            {
+              "text": "Decision",
+              "confidence": 94.713547,
+              "bbox_pixels_xywh": [
+                740,
+                186,
+                45,
+                9
+              ]
+            },
+            {
+              "text": "Support",
+              "confidence": 85.390617,
+              "bbox_pixels_xywh": [
+                788,
+                186,
+                42,
+                11
+              ]
+            },
+            {
+              "text": "Analysis",
+              "confidence": 93.302582,
+              "bbox_pixels_xywh": [
+                833,
+                186,
+                45,
+                11
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.256905,
+              "bbox_pixels_xywh": [
+                881,
+                186,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "Visualization",
+              "confidence": 90.125816,
+              "bbox_pixels_xywh": [
+                892,
+                186,
+                67,
+                9
+              ]
+            },
+            {
+              "text": "a:",
+              "confidence": 61.77739,
+              "bbox_pixels_xywh": [
+                998,
+                184,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 87.804253,
+              "bbox_pixels_xywh": [
+                56,
+                182,
+                27,
+                32
+              ]
+            },
+            {
+              "text": "interface",
+              "confidence": 58.172661,
+              "bbox_pixels_xywh": [
+                87,
+                182,
+                44,
+                32
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 41.634476,
+              "bbox_pixels_xywh": [
+                149,
+                193,
+                12,
+                15
+              ]
+            },
+            {
+              "text": "Batch",
+              "confidence": 79.138016,
+              "bbox_pixels_xywh": [
+                267,
+                198,
+                31,
+                28
+              ]
+            },
+            {
+              "text": "Processing",
+              "confidence": 96.373512,
+              "bbox_pixels_xywh": [
+                304,
+                198,
+                57,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 89.482605,
+              "bbox_pixels_xywh": [
+                411,
+                206,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Near",
+              "confidence": 77.421265,
+              "bbox_pixels_xywh": [
+                484,
+                198,
+                26,
+                28
+              ]
+            },
+            {
+              "text": "Realtime",
+              "confidence": 95.827126,
+              "bbox_pixels_xywh": [
+                516,
+                198,
+                41,
+                28
+              ]
+            },
+            {
+              "text": "Processing",
+              "confidence": 95.275375,
+              "bbox_pixels_xywh": [
+                563,
+                198,
+                57,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 86.883278,
+              "bbox_pixels_xywh": [
+                646,
+                206,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Visual",
+              "confidence": 88.997513,
+              "bbox_pixels_xywh": [
+                710,
+                193,
+                33,
+                33
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 62.305115,
+              "bbox_pixels_xywh": [
+                748,
+                193,
+                23,
+                33
+              ]
+            },
+            {
+              "text": "Discovery",
+              "confidence": 62.305115,
+              "bbox_pixels_xywh": [
+                774,
+                205,
+                67,
+                14
+              ]
+            },
+            {
+              "text": "(9)",
+              "confidence": 43.610172,
+              "bbox_pixels_xywh": [
+                828,
+                193,
+                17,
+                33
+              ]
+            },
+            {
+              "text": "Statistical",
+              "confidence": 17.726183,
+              "bbox_pixels_xywh": [
+                882,
+                196,
+                52,
+                31
+              ]
+            },
+            {
+              "text": "Analysis",
+              "confidence": 40.933334,
+              "bbox_pixels_xywh": [
+                938,
+                196,
+                43,
+                31
+              ]
+            },
+            {
+              "text": "(9",
+              "confidence": 28.991241,
+              "bbox_pixels_xywh": [
+                990,
+                196,
+                14,
+                31
+              ]
+            },
+            {
+              "text": "Streaming",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                70,
+                220,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 84.848389,
+              "bbox_pixels_xywh": [
+                250,
+                227,
+                47,
+                28
+              ]
+            },
+            {
+              "text": "Transformation",
+              "confidence": 95.782173,
+              "bbox_pixels_xywh": [
+                303,
+                227,
+                76,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 79.35434,
+              "bbox_pixels_xywh": [
+                411,
+                235,
+                13,
+                15
+              ]
+            },
+            {
+              "text": "‘Technical",
+              "confidence": 74.009529,
+              "bbox_pixels_xywh": [
+                494,
+                228,
+                49,
+                28
+              ]
+            },
+            {
+              "text": "Preparation",
+              "confidence": 88.465004,
+              "bbox_pixels_xywh": [
+                550,
+                228,
+                59,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 83.743118,
+              "bbox_pixels_xywh": [
+                646,
+                235,
+                13,
+                15
+              ]
+            },
+            {
+              "text": "‘Dynamic",
+              "confidence": 67.456337,
+              "bbox_pixels_xywh": [
+                785,
+                236,
+                129,
+                12
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.890076,
+              "bbox_pixels_xywh": [
+                834,
+                226,
+                20,
+                28
+              ]
+            },
+            {
+              "text": "Preparation",
+              "confidence": 96.975777,
+              "bbox_pixels_xywh": [
+                860,
+                236,
+                54,
+                12
+              ]
+            },
+            {
+              "text": "i)",
+              "confidence": 31.716633,
+              "bbox_pixels_xywh": [
+                991,
+                234,
+                13,
+                15
+              ]
+            },
+            {
+              "text": "External",
+              "confidence": 57.902447,
+              "bbox_pixels_xywh": [
+                53,
+                234,
+                43,
+                32
+              ]
+            },
+            {
+              "text": "Device",
+              "confidence": 46.356094,
+              "bbox_pixels_xywh": [
+                101,
+                234,
+                35,
+                32
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 42.042053,
+              "bbox_pixels_xywh": [
+                146,
+                234,
+                19,
+                32
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 34.726105,
+              "bbox_pixels_xywh": [
+                272,
+                260,
+                38,
+                28
+              ]
+            },
+            {
+              "text": "Profiing",
+              "confidence": 58.266945,
+              "bbox_pixels_xywh": [
+                316,
+                260,
+                40,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 68.769768,
+              "bbox_pixels_xywh": [
+                411,
+                267,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Masking",
+              "confidence": 95.811882,
+              "bbox_pixels_xywh": [
+                532,
+                268,
+                40,
+                12
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 82.369904,
+              "bbox_pixels_xywh": [
+                646,
+                267,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 82.879646,
+              "bbox_pixels_xywh": [
+                705,
+                260,
+                27,
+                32
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 96.423462,
+              "bbox_pixels_xywh": [
+                737,
+                260,
+                35,
+                32
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 96.440216,
+              "bbox_pixels_xywh": [
+                777,
+                260,
+                14,
+                32
+              ]
+            },
+            {
+              "text": "Engineering",
+              "confidence": 79.348999,
+              "bbox_pixels_xywh": [
+                798,
+                260,
+                59,
+                32
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.258293,
+              "bbox_pixels_xywh": [
+                862,
+                272,
+                6,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 93.228249,
+              "bbox_pixels_xywh": [
+                875,
+                260,
+                22,
+                32
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 93.228249,
+              "bbox_pixels_xywh": [
+                902,
+                260,
+                65,
+                32
+              ]
+            },
+            {
+              "text": "Use",
+              "confidence": 92.998093,
+              "bbox_pixels_xywh": [
+                971,
+                260,
+                20,
+                32
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 38.309036,
+              "bbox_pixels_xywh": [
+                998,
+                271,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "In-Transit",
+              "confidence": 62.090458,
+              "bbox_pixels_xywh": [
+                40,
+                272,
+                51,
+                32
+              ]
+            },
+            {
+              "text": "Encryption",
+              "confidence": 78.638596,
+              "bbox_pixels_xywh": [
+                96,
+                272,
+                48,
+                32
+              ]
+            },
+            {
+              "text": "(9",
+              "confidence": 32.935127,
+              "bbox_pixels_xywh": [
+                149,
+                272,
+                11,
+                32
+              ]
+            },
+            {
+              "text": "‘Statistical",
+              "confidence": 80.331535,
+              "bbox_pixels_xywh": [
+                258,
+                287,
+                54,
+                28
+              ]
+            },
+            {
+              "text": "Computing",
+              "confidence": 90.970856,
+              "bbox_pixels_xywh": [
+                316,
+                287,
+                52,
+                28
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 93.682449,
+              "bbox_pixels_xywh": [
+                505,
+                287,
+                47,
+                28
+              ]
+            },
+            {
+              "text": "Infering",
+              "confidence": 41.424431,
+              "bbox_pixels_xywh": [
+                558,
+                287,
+                41,
+                28
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 91.840187,
+              "bbox_pixels_xywh": [
+                698,
+                295,
+                1,
+                9
+              ]
+            },
+            {
+              "text": "Search",
+              "confidence": 95.696754,
+              "bbox_pixels_xywh": [
+                724,
+                293,
+                99,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 89.05629,
+              "bbox_pixels_xywh": [
+                762,
+                280,
+                22,
+                32
+              ]
+            },
+            {
+              "text": "Access.",
+              "confidence": 66.313461,
+              "bbox_pixels_xywh": [
+                789,
+                293,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "(9",
+              "confidence": 26.843929,
+              "bbox_pixels_xywh": [
+                833,
+                291,
+                13,
+                15
+              ]
+            },
+            {
+              "text": "SQL",
+              "confidence": 7.574959,
+              "bbox_pixels_xywh": [
+                884,
+                281,
+                24,
+                32
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 7.574959,
+              "bbox_pixels_xywh": [
+                913,
+                281,
+                22,
+                32
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 67.332741,
+              "bbox_pixels_xywh": [
+                940,
+                281,
+                35,
+                32
+              ]
+            },
+            {
+              "text": "(9)",
+              "confidence": 39.278797,
+              "bbox_pixels_xywh": [
+                991,
+                291,
+                12,
+                15
+              ]
+            },
+            {
+              "text": "Interface",
+              "confidence": 38.699547,
+              "bbox_pixels_xywh": [
+                73,
+                312,
+                43,
+                9
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 75.621155,
+              "bbox_pixels_xywh": [
+                410,
+                295,
+                13,
+                15
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 85.484825,
+              "bbox_pixels_xywh": [
+                646,
+                295,
+                13,
+                15
+              ]
+            },
+            {
+              "text": "‘Management",
+              "confidence": 71.320419,
+              "bbox_pixels_xywh": [
+                62,
+                324,
+                64,
+                12
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 76.102943,
+              "bbox_pixels_xywh": [
+                410,
+                323,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "‘Change",
+              "confidence": 70.270294,
+              "bbox_pixels_xywh": [
+                498,
+                324,
+                108,
+                12
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.622253,
+              "bbox_pixels_xywh": [
+                540,
+                316,
+                24,
+                28
+              ]
+            },
+            {
+              "text": "Capture",
+              "confidence": 96.448944,
+              "bbox_pixels_xywh": [
+                568,
+                324,
+                38,
+                12
+              ]
+            },
+            {
+              "text": "Aa",
+              "confidence": 73.397202,
+              "bbox_pixels_xywh": [
+                646,
+                323,
+                14,
+                15
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 92.749931,
+              "bbox_pixels_xywh": [
+                698,
+                326,
+                1,
+                8
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 82.414871,
+              "bbox_pixels_xywh": [
+                726,
+                314,
+                27,
+                29
+              ]
+            },
+            {
+              "text": "visualization",
+              "confidence": 11.153784,
+              "bbox_pixels_xywh": [
+                757,
+                314,
+                66,
+                29
+              ]
+            },
+            {
+              "text": "()){",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                833,
+                322,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 50.767639,
+              "bbox_pixels_xywh": [
+                873,
+                314,
+                52,
+                29
+              ]
+            },
+            {
+              "text": "Exploration",
+              "confidence": 86.614456,
+              "bbox_pixels_xywh": [
+                931,
+                314,
+                52,
+                29
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 68.432861,
+              "bbox_pixels_xywh": [
+                989,
+                314,
+                18,
+                29
+              ]
+            },
+            {
+              "text": "‘Administration",
+              "confidence": 61.204998,
+              "bbox_pixels_xywh": [
+                477,
+                362,
+                78,
+                8
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 83.880524,
+              "bbox_pixels_xywh": [
+                997,
+                360,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Resources",
+              "confidence": 88.76664,
+              "bbox_pixels_xywh": [
+                46,
+                373,
+                58,
+                30
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 92.901459,
+              "bbox_pixels_xywh": [
+                108,
+                373,
+                63,
+                30
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 52.300297,
+              "bbox_pixels_xywh": [
+                176,
+                373,
+                15,
+                30
+              ]
+            },
+            {
+              "text": "‘Access",
+              "confidence": 92.931633,
+              "bbox_pixels_xywh": [
+                236,
+                374,
+                40,
+                30
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 56.716896,
+              "bbox_pixels_xywh": [
+                281,
+                374,
+                65,
+                30
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 31.998295,
+              "bbox_pixels_xywh": [
+                353,
+                374,
+                18,
+                30
+              ]
+            },
+            {
+              "text": "Screauing",
+              "confidence": 38.086815,
+              "bbox_pixels_xywh": [
+                439,
+                382,
+                122,
+                22
+              ]
+            },
+            {
+              "text": "A)",
+              "confidence": 18.22278,
+              "bbox_pixels_xywh": [
+                515,
+                377,
+                29,
+                31
+              ]
+            },
+            {
+              "text": "Service",
+              "confidence": 54.959888,
+              "bbox_pixels_xywh": [
+                586,
+                368,
+                41,
+                35
+              ]
+            },
+            {
+              "text": "Recovery",
+              "confidence": 66.637032,
+              "bbox_pixels_xywh": [
+                632,
+                368,
+                48,
+                35
+              ]
+            },
+            {
+              "text": "‘Manage",
+              "confidence": 72.408913,
+              "bbox_pixels_xywh": [
+                745,
+                374,
+                42,
+                29
+              ]
+            },
+            {
+              "text": "Laboratory",
+              "confidence": 95.94754,
+              "bbox_pixels_xywh": [
+                793,
+                374,
+                52,
+                29
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.108101,
+              "bbox_pixels_xywh": [
+                848,
+                383,
+                6,
+                10
+              ]
+            },
+            {
+              "text": "Production",
+              "confidence": 94.618927,
+              "bbox_pixels_xywh": [
+                861,
+                374,
+                49,
+                29
+              ]
+            },
+            {
+              "text": "Environment",
+              "confidence": 88.744492,
+              "bbox_pixels_xywh": [
+                914,
+                383,
+                62,
+                12
+              ]
+            },
+            {
+              "text": "(~)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                982,
+                382,
+                17,
+                15
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 89.712486,
+              "bbox_pixels_xywh": [
+                482,
+                428,
+                69,
+                11
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 78.927078,
+              "bbox_pixels_xywh": [
+                997,
+                426,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 92.232613,
+              "bbox_pixels_xywh": [
+                162,
+                441,
+                26,
+                28
+              ]
+            },
+            {
+              "text": "Engineering",
+              "confidence": 93.303055,
+              "bbox_pixels_xywh": [
+                193,
+                449,
+                219,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.146912,
+              "bbox_pixels_xywh": [
+                260,
+                441,
+                5,
+                28
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.576363,
+              "bbox_pixels_xywh": [
+                271,
+                441,
+                22,
+                28
+              ]
+            },
+            {
+              "text": "Science",
+              "confidence": 96.912949,
+              "bbox_pixels_xywh": [
+                299,
+                441,
+                38,
+                28
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 89.917084,
+              "bbox_pixels_xywh": [
+                344,
+                449,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 73.620895,
+              "bbox_pixels_xywh": [
+                533,
+                448,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Integration",
+              "confidence": 90.536263,
+              "bbox_pixels_xywh": [
+                713,
+                450,
+                134,
+                11
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.251083,
+              "bbox_pixels_xywh": [
+                774,
+                440,
+                5,
+                28
+              ]
+            },
+            {
+              "text": "Deployment",
+              "confidence": 87.364952,
+              "bbox_pixels_xywh": [
+                786,
+                450,
+                61,
+                11
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 89.095589,
+              "bbox_pixels_xywh": [
+                988,
+                448,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 66.981026,
+              "bbox_pixels_xywh": [
+                71,
+                471,
+                197,
+                11
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 66.981026,
+              "bbox_pixels_xywh": [
+                139,
+                463,
+                8,
+                28
+              ]
+            },
+            {
+              "text": "integrated",
+              "confidence": 72.133362,
+              "bbox_pixels_xywh": [
+                151,
+                463,
+                49,
+                28
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 89.405365,
+              "bbox_pixels_xywh": [
+                207,
+                471,
+                61,
+                11
+              ]
+            },
+            {
+              "text": "Environment",
+              "confidence": 92.545303,
+              "bbox_pixels_xywh": [
+                125,
+                484,
+                61,
+                9
+              ]
+            },
+            {
+              "text": "(IDE)",
+              "confidence": 87.934723,
+              "bbox_pixels_xywh": [
+                189,
+                484,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "A)",
+              "confidence": 79.726463,
+              "bbox_pixels_xywh": [
+                286,
+                467,
+                24,
+                28
+              ]
+            },
+            {
+              "text": "(merce",
+              "confidence": 32.174255,
+              "bbox_pixels_xywh": [
+                308,
+                459,
+                71,
+                40
+              ]
+            },
+            {
+              "text": "neebot",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                385,
+                459,
+                44,
+                40
+              ]
+            },
+            {
+              "text": "ke",
+              "confidence": 22.618103,
+              "bbox_pixels_xywh": [
+                438,
+                459,
+                15,
+                40
+              ]
+            },
+            {
+              "text": "Deveoment",
+              "confidence": 12.366982,
+              "bbox_pixels_xywh": [
+                458,
+                469,
+                86,
+                21
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                528,
+                459,
+                18,
+                40
+              ]
+            },
+            {
+              "text": "souce",
+              "confidence": 67.287422,
+              "bbox_pixels_xywh": [
+                568,
+                464,
+                39,
+                36
+              ]
+            },
+            {
+              "text": "cod’)",
+              "confidence": 8.196383,
+              "bbox_pixels_xywh": [
+                613,
+                464,
+                33,
+                36
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 39.420952,
+              "bbox_pixels_xywh": [
+                658,
+                468,
+                2,
+                2
+              ]
+            },
+            {
+              "text": "anayica®",
+              "confidence": 20.367035,
+              "bbox_pixels_xywh": [
+                673,
+                468,
+                63,
+                24
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 63.86293,
+              "bbox_pixels_xywh": [
+                979,
+                471,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "‘Mgmt",
+              "confidence": 86.658104,
+              "bbox_pixels_xywh": [
+                590,
+                494,
+                28,
+                11
+              ]
+            },
+            {
+              "text": "Deployment",
+              "confidence": 80.460564,
+              "bbox_pixels_xywh": [
+                921,
+                487,
+                59,
+                12
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 79.68811,
+              "bbox_pixels_xywh": [
+                69,
+                497,
+                27,
+                32
+              ]
+            },
+            {
+              "text": "Wrangling",
+              "confidence": 57.998573,
+              "bbox_pixels_xywh": [
+                103,
+                497,
+                44,
+                32
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 89.513664,
+              "bbox_pixels_xywh": [
+                154,
+                509,
+                3,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.584984,
+              "bbox_pixels_xywh": [
+                165,
+                497,
+                19,
+                32
+              ]
+            },
+            {
+              "text": "Discovery",
+              "confidence": 88.732437,
+              "bbox_pixels_xywh": [
+                189,
+                497,
+                48,
+                32
+              ]
+            },
+            {
+              "text": "Tools",
+              "confidence": 53.026508,
+              "bbox_pixels_xywh": [
+                242,
+                497,
+                27,
+                32
+              ]
+            },
+            {
+              "text": "(9)",
+              "confidence": 18.542795,
+              "bbox_pixels_xywh": [
+                286,
+                507,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 55.159992,
+              "bbox_pixels_xywh": [
+                309,
+                510,
+                1,
+                10
+              ]
+            },
+            {
+              "text": "‘Statistic",
+              "confidence": 66.269722,
+              "bbox_pixels_xywh": [
+                338,
+                498,
+                43,
+                30
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.046089,
+              "bbox_pixels_xywh": [
+                385,
+                509,
+                6,
+                9
+              ]
+            },
+            {
+              "text": "Machine",
+              "confidence": 96.475655,
+              "bbox_pixels_xywh": [
+                398,
+                498,
+                35,
+                30
+              ]
+            },
+            {
+              "text": "Learning",
+              "confidence": 71.49411,
+              "bbox_pixels_xywh": [
+                440,
+                498,
+                41,
+                30
+              ]
+            },
+            {
+              "text": "Tools",
+              "confidence": 67.448051,
+              "bbox_pixels_xywh": [
+                485,
+                498,
+                31,
+                30
+              ]
+            },
+            {
+              "text": "(3)",
+              "confidence": 39.846004,
+              "bbox_pixels_xywh": [
+                527,
+                507,
+                17,
+                14
+              ]
+            },
+            {
+              "text": "_",
+              "confidence": 56.762184,
+              "bbox_pixels_xywh": [
+                657,
+                514,
+                2,
+                2
+              ]
+            },
+            {
+              "text": "Mode",
+              "confidence": 55.374813,
+              "bbox_pixels_xywh": [
+                668,
+                484,
+                27,
+                36
+              ]
+            },
+            {
+              "text": "Mgmt",
+              "confidence": 72.906326,
+              "bbox_pixels_xywh": [
+                704,
+                484,
+                27,
+                36
+              ]
+            },
+            {
+              "text": "Monitoring",
+              "confidence": 95.404167,
+              "bbox_pixels_xywh": [
+                489,
+                556,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 72.049759,
+              "bbox_pixels_xywh": [
+                52,
+                563,
+                53,
+                35
+              ]
+            },
+            {
+              "text": "Mentoring)",
+              "confidence": 4.114151,
+              "bbox_pixels_xywh": [
+                110,
+                563,
+                72,
+                35
+              ]
+            },
+            {
+              "text": "‘Business",
+              "confidence": 67.448311,
+              "bbox_pixels_xywh": [
+                227,
+                578,
+                134,
+                12
+              ]
+            },
+            {
+              "text": "Usage",
+              "confidence": 96.890701,
+              "bbox_pixels_xywh": [
+                277,
+                573,
+                28,
+                24
+              ]
+            },
+            {
+              "text": "Monitoring",
+              "confidence": 92.67469,
+              "bbox_pixels_xywh": [
+                311,
+                578,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "(2)",
+              "confidence": 21.276655,
+              "bbox_pixels_xywh": [
+                370,
+                577,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Secunty",
+              "confidence": 36.059349,
+              "bbox_pixels_xywh": [
+                447,
+                570,
+                45,
+                28
+              ]
+            },
+            {
+              "text": "Monitoring",
+              "confidence": 78.508057,
+              "bbox_pixels_xywh": [
+                498,
+                570,
+                50,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 83.033096,
+              "bbox_pixels_xywh": [
+                564,
+                577,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 93.212616,
+              "bbox_pixels_xywh": [
+                630,
+                572,
+                25,
+                25
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 92.654213,
+              "bbox_pixels_xywh": [
+                661,
+                578,
+                5,
+                10
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 79.326538,
+              "bbox_pixels_xywh": [
+                671,
+                572,
+                55,
+                25
+              ]
+            },
+            {
+              "text": "Monitoring",
+              "confidence": 47.108505,
+              "bbox_pixels_xywh": [
+                730,
+                572,
+                50,
+                25
+              ]
+            },
+            {
+              "text": "(_",
+              "confidence": 30.32785,
+              "bbox_pixels_xywh": [
+                788,
+                577,
+                17,
+                16
+              ]
+            },
+            {
+              "text": "LUneage",
+              "confidence": 34.176411,
+              "bbox_pixels_xywh": [
+                870,
+                569,
+                43,
+                34
+              ]
+            },
+            {
+              "text": "&Auct",
+              "confidence": 7.684078,
+              "bbox_pixels_xywh": [
+                918,
+                569,
+                37,
+                34
+              ]
+            },
+            {
+              "text": "9)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                978,
+                577,
+                15,
+                22
+              ]
+            }
+          ],
+          "mean_word_confidence": 69.09,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

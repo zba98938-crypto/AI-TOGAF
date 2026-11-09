@@ -1,0 +1,741 @@
+{
+  "schema_version": "1.0",
+  "id": "G190/figA-5",
+  "status": "done",
+  "doc": {
+    "code": "G190",
+    "title_zh": "信息映射",
+    "title_en": "Information Mapping",
+    "zh_md": "G190e_信息映射.md",
+    "en_pdf": "togaf-standard-10th/G190e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "A-5",
+    "title_en": "Information Map in an Entity Relationship Diagram",
+    "title_zh": "实体关系图中的信息地图",
+    "section_en": "A.3. Entity Relationship Diagrams (ERDs)",
+    "section_zh": "A.3 实体关系图（ERD）",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        26
+      ],
+      "printed_page": 16,
+      "bboxes": [
+        [
+          86.9,
+          36.0,
+          525.1,
+          303.9
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        275
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g190_figA-5.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "d5f21bd1bfa7",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "实体完全不同：原图 6 个实体（Payment、Loan、Customer、Branch、Account、Employee），SVG 只有客户、产品、账户、订单 4 个实体，贷款、分支机构、员工缺失，还多出原图没有的“产品/订单”",
+        "属性全部丢失：原图每个实体都列出属性（如 Payment_Number、Loan_Number、Balance、Start_Date 等），SVG 一个都没有",
+        "关系与记法不符：原图用鸦爪（crow's foot）符号标基数、7 条关系均无名称；SVG 用普通线加自拟名称“持有/包含/订购”，并把基数写成 1..*",
+        "版式与符号（青色标题条、鸦爪、可选圈）都没有还原",
+        "底部加了原图没有的说明文字“ERD 概念层示例：……”"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "er_model"
+    ],
+    "notation": "鸦爪（crow's foot / IE）记法的实体关系图：青色标题条写实体名，下方列属性（+ 前缀）；关系线两端用圈（可选）、竖杠（恰好一个）与鸦爪（多个）组合表示基数，无关系名",
+    "concepts": [
+      "information_map",
+      "information_concept",
+      "erd",
+      "data_architecture"
+    ],
+    "adm_phases": [
+      "adm_phase_c",
+      "adm_phase_d"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "把与图 A-3 相同的 6 个实体和 7 条关联画成鸦爪 ERD，用符号标出各端基数。",
+    "purpose_zh": "附录 A.3 说明 ERD 在信息系统设计中的三个层次，并强调业务架构最常用概念层（有时逻辑层）。本图是概念层 ERD 的样例：实体仍是业务实体，但改用数据库设计者熟悉的鸦爪基数符号，为后续逻辑/物理设计留出接口。",
+    "reading_guide_zh": "逐个实体读属性，再沿关系线看两端的符号：圈 = 可选（0..1），竖杠 = 恰好一个，鸦爪 = 多个，圈+鸦爪 = 0..多，杠+鸦爪 = 1..多。符号画在哪一端，就描述哪一端相对另一端一个实例的基数。图中没有关系名，只能按符号读基数。",
+    "key_points_zh": [
+      "6 个实体与图 A-3 的 6 个类一一对应，属性清单基本相同，说明这是同一业务模型的 ERD 表达。",
+      "关系仍是 7 条，拓扑与图 A-3 完全一致：付款—贷款—客户、贷款—分支机构—账户、分支机构—员工—客户。",
+      "基数用鸦爪符号而非数字：图中出现圈（可选）、竖杠（一个）、圈+鸦爪（0..多）、杠+鸦爪（1..多）四种组合。",
+      "多数关系是一端为竖杠、另一端为圈，按标准 IE 读法是“一端恰好一个、另一端 0 或 1”；只有分支机构—账户是 0..多，员工—客户两端都是 1..多。",
+      "Employee 的最后一个属性拼写为 Telephone_Numer（少一个 b），与图 A-3 的 Telephone_Number 不一致，属原图笔误。",
+      "实体框的青色标题条与图 A-3 的黄色标题条不同，是 ERD 工具的样式；属性前缀 + 仍表示 public。"
+    ],
+    "hierarchy_zh": "没有层级：6 个实体平级，关系线只表示关联；属性列在实体框内，是实体的组成部分而非独立元素。",
+    "line_semantics_zh": "7 条无箭头的实线关系，两端用鸦爪记法标基数；没有关系名、没有角色名、没有方向箭头。线条走向（水平、折线、绕行）只为避让实体框，不表达额外语义。",
+    "misreadings_zh": [
+      "鸦爪符号贴在实体边上时，读的是该实体的基数；不要按“靠近谁就属于谁”理解。",
+      "图中没有关系名，不能凭线的形状猜“持有/包含/订购”等业务动词——这些是中文重绘 SVG 自拟的。",
+      "本图是概念层 ERD，不是物理数据库模式：属性没有主外键标记，实体也未必已实现。",
+      "客户端的圈不是“零个客户”，而是“0 或 1 个”的可选基数；与图 A-4 的 1..2 不是同一套写法。",
+      "Employee 的 Telephone_Numer 是原图拼写错误，不是另一个字段。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p25",
+        "summary_zh": "ERD 在信息系统设计中历史悠久，通常在三个层次使用：概念层（描述业务实体）、逻辑层（更详细地建模关系与属性）、物理层（映射到数据库结构）；业务架构中最有用的是概念层、有时是逻辑层，且可能包含尚未实现的信息类型。"
+      },
+      {
+        "source": "en_pdf p26",
+        "summary_zh": "图 A-5 标题为“Information Map in an Entity Relationship Diagram”。"
+      },
+      {
+        "source": "zh_md L267",
+        "summary_zh": "中文稿列出 ERD 的概念层、逻辑层、物理层三个层次。"
+      },
+      {
+        "source": "zh_md L273",
+        "summary_zh": "中文稿说明业务架构中概念层、有时逻辑层的图最有用，可能包含尚未在系统中实现的信息类型。"
+      },
+      {
+        "source": "zh_md L275",
+        "summary_zh": "中文稿在此处引用图 A-5（figs/g190_figA-5.svg）。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "6 个实体框分三行：Payment（左上）、Loan（上中）、Customer（右上）；Branch（中左）、Account（中中）；Employee（下中）。关系线用水平线与折线绕行，Customer 与 Employee 通过右下方的长折线相连。"
+  },
+  "legend": [
+    {
+      "symbol": "青色标题条 + 属性清单",
+      "meaning_zh": "ERD 实体及其属性",
+      "explicit": false
+    },
+    {
+      "symbol": "圈 ○",
+      "meaning_zh": "可选（0 或 1）",
+      "explicit": false
+    },
+    {
+      "symbol": "竖杠 |",
+      "meaning_zh": "恰好一个",
+      "explicit": false
+    },
+    {
+      "symbol": "圈 + 鸦爪 ○<",
+      "meaning_zh": "零个或多个",
+      "explicit": false
+    },
+    {
+      "symbol": "竖杠 + 鸦爪 |<",
+      "meaning_zh": "一个或多个",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "ent_payment",
+      "label_en": "Payment",
+      "label_zh": "付款",
+      "type": "data",
+      "notation_type": "ER Entity",
+      "level": 1,
+      "position": "左上",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Payment_Number",
+          "Payment_Date",
+          "Payment_Amount"
+        ]
+      }
+    },
+    {
+      "id": "ent_loan",
+      "label_en": "Loan",
+      "label_zh": "贷款",
+      "type": "data",
+      "notation_type": "ER Entity",
+      "level": 1,
+      "position": "上中",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Amount",
+          "Loan_Number"
+        ]
+      }
+    },
+    {
+      "id": "ent_customer",
+      "label_en": "Customer",
+      "label_zh": "客户",
+      "type": "data",
+      "notation_type": "ER Entity",
+      "level": 1,
+      "position": "右上",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Customer_ID",
+          "Customer_Name",
+          "Customer_Street",
+          "Customer_City"
+        ]
+      }
+    },
+    {
+      "id": "ent_branch",
+      "label_en": "Branch",
+      "label_zh": "分支机构",
+      "type": "data",
+      "notation_type": "ER Entity",
+      "level": 1,
+      "position": "中左",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Branch_Name",
+          "Branch_Code",
+          "Branch_City"
+        ]
+      }
+    },
+    {
+      "id": "ent_account",
+      "label_en": "Account",
+      "label_zh": "账户",
+      "type": "data",
+      "notation_type": "ER Entity",
+      "level": 1,
+      "position": "中中",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Account_ID",
+          "Balance"
+        ]
+      }
+    },
+    {
+      "id": "ent_employee",
+      "label_en": "Employee",
+      "label_zh": "员工",
+      "type": "data",
+      "notation_type": "ER Entity",
+      "level": 1,
+      "position": "下中",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Employee_ID",
+          "Employee_Name",
+          "Dependent_Name",
+          "Start_Date",
+          "Telephone_Numer"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from": "ent_payment",
+      "to": "ent_loan",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "Payment 端 ○（0..1）；Loan 端 |（1）",
+      "description_zh": "上排水平线；按标准 IE 读法为一笔贷款对应 0 或 1 笔付款、一笔付款对应恰好一笔贷款。"
+    },
+    {
+      "from": "ent_loan",
+      "to": "ent_customer",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "Loan 端 |（1）；Customer 端 ○（0..1）",
+      "description_zh": "上排水平线；符号表示 Loan 端恰好一个、Customer 端 0 或 1 个。"
+    },
+    {
+      "from": "ent_loan",
+      "to": "ent_branch",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "Loan 端 ○（0..1）；Branch 端 |（1）",
+      "description_zh": "从 Loan 左边缘折向左下接到 Branch 的折线。"
+    },
+    {
+      "from": "ent_branch",
+      "to": "ent_account",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "Branch 端 ○<（0..*）；Account 端 |（1）",
+      "description_zh": "中部水平线；唯一使用“零个或多个”鸦爪的一条。"
+    },
+    {
+      "from": "ent_account",
+      "to": "ent_customer",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "Account 端 |（1）；Customer 端 ○（0..1）",
+      "description_zh": "从 Account 右边缘向右再向上接到 Customer 底边的折线。"
+    },
+    {
+      "from": "ent_branch",
+      "to": "ent_employee",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "Branch 端 |（1）；Employee 端 ○（0..1）",
+      "description_zh": "从 Branch 底边向下再向右接到 Employee 左边的折线。"
+    },
+    {
+      "from": "ent_employee",
+      "to": "ent_customer",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "Employee 端 |<（1..*）；Customer 端 |<（1..*）",
+      "description_zh": "右下方的长折线，两端均为“一个或多个”鸦爪。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G190/figA-3",
+      "relation": "variant_of",
+      "note_zh": "同一组 6 个实体与 7 组关联，图 A-3 是 UML 类图版本，本图是带鸦爪基数的 ERD 版本"
+    },
+    {
+      "target": "G190/fig2-1",
+      "relation": "related",
+      "note_zh": "同样使用付款、贷款、客户、账户、分支机构、员工 6 个概念，但本图补上属性与基数"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "基数按标准 IE/鸦爪读法逐端记录（圈=0..1、杠=1、圈+鸦爪=0..*、杠+鸦爪=1..*），但其中 4 条关系按此读法得到的业务含义不自然（如“一个客户恰好一笔贷款”“一个分支机构恰好一个账户”），作者原意可能是把圈当作“多”来用；原图没有基数文字，无法确证。",
+      "Employee 的 Telephone_Numer 确认是原图拼写（少一个 b），不是转录错误。",
+      "各实体框的青色标题条是样式，不代表主键或分区。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 26 页图 A-5 原图截图及 3x 局部放大（逐个关系端点核对鸦爪/圈/杠符号）",
+      "英文 PDF 第 25–26 页正文",
+      "中文稿 G190e_信息映射.md 第 267–275 行",
+      "figs/g190_figA-5.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G190e.pdf",
+    "pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G190/figA-5.json",
+    "interpretation_sha256": "ff3f960350dcd0abb33a6b305d28f8385937634cd4fd7a2f1ad5222cf5f7ba2a",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 26,
+        "text": "Figure A-5: Information Map in an Entity Relationship Diagram",
+        "bbox_pdf_points": [
+          48.24,
+          308.599,
+          344.677,
+          322.165
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 26,
+      "printed_page": 16,
+      "bbox_pdf_points": [
+        86.9,
+        36.0,
+        525.1,
+        303.9
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G190/figA-5-p0026.png",
+      "image_sha256": "30fa47b2f6db6130c4e1d5f88feae619d6d49d36e957fbc4fba802f11735fe44",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "30fa47b2f6db6130c4e1d5f88feae619d6d49d36e957fbc4fba802f11735fe44",
+          "status": "extracted-unverified",
+          "text": "aa\n+\nAmount\nPayment_Number\n+\nCustomer_ID\n+\n+\nPayment_Date\nLoan_Number\nCustomer_Name\n+\nPayment_Amount\nCustomer_Street\nCustomer_City\nV\n+\nBranch_Name\nPO\n+\nAccount_ID\n+\nBranch_Code\n+\nBalance\n+\nBranch_City\nEmployee_ID\nEmployee_Name\nDepedendent_Name\nStart_Date\nTelephone_Numer",
+          "words": [
+            {
+              "text": "aa",
+              "confidence": 22.930779,
+              "bbox_pixels_xywh": [
+                356,
+                0,
+                190,
+                31
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.809517,
+              "bbox_pixels_xywh": [
+                10,
+                45,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "Amount",
+              "confidence": 96.798195,
+              "bbox_pixels_xywh": [
+                409,
+                44,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "Payment_Number",
+              "confidence": 92.884163,
+              "bbox_pixels_xywh": [
+                54,
+                44,
+                127,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.614166,
+              "bbox_pixels_xywh": [
+                367,
+                45,
+                11,
+                12
+              ]
+            },
+            {
+              "text": "Customer_ID",
+              "confidence": 71.531212,
+              "bbox_pixels_xywh": [
+                727,
+                44,
+                93,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.855064,
+              "bbox_pixels_xywh": [
+                11,
+                73,
+                11,
+                12
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.859787,
+              "bbox_pixels_xywh": [
+                367,
+                73,
+                11,
+                12
+              ]
+            },
+            {
+              "text": "Payment_Date",
+              "confidence": 90.899651,
+              "bbox_pixels_xywh": [
+                54,
+                72,
+                103,
+                16
+              ]
+            },
+            {
+              "text": "Loan_Number",
+              "confidence": 89.031425,
+              "bbox_pixels_xywh": [
+                410,
+                72,
+                99,
+                16
+              ]
+            },
+            {
+              "text": "Customer_Name",
+              "confidence": 68.787102,
+              "bbox_pixels_xywh": [
+                727,
+                72,
+                120,
+                16
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.770363,
+              "bbox_pixels_xywh": [
+                11,
+                102,
+                11,
+                11
+              ]
+            },
+            {
+              "text": "Payment_Amount",
+              "confidence": 90.904472,
+              "bbox_pixels_xywh": [
+                54,
+                100,
+                126,
+                16
+              ]
+            },
+            {
+              "text": "Customer_Street",
+              "confidence": 87.254059,
+              "bbox_pixels_xywh": [
+                727,
+                100,
+                121,
+                16
+              ]
+            },
+            {
+              "text": "Customer_City",
+              "confidence": 74.672974,
+              "bbox_pixels_xywh": [
+                727,
+                129,
+                105,
+                15
+              ]
+            },
+            {
+              "text": "V",
+              "confidence": 64.323502,
+              "bbox_pixels_xywh": [
+                772,
+                163,
+                13,
+                9
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.271935,
+              "bbox_pixels_xywh": [
+                21,
+                231,
+                11,
+                11
+              ]
+            },
+            {
+              "text": "Branch_Name",
+              "confidence": 93.085487,
+              "bbox_pixels_xywh": [
+                64,
+                230,
+                100,
+                15
+              ]
+            },
+            {
+              "text": "PO",
+              "confidence": 48.440178,
+              "bbox_pixels_xywh": [
+                200,
+                237,
+                30,
+                13
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.788414,
+              "bbox_pixels_xywh": [
+                367,
+                228,
+                11,
+                12
+              ]
+            },
+            {
+              "text": "Account_ID",
+              "confidence": 45.738853,
+              "bbox_pixels_xywh": [
+                409,
+                227,
+                82,
+                16
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.844643,
+              "bbox_pixels_xywh": [
+                21,
+                259,
+                11,
+                12
+              ]
+            },
+            {
+              "text": "Branch_Code",
+              "confidence": 93.090797,
+              "bbox_pixels_xywh": [
+                64,
+                259,
+                96,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.469414,
+              "bbox_pixels_xywh": [
+                367,
+                257,
+                11,
+                11
+              ]
+            },
+            {
+              "text": "Balance",
+              "confidence": 96.970253,
+              "bbox_pixels_xywh": [
+                410,
+                256,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 96.478371,
+              "bbox_pixels_xywh": [
+                21,
+                288,
+                11,
+                11
+              ]
+            },
+            {
+              "text": "Branch_City",
+              "confidence": 85.909546,
+              "bbox_pixels_xywh": [
+                64,
+                287,
+                85,
+                15
+              ]
+            },
+            {
+              "text": "Employee_ID",
+              "confidence": 47.964928,
+              "bbox_pixels_xywh": [
+                392,
+                388,
+                92,
+                16
+              ]
+            },
+            {
+              "text": "Employee_Name",
+              "confidence": 89.11132,
+              "bbox_pixels_xywh": [
+                392,
+                417,
+                119,
+                15
+              ]
+            },
+            {
+              "text": "Depedendent_Name",
+              "confidence": 91.096718,
+              "bbox_pixels_xywh": [
+                392,
+                445,
+                143,
+                15
+              ]
+            },
+            {
+              "text": "Start_Date",
+              "confidence": 91.260231,
+              "bbox_pixels_xywh": [
+                391,
+                473,
+                75,
+                16
+              ]
+            },
+            {
+              "text": "Telephone_Numer",
+              "confidence": 91.360191,
+              "bbox_pixels_xywh": [
+                391,
+                502,
+                129,
+                15
+              ]
+            }
+          ],
+          "mean_word_confidence": 84.09,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,1594 @@
+{
+  "schema_version": "1.0",
+  "id": "G178/fig4-4",
+  "status": "done",
+  "doc": {
+    "code": "G178",
+    "title_zh": "价值流",
+    "title_en": "Value Streams",
+    "zh_md": "G178e_价值流.md",
+    "en_pdf": "togaf-standard-10th/G178e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-4",
+    "title_en": "Heat Map for the Recruit Employee Value Stream",
+    "title_zh": "招聘员工价值流热力图",
+    "section_en": "4.3 Heat Mapping Scenario",
+    "section_zh": "4.3 热力图场景",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        23
+      ],
+      "printed_page": 13,
+      "bboxes": [
+        [
+          48.2,
+          36.0,
+          563.8,
+          296.1
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        277
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g178_fig4-4.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "20914851f9ad",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "版式完全不同：原图沿用图 4-3 的画法（顶部 5 个 V 形阶段箭头，每个阶段下方纵向堆叠一级能力灰框，框内是着色的二级能力条）；SVG 改成 4 行 × 4 列的色块网格，行是阶段，列没有任何表头，看不出每一列代表什么",
+        "缺少第 5 个阶段“入职（Onboard Employee）”，而原图的 2 个红色全部、黄色 6 个中的 3 个都在这个阶段；正文的根因分析（无人统筹整个入职序列）也落在这里",
+        "SVG 没有任何业务能力名称：原图的 9 个一级能力和 16 个二级能力（如入职跟踪、员工信息管理、资产分配、空间分配、员工背景调查与身份、协议架构设计、项目群/人力资源匹配、政策管理/政策发布）全部缺失，格子里换成了自拟的短语（“流程不清”“渠道不足”“筛选标准缺失”“协调不足”“面试排期”“入职交接断点”等），这些说法原图和正文都没有",
+        "颜色分布与原图不符：SVG 在定义岗位、评估应聘、面试候选人三行各放了一个红格，原图这三个阶段没有红色（红色只在入职阶段）；原图“发布职位”“评估应聘”全为绿色，SVG 却有黄格",
+        "“政策发布”的含义被改写：原图中它是新加到第一阶段的二级能力（Policy Mgmt. 下的 Policy Dissemination），着黄色；SVG 写成红色格“政策发布能力缺失”",
+        "“入职交接断点”被放在“面试候选人”一行，与原图把入职问题放在“入职”阶段不符；SVG 还有 4 个含义不明的浅灰“—”格",
+        "SVG 图例写“绿色 = 运行良好”，正文只定义了红色（重大差距）和黄色（需要一定调整），绿色含义是推断",
+        "缺少原图的“© The Open Group”版权标注"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "matrix",
+      "flow"
+    ],
+    "notation": "价值流/能力交叉映射上的热力图：V 形阶段箭头链 + 下方嵌套能力框（与图 4-3 相同），二级能力条用红/黄/绿三色表示差距评估结果",
+    "concepts": [
+      "value_stream",
+      "business_capability",
+      "capability_heat_map",
+      "cross_mapping",
+      "baseline_target_gap",
+      "business_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "在图 4-3 交叉映射上给二级能力按差距着色的热力图：红=重大差距、黄=需调整，问题集中在“入职”阶段。",
+    "purpose_zh": "第 4.3 节热力图场景的结果图。虚构公司的录用接受率下降，HR 发起能力与价值流分析：团队先做出图 4-3 的交叉映射，再逐项评估每个能力对其上方阶段所需价值的支撑程度，得到初始热力图；一周后补充信息、找到根因，更新成本图。作者用它演示热力图如何把注意力引到差距集中的地方，并支撑决策（新增政策发布能力、提出新建入职从属价值流与价值流负责人）。",
+    "reading_guide_zh": "从左到右读顶部 5 个 V 形箭头（价值流阶段）。每个箭头下方那一列灰框是使能该阶段的能力：灰框左上角粗体字是一级能力（不着色），框内彩色条是被选中的二级能力，颜色是该二级能力在这个阶段的评估结果。正文给出的评估方法是“沿价值流图纵向往上看”，即问每个能力条对它正上方阶段所需价值支撑得怎样。红色表示重大差距，黄色表示需要一定调整，绿色正文未定义，按热力图惯例理解为未见明显差距。图中没有连线和图例。",
+    "key_points_zh": [
+      "本图是图 4-3 的热力图版本：阶段、一级/二级能力与图 4-3 相同，只是给二级能力条着色，并在“定义岗位”下新增了一级能力“政策管理（Policy Mgmt.）”及其二级能力“政策发布（Policy Dissemination）”。正文说明这是团队第二次开会后做出的两项关键调整之一。",
+      "颜色只涂在二级能力条上，评价的是“该能力在这个阶段”的表现：同一能力（员工供需管理）在“发布职位”和“评估应聘”下各出现一次，两处都是绿色。",
+      "17 个能力条中 2 红、6 黄、9 绿。2 个红色（入职跟踪、员工信息管理）都在“入职”阶段；该阶段另外 3 个（资产分配、空间分配、员工背景调查与身份）是黄色，没有一个绿色，是全图差距最集中的阶段。",
+      "“发布职位”“评估应聘”两个阶段全部为绿色；“面试候选人”只有协议架构设计为黄色；“定义岗位”的项目群/人力资源匹配和新增的政策发布为黄色。",
+      "“入职跟踪”为红色，与正文找到的根因相对应：过去由一位已退休的 IT 员工手工跟踪从入职日起的整个入职序列（入职引导、安全与身份办理、办公空间分配、资产配备、开通网络与系统访问），他退休后无人接手，缺少统筹整个入职序列的角色。",
+      "项目群经理起初认为最大问题是给新员工配电脑、网络和移动设备太慢；本图中“资产分配”只是黄色，红色落在入职跟踪和员工信息管理上，与正文“问题没那么简单”的判断一致（对应关系由解析者比对图与正文得出）。",
+      "正文的第二项调整（需要新建一个覆盖员工入职所涉职能、系统与角色的从属价值流，并设价值流负责人）没有画在图中，只能从正文得知。",
+      "热力图的颜色是讨论和收集信息的焦点，不是结论本身：正文中 HR 总监和业务架构师建议先以初始热力图为焦点收集各差距领域的细节，再下结论。"
+    ],
+    "hierarchy_zh": "与图 4-3 相同，共三层：“招聘员工”价值流（由 5 个阶段整体隐含表示，图中没有单独的框）→ 5 个价值流阶段；业务能力分一级能力（灰框）和二级能力（框内彩色条），二级能力嵌套在所属一级能力之内。能力与阶段之间是使能关系，不是上下级关系。",
+    "line_semantics_zh": "图中没有任何连线。V 形箭头首尾相接表示阶段先后；能力与阶段的使能关系由“位于哪个阶段的正下方”隐含表达（关系清单中标为推断）；二级与一级能力的上下级由框内嵌套表达；颜色表示该二级能力在该阶段的差距评估。",
+    "misreadings_zh": [
+      "颜色评价的是“某能力在某阶段”的支撑程度，不是对能力本身的总体评分；同一能力在不同阶段可以颜色不同。",
+      "这是第二次开会后更新的热力图；正文提到的初始热力图（“几个红、几个黄”）本指南没有画出，因此除新增的政策管理/政策发布外，看不出更新时哪些颜色改变了。",
+      "红色不表示能力不存在，而是“交付业务价值所需与现在的运作方式之间有重大差距”；新加入的“政策发布”着黄色，也不是“缺失”。",
+      "正文所说的新从属价值流和价值流负责人不在图中。",
+      "同一列中灰框的上下顺序没有优先级含义；多次出现的“HR Mgmt.”是同一个一级能力。",
+      "中文稿引用的 figs/g178_fig4-4.svg 是自拟的 4×4 色块网格，缺少“入职”阶段和全部能力名称，颜色位置也与原图不同，不能据它理解本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "虚构公司为应对市场需求增长而招聘，录用接受率下降，社交媒体传言公司对新员工不好；HR 发起业务能力与价值流分析。招聘总监召集项目群管理、财务、资产管理和首席业务架构师组成跨职能团队。"
+      },
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "业务架构师带团队把能力映射到目标（未来态）价值流阶段，得到图 4-3；再沿价值流图纵向往上看，评估每个能力对相应阶段所需价值的支撑程度，形成初始热力图：几个红色（交付业务价值所需与现状之间的重大差距）和几个黄色（需要一些调整）。"
+      },
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "项目群经理认为最大问题是给新员工配电脑、网络访问和移动设备耗时太长；HR 总监和业务架构师认为没那么简单，建议以热力图为焦点先收集各差距领域的详细信息。"
+      },
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "一周后发现：一位四个月前退休的 IT 员工过去手工跟踪整个入职序列（从入职日到入职引导、安全处理与身份、办公空间分配、资产配备、开通网络与系统访问）；根因是缺少一个跟踪整个入职序列的角色。"
+      },
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "团队把热力图更新为图 4-4，做了两项关键调整：一是认识到政策发布（Policy Dissemination）是使能该价值流的关键能力，加到第一个阶段；二是这些差距说明需要一个新的从属价值流，涵盖涉及员工入职的各种职能、系统和角色，并需要一位价值流负责人来改进公司的招聘。"
+      },
+      {
+        "source": "en_pdf p20",
+        "summary_zh": "表 4-4 中“入职”阶段的描述已包含“触发内嵌的价值流，处理让员工融入工作环境的所有活动”。"
+      },
+      {
+        "source": "zh_md L271",
+        "summary_zh": "中文稿：纵向审视每项业务能力对相应价值流阶段所需价值的支撑程度，形成初始热力图，红色为重大差距，黄色为需要一定调整。"
+      },
+      {
+        "source": "zh_md L275",
+        "summary_zh": "中文稿：更新热力图（图 4-4），把政策发布加入第一个价值流阶段，并提出需要新的从属价值流和价值流负责人。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "顶部一行 5 个 V 形箭头，从左到右；每个箭头下方是一列纵向堆叠的灰色一级能力框（每列 1–5 个），框内是红/黄/绿色的二级能力条；“© The Open Group”在最后一个箭头右下方。"
+  },
+  "legend": [
+    {
+      "symbol": "V 形灰色箭头（chevron）",
+      "meaning_zh": "价值流阶段，左到右为先后顺序",
+      "explicit": false
+    },
+    {
+      "symbol": "浅灰带边框的框 + 左上角粗体标题",
+      "meaning_zh": "一级业务能力（本身不着色）",
+      "explicit": false
+    },
+    {
+      "symbol": "框内彩色条",
+      "meaning_zh": "该一级能力下被选中的二级业务能力；颜色是它在该阶段的差距评估",
+      "explicit": false
+    },
+    {
+      "symbol": "红色能力条",
+      "meaning_zh": "重大差距：交付业务价值所需与现在的运作方式之间差距大（正文定义，图上无图例）",
+      "explicit": false
+    },
+    {
+      "symbol": "黄色能力条",
+      "meaning_zh": "需要一些调整（正文定义，图上无图例）",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色能力条",
+      "meaning_zh": "正文未定义；按热力图惯例理解为未见明显差距",
+      "explicit": false
+    },
+    {
+      "symbol": "灰框位于某阶段箭头的正下方",
+      "meaning_zh": "该能力使能（支撑）这个阶段",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "vs_recruit",
+      "label_en": "Recruit Employee (value stream)",
+      "label_zh": "招聘员工（价值流）",
+      "type": "value_stream",
+      "parent": null,
+      "level": 0,
+      "description_zh": "图中未单独画出，由 5 个阶段整体表示；名称来自图题、图 4-2 与正文。"
+    },
+    {
+      "id": "st_define",
+      "label_en": "Define Position",
+      "label_zh": "定义岗位",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "st_communicate",
+      "label_en": "Communicate Position",
+      "label_zh": "发布职位",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "st_assess",
+      "label_en": "Assess Responses",
+      "label_zh": "评估应聘",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "st_interview",
+      "label_en": "Interview Candidates",
+      "label_zh": "面试候选人",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "st_onboard",
+      "label_en": "Onboard Employee",
+      "label_zh": "入职",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "level": 1,
+      "order": 5,
+      "description_zh": "差距最集中的阶段：2 红 3 黄，无绿色。"
+    },
+    {
+      "id": "c_program",
+      "label_en": "Program Mgmt.",
+      "label_zh": "项目群管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "c_hr",
+      "label_en": "HR Mgmt.",
+      "label_zh": "人力资源管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1,
+      "description_zh": "在 5 个阶段下都出现。"
+    },
+    {
+      "id": "c_policy",
+      "label_en": "Policy Mgmt.",
+      "label_zh": "政策管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1,
+      "description_zh": "图 4-3 中没有，本图新增于“定义岗位”下。"
+    },
+    {
+      "id": "c_finance",
+      "label_en": "Finance Mgmt.",
+      "label_zh": "财务管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "c_agreement",
+      "label_en": "Agreement Mgmt.",
+      "label_zh": "协议管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "c_asset",
+      "label_en": "Asset Mgmt.",
+      "label_zh": "资产管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "c_facilities",
+      "label_en": "Facilities Mgmt.",
+      "label_zh": "设施管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "c_security",
+      "label_en": "Security Mgmt.",
+      "label_zh": "安全管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "c_information",
+      "label_en": "Information Mgmt.",
+      "label_zh": "信息管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "c_prog_hr_match",
+      "label_en": "Program/Human Resource Matching",
+      "label_zh": "项目群/人力资源匹配",
+      "type": "capability",
+      "parent": "c_program",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_define": "yellow"
+        }
+      }
+    },
+    {
+      "id": "c_competency",
+      "label_en": "Competency Mgmt.",
+      "label_zh": "胜任力管理",
+      "type": "capability",
+      "parent": "c_hr",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_define": "green"
+        }
+      }
+    },
+    {
+      "id": "c_policy_dissem",
+      "label_en": "Policy Dissemination",
+      "label_zh": "政策发布",
+      "type": "capability",
+      "parent": "c_policy",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_define": "yellow"
+        }
+      },
+      "description_zh": "第二次开会后新增：团队认识到它是使能该价值流的关键能力。"
+    },
+    {
+      "id": "c_supply_demand",
+      "label_en": "Employee Supply and Demand Mgmt.",
+      "label_zh": "员工供需管理",
+      "type": "capability",
+      "parent": "c_hr",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_communicate": "green",
+          "st_assess": "green"
+        }
+      },
+      "description_zh": "同时支撑“发布职位”和“评估应聘”，两处都是绿色。"
+    },
+    {
+      "id": "c_position_ad",
+      "label_en": "Position Advertising",
+      "label_zh": "职位广告",
+      "type": "capability",
+      "parent": "c_hr",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_communicate": "green"
+        }
+      }
+    },
+    {
+      "id": "c_labor_funding",
+      "label_en": "Labor Funding",
+      "label_zh": "人工经费",
+      "type": "capability",
+      "parent": "c_finance",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_communicate": "green"
+        }
+      }
+    },
+    {
+      "id": "c_skills_assess",
+      "label_en": "Skills Assessment",
+      "label_zh": "技能评估",
+      "type": "capability",
+      "parent": "c_hr",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_assess": "green"
+        }
+      }
+    },
+    {
+      "id": "c_benefits",
+      "label_en": "Benefits Management",
+      "label_zh": "福利管理",
+      "type": "capability",
+      "parent": "c_hr",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_interview": "green"
+        }
+      }
+    },
+    {
+      "id": "c_terms",
+      "label_en": "Terms Management",
+      "label_zh": "雇佣条款管理",
+      "type": "capability",
+      "parent": "c_hr",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_interview": "green"
+        }
+      }
+    },
+    {
+      "id": "c_compensation",
+      "label_en": "Compensation Mgmt.",
+      "label_zh": "薪酬管理",
+      "type": "capability",
+      "parent": "c_hr",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_interview": "green"
+        }
+      }
+    },
+    {
+      "id": "c_agreement_struct",
+      "label_en": "Agreement Structuring",
+      "label_zh": "协议架构设计",
+      "type": "capability",
+      "parent": "c_agreement",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_interview": "yellow"
+        }
+      }
+    },
+    {
+      "id": "c_onboard_track",
+      "label_en": "Onboard Tracking",
+      "label_zh": "入职跟踪",
+      "type": "capability",
+      "parent": "c_hr",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_onboard": "red"
+        }
+      },
+      "description_zh": "对应正文根因：缺少统筹整个入职序列的角色。"
+    },
+    {
+      "id": "c_asset_alloc",
+      "label_en": "Asset Allocation",
+      "label_zh": "资产分配",
+      "type": "capability",
+      "parent": "c_asset",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_onboard": "yellow"
+        }
+      }
+    },
+    {
+      "id": "c_space_alloc",
+      "label_en": "Space Allocation",
+      "label_zh": "空间分配",
+      "type": "capability",
+      "parent": "c_facilities",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_onboard": "yellow"
+        }
+      }
+    },
+    {
+      "id": "c_background_id",
+      "label_en": "Employee Background and ID",
+      "label_zh": "员工背景调查与身份",
+      "type": "capability",
+      "parent": "c_security",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_onboard": "yellow"
+        }
+      }
+    },
+    {
+      "id": "c_employee_info",
+      "label_en": "Employee Information Mgmt.",
+      "label_zh": "员工信息管理",
+      "type": "capability",
+      "parent": "c_information",
+      "level": 2,
+      "attributes": {
+        "heat": {
+          "st_onboard": "red"
+        }
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from": "st_define",
+      "to": "st_communicate",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "V 形箭头首尾相接"
+    },
+    {
+      "from": "st_communicate",
+      "to": "st_assess",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "st_assess",
+      "to": "st_interview",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "st_interview",
+      "to": "st_onboard",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "c_prog_hr_match",
+      "to": "st_define",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "黄：需要一些调整"
+    },
+    {
+      "from": "c_competency",
+      "to": "st_define",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "绿"
+    },
+    {
+      "from": "c_policy_dissem",
+      "to": "st_define",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "黄；本图新增的映射"
+    },
+    {
+      "from": "c_supply_demand",
+      "to": "st_communicate",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "绿"
+    },
+    {
+      "from": "c_position_ad",
+      "to": "st_communicate",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "绿"
+    },
+    {
+      "from": "c_labor_funding",
+      "to": "st_communicate",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "绿"
+    },
+    {
+      "from": "c_supply_demand",
+      "to": "st_assess",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "绿"
+    },
+    {
+      "from": "c_skills_assess",
+      "to": "st_assess",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "绿"
+    },
+    {
+      "from": "c_benefits",
+      "to": "st_interview",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "绿"
+    },
+    {
+      "from": "c_terms",
+      "to": "st_interview",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "绿"
+    },
+    {
+      "from": "c_compensation",
+      "to": "st_interview",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "绿"
+    },
+    {
+      "from": "c_agreement_struct",
+      "to": "st_interview",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "黄"
+    },
+    {
+      "from": "c_onboard_track",
+      "to": "st_onboard",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "红：重大差距"
+    },
+    {
+      "from": "c_asset_alloc",
+      "to": "st_onboard",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "黄"
+    },
+    {
+      "from": "c_space_alloc",
+      "to": "st_onboard",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "黄"
+    },
+    {
+      "from": "c_background_id",
+      "to": "st_onboard",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "黄"
+    },
+    {
+      "from": "c_employee_info",
+      "to": "st_onboard",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "红：重大差距"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_recruit",
+      "kind": "sequence",
+      "name_zh": "招聘员工价值流",
+      "steps": [
+        "st_define",
+        "st_communicate",
+        "st_assess",
+        "st_interview",
+        "st_onboard"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_heatmap",
+      "title_zh": "热力图逐项转录（按原图逐列、列内自上而下，每个二级能力条一行）",
+      "columns": [
+        "价值流阶段",
+        "一级能力",
+        "二级能力",
+        "颜色"
+      ],
+      "rows": [
+        [
+          "定义岗位 Define Position",
+          "项目群管理 Program Mgmt.",
+          "项目群/人力资源匹配 Program/Human Resource Matching",
+          "黄"
+        ],
+        [
+          "定义岗位 Define Position",
+          "人力资源管理 HR Mgmt.",
+          "胜任力管理 Competency Mgmt.",
+          "绿"
+        ],
+        [
+          "定义岗位 Define Position",
+          "政策管理 Policy Mgmt.（新增）",
+          "政策发布 Policy Dissemination（新增）",
+          "黄"
+        ],
+        [
+          "发布职位 Communicate Position",
+          "人力资源管理 HR Mgmt.",
+          "员工供需管理 Employee Supply and Demand Mgmt.",
+          "绿"
+        ],
+        [
+          "发布职位 Communicate Position",
+          "人力资源管理 HR Mgmt.",
+          "职位广告 Position Advertising",
+          "绿"
+        ],
+        [
+          "发布职位 Communicate Position",
+          "财务管理 Finance Mgmt.",
+          "人工经费 Labor Funding",
+          "绿"
+        ],
+        [
+          "评估应聘 Assess Responses",
+          "人力资源管理 HR Mgmt.",
+          "员工供需管理 Employee Supply and Demand Mgmt.",
+          "绿"
+        ],
+        [
+          "评估应聘 Assess Responses",
+          "人力资源管理 HR Mgmt.",
+          "技能评估 Skills Assessment",
+          "绿"
+        ],
+        [
+          "面试候选人 Interview Candidates",
+          "人力资源管理 HR Mgmt.",
+          "福利管理 Benefits Management",
+          "绿"
+        ],
+        [
+          "面试候选人 Interview Candidates",
+          "人力资源管理 HR Mgmt.",
+          "雇佣条款管理 Terms Management",
+          "绿"
+        ],
+        [
+          "面试候选人 Interview Candidates",
+          "人力资源管理 HR Mgmt.",
+          "薪酬管理 Compensation Mgmt.",
+          "绿"
+        ],
+        [
+          "面试候选人 Interview Candidates",
+          "协议管理 Agreement Mgmt.",
+          "协议架构设计 Agreement Structuring",
+          "黄"
+        ],
+        [
+          "入职 Onboard Employee",
+          "人力资源管理 HR Mgmt.",
+          "入职跟踪 Onboard Tracking",
+          "红"
+        ],
+        [
+          "入职 Onboard Employee",
+          "资产管理 Asset Mgmt.",
+          "资产分配 Asset Allocation",
+          "黄"
+        ],
+        [
+          "入职 Onboard Employee",
+          "设施管理 Facilities Mgmt.",
+          "空间分配 Space Allocation",
+          "黄"
+        ],
+        [
+          "入职 Onboard Employee",
+          "安全管理 Security Mgmt.",
+          "员工背景调查与身份 Employee Background and ID",
+          "黄"
+        ],
+        [
+          "入职 Onboard Employee",
+          "信息管理 Information Mgmt.",
+          "员工信息管理 Employee Information Mgmt.",
+          "红"
+        ]
+      ],
+      "cell_legend": [
+        "红 = 交付业务价值所需与现状之间的重大差距（正文定义）",
+        "黄 = 需要一些调整（正文定义）",
+        "绿 = 正文未定义，按热力图惯例为未见明显差距",
+        "一级能力灰框本身不着色"
+      ],
+      "notes_zh": "合计 17 个能力条：红 2、黄 6、绿 9。与图 4-3 相比，只新增了第 3 行（政策管理/政策发布），其余行的阶段—能力对应不变。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G178/fig4-2",
+      "relation": "based_on",
+      "note_zh": "沿用图 4-2 的 5 个价值流阶段"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "正文只定义了红色和黄色，绿色含义按热力图惯例推断。",
+      "本指南没有画出正文提到的初始热力图，无法判断更新时除新增政策管理/政策发布外还改了哪些颜色。",
+      "“政策管理”和部分二级能力的中文译名（如“协议架构设计”“人工经费”“雇佣条款管理”）由解析者拟定，与图 4-3 的解析保持一致，中文稿未给出对照。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 23 页原图截图（220 dpi）",
+      "英文 PDF 第 20–22 页正文（表 4-4、第 4.3 节）",
+      "中文稿 G178e_价值流.md 第 265–277 行",
+      "figs/g178_fig4-4.svg 源码",
+      "已完成的 G178/fig4-3 解析（逐行比对阶段—能力对应）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G178e.pdf",
+    "pdf_sha256": "517130a041a8d956b2868dc39d570b84e2d80c64709e4c1368f9747388a3a026",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G178/fig4-4.json",
+    "interpretation_sha256": "05661e050bdb1b4cf2c0b5af602b61b82dbd30fd4f74d835a36ebc96b99feaf1",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 23,
+        "text": "Figure 4-4: Heat Map for the Recruit Employee Value Stream",
+        "bbox_pdf_points": [
+          48.24,
+          300.78,
+          327.31,
+          314.346
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 23,
+      "printed_page": 13,
+      "bbox_pdf_points": [
+        48.2,
+        36.0,
+        563.8,
+        296.1
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G178/fig4-4-p0023.png",
+      "image_sha256": "97591b1374adcb8bded6c6cd9e41bf55bb816ee02908ff2c0faea80962213f6d",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "97591b1374adcb8bded6c6cd9e41bf55bb816ee02908ff2c0faea80962213f6d",
+          "status": "extracted-unverified",
+          "text": "Define\nCommunicate\nAssess\nInterview\nOnboard\nPosition\nPosition\nResponses\nCandidates\nEmployee\nProgram Mgmt.\nHR Mgmt.\nHR Mgmt.\nHR Mgmt.\nHR Mgmt.\nEmploy\nSupply and\nEmploy\npply and\nDem\nmt.\nDemand Mgmt.\ncrag |\nComper\nion Mgmt,\nAsset Mgmt.\nHR Mgmt.\n“Asset Allocation __|\nFinance Mgmt.\n‘Agreement Mgmt.\nFacilities Mgmt.\nPolicy Mgmt.\nAgreement Structuring\nSpace Allocation __|\nPolicy Dissemination\nSecurity Mgmt.\nstg eons\nInformation Mgmt.\nEmploy\nInform:\nlgmt.",
+          "words": [
+            {
+              "text": "Define",
+              "confidence": 96.930702,
+              "bbox_pixels_xywh": [
+                104,
+                33,
+                59,
+                16
+              ]
+            },
+            {
+              "text": "Communicate",
+              "confidence": 96.84594,
+              "bbox_pixels_xywh": [
+                267,
+                33,
+                130,
+                16
+              ]
+            },
+            {
+              "text": "Assess",
+              "confidence": 96.684685,
+              "bbox_pixels_xywh": [
+                496,
+                33,
+                68,
+                16
+              ]
+            },
+            {
+              "text": "Interview",
+              "confidence": 96.593842,
+              "bbox_pixels_xywh": [
+                684,
+                33,
+                83,
+                16
+              ]
+            },
+            {
+              "text": "Onboard",
+              "confidence": 96.88755,
+              "bbox_pixels_xywh": [
+                878,
+                33,
+                81,
+                16
+              ]
+            },
+            {
+              "text": "Position",
+              "confidence": 96.545921,
+              "bbox_pixels_xywh": [
+                97,
+                59,
+                72,
+                16
+              ]
+            },
+            {
+              "text": "Position",
+              "confidence": 96.380653,
+              "bbox_pixels_xywh": [
+                295,
+                59,
+                73,
+                16
+              ]
+            },
+            {
+              "text": "Responses",
+              "confidence": 91.779434,
+              "bbox_pixels_xywh": [
+                479,
+                59,
+                104,
+                20
+              ]
+            },
+            {
+              "text": "Candidates",
+              "confidence": 96.563515,
+              "bbox_pixels_xywh": [
+                672,
+                59,
+                106,
+                16
+              ]
+            },
+            {
+              "text": "Employee",
+              "confidence": 96.171814,
+              "bbox_pixels_xywh": [
+                873,
+                59,
+                92,
+                20
+              ]
+            },
+            {
+              "text": "Program",
+              "confidence": 96.622681,
+              "bbox_pixels_xywh": [
+                54,
+                126,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 92.774185,
+              "bbox_pixels_xywh": [
+                118,
+                126,
+                42,
+                14
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 91.410286,
+              "bbox_pixels_xywh": [
+                256,
+                126,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 88.920044,
+              "bbox_pixels_xywh": [
+                281,
+                126,
+                42,
+                14
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 93.246254,
+              "bbox_pixels_xywh": [
+                454,
+                126,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 92.030281,
+              "bbox_pixels_xywh": [
+                480,
+                126,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 93.483482,
+              "bbox_pixels_xywh": [
+                649,
+                126,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 89.021683,
+              "bbox_pixels_xywh": [
+                674,
+                126,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 95.104927,
+              "bbox_pixels_xywh": [
+                843,
+                126,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 91.836784,
+              "bbox_pixels_xywh": [
+                868,
+                126,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "Employ",
+              "confidence": 92.835258,
+              "bbox_pixels_xywh": [
+                260,
+                149,
+                41,
+                12
+              ]
+            },
+            {
+              "text": "Supply",
+              "confidence": 18.374414,
+              "bbox_pixels_xywh": [
+                331,
+                149,
+                30,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 94.092102,
+              "bbox_pixels_xywh": [
+                367,
+                150,
+                19,
+                9
+              ]
+            },
+            {
+              "text": "Employ",
+              "confidence": 81.303978,
+              "bbox_pixels_xywh": [
+                458,
+                149,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "pply",
+              "confidence": 46.656662,
+              "bbox_pixels_xywh": [
+                541,
+                149,
+                17,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 95.998138,
+              "bbox_pixels_xywh": [
+                564,
+                150,
+                21,
+                9
+              ]
+            },
+            {
+              "text": "Dem",
+              "confidence": 94.185448,
+              "bbox_pixels_xywh": [
+                260,
+                164,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "mt.",
+              "confidence": 72.124771,
+              "bbox_pixels_xywh": [
+                332,
+                164,
+                13,
+                9
+              ]
+            },
+            {
+              "text": "Demand",
+              "confidence": 96.058731,
+              "bbox_pixels_xywh": [
+                458,
+                164,
+                48,
+                9
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 94.166855,
+              "bbox_pixels_xywh": [
+                512,
+                164,
+                32,
+                12
+              ]
+            },
+            {
+              "text": "crag",
+              "confidence": 30.113201,
+              "bbox_pixels_xywh": [
+                54,
+                145,
+                139,
+                35
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 60.274315,
+              "bbox_pixels_xywh": [
+                182,
+                141,
+                15,
+                55
+              ]
+            },
+            {
+              "text": "Comper",
+              "confidence": 68.602676,
+              "bbox_pixels_xywh": [
+                652,
+                209,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "ion",
+              "confidence": 82.222656,
+              "bbox_pixels_xywh": [
+                720,
+                211,
+                16,
+                7
+              ]
+            },
+            {
+              "text": "Mgmt,",
+              "confidence": 81.804855,
+              "bbox_pixels_xywh": [
+                741,
+                209,
+                32,
+                12
+              ]
+            },
+            {
+              "text": "Asset",
+              "confidence": 91.118507,
+              "bbox_pixels_xywh": [
+                842,
+                203,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 95.84127,
+              "bbox_pixels_xywh": [
+                886,
+                203,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 94.858383,
+              "bbox_pixels_xywh": [
+                54,
+                216,
+                21,
+                11
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 89.443321,
+              "bbox_pixels_xywh": [
+                80,
+                216,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "“Asset",
+              "confidence": 30.105148,
+              "bbox_pixels_xywh": [
+                836,
+                220,
+                43,
+                34
+              ]
+            },
+            {
+              "text": "Allocation",
+              "confidence": 81.088951,
+              "bbox_pixels_xywh": [
+                884,
+                220,
+                60,
+                34
+              ]
+            },
+            {
+              "text": "__|",
+              "confidence": 1.08923,
+              "bbox_pixels_xywh": [
+                952,
+                220,
+                32,
+                34
+              ]
+            },
+            {
+              "text": "Finance",
+              "confidence": 95.563576,
+              "bbox_pixels_xywh": [
+                256,
+                244,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 96.228874,
+              "bbox_pixels_xywh": [
+                315,
+                244,
+                42,
+                14
+              ]
+            },
+            {
+              "text": "‘Agreement",
+              "confidence": 84.157478,
+              "bbox_pixels_xywh": [
+                648,
+                256,
+                76,
+                14
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 96.253975,
+              "bbox_pixels_xywh": [
+                729,
+                256,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "Facilities",
+              "confidence": 96.767731,
+              "bbox_pixels_xywh": [
+                843,
+                280,
+                60,
+                11
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 92.888008,
+              "bbox_pixels_xywh": [
+                909,
+                280,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 96.703476,
+              "bbox_pixels_xywh": [
+                54,
+                295,
+                42,
+                14
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 94.900642,
+              "bbox_pixels_xywh": [
+                101,
+                295,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "Agreement",
+              "confidence": 30.374722,
+              "bbox_pixels_xywh": [
+                642,
+                275,
+                73,
+                35
+              ]
+            },
+            {
+              "text": "Structuring",
+              "confidence": 74.044479,
+              "bbox_pixels_xywh": [
+                723,
+                275,
+                65,
+                35
+              ]
+            },
+            {
+              "text": "Space",
+              "confidence": 41.013962,
+              "bbox_pixels_xywh": [
+                836,
+                298,
+                46,
+                34
+              ]
+            },
+            {
+              "text": "Allocation",
+              "confidence": 70.904549,
+              "bbox_pixels_xywh": [
+                887,
+                298,
+                60,
+                34
+              ]
+            },
+            {
+              "text": "__|",
+              "confidence": 35.156471,
+              "bbox_pixels_xywh": [
+                955,
+                298,
+                29,
+                34
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 76.396935,
+              "bbox_pixels_xywh": [
+                50,
+                313,
+                40,
+                34
+              ]
+            },
+            {
+              "text": "Dissemination",
+              "confidence": 44.097626,
+              "bbox_pixels_xywh": [
+                95,
+                313,
+                83,
+                34
+              ]
+            },
+            {
+              "text": "Security",
+              "confidence": 96.633675,
+              "bbox_pixels_xywh": [
+                842,
+                359,
+                57,
+                14
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 96.16964,
+              "bbox_pixels_xywh": [
+                904,
+                359,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "stg",
+              "confidence": 50.771568,
+              "bbox_pixels_xywh": [
+                836,
+                375,
+                54,
+                54
+              ]
+            },
+            {
+              "text": "eons",
+              "confidence": 40.403984,
+              "bbox_pixels_xywh": [
+                921,
+                375,
+                64,
+                54
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 93.120514,
+              "bbox_pixels_xywh": [
+                842,
+                444,
+                79,
+                11
+              ]
+            },
+            {
+              "text": "Mgmt.",
+              "confidence": 95.914818,
+              "bbox_pixels_xywh": [
+                927,
+                444,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "Employ",
+              "confidence": 71.910667,
+              "bbox_pixels_xywh": [
+                846,
+                468,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "Inform:",
+              "confidence": 77.756371,
+              "bbox_pixels_xywh": [
+                909,
+                468,
+                35,
+                9
+              ]
+            },
+            {
+              "text": "lgmt.",
+              "confidence": 30.860943,
+              "bbox_pixels_xywh": [
+                857,
+                483,
+                21,
+                10
+              ]
+            }
+          ],
+          "mean_word_confidence": 79.65,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

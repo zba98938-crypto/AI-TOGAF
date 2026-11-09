@@ -1,0 +1,569 @@
+{
+  "architecture_question_zh": "怎样把元数据需求、责任和验证流程落实到可运行的数据治理能力？",
+  "application_inputs_zh": [
+    "法规与业务用例",
+    "数据问题及数据集",
+    "元数据资产与来源",
+    "质量、权限及验证责任"
+  ],
+  "application_outputs_zh": [
+    "元数据需求与质量要求",
+    "业务/技术/运营元数据模型",
+    "采集与验证工作流",
+    "存储库整合和交换契约"
+  ],
+  "application_steps_zh": [
+    "从合规业务用例或实际数据问题采集需求",
+    "明确元数据范围、资产关系及所需质量",
+    "选择规范式、协作式过程并配置验证责任",
+    "组合技术功能、数据模型及流程形成方案",
+    "分别选择整合模型和手工/推送/拉取交换方式并评估安全影响"
+  ],
+  "decision_criteria_zh": [
+    "文档化是否解决具体业务问题",
+    "质量是否由流程和验证保障",
+    "组织整合方式与采集机制是否分开",
+    "拉取代理及数据访问是否符合安全政策"
+  ],
+  "scope_and_misreading_zh": "元数据治理不等于扫描工具；三类元数据是分类，整合方式和采集方式是两个不同决策维度。",
+  "source_findings": [
+    {
+      "pdf_page": 14,
+      "quote_en": "planning, implementation, and control activity",
+      "topic": "definition",
+      "statement_zh": "元数据管理包括规划、实施和控制活动，用于获得高质量、集成的元数据。",
+      "id": "G234:A01",
+      "context_en": "ablets, etc. was already used to catalog collections of clay tablets. As such, metadata provides additional information to better know and use the data. Metadata Management is the planning, implementation, and control activity that enables access to high-quality, integrated metadata [DMBOK2]. It enhances the data with additional information so that it can be used to: • Know your data: ◦Reduce uncertainty and possible misinterpretation of the data ◦Know the quality of the data available and associated ",
+      "document_id": "G234",
+      "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "printed_page_label": "4",
+      "evidence": {
+        "finding_id": "G234:A01",
+        "document_id": "G234",
+        "pdf_page": 14,
+        "printed_page_label": "4",
+        "source_path": "togaf-standard-10th/G234e.pdf",
+        "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+        "quote_en": "planning, implementation, and control activity",
+        "context_en": ", title, number of tablets, etc. was already used to catalog collections of clay tablets. As such, metadata provides additional information to better know and use the data. Metadata Management is the planning, implementation, and control activity that enables access to high-quality, integrated metadata [DMBOK2]. It enhances the data with additional information so that it can be used to: • Know your data: ◦Reduce uncertainty and possible misinterpretation of the data ◦Know the quality of the data available and associated business rules (data quality business rules, transformation business r",
+        "source_section": {
+          "id": "G234:s0017",
+          "title": "3. Metadata Management Capability",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G234:p0014:b012",
+          "G234:p0014:b013",
+          "G234:p0014:b014"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G234.md#page-14",
+        "source_json_path": "documents/G234.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 23,
+      "quote_en": "top-down approach",
+      "topic": "requirements",
+      "statement_zh": "需求既可由法规/业务用例自上而下，也可由数据问题和数据集自下而上识别。",
+      "id": "G234:A02",
+      "context_en": "tified in the existing metadata sources at the same time. 4.2.1. Collect Metadata Requirements There are different approaches to define metadata requirements (see Figure 4-2): • A top-down approach starting with compliance or other business use cases to formalize metadata requirements; for example: ◦Compliance: Regulation (GDPR, Solvency II, [1] IFRS 17[2]), internal (digital sustainability, security rules) ◦Business use cases: get customer interactions data to improve up-",
+      "document_id": "G234",
+      "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "printed_page_label": "13",
+      "evidence": {
+        "finding_id": "G234:A02",
+        "document_id": "G234",
+        "pdf_page": 23,
+        "printed_page_label": "13",
+        "source_path": "togaf-standard-10th/G234e.pdf",
+        "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+        "quote_en": "top-down approach",
+        "context_en": " all the assets identified in the existing metadata sources at the same time. 4.2.1. Collect Metadata Requirements There are different approaches to define metadata requirements (see Figure 4-2): • A top-down approach starting with compliance or other business use cases to formalize metadata requirements; for example: ◦Compliance: Regulation (GDPR, Solvency II, [1] IFRS 17 [2]), internal (digital sustainability, security rules) ◦Business use cases: get customer interactions data to improve up-sell • A bottom-up approach based on business data issues or data set",
+        "source_section": {
+          "id": "G234:s0024",
+          "title": "4.2.1. Collect Metadata Requirements",
+          "level": 4
+        },
+        "source_block_ids": [
+          "G234:p0023:b008",
+          "G234:p0023:b009"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G234.md#page-23",
+        "source_json_path": "documents/G234.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 24,
+      "quote_en": "processes and validation workflows",
+      "topic": "quality",
+      "statement_zh": "元数据质量由过程和验证工作流保障；规范式和协作式方式服务不同上下文。",
+      "id": "G234:A03",
+      "context_en": "tant to clarify the metadata requirements including the expected level of metadata quality required. 4.2.2. Formalize Metadata Management Processes Metadata quality is enforced by processes and validation workflows that can vary per metadata scope. There are mainly two approaches (see Figure 4-3): • The normative approach, which aims to guarantee precision, accuracy, integrity, and consistency of the metadata In this approach the metadata is created by a few, published as read-only, static",
+      "document_id": "G234",
+      "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "printed_page_label": "14",
+      "evidence": {
+        "finding_id": "G234:A03",
+        "document_id": "G234",
+        "pdf_page": 24,
+        "printed_page_label": "14",
+        "source_path": "togaf-standard-10th/G234e.pdf",
+        "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+        "quote_en": "processes and validation workflows",
+        "context_en": "h cases, it is important to clarify the metadata requirements including the expected level of metadata quality required. 4.2.2. Formalize Metadata Management Processes Metadata quality is enforced by processes and validation workflows that can vary per metadata scope. There are mainly two approaches (see Figure 4-3): • The normative approach, which aims to guarantee precision, accuracy, integrity, and consistency of the metadata In this approach the metadata is created by a few, published as read-only, static (few changes overtime), and its lifecycle is managed via validation w",
+        "source_section": {
+          "id": "G234:s0025",
+          "title": "4.2.2. Formalize Metadata Management Processes",
+          "level": 4
+        },
+        "source_block_ids": [
+          "G234:p0024:b009",
+          "G234:p0024:b010"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G234.md#page-24",
+        "source_json_path": "documents/G234.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 25,
+      "quote_en": "combination of technologies",
+      "topic": "solution",
+      "statement_zh": "元数据IT方案由技术功能、数据模型和更新/验证流程共同构成。",
+      "id": "G234:A04",
+      "context_en": "aches 4.3. Metadata Management Guidelines for Information Systems Architectures (ADM Phase C) The metadata repository is supported by a Metadata Management IT solution, which is a combination of technologies (set of functions), a data model, and processes (metadata update and validation workflows) in order to support Metadata Management activities. Figure 4-4: Metadata Management IT Solution © The Open Group, All Rights Reserved. Evaluation Copy. Not for redistribution Information A",
+      "document_id": "G234",
+      "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "printed_page_label": "15",
+      "evidence": {
+        "finding_id": "G234:A04",
+        "document_id": "G234",
+        "pdf_page": 25,
+        "printed_page_label": "15",
+        "source_path": "togaf-standard-10th/G234e.pdf",
+        "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+        "quote_en": "combination of technologies",
+        "context_en": "ty Enforcement Approaches 4.3. Metadata Management Guidelines for Information Systems Architectures (ADM Phase C) The metadata repository is supported by a Metadata Management IT solution, which is a combination of technologies (set of functions), a data model, and processes (metadata update and validation workflows) in order to support Metadata Management activities. Figure 4-4: Metadata Management IT Solution 4. Process and Methodology4.3. Metadata Management Guidelines for Information Systems Architectures (ADM Phase C) Information Architecture — Metadata Management 1",
+        "source_section": {
+          "id": "G234:s0026",
+          "title": "4.3. Metadata Management Guidelines for Information Systems Architectures (ADM Phase C)",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G234:p0025:b003",
+          "G234:p0025:b004",
+          "G234:p0025:b005"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G234.md#page-25",
+        "source_json_path": "documents/G234.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 26,
+      "quote_en": "Business metadata",
+      "topic": "taxonomy",
+      "statement_zh": "元数据分为业务、技术、运营三类，其来源和维护方式不同。",
+      "id": "G234:A05",
+      "context_en": "lidation workflows are designed to support metadata quality requirements. Metadata is often divided into three categories that can be summarized as follows, based on the DMBOK2: • Business metadata focuses largely on the content and condition of the data and includes details related to data governance • Technical metadata provides information about the technical details of data, the systems that store data, and the processes that move it within and between systems • Operat",
+      "document_id": "G234",
+      "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "printed_page_label": "16",
+      "evidence": {
+        "finding_id": "G234:A05",
+        "document_id": "G234",
+        "pdf_page": 26,
+        "printed_page_label": "16",
+        "source_path": "togaf-standard-10th/G234e.pdf",
+        "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+        "quote_en": "Business metadata",
+        "context_en": "4.2, the metadata validation workflows are designed to support metadata quality requirements. Metadata is often divided into three categories that can be summarized as follows, based on the DMBOK2: • Business metadata focuses largely on the content and condition of the data and includes details related to data governance • Technical metadata provides information about the technical details of data, the systems that store data, and the processes that move it within and between systems • Operational metadata describes details of the processing and accessing of da",
+        "source_section": {
+          "id": "G234:s0026",
+          "title": "4.3. Metadata Management Guidelines for Information Systems Architectures (ADM Phase C)",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G234:p0026:b007",
+          "G234:p0026:b008",
+          "G234:p0026:b012",
+          "G234:p0026:b013",
+          "G234:p0026:b014",
+          "G234:p0026:b015"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G234.md#page-26",
+        "source_json_path": "documents/G234.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 28,
+      "quote_en": "Manual ingestion",
+      "topic": "exchange",
+      "statement_zh": "交换可选择手工导入、来源推送或存储库代理拉取，需定义范围和协作契约。",
+      "id": "G234:A06",
+      "context_en": " their requirements. It may involve a dedicated user interface. Figure 4-8: Metadata Integration: Unified Model Legend The metadata exchange can be done by one of the following: • Manual ingestion: Each source exports the metadata in the agreed format and it is uploaded manually in the repository • Pushing metadata: Each source takes the responsibility to push to the metadata repository an agreed scope according to the collaboration contract (format, data structure, frequ",
+      "document_id": "G234",
+      "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "printed_page_label": "18",
+      "evidence": {
+        "finding_id": "G234:A06",
+        "document_id": "G234",
+        "pdf_page": 28,
+        "printed_page_label": "18",
+        "source_path": "togaf-standard-10th/G234e.pdf",
+        "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+        "quote_en": "Manual ingestion",
+        "context_en": " a dedicated user experience to each community of users according to their requirements. It may involve a dedicated user interface. Legend The metadata exchange can be done by one of the following: • Manual ingestion: Each source exports the metadata in the agreed format and it is uploaded manually in the repository • Pushing metadata: Each source takes the responsibility to push to the metadata repository an agreed scope according to the collaboration contract (format, data structure, frequency, etc.) • Pulling metadata: The IT solution supporting the metadat",
+        "source_section": {
+          "id": "G234:s0026",
+          "title": "4.3. Metadata Management Guidelines for Information Systems Architectures (ADM Phase C)",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G234:p0028:b017",
+          "G234:p0028:b018",
+          "G234:p0028:b027"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G234.md#page-28",
+        "source_json_path": "documents/G234.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 29,
+      "quote_en": "Security audit is required",
+      "topic": "constraint",
+      "statement_zh": "拉取代理可能访问多个系统甚至实际数据，需要安全审计并评估侵入性。",
+      "id": "G234:A07",
+      "context_en": "deed, sometimes the tool will have access to the data files to be able to infer the technical metadata ◦The metadata agent can be an intrusive component for critical applications ◦Security audit is required to ensure compliance with security policies as the metadata solution will have read access to multiple applications in the information system landscape The complexity to collect technical and operational metadata depends on the data variety and IT landscape, with a main differen",
+      "document_id": "G234",
+      "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "printed_page_label": "19",
+      "evidence": {
+        "finding_id": "G234:A07",
+        "document_id": "G234",
+        "pdf_page": 29,
+        "printed_page_label": "19",
+        "source_path": "togaf-standard-10th/G234e.pdf",
+        "source_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+        "quote_en": "Security audit is required",
+        "context_en": " to all the data; indeed, sometimes the tool will have access to the data files to be able to infer the technical metadata ◦The metadata agent can be an intrusive component for critical applications ◦Security audit is required to ensure compliance with security policies as the metadata solution will have read access to multiple applications in the information system landscape The complexity to collect technical and operational metadata depends on the data variety and IT landscape, with a main difference when the data schema and operational metadata are defined by- desig",
+        "source_section": {
+          "id": "G234:s0026",
+          "title": "4.3. Metadata Management Guidelines for Information Systems Architectures (ADM Phase C)",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G234:p0029:b008"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G234.md#page-29",
+        "source_json_path": "documents/G234.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    }
+  ],
+  "id": "G234",
+  "title_zh": "信息架构_元数据管理",
+  "title_en": "TOGAF® Series Guide: Information Architecture: Metadata Management",
+  "source": {
+    "path": "togaf-standard-10th/G234e.pdf",
+    "sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+    "bytes": 3017563,
+    "page_count": 45,
+    "format": "pdf"
+  },
+  "schema_version": "togaf-architecture-analysis/1.0",
+  "path_base": "corpus-root",
+  "content_role": "authored-source-grounded-architecture-analysis",
+  "maintenance_source": "tools/togaf_corpus/architecture-analysis-data.json",
+  "maintenance_sha256": "e13c6e5e34a20f7093548ad68049baff12d1b59800ec64075547e5fd52afafdf",
+  "semantic_policy": {
+    "status": "authored-source-grounded-navigation-model-not-the-normative-TOGAF-metamodel",
+    "evidence_policy_zh": "每条概念与关系引用已绑定PDF指纹、实体页码和原文短引的分析发现；定义为语料上下文释义，不冒充逐字规范定义。",
+    "cardinality_policy_zh": "仅在来源明确说明时记录基数。null表示未在所引证据中规定，不表示不存在、零或无限。",
+    "hierarchy_policy_zh": "严格区分组成、类型特化、分类、实现、架构约束、信息流和组织汇报；图形嵌套、位置、颜色及线条样式本身不足以新增人员汇报关系。",
+    "recommendation_policy_zh": "指南应用输入、输出、步骤、判断标准为基于证据编写的项目建议，需按本项目上下文裁剪，不表示原文强制要求。",
+    "source_scope_zh": "覆盖本文件夹26份TOGAF Series Guide。此层不声称包含本地未提供的TOGAF基础内容、配套外部电子表格或外部引用全文。"
+  },
+  "application_analysis_status": "derived-project-recommendations-not-source-mandates-or-project-facts",
+  "application_evidence_ids": [
+    "G234:A01",
+    "G234:A02",
+    "G234:A03",
+    "G234:A04",
+    "G234:A05",
+    "G234:A06",
+    "G234:A07"
+  ],
+  "concept_ids": [
+    "metadata_management",
+    "metadata",
+    "business_metadata",
+    "technical_metadata",
+    "operational_metadata",
+    "metadata_repository"
+  ],
+  "relationship_ids": [
+    "R078",
+    "R079",
+    "R080",
+    "R081",
+    "R082",
+    "R083"
+  ],
+  "figures": [
+    {
+      "id": "G234/fig2-1",
+      "document_id": "G234",
+      "title_en": "The ArchiMate Modeling Notation Elements Used in This Document",
+      "title_zh": "本文档使用的 ArchiMate 建模元素",
+      "pdf_pages": [
+        12
+      ],
+      "json_path": "figures/G234/fig2-1.json",
+      "markdown_path": "figures/G234/fig2-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 11,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 10
+    },
+    {
+      "id": "G234/fig3-1",
+      "document_id": "G234",
+      "title_en": "Metadata Management Capability – High-Level Functions",
+      "title_zh": "元数据管理能力——高层功能",
+      "pdf_pages": [
+        17
+      ],
+      "json_path": "figures/G234/fig3-1.json",
+      "markdown_path": "figures/G234/fig3-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 18,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 59
+    },
+    {
+      "id": "G234/fig4-1",
+      "document_id": "G234",
+      "title_en": "Metadata Sources Illustration",
+      "title_zh": "元数据来源示意",
+      "pdf_pages": [
+        23
+      ],
+      "json_path": "figures/G234/fig4-1.json",
+      "markdown_path": "figures/G234/fig4-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 64,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 151
+    },
+    {
+      "id": "G234/fig4-10",
+      "document_id": "G234",
+      "title_en": "Technical Metadata Inference",
+      "title_zh": "技术元数据推断",
+      "pdf_pages": [
+        29
+      ],
+      "json_path": "figures/G234/fig4-10.json",
+      "markdown_path": "figures/G234/fig4-10.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 14,
+      "relationships": 10,
+      "graph_issue_count": 0,
+      "ocr_word_count": 153
+    },
+    {
+      "id": "G234/fig4-2",
+      "document_id": "G234",
+      "title_en": "Metadata Requirements Collection Illustration",
+      "title_zh": "元数据需求收集示意",
+      "pdf_pages": [
+        24
+      ],
+      "json_path": "figures/G234/fig4-2.json",
+      "markdown_path": "figures/G234/fig4-2.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 13,
+      "relationships": 15,
+      "graph_issue_count": 0,
+      "ocr_word_count": 101
+    },
+    {
+      "id": "G234/fig4-3",
+      "document_id": "G234",
+      "title_en": "Metadata Quality Enforcement Approaches",
+      "title_zh": "元数据质量保障方法",
+      "pdf_pages": [
+        25
+      ],
+      "json_path": "figures/G234/fig4-3.json",
+      "markdown_path": "figures/G234/fig4-3.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 28,
+      "relationships": 14,
+      "graph_issue_count": 0,
+      "ocr_word_count": 70
+    },
+    {
+      "id": "G234/fig4-4",
+      "document_id": "G234",
+      "title_en": "Metadata Management IT Solution",
+      "title_zh": "元数据管理 IT 方案",
+      "pdf_pages": [
+        25
+      ],
+      "json_path": "figures/G234/fig4-4.json",
+      "markdown_path": "figures/G234/fig4-4.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 13,
+      "relationships": 1,
+      "graph_issue_count": 0,
+      "ocr_word_count": 37
+    },
+    {
+      "id": "G234/fig4-5",
+      "document_id": "G234",
+      "title_en": "Key Metadata Assets",
+      "title_zh": "关键元数据资产",
+      "pdf_pages": [
+        26
+      ],
+      "json_path": "figures/G234/fig4-5.json",
+      "markdown_path": "figures/G234/fig4-5.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 34,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 92
+    },
+    {
+      "id": "G234/fig4-6",
+      "document_id": "G234",
+      "title_en": "Metadata Integration: Consolidation Model",
+      "title_zh": "元数据集成：集中式模型",
+      "pdf_pages": [
+        27
+      ],
+      "json_path": "figures/G234/fig4-6.json",
+      "markdown_path": "figures/G234/fig4-6.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 10,
+      "relationships": 9,
+      "graph_issue_count": 0,
+      "ocr_word_count": 29
+    },
+    {
+      "id": "G234/fig4-7",
+      "document_id": "G234",
+      "title_en": "Metadata Integration: Hybrid Model",
+      "title_zh": "元数据集成：混合式模型",
+      "pdf_pages": [
+        27
+      ],
+      "json_path": "figures/G234/fig4-7.json",
+      "markdown_path": "figures/G234/fig4-7.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 10,
+      "relationships": 9,
+      "graph_issue_count": 0,
+      "ocr_word_count": 35
+    },
+    {
+      "id": "G234/fig4-8",
+      "document_id": "G234",
+      "title_en": "Metadata Integration: Unified Model",
+      "title_zh": "元数据集成：统一式模型",
+      "pdf_pages": [
+        28
+      ],
+      "json_path": "figures/G234/fig4-8.json",
+      "markdown_path": "figures/G234/fig4-8.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 10,
+      "relationships": 9,
+      "graph_issue_count": 0,
+      "ocr_word_count": 37
+    },
+    {
+      "id": "G234/fig4-9",
+      "document_id": "G234",
+      "title_en": "Metadata Integration Patterns",
+      "title_zh": "元数据集成模式",
+      "pdf_pages": [
+        28
+      ],
+      "json_path": "figures/G234/fig4-9.json",
+      "markdown_path": "figures/G234/fig4-9.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 28,
+      "relationships": 16,
+      "graph_issue_count": 0,
+      "ocr_word_count": 40
+    },
+    {
+      "id": "G234/fig5-1",
+      "document_id": "G234",
+      "title_en": "Metadata Management Detailed Business Functions",
+      "title_zh": "元数据管理详细业务功能",
+      "pdf_pages": [
+        31
+      ],
+      "json_path": "figures/G234/fig5-1.json",
+      "markdown_path": "figures/G234/fig5-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 46,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 232
+    },
+    {
+      "id": "G234/fig5-2",
+      "document_id": "G234",
+      "title_en": "Metadata Management Detailed Application Functions",
+      "title_zh": "元数据管理详细应用功能",
+      "pdf_pages": [
+        34
+      ],
+      "json_path": "figures/G234/fig5-2.json",
+      "markdown_path": "figures/G234/fig5-2.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 31,
+      "relationships": 0,
+      "graph_issue_count": 0,
+      "ocr_word_count": 81
+    }
+  ],
+  "figure_notice_zh": "这里链接本指南的图记录供逐项核对，不把历史图示释义自动当作已验证原文关系；图记录的独立质量与视觉审查状态优先。",
+  "full_text": {
+    "json_path": "documents/G234.json",
+    "markdown_path": "documents/G234.md"
+  }
+}

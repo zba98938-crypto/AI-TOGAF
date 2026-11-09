@@ -1,0 +1,20 @@
+flowchart LR
+  %% Specialized notation is in the SVG; this source is the complete labelled relation projection.
+  %% entity-id: ROLE-CHIEF
+  n0["首席架构师"]
+  %% entity-id: ROLE-EA
+  n1["企业架构师"]
+  %% entity-id: ROLE-SEG
+  n2["库存分段架构师"]
+  %% entity-id: ROLE-SOL
+  n3["履约解决方案架构师"]
+  %% relationship-id: SPECIAL-CH
+  n0 -->|"首席作为企业架构角色特例"| n1
+  %% relationship-id: GUIDE-EA
+  n1 -->|"跨分段原则与协调"| n2
+  %% relationship-id: CONSTRAINT-SEG
+  n2 -->|"库存边界与v1一致性政策"| n3
+  %% relationship-id: COOPERATE-SOL
+  n3 -->|"反馈方案可行性与异常场景"| n2
+  %% relationship-id: HANDOFF-IF
+  n2 -->|"交接已声明接口与验证条件"| n3

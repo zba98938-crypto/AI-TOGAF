@@ -1,0 +1,198 @@
+{
+  "schema_version": "capability-addenda/1",
+  "id": "field-contracts-16",
+  "status": "registered-not-accepted",
+  "owner": "togaf-architecture-workbench",
+  "notice": "项目操作契约；复用现有指南摘要，不表示TOGAF官方语义验收。旧检查显式保留为专业review；机器断言仅限绑定的真实执行器。",
+  "patches": [
+    {
+      "group": "work_products",
+      "id": "architecture-maturity-scorecard",
+      "set": {
+        "entity_attribute_semantics": {
+          "assessment_result": {
+            "result_value": {
+              "meaning": "评估结果值及尺度",
+              "value_rule": "评估结果值及尺度；原始分项与聚合分开，无方法依据不得算总分",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "\\S"
+                      },
+                      {
+                        "type": "object",
+                        "minProperties": 1
+                      }
+                    ]
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "source_refs": [
+                "G203 §2.2–2.3"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "options-decision-matrix",
+      "set": {
+        "entity_attribute_semantics": {
+          "guide:sbce_iteration": {
+            "new_evidence_refs": {
+              "meaning": "本轮淘汰或重开使用的新增证据ID",
+              "value_rule": "本轮淘汰或重开使用的新增证据ID；不能只重用旧结论而无新证据",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "array",
+                "minItems": 0,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "source_refs": [
+                "G176 §12.8",
+                "G20F §4.6",
+                "G20F §4.7.1 表4-1",
+                "G210 §3.3–3.3.8"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "customer-mdm-model",
+      "set": {
+        "entity_attribute_semantics": {
+          "guide:mdm_diagnostic_answer": {
+            "scoring": {
+              "meaning": "明确none；无来源不得合成总分",
+              "value_rule": "明确评分模型与依据或none/null；没有来源和项目授权不合成成熟度总分",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "\\S"
+                      },
+                      {
+                        "type": "object",
+                        "minProperties": 1
+                      }
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "source_refs": [
+                "G21B §4–5",
+                "G21B 附录A.1–A.2",
+                "G21B §4.4、§6.1.1–6.1.2",
+                "G21B §3、§5.2.2",
+                "G21B §5.2.1表5-3",
+                "G21B §5.2.2表5-4"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "bi-transition-architecture",
+      "set": {
+        "entity_attribute_semantics": {
+          "guide:bi_operating_state": {
+            "legacy_requirement_coverage": {
+              "meaning": "旧需求逐项映射/验证状态",
+              "value_rule": "逐旧需求ID登记覆盖验证状态；verified才表示已核实，计划、保留旧服务、未知均不支持退役",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": {
+                  "enum": [
+                    "verified",
+                    "verified-in-example",
+                    "legacy-service-retained",
+                    "planned",
+                    "unknown",
+                    "not-covered",
+                    "out-of-scope-with-reason"
+                  ]
+                }
+              },
+              "source_refs": [
+                "G238 §3",
+                "图3-1–3-4",
+                "G238 §3.2.1–3.2.4",
+                "G238 表4-2价值链设计、表4-3存储/处理/监控",
+                "G238 表4-2高级分析模型工业化、运营平台；表4-3分析模型管理与监控"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "microservice-technical-guidance",
+      "set": {
+        "entity_attribute_semantics": {
+          "ops:msa_readiness": {
+            "scoring": {
+              "meaning": "scheme/score/basis，未提供模型时none/null",
+              "value_rule": "明确评分模型与依据或none/null；没有来源和项目授权不合成成熟度总分",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "anyOf": [
+                  {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "\\S"
+                      },
+                      {
+                        "type": "object",
+                        "minProperties": 1
+                      }
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "source_refs": [
+                "G21I §6–7",
+                "G21I §5.2、§5.5、表5-1",
+                "G21I §5.3、表5-1、§12.2"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

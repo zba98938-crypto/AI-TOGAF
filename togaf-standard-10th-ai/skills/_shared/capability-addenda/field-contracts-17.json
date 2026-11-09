@@ -1,0 +1,40 @@
+{
+  "schema_version": "capability-field-contract-overlay/1",
+  "id": "field-contracts-execution-binding-corrections",
+  "notice": "Actual route replay exposed three additional non-matching calculator bindings; removing them does not waive procedural or professional review.",
+  "patches": [
+    {
+      "group": "analysis_methods",
+      "id": "architecture-backlog-method",
+      "set": {
+        "calculator_id": null,
+        "calculator_status": "no-deterministic-calculator",
+        "implementation_status": "procedural-analysis-with-scoped-checks",
+        "professional_review": "G210业务变革与冲刺待办需要同单位容量、估算、目标和依赖判断；G20F战略意图/MVA的backlog-trace计算器只核对层级与追溯，不能替代本方法容量与冲刺承诺。",
+        "structural_check_path": "scripts/validate.py；scripts/verify_method_reasoning.py中独立容量和依赖算例；案例修改需逐项复核，生成不等于完整方法计算"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "mdm-business-function-coverage-method",
+      "set": {
+        "calculator_id": null,
+        "calculator_status": "no-deterministic-calculator",
+        "implementation_status": "procedural-source-row-coverage-review",
+        "professional_review": "逐G21B表5-3业务功能行核对证据与范围；metadata-application-coverage-review硬绑定G234表5-2的功能全集，不能替代C-MDM业务功能参考表。",
+        "structural_check_path": "examples/addenda/operations/methods.py --profile mdm-business-function-coverage；检查参考行身份、已见/计划/未知/有理由范围外，实际覆盖结论需专业复核"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "mdm-application-function-coverage-method",
+      "set": {
+        "calculator_id": null,
+        "calculator_status": "no-deterministic-calculator",
+        "implementation_status": "procedural-source-row-coverage-review",
+        "professional_review": "逐G21B表5-4应用功能行核对实际实现证据；G234元数据功能全集不是C-MDM应用功能全集，不借其计算器输出制造本方法已运行。",
+        "structural_check_path": "examples/addenda/operations/methods.py --profile mdm-application-function-coverage；检查参考行身份、已见/计划/未知/有理由范围外，实际覆盖结论需专业复核"
+      }
+    }
+  ]
+}

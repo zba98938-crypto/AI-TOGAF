@@ -1,0 +1,102 @@
+{
+  "content_role": "project-derived-shared-model-projections",
+  "status": "candidate-not-approved",
+  "model_sha256": "7cf63cb18aec19166fec49c6a95a6ce623d51a60ccfe75bf0088a34f302a8c5e",
+  "catalog": [
+    {
+      "capability_id": "CAP-FULFIL",
+      "name": "全渠道履约",
+      "definition": "跨渠道协调订单、库存与交付",
+      "interface_refs": [],
+      "application_refs": [],
+      "work_package_refs": []
+    },
+    {
+      "capability_id": "CAP-ORDER",
+      "name": "订单承诺",
+      "definition": "记录并管理订单受理与履约承诺",
+      "interface_refs": [],
+      "application_refs": [],
+      "work_package_refs": []
+    },
+    {
+      "capability_id": "CAP-RESERVE",
+      "name": "库存预占（共享对象变更验证）",
+      "definition": "变更验证：按已确认业务政策协调可售库存；政策本身仍待业务确认",
+      "interface_refs": [
+        "IF-RESERVE"
+      ],
+      "application_refs": [
+        "APP-STOCK"
+      ],
+      "work_package_refs": [
+        "WP-ONLINE",
+        "WP-OFFLINE"
+      ]
+    },
+    {
+      "capability_id": "CAP-LOGISTICS",
+      "name": "物流履约",
+      "definition": "依据确认订单安排交付",
+      "interface_refs": [],
+      "application_refs": [],
+      "work_package_refs": []
+    }
+  ],
+  "capability_application_matrix": [
+    {
+      "capability_id": "CAP-FULFIL",
+      "name": "全渠道履约",
+      "definition": "跨渠道协调订单、库存与交付",
+      "application_ids": [],
+      "basis": "CAP-IF then exposes; only explicit modeled edges"
+    },
+    {
+      "capability_id": "CAP-ORDER",
+      "name": "订单承诺",
+      "definition": "记录并管理订单受理与履约承诺",
+      "application_ids": [],
+      "basis": "CAP-IF then exposes; only explicit modeled edges"
+    },
+    {
+      "capability_id": "CAP-RESERVE",
+      "name": "库存预占（共享对象变更验证）",
+      "definition": "变更验证：按已确认业务政策协调可售库存；政策本身仍待业务确认",
+      "application_ids": [
+        "APP-STOCK"
+      ],
+      "basis": "CAP-IF then exposes; only explicit modeled edges"
+    },
+    {
+      "capability_id": "CAP-LOGISTICS",
+      "name": "物流履约",
+      "definition": "依据确认订单安排交付",
+      "application_ids": [],
+      "basis": "CAP-IF then exposes; only explicit modeled edges"
+    }
+  ],
+  "roadmap": [
+    {
+      "capability_id": "CAP-RESERVE",
+      "name": "库存预占（共享对象变更验证）",
+      "definition": "变更验证：按已确认业务政策协调可售库存；政策本身仍待业务确认",
+      "work_package_id": "WP-ONLINE",
+      "period": {
+        "start": "2026-11-09",
+        "end": "2026-11-20"
+      },
+      "acceptance": "候选日期；实际运行、回退及生产容量仍须验证"
+    },
+    {
+      "capability_id": "CAP-RESERVE",
+      "name": "库存预占（共享对象变更验证）",
+      "definition": "变更验证：按已确认业务政策协调可售库存；政策本身仍待业务确认",
+      "work_package_id": "WP-OFFLINE",
+      "period": {
+        "start": "2026-11-21",
+        "end": "2026-12-04"
+      },
+      "acceptance": "候选日期；实际运行、回退及生产容量仍须验证"
+    }
+  ]
+}

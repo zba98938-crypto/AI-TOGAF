@@ -1,0 +1,21 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Corporate Governance"]
+  n1["EA Governance"]
+  n2["Business Architecture Governance"]
+  n3["Domain Architecture Governance"]
+  n4["Implementation Governance"]
+  n5["Security and Risk Governance"]
+  n0 -.->|"治理/监督"| n1
+  n1 -.->|"治理/监督"| n2
+  n2 -.->|"治理/监督"| n3
+  n3 -.->|"治理/监督"| n4
+  n5 -.->|"横跨"| n0
+  n5 -.->|"横跨"| n1
+  n5 -.->|"横跨"| n2
+  n5 -.->|"横跨"| n3
+  n5 -.->|"横跨"| n4
+  n0 -.->|"visual_containment_only"| n1
+  n1 -.->|"visual_containment_only"| n2
+  n2 -.->|"visual_containment_only"| n3
+  n3 -.->|"visual_containment_only"| n4

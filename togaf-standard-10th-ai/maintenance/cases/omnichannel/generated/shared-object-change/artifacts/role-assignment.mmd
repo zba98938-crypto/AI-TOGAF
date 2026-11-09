@@ -1,0 +1,38 @@
+flowchart LR
+  %% Specialized notation is in the SVG; this source is the complete labelled relation projection.
+  %% entity-id: ROLE-CHIEF
+  n0["首席架构师"]
+  %% entity-id: ROLE-EA
+  n1["企业架构师"]
+  %% entity-id: ROLE-SEG
+  n2["库存分段架构师"]
+  %% entity-id: ROLE-SOL
+  n3["履约解决方案架构师"]
+  %% entity-id: TASK-CH
+  n4["战略优先与业务承诺边界"]
+  %% entity-id: TASK-EA
+  n5["跨分段互操作原则"]
+  %% entity-id: TASK-SEG
+  n6["库存语义与运营条件"]
+  %% entity-id: TASK-SOL
+  n7["预占、断连受理及恢复同步候选比较"]
+  %% entity-id: EVIDENCE-A
+  n8["甲的任务能力证据不足"]
+  %% entity-id: EVIDENCE-EXPERT
+  n9["专家支持证据未证实"]
+  %% entity-id: ASSIGN-A
+  n10["甲的候选履约架构任务配置"]
+  %% relationship-id: CONFIG-TASK-CH
+  n0 -->|"本次工作职责"| n4
+  %% relationship-id: CONFIG-TASK-EA
+  n1 -->|"本次工作职责"| n5
+  %% relationship-id: CONFIG-TASK-SEG
+  n2 -->|"本次工作职责"| n6
+  %% relationship-id: CONFIG-TASK-SOL
+  n3 -->|"本次工作职责"| n7
+  %% relationship-id: CONFIG-ASSIGN-TASK
+  n10 -->|"候选承担；未批准"| n7
+  %% relationship-id: CONFIG-EVIDENCE-A
+  n10 -->|"任职能力待举证"| n8
+  %% relationship-id: CONFIG-EVIDENCE-EXPERT
+  n10 -->|"支持者证据待审"| n9

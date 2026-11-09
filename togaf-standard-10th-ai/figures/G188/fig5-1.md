@@ -1,0 +1,1656 @@
+# G188/fig5-1 · TOGAF ADM 与 PMBOK 映射（高层）
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G188/fig5-1.md) · [JSON](../../architecture/diagrams/G188/fig5-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G188e.pdf`；SHA-256：`6e654af12a0bc034c7548d425a01123331ac9129c478a0bb957db89dd353dd29`。
+
+## 原图 · PDF 第 85 页
+
+![英文原图](../assets/G188/fig5-1-p0085.png)
+
+PDF 坐标：`[97.6, 36.0, 514.4, 709.8]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Detaied Gudance
+TOGAF 81 ADM (A)
+Projection
+assent
+omc
+Pope
+See
+=
+|
+-
+sewoue
+tty
+ay
+omory
+Eater
+oma
+cores
+ad
+cord
+Boren eco
+con ectnes {*
+Senet
+on Does
+=
+econees|
+ont
+commen
+Pe
+com
+tener
+i
+4
+pesase
+5
+Tse
+eee
+coer
+aan
+a
+tee
+a
+‘en
+tre sae
+4
+Planning
+ro
+‘one
+eee
+some Pc
+come io,
+Sense
+soca
+—
+ren
+=
+y
+Sabena
+Rik Management
+concn nama fe
+7
+soe
+personae
+Penooas
+voor
+werent
+Panta
+‘ae pe
+wore
+sco Ven
+‘eo Ve
+LJ
+ane
+one ae
+ace
+seetynas
+Seomce
+oaemee
+See
+veacree
+ayes
+Tees
+7
+comane
+tear
+oy
+‘ome
+See
+=
+ioe
+Weaperen
+me
+commen Pan
+—
+cua
+Tove
+meee)
+et
+suerte
+‘Senos
+Frets fe
+oma
+Ponte
+Vion rare
+feces
+Pore
+Phase Contra
+RePian at Each Phase
+Iegraton
+ee
+sash,
+i
+wee ome
+(‘roe
+ewe
+Wor
+Ber
+coms Ras
+era es
+Tar
+—_
+cme
+‘e
+7)
+to
+Seope
+‘ually
+comes cons
+veers
+=
+‘nwo
+Coa Pome
+ott
+cone ty
+mn
+HR Managerere
+al
+7
+ae
+‘Communication
+Stakelgers
+Naame
+ee
+“
+—
+=
+a
+ated
+7
+Deas
+f=] if
+core
+oa
+a
+=
+aed
+“
+(sing he Project
+7
+‘hoe
+```
+
+## 概要（历史解释；局部修正见上）
+
+把 ADM 阶段 A 的步骤与 PMBOK 的启动、规划过程组对应，把 B–F 对应到阶段控制，F 末对应收尾。
+
+## 目的（历史解释；局部修正见上）
+
+给出 TOGAF ADM 与 PMBOK 的高层映射：阶段 A 主要对应 PMBOK 的启动与规划过程组，B–F 作为交付阶段由阶段控制过程管理，项目收尾对应阶段 F 的最后一步“结束项目或阶段”。图中同时标出每个 PMBOK 过程属于哪个知识领域/过程组。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左上“Establish the Project”开始：ADM 步骤列在左，PMBOK 过程在右。先读项目启动组（制定项目章程→项目章程），再读规划组的两条链与风险管理组；ADM 的识别利益相关者、确认业务目标、定义范围等步骤用实线/点线连到相应的 PMBOK 过程。下方是阶段控制组：左侧橙色小图与蓝色“Controlling the Stage”箭头表示 B–F 的阶段循环，右侧按 Re-Plan at Each Phase、Integration、Communication、Stakeholders、HR Management 分区列出控制过程。最下方 Closing the Project 只有一个“Close Project or Phase”。右侧 Detailed Guidance 列给出章节对应。
+
+## 关键含义（历史解释；局部修正见上）
+
+- ADM 阶段 A 映射到 PMBOK 的启动与规划过程组：制定项目章程、识别利益相关者、收集需求、规划沟通/利益相关者管理，以及范围、进度、成本、风险等规划过程。
+- PMBOK 的规划过程在图中分成两条链：范围—进度链（创建 WBS→规划进度→定义活动→排列活动顺序→排序活动资源→估算活动工期）与进度—成本链（制定进度→规划成本管理→估算成本→确定预算→制定项目管理计划）。
+- 风险管理单独成组：规划风险管理、识别风险、实施定性风险分析、实施定量风险分析、规划风险应对。
+- ADM B–F 被视为项目的交付阶段，由阶段控制组管理；控制活动按“每个阶段重新规划”“整合”“沟通”“利益相关者”“人力资源”分区。
+- “每个阶段重新规划”包含控制进度、控制风险、控制成本，以及范围（核实范围、控制范围）与质量（实施质量保证、控制质量）两列。
+- 整合管理包含指导与管理项目工作、监控项目工作、实施整体变更控制、结束项目或阶段；阶段 F 的最后一步用“结束项目或阶段”收尾。
+- ADM 阶段 A 的交付物（架构原则、架构愿景、沟通计划、已批准 SoAW 等）与 PMBOK 交付物（项目章程、项目管理计划）并排出现，说明两套方法各自有自己的文档体系。
+- 图例说明实线=流程依赖、点线=输入依赖、虚线=产品交付、粗蓝箭头=简化流程组；橙色小图是 ADM B–F 的迭代示意。
+
+## 层级（历史解释；局部修正见上）
+
+横向三列（ADM、PMBOK、Detailed Guidance）；PMBOK 内部按过程组/知识领域分组：Project Initiation、Planning（含两条链）、Risk Management、Phase Control（含 Re-Plan、Integration、Communication、Stakeholders、HR Management）、Closing the Project。过程组是过程的容器，交付物挂在过程旁。
+
+## 线条含义（历史解释；局部修正见上）
+
+实线箭头=流程依赖；点线箭头=输入依赖（ADM 步骤→PMBOK 过程）；虚线箭头=产品交付（过程→文档）；粗蓝箭头=简化流程组（Directing the Project、Controlling the Stage）。ADM 列内部的实线表示步骤顺序；PMBOK 组内的实线表示过程顺序。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把 ADM 阶段 A 整体对应到一个 PMBOK 过程组：它同时涉及启动与规划，且部分步骤（如定义范围）对应多个 PMBOK 过程。
+- 不要把 B–F 当作 PMBOK 的一个过程组；它们是被阶段控制过程管理的一组交付阶段，图中央的橙色小图才是 B–F 的 ADM 循环示意。
+- 不要把“结束项目或阶段”只看作项目收尾：它在整合管理中也出现，阶段 F 的最后一步用它收尾。
+- 不要把“Re-Plan at Each Phase”理解为重新做整个规划组；它只含控制进度、风险、成本与范围/质量的复核。
+- 中文稿重绘 SVG 漏掉“Define the Scope”“Plan Scope Management”两个过程框，不能据它核对全部映射。
+
+## 元素
+
+```json
+[
+  {
+    "id": "lane_adm",
+    "label_en": "TOGAF 9.1 ADM (A)",
+    "label_zh": "TOGAF 9.1 ADM（阶段 A）",
+    "type": "group",
+    "parent": null,
+    "level": 0
+  },
+  {
+    "id": "adm_establish",
+    "label_en": "Establish the Project",
+    "label_zh": "建立项目",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "adm_stakeholders",
+    "label_en": "Identify Stakeholders, Concerns, and Bus Reqs",
+    "label_zh": "识别利益相关者、关注点与业务需求",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "adm_goals",
+    "label_en": "Confirm and Elaborate Bus. Goals, Drivers, and Constraints",
+    "label_zh": "确认并细化业务目标、驱动因素与约束",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "adm_capabilities",
+    "label_en": "Evaluate Business Capabilities",
+    "label_zh": "评估业务能力",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 4
+  },
+  {
+    "id": "adm_readiness",
+    "label_en": "Assess Readiness for Business Transformation",
+    "label_zh": "评估业务转型就绪度",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 5
+  },
+  {
+    "id": "adm_scope",
+    "label_en": "Define Scope",
+    "label_zh": "定义范围",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 6
+  },
+  {
+    "id": "adm_principles",
+    "label_en": "Confirm and Elaborate Arch. Principles, inc. Bus. Principles",
+    "label_zh": "确认并细化架构原则（含业务原则）",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 7
+  },
+  {
+    "id": "adm_vision",
+    "label_en": "Develop Architecture Vision",
+    "label_zh": "制定架构愿景",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 8
+  },
+  {
+    "id": "adm_value",
+    "label_en": "Define Target Arch. Value Propositions and KPIs",
+    "label_zh": "定义目标架构价值主张与 KPI",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 9
+  },
+  {
+    "id": "adm_risks",
+    "label_en": "Identify Bus. Transformation Risks and Mitigation Activities",
+    "label_zh": "识别业务转型风险与缓解活动",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 10
+  },
+  {
+    "id": "adm_soaw",
+    "label_en": "Develop Statement of Architecture Work; Secure Approval",
+    "label_zh": "编制架构工作说明书；获得批准",
+    "type": "process",
+    "parent": "lane_adm",
+    "level": 1,
+    "order": 11
+  },
+  {
+    "id": "d_refine_principles",
+    "label_en": "Refine Statements of Business Principles, Goals, and Drivers",
+    "label_zh": "细化业务原则、目标与驱动因素说明",
+    "type": "artifact",
+    "parent": null,
+    "level": 2
+  },
+  {
+    "id": "d_capability_assessment",
+    "label_en": "Capability Assessment",
+    "label_zh": "能力评估",
+    "type": "artifact",
+    "parent": null,
+    "level": 2
+  },
+  {
+    "id": "d_architecture_principles",
+    "label_en": "Architecture Principles",
+    "label_zh": "架构原则",
+    "type": "artifact",
+    "parent": null,
+    "level": 2
+  },
+  {
+    "id": "d_draft_add",
+    "label_en": "Draft Architecture Definition Document",
+    "label_zh": "架构定义文档草案",
+    "type": "artifact",
+    "parent": null,
+    "level": 2
+  },
+  {
+    "id": "d_architecture_vision",
+    "label_en": "Architecture Vision",
+    "label_zh": "架构愿景",
+    "type": "artifact",
+    "parent": null,
+    "level": 2
+  },
+  {
+    "id": "d_communication_plan",
+    "label_en": "Communication Plan",
+    "label_zh": "沟通计划",
+    "type": "artifact",
+    "parent": null,
+    "level": 2
+  },
+  {
+    "id": "d_approved_soaw",
+    "label_en": "Approved Statement of Architecture Work",
+    "label_zh": "已批准的架构工作说明书",
+    "type": "artifact",
+    "parent": null,
+    "level": 2
+  },
+  {
+    "id": "grp_initiation",
+    "label_en": "Project Initiation",
+    "label_zh": "项目启动",
+    "type": "group",
+    "parent": null,
+    "level": 0
+  },
+  {
+    "id": "pm_charter",
+    "label_en": "Develop Project Charter",
+    "label_zh": "制定项目章程",
+    "type": "process",
+    "parent": "grp_initiation",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "d_project_charter",
+    "label_en": "Project Charter",
+    "label_zh": "项目章程",
+    "type": "artifact",
+    "parent": null,
+    "level": 2
+  },
+  {
+    "id": "grp_init_processes",
+    "label_en": "Project Initiation (processes)",
+    "label_zh": "项目启动相关过程（原图无标题分组）",
+    "type": "group",
+    "parent": null,
+    "level": 0
+  },
+  {
+    "id": "pm_identify_stakeholders",
+    "label_en": "Identify Stakeholders",
+    "label_zh": "识别利益相关者",
+    "type": "process",
+    "parent": "grp_init_processes",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "pm_collect_requirements",
+    "label_en": "Collect Requirements",
+    "label_zh": "收集需求",
+    "type": "process",
+    "parent": "grp_init_processes",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "pm_plan_comm",
+    "label_en": "Plan Communication Management",
+    "label_zh": "规划沟通管理",
+    "type": "process",
+    "parent": "grp_init_processes",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "pm_plan_stakeholders",
+    "label_en": "Plan Stakeholder Management",
+    "label_zh": "规划利益相关者管理",
+    "type": "process",
+    "parent": "grp_init_processes",
+    "level": 1,
+    "order": 4
+  },
+  {
+    "id": "pm_define_scope",
+    "label_en": "Define the Scope",
+    "label_zh": "定义范围（PMBOK）",
+    "type": "process",
+    "parent": null,
+    "level": 1,
+    "position": "ADM 列与 Planning 组之间"
+  },
+  {
+    "id": "pm_plan_scope",
+    "label_en": "Plan Scope Management",
+    "label_zh": "规划范围管理",
+    "type": "process",
+    "parent": null,
+    "level": 1
+  },
+  {
+    "id": "grp_planning",
+    "label_en": "Planning",
+    "label_zh": "规划",
+    "type": "group",
+    "parent": null,
+    "level": 0
+  },
+  {
+    "id": "pm_create_wbs",
+    "label_en": "Create Work Breakdown Structure",
+    "label_zh": "创建工作分解结构",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "pm_plan_schedule",
+    "label_en": "Plan Schedule",
+    "label_zh": "规划进度",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "pm_define_activities",
+    "label_en": "Define Activities",
+    "label_zh": "定义活动",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "pm_sequence_activities",
+    "label_en": "Sequence Activities",
+    "label_zh": "排列活动顺序",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 4
+  },
+  {
+    "id": "pm_sequence_resources",
+    "label_en": "Sequence Activity Resources",
+    "label_zh": "排序活动资源",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 5
+  },
+  {
+    "id": "pm_estimate_durations",
+    "label_en": "Estimate Activity Durations",
+    "label_zh": "估算活动工期",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 6
+  },
+  {
+    "id": "pm_develop_schedule",
+    "label_en": "Develop Schedule",
+    "label_zh": "制定进度",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 7
+  },
+  {
+    "id": "pm_plan_costs",
+    "label_en": "Plan Costs Management",
+    "label_zh": "规划成本管理",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 8
+  },
+  {
+    "id": "pm_estimate_costs",
+    "label_en": "Estimate Costs",
+    "label_zh": "估算成本",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 9
+  },
+  {
+    "id": "pm_determine_budget",
+    "label_en": "Determine Budget",
+    "label_zh": "确定预算",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 10
+  },
+  {
+    "id": "pm_develop_plan",
+    "label_en": "Develop Project Management Plan",
+    "label_zh": "制定项目管理计划",
+    "type": "process",
+    "parent": "grp_planning",
+    "level": 1,
+    "order": 11
+  },
+  {
+    "id": "d_pm_plan",
+    "label_en": "Project Management Plan",
+    "label_zh": "项目管理计划",
+    "type": "artifact",
+    "parent": null,
+    "level": 2
+  },
+  {
+    "id": "grp_risk",
+    "label_en": "Risk Management",
+    "label_zh": "风险管理",
+    "type": "group",
+    "parent": null,
+    "level": 0
+  },
+  {
+    "id": "pm_plan_risk",
+    "label_en": "Plan Risk Management",
+    "label_zh": "规划风险管理",
+    "type": "process",
+    "parent": "grp_risk",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "pm_identify_risks",
+    "label_en": "Identify Risks",
+    "label_zh": "识别风险",
+    "type": "process",
+    "parent": "grp_risk",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "pm_qual_risk",
+    "label_en": "Perform Qualitative Risk Analysis",
+    "label_zh": "实施定性风险分析",
+    "type": "process",
+    "parent": "grp_risk",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "pm_quant_risk",
+    "label_en": "Perform Quantitative Risk Analysis",
+    "label_zh": "实施定量风险分析",
+    "type": "process",
+    "parent": "grp_risk",
+    "level": 1,
+    "order": 4
+  },
+  {
+    "id": "pm_plan_risk_responses",
+    "label_en": "Plan Risk Responses",
+    "label_zh": "规划风险应对",
+    "type": "process",
+    "parent": "grp_risk",
+    "level": 1,
+    "order": 5
+  },
+  {
+    "id": "grp_control",
+    "label_en": "Phase Control",
+    "label_zh": "阶段控制",
+    "type": "group",
+    "parent": null,
+    "level": 0
+  },
+  {
+    "id": "grp_replan",
+    "label_en": "Re-Plan at Each Phase",
+    "label_zh": "每个阶段重新规划",
+    "type": "group",
+    "parent": "grp_control",
+    "level": 1
+  },
+  {
+    "id": "pm_control_schedule",
+    "label_en": "Control Schedule",
+    "label_zh": "控制进度",
+    "type": "process",
+    "parent": "grp_replan",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "pm_control_risks",
+    "label_en": "Control Risks",
+    "label_zh": "控制风险",
+    "type": "process",
+    "parent": "grp_replan",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "pm_control_costs",
+    "label_en": "Control Costs",
+    "label_zh": "控制成本",
+    "type": "process",
+    "parent": "grp_replan",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "grp_scope_ctl",
+    "label_en": "Scope",
+    "label_zh": "范围",
+    "type": "group",
+    "parent": "grp_replan",
+    "level": 2
+  },
+  {
+    "id": "pm_validate_scope",
+    "label_en": "Validate the Scope",
+    "label_zh": "核实范围",
+    "type": "process",
+    "parent": "grp_scope_ctl",
+    "level": 3,
+    "order": 1
+  },
+  {
+    "id": "pm_control_scope",
+    "label_en": "Control Scope",
+    "label_zh": "控制范围",
+    "type": "process",
+    "parent": "grp_scope_ctl",
+    "level": 3,
+    "order": 2
+  },
+  {
+    "id": "grp_quality",
+    "label_en": "Quality",
+    "label_zh": "质量",
+    "type": "group",
+    "parent": "grp_replan",
+    "level": 2
+  },
+  {
+    "id": "pm_quality_assurance",
+    "label_en": "Perform Quality Assurance",
+    "label_zh": "实施质量保证",
+    "type": "process",
+    "parent": "grp_quality",
+    "level": 3,
+    "order": 1
+  },
+  {
+    "id": "pm_control_quality",
+    "label_en": "Control Quality",
+    "label_zh": "控制质量",
+    "type": "process",
+    "parent": "grp_quality",
+    "level": 3,
+    "order": 2
+  },
+  {
+    "id": "grp_integration",
+    "label_en": "Integration",
+    "label_zh": "整合",
+    "type": "group",
+    "parent": "grp_control",
+    "level": 1
+  },
+  {
+    "id": "pm_direct_work",
+    "label_en": "Direct and Manage Project Work",
+    "label_zh": "指导与管理项目工作",
+    "type": "process",
+    "parent": "grp_integration",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "pm_monitor_work",
+    "label_en": "Monitor and Control Project Work",
+    "label_zh": "监控项目工作",
+    "type": "process",
+    "parent": "grp_integration",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "pm_integrated_change",
+    "label_en": "Perform Integrated Change Control",
+    "label_zh": "实施整体变更控制",
+    "type": "process",
+    "parent": "grp_integration",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "pm_close_phase",
+    "label_en": "Close Project or Phase",
+    "label_zh": "结束项目或阶段",
+    "type": "process",
+    "parent": "grp_integration",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "grp_comm_ctl",
+    "label_en": "Communication",
+    "label_zh": "沟通",
+    "type": "group",
+    "parent": "grp_control",
+    "level": 1
+  },
+  {
+    "id": "pm_manage_comm",
+    "label_en": "Manage Communication",
+    "label_zh": "管理沟通",
+    "type": "process",
+    "parent": "grp_comm_ctl",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "pm_control_comm",
+    "label_en": "Control Communication",
+    "label_zh": "控制沟通",
+    "type": "process",
+    "parent": "grp_comm_ctl",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "grp_stake_ctl",
+    "label_en": "Stakeholders",
+    "label_zh": "利益相关者",
+    "type": "group",
+    "parent": "grp_control",
+    "level": 1
+  },
+  {
+    "id": "pm_manage_stake",
+    "label_en": "Manage Stakeholder Engagement",
+    "label_zh": "管理利益相关者参与",
+    "type": "process",
+    "parent": "grp_stake_ctl",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "pm_control_stake",
+    "label_en": "Control Stakeholder Engagement",
+    "label_zh": "控制利益相关者参与",
+    "type": "process",
+    "parent": "grp_stake_ctl",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "grp_hr",
+    "label_en": "HR Management",
+    "label_zh": "人力资源管理",
+    "type": "group",
+    "parent": "grp_control",
+    "level": 1
+  },
+  {
+    "id": "pm_acquire_team",
+    "label_en": "Acquire Project Team",
+    "label_zh": "组建项目团队",
+    "type": "process",
+    "parent": "grp_hr",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "pm_develop_team",
+    "label_en": "Develop Project Team",
+    "label_zh": "建设项目团队",
+    "type": "process",
+    "parent": "grp_hr",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "pm_manage_team",
+    "label_en": "Manage Project Team",
+    "label_zh": "管理项目团队",
+    "type": "process",
+    "parent": "grp_hr",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "grp_closing",
+    "label_en": "Closing the Project",
+    "label_zh": "项目收尾",
+    "type": "group",
+    "parent": null,
+    "level": 0
+  },
+  {
+    "id": "pm_close_project",
+    "label_en": "Close Project or Phase",
+    "label_zh": "结束项目或阶段",
+    "type": "process",
+    "parent": "grp_closing",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "adm_bf",
+    "label_en": "TOGAF ADM Phases B to F",
+    "label_zh": "TOGAF ADM 阶段 B–F",
+    "type": "phase",
+    "parent": null,
+    "level": 1,
+    "position": "Phase Control 左侧圆"
+  },
+  {
+    "id": "lane_guidance",
+    "label_en": "Detailed Guidance",
+    "label_zh": "详细指南",
+    "type": "group",
+    "parent": null,
+    "level": 0
+  },
+  {
+    "id": "g31",
+    "label_en": "3.1 Architecture Project Start Up",
+    "label_zh": "3.1 启动架构项目",
+    "type": "phase",
+    "parent": "lane_guidance",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "g32",
+    "label_en": "3.2 Architecture Project Planning",
+    "label_zh": "3.2 架构项目规划",
+    "type": "phase",
+    "parent": "lane_guidance",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "g33",
+    "label_en": "3.3 Planning a Stage",
+    "label_zh": "3.3 阶段规划",
+    "type": "phase",
+    "parent": "lane_guidance",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "g34",
+    "label_en": "3.4 Execute / Monitor / Control a Stage",
+    "label_zh": "3.4 执行/监控/控制阶段",
+    "type": "phase",
+    "parent": "lane_guidance",
+    "level": 1,
+    "order": 4
+  },
+  {
+    "id": "g35",
+    "label_en": "3.5 Ending a Stage",
+    "label_zh": "3.5 阶段收尾",
+    "type": "phase",
+    "parent": "lane_guidance",
+    "level": 1,
+    "order": 5
+  },
+  {
+    "id": "g36",
+    "label_en": "3.6 Architecture Project Closing",
+    "label_zh": "3.6 架构项目收尾",
+    "type": "phase",
+    "parent": "lane_guidance",
+    "level": 1,
+    "order": 6
+  },
+  {
+    "id": "directing",
+    "label_en": "Directing the Project",
+    "label_zh": "指导项目",
+    "type": "note",
+    "parent": null,
+    "position": "Detailed Guidance 列蓝色箭头（3.1–3.2）"
+  },
+  {
+    "id": "controlling",
+    "label_en": "Controlling the Stage",
+    "label_zh": "控制阶段",
+    "type": "note",
+    "parent": null,
+    "position": "Phase Control 左侧蓝色箭头；Detailed Guidance 列 3.3–3.6"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "adm_stakeholders",
+    "to": "adm_goals",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_goals",
+    "to": "adm_capabilities",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_capabilities",
+    "to": "adm_readiness",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_readiness",
+    "to": "adm_scope",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_scope",
+    "to": "adm_principles",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_principles",
+    "to": "adm_vision",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_vision",
+    "to": "adm_value",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_value",
+    "to": "adm_risks",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_risks",
+    "to": "adm_soaw",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_goals",
+    "to": "d_refine_principles",
+    "type": "produces",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_readiness",
+    "to": "d_capability_assessment",
+    "type": "produces",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_principles",
+    "to": "d_architecture_principles",
+    "type": "produces",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_vision",
+    "to": "d_draft_add",
+    "type": "produces",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_vision",
+    "to": "d_architecture_vision",
+    "type": "produces",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_risks",
+    "to": "d_communication_plan",
+    "type": "produces",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_soaw",
+    "to": "d_approved_soaw",
+    "type": "produces",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_establish",
+    "to": "pm_charter",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_charter",
+    "to": "d_project_charter",
+    "type": "produces",
+    "explicit": true,
+    "line": "dotted",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_stakeholders",
+    "to": "pm_identify_stakeholders",
+    "type": "consumes",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_goals",
+    "to": "pm_define_scope",
+    "type": "consumes",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_capabilities",
+    "to": "pm_plan_scope",
+    "type": "consumes",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_readiness",
+    "to": "pm_plan_scope",
+    "type": "consumes",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_scope",
+    "to": "pm_define_scope",
+    "type": "consumes",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_scope",
+    "to": "pm_plan_scope",
+    "type": "consumes",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "adm_principles",
+    "to": "pm_plan_scope",
+    "type": "consumes",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_create_wbs",
+    "to": "pm_plan_schedule",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_plan_schedule",
+    "to": "pm_define_activities",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_define_activities",
+    "to": "pm_sequence_activities",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_sequence_activities",
+    "to": "pm_sequence_resources",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_sequence_resources",
+    "to": "pm_estimate_durations",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_develop_schedule",
+    "to": "pm_plan_costs",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_plan_costs",
+    "to": "pm_estimate_costs",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_estimate_costs",
+    "to": "pm_determine_budget",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_determine_budget",
+    "to": "pm_develop_plan",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_estimate_durations",
+    "to": "pm_develop_schedule",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "第一条链的末端汇入第二条链的起点"
+  },
+  {
+    "from": "pm_develop_plan",
+    "to": "d_pm_plan",
+    "type": "produces",
+    "explicit": true,
+    "line": "dotted",
+    "arrow": "forward"
+  },
+  {
+    "from": "grp_planning",
+    "to": "grp_control",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "Planning 组底部箭头指向 Phase Control"
+  },
+  {
+    "from": "adm_risks",
+    "to": "pm_identify_risks",
+    "type": "consumes",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_plan_risk",
+    "to": "pm_identify_risks",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "风险组内自上而下排列，未画箭头"
+  },
+  {
+    "from": "pm_identify_risks",
+    "to": "pm_qual_risk",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_qual_risk",
+    "to": "pm_quant_risk",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_quant_risk",
+    "to": "pm_plan_risk_responses",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "controlling",
+    "to": "adm_bf",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "both"
+  },
+  {
+    "from": "controlling",
+    "to": "g33",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "directing",
+    "to": "g31",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "grp_control",
+    "to": "grp_closing",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "pm_close_project",
+    "to": "pm_close_phase",
+    "type": "equivalence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "同一个“结束项目或阶段”过程在阶段控制与项目收尾两处出现"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_init",
+    "kind": "sequence",
+    "name_zh": "PMBOK 启动过程",
+    "steps": [
+      "adm_establish",
+      "pm_charter",
+      "d_project_charter"
+    ]
+  },
+  {
+    "id": "f_planning_scope",
+    "kind": "sequence",
+    "name_zh": "范围—进度规划链",
+    "steps": [
+      "pm_create_wbs",
+      "pm_plan_schedule",
+      "pm_define_activities",
+      "pm_sequence_activities",
+      "pm_sequence_resources",
+      "pm_estimate_durations",
+      "pm_develop_schedule"
+    ]
+  },
+  {
+    "id": "f_planning_cost",
+    "kind": "sequence",
+    "name_zh": "进度—成本—计划链",
+    "steps": [
+      "pm_develop_schedule",
+      "pm_plan_costs",
+      "pm_estimate_costs",
+      "pm_determine_budget",
+      "pm_develop_plan"
+    ]
+  },
+  {
+    "id": "f_closing",
+    "kind": "sequence",
+    "name_zh": "项目收尾",
+    "steps": [
+      "grp_control",
+      "pm_close_project"
+    ]
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_pmbok_processes",
+    "title_zh": "PMBOK 过程按原图分组逐项转录",
+    "columns": [
+      "分组",
+      "过程"
+    ],
+    "rows": [
+      [
+        "Project Initiation",
+        "Develop Project Charter"
+      ],
+      [
+        "Project Initiation（无标题分组）",
+        "Identify Stakeholders；Collect Requirements；Plan Communication Management；Plan Stakeholder Management"
+      ],
+      [
+        "Planning（范围—进度链）",
+        "Create Work Breakdown Structure；Plan Schedule；Define Activities；Sequence Activities；Sequence Activity Resources；Estimate Activity Durations"
+      ],
+      [
+        "Planning（进度—成本链）",
+        "Develop Schedule；Plan Costs Management；Estimate Costs；Determine Budget；Develop Project Management Plan"
+      ],
+      [
+        "Risk Management",
+        "Plan Risk Management；Identify Risks；Perform Qualitative Risk Analysis；Perform Quantitative Risk Analysis；Plan Risk Responses"
+      ],
+      [
+        "Phase Control — Re-Plan at Each Phase",
+        "Control Schedule；Control Risks；Control Costs"
+      ],
+      [
+        "Phase Control — Scope",
+        "Validate the Scope；Control Scope"
+      ],
+      [
+        "Phase Control — Quality",
+        "Perform Quality Assurance；Control Quality"
+      ],
+      [
+        "Phase Control — Integration",
+        "Direct and Manage Project Work；Monitor and Control Project Work；Perform Integrated Change Control；Close Project or Phase"
+      ],
+      [
+        "Phase Control — Communication",
+        "Manage Communication；Control Communication"
+      ],
+      [
+        "Phase Control — Stakeholders",
+        "Manage Stakeholder Engagement；Control Stakeholder Engagement"
+      ],
+      [
+        "Phase Control — HR Management",
+        "Acquire Project Team；Develop Project Team；Manage Project Team"
+      ],
+      [
+        "Closing the Project",
+        "Close Project or Phase"
+      ]
+    ],
+    "notes_zh": "“Define the Scope”与“Plan Scope Management”两个过程在图中单独放置，不在上述分组框内。"
+  },
+  {
+    "id": "t_adm_deliverables",
+    "title_zh": "ADM 阶段 A 步骤与交付物",
+    "columns": [
+      "步骤",
+      "ADM 任务",
+      "交付物"
+    ],
+    "rows": [
+      [
+        "1",
+        "Establish the Project",
+        "—"
+      ],
+      [
+        "2",
+        "Identify Stakeholders, Concerns, and Bus Reqs",
+        "—"
+      ],
+      [
+        "3",
+        "Confirm and Elaborate Bus. Goals, Drivers, and Constraints",
+        "Refine Statements of Business Principles, Goals, and Drivers"
+      ],
+      [
+        "4",
+        "Evaluate Business Capabilities",
+        "—"
+      ],
+      [
+        "5",
+        "Assess Readiness for Business Transformation",
+        "Capability Assessment"
+      ],
+      [
+        "6",
+        "Define Scope",
+        "—"
+      ],
+      [
+        "7",
+        "Confirm and Elaborate Arch. Principles, inc. Bus. Principles",
+        "Architecture Principles"
+      ],
+      [
+        "8",
+        "Develop Architecture Vision",
+        "Draft Architecture Definition Document；Architecture Vision"
+      ],
+      [
+        "9",
+        "Define Target Arch. Value Propositions and KPIs",
+        "—"
+      ],
+      [
+        "10",
+        "Identify Bus. Transformation Risks and Mitigation Activities",
+        "Communication Plan"
+      ],
+      [
+        "11",
+        "Develop Statement of Architecture Work; Secure Approval",
+        "Approved Statement of Architecture Work"
+      ]
+    ],
+    "notes_zh": "ADM 任务旁未画交付物者记为“—”。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "黑色块 + Phase According to Detailed Guidance",
+    "meaning_zh": "详细指南对应章节",
+    "explicit": true
+  },
+  {
+    "symbol": "Process Grouping Box",
+    "meaning_zh": "过程分组框",
+    "explicit": true
+  },
+  {
+    "symbol": "Process Name",
+    "meaning_zh": "过程名称",
+    "explicit": true
+  },
+  {
+    "symbol": "Process Deliverable",
+    "meaning_zh": "过程交付物",
+    "explicit": true
+  },
+  {
+    "symbol": "Process Flow Dependency（实线箭头）",
+    "meaning_zh": "流程依赖",
+    "explicit": true
+  },
+  {
+    "symbol": "Input Dependency（点线箭头）",
+    "meaning_zh": "输入依赖",
+    "explicit": true
+  },
+  {
+    "symbol": "Product Delivery（虚线箭头）",
+    "meaning_zh": "产品交付",
+    "explicit": true
+  },
+  {
+    "symbol": "Simplified Process Group（粗蓝箭头）",
+    "meaning_zh": "简化流程组",
+    "explicit": true
+  },
+  {
+    "symbol": "TOGAF ADM Phases B to F（圆 + 橙色小箭头环）",
+    "meaning_zh": "ADM 阶段 B–F 的迭代示意",
+    "explicit": true
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "左列 ADM(A) 大框内 11 个步骤自上而下，步骤左侧挂交付物；中上部 Project Initiation（制定项目章程→项目章程）与右侧四个启动/规划过程；中部 Define the Scope、Plan Scope Management 两个孤立过程框；Planning 组含两条纵向过程链；Risk Management 组在其左；下部 Phase Control 大框内分五个子区，Closing the Project 在底部；右列 Detailed Guidance 六个黑块。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G188/fig4-1",
+    "relation": "complements",
+    "note_zh": "图 4-1 是同一 ADM 阶段 A 对 PRINCE2 的映射，本图对 PMBOK，两者可并排比较流程组差异"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "medium",
+  "uncertainties_zh": [
+    "ADM 任务到 PMBOK 过程的长横线在中部交叉较多，部分线条被其他框遮挡；本分析只记录了可明确追踪的映射（识别利益相关者、确认业务目标、评估能力/就绪度、定义范围、确认架构原则、识别风险），其余线条未逐一断言。",
+    "Project Initiation 右侧四个过程的分组框在原图中没有标题，本分析以“Project Initiation（processes）”占位。",
+    "Phase Control 中“Re-Plan at Each Phase”的 Scope 与 Quality 两列是否属于该子框，按框线判断为是。",
+    "橙色 ADM B–F 小图内的阶段箭头与文字过小，未逐字转录，只作为迭代示意记录。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 85 页原图截图（含 3x3 放大分块）",
+    "英文 PDF 第 84 页正文",
+    "中文稿 G188e_架构项目管理.md 第 1546–1602 行及图内标签对照表 L1565–L1599",
+    "figs/g188e_fig5-1_en.png 与 figs/zh/g188e_fig5-1_zh.svg 文本内容"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

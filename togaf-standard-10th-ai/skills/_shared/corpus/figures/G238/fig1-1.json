@@ -1,0 +1,348 @@
+{
+  "schema_version": "1.0",
+  "id": "G238/fig1-1",
+  "status": "done",
+  "doc": {
+    "code": "G238",
+    "title_zh": "信息架构——商业智能与分析",
+    "title_en": "Information Architecture — BI & Analytics",
+    "zh_md": "G238e_信息架构_商业智能与分析.md",
+    "en_pdf": "togaf-standard-10th/G238e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "1-1",
+    "title_en": "The ArchiMate Modeling Notation Elements Used in this Document",
+    "title_zh": "本文档使用的 ArchiMate 建模元素",
+    "section_en": "1.1 The ArchiMate® Modeling Notation",
+    "section_zh": "1.1 ArchiMate® 建模记法",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        11
+      ],
+      "printed_page": 1,
+      "bboxes": [
+        [
+          112.7,
+          480.3,
+          499.3,
+          596.2
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        112
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g238_archimate_legend.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "4009eef6e05c",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "丢失三个方面带：原图有 Business、Application、Motivation 三条灰底分组带，SVG 只把四个元素排成一行，无法看出元素属于哪个方面。",
+        "形状与颜色错误：原图 Stakeholder 与 Goal 是淡紫色切角八角形并带 ArchiMate 图标，SVG 画成黄色圆角矩形且无图标；业务功能原图为黄色圆角矩形，SVG 为蓝色；应用功能原图为青色，SVG 为绿色。",
+        "顺序颠倒：原图 Motivation 带内 Stakeholder 在上、Goal 在下，SVG 把“目标 Goal”放在“利益相关者”左侧。",
+        "缺少 ArchiMate 元素图标（功能旗帜、利益相关者双圆、目标靶心），读者无法把图例与后续图中的符号对应起来。",
+        "增加了原图没有的两行解释文字（业务功能/应用功能定义、动机方面说明），这些内容来自正文而非图内。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "legend"
+    ],
+    "notation": "ArchiMate 记法图例：按方面（Business / Application / Motivation）分组的灰色带，带内给出四个元素的符号示例，符号画在框内右上角。",
+    "concepts": [
+      "archimate",
+      "business_architecture",
+      "application_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "本文档只使用四个 ArchiMate 元素——业务功能、应用功能、利益相关者、目标——并标明它们所属的方面。",
+    "purpose_zh": "在进入参考模型前先固定记法：告诉读者后续所有模型都只用这四类元素，且业务/应用功能与动机方面的符号、颜色各不相同，避免把后面的方框图误读成流程或组织图。",
+    "reading_guide_zh": "先看左侧两条横向灰带：Business 带内是黄色圆角矩形“Business Function”，Application 带内是青色圆角矩形“Application Function”；两者右上角都带同一个功能（旗帜）图标，只能靠颜色和所在灰带区分。再看右侧 Motivation 带：上下两个淡紫色切角框分别是 Stakeholder（双圆图标）和 Goal（靶心图标）。图中没有箭头。",
+    "key_points_zh": [
+      "全图只有四个元素：Business Function、Application Function、Stakeholder、Goal；没有流程、服务、数据、应用组件等元素，所以后文参考模型只做功能分解。",
+      "颜色即方面：业务层用黄色、应用层用青色、动机方面用淡紫色；形状本身不区分元素类型，功能与应用功能都是圆角矩形。",
+      "每个元素右上角的小图标才是 ArchiMate 类型标记：功能为旗帜状图标，Stakeholder 为双圆，Goal 为同心圆靶心。",
+      "Stakeholder 与 Goal 属于动机方面，回答能力“为何存在、为谁服务”，与业务/应用功能不在同一分类维度。",
+      "该图是记法图例而非架构模型：没有连线、没有层级关系，后续图 2-1、4-1、4-2、4-3 复用这里的符号。",
+      "图 1-1 只声明了文档使用的元素子集，不代表 ArchiMate 标准的全部元素。"
+    ],
+    "hierarchy_zh": "两层：外层是三个方面的分组带（Business、Application、Motivation），带内是元素符号示例。元素示例之间没有上下级；方面带只是分类容器，不是架构层级。",
+    "line_semantics_zh": "图中没有任何连线或箭头。业务功能/应用功能与动机元素之间的关系、以及功能之间的组成关系都不在本图表达。",
+    "misreadings_zh": [
+      "不要把 Business / Application / Motivation 三条带读成自下而上的架构分层或成熟度等级，它们只是 ArchiMate 的方面分类。",
+      "不要因为业务功能和应用功能形状相同就认为二者可互换：区别在颜色与所在方面带，后续模型里也沿用这一约定。",
+      "不要把这四类当成文档涉及的全部 ArchiMate 元素；正文只声明“本文档使用的元素”。",
+      "中文稿引用的 figs/g238_archimate_legend.svg 丢掉了方面带、图标和正确配色，不能据此理解原图的分类逻辑。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p11",
+        "summary_zh": "第 1.1 节说明参考模型用 ArchiMate 记法描述，图 1-1 列出本文档使用的元素；正文随后按动机方面（Goal、Stakeholder）、业务层（Business Function）、应用层（Application Function）给出定义。"
+      },
+      {
+        "source": "zh_md L97",
+        "summary_zh": "中文稿称“本文档使用的 ArchiMate 元素见图 1-1”，并逐条给出中英文定义。"
+      },
+      {
+        "source": "zh_md L112",
+        "summary_zh": "中文稿在此处插入 figs/g238_archimate_legend.svg 作为图 1-1。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "左侧上下两条横向灰带（Business 在上、Application 在下），灰带内各放一个功能示例；右侧一条竖向灰带（Motivation），带内上下排列 Stakeholder 与 Goal。"
+  },
+  "legend": [
+    {
+      "symbol": "灰色横带 + 左上角标题 Business / Application",
+      "meaning_zh": "ArchiMate 方面分组：业务层、应用层",
+      "explicit": true
+    },
+    {
+      "symbol": "灰色竖带 + 左上角标题 Motivation",
+      "meaning_zh": "ArchiMate 动机方面分组",
+      "explicit": true
+    },
+    {
+      "symbol": "黄色圆角矩形 + 右上角旗帜图标",
+      "meaning_zh": "业务功能 Business Function",
+      "explicit": true
+    },
+    {
+      "symbol": "青色圆角矩形 + 右上角旗帜图标",
+      "meaning_zh": "应用功能 Application Function",
+      "explicit": true
+    },
+    {
+      "symbol": "淡紫色切角框 + 右上角双圆图标",
+      "meaning_zh": "利益相关者 Stakeholder",
+      "explicit": true
+    },
+    {
+      "symbol": "淡紫色切角框 + 右上角靶心图标",
+      "meaning_zh": "目标 Goal",
+      "explicit": true
+    }
+  ],
+  "elements": [
+    {
+      "id": "band_business",
+      "label_en": "Business",
+      "label_zh": "业务层",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左上灰带",
+      "description_zh": "ArchiMate 业务方面的分组带。"
+    },
+    {
+      "id": "band_application",
+      "label_en": "Application",
+      "label_zh": "应用层",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左下灰带",
+      "description_zh": "ArchiMate 应用方面的分组带。"
+    },
+    {
+      "id": "band_motivation",
+      "label_en": "Motivation",
+      "label_zh": "动机方面",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "右侧竖带",
+      "description_zh": "ArchiMate 动机方面的分组带。"
+    },
+    {
+      "id": "business_function",
+      "label_en": "Business Function",
+      "label_zh": "业务功能",
+      "type": "function",
+      "parent": "band_business",
+      "level": 2,
+      "position": "Business 带内左侧",
+      "description_zh": "记法示例；正文定义：基于选定标准（通常是所需业务资源/胜任力）的业务行为集合。"
+    },
+    {
+      "id": "application_function",
+      "label_en": "Application Function",
+      "label_zh": "应用功能",
+      "type": "function",
+      "parent": "band_application",
+      "level": 2,
+      "position": "Application 带内左侧",
+      "description_zh": "记法示例；正文定义：可由应用组件执行的自动化行为。"
+    },
+    {
+      "id": "stakeholder",
+      "label_en": "Stakeholder",
+      "label_zh": "利益相关者",
+      "type": "stakeholder",
+      "parent": "band_motivation",
+      "level": 2,
+      "position": "Motivation 带内上方",
+      "description_zh": "记法示例；代表个人、团队或组织在架构影响方面的利益角色。"
+    },
+    {
+      "id": "goal",
+      "label_en": "Goal",
+      "label_zh": "目标",
+      "type": "goal",
+      "parent": "band_motivation",
+      "level": 2,
+      "position": "Motivation 带内下方",
+      "description_zh": "记法示例；对组织及其利益相关者而言关于意图、方向或期望终态的高层陈述。"
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G238/fig2-1",
+      "relation": "legend_for",
+      "note_zh": "图 2-1 的业务/应用功能框沿用本图给出的两种功能符号。"
+    },
+    {
+      "target": "G238/fig4-1",
+      "relation": "legend_for",
+      "note_zh": "图 4-1 的 Stakeholder 与 Goal 使用本图给出的动机方面符号。"
+    },
+    {
+      "target": "G238/fig4-2",
+      "relation": "legend_for",
+      "note_zh": "图 4-2 的业务功能分解使用本图的功能符号。"
+    },
+    {
+      "target": "G238/fig4-3",
+      "relation": "legend_for",
+      "note_zh": "图 4-3 的应用功能分解使用本图的功能符号。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图未画出元素之间的连线，因此 relationships 为空；四类元素只是记法示例，不是某个具体架构的实例。",
+      "原图右下角没有可见的版权行，attribution 留空。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 11 页图 1-1 截图与 2×2 放大分块",
+      "英文 PDF 第 11 页 1.1 节正文",
+      "中文稿 G238e_信息架构_商业智能与分析.md 第 94–112 行",
+      "figs/g238_archimate_legend.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G238e.pdf",
+    "pdf_sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G238/fig1-1.json",
+    "interpretation_sha256": "6397e637dc9bc90859b677f8e9700e6825536948cbc7147ca93653c8de4ebdc2",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 11,
+        "text": "Figure 1-1: The ArchiMate Modeling Notation Elements Used in this Document",
+        "bbox_pdf_points": [
+          48.24,
+          600.912,
+          412.986,
+          614.478
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 11,
+      "printed_page": 1,
+      "bbox_pdf_points": [
+        112.7,
+        480.3,
+        499.3,
+        596.2
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G238/fig1-1-p0011.png",
+      "image_sha256": "26e99082f6628f703b94a53171998f25554876f121e76cf89ca4d2e0c254635c",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "26e99082f6628f703b94a53171998f25554876f121e76cf89ca4d2e0c254635c",
+          "status": "extracted-unverified",
+          "text": "Business ()\nFunction",
+          "words": [
+            {
+              "text": "Business",
+              "confidence": 49.449928,
+              "bbox_pixels_xywh": [
+                52,
+                61,
+                85,
+                17
+              ]
+            },
+            {
+              "text": "()",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                118,
+                54,
+                24,
+                28
+              ]
+            },
+            {
+              "text": "Function",
+              "confidence": 78.610878,
+              "bbox_pixels_xywh": [
+                53,
+                78,
+                47,
+                10
+              ]
+            }
+          ],
+          "mean_word_confidence": 42.69,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

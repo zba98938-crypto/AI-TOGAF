@@ -1,0 +1,45 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["NGOs"]
+  n1["Higher Education"]
+  n2["State / Institution"]
+  n3["End Users"]
+  n4["Manufacturers"]
+  n5["Information System Professionals (Developers, IT Architects, …)"]
+  n6["Educate / Share Knowledge on Information System Environmental Footprint"]
+  n7["Regulate ICT Infrastructures &amp; Usages"]
+  n8["Information Lifecycle Management"]
+  n9["Extract &amp; Use Raw Materials &amp; Natural Resources"]
+  n10["Build Machines"]
+  n11["Build Information System"]
+  n12["Use &amp; Maintain Information System"]
+  n13["Dispose Digital Waste/Recycle"]
+  n14["Limited Natural Resources (Raw Materials, Water, ...)"]
+  n15["ICT Pollutions"]
+  n9 -.->|"先于"| n10
+  n10 -.->|"先于"| n11
+  n11 -.->|"先于"| n12
+  n12 -.->|"先于"| n13
+  n6 -->|"流动"| n7
+  n8 -->|"流动"| n6
+  n6 -->|"流动"| n8
+  n8 -->|"流动"| n7
+  n7 -->|"治理/监督"| n8
+  n14 -->|"流动"| n8
+  n8 -->|"产生/交付"| n15
+  n0 -.->|"参与/分配"| n6
+  n1 -.->|"参与/分配"| n6
+  n2 -.->|"参与/分配"| n7
+  n4 -.->|"参与/分配"| n9
+  n4 -.->|"参与/分配"| n10
+  n5 -.->|"参与/分配"| n11
+  n5 -.->|"参与/分配"| n12
+  n3 -.-|"关联"| n12
+  n8 -.->|"分组"| n3
+  n8 -.->|"分组"| n4
+  n8 -.->|"分组"| n5
+  n8 -.->|"分组"| n9
+  n8 -.->|"分组"| n10
+  n8 -.->|"分组"| n11
+  n8 -.->|"分组"| n12
+  n8 -.->|"分组"| n13

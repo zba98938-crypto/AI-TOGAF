@@ -1,0 +1,428 @@
+# G21D/appA-p49 · 附录 A 第 49 页：青少年与教育、健康与社区福祉
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G21D/appA-p49.md) · [JSON](../../architecture/diagrams/G21D/appA-p49.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G21De.pdf`；SHA-256：`220ead5fef846c52417b9b7a915ff4a64f327680b384c369840926b85958786a`。
+
+## 原图 · PDF 第 69 页
+
+![英文原图](../assets/G21D/appA-p49-p0069.png)
+
+PDF 坐标：`[48.2, 36.0, 511.1, 743.8]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+The Open Group
+:
+.
+/
+7
+Children’s Service
+Education
+4 Higher Education and “Y
+Skills
+-
+\
+(
+Primary Schools
+Higher Education
+)
+\
+.
+Looked After Children ; )
+y
+)
+\
+)
+)
+( Fostering and Adoption
+Secondary Schools
+7
+Early Careers
+Children’s Social Care
+(
+Specialist Teaching
+)
+Apprenticeships
+and Safeguarding
+y,
+-
+Standards and
+\
+.
+Family and Parenting
+Achievement
+Early Years
+Curriculum
+Children and Adolescent »
+Services
+_
+4
+~
+.
+4
+XN
+_
+he Open Group
+y
+“Hospital and Community )
+Medical
+Nursing
+Services
+Adult Social Care
+(
+(
+Nursing Strategy and
+( Medical Professional Lead)
+Governance
+-
+~
+Adult Mental Health
+\
+)
+(
+Nursing Standards and >)
+(_ Primary Care Strategy
+~
+\
+.
+QA
+)
+(
+Health and Community >
+Preventative Health
+(
+Regulatory Oversight
+J
+(
+\
+.
+Nursing
+Psychotherapy
+Information and Strategy y
+\
+Governance
+)
+-
+Counseling
+(
+.
+Mortality
+Community Services
+(
+Litigation
+Adult Safeguarding
+Pharmacy
+Medical Aligned
+Professions
+Hospital Inpatients
+Hospital Outpatients
+Facilities Management)
+~
+)
+Emergency Services
+J
+)
+y,
+\
+-
+_
+A
+~
+_
+```
+
+## 概要（历史解释；局部修正见上）
+
+附录 A 第 49 页：青少年与教育、健康与社区福祉两个部门的 L1–L3 面板。
+
+## 目的（历史解释；局部修正见上）
+
+附录 A 把第 2–12 章的 11 个部门面板汇总成一份完整的 GRM 图示，便于一次查看全部 L1–L3 要素；本页是第 2 页，收录第 5–6 章的两个部门。页内没有说明文字，只有部门标题与版权署名。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+自上而下两个独立面板：先读“Young People and Education”，再读“Health and Community Wellbeing”。每个面板的读法相同：浅蓝色大框是 L1 部门，白色圆角卡是 L2 功能，卡内胶囊形小框是 L3 服务；服务卡内自上而下排列，顺序只是排版。两个面板之间没有连线。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 本页 2 个部门、6 个功能、36 项服务：青少年与教育 3 个功能 14 项服务，健康与社区福祉 3 个功能 22 项服务。
+- 青少年与教育的三个功能为儿童服务（6 项）、教育（5 项）、高等教育与技能（3 项）；健康与社区福祉为医院与社区服务（12 项）、医疗（7 项）、护理（3 项）。
+- 医院与社区服务是本页最大的功能卡（12 项服务），从成人社会照护、心理健康一直排到住院、门诊、设施管理与急救，体现医疗与社会照护的跨度。
+- 服务顺序与表 6-1 有一处不同：图上先列 Hospital Inpatients（医院住院）再列 Hospital Outpatients（医院门诊），表 6-1 的顺序相反；其余名称与中文译名一致。
+- 三个层级只用框的嵌套表达，没有连线；胶囊形服务是参考模型要素（L3），不是流程步骤、应用系统或组织单元。
+- 本页的两个部门面板与第 5、6 章的部门概览图属同一系列（中文稿第 1220 行），本页只是把两个面板上下叠放在一页。
+- 附录共 5 页（印刷 48–52），本页是第 2 页；页序只按章节排列，不表示部门间的成熟度或优先级。
+
+## 层级（历史解释；局部修正见上）
+
+两层元素、三层模型：L1 部门（浅蓝面板）包含 L2 功能（白卡），L2 功能包含 L3 服务（胶囊）。本文件把 L1、L2 建为元素，L3 服务完整列在表 t_services 中。两个部门互不包含。
+
+## 线条含义（历史解释；局部修正见上）
+
+页内没有任何连线或箭头；部门→功能→服务的归属完全由框的嵌套表达，面板之间也没有关系线。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 胶囊形服务不是流程步骤或应用系统；例如 Facilities Management 是一项 L3 服务，不是设施部门。
+- 上下两个面板是独立部门，上下顺序只是第 5、6 章的章节顺序，不表示级别或优先级。
+- 功能卡不是组织架构中的部门；L2 功能是“在聚合层面界定政府做什么”的分组。
+- GRM 是参考模型/分类法，不是某级政府的现状服务清单；不能把图上出现的服务当作已实现的系统。
+- 中文稿第 1214 行称附录“跨四页（第 48–52 页）”，实际 48–52 是 5 页；同一行称“未附文字说明”，本页确实只有标题，但第 48 页页顶有一句概述。
+- 中文稿第 1224 行引用的 figs/g21de_appendixA_p49.png 实际是印刷第 29 页（第 8 章正文），不是本页；中文稿中看不到这个面板。
+
+## 元素
+
+```json
+[
+  {
+    "id": "l1_young_people_education",
+    "label_en": "Young People and Education",
+    "label_zh": "青少年与教育",
+    "type": "other",
+    "notation_type": "GRM L1 部门面板（Sector）",
+    "parent": null,
+    "level": 1,
+    "order": 1,
+    "position": "上半页",
+    "description_zh": "浅蓝色大圆角面板；含 3 个 L2 功能。"
+  },
+  {
+    "id": "l2_childrens_service",
+    "label_en": "Children's Service",
+    "label_zh": "儿童服务",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_young_people_education",
+    "level": 2,
+    "order": 1,
+    "position": "面板内功能卡 1",
+    "description_zh": "6 项 L3 服务。"
+  },
+  {
+    "id": "l2_education",
+    "label_en": "Education",
+    "label_zh": "教育",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_young_people_education",
+    "level": 2,
+    "order": 2,
+    "position": "面板内功能卡 2",
+    "description_zh": "5 项 L3 服务。"
+  },
+  {
+    "id": "l2_higher_education_skills",
+    "label_en": "Higher Education and Skills",
+    "label_zh": "高等教育与技能",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_young_people_education",
+    "level": 2,
+    "order": 3,
+    "position": "面板内功能卡 3",
+    "description_zh": "3 项 L3 服务。"
+  },
+  {
+    "id": "l1_health_community_wellbeing",
+    "label_en": "Health and Community Wellbeing",
+    "label_zh": "健康与社区福祉",
+    "type": "other",
+    "notation_type": "GRM L1 部门面板（Sector）",
+    "parent": null,
+    "level": 1,
+    "order": 2,
+    "position": "下半页",
+    "description_zh": "浅蓝色大圆角面板；含 3 个 L2 功能。"
+  },
+  {
+    "id": "l2_hospital_community_services",
+    "label_en": "Hospital and Community Services",
+    "label_zh": "医院与社区服务",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_health_community_wellbeing",
+    "level": 2,
+    "order": 1,
+    "position": "面板内功能卡 1",
+    "description_zh": "12 项 L3 服务。"
+  },
+  {
+    "id": "l2_medical",
+    "label_en": "Medical",
+    "label_zh": "医疗",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_health_community_wellbeing",
+    "level": 2,
+    "order": 2,
+    "position": "面板内功能卡 2",
+    "description_zh": "7 项 L3 服务。"
+  },
+  {
+    "id": "l2_nursing",
+    "label_en": "Nursing",
+    "label_zh": "护理",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_health_community_wellbeing",
+    "level": 2,
+    "order": 3,
+    "position": "面板内功能卡 3",
+    "description_zh": "3 项 L3 服务。"
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_services",
+    "title_zh": "本页各功能下的 L3 服务（按面板自上而下、功能卡阅读顺序、服务自上而下转录）",
+    "columns": [
+      "L1 部门",
+      "L2 功能",
+      "服务数",
+      "L3 服务（中文 English）"
+    ],
+    "rows": [
+      [
+        "青少年与教育 Young People and Education",
+        "儿童服务 Children's Service",
+        "6",
+        "受照料儿童 Looked After Children；寄养与收养 Fostering and Adoption；儿童社会照护与保护 Children's Social Care and Safeguarding；家庭与育儿 Family and Parenting；早期教育 Early Years；儿童与青少年服务 Children and Adolescent Services"
+      ],
+      [
+        "青少年与教育 Young People and Education",
+        "教育 Education",
+        "5",
+        "小学 Primary Schools；中学 Secondary Schools；特殊教育 Specialist Teaching；标准与成就 Standards and Achievement；课程 Curriculum"
+      ],
+      [
+        "青少年与教育 Young People and Education",
+        "高等教育与技能 Higher Education and Skills",
+        "3",
+        "高等教育 Higher Education；早期职业 Early Careers；学徒制 Apprenticeships"
+      ],
+      [
+        "健康与社区福祉 Health and Community Wellbeing",
+        "医院与社区服务 Hospital and Community Services",
+        "12",
+        "成人社会照护 Adult Social Care；成人心理健康 Adult Mental Health；预防性健康 Preventative Health；心理治疗 Psychotherapy；咨询 Counseling；社区服务 Community Services；成人保护 Adult Safeguarding；医疗相关专业 Medical Aligned Professions；医院住院 Hospital Inpatients；医院门诊 Hospital Outpatients；设施管理 Facilities Management；急救服务 Emergency Services"
+      ],
+      [
+        "健康与社区福祉 Health and Community Wellbeing",
+        "医疗 Medical",
+        "7",
+        "医疗专业领导 Medical Professional Lead；初级医疗战略 Primary Care Strategy；监管监督 Regulatory Oversight；信息与战略治理 Information and Strategy Governance；死亡事务 Mortality；诉讼 Litigation；药房 Pharmacy"
+      ],
+      [
+        "健康与社区福祉 Health and Community Wellbeing",
+        "护理 Nursing",
+        "3",
+        "护理战略与治理 Nursing Strategy and Governance；护理标准与质量保证 Nursing Standards and QA；健康与社区护理 Health and Community Nursing"
+      ]
+    ],
+    "notes_zh": "服务数合计 36 项；英文按图原样记录，中文名取自对应章节表 X-1（表 5-1、表 6-1）。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "浅蓝色大圆角框 + 顶部白色粗体标题",
+    "meaning_zh": "L1 部门面板（Sector）",
+    "explicit": false
+  },
+  {
+    "symbol": "白色圆角框 + 黑色粗体标题",
+    "meaning_zh": "L2 功能（Function）",
+    "explicit": false
+  },
+  {
+    "symbol": "白色胶囊形小框（细灰边）",
+    "meaning_zh": "L3 服务（Service）",
+    "explicit": false
+  },
+  {
+    "symbol": "框的嵌套",
+    "meaning_zh": "组成/归属关系：部门→功能→服务",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "上半页为 Young People and Education 面板（3 个功能卡并排），下半页为 Health and Community Wellbeing 面板（医院与社区服务卡最高，医疗、护理两卡并排）；两个面板均为浅蓝大圆角框，各带版权署名。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G21D/fig1-1",
+    "relation": "detail_of",
+    "note_zh": "图 1-1 的 L1–L3 三层结构在本页两个部门上的展开"
+  },
+  {
+    "target": "G21D/appA-p48",
+    "relation": "follows",
+    "note_zh": "附录 A 的上一页（国际事务与贸易、国防与安全、一般政府与地方服务）"
+  },
+  {
+    "target": "G21D/appA-p50",
+    "relation": "precedes",
+    "note_zh": "附录 A 的下一页（司法、治安与内政；财政）"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "医院与社区服务卡中 Hospital Inpatients 在 Hospital Outpatients 之前，与表 6-1 顺序相反；本分析按图记录，不按表调整。",
+    "中文服务名取自表 5-1、表 6-1；图内只有英文，个别译名（如“受照料儿童”）沿用中文稿。",
+    "本页没有说明文字，部门/功能/服务的层级含义依据中文稿第 1216–1220 行与第 1 章定义。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 69 页附录 A 原图截图（600 dpi，3×3 放大分块）",
+    "中文稿 G21De_政府参考模型.md 第 1211–1232 行",
+    "中文稿表 5-1、表 6-1（第 492–516、582–614 行，用于中文译名与顺序比对）",
+    "figs/g21de_appendixA_p49.png（实际为印刷第 29 页）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": null,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

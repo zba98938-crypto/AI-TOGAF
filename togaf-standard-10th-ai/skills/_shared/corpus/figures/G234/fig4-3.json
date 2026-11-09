@@ -1,0 +1,1342 @@
+{
+  "schema_version": "1.0",
+  "id": "G234/fig4-3",
+  "status": "done",
+  "doc": {
+    "code": "G234",
+    "title_zh": "信息架构——元数据管理",
+    "title_en": "Information Architecture — Metadata Management",
+    "zh_md": "G234e_信息架构_元数据管理.md",
+    "en_pdf": "togaf-standard-10th/G234e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-3",
+    "title_en": "Metadata Quality Enforcement Approaches",
+    "title_zh": "元数据质量保障方法",
+    "section_en": "4.2.2 Formalize Metadata Management Processes",
+    "section_zh": "4.2.2 形式化元数据管理流程",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        25
+      ],
+      "printed_page": 15,
+      "bboxes": [
+        [
+          61.1,
+          36.0,
+          550.9,
+          308.4
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        255
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g234_fig4-3.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "61519279e900",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "原图左右两套并列的运作模型：上方圆形方法图标（法槌 / 人群网络）、中部青色模式卡、下方“System of reference (quality, reporting)”与“‘Crowd sourcing’ metadata collection”场景，再到最底部两组“存储库—角色”小流程；SVG 只保留了两栏要点清单",
+        "SVG 丢失全部图形与连线：质量属性指向方法圆的斜箭头、方法圆与模式卡的关系、两条橙色下划线、Metadata Repository 方框、Central Team / Consumers / Communities of Contributors 角色框、Create/Modify 与 Read 流程箭头、Change Request 气泡",
+        "SVG 丢失原图底部两套流程的关键区别：规范式由中央团队创建/修改、消费者只读并通过变更请求回流；众包式由贡献者社区直接创建/修改并读取",
+        "SVG 用项目符号改写原文（如“保证精确、准确、完整、一致”“依赖社区治理与使用规范”），其中“依赖社区治理与使用规范”原图没有",
+        "SVG 自加总结句“可按元数据范围分别采用两种方法：合规类用规范式，技术类用协作式”，原图没有这句话，且“合规类/技术类”的对应关系比正文更强"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "flow",
+      "infographic"
+    ],
+    "notation": "左右对照的信息图 + 两个小型角色流程图：圆形方法图标、青色模式卡、场景标题，以及方框/人物图标组成的创建—读取—变更请求回路",
+    "concepts": [
+      "metadata_management",
+      "data_management",
+      "governance_model",
+      "adm_phase_b"
+    ],
+    "adm_phases": [
+      "adm_phase_b"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "规范式与众包式两种元数据质量保障模式，在质量目标、创建方式和存储库使用流程上正相反。",
+    "purpose_zh": "第 4.2.2 节说明元数据质量由流程与校验工作流保障，而流程可随元数据范围而异；本图把两种模式的取舍一次对照清楚，供架构师按元数据范围选型。",
+    "reading_guide_zh": "左右两列对照读。每列自上而下：圆形方法图标 → 斜箭头指向的质量目标 → 青色模式卡（名称 + 两条特征）→ 场景标题 → 底部小型流程图。先读上半部理解“追求什么质量、由谁创建”，再读下半部理解“谁写、谁读、变更如何回流”。",
+    "key_points_zh": [
+      "规范式追求精确（Precision）、准确（Accuracy）、完整（Integrity）、一致（Consistency）；众包式追求完备（Completeness）与及时（Timeliness）。",
+      "规范式：由少数人创建、以只读方式发布、静态、通过变更生命周期管理；定位是“质量与报表的参考系统”。",
+      "众包式：多人创建、多人编辑、动态、最终一致；定位是“众包式元数据采集”。",
+      "规范式流程是一个闭环：中央团队创建/修改 → 元数据存储库 → 消费者只读 → 消费者提出变更请求 → 中央团队处理。",
+      "众包式流程没有中央审批：贡献者社区直接创建/修改存储库，同时从存储库读取。",
+      "两种模式不是二选一，正文明确可按元数据范围分别采用；图中用左右并列而非箭头连接，正表示它们是可并存的选项。"
+    ],
+    "hierarchy_zh": "两个并列模式（规范式 / 众包式）。每个模式内部：质量目标 → 方法圆 → 模式卡（特征）→ 场景 → 流程角色（存储库、团队/社区、消费者）。",
+    "line_semantics_zh": "斜箭头把左侧质量属性指向方法圆，表示该模式追求这些质量；底部细箭头表示创建/修改与读取的流向，消费者到变更请求再到中央团队的折线表示反馈回路。橙色下划线只是分隔线，不是箭头。",
+    "misreadings_zh": [
+      "不要以为众包式不追求质量；它用完备性与及时性替代精确性与一致性，是不同质量目标的取舍。",
+      "“System of reference (quality, reporting)”不是某个外部系统名，而是说该模式下的存储库是质量与报表的权威参考。",
+      "不要把底部两组流程看成同一套角色的两种画法：左边有中央团队与消费者，右边只有贡献者社区。",
+      "中文稿 SVG 只列要点，丢失了读写流程，不能据它判断谁创建、谁只读。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p24",
+        "summary_zh": "元数据质量由流程与校验工作流保障，可因元数据范围而异；规范式保证精确、准确、完整、一致，由少数人创建、只读发布、静态、生命周期由校验工作流管理；协作式适合数据民主化，多人创建多人编辑、动态、最终一致。"
+      },
+      {
+        "source": "zh_md L253",
+        "summary_zh": "中文稿复述两种方法及适用场景，并在 L255 插入图 4-3。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "左右两列对称：每列上方圆形方法图标，斜向箭头从外侧指向圆；中部青色模式卡；下方场景标题；最下方是存储库与角色组成的小流程。"
+  },
+  "legend": [
+    {
+      "symbol": "圆形图标（法槌 / 人群网络）",
+      "meaning_zh": "两种方法：规范式（规则与裁定）、众包式（多人协作）",
+      "explicit": false
+    },
+    {
+      "symbol": "斜箭头",
+      "meaning_zh": "该方法追求的质量属性",
+      "explicit": false
+    },
+    {
+      "symbol": "青色模式卡",
+      "meaning_zh": "方法名称与创建/变更特征",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色横线",
+      "meaning_zh": "模式卡与下方场景标题的分隔",
+      "explicit": false
+    },
+    {
+      "symbol": "人物图标 + 方框",
+      "meaning_zh": "承担创建/修改或读取的角色",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "normative_approach",
+      "label_en": "Normative Approach",
+      "label_zh": "规范式方法",
+      "type": "concept",
+      "parent": null,
+      "level": 1,
+      "position": "左上圆形",
+      "description_zh": "以规则与校验保证元数据质量的方法。"
+    },
+    {
+      "id": "crowd_sourcing_approach",
+      "label_en": "Crowd-Sourcing Approach",
+      "label_zh": "众包式方法",
+      "type": "concept",
+      "parent": null,
+      "level": 1,
+      "position": "右上圆形"
+    },
+    {
+      "id": "grp_quality_normative",
+      "label_zh": "规范式质量目标",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左外侧",
+      "description_zh": "Precision、Accuracy、Integrity、Consistency 四个标签组成，原图无组框。"
+    },
+    {
+      "id": "grp_quality_crowd",
+      "label_zh": "众包式质量目标",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "右外侧",
+      "description_zh": "Completeness 与 Timeliness 两个标签组成，原图无组框。"
+    },
+    {
+      "id": "q_precision",
+      "label_en": "Precision",
+      "label_zh": "精确性",
+      "type": "metric",
+      "parent": "grp_quality_normative",
+      "level": 2,
+      "position": "左外侧第一行"
+    },
+    {
+      "id": "q_accuracy",
+      "label_en": "Accuracy",
+      "label_zh": "准确性",
+      "type": "metric",
+      "parent": "grp_quality_normative",
+      "level": 2,
+      "position": "左外侧第二行"
+    },
+    {
+      "id": "q_integrity",
+      "label_en": "Integrity",
+      "label_zh": "完整性",
+      "type": "metric",
+      "parent": "grp_quality_normative",
+      "level": 2,
+      "position": "左外侧第三行"
+    },
+    {
+      "id": "q_consistency",
+      "label_en": "Consistency",
+      "label_zh": "一致性",
+      "type": "metric",
+      "parent": "grp_quality_normative",
+      "level": 2,
+      "position": "左外侧第四行"
+    },
+    {
+      "id": "q_completeness",
+      "label_en": "Completeness",
+      "label_zh": "完备性",
+      "type": "metric",
+      "parent": "grp_quality_crowd",
+      "level": 2,
+      "position": "右外侧第一行"
+    },
+    {
+      "id": "q_timeliness",
+      "label_en": "Timeliness",
+      "label_zh": "及时性",
+      "type": "metric",
+      "parent": "grp_quality_crowd",
+      "level": 2,
+      "position": "右外侧第二行"
+    },
+    {
+      "id": "standard_based",
+      "label_en": "Standard-Based",
+      "label_zh": "基于标准的",
+      "type": "concept",
+      "parent": null,
+      "level": 1,
+      "position": "左青色卡标题"
+    },
+    {
+      "id": "std_created",
+      "label_en": "Created by a few, then published as read-only",
+      "label_zh": "由少数人创建，随后以只读方式发布",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "左青色卡第二行"
+    },
+    {
+      "id": "std_static",
+      "label_en": "Static, change lifecycle management",
+      "label_zh": "静态，变更生命周期管理",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "左青色卡第三行"
+    },
+    {
+      "id": "collaboration_based",
+      "label_en": "Collaboration-Based Metadata",
+      "label_zh": "基于协作的元数据",
+      "type": "concept",
+      "parent": null,
+      "level": 1,
+      "position": "右青色卡标题"
+    },
+    {
+      "id": "collab_created",
+      "label_en": "Created by many, edited by many",
+      "label_zh": "由多人创建、由多人编辑",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "右青色卡第二行"
+    },
+    {
+      "id": "collab_dynamic",
+      "label_en": "Dynamic, eventual consistency",
+      "label_zh": "动态，最终一致性",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "右青色卡第三行"
+    },
+    {
+      "id": "system_of_reference",
+      "label_en": "System of reference (quality, reporting)",
+      "label_zh": "参考系统（质量、报告）",
+      "type": "note",
+      "parent": null,
+      "level": 1,
+      "position": "左下场景标题"
+    },
+    {
+      "id": "crowd_collection",
+      "label_en": "'Crowd sourcing' metadata collection",
+      "label_zh": "“众包”元数据采集",
+      "type": "note",
+      "parent": null,
+      "level": 1,
+      "position": "右下场景标题"
+    },
+    {
+      "id": "repo_standard",
+      "label_en": "Metadata Repository",
+      "label_zh": "元数据存储库",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "position": "左下流程，方框"
+    },
+    {
+      "id": "central_team",
+      "label_en": "Central Team",
+      "label_zh": "中央团队",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "左下流程，右上"
+    },
+    {
+      "id": "btn_create_standard",
+      "label_en": "Create, Modify",
+      "label_zh": "创建、修改",
+      "type": "process",
+      "parent": null,
+      "level": 2,
+      "position": "中央团队与存储库之间的蓝色小框"
+    },
+    {
+      "id": "btn_read_standard",
+      "label_en": "Read",
+      "label_zh": "读取",
+      "type": "process",
+      "parent": null,
+      "level": 2,
+      "position": "存储库下方小框"
+    },
+    {
+      "id": "consumers",
+      "label_en": "Consumers",
+      "label_zh": "消费者",
+      "type": "role",
+      "parent": null,
+      "level": 2,
+      "position": "左下流程底部"
+    },
+    {
+      "id": "change_request",
+      "label_en": "Change Request: Creation, Modification",
+      "label_zh": "变更请求：创建、修改",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "position": "左下流程，云朵气泡"
+    },
+    {
+      "id": "repo_crowd",
+      "label_en": "Metadata Repository",
+      "label_zh": "元数据存储库",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "position": "右下流程，方框"
+    },
+    {
+      "id": "btn_read_crowd",
+      "label_en": "Read",
+      "label_zh": "读取",
+      "type": "process",
+      "parent": null,
+      "level": 2,
+      "position": "存储库下方小框"
+    },
+    {
+      "id": "btn_create_crowd",
+      "label_en": "Create, Modify",
+      "label_zh": "创建、修改",
+      "type": "process",
+      "parent": null,
+      "level": 2,
+      "position": "社区与存储库之间的蓝色小框"
+    },
+    {
+      "id": "communities",
+      "label_en": "Communities of Contributors",
+      "label_zh": "贡献者社区",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "右下流程底部"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "grp_quality_normative",
+      "to": "normative_approach",
+      "type": "influence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "一组质量属性整体用一条斜箭头指向方法圆。"
+    },
+    {
+      "from": "grp_quality_crowd",
+      "to": "crowd_sourcing_approach",
+      "type": "influence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "一组质量属性整体用一条斜箭头指向众包式方法圆。"
+    },
+    {
+      "from": "normative_approach",
+      "to": "standard_based",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "圆形图标压在模式卡上缘，表示该方法是 Standard-Based。"
+    },
+    {
+      "from": "crowd_sourcing_approach",
+      "to": "collaboration_based",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "圆形图标压在模式卡上缘，表示该方法是 Collaboration-Based Metadata。"
+    },
+    {
+      "from": "standard_based",
+      "to": "system_of_reference",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "橙色横线下方是场景标题，无箭头。"
+    },
+    {
+      "from": "collaboration_based",
+      "to": "crowd_collection",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "橙色横线下方是场景标题，无箭头。"
+    },
+    {
+      "from": "system_of_reference",
+      "to": "repo_standard",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "场景标题统领其下的存储库流程。"
+    },
+    {
+      "from": "crowd_collection",
+      "to": "repo_crowd",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "场景标题统领其下的存储库流程。"
+    },
+    {
+      "from": "central_team",
+      "to": "repo_standard",
+      "type": "flow",
+      "label_en": "Create, Modify",
+      "label_zh": "创建、修改",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "repo_standard",
+      "to": "consumers",
+      "type": "flow",
+      "label_en": "Read",
+      "label_zh": "读取",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "consumers",
+      "to": "change_request",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "消费者到变更请求气泡的连线，无箭头。"
+    },
+    {
+      "from": "change_request",
+      "to": "central_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "变更请求回到中央团队处理。"
+    },
+    {
+      "from": "repo_crowd",
+      "to": "communities",
+      "type": "flow",
+      "label_en": "Read",
+      "label_zh": "读取",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "communities",
+      "to": "repo_crowd",
+      "type": "flow",
+      "label_en": "Create, Modify",
+      "label_zh": "创建、修改",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_normative",
+      "kind": "cycle",
+      "name_zh": "规范式元数据生命周期",
+      "steps": [
+        "central_team",
+        "repo_standard",
+        "consumers",
+        "change_request",
+        "central_team"
+      ],
+      "description_zh": "中央团队创建/修改，消费者只读；变更请求回流到中央团队。"
+    },
+    {
+      "id": "f_crowd",
+      "kind": "cycle",
+      "name_zh": "众包式元数据采集循环",
+      "steps": [
+        "communities",
+        "repo_crowd",
+        "communities"
+      ],
+      "description_zh": "贡献者社区直接写入并读取存储库，没有中央审批环节。"
+    }
+  ],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G234/fig4-2",
+      "relation": "follows",
+      "note_zh": "先收集需求（图 4-2），再选择保障质量的流程模式（图 4-3）"
+    },
+    {
+      "target": "G234/fig4-4",
+      "relation": "precedes",
+      "note_zh": "两种质量流程模式最终落到图 4-4 的 IT 方案流程组件中"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "消费者到变更请求的连线在原图中无箭头，按“提出请求”的隐含方向记录。",
+      "左侧四条质量属性与圆之间只有一条斜箭头，无法判断原意是四项分别影响还是整体影响，本分析按整体影响记录。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 25 页原图截图（2x2 与 3x3 放大分块）",
+      "英文 PDF 第 24 页正文（4.2.2 节）",
+      "中文稿 G234e_信息架构_元数据管理.md 第 253–256 行",
+      "figs/g234_fig4-3.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G234e.pdf",
+    "pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G234/fig4-3.json",
+    "interpretation_sha256": "bd73532207d2ed141a2962e6d8fc1158fed98a19798378974eac553e0acb1505",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 25,
+        "text": "Figure 4-3: Metadata Quality Enforcement Approaches",
+        "bbox_pdf_points": [
+          48.24,
+          313.131,
+          303.75,
+          326.697
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 25,
+      "printed_page": 15,
+      "bbox_pdf_points": [
+        61.1,
+        36.0,
+        550.9,
+        308.4
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G234/fig4-3-p0025.png",
+      "image_sha256": "c938fd4e4a4c5d55f859ac51877407d551f12cda707930914f4881ac99d7120c",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "c938fd4e4a4c5d55f859ac51877407d551f12cda707930914f4881ac99d7120c",
+          "status": "extracted-unverified",
+          "text": "ae\nie\nYe Normative\nYn Gam N\\\nPrecision\n‘Approach\nSourcing\nApproach\nCompleteness\nAccuracy\nIntegrity\nConsistency\n @-@_\nStandard-Based\nCollaboration-Based Metadata\neated by a few, then pul\nblished\nren\nonl\nati\ndby many, edited by many\nStati\nlift\nmé\nem\nat\neventual\ntency\nSystem of reference (quality, reporting)\n‘Crowd sourcing’ metadata collection\nMetadata\nMetadata\nRepository\ncl\n&&\nRepository\nRead\nRequest:\nCreation,\ndl\nBh 858\nMedication\n22% 22% RaQ\n‘Consumers\nCommunities ofContibutors\n\\|",
+          "words": [
+            {
+              "text": "ae",
+              "confidence": 33.025417,
+              "bbox_pixels_xywh": [
+                288,
+                2,
+                29,
+                2
+              ]
+            },
+            {
+              "text": "ie",
+              "confidence": 27.737465,
+              "bbox_pixels_xywh": [
+                647,
+                1,
+                36,
+                3
+              ]
+            },
+            {
+              "text": "Ye",
+              "confidence": 17.292004,
+              "bbox_pixels_xywh": [
+                229,
+                16,
+                24,
+                41
+              ]
+            },
+            {
+              "text": "Normative",
+              "confidence": 96.858307,
+              "bbox_pixels_xywh": [
+                262,
+                30,
+                82,
+                27
+              ]
+            },
+            {
+              "text": "Yn",
+              "confidence": 20.719957,
+              "bbox_pixels_xywh": [
+                586,
+                12,
+                36,
+                43
+              ]
+            },
+            {
+              "text": "Gam",
+              "confidence": 70.241661,
+              "bbox_pixels_xywh": [
+                638,
+                32,
+                57,
+                13
+              ]
+            },
+            {
+              "text": "N\\",
+              "confidence": 49.603737,
+              "bbox_pixels_xywh": [
+                718,
+                17,
+                22,
+                21
+              ]
+            },
+            {
+              "text": "Precision",
+              "confidence": 96.642639,
+              "bbox_pixels_xywh": [
+                13,
+                66,
+                72,
+                13
+              ]
+            },
+            {
+              "text": "‘Approach",
+              "confidence": 71.65435,
+              "bbox_pixels_xywh": [
+                263,
+                53,
+                75,
+                17
+              ]
+            },
+            {
+              "text": "Sourcing",
+              "confidence": 94.614792,
+              "bbox_pixels_xywh": [
+                632,
+                52,
+                69,
+                16
+              ]
+            },
+            {
+              "text": "Approach",
+              "confidence": 96.327248,
+              "bbox_pixels_xywh": [
+                628,
+                71,
+                75,
+                16
+              ]
+            },
+            {
+              "text": "Completeness",
+              "confidence": 96.66246,
+              "bbox_pixels_xywh": [
+                862,
+                66,
+                108,
+                16
+              ]
+            },
+            {
+              "text": "Accuracy",
+              "confidence": 80.11631,
+              "bbox_pixels_xywh": [
+                12,
+                86,
+                74,
+                16
+              ]
+            },
+            {
+              "text": "Integrity",
+              "confidence": 96.450089,
+              "bbox_pixels_xywh": [
+                13,
+                104,
+                64,
+                16
+              ]
+            },
+            {
+              "text": "Consistency",
+              "confidence": 96.497093,
+              "bbox_pixels_xywh": [
+                13,
+                124,
+                95,
+                16
+              ]
+            },
+            {
+              "text": " @-@_",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                591,
+                137,
+                137,
+                31
+              ]
+            },
+            {
+              "text": "Standard-Based",
+              "confidence": 91.439819,
+              "bbox_pixels_xywh": [
+                235,
+                201,
+                132,
+                12
+              ]
+            },
+            {
+              "text": "Collaboration-Based",
+              "confidence": 92.041107,
+              "bbox_pixels_xywh": [
+                542,
+                201,
+                169,
+                12
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 96.198257,
+              "bbox_pixels_xywh": [
+                717,
+                201,
+                73,
+                12
+              ]
+            },
+            {
+              "text": "eated",
+              "confidence": 47.217274,
+              "bbox_pixels_xywh": [
+                162,
+                221,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 95.839066,
+              "bbox_pixels_xywh": [
+                204,
+                221,
+                14,
+                14
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 93.565186,
+              "bbox_pixels_xywh": [
+                223,
+                224,
+                7,
+                8
+              ]
+            },
+            {
+              "text": "few,",
+              "confidence": 93.565186,
+              "bbox_pixels_xywh": [
+                236,
+                221,
+                24,
+                11
+              ]
+            },
+            {
+              "text": "then",
+              "confidence": 93.957855,
+              "bbox_pixels_xywh": [
+                269,
+                221,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "pul",
+              "confidence": 93.729736,
+              "bbox_pixels_xywh": [
+                304,
+                224,
+                15,
+                11
+              ]
+            },
+            {
+              "text": "blished",
+              "confidence": 90.067726,
+              "bbox_pixels_xywh": [
+                323,
+                221,
+                45,
+                11
+              ]
+            },
+            {
+              "text": "ren",
+              "confidence": 54.668434,
+              "bbox_pixels_xywh": [
+                394,
+                224,
+                19,
+                8
+              ]
+            },
+            {
+              "text": "onl",
+              "confidence": 67.537941,
+              "bbox_pixels_xywh": [
+                431,
+                221,
+                17,
+                11
+              ]
+            },
+            {
+              "text": "ati",
+              "confidence": 67.583572,
+              "bbox_pixels_xywh": [
+                579,
+                222,
+                11,
+                10
+              ]
+            },
+            {
+              "text": "dby",
+              "confidence": 80.187065,
+              "bbox_pixels_xywh": [
+                601,
+                224,
+                17,
+                2
+              ]
+            },
+            {
+              "text": "many,",
+              "confidence": 96.650581,
+              "bbox_pixels_xywh": [
+                625,
+                224,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "edited",
+              "confidence": 96.71537,
+              "bbox_pixels_xywh": [
+                677,
+                221,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.95977,
+              "bbox_pixels_xywh": [
+                725,
+                221,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "many",
+              "confidence": 96.95977,
+              "bbox_pixels_xywh": [
+                744,
+                224,
+                34,
+                11
+              ]
+            },
+            {
+              "text": "Stati",
+              "confidence": 86.829536,
+              "bbox_pixels_xywh": [
+                178,
+                240,
+                28,
+                10
+              ]
+            },
+            {
+              "text": "lift",
+              "confidence": 78.06221,
+              "bbox_pixels_xywh": [
+                279,
+                239,
+                10,
+                11
+              ]
+            },
+            {
+              "text": "mé",
+              "confidence": 38.104763,
+              "bbox_pixels_xywh": [
+                338,
+                242,
+                11,
+                8
+              ]
+            },
+            {
+              "text": "em",
+              "confidence": 93.750259,
+              "bbox_pixels_xywh": [
+                382,
+                242,
+                17,
+                8
+              ]
+            },
+            {
+              "text": "at",
+              "confidence": 64.064117,
+              "bbox_pixels_xywh": [
+                417,
+                240,
+                7,
+                10
+              ]
+            },
+            {
+              "text": "eventual",
+              "confidence": 95.062164,
+              "bbox_pixels_xywh": [
+                628,
+                239,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "tency",
+              "confidence": 68.049309,
+              "bbox_pixels_xywh": [
+                738,
+                242,
+                31,
+                9
+              ]
+            },
+            {
+              "text": "System",
+              "confidence": 94.742599,
+              "bbox_pixels_xywh": [
+                153,
+                299,
+                57,
+                16
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.762695,
+              "bbox_pixels_xywh": [
+                213,
+                299,
+                16,
+                13
+              ]
+            },
+            {
+              "text": "reference",
+              "confidence": 96.816063,
+              "bbox_pixels_xywh": [
+                233,
+                299,
+                72,
+                13
+              ]
+            },
+            {
+              "text": "(quality,",
+              "confidence": 96.253441,
+              "bbox_pixels_xywh": [
+                309,
+                299,
+                60,
+                16
+              ]
+            },
+            {
+              "text": "reporting)",
+              "confidence": 96.813087,
+              "bbox_pixels_xywh": [
+                375,
+                299,
+                75,
+                16
+              ]
+            },
+            {
+              "text": "‘Crowd",
+              "confidence": 93.471985,
+              "bbox_pixels_xywh": [
+                525,
+                300,
+                54,
+                13
+              ]
+            },
+            {
+              "text": "sourcing’",
+              "confidence": 96.500229,
+              "bbox_pixels_xywh": [
+                583,
+                300,
+                71,
+                16
+              ]
+            },
+            {
+              "text": "metadata",
+              "confidence": 96.500229,
+              "bbox_pixels_xywh": [
+                659,
+                300,
+                69,
+                13
+              ]
+            },
+            {
+              "text": "collection",
+              "confidence": 95.993866,
+              "bbox_pixels_xywh": [
+                733,
+                300,
+                73,
+                13
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 96.61998,
+              "bbox_pixels_xywh": [
+                182,
+                357,
+                85,
+                15
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 96.594879,
+              "bbox_pixels_xywh": [
+                624,
+                357,
+                85,
+                15
+              ]
+            },
+            {
+              "text": "Repository",
+              "confidence": 96.734016,
+              "bbox_pixels_xywh": [
+                175,
+                382,
+                98,
+                19
+              ]
+            },
+            {
+              "text": "cl",
+              "confidence": 27.242413,
+              "bbox_pixels_xywh": [
+                321,
+                362,
+                41,
+                32
+              ]
+            },
+            {
+              "text": "&&",
+              "confidence": 86.561523,
+              "bbox_pixels_xywh": [
+                388,
+                363,
+                55,
+                28
+              ]
+            },
+            {
+              "text": "Repository",
+              "confidence": 96.450928,
+              "bbox_pixels_xywh": [
+                617,
+                382,
+                98,
+                19
+              ]
+            },
+            {
+              "text": "Read",
+              "confidence": 88.302582,
+              "bbox_pixels_xywh": [
+                213,
+                449,
+                24,
+                8
+              ]
+            },
+            {
+              "text": "Request:",
+              "confidence": 84.356651,
+              "bbox_pixels_xywh": [
+                377,
+                475,
+                37,
+                10
+              ]
+            },
+            {
+              "text": "Creation,",
+              "confidence": 70.556648,
+              "bbox_pixels_xywh": [
+                377,
+                487,
+                40,
+                9
+              ]
+            },
+            {
+              "text": "dl",
+              "confidence": 16.213446,
+              "bbox_pixels_xywh": [
+                622,
+                436,
+                92,
+                46
+              ]
+            },
+            {
+              "text": "Bh",
+              "confidence": 32.849995,
+              "bbox_pixels_xywh": [
+                176,
+                492,
+                30,
+                19
+              ]
+            },
+            {
+              "text": "858",
+              "confidence": 42.16272,
+              "bbox_pixels_xywh": [
+                210,
+                492,
+                31,
+                19
+              ]
+            },
+            {
+              "text": "Medication",
+              "confidence": 66.445641,
+              "bbox_pixels_xywh": [
+                370,
+                500,
+                54,
+                8
+              ]
+            },
+            {
+              "text": "22%",
+              "confidence": 48.320881,
+              "bbox_pixels_xywh": [
+                573,
+                487,
+                30,
+                18
+              ]
+            },
+            {
+              "text": "22%",
+              "confidence": 41.130356,
+              "bbox_pixels_xywh": [
+                625,
+                487,
+                30,
+                18
+              ]
+            },
+            {
+              "text": "RaQ",
+              "confidence": 17.104483,
+              "bbox_pixels_xywh": [
+                676,
+                487,
+                31,
+                18
+              ]
+            },
+            {
+              "text": "‘Consumers",
+              "confidence": 90.403557,
+              "bbox_pixels_xywh": [
+                193,
+                525,
+                63,
+                9
+              ]
+            },
+            {
+              "text": "Communities",
+              "confidence": 72.735115,
+              "bbox_pixels_xywh": [
+                590,
+                513,
+                71,
+                32
+              ]
+            },
+            {
+              "text": "ofContibutors",
+              "confidence": 74.033928,
+              "bbox_pixels_xywh": [
+                666,
+                513,
+                78,
+                32
+              ]
+            },
+            {
+              "text": "\\|",
+              "confidence": 88.536003,
+              "bbox_pixels_xywh": [
+                777,
+                407,
+                55,
+                138
+              ]
+            }
+          ],
+          "mean_word_confidence": 75.86,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,468 @@
+# G234/fig5-2 · 元数据管理详细应用功能
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G234/fig5-2.md) · [JSON](../../architecture/diagrams/G234/fig5-2.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G234e.pdf`；SHA-256：`34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7`。
+
+## 原图 · PDF 第 34 页
+
+![英文原图](../assets/G234/fig5-2-p0034.png)
+
+PDF 坐标：`[86.9, 348.3, 525.1, 586.5]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Metadata Management Application Functions
+Acquisition
+Metadata Integration
+Metadata
+Data Quality
+Metadata
+Metadata
+Metadata
+Rules
+Creation, Re
+n,
+Classification
+Association
+Inference
+Metadata
+& Deletion
+Execution
+Querying
+Governance
+Reporting
+Bulk Import
+Workflow
+Data
+Impact
+Data Compliance
+Documentation
+Validation
+Analysis
+Reporting
+Reporting
+Bulk Export
+Task
+Metadata Activity’
+Data
+Data Quality
+Accountability
+Assignment
+Monitoring
+Reporting
+Reporting
+Events
+Metadata
+Subscription
+Reference Data Management
+Searching
+ist of Values Management
+(category list, code list, etc.)
+‘Administration
+Environment
+Access
+Internationalization
+Event Logging
+Database
+& Localization
+Management
+Management
+‘Management
+Versioning
+```
+
+## 概要（历史解释；局部修正见上）
+
+把 6 项高层应用功能展开为 24 项二级应用功能，形成元数据管理 IT 方案的功能清单。
+
+## 目的（历史解释；局部修正见上）
+
+第 5.2 节的应用参考模型，用于 ADM 阶段 C/E：阶段 C 拿它做应用功能差距分析，阶段 E 拿它逐项挑战解决方案供应商的功能覆盖。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从蓝色大组 Metadata Management Application Functions 进入，按 6 个组读：Acquisition（采集）、Governance（治理）、Reporting（报表）、Reference Data Management（参考数据管理）、Metadata Integration（元数据集成）、Administration（管理）。组框标题是一级应用功能，组内小框是二级功能；没有连线，嵌套表示归属。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 采集组 5 项：元数据创建/修订/删除、元数据分类、元数据关联、元数据推断、数据质量规则执行；覆盖元数据的产生与加工。
+- 治理组 4 项：工作流校验、影响分析、任务分配、元数据活动监控；对应治理所需的审批、影响评估与运行监控。
+- 报表组 5 项：数据合规报表、数据文档报表、数据问责报表、数据质量报表、元数据搜索；既面向监管也面向日常使用。
+- 参考数据管理组只有 1 项：值列表管理（类别列表、代码列表等），说明它是独立但范围集中的能力。
+- 元数据集成组 4 项：元数据查询、批量导入、批量导出、事件订阅；纯技术性交换能力，与图 4-9 的三种模式对应。
+- 管理组 5 项：环境管理、访问管理、国际化与本地化、事件日志管理、数据库版本管理；是支撑前三类能力的运行底座。
+
+## 层级（历史解释；局部修正见上）
+
+两层：应用功能大组（L1）→ 6 个一级功能组（L2）→ 24 个二级应用功能（L3）。组与组并列，无跨组连线。
+
+## 线条含义（历史解释；局部修正见上）
+
+全图无连线；嵌套与框的位置表示“二级功能属于该组”，组框的排列次序不表示调用顺序。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把 Acquisition 只理解为“采集工具”；它还包含创建、修订、删除、分类、关联与推断。
+- 不要把 Metadata Integration 当成跨组连接线；它是与其他组并列的一组应用功能。
+- 不要以为 Reference Data Management 与 Reporting 有从属关系；它们是并列组。
+- 中文 PNG 中部分二级功能字号极小，不能因看不清而认为原图没有这些功能。
+
+## 元素
+
+```json
+[
+  {
+    "id": "af_root",
+    "label_en": "Metadata Management Application Functions",
+    "label_zh": "元数据管理应用功能",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "position": "蓝色大组"
+  },
+  {
+    "id": "g_acquisition",
+    "label_en": "Acquisition",
+    "label_zh": "采集",
+    "type": "function",
+    "parent": "af_root",
+    "level": 2,
+    "position": "顶部通栏"
+  },
+  {
+    "id": "f_create",
+    "label_en": "Metadata Creation, Revision, & Deletion",
+    "label_zh": "元数据创建、修订与删除",
+    "type": "function",
+    "parent": "g_acquisition",
+    "level": 3
+  },
+  {
+    "id": "f_classification",
+    "label_en": "Metadata Classification",
+    "label_zh": "元数据分类",
+    "type": "function",
+    "parent": "g_acquisition",
+    "level": 3
+  },
+  {
+    "id": "f_association",
+    "label_en": "Metadata Association",
+    "label_zh": "元数据关联",
+    "type": "function",
+    "parent": "g_acquisition",
+    "level": 3
+  },
+  {
+    "id": "f_inference",
+    "label_en": "Metadata Inference",
+    "label_zh": "元数据推断",
+    "type": "function",
+    "parent": "g_acquisition",
+    "level": 3
+  },
+  {
+    "id": "f_dq_rules",
+    "label_en": "Data Quality Rules Execution",
+    "label_zh": "数据质量规则执行",
+    "type": "function",
+    "parent": "g_acquisition",
+    "level": 3
+  },
+  {
+    "id": "g_governance",
+    "label_en": "Governance",
+    "label_zh": "治理",
+    "type": "function",
+    "parent": "af_root",
+    "level": 2,
+    "position": "左中"
+  },
+  {
+    "id": "f_workflow",
+    "label_en": "Workflow Validation",
+    "label_zh": "工作流校验",
+    "type": "function",
+    "parent": "g_governance",
+    "level": 3
+  },
+  {
+    "id": "f_impact",
+    "label_en": "Impact Analysis",
+    "label_zh": "影响分析",
+    "type": "function",
+    "parent": "g_governance",
+    "level": 3
+  },
+  {
+    "id": "f_task",
+    "label_en": "Task Assignment",
+    "label_zh": "任务分配",
+    "type": "function",
+    "parent": "g_governance",
+    "level": 3
+  },
+  {
+    "id": "f_monitoring",
+    "label_en": "Metadata Activity Monitoring",
+    "label_zh": "元数据活动监控",
+    "type": "function",
+    "parent": "g_governance",
+    "level": 3
+  },
+  {
+    "id": "g_reporting",
+    "label_en": "Reporting",
+    "label_zh": "报表",
+    "type": "function",
+    "parent": "af_root",
+    "level": 2,
+    "position": "中央"
+  },
+  {
+    "id": "f_compliance_report",
+    "label_en": "Data Compliance Reporting",
+    "label_zh": "数据合规报表",
+    "type": "function",
+    "parent": "g_reporting",
+    "level": 3
+  },
+  {
+    "id": "f_doc_report",
+    "label_en": "Data Documentation Reporting",
+    "label_zh": "数据文档报表",
+    "type": "function",
+    "parent": "g_reporting",
+    "level": 3
+  },
+  {
+    "id": "f_accountability_report",
+    "label_en": "Data Accountability Reporting",
+    "label_zh": "数据问责报表",
+    "type": "function",
+    "parent": "g_reporting",
+    "level": 3
+  },
+  {
+    "id": "f_quality_report",
+    "label_en": "Data Quality Reporting",
+    "label_zh": "数据质量报表",
+    "type": "function",
+    "parent": "g_reporting",
+    "level": 3
+  },
+  {
+    "id": "f_search",
+    "label_en": "Metadata Searching",
+    "label_zh": "元数据搜索",
+    "type": "function",
+    "parent": "g_reporting",
+    "level": 3
+  },
+  {
+    "id": "g_reference",
+    "label_en": "Reference Data Management",
+    "label_zh": "参考数据管理",
+    "type": "function",
+    "parent": "af_root",
+    "level": 2,
+    "position": "左下"
+  },
+  {
+    "id": "f_lov",
+    "label_en": "List of Values Management (category list, code list, etc.)",
+    "label_zh": "值列表管理（类别列表、代码列表等）",
+    "type": "function",
+    "parent": "g_reference",
+    "level": 3
+  },
+  {
+    "id": "g_integration",
+    "label_en": "Metadata Integration",
+    "label_zh": "元数据集成",
+    "type": "function",
+    "parent": "af_root",
+    "level": 2,
+    "position": "右侧竖跨"
+  },
+  {
+    "id": "f_querying",
+    "label_en": "Metadata Querying",
+    "label_zh": "元数据查询",
+    "type": "function",
+    "parent": "g_integration",
+    "level": 3
+  },
+  {
+    "id": "f_bulk_import",
+    "label_en": "Bulk Import",
+    "label_zh": "批量导入",
+    "type": "function",
+    "parent": "g_integration",
+    "level": 3
+  },
+  {
+    "id": "f_bulk_export",
+    "label_en": "Bulk Export",
+    "label_zh": "批量导出",
+    "type": "function",
+    "parent": "g_integration",
+    "level": 3
+  },
+  {
+    "id": "f_events",
+    "label_en": "Events Subscription",
+    "label_zh": "事件订阅",
+    "type": "function",
+    "parent": "g_integration",
+    "level": 3
+  },
+  {
+    "id": "g_admin",
+    "label_en": "Administration",
+    "label_zh": "管理",
+    "type": "function",
+    "parent": "af_root",
+    "level": 2,
+    "position": "底部通栏"
+  },
+  {
+    "id": "f_env",
+    "label_en": "Environment Management",
+    "label_zh": "环境管理",
+    "type": "function",
+    "parent": "g_admin",
+    "level": 3
+  },
+  {
+    "id": "f_access",
+    "label_en": "Access Management",
+    "label_zh": "访问管理",
+    "type": "function",
+    "parent": "g_admin",
+    "level": 3
+  },
+  {
+    "id": "f_i18n",
+    "label_en": "Internationalization & Localization",
+    "label_zh": "国际化与本地化",
+    "type": "function",
+    "parent": "g_admin",
+    "level": 3
+  },
+  {
+    "id": "f_logging",
+    "label_en": "Event Logging Management",
+    "label_zh": "事件日志管理",
+    "type": "function",
+    "parent": "g_admin",
+    "level": 3
+  },
+  {
+    "id": "f_db_version",
+    "label_en": "Database Versioning",
+    "label_zh": "数据库版本管理",
+    "type": "function",
+    "parent": "g_admin",
+    "level": 3
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "蓝色大组 Metadata Management Application Functions",
+    "meaning_zh": "应用功能总容器",
+    "explicit": true
+  },
+  {
+    "symbol": "内层组框标题",
+    "meaning_zh": "一级应用功能/功能组",
+    "explicit": false
+  },
+  {
+    "symbol": "组内小框 + 右上折角箭头",
+    "meaning_zh": "二级应用功能（ArchiMate 功能记号）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "单一蓝色大组内：Acquisition 通栏在顶，左中为 Governance，中央为 Reporting，右侧竖跨 Metadata Integration，左下 Reference Data Management，底部 Administration 通栏。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G234/fig3-1",
+    "relation": "detail_of",
+    "note_zh": "本图把图 3-1 的 6 项高层应用功能逐项展开为二级功能"
+  },
+  {
+    "target": "G234/fig5-1",
+    "relation": "complements",
+    "note_zh": "图 5-1 是业务侧细化，本图是应用侧细化"
+  },
+  {
+    "target": "G234/fig4-9",
+    "relation": "related",
+    "note_zh": "本图 Metadata Integration 组的四项功能与图 4-9 的三种交换模式直接对应"
+  },
+  {
+    "target": "G234/fig2-1",
+    "relation": "uses_legend",
+    "note_zh": "本图使用图 2-1 定义的 ArchiMate 应用功能记法"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "组框标题同时是一级功能，原图未额外标注；按“功能 + 分组”双重角色处理。",
+    "Metadata Inference 与 3.3 节“采集”定义中的“推断”一致，但中文稿有时写作“元数据推断”，术语已统一。",
+    "中文 PNG 多处二级功能字号过小，译名以中文稿标签表为准。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 34 页原图截图",
+    "英文 PDF 第 34–35 页表 5-2 文字",
+    "中文稿 G234e_信息架构_元数据管理.md 第 595–634 行（图内标签对照）",
+    "figs/g234e_fig5-2_en.png、figs/zh/g234e_fig5-2_zh.png"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

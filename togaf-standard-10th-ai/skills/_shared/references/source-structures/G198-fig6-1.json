@@ -1,0 +1,302 @@
+{
+  "schema_version": "2.0",
+  "id": "G198/fig6-1",
+  "title": "分段架构与解决方案架构",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      401
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "第 6.2 节用本图对比分段架构与解决方案架构：分段架构面向某个业务领域，其服务会被领域外的其他流程使用；解决方案架构面向单个项目或发布，描述一个离散业务运作及其 IS/IT 如何支撑它。",
+    "reading_guide_zh": "先自上而下看四条水平层带：业务流程、应用服务、应用组件、技术；层内节点从左到右表示不同流程/服务/组件/技术。黑色箭头表示上层节点使用或依赖下层节点；洋红色虚线框住 Sales 分段，洋红色箭头表示 Sales 的服务被其他业务流程使用；橄榄色虚线框住右侧的 Solution Architecture 范围；最右侧竖排的 Information 标出信息视角。",
+    "key_points_zh": [
+      "图分四层：业务流程、应用服务、应用组件、技术；各层用无名称的方框/椭圆/圆柱示意，重点是层间依赖而不是具体系统。",
+      "Sales 分段架构用洋红色点划线框出：Sales 可能集中为一个部门，但它的服务会被其他业务流程使用，因此分段架构的边界跨越多个流程（洋红色连线）。",
+      "Solution Architecture 用橄榄色虚线框出：只覆盖一个离散、聚焦的业务运作/活动及其 IS/IT 支撑，通常对应单个项目或项目发布。",
+      "分段架构比解决方案架构覆盖更宽：它跨越同一业务领域内的多个流程、服务和组件；解决方案架构只取其中一个运作及其支撑。",
+      "图中黑箭头表示业务流程使用应用服务、应用服务由应用组件实现、应用组件运行在技术上；洋红箭头是跨流程使用 Sales 服务的额外关系。",
+      "右侧 Information 竖排标注提示：信息视角贯穿各层，但图中没有单独的信息层或信息节点。",
+      "本图不表达技能等级；技能等级在图 6-2 中用两条渐变箭头和颜色图例表示。"
+    ],
+    "hierarchy_zh": "四层视觉分层：业务流程（最上）→ 应用服务 → 应用组件 → 技术（最下）。Sales 与 Solution Architecture 是两个范围边界，不是层；它们各自覆盖上述四层的一部分。",
+    "line_semantics_zh": "黑色箭头：上层节点使用/依赖下层节点（流程→服务、服务→组件、组件→技术），以及同层节点之间的顺序/使用关系。洋红色线：Sales 分段内的服务被其他流程使用，强调分段架构跨流程的复用。橄榄色虚线：Solution Architecture 的范围边界；没有箭头。",
+    "misreadings_zh": [
+      "四条层带是架构层，不是组织部门；Sales 是分段架构的示例业务领域，不是指销售部门本身。",
+      "Solution Architecture 不是“比 Segment Architecture 更低的一层”，而是范围更窄：单个业务运作/项目发布。",
+      "洋红色线不是错误或告警，而是表示 Sales 的服务在分段边界之外被使用。",
+      "图中没有技能等级含义；不要把图 6-2 的渐变箭头套到本图。",
+      "中文稿引用的 figs/g198_fig6-1.svg 是三层方框的通用示意，与原图无关，不能据它理解本图。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "layer_bp",
+      "label_en": "Business processes",
+      "label_zh": "业务流程层",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "最上层"
+    },
+    {
+      "id": "layer_as",
+      "label_en": "Application services",
+      "label_zh": "应用服务层",
+      "type": "group",
+      "parent": null,
+      "level": 2,
+      "position": "第二层"
+    },
+    {
+      "id": "layer_ac",
+      "label_en": "Application components",
+      "label_zh": "应用组件层",
+      "type": "group",
+      "parent": null,
+      "level": 3,
+      "position": "第三层"
+    },
+    {
+      "id": "layer_tech",
+      "label_en": "Technology",
+      "label_zh": "技术层",
+      "type": "group",
+      "parent": null,
+      "level": 4,
+      "position": "最下层"
+    },
+    {
+      "id": "scope_segment",
+      "label_en": "Segment Architecture",
+      "label_zh": "分段架构范围",
+      "type": "group",
+      "parent": null,
+      "position": "洋红色虚线大括号，覆盖中部偏左的多层内容"
+    },
+    {
+      "id": "scope_sales",
+      "label_en": "Sales",
+      "label_zh": "Sales 分段",
+      "type": "group",
+      "parent": "scope_segment",
+      "position": "洋红色点划线框，位于分段架构范围内"
+    },
+    {
+      "id": "scope_solution",
+      "label_en": "Solution Architecture",
+      "label_zh": "解决方案架构范围",
+      "type": "group",
+      "parent": null,
+      "position": "橄榄色虚线框，覆盖右侧一个聚焦的业务运作及其支撑"
+    },
+    {
+      "id": "information_view",
+      "label_en": "Information",
+      "label_zh": "信息视角",
+      "type": "concept",
+      "parent": null,
+      "position": "最右侧竖排标签"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "layer_bp",
+      "to": "layer_as",
+      "type": "dependency",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "业务流程使用应用服务"
+    },
+    {
+      "from": "layer_as",
+      "to": "layer_ac",
+      "type": "realization",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "应用组件实现应用服务"
+    },
+    {
+      "from": "layer_ac",
+      "to": "layer_tech",
+      "type": "serving",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "应用组件运行在技术上"
+    },
+    {
+      "from": "scope_segment",
+      "to": "layer_bp",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "分段架构覆盖业务流程层的一部分"
+    },
+    {
+      "from": "scope_segment",
+      "to": "layer_as",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "分段架构覆盖应用服务层的一部分"
+    },
+    {
+      "from": "scope_segment",
+      "to": "layer_ac",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_segment",
+      "to": "layer_tech",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_solution",
+      "to": "layer_bp",
+      "type": "composition",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none",
+      "description_zh": "解决方案架构的虚线框覆盖一个业务流程"
+    },
+    {
+      "from": "scope_solution",
+      "to": "layer_as",
+      "type": "composition",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_solution",
+      "to": "layer_ac",
+      "type": "composition",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_solution",
+      "to": "layer_tech",
+      "type": "composition",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none"
+    },
+    {
+      "from": "scope_sales",
+      "to": "layer_as",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "洋红色线：Sales 的服务被其他业务流程使用"
+    },
+    {
+      "from": "information_view",
+      "to": "layer_bp",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "信息视角横贯各层（图中只给出竖排标签）"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_scopes",
+      "title_zh": "两种架构范围的对比（据原图与正文）",
+      "columns": [
+        "范围",
+        "覆盖",
+        "原图表达",
+        "正文说明"
+      ],
+      "rows": [
+        [
+          "分段架构 Segment Architecture",
+          "某个业务领域内的多个业务流程、服务、组件与技术",
+          "洋红色虚线大括号 + Sales 点划线框；Sales 服务被其他流程使用",
+          "面向特定业务问题或组织，复用其他架构师产出并接入整体架构全景"
+        ],
+        [
+          "解决方案架构 Solution Architecture",
+          "单个离散业务运作/活动及其 IS/IT 支撑",
+          "右侧橄榄色虚线框，覆盖一个流程及其服务、组件、技术",
+          "系统或子系统层面（如管理或安全）的架构设计与文档；通常适用单个项目或发布"
+        ]
+      ]
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "左侧四个层名",
+      "meaning_zh": "业务流程 / 应用服务 / 应用组件 / 技术四层",
+      "explicit": true
+    },
+    {
+      "symbol": "洋红色点划线框 + Sales 标签",
+      "meaning_zh": "Sales 分段架构的范围",
+      "explicit": true
+    },
+    {
+      "symbol": "洋红色连线",
+      "meaning_zh": "Sales 的服务在其他业务流程中被使用",
+      "explicit": false
+    },
+    {
+      "symbol": "橄榄色虚线框",
+      "meaning_zh": "Solution Architecture 的范围",
+      "explicit": true
+    },
+    {
+      "symbol": "黑色箭头",
+      "meaning_zh": "层间/层内的使用或依赖",
+      "explicit": false
+    },
+    {
+      "symbol": "竖排 Information",
+      "meaning_zh": "信息视角（横贯各层）",
+      "explicit": true
+    }
+  ],
+  "uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "原图中的方框、椭圆、圆柱均无名称；本解析按四层和两个范围边界概括，没有逐个编号无标签节点。",
+      "洋红色线与橄榄色虚线的精确覆盖范围按版式判断；Sales 边界内的服务使用关系是原图的主要语义。",
+      "Information 竖排标签的含义按位置推断为信息视角，原文没有单独解释。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 23 页原图截图（600 dpi）",
+      "英文 PDF 第 23 页正文",
+      "中文稿 G198e_架构技能框架.md 第 391–407 行",
+      "figs/g198_fig6-1.svg 源码（确认与原图不对应）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G198/fig6-1",
+    "asset": "figs/g198_fig6-1.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "07"
+  }
+}

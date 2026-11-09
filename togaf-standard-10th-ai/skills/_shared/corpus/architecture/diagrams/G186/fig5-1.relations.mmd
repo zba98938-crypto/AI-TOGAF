@@ -1,0 +1,53 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Enterprise Repository"]
+  n1["Architecture Repository"]
+  n2["Architecture Metamodel"]
+  n3["Architecture Method"]
+  n4["Enterprise Metamodel"]
+  n5["Architecture Landscape"]
+  n6["Strategic Architectures"]
+  n7["Segment Architectures"]
+  n8["Capability Architectures"]
+  n9["Solutions Landscape"]
+  n10["Solution Building Blocks"]
+  n11["Reference Library"]
+  n12["Organization Reference Materials"]
+  n13["Standards Library"]
+  n14["Business Standards"]
+  n15["Data Standards"]
+  n16["Application Standards"]
+  n17["Technology Standards"]
+  n18["Architecture Requirements Repository"]
+  n19["Strategic Requirements"]
+  n20["Segment Requirements"]
+  n21["Capability Requirements"]
+  n22["Governance Repository"]
+  n23["Decision Log"]
+  n24["Compliance Assessments"]
+  n25["Capability Assessments"]
+  n26["Calendar"]
+  n27["Project Portfolio"]
+  n28["Performance Measurement"]
+  n29["Architecture Capability"]
+  n30["Skills Repository"]
+  n31["Organization Structure"]
+  n32["Architecture Charter"]
+  n33["External Reference Models"]
+  n34["External Standards"]
+  n35["Architecture Board"]
+  n2 -->|"治理/监督"| n5
+  n5 -->|"产生/交付"| n11
+  n11 -->|"流动"| n5
+  n5 <-->|"关联"| n9
+  n5 -->|"产生/交付"| n13
+  n13 -->|"治理/监督"| n5
+  n13 -->|"流动"| n11
+  n33 -->|"流动"| n11
+  n34 -->|"流动"| n13
+  n22 -->|"治理/监督"| n5
+  n22 -->|"治理/监督"| n13
+  n22 <-->|"流动"| n18
+  n9 <-->|"流动"| n18
+  n22 <-->|"流动"| n35
+  n35 -->|"治理/监督"| n29

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-togaf:corpus:chunk:1",
+  "title": "Traceable TOGAF retrieval chunk",
+  "type": "object",
+  "required": ["id", "document_id", "language", "content_role", "text", "pdf_pages", "source_sha256", "source_path", "markdown_path", "figure_ids", "quality"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "document_id": {"type": "string", "pattern": "^G[A-Z0-9]{3}$"},
+    "language": {"enum": ["en", "zh"]},
+    "content_role": {"enum": ["source", "translation", "chapter-review", "figure", "architecture", "role", "diagram", "concept", "relationship"]},
+    "document_ids": {"type": "array", "items": {"type": "string", "pattern": "^G[A-Z0-9]{3}$"}, "uniqueItems": true, "minItems": 1},
+    "parent_record_id": {"type": "string", "minLength": 1},
+    "part": {"type": "integer", "minimum": 1},
+    "part_count": {"type": "integer", "minimum": 1},
+    "json_path": {"type": "string", "minLength": 1},
+    "source_locators": {
+      "type": "array", "minItems": 1,
+      "description": "Original PDF evidence for authored analysis; source_path and source_sha256 identify the analysis JSON itself.",
+      "items": {
+        "type": "object",
+        "required": ["document_id", "pdf_pages", "path", "sha256", "page_count", "format"],
+        "properties": {
+          "document_id": {"type": "string", "pattern": "^G[A-Z0-9]{3}$"},
+          "pdf_pages": {"type": "array", "items": {"type": "integer", "minimum": 1}, "uniqueItems": true},
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "page_count": {"type": "integer", "minimum": 1},
+          "format": {"const": "pdf"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "content_kind": {"type": "string"},
+    "section_id": {"type": ["string", "null"]},
+    "section_title": {"type": ["string", "null"]},
+    "text": {"type": "string"},
+    "pdf_pages": {"type": "array", "items": {"type": "integer", "minimum": 1}, "uniqueItems": true},
+    "source_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_path": {"type": "string", "minLength": 1, "description": "Path relative to the project root; identifies actual source of this record."},
+    "markdown_path": {"type": "string", "minLength": 1, "description": "Path relative to corpus root, optionally with page anchor."},
+    "figure_ids": {"type": "array", "items": {"type": "string"}},
+    "table_ids": {"type": "array", "items": {"type": "string"}},
+    "source_block_ids": {"type": "array", "items": {"type": "string"}},
+    "quality": {"type": "object", "required": ["status"], "properties": {"status": {"type": "string"}}, "additionalProperties": true}
+  },
+  "allOf": [
+    {"if": {"properties": {"content_role": {"const": "translation"}}}, "then": {"properties": {"language": {"const": "zh"}, "quality": {"properties": {"status": {"const": "translation-unverified"}}}}}},
+    {"if": {"properties": {"content_role": {"const": "source"}}}, "then": {"properties": {"language": {"const": "en"}, "pdf_pages": {"minItems": 1}, "source_block_ids": {"type": "array"}}}},
+    {"if": {"properties": {"content_role": {"enum": ["chapter-review", "architecture", "role", "diagram", "concept", "relationship"]}}}, "then": {
+      "required": ["document_ids", "source_locators", "json_path", "parent_record_id", "part", "part_count"],
+      "properties": {"quality": {"required": ["original_text"], "properties": {"status": {"const": "authored-analysis-see-evidence"}, "original_text": {"const": false}}}}
+    }}
+  ],
+  "additionalProperties": true
+}

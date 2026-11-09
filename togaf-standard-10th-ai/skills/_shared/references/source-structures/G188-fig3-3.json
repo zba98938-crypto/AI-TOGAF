@@ -1,0 +1,447 @@
+{
+  "schema_version": "2.0",
+  "id": "G188/fig3-3",
+  "title": "架构项目的最终交付物",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      1263
+    ],
+    "label_table_lines": [
+      1267,
+      1296
+    ]
+  },
+  "reading": {
+    "purpose_zh": "把“产品移交”说清楚：列出阶段 F 结束时架构项目必须交付的全部产品，说明它们如何组成更大的交付物（架构定义文档、实施与迁移计划）、如何作为实施项目的输入，以及哪些交付物会启动下一轮架构工作或架构能力改进。",
+    "reading_guide_zh": "从左侧 F 圆开始向右读：虚线扇形指向八个交付物框，表示这些是阶段 F 的产出。注意两个空心菱形：上方菱形把“最终过渡架构”聚合进“最终架构定义文档”；中部菱形把“实施与迁移战略”“实施的项目与组合分解”“项目章程（可选）”聚合进“实施与迁移计划（详细）”。再沿点线向右，交付物作为输入进入“Implementation”（实施）。最下方两条点线分别把“新一轮 ADM 周期的架构工作请求”和“由经验教训产生的架构能力变更请求”送到两个 A 圆（新周期、新能力周期）。右下角图例解释线型与形状。",
+    "key_points_zh": [
+      "阶段 F 的最终交付物有八项：架构定义文档、架构路线图、实施治理模型、实施与迁移计划（详细）、架构需求规格说明书、可复用架构构建块、新一轮架构工作请求（如有）、架构能力变更请求。",
+      "最终过渡架构不是独立交付物，而是最终架构定义文档的组成部分（空心菱形聚合）。",
+      "实施与迁移计划（详细）由三部分组成：实施与迁移战略、实施的项目与组合分解、项目章程（可选）；项目章程可选，说明并非每次移交都要成立实施项目。",
+      "全部交付物最终作为实施组织（Implementation）的输入；图中用点线表示输入依赖，用虚线表示产品交付，两者含义不同。",
+      "架构项目可以产生“新一轮 ADM 周期的架构工作请求”，把成果反馈到阶段 A，形成新的架构迭代。",
+      "由经验教训产生的架构能力变更请求进入“新能力周期”的阶段 A，改进的是架构能力本身而非某个架构。",
+      "图例还定义了 Process Flow Dependency（实线箭头）、Simplified Process Group（粗蓝箭头）与 Process Grouping Box/Process Name/Process Deliverable，但本图实际只用到文档形状、聚合菱形、虚线与点线。"
+    ],
+    "hierarchy_zh": "三层：阶段 F 是产出源；八个交付物是 L1；其中架构定义文档与实施与迁移计划各自聚合 L2 子交付物（过渡架构；战略、分解、项目章程）。实施与新周期 A 是交付物的下游接收者，不是子节点。",
+    "line_semantics_zh": "虚线箭头（Product Delivery）表示 F 产出交付物、以及交付物交付给实施；点线箭头（Input Dependency）表示交付物作为实施的输入、以及请求类交付物触发新的 A 阶段；实线 + 空心菱形表示聚合（菱形在整体一端）。图中没有流程先后线，左右位置表示“产出→接收”。",
+    "misreadings_zh": [
+      "不要把“最终过渡架构”当作与架构定义文档并列的独立交付物：菱形表示它被聚合进架构定义文档。",
+      "不要把项目章程当作必选项：图中明确标注 (Optional)。",
+      "不要把两个 A 圆理解为同一个阶段：一个是“新周期”，一个是“新能力周期”，前者启动新的架构建模，后者改进架构能力。",
+      "不要把实施（Implementation）算作架构项目的一部分：它在图右侧，是接收交付物的实施组织/项目。",
+      "中文稿重绘 SVG 自加了“TOGAF ADM 阶段 B–F”分组框，并漏画多条输入依赖线，不能据它判断交付物与实施之间的全部关系。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "phase_f",
+      "label_en": "F",
+      "label_zh": "阶段 F",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "position": "最左侧圆",
+      "order": 6
+    },
+    {
+      "id": "final_add",
+      "label_en": "Finalized Architecture Definition Document",
+      "label_zh": "最终架构定义文档",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "final_transition_arch",
+      "label_en": "Finalized Transition Architectures",
+      "label_zh": "最终过渡架构",
+      "type": "artifact",
+      "parent": "final_add",
+      "level": 3
+    },
+    {
+      "id": "final_roadmap",
+      "label_en": "Finalized Architecture Roadmap",
+      "label_zh": "最终架构路线图",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "governance_model",
+      "label_en": "Implementation Governance Model",
+      "label_zh": "实施治理模型",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "im_plan",
+      "label_en": "Implementation and Migration Plan (Detailed)",
+      "label_zh": "实施与迁移计划（详细）",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "im_strategy",
+      "label_en": "Implementation and Migration Strategy",
+      "label_zh": "实施与迁移战略",
+      "type": "artifact",
+      "parent": "im_plan",
+      "level": 3,
+      "order": 1
+    },
+    {
+      "id": "portfolio_breakdown",
+      "label_en": "Project and Portfolio Breakdown of the Implementation",
+      "label_zh": "实施的项目与组合分解",
+      "type": "artifact",
+      "parent": "im_plan",
+      "level": 3,
+      "order": 2
+    },
+    {
+      "id": "project_charters",
+      "label_en": "Project Charters (Optional)",
+      "label_zh": "项目章程（可选）",
+      "type": "artifact",
+      "parent": "im_plan",
+      "level": 3,
+      "order": 3
+    },
+    {
+      "id": "requirements_spec",
+      "label_en": "Finalized Architecture Requirements Specification",
+      "label_zh": "最终架构需求规格说明书",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "reusable_abbs",
+      "label_en": "Re-Usable Architecture Building Blocks",
+      "label_zh": "可复用架构构建块",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "order": 6
+    },
+    {
+      "id": "raw_request",
+      "label_en": "Requests for Architecture Work for a New Iteration of the ADM Cycle (If Any)",
+      "label_zh": "新一轮 ADM 周期的架构工作请求（如有）",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "order": 7
+    },
+    {
+      "id": "capability_cr",
+      "label_en": "CR for the Architecture Capability Arising from Lessons Learned",
+      "label_zh": "由经验教训产生的架构能力变更请求",
+      "type": "artifact",
+      "parent": null,
+      "level": 2,
+      "order": 8
+    },
+    {
+      "id": "implementation",
+      "label_en": "Implementation",
+      "label_zh": "实施",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "最右侧矩形",
+      "description_zh": "接收交付物的实施组织/项目。"
+    },
+    {
+      "id": "new_cycle_a",
+      "label_en": "A (New Cycle)",
+      "label_zh": "阶段 A（新周期）",
+      "type": "phase",
+      "parent": null,
+      "level": 2,
+      "position": "右下方第一个圆"
+    },
+    {
+      "id": "new_capability_a",
+      "label_en": "A (New Capability Cycle)",
+      "label_zh": "阶段 A（新能力周期）",
+      "type": "phase",
+      "parent": null,
+      "level": 2,
+      "position": "右下方第二个圆"
+    },
+    {
+      "id": "legend_box",
+      "label_en": "Legend",
+      "label_zh": "图例",
+      "type": "note",
+      "parent": null,
+      "position": "右下角方框"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "phase_f",
+      "to": "final_add",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "虚线产品交付"
+    },
+    {
+      "from": "phase_f",
+      "to": "final_roadmap",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "phase_f",
+      "to": "governance_model",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "phase_f",
+      "to": "im_plan",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "phase_f",
+      "to": "requirements_spec",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "phase_f",
+      "to": "reusable_abbs",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "phase_f",
+      "to": "raw_request",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "phase_f",
+      "to": "capability_cr",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward"
+    },
+    {
+      "from": "final_add",
+      "to": "final_transition_arch",
+      "type": "aggregation",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "空心菱形在架构定义文档一端，表示文档聚合过渡架构"
+    },
+    {
+      "from": "im_plan",
+      "to": "im_strategy",
+      "type": "aggregation",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "空心菱形在计划一端"
+    },
+    {
+      "from": "im_plan",
+      "to": "portfolio_breakdown",
+      "type": "aggregation",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "im_plan",
+      "to": "project_charters",
+      "type": "aggregation",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "final_add",
+      "to": "implementation",
+      "type": "consumes",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "点线输入依赖，经右侧竖向总线进入实施"
+    },
+    {
+      "from": "final_roadmap",
+      "to": "implementation",
+      "type": "consumes",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward"
+    },
+    {
+      "from": "governance_model",
+      "to": "implementation",
+      "type": "consumes",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward"
+    },
+    {
+      "from": "requirements_spec",
+      "to": "implementation",
+      "type": "consumes",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward"
+    },
+    {
+      "from": "reusable_abbs",
+      "to": "implementation",
+      "type": "consumes",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward"
+    },
+    {
+      "from": "im_plan",
+      "to": "implementation",
+      "type": "produces",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "label_en": "Product Delivery",
+      "label_zh": "产品交付"
+    },
+    {
+      "from": "raw_request",
+      "to": "new_cycle_a",
+      "type": "triggering",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "点线箭头指向 A（新周期）"
+    },
+    {
+      "from": "capability_cr",
+      "to": "new_capability_a",
+      "type": "triggering",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "点线箭头指向 A（新能力周期）"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_handover",
+      "kind": "parallel",
+      "name_zh": "交付物移交实施",
+      "steps": [
+        "phase_f",
+        "im_plan",
+        "implementation"
+      ]
+    }
+  ],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "Process Grouping Box（矩形分组框）",
+      "meaning_zh": "过程分组框（本图未实际使用）",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Name（两端带竖线的矩形）",
+      "meaning_zh": "过程名称框（本图未实际使用）",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Deliverable（波浪底文档形状）",
+      "meaning_zh": "过程交付物",
+      "explicit": true
+    },
+    {
+      "symbol": "Process Flow Dependency（实线箭头）",
+      "meaning_zh": "流程依赖（本图未实际使用）",
+      "explicit": true
+    },
+    {
+      "symbol": "Input Dependency（点线箭头）",
+      "meaning_zh": "输入依赖",
+      "explicit": true
+    },
+    {
+      "symbol": "Product Delivery（虚线箭头）",
+      "meaning_zh": "产品交付",
+      "explicit": true
+    },
+    {
+      "symbol": "Simplified Process Group（粗蓝箭头）",
+      "meaning_zh": "简化流程组（本图未实际使用）",
+      "explicit": true
+    },
+    {
+      "symbol": "TOGAF ADM Phases B to F（圆内文字）",
+      "meaning_zh": "TOGAF ADM 阶段 B–F（本图未实际使用）",
+      "explicit": true
+    },
+    {
+      "symbol": "空心菱形",
+      "meaning_zh": "聚合（整体—部分）",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "原图右侧竖向点线总线与多个交付物的连接关系在原尺寸下较细，本分析按“架构定义文档、路线图、治理模型、需求规格、可复用构建块均作为实施输入”记录；是否还包括最终过渡架构单独连线无法确认。",
+      "图例中的 Process Flow Dependency、Simplified Process Group、Process Grouping Box 等在本图正文区域没有实际出现，故只作为图例元素记录，未建立关系。",
+      "“Implementation”块的形状（两端带竖线的矩形）与图例 Process Name 相同，按语义判为实施过程/组织，而非普通过程名。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 74 页原图截图（含 2x2 放大分块）",
+      "英文 PDF 第 73–74 页正文",
+      "中文稿 G188e_架构项目管理.md 第 1250–1299 行及图内标签对照表 L1267–L1296",
+      "figs/g188e_fig3-3_en.png 与 figs/zh/g188e_fig3-3_zh.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G188/fig3-3",
+    "asset": "figs/g188e_fig3-3_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "06"
+  }
+}

@@ -1,0 +1,2760 @@
+{
+  "schema_version": "omnichannel-adm-delivery-materials/1",
+  "classification": "wholly-fictional-scenario-authoring",
+  "notice": "这是同一全渠道情景的新增交付物材料补充。原始ADM和充分材料的事实保留；章节解释与新增沟通计划是本轮作者提案，不冒称旧材料已含新增事实或真实批准。 本轮新增 R1–R4 关系投影及 V2 候选边界见 full_closure/business-supplement.md；reviewer-turned-remediator 不自授独立接受。",
+  "raw_source_files": {
+    "adm-business-materials.md": "9cdf1d905a993d01328b04a95470837880b07f30aa529c88ac8943a4f7f3efd0",
+    "sufficient-business-materials.md": "ff6a4f5de8c26e08f26dce7d6dcbcc540a8fc564bda228bc25945a365a3ccc9b"
+  },
+  "policy": {
+    "baseline": {
+      "version": "V2-candidate",
+      "offline_max_items": 1,
+      "pending_hours": 8
+    },
+    "change": {
+      "version": "V2-candidate",
+      "offline_max_items": 1,
+      "pending_hours": 8,
+      "decision_date": "2026-12-04",
+      "affected_phases": [
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "actual_approval": "not-granted"
+    }
+  },
+  "given_observations": {
+    "online_A_p95_ms": 160,
+    "online_B_p95_ms": 420,
+    "online_target_ms": 300,
+    "request_count": 1000,
+    "recovery_completed": 96,
+    "recovery_population": 100,
+    "recovery_target_ratio": 0.95,
+    "offline_confirmed": 118,
+    "offline_population": 120,
+    "offline_manual_exceptions": 2
+  },
+  "planning": {
+    "value_weights": [
+      0.7,
+      0.3
+    ],
+    "risk_weights": [
+      0.6,
+      0.4
+    ],
+    "work_packages": [
+      {
+        "id": "WP-ONLINE",
+        "value_scores": [
+          5,
+          2
+        ],
+        "risk_scores": [
+          2,
+          4
+        ],
+        "estimated_hours": 80,
+        "available_hours": 100
+      },
+      {
+        "id": "WP-OFFLINE",
+        "value_scores": [
+          3,
+          5
+        ],
+        "risk_scores": [
+          4,
+          4
+        ],
+        "estimated_hours": 120,
+        "available_hours": 140
+      }
+    ],
+    "budget_CNY": null,
+    "ROI": null,
+    "experiment_window": {
+      "start": "2026-11-17",
+      "end": "2026-11-30",
+      "meaning": "共同隔离实验窗口，非应用生产迁移日期；中央契约先于恢复联调，日志开发可并行；未给细分排班"
+    }
+  },
+  "deliverables": [
+    {
+      "deliverable_id": "architecture-building-blocks",
+      "phases": [
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构构建块用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "CAP-RESERVE",
+        "IF-RESERVE",
+        "IF-RECOVERY",
+        "REQ-CONSISTENCY",
+        "REQ-OFFLINE"
+      ],
+      "acceptance": "逐接口核对中央确认、幂等/隔离和物流门槛与需求映射；产品选型不得冒充ABB定义。",
+      "unknowns": [
+        "生产负载、真实保留期及产品实现未验证",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "职责与边界",
+          "conclusion": "中央承诺ABB只负责权威库存预占及最终确认；门店受理ABB只负责持久记录和待确认；物流门槛ABB拒绝未确认订单。支付和财税不纳入本次ABB。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "question": "职责与边界如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "功能与接口",
+          "conclusion": "预占输入包含order_id及数量，返回reservation_id与确认结果；恢复输入包含event_id、order_id和policy_version，同事件不同订单隔离。只有确认记录能触发物流。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "question": "功能与接口如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "质量与约束",
+          "conclusion": "在线最终确认p95不超过300ms；重复事件不得重复扣减，断连受理不构成库存承诺。V1门店最多2件、等待不超过24小时；真实吞吐及数据保护尚未验证。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "question": "质量与约束如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "复用与实现",
+          "conclusion": "保留中央库存权威和既有订单应用；候选SBB为中央预占实现、持久日志及恢复适配。供应商、产品配置与生产容量尚无依据，ABB不等同采购清单。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "question": "复用与实现如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "architecture-contract",
+      "phases": [
+        "G"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构合同用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "REQ-CONSISTENCY",
+        "REQ-OFFLINE",
+        "IF-RECOVERY",
+        "OM-CONTRACT",
+        "OM-MEASURE"
+      ],
+      "acceptance": "核对当事角色、范围、1000请求/300ms/95%准则、豁免条件和到期关闭，真实签署不得由情景接受推导。",
+      "unknowns": [
+        "真实法律当事人、实际签署与生产批准未提供",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "缔约方与范围",
+          "conclusion": "情景缔约责任为业务所有者定义承诺政策、架构团队维护设计、交付负责人执行隔离试验；合同只覆盖11月17至30日实验，无真实法律签署。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G"
+          ],
+          "question": "缔约方与范围如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "架构义务",
+          "conclusion": "交付方必须实施中央确认、持久恢复、event_id幂等、冲突隔离和物流拒绝；业务方必须维持人工异常接管。引用REQ-CONSISTENCY及REQ-OFFLINE而不以队列回执代替承诺。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G"
+          ],
+          "question": "架构义务如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "验收与证据",
+          "conclusion": "给定1000请求不超量、在线160ms、重复不扣减、冲突隔离、未确认物流拒绝；恢复100条中96条在30分钟内完成，超过95%实验门槛。结果是给定虚构观察，非本工具性能测量。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G"
+          ],
+          "question": "验收与证据如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "偏离与变更",
+          "conclusion": "DEV-AUDIT于11月23日获实验限定豁免，条件为独立归档、每日核查、11月30日到期；11月29日给定复核修复关闭。任何政策V2变更重新提交影响与验收。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G"
+          ],
+          "question": "偏离与变更如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "状态与签署",
+          "conclusion": "情景委员会11月30日关闭实验交付；本结构化文件保持candidate/not-started，实际合同签署、部署和生产批准均未授予。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G"
+          ],
+          "question": "状态与签署如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "architecture-definition-document",
+      "phases": [
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构定义文档用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "CAP-ORDER",
+        "CAP-RESERVE",
+        "CAP-LOGISTICS",
+        "APP-ORDER",
+        "APP-STORE",
+        "APP-STOCK",
+        "IF-RESERVE",
+        "IF-RECOVERY",
+        "LOCAL-ORDER-RECORD",
+        "CENTRAL-ORDER-RECORD",
+        "OM-PLATFORM",
+        "OM-DATA"
+      ],
+      "acceptance": "逐域核对基线、目标、差距和权衡均有原始材料及稳定对象；中央数据权威与应用/物流方向一致。",
+      "unknowns": [
+        "真实成本、生产规模、保护措施和保留期未提供",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "语境与关注点",
+          "conclusion": "范围为订单、库存、物流、门店断连恢复及异常运营；四个架构域并行，门店属于渠道和运营参与者，不构成第五域。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "question": "语境与关注点如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "基线架构",
+          "conclusion": "业务基线为纸面断连受理和不一致物流门槛；数据缺纸面与中央稳定关联；应用为人工录入及各自对接物流；技术为单中心与门店终端，断连不可访问中央。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "question": "基线架构如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "目标架构",
+          "conclusion": "目标业务分离受理、确认和人工异常；数据保留order/event/reservation/policy身份；应用由门店日志、中央预占和恢复接口协作；技术增加持久化、认证通信、幂等隔离与观察。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "question": "目标架构如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "差距与过渡",
+          "conclusion": "GAP-SEMANTICS、GAP-DURABILITY、GAP-OPERATIONS分别映射WP-ONLINE、WP-OFFLINE及两个过渡；恢复联调依赖中央契约，日志开发可并行。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "question": "差距与过渡如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "决策与未决项",
+          "conclusion": "A同步最终确认160ms符合300ms目标，B异步420ms不符；两者库存实验均无超量。选择A只针对已给定线上目标，成本、保护、生产规模及保留期仍未决。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "question": "决策与未决项如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "architecture-requirements-specification",
+      "phases": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构需求规格用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "REQ-CONSISTENCY",
+        "REQ-OFFLINE",
+        "IF-RECOVERY",
+        "OM-CONSTRAINT"
+      ],
+      "acceptance": "以原材料重算门槛并跟踪全部依赖，1件/8小时变更须使旧阶段和相关交付物内容指纹失效。",
+      "unknowns": [
+        "生产性能、安全与真实授权的验收依据未提供",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "范围与来源",
+          "conclusion": "需求来自业务所有者的中央承诺政策及门店断连材料；范围为隔离试点，不承诺生产可用性或财务收益。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "question": "范围与来源如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "需求规格",
+          "conclusion": "必须中央预占成功才能确认、物流只接确认、event_id去重、同事件不同订单隔离；V1离线2件及24小时门槛均是明确业务限制。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "question": "需求规格如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "验收方法",
+          "conclusion": "分别检验1000请求库存不超量、线上p95≤300ms、重复扣减为0、冲突全隔离、未确认物流全拒绝；恢复30分钟完成比率≥95%。真实生产负载另立验收。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "question": "验收方法如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "追溯与变更",
+          "conclusion": "每项需求关联能力、接口、工作包和变更；H提出V2的1件及8小时后，B/C/D/E/F/G记录必须重审，保留V1并补回未确认订单人工核对义务。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "question": "追溯与变更如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "architecture-principles",
+      "phases": [
+        "Preliminary"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构原则用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-PRINCIPLE",
+        "CAP-RESERVE",
+        "ORDER-CONFIRMED"
+      ],
+      "acceptance": "检查业务连续受理未被误写为断连确认，任何例外都有授权/期限及复核边界。",
+      "unknowns": [
+        "真实原则治理授权未提供"
+      ],
+      "sections": [
+        {
+          "title": "适用语境",
+          "conclusion": "中央承诺原则适用于订单、库存与物流试点，由库存所有者解释业务政策，架构团队负责追踪，委员会处理实验例外。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "适用语境如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "原则条目",
+          "conclusion": "只有中央原子预占成功才确认；受理不等于确认；物流只接已确认；稳定ID和版本贯通。这样避免分区中凭本地受理向全企业超卖。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "原则条目如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "冲突与例外",
+          "conclusion": "断连连续受理与一致承诺冲突时，保留待确认和人工异常而不扩大承诺；日志豁免只在实验条件及期限内生效，政策变化另审。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "冲突与例外如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "architecture-repository",
+      "phases": [
+        "Preliminary",
+        "H"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构存储库用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-PRINCIPLE",
+        "OM-STANDARD",
+        "REQ-CONSISTENCY",
+        "REQ-OFFLINE"
+      ],
+      "acceptance": "核对实际23份输出文件、来源、版本和稳定ID；改变源材料或所选对象后旧验收不得继续通过。",
+      "unknowns": [
+        "生产访问控制和真实资产维护人未确认"
+      ],
+      "sections": [
+        {
+          "title": "结构与职责",
+          "conclusion": "存储库分参考资料、组织标准、候选设计、治理决定、历史版本；架构团队维护模型与引用，业务责任人拥有政策解释和风险接受。",
+          "source_anchors": [
+            "Preliminary",
+            "H"
+          ],
+          "question": "结构与职责如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "资产索引",
+          "conclusion": "本次实际交付索引以稳定ID记录23种交付物、模型版本、源材料指纹和路径；每种交付物引用其阶段工作记录及章节证据，真实批准状态单列。",
+          "source_anchors": [
+            "Preliminary",
+            "H"
+          ],
+          "question": "资产索引如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "复用与引用",
+          "conclusion": "需求、能力、应用、接口及工作包由同一模型共享；交付物以view_id和entity_id选择实际对象，不复制独立不一致的模板事实。",
+          "source_anchors": [
+            "Preliminary",
+            "H"
+          ],
+          "question": "复用与引用如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "维护与治理",
+          "conclusion": "V1资产只读留存；V2候选追加材料版本和影响范围，旧阶段及交付物内容指纹不再匹配时先标需审阅；未受影响对象不因版本号改动自动失效。",
+          "source_anchors": [
+            "Preliminary",
+            "H"
+          ],
+          "question": "维护与治理如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "architecture-roadmaps",
+      "phases": [
+        "E",
+        "F",
+        "H"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构路线图用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "WP-ONLINE",
+        "WP-OFFLINE",
+        "TRANS-ONLINE",
+        "TRANS-OFFLINE",
+        "OM-BENEFIT"
+      ],
+      "acceptance": "独立复算4.1/3.6和2.8/4.0；核对中央契约先于恢复联调而日志开发仍可并行。",
+      "unknowns": [
+        "预算、真实ROI和生产排班未知",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "变革目标",
+          "conclusion": "路线图追求正确库存承诺和可审计恢复；118/120只是给定实验确认比例，收入增长和全企业收益未知。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "E",
+            "F",
+            "H"
+          ],
+          "question": "变革目标如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "工作包与依赖",
+          "conclusion": "WP-ONLINE交付中央预占与物流门槛，WP-OFFLINE交付日志、重放、隔离和人工异常；恢复联调依赖中央契约，日志开发不必串行等待。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "E",
+            "F",
+            "H"
+          ],
+          "question": "工作包与依赖如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "过渡与里程碑",
+          "conclusion": "TRANS-ONLINE先在线实验，TRANS-OFFLINE再演练断连恢复；进入须有契约、数据对账与运营接管，退出失败则停止新增并保留存量逐笔核对。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "E",
+            "F",
+            "H"
+          ],
+          "question": "过渡与里程碑如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "排序与决策",
+          "conclusion": "事前价值权重0.7/0.3得到4.1/3.6，风险权重0.6/0.4得到2.8/4.0；在线80/100小时、离线120/140小时。指数分开呈现，预算未知不计算ROI。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "E",
+            "F",
+            "H"
+          ],
+          "question": "排序与决策如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "architecture-vision",
+      "phases": [
+        "A"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构愿景用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "CAP-FULFIL",
+        "OM-STAKEHOLDER",
+        "OM-PROJECT",
+        "OM-BENEFIT"
+      ],
+      "acceptance": "核对受益方、排除范围与A/B的160/420ms权衡，不产生收入或生产可用性结论。",
+      "unknowns": [
+        "生产负载、真实成本与总体收益未知"
+      ],
+      "sections": [
+        {
+          "title": "问题与价值",
+          "conclusion": "纸面断连受理与物流门槛不一致可能形成无效库存承诺；受益人为库存所有者、门店运营和订单履约责任方，价值是承诺可追溯。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "问题与价值如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "范围与边界",
+          "conclusion": "覆盖在线中央预占、断连受理、恢复和人工异常；排除支付、财税、全企业平台重构和实际扩店投资。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "范围与边界如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "高层方案",
+          "conclusion": "高层方案分离受理与确认，中央提供唯一承诺，门店保留待确认日志，物流受确认门槛保护；线上A与异步B作为实际比较选项。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "高层方案如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "可行性与风险",
+          "conclusion": "已声明设计任务有情景容量，隔离实验可启动；采购、真实排班、生产容量、安全和总成本证据不足。恢复依赖中央，人工接管仍需保留。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "可行性与风险如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "成功与下一步",
+          "conclusion": "以1000请求不超量和线上p95≤300ms判断实验；接受设计工作不等于上线，先完成跨域定义与实验方案，再由真实授权方决定后续。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "成功与下一步如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "business-goals-objectives",
+      "phases": [
+        "A",
+        "B"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景业务目标与目的用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-GOAL",
+        "OM-OBJECTIVE",
+        "OM-DRIVER",
+        "CAP-RESERVE"
+      ],
+      "acceptance": "检查目标、单位、实验分母和期限一致，118/120不外推收入或全企业结果。",
+      "unknowns": [
+        "收入基线、经营收益和全企业观察缺失"
+      ],
+      "sections": [
+        {
+          "title": "目标体系",
+          "conclusion": "业务目标是减少无效库存承诺；架构目标是建立中央确认、待确认及异常的共同语义，不把局部实验目标冒称全企业经营改善。",
+          "source_anchors": [
+            "A",
+            "B"
+          ],
+          "question": "目标体系如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "可衡量目的",
+          "conclusion": "实验目标为1000请求不超量、在线p95≤300ms、恢复30分钟比例≥95%；经营责任方在11月30日实验交付点评审，收入目标没有给定。",
+          "source_anchors": [
+            "A",
+            "B"
+          ],
+          "question": "可衡量目的如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "架构贡献",
+          "conclusion": "CAP-ORDER、CAP-RESERVE、CAP-LOGISTICS支撑承诺闭环；118/120观察可支持限定离线集的状态报告，不能转换为现金收益。",
+          "source_anchors": [
+            "A",
+            "B"
+          ],
+          "question": "架构贡献如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "business-principles",
+      "phases": [
+        "Preliminary",
+        "A"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景业务原则用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-PRINCIPLE",
+        "OM-STAKEHOLDER",
+        "ORDER-PENDING",
+        "ORDER-CONFIRMED"
+      ],
+      "acceptance": "物流只能用已确认状态，人工接管与库存所有者责任不因技术实现消失。",
+      "unknowns": [
+        "真实业务授权及风险接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "业务语境",
+          "conclusion": "订单、库存和物流共同维护承诺可信，门店业务连续性不以虚假确认实现；业务所有者承担承诺政策和风险接受。",
+          "source_anchors": [
+            "Preliminary",
+            "A"
+          ],
+          "question": "业务语境如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "原则与影响",
+          "conclusion": "中央原子预占成功后才能最终承诺，受理记录必须持久且可审计；离线业务保持待确认，人工异常是可见运营职责。",
+          "source_anchors": [
+            "Preliminary",
+            "A"
+          ],
+          "question": "原则与影响如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "执行与例外",
+          "conclusion": "物流责任方拒绝队列回执作为发货许可；委员会只可在明确范围、条件及到期日下授予实验例外，真实业务批准另行提供。",
+          "source_anchors": [
+            "Preliminary",
+            "A"
+          ],
+          "question": "执行与例外如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "business-drivers",
+      "phases": [
+        "A"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景业务驱动因素用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-DRIVER",
+        "OM-GOAL",
+        "CAP-FULFIL"
+      ],
+      "acceptance": "每个驱动可回到给定基线，不将内部假设登记成现场观察。",
+      "unknowns": [
+        "现场访谈与真实损失金额未提供"
+      ],
+      "sections": [
+        {
+          "title": "驱动因素",
+          "conclusion": "内部驱动为纸面断连记录缺统一状态、中央关联缺失以及物流门槛不一致；证据是明确给定的基线情景，不是现场访谈结果。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "驱动因素如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "业务影响",
+          "conclusion": "不改进会增加错误承诺、重复重放和人工遗漏的风险；11月17至30日隔离试点提供验证机会，实际扩店时限与商业损失未知。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "业务影响如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "目标响应",
+          "conclusion": "响应为中央确认、持久恢复、身份追踪和物流门槛；先请求限定设计和实验，避免无报价与负载证据就启动全企业采购。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "目标响应如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "capability-assessment",
+      "phases": [
+        "A",
+        "B",
+        "E"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景能力评估用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "CAP-ORDER",
+        "CAP-RESERVE",
+        "CAP-LOGISTICS",
+        "ASSIGN-CH",
+        "ASSIGN-EA",
+        "ASSIGN-SEG",
+        "ASSIGN-A"
+      ],
+      "acceptance": "区分人员行为、设计期间容量、实施资源与成熟度，培训或专家支持不能自动授予个人能力等级。",
+      "unknowns": [
+        "完整真实行为证据、生产实施排班和成熟度量表未提供"
+      ],
+      "sections": [
+        {
+          "title": "评估目的",
+          "conclusion": "评估订单、库存与物流能力及本次采用准备度；不进行全组织ACMM认证，也不把人员设计任务的容量推断为实施容量。",
+          "source_anchors": [
+            "A",
+            "B",
+            "E"
+          ],
+          "question": "评估目的如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "量尺与证据",
+          "conclusion": "能力评价采用已给定基线/目标工作语义和缺口；人员采用充分材料的行为及8/16/24/32小时任务、10/20/28/40小时可用量。无成熟度量表则成熟度未知。",
+          "source_anchors": [
+            "A",
+            "B",
+            "E"
+          ],
+          "question": "量尺与证据如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "现状与目标",
+          "conclusion": "基线缺统一待确认、持久日志与恢复责任，目标中央确认与异常可追踪；四项设计任务可供情景评审，额外实施/运维能力须分开判断。",
+          "source_anchors": [
+            "A",
+            "B",
+            "E"
+          ],
+          "question": "现状与目标如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "改进行动",
+          "conclusion": "先验证中央契约与物流门槛，再验证离线恢复；补齐真实排班、保护和负载，新增行为证据后复评；课程或开发计划不能自动提升能力等级。",
+          "source_anchors": [
+            "A",
+            "B",
+            "E"
+          ],
+          "question": "改进行动如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "change-request",
+      "phases": [
+        "G",
+        "H"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景变更请求用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-CHANGE",
+        "REQ-OFFLINE",
+        "IF-RECOVERY",
+        "TRANS-OFFLINE",
+        "RISK-STOCK"
+      ],
+      "acceptance": "核对V1/V2的2→1和24→8、局部迭代理由及受影响对象，旧决定不能支持新政策完成。",
+      "unknowns": [
+        "V2生产实施和重新验收尚未发生",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "变更事实",
+          "conclusion": "12月4日情景业务负责人提出V2：离线限量2改1、等待24小时改8小时，中央确认与物流原则不变。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G",
+            "H"
+          ],
+          "question": "变更事实如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "影响与选项",
+          "conclusion": "影响IF-RECOVERY、REQ-OFFLINE、风险、运营、TRANS-OFFLINE与测试；继续V1、局部迭代及超范围新周期需区分，成本未知。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G",
+            "H"
+          ],
+          "question": "影响与选项如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "处置与责任",
+          "conclusion": "情景决定在原订单/库存/物流范围内局部迭代，由相关责任人重审B/C/D/E/F/G；真实政策实施及上线审批未授予。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G",
+            "H"
+          ],
+          "question": "处置与责任如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "执行与回溯",
+          "conclusion": "保留V1事实与候选V2材料；混合队列、8小时边界及人工异常重新验证，旧输出或旧验收指纹不支持V2完成。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G",
+            "H"
+          ],
+          "question": "执行与回溯如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "communications-plan",
+      "phases": [
+        "A",
+        "G",
+        "H"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景沟通计划用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-STAKEHOLDER",
+        "OM-ACTOR",
+        "OM-ROLE"
+      ],
+      "acceptance": "每类对象有关注点、候选渠道和反馈责任；新增计划提案明确标记，未发送记录不计执行。",
+      "unknowns": [
+        "真实通讯录、会议安排及发送回执未提供"
+      ],
+      "sections": [
+        {
+          "title": "对象与关注点",
+          "conclusion": "库存所有者关注承诺政策，门店运营关注等待与接管，订单/物流负责人关注确认门槛，安全数据方关注保护缺口，交付方关注契约和验收。",
+          "source_anchors": [
+            "A",
+            "G",
+            "H"
+          ],
+          "question": "对象与关注点如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "内容与渠道",
+          "conclusion": "新增情景计划提案：11月13日跨域评审共享四域定义，11月16日发送实验工作包与检查点，11月23至30日用豁免台账每日核查；渠道为候选共享库和评审会议，未声称实际发送。",
+          "source_anchors": [
+            "A",
+            "G",
+            "H"
+          ],
+          "question": "内容与渠道如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "责任与反馈",
+          "conclusion": "新增情景计划提案：架构团队汇编版本及未决项，业务所有者反馈政策，交付负责人反馈测试，冲突升级情景委员会；实际通讯录、会议及发送回执未知。",
+          "source_anchors": [
+            "A",
+            "G",
+            "H"
+          ],
+          "question": "责任与反馈如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "compliance-assessment",
+      "phases": [
+        "G"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景合规评估用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "REQ-CONSISTENCY",
+        "REQ-OFFLINE",
+        "OM-CONTROL",
+        "OM-MEASURE",
+        "OM-CONTRACT"
+      ],
+      "acceptance": "独立按给定观察核对满足/偏离/缺证据，96/100应为96%；未给定生产测试不可判通过。",
+      "unknowns": [
+        "真实生产性能、安全、运行和业务接受缺证据",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "评估范围",
+          "conclusion": "评估V1中央确认、离线恢复及物流约束在隔离实验的符合性；不覆盖生产安全认证、容量和真实运行符合性。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G"
+          ],
+          "question": "评估范围如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "证据与结果",
+          "conclusion": "给定1000请求无超量、160ms满足300ms、重复无重复扣减、冲突隔离、未确认物流拒绝、恢复96/100≥95%；日志保留偏离单列DEV-AUDIT。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G"
+          ],
+          "question": "证据与结果如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "风险与处置",
+          "conclusion": "DEV-AUDIT实验豁免期限11月30日，独立归档及每日核查为条件，11月29日给定修复关闭；生产缺证据仍不能判为符合。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G"
+          ],
+          "question": "风险与处置如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "评审结论",
+          "conclusion": "情景委员会11月30日关闭实验，作为给定案例事实记录；本次新制品仍等待不同评审人审阅，实际生产接受、部署与业务批准不由生成器授予。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "G"
+          ],
+          "question": "评审结论如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "implementation-migration-plan",
+      "phases": [
+        "F"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景实施与迁移计划用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "WP-ONLINE",
+        "WP-OFFLINE",
+        "TRANS-ONLINE",
+        "TRANS-OFFLINE",
+        "OM-MIGRATION"
+      ],
+      "acceptance": "核对80≤100和120≤140，时间与依赖、停止新增和逐笔核对同时存在，禁止删除未确认记录。",
+      "unknowns": [
+        "生产采购成本、实施排班和容量未知",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "实施安排",
+          "conclusion": "实验窗口11月17至30日，WP-ONLINE估算80小时/可用100小时，WP-OFFLINE估算120/可用140小时；生产采购成本与排班未知。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "F"
+          ],
+          "question": "实施安排如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "依赖与排期",
+          "conclusion": "中央契约及物流门槛先达到联调条件，门店日志可并行开发；恢复联调依赖中央契约，不以阶段字母强制B/C/D串行。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "F"
+          ],
+          "question": "依赖与排期如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "迁移与运营",
+          "conclusion": "先在线隔离实验，再离线队列恢复；本地记录保留身份及policy_version，按事件和订单对账，监控等待年龄、冲突、积压及人工接管。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "F"
+          ],
+          "question": "迁移与运营如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "验收与回退",
+          "conclusion": "依据明确1000请求、300ms、95%恢复与幂等/隔离门槛；失败冻结新受理并逐笔核对，保留未确认记录，不通过删除队列掩盖差异。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "F"
+          ],
+          "question": "验收与回退如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "organization-model",
+      "phases": [
+        "Preliminary"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景企业架构组织模型用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-ORGANIZATION",
+        "OM-ROLE",
+        "OM-ACTOR",
+        "ROLE-CHIEF",
+        "ROLE-EA",
+        "ROLE-SEG",
+        "ROLE-SOL",
+        "ASSIGN-A"
+      ],
+      "acceptance": "核对四类角色及任务期间，不把专项协调画为雇佣汇报，不把设计容量等同实施资源。",
+      "unknowns": [
+        "真实任命、授权与全期间排班未提供"
+      ],
+      "sections": [
+        {
+          "title": "使命与服务",
+          "conclusion": "EA实践复用于订单、库存与物流跨分段设计和隔离试点；服务对象为经营、库存、门店及交付责任方，不重建整个组织。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "使命与服务如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "组织与职责",
+          "conclusion": "委员会评审企业约束和例外，业务负责人承担政策及风险，架构团队分析，交付方实施实验；同级解决方案架构师可协调，不产生人事汇报。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "组织与职责如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "技能与容量",
+          "conclusion": "充分材料四任务8/16/24/32小时，对应10/20/28/40小时；能力结论只限给定行为与期间，实施运维工时另设80/120与100/140，不混同。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "技能与容量如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "治理与绩效",
+          "conclusion": "复用业务线和项目控制，阶段关注中央确认、恢复和交付证据；不足的真实任命、完整排班与授权保持未决，培训不等于等级提升。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "治理与绩效如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "request-for-architecture-work",
+      "phases": [
+        "Preliminary",
+        "A",
+        "H"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构工作请求用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-PROJECT",
+        "OM-DRIVER",
+        "OM-GOAL"
+      ],
+      "acceptance": "受理仅限设计与实验，范围外另请求；真实权限与投资未给定则保留未知。",
+      "unknowns": [
+        "真实受理权限与投资优先级未提供"
+      ],
+      "sections": [
+        {
+          "title": "请求与动机",
+          "conclusion": "情景发起人为修正纸面断连记录与物流门槛问题委托架构设计；H的V2改变政策但范围不扩张，提出局部迭代请求。",
+          "source_anchors": [
+            "Preliminary",
+            "A",
+            "H"
+          ],
+          "question": "请求与动机如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "范围与约束",
+          "conclusion": "本次限在线预占、断连受理恢复、异常与隔离实验；支付财税和实际扩店不在范围，时间11月9日至12月4日，成本与生产容量未明。",
+          "source_anchors": [
+            "Preliminary",
+            "A",
+            "H"
+          ],
+          "question": "范围与约束如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "预期成果",
+          "conclusion": "要求回答A/B选项、中央权威、身份与恢复、工作包依赖、治理及退出；交付23种适用的候选结构化文件并保留未知，不要求虚构采购批准。",
+          "source_anchors": [
+            "Preliminary",
+            "A",
+            "H"
+          ],
+          "question": "预期成果如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "受理与优先级",
+          "conclusion": "情景11月10日接受设计实验说明；超出范围的新需求交跨周期存储库另提工作请求，真实受理权限和投资优先级未授予。",
+          "source_anchors": [
+            "Preliminary",
+            "A",
+            "H"
+          ],
+          "question": "受理与优先级如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "requirements-impact-assessment",
+      "phases": [
+        "Requirements",
+        "H"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景需求影响评估用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-CHANGE",
+        "REQ-OFFLINE",
+        "IF-RECOVERY",
+        "TRANS-OFFLINE",
+        "RISK-STOCK"
+      ],
+      "acceptance": "跟踪接口/风险/运营/过渡/验证和阶段，不误将所有新需求叫作被意外删除的gap requirement。",
+      "unknowns": [
+        "V2实施成本和混合队列实验结果未提供",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "变更与依据",
+          "conclusion": "比较V1的2件/24小时和V2的1件/8小时；变化来自12月4日情景业务负责人，中央确认规则与平台边界未改变。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "Requirements",
+            "H"
+          ],
+          "question": "变更与依据如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "影响清单",
+          "conclusion": "受影响需求REQ-OFFLINE、IF-RECOVERY、风险及运营、TRANS-OFFLINE、实验验证；正式交付物的章节和阶段输出引用同一稳定对象。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "Requirements",
+            "H"
+          ],
+          "question": "影响清单如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "成本风险与选项",
+          "conclusion": "局部迭代成本未测，混合policy_version队列及误隔离风险增大；维持V1或局部改变须说明责任，不能用旧160ms结果证明8小时恢复边界。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "Requirements",
+            "H"
+          ],
+          "question": "成本风险与选项如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "建议与决策",
+          "conclusion": "建议重开B/C/D/E/F/G相关工作、追加V2候选并保留V1；需求管理步骤10补回被意外漏掉的未确认记录与人工核对义务，不将所有新需求称为gap requirement。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "Requirements",
+            "H"
+          ],
+          "question": "建议与决策如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "solution-building-blocks",
+      "phases": [
+        "E",
+        "G"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景解决方案构建块用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "APP-ORDER",
+        "APP-STORE",
+        "APP-STOCK",
+        "OM-TECHNOLOGY",
+        "IF-RESERVE",
+        "IF-RECOVERY"
+      ],
+      "acceptance": "核对候选实现职责与ABB/需求，未知厂商和版本不以推测填充，退出义务明确。",
+      "unknowns": [
+        "供应商、版本、生产容量与支持周期未知",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "实现边界",
+          "conclusion": "候选SBB为中央原子预占实现、门店持久日志和恢复适配；实际厂商、产品、配置及部署版本未知，文件不冒称已采购部署。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "E",
+            "G"
+          ],
+          "question": "实现边界如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "ABB 与需求映射",
+          "conclusion": "中央实现承诺ABB及REQ-CONSISTENCY，日志/恢复实现离线ABB及REQ-OFFLINE，物流门槛实现未确认拒绝义务；以稳定ID追踪。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "E",
+            "G"
+          ],
+          "question": "ABB 与需求映射如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "接口与依赖",
+          "conclusion": "接口携带order_id/event_id/reservation_id/policy_version，恢复联调依赖中央契约；加密实现和真实保留期须真实责任方给定。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "E",
+            "G"
+          ],
+          "question": "接口与依赖如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "验证与生命周期",
+          "conclusion": "生命周期先隔离实验后待真实评审；给定幂等、隔离及恢复观察只能支持本情景，退出停止新受理并保留存量，未知供应商支持期不能填为已覆盖。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "E",
+            "G"
+          ],
+          "question": "验证与生命周期如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "statement-of-work",
+      "phases": [
+        "A"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景架构工作说明书用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-PROJECT",
+        "OM-STAKEHOLDER",
+        "WP-ONLINE",
+        "WP-OFFLINE"
+      ],
+      "acceptance": "核对23种候选交付物、94步骤、阶段计划和验收边界；情景签署不能被输出为真实批准。",
+      "unknowns": [
+        "真实预算、签署、采购和部署授权未提供",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "背景与目标",
+          "conclusion": "工作目的为统一库存承诺与恢复语义，以1000请求无超量、线上p95≤300ms和30分钟恢复≥95%作为实验准则；不以渲染证明性能。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "背景与目标如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "范围与交付",
+          "conclusion": "本次提供9阶段/94来源步骤、共享模型、23种候选交付物及政策变更失效证据；只覆盖设计与隔离试点，真实采购部署及财务收益不纳入。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "范围与交付如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "方法与计划",
+          "conclusion": "11月9日裁剪、10日委托、13日B/C/D并行评审、16日工作包与资源、17至30日实验、12月1至4日观察；设计和实施容量分开。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "方法与计划如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "治理与变更",
+          "conclusion": "委员会负责实验约束与豁免，业务所有者决策政策，架构师维护分析；V2触发相关阶段和交付物重审，未知成本或范围扩大转新请求。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "A"
+          ],
+          "question": "治理与变更如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "tailored-architecture-framework",
+      "phases": [
+        "Preliminary"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景裁剪后的架构框架用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-PRINCIPLE",
+        "REQ-CONSISTENCY",
+        "REQ-OFFLINE"
+      ],
+      "acceptance": "B/C/D并行、E整合、G/H与持续需求管理保留；每项图表裁剪有理由和来源。",
+      "unknowns": [
+        "真实组织治理授权和跨平台验证未提供"
+      ],
+      "sections": [
+        {
+          "title": "裁剪语境",
+          "conclusion": "复用现有EA、业务线和项目控制，只为订单/库存/物流的设计与隔离实验裁剪；不是全组织成熟度提升项目。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "裁剪语境如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "方法与治理",
+          "conclusion": "Preliminary复用实践，B/C/D并行分析，E整合跨域差距，F安排资源，G/H保留实施观察及反馈，持续需求管理不变为额外Phase I。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "方法与治理如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "内容与视点",
+          "conclusion": "选择能力、接口、信息、状态、路线图、角色与章节证据；表示法是可审查项目图表，不声称严格UML/BPMN。实际表列适用交付物全部组装。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "内容与视点如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "工具与维护",
+          "conclusion": "共享模型派生文件，来源指纹与历史版本可追溯；程序只检查引用、计算及变更失效，专业语义、权限和真实接受由有授权的责任方另审。",
+          "source_anchors": [
+            "Preliminary"
+          ],
+          "question": "工具与维护如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "implementation-governance-model",
+      "phases": [
+        "F",
+        "G"
+      ],
+      "applicability": "applicable-scenario-draft",
+      "scope_rationale": "本情景实施治理模型用于设计、隔离实验与变化追踪；真实批准和实施单独取证。",
+      "owner": "情景架构协调人与所列业务责任人；无真实授权",
+      "support_ids": [
+        "OM-ROLE",
+        "OM-ACTOR",
+        "OM-ORGANIZATION",
+        "OM-MEASURE",
+        "OM-CONTRACT"
+      ],
+      "acceptance": "检查角色决策权、检查点、成功失败准则、豁免期限和真实授权缺口。",
+      "unknowns": [
+        "真实角色任命、授权和生产检查记录未提供",
+        "V2真实实施排期、独立性能观察与生产接受未提供"
+      ],
+      "sections": [
+        {
+          "title": "治理过程",
+          "conclusion": "复用项目控制并增加中央契约、恢复联调、试验符合性、豁免到期和交付收尾检查点；异常先隔离，再人工核对，政策变化提交影响评估。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "F",
+            "G"
+          ],
+          "question": "治理过程如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "治理组织结构",
+          "conclusion": "情景委员会接收企业约束和例外，业务线保留政策责任，架构团队给出跨域分析，交付负责人组织隔离实验；不产生新的雇佣汇报线。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "F",
+            "G"
+          ],
+          "question": "治理组织结构如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "治理角色与责任",
+          "conclusion": "库存所有者定义承诺及风险，物流负责人把关确认门槛，交付方提供实验结果，运营方接管等待/冲突/积压；真实任命与授权仍未知。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "F",
+            "G"
+          ],
+          "question": "治理角色与责任如何约束本次库存承诺与恢复实验？"
+        },
+        {
+          "title": "治理检查点与成功失败准则",
+          "conclusion": "成功依据1000请求无超量、p95≤300ms、去重/隔离/物流拒绝及96/100恢复；失败停止新增并保留记录。审计豁免11月30日到期，11月29日给定修复关闭。 【V2候选修订】新受理采用1件/8小时；既有V1记录按受理时版本2件/24小时处理，未知版本隔离；达到门槛转人工。中央确认与物流规则不变。旧文中的V1观察及11月实验日期仅为历史，V2性能、排班和实际实施尚未给定。",
+          "source_anchors": [
+            "F",
+            "G"
+          ],
+          "question": "治理检查点与成功失败准则如何约束本次库存承诺与恢复实验？"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "OM-PRINCIPLE",
+      "type": "principle",
+      "name": "中央确认与可审计恢复",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "statement": "中央原子预占成功后确认；受理不等于确认；物流只接确认",
+        "rationale": "断连情况下不能凭本地记录制造中央库存承诺",
+        "implications": "持久待确认、幂等恢复与人工异常责任均须保留",
+        "owner": "情景库存所有者"
+      }
+    },
+    {
+      "id": "OM-STAKEHOLDER",
+      "type": "stakeholder",
+      "name": "库存与履约业务责任方",
+      "source_phase": "A",
+      "attributes": {
+        "concern": "库存承诺、门店连续受理、物流门槛与恢复异常",
+        "influence": "情景政策责任；真实权力未验证",
+        "engagement": "候选跨域评审和版本化反馈，不代表已发送",
+        "owner": "情景业务所有者"
+      }
+    },
+    {
+      "id": "OM-PROJECT",
+      "type": "project",
+      "name": "全渠道设计与隔离实验",
+      "source_phase": "A",
+      "attributes": {
+        "boundary": "订单/库存/物流及断连恢复；排除支付财税与真实扩店",
+        "owner": "情景发起人"
+      }
+    },
+    {
+      "id": "OM-DRIVER",
+      "type": "driver",
+      "name": "纸面受理和物流门槛不一致",
+      "source_phase": "A",
+      "attributes": {
+        "statement": "断连基线缺统一待确认、中央关联与物流确认门槛",
+        "owner": "情景经营责任方",
+        "metric": "无效库存承诺风险；基线实际频率未知",
+        "target": "通过统一确认语义降低风险，幅度未知",
+        "deadline": "11月17至30日隔离实验"
+      }
+    },
+    {
+      "id": "OM-GOAL",
+      "type": "goal",
+      "name": "减少无效库存承诺",
+      "source_phase": "A",
+      "attributes": {
+        "statement": "维持可追踪的中央库存承诺与受控恢复",
+        "owner": "情景经营责任方",
+        "metric": "实验超量承诺数",
+        "target": "1000给定请求中不超量",
+        "deadline": "2026-11-30"
+      }
+    },
+    {
+      "id": "OM-OBJECTIVE",
+      "type": "objective",
+      "name": "验证在线确认和恢复边界",
+      "source_phase": "A",
+      "attributes": {
+        "statement": "验证在线最终确认与离线恢复",
+        "owner": "情景交付负责人",
+        "metric": "p95_ms及30分钟恢复比例，分别评估",
+        "target": "p95≤300ms；恢复比例≥95%",
+        "deadline": "2026-11-30"
+      }
+    },
+    {
+      "id": "OM-CONSTRAINT",
+      "type": "constraint",
+      "name": "实验范围与真实批准边界",
+      "source_phase": "A",
+      "attributes": {
+        "category": "scope-and-authority",
+        "rationale": "设计及隔离实验不构成采购、生产实施或投资授权",
+        "owner": "情景发起人",
+        "source": "ADM phase-a",
+        "expiry": "超出原范围或改变政策时重新评审"
+      }
+    },
+    {
+      "id": "OM-PLATFORM",
+      "type": "platform",
+      "name": "既有中央库存与门店终端边界",
+      "source_phase": "D",
+      "attributes": {
+        "responsibility": "中央预占权威；门店持久待确认，恢复时认证与隔离",
+        "standard": "真实平台标准和保护实现未提供"
+      }
+    },
+    {
+      "id": "OM-TECHNOLOGY",
+      "type": "technology",
+      "name": "门店持久日志与恢复适配候选",
+      "source_phase": "D",
+      "attributes": {
+        "responsibility": "持久事件、重放、去重与冲突隔离",
+        "standard": "候选接口和操作要求；非正式厂商标准认证",
+        "product": "未选型",
+        "version": "候选设计V1；实际版本未知",
+        "owner": "情景技术与运营责任方",
+        "lifecycle": "候选；未开始实际部署",
+        "support_end": "供应商支持周期未知"
+      }
+    },
+    {
+      "id": "OM-DATA",
+      "type": "data_entity",
+      "name": "订单身份与状态",
+      "source_phase": "C",
+      "attributes": {
+        "definition": "order_id关联本地待确认副本与中央确认记录",
+        "owner": "情景数据责任方",
+        "classification": "真实分级未知",
+        "purpose": "追踪受理、确认与异常"
+      }
+    },
+    {
+      "id": "OM-CONTRACT",
+      "type": "contract",
+      "name": "实验架构义务与豁免约束",
+      "source_phase": "G",
+      "attributes": {
+        "owner": "情景交付负责人和业务所有者",
+        "target": "中央确认、幂等隔离、物流拒绝及受控回退",
+        "unit": "按给定实验用例逐项判定",
+        "measurement_window": "2026-11-17至2026-11-30；非实际执行"
+      }
+    },
+    {
+      "id": "OM-MEASURE",
+      "type": "measure",
+      "name": "在线最终确认延迟",
+      "source_phase": "G",
+      "attributes": {
+        "owner": "情景交付负责人",
+        "metric": "online_confirmation_p95",
+        "target": "≤300；给定V1观察160",
+        "unit": "ms",
+        "measurement_window": "V1给定11月17至30日实验；非本轮实测"
+      }
+    },
+    {
+      "id": "OM-CONTROL",
+      "type": "control",
+      "name": "恢复幂等隔离与人工核对",
+      "source_phase": "G",
+      "attributes": {
+        "classification": "候选业务/数据控制；有效性限给定实验",
+        "owner": "情景运营及数据责任方",
+        "purpose": "重复不重复扣减；同事件不同订单隔离；失败停止新增并逐笔核对"
+      }
+    },
+    {
+      "id": "OM-DATACOMP",
+      "type": "data_component",
+      "name": "门店待确认事件日志",
+      "source_phase": "C",
+      "attributes": {
+        "classification": "真实信息分级未知",
+        "owner": "情景门店运营与数据责任方",
+        "purpose": "持久受理和按event_id/order_id恢复"
+      }
+    },
+    {
+      "id": "OM-MIGRATION",
+      "type": "migration_step",
+      "name": "在线到离线受控实验迁移",
+      "source_phase": "F",
+      "attributes": {
+        "transformation": "从纸面受理转为持久待确认，中央预占后确认",
+        "reconciliation": "按订单和事件逐笔对账；同事件不同订单隔离",
+        "rollback": "停止新受理并保留所有未确认记录，人工核对，不删除队列"
+      }
+    },
+    {
+      "id": "OM-BENEFIT",
+      "type": "benefit",
+      "name": "承诺准确与可恢复的限定价值",
+      "source_phase": "H",
+      "attributes": {
+        "owner": "情景经营责任方",
+        "metric": "实验离线确认数/离线受理数",
+        "target": "给定观察118/120；目标与实际财务收益未知"
+      }
+    },
+    {
+      "id": "OM-ORGANIZATION",
+      "type": "organization",
+      "name": "复用EA实践与业务线治理",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "boundary": "订单/库存/物流跨分段试点，不新设人事汇报",
+        "category": "复用的情景实践治理",
+        "owner": "情景委员会"
+      }
+    },
+    {
+      "id": "OM-ROLE",
+      "type": "role",
+      "name": "政策与风险决定",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "responsibility": "政策与风险决定",
+        "authority": "原材料给定情景职责；无真实授权",
+        "skill": "依据本任务职责；真实人员资格另审"
+      }
+    },
+    {
+      "id": "OM-ACTOR",
+      "type": "actor",
+      "name": "业务政策所有者",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "boundary": "设计与隔离实验职责；真实任命未知",
+        "owner": "情景发起人"
+      }
+    },
+    {
+      "id": "OM-CHANGE",
+      "type": "change_request",
+      "name": "离线政策V2候选",
+      "source_phase": "H",
+      "attributes": {
+        "reason": "12月4日业务负责人将离线限量2改1、等待24小时改8小时",
+        "impact": "接口、风险、运营、过渡、验证及B/C/D/E/F/G/H重审",
+        "severity": "业务政策变化；不扩大企业范围",
+        "owner": "情景业务所有者",
+        "decision": "原范围局部迭代候选；真实批准和实施未授予"
+      }
+    },
+    {
+      "id": "OM-STANDARD",
+      "type": "standard",
+      "name": "中央确认与恢复候选组织约定",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "category": "项目政策及接口约束；非外部正式语言规范",
+        "version": "V1",
+        "disposition": "候选实验约定；真实组织标准未授权",
+        "rationale": "订单/库存/物流共享确认及恢复语义",
+        "exception_process": "委员会限定实验期限、条件及复核，生产另审"
+      }
+    },
+    {
+      "id": "OM-ACTOR-BOARD",
+      "type": "actor",
+      "name": "情景委员会",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "boundary": "设计与隔离实验职责；真实任命未知",
+        "owner": "情景发起人"
+      }
+    },
+    {
+      "id": "OM-ROLE-BOARD",
+      "type": "role",
+      "name": "约束及实验例外治理",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "responsibility": "约束及实验例外治理",
+        "authority": "原材料给定情景职责；无真实授权",
+        "skill": "依据本任务职责；真实人员资格另审"
+      }
+    },
+    {
+      "id": "OM-ACTOR-ARCH",
+      "type": "actor",
+      "name": "情景架构团队",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "boundary": "设计与隔离实验职责；真实任命未知",
+        "owner": "情景发起人"
+      }
+    },
+    {
+      "id": "OM-ROLE-ARCH",
+      "type": "role",
+      "name": "跨域设计与证据维护",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "responsibility": "跨域设计与证据维护",
+        "authority": "原材料给定情景职责；无真实授权",
+        "skill": "依据本任务职责；真实人员资格另审"
+      }
+    },
+    {
+      "id": "OM-ACTOR-DELIVERY",
+      "type": "actor",
+      "name": "情景交付负责人",
+      "source_phase": "G",
+      "attributes": {
+        "boundary": "设计与隔离实验职责；真实任命未知",
+        "owner": "情景发起人"
+      }
+    },
+    {
+      "id": "OM-ROLE-DELIVERY",
+      "type": "role",
+      "name": "隔离实验交付和测试",
+      "source_phase": "G",
+      "attributes": {
+        "responsibility": "隔离实验交付和测试",
+        "authority": "原材料给定情景职责；无真实授权",
+        "skill": "依据本任务职责；真实人员资格另审"
+      }
+    },
+    {
+      "id": "OM-ACTOR-OPS",
+      "type": "actor",
+      "name": "情景运营负责人",
+      "source_phase": "G",
+      "attributes": {
+        "boundary": "设计与隔离实验职责；真实任命未知",
+        "owner": "情景发起人"
+      }
+    },
+    {
+      "id": "OM-ROLE-OPS",
+      "type": "role",
+      "name": "异常接管和回退核对",
+      "source_phase": "G",
+      "attributes": {
+        "responsibility": "异常接管和回退核对",
+        "authority": "原材料给定情景职责；无真实授权",
+        "skill": "依据本任务职责；真实人员资格另审"
+      }
+    },
+    {
+      "id": "OM-ACTOR-STORE",
+      "type": "actor",
+      "name": "情景门店运营参与者",
+      "source_phase": "B",
+      "attributes": {
+        "boundary": "门店断连受理与人工异常",
+        "owner": "情景门店运营责任方"
+      }
+    },
+    {
+      "id": "OM-DATA-EVENT",
+      "type": "data_entity",
+      "name": "受理事件",
+      "source_phase": "C",
+      "attributes": {
+        "definition": "event_id标识事件，accepted_at及policy_version不可缺少",
+        "owner": "情景数据责任方",
+        "classification": "真实分级未知",
+        "purpose": "恢复去重、确认及审计"
+      }
+    },
+    {
+      "id": "OM-DATA-RESERVATION",
+      "type": "data_entity",
+      "name": "中央预占凭证",
+      "source_phase": "C",
+      "attributes": {
+        "definition": "reservation_id仅由中央原子预占成功产生",
+        "owner": "情景数据责任方",
+        "classification": "真实分级未知",
+        "purpose": "恢复去重、确认及审计"
+      }
+    },
+    {
+      "id": "OM-DATA-POLICY",
+      "type": "data_entity",
+      "name": "版本化受理政策",
+      "source_phase": "C",
+      "attributes": {
+        "definition": "policy_version标识受理时采用的候选限制",
+        "owner": "情景数据责任方",
+        "classification": "真实分级未知",
+        "purpose": "恢复去重、确认及审计"
+      }
+    },
+    {
+      "id": "OM-DATACOMP-CENTRAL",
+      "type": "data_component",
+      "name": "中央确认记录",
+      "source_phase": "C",
+      "attributes": {
+        "classification": "真实分级未知",
+        "owner": "情景中央库存责任方",
+        "purpose": "保存中央确认与预占凭证"
+      }
+    },
+    {
+      "id": "OM-DATACOMP-PAPER",
+      "type": "data_component",
+      "name": "基线纸面受理记录",
+      "source_phase": "C",
+      "attributes": {
+        "classification": "真实分级未知",
+        "owner": "情景门店运营责任方",
+        "purpose": "迁移时补齐身份并逐笔核对"
+      }
+    },
+    {
+      "id": "OM-TECHNOLOGY-CENTRAL",
+      "type": "technology",
+      "name": "中央原子预占技术职责",
+      "source_phase": "D",
+      "attributes": {
+        "responsibility": "原子核验与预占，中央权威不变",
+        "standard": "真实技术标准待提供",
+        "product": "未指定",
+        "version": "逻辑设计",
+        "owner": "情景技术责任方",
+        "lifecycle": "候选逻辑职责，非部署证明",
+        "support_end": "未知"
+      }
+    },
+    {
+      "id": "OM-TECH-SERVICE",
+      "type": "technology_service",
+      "name": "持久恢复技术服务",
+      "source_phase": "D",
+      "attributes": {
+        "responsibility": "持久受理、认证重放和隔离",
+        "standard": "候选接口约束；实现待验证"
+      }
+    },
+    {
+      "id": "OM-SERVICE-CONFIRM",
+      "type": "business_service",
+      "name": "中央库存确认服务",
+      "source_phase": "B",
+      "attributes": {
+        "responsibility": "仅中央预占成功后确认"
+      }
+    },
+    {
+      "id": "OM-SERVICE-RECOVER",
+      "type": "business_service",
+      "name": "断连受理与恢复服务",
+      "source_phase": "B",
+      "attributes": {
+        "responsibility": "持久待确认与人工异常接管"
+      }
+    },
+    {
+      "id": "OM-OUTCOME-ONLINE",
+      "type": "outcome",
+      "name": "中央确认与物流门槛成果",
+      "source_phase": "E",
+      "attributes": {
+        "owner": "情景交付负责人",
+        "status": "候选工作包成果；非实际生产交付"
+      }
+    },
+    {
+      "id": "OM-OUTCOME-OFFLINE",
+      "type": "outcome",
+      "name": "持久恢复与人工接管成果",
+      "source_phase": "E",
+      "attributes": {
+        "owner": "情景交付负责人",
+        "status": "候选工作包成果；非实际生产交付"
+      }
+    },
+    {
+      "id": "OM-MEASURE-RECOVERY",
+      "type": "measure",
+      "name": "30分钟恢复比例",
+      "source_phase": "G",
+      "attributes": {
+        "owner": "情景交付负责人",
+        "metric": "completed_within_30min / queue_population",
+        "target": "≥0.95；给定V1观察96/100",
+        "unit": "ratio",
+        "measurement_window": "V1给定11月17至30日实验；非本轮实测"
+      }
+    },
+    {
+      "id": "OM-MEASURE-H",
+      "type": "measure",
+      "name": "H期离线确认比例",
+      "source_phase": "H",
+      "attributes": {
+        "owner": "情景运营负责人",
+        "metric": "confirmed / offline_received",
+        "target": "无数值目标；给定V1观察118/120",
+        "unit": "ratio",
+        "measurement_window": "12月1至4日；人工异常不算自动确认"
+      }
+    },
+    {
+      "id": "OM-ORG-ORDER",
+      "type": "organization",
+      "name": "订单职责分段",
+      "source_phase": "B",
+      "attributes": {
+        "boundary": "订单职责分段的情景职责边界",
+        "category": "职责分段，非法律组织证明",
+        "owner": "情景订单职责分段责任方"
+      }
+    },
+    {
+      "id": "OM-ORG-STOCK",
+      "type": "organization",
+      "name": "库存职责分段",
+      "source_phase": "B",
+      "attributes": {
+        "boundary": "库存职责分段的情景职责边界",
+        "category": "职责分段，非法律组织证明",
+        "owner": "情景库存职责分段责任方"
+      }
+    },
+    {
+      "id": "OM-ORG-LOGISTICS",
+      "type": "organization",
+      "name": "物流职责分段",
+      "source_phase": "B",
+      "attributes": {
+        "boundary": "物流职责分段的情景职责边界",
+        "category": "职责分段，非法律组织证明",
+        "owner": "情景物流职责分段责任方"
+      }
+    }
+  ],
+  "existing_object_attributes": {
+    "APP-ORDER": {
+      "boundary": "订单与确认协调",
+      "owner": "情景订单负责人",
+      "responsibility": "调用中央预占并维护最终确认",
+      "lifecycle": "候选目标，实际部署未开始"
+    },
+    "APP-STORE": {
+      "boundary": "门店断连受理",
+      "owner": "情景门店运营负责人",
+      "responsibility": "持久待确认及恢复，不能离线确认",
+      "lifecycle": "候选目标，实际部署未开始"
+    },
+    "APP-STOCK": {
+      "boundary": "中央库存权威",
+      "owner": "情景库存所有者",
+      "responsibility": "原子预占与最终确认",
+      "lifecycle": "复用中央职责，真实产品状态未知"
+    },
+    "WP-ONLINE": {
+      "owner": "情景交付负责人",
+      "start": "2026-11-17",
+      "end": "2026-11-30",
+      "schedule_semantics": "共同隔离实验窗口；序数表示验收依赖，不代表两个串行日期段；细分排班未提供"
+    },
+    "WP-OFFLINE": {
+      "owner": "情景交付负责人",
+      "start": "2026-11-17",
+      "end": "2026-11-30",
+      "schedule_semantics": "共同隔离实验窗口；序数表示验收依赖，不代表两个串行日期段；细分排班未提供"
+    },
+    "REQ-CONSISTENCY": {
+      "owner": "情景库存所有者"
+    },
+    "REQ-OFFLINE": {
+      "owner": "情景业务所有者"
+    },
+    "TRANS-ONLINE": {
+      "start": "2026-11-17",
+      "end": "2026-11-30",
+      "schedule_semantics": "共同隔离实验窗口；序数表示验收依赖，不代表两个串行日期段；细分排班未提供"
+    },
+    "TRANS-OFFLINE": {
+      "start": "2026-11-17",
+      "end": "2026-11-30",
+      "schedule_semantics": "共同隔离实验窗口；序数表示验收依赖，不代表两个串行日期段；细分排班未提供"
+    },
+    "RISK-STOCK": {
+      "start": "2026-11-17",
+      "end": "2026-11-30",
+      "due_date": "2026-11-30",
+      "schedule_semantics": "实验内风险控制检查窗口；12月1至4日另为H效果观察，不用观察期延长本次实施窗口"
+    }
+  },
+  "material_source_policy": "objects和existing_object_attributes是本轮从原材料显式提取及候选补充；沟通渠道/频率属于新增计划提案；所有新增角色名称均为职责，非真实人员任命。",
+  "view_selections": {
+    "application-migration-diagram": {
+      "entity_ids": [
+        "APP-ORDER",
+        "APP-STOCK",
+        "APP-STORE",
+        "WP-ONLINE",
+        "WP-OFFLINE"
+      ],
+      "rationale": "只排已有实验工作包窗口；应用为改造映射，不虚构逐应用生产日期。"
+    },
+    "actor-role-matrix": {
+      "entity_ids": [
+        "OM-ACTOR",
+        "OM-ACTOR-BOARD",
+        "OM-ACTOR-ARCH",
+        "OM-ACTOR-DELIVERY",
+        "OM-ACTOR-OPS",
+        "OM-ROLE",
+        "OM-ROLE-BOARD",
+        "OM-ROLE-ARCH",
+        "OM-ROLE-DELIVERY",
+        "OM-ROLE-OPS"
+      ],
+      "rationale": "R1把原材料五类独立职责显式配对；不是人事汇报。"
+    }
+  },
+  "policy_sensitive_deliverables": [
+    "architecture-building-blocks",
+    "architecture-contract",
+    "architecture-definition-document",
+    "architecture-requirements-specification",
+    "architecture-roadmaps",
+    "change-request",
+    "implementation-migration-plan",
+    "requirements-impact-assessment",
+    "solution-building-blocks"
+  ],
+  "supplement": {
+    "path": "business-supplement.md",
+    "sha256": "6a1bbdd02572b9423d5fde105f578e9617aedfdb1efb7804ac805c9cf0ef7d9e",
+    "author_role": "reviewer-turned-remediator",
+    "independent_review": "pending"
+  },
+  "relationships": [
+    {
+      "id": "FC-PLAYS-OWNER",
+      "type": "plays",
+      "source": "OM-ACTOR",
+      "target": "OM-ROLE",
+      "label": "政策与风险决定；不是人事汇报",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-PLAYS-BOARD",
+      "type": "plays",
+      "source": "OM-ACTOR-BOARD",
+      "target": "OM-ROLE-BOARD",
+      "label": "约束及实验例外治理；不是人事汇报",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-PLAYS-ARCH",
+      "type": "plays",
+      "source": "OM-ACTOR-ARCH",
+      "target": "OM-ROLE-ARCH",
+      "label": "跨域设计与证据维护；不是人事汇报",
+      "source_phase": "Preliminary",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-PLAYS-DELIVERY",
+      "type": "plays",
+      "source": "OM-ACTOR-DELIVERY",
+      "target": "OM-ROLE-DELIVERY",
+      "label": "隔离实验交付和测试；不是人事汇报",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-PLAYS-OPS",
+      "type": "plays",
+      "source": "OM-ACTOR-OPS",
+      "target": "OM-ROLE-OPS",
+      "label": "异常接管和回退核对；不是人事汇报",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-DRIVER-GOAL",
+      "type": "motivates",
+      "source": "OM-DRIVER",
+      "target": "OM-GOAL",
+      "label": "缺统一确认语义促使改进目标",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-GOAL-OBJECTIVE",
+      "type": "refines",
+      "source": "OM-GOAL",
+      "target": "OM-OBJECTIVE",
+      "label": "目标细化为限定实验目的",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-OBJECTIVE-CONFIRM",
+      "type": "served_by",
+      "source": "OM-OBJECTIVE",
+      "target": "OM-SERVICE-CONFIRM",
+      "label": "由候选业务服务支撑",
+      "source_phase": "B",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-OBJECTIVE-RECOVER",
+      "type": "served_by",
+      "source": "OM-OBJECTIVE",
+      "target": "OM-SERVICE-RECOVER",
+      "label": "由候选业务服务支撑",
+      "source_phase": "B",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-WP-ONLINE",
+      "type": "delivers",
+      "source": "WP-ONLINE",
+      "target": "OM-OUTCOME-ONLINE",
+      "label": "候选工作包交付成果",
+      "source_phase": "E",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-BENEFIT-ONLINE",
+      "type": "enables_benefit",
+      "source": "OM-OUTCOME-ONLINE",
+      "target": "OM-BENEFIT",
+      "label": "候选使能假设；未证实因果或财务收益",
+      "source_phase": "E",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-WP-OFFLINE",
+      "type": "delivers",
+      "source": "WP-OFFLINE",
+      "target": "OM-OUTCOME-OFFLINE",
+      "label": "候选工作包交付成果",
+      "source_phase": "E",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-BENEFIT-OFFLINE",
+      "type": "enables_benefit",
+      "source": "OM-OUTCOME-OFFLINE",
+      "target": "OM-BENEFIT",
+      "label": "候选使能假设；未证实因果或财务收益",
+      "source_phase": "E",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-BENEFIT-OBJECTIVE",
+      "type": "contributes_to",
+      "source": "OM-BENEFIT",
+      "target": "OM-OBJECTIVE",
+      "label": "限定价值贡献；幅度未知",
+      "source_phase": "H",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-CONTRACT-MEASURE",
+      "type": "measured_by",
+      "source": "OM-CONTRACT",
+      "target": "OM-MEASURE",
+      "label": "实验合同采用独立指标",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-OBJECTIVE-MEASURE",
+      "type": "measured_by",
+      "source": "OM-OBJECTIVE",
+      "target": "OM-MEASURE",
+      "label": "对应实验目的指标",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-CONTRACT-MEASURE-RECOVERY",
+      "type": "measured_by",
+      "source": "OM-CONTRACT",
+      "target": "OM-MEASURE-RECOVERY",
+      "label": "实验合同采用独立指标",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-OBJECTIVE-MEASURE-RECOVERY",
+      "type": "measured_by",
+      "source": "OM-OBJECTIVE",
+      "target": "OM-MEASURE-RECOVERY",
+      "label": "对应实验目的指标",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-BENEFIT-MEASURE",
+      "type": "measured_by",
+      "source": "OM-BENEFIT",
+      "target": "OM-MEASURE-H",
+      "label": "观察口径，非收益因果证明",
+      "source_phase": "H",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-EVENT-ORDER",
+      "type": "data_association",
+      "source": "OM-DATA-EVENT",
+      "target": "OM-DATA",
+      "label": "同事件只对应一个订单；冲突隔离",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection",
+        "source_cardinality": "0..*",
+        "target_cardinality": "1"
+      }
+    },
+    {
+      "id": "FC-ORDER-RESERVATION",
+      "type": "data_association",
+      "source": "OM-DATA",
+      "target": "OM-DATA-RESERVATION",
+      "label": "中央确认关联预占凭证；完整基数未给定",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-EVENT-POLICY",
+      "type": "data_association",
+      "source": "OM-DATA-EVENT",
+      "target": "OM-DATA-POLICY",
+      "label": "受理记录携带政策版本；完整基数未给定",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-STORE-OM-DATA-EVENT-OM-DATACOMP",
+      "type": "stored_in",
+      "source": "OM-DATA-EVENT",
+      "target": "OM-DATACOMP",
+      "label": "本地持久事件",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-STORE-OM-DATA-OM-DATACOMP",
+      "type": "stored_in",
+      "source": "OM-DATA",
+      "target": "OM-DATACOMP",
+      "label": "本地待确认副本",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-STORE-OM-DATA-OM-DATACOMP-CENTRAL",
+      "type": "stored_in",
+      "source": "OM-DATA",
+      "target": "OM-DATACOMP-CENTRAL",
+      "label": "中央确认权威记录",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-STORE-OM-DATA-RESERVATION-OM-DATACOMP-CENTRAL",
+      "type": "stored_in",
+      "source": "OM-DATA-RESERVATION",
+      "target": "OM-DATACOMP-CENTRAL",
+      "label": "中央预占凭证",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-PROTECT-OM-DATA",
+      "type": "protected_by",
+      "source": "OM-DATA",
+      "target": "OM-CONTROL",
+      "label": "幂等、隔离和确认门槛；不代表权限齐备",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-PROTECT-OM-DATA-EVENT",
+      "type": "protected_by",
+      "source": "OM-DATA-EVENT",
+      "target": "OM-CONTROL",
+      "label": "幂等、隔离和确认门槛；不代表权限齐备",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-PROTECT-OM-DATACOMP",
+      "type": "protected_by",
+      "source": "OM-DATACOMP",
+      "target": "OM-CONTROL",
+      "label": "幂等、隔离和确认门槛；不代表权限齐备",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-PROTECT-OM-DATACOMP-CENTRAL",
+      "type": "protected_by",
+      "source": "OM-DATACOMP-CENTRAL",
+      "target": "OM-CONTROL",
+      "label": "幂等、隔离和确认门槛；不代表权限齐备",
+      "source_phase": "G",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-MIGRATE-IN",
+      "type": "migration_flow",
+      "source": "OM-DATACOMP-PAPER",
+      "target": "OM-MIGRATION",
+      "label": "录入身份并逐笔核对，失败转人工",
+      "source_phase": "F",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-MIGRATE-OUT",
+      "type": "migration_flow",
+      "source": "OM-MIGRATION",
+      "target": "OM-DATACOMP",
+      "label": "持久待确认，不能自动确认",
+      "source_phase": "F",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-CONTAIN-OM-TECHNOLOGY",
+      "type": "contains",
+      "source": "OM-PLATFORM",
+      "target": "OM-TECHNOLOGY",
+      "label": "逻辑技术职责组成；不表示同机部署",
+      "source_phase": "D",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-CONTAIN-OM-TECHNOLOGY-CENTRAL",
+      "type": "contains",
+      "source": "OM-PLATFORM",
+      "target": "OM-TECHNOLOGY-CENTRAL",
+      "label": "逻辑技术职责组成；不表示同机部署",
+      "source_phase": "D",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-REALIZE-RECOVERY",
+      "type": "realizes",
+      "source": "OM-TECHNOLOGY",
+      "target": "OM-TECH-SERVICE",
+      "label": "候选持久恢复技术职责",
+      "source_phase": "D",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-OWNER-ORDER",
+      "type": "owned_by",
+      "source": "CAP-ORDER",
+      "target": "OM-ORG-ORDER",
+      "label": "情景职责分段承担能力责任",
+      "source_phase": "B",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection",
+        "code": "accountable-scenario"
+      }
+    },
+    {
+      "id": "FC-OWNER-STOCK",
+      "type": "owned_by",
+      "source": "CAP-RESERVE",
+      "target": "OM-ORG-STOCK",
+      "label": "情景职责分段承担能力责任",
+      "source_phase": "B",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection",
+        "code": "accountable-scenario"
+      }
+    },
+    {
+      "id": "FC-OWNER-LOGISTICS",
+      "type": "owned_by",
+      "source": "CAP-LOGISTICS",
+      "target": "OM-ORG-LOGISTICS",
+      "label": "情景职责分段承担能力责任",
+      "source_phase": "B",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection",
+        "code": "accountable-scenario"
+      }
+    },
+    {
+      "id": "FC-SCOPE-APP-ORDER",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "APP-ORDER",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SCOPE-APP-STORE",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "APP-STORE",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SCOPE-APP-STOCK",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "APP-STOCK",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SCOPE-OM-ORGANIZATION",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "OM-ORGANIZATION",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SCOPE-OM-ACTOR",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "OM-ACTOR",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SCOPE-OM-ACTOR-BOARD",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "OM-ACTOR-BOARD",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SCOPE-OM-ACTOR-ARCH",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "OM-ACTOR-ARCH",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SCOPE-OM-ACTOR-DELIVERY",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "OM-ACTOR-DELIVERY",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SCOPE-OM-ACTOR-OPS",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "OM-ACTOR-OPS",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SCOPE-OM-ACTOR-STORE",
+      "type": "in_scope",
+      "source": "OM-PROJECT",
+      "target": "OM-ACTOR-STORE",
+      "label": "设计与隔离实验范围；真实授权另审",
+      "source_phase": "A",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SUPPORT-APP-ORDER",
+      "type": "supports_capability",
+      "source": "APP-ORDER",
+      "target": "CAP-ORDER",
+      "label": "候选应用职责支撑能力",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SUPPORT-APP-STOCK",
+      "type": "supports_capability",
+      "source": "APP-STOCK",
+      "target": "CAP-RESERVE",
+      "label": "候选应用职责支撑能力",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-SUPPORT-APP-STORE",
+      "type": "supports_capability",
+      "source": "APP-STORE",
+      "target": "CAP-ORDER",
+      "label": "候选应用职责支撑能力",
+      "source_phase": "C",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-STORE-USE",
+      "type": "uses_application",
+      "source": "OM-ACTOR-STORE",
+      "target": "APP-STORE",
+      "label": "门店受理使用；不是数据访问授权",
+      "source_phase": "B",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-STORE-RUNS",
+      "type": "runs_on",
+      "source": "APP-STORE",
+      "target": "OM-TECHNOLOGY",
+      "label": "候选持久日志支撑",
+      "source_phase": "D",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-STOCK-RUNS",
+      "type": "runs_on",
+      "source": "APP-STOCK",
+      "target": "OM-TECHNOLOGY-CENTRAL",
+      "label": "中央原子预占职责支撑",
+      "source_phase": "D",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-MIGRATED-APP-ORDER",
+      "type": "migrated_by",
+      "source": "APP-ORDER",
+      "target": "WP-ONLINE",
+      "label": "候选改造与联调工作包；非生产切换",
+      "source_phase": "F",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-MIGRATED-APP-STOCK",
+      "type": "migrated_by",
+      "source": "APP-STOCK",
+      "target": "WP-ONLINE",
+      "label": "候选改造与联调工作包；非生产切换",
+      "source_phase": "F",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-MIGRATED-APP-STORE",
+      "type": "migrated_by",
+      "source": "APP-STORE",
+      "target": "WP-OFFLINE",
+      "label": "候选改造与联调工作包；非生产切换",
+      "source_phase": "F",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-CHANGE-REQ",
+      "type": "changes",
+      "source": "OM-CHANGE",
+      "target": "REQ-OFFLINE",
+      "label": "V2改变新受理限量与等待门槛",
+      "source_phase": "H",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-CHANGE-WP",
+      "type": "affects",
+      "source": "OM-CHANGE",
+      "target": "WP-OFFLINE",
+      "label": "重新设计并验证混合版本恢复",
+      "source_phase": "H",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    },
+    {
+      "id": "FC-REQ-WP",
+      "type": "traces_to",
+      "source": "REQ-OFFLINE",
+      "target": "WP-OFFLINE",
+      "label": "工作包追踪受理与恢复需求",
+      "source_phase": "E",
+      "attributes": {
+        "origin": "explicit-R1-R4-candidate-projection"
+      }
+    }
+  ],
+  "business_rules": {
+    "candidate_origin": "business-supplement.md#V2",
+    "quota_scope": "store-sku-pending-total",
+    "expiry_operator": ">=",
+    "existing_record_policy": "captured-policy-version",
+    "unknown_policy": "manual-isolation",
+    "duplicate": "same-event-and-order-idempotent",
+    "conflict": "same-event-different-order-isolation",
+    "stock_authority": "central-atomic-reservation-only",
+    "rollback": "stop-new-preserve-existing-and-reconcile",
+    "real_approval": "not-granted",
+    "policies": {
+      "v1": {
+        "item_limit": 2,
+        "pending_hours": 24
+      },
+      "v2": {
+        "item_limit": 1,
+        "pending_hours": 8
+      }
+    }
+  },
+  "active_version": "v2"
+}

@@ -1,0 +1,11 @@
+stateDiagram-v2
+  state "订单已受理／待确认" as n0
+  state "订单已确认" as n1
+  state "库存或同步异常待处理" as n2
+  state "允许物流履约的订单记录" as n3
+  %% relationship-id: ORDER-CONFIRM
+  n0 --> n1: 中央原子预占成功，确认ID与订单唯一关联
+  %% relationship-id: ORDER-EXCEPT
+  n0 --> n2: 库存不足、重放冲突或未对账
+  %% relationship-id: ORDER-TO-FULFIL
+  n1 --> n3: 确认后才允许交付物流

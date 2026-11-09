@@ -1,0 +1,3519 @@
+{
+  "schema_version": "capability-extension/1",
+  "version": "2.1-extension-1",
+  "notice": "10项操作语义扩展/表格规范；没有把表格生成当作原图视觉验收，也没有声称未实现候选全部补齐。",
+  "patches": [
+    {
+      "target_kind": "work_product_or_artifact",
+      "target_id": "customer-mdm-model",
+      "operation": "extend",
+      "add": {
+        "entity_types": [
+          "guide:mdm_diagnostic_answer",
+          "guide:mdm_plateau",
+          "guide:mdm_match_case"
+        ],
+        "relationship_types": [],
+        "fields": [
+          "question_number",
+          "question",
+          "answer",
+          "evidence_detail",
+          "consequence",
+          "action",
+          "owner",
+          "scope",
+          "scoring",
+          "state_ref",
+          "evolution_kind",
+          "mastership",
+          "golden_record",
+          "CRUD_ownership",
+          "propagation",
+          "use_cases",
+          "operating_gate",
+          "next_trigger",
+          "rollback",
+          "source_mapping",
+          "rule",
+          "record_refs",
+          "key_comparison",
+          "proposal",
+          "matching_basis",
+          "manual_arbitration",
+          "decision_status",
+          "merge_lineage",
+          "unmerge_plan",
+          "historical_policy"
+        ],
+        "required_attributes": {
+          "guide:mdm_diagnostic_answer": [
+            "question_number",
+            "question",
+            "answer",
+            "evidence_detail",
+            "consequence",
+            "action",
+            "owner",
+            "scope",
+            "scoring"
+          ],
+          "guide:mdm_plateau": [
+            "state_ref",
+            "evolution_kind",
+            "mastership",
+            "golden_record",
+            "CRUD_ownership",
+            "propagation",
+            "use_cases",
+            "operating_gate",
+            "next_trigger",
+            "rollback",
+            "scope",
+            "source_mapping"
+          ],
+          "guide:mdm_match_case": [
+            "rule",
+            "record_refs",
+            "key_comparison",
+            "proposal",
+            "matching_basis",
+            "manual_arbitration",
+            "decision_status",
+            "merge_lineage",
+            "unmerge_plan",
+            "historical_policy"
+          ]
+        },
+        "checks": [
+          "十问各一条且编号不重复",
+          "未知必须有需补证据行动",
+          "不适用必须有范围理由",
+          "无总分/权重/合格线",
+          "两个命名transition保留",
+          "分析黄金态不声称自动双向同步",
+          "每态有主控/CRUD/可运营门槛/恢复",
+          "不覆写历史交易事实",
+          "姓名相同不作为唯一合并依据",
+          "merge状态需人工证据及实际谱系",
+          "概率/阈值必须有项目来源",
+          "历史原值与源ID保留"
+        ],
+        "analysis_steps": [
+          "保持十问题ID与原问题含义",
+          "逐项取证，区分否定、未知、部分和不适用",
+          "将缺口映射行动、责任、影响；不得按yes比例冒充成熟度",
+          "识别当前主控和可用业务能力",
+          "分开分析黄金记录与运营主控",
+          "逐状态验证用例/质量/授权/恢复/支持条件",
+          "选择演进触发，不强制固定四期",
+          "区分业务键、技术键与姓名属性",
+          "按给定规则提出候选，不直接自动合并",
+          "人工判定并保留来源/版本/证据",
+          "执行前验证可取消合并与历史语义"
+        ],
+        "source_refs": [
+          "G21B 附录A.1–A.2",
+          "G21B §4.4、§6.1.1–6.1.2",
+          "G21B §3、§5.2.2"
+        ],
+        "relationship_definitions": {},
+        "capability_references": [
+          "references/capability-addenda/mdm-operational-ten-questions.md",
+          "references/capability-addenda/mdm-four-plateau-operations.md",
+          "references/capability-addenda/mdm-match-merge-arbitration.md"
+        ]
+      }
+    },
+    {
+      "target_kind": "work_product_or_artifact",
+      "target_id": "ea-service-catalog",
+      "operation": "extend",
+      "add": {
+        "entity_types": [
+          "guide:ea_service_context",
+          "guide:ea_adm_mapping"
+        ],
+        "relationship_types": [],
+        "fields": [
+          "service",
+          "context",
+          "emergence",
+          "meaning",
+          "local_depth",
+          "evidence_detail",
+          "mapping_origin",
+          "source_cell_status",
+          "resources",
+          "ADM_phase",
+          "project_activity",
+          "output",
+          "owner",
+          "source_mapping"
+        ],
+        "required_attributes": {
+          "guide:ea_service_context": [
+            "service",
+            "context",
+            "emergence",
+            "meaning",
+            "local_depth",
+            "evidence_detail",
+            "mapping_origin",
+            "source_cell_status",
+            "resources"
+          ],
+          "guide:ea_adm_mapping": [
+            "service",
+            "ADM_phase",
+            "project_activity",
+            "output",
+            "owner",
+            "mapping_origin",
+            "evidence_detail",
+            "source_mapping"
+          ]
+        },
+        "checks": [
+          "D有深化说明",
+          "P/D前应有已引入历史",
+          "未引入不能误用D",
+          "项目映射不得标为原图逐格复刻",
+          "每条映射有来源与目的",
+          "制定准则和执行评估分开",
+          "未知保持unknown",
+          "不得把项目安排伪称原图精确对应"
+        ],
+        "analysis_steps": [
+          "按服务梳理首次出现与后续范围",
+          "N只用于首次引入，P表示沿用，D要求明确新增深度",
+          "记录项目证据与原图证据两个状态，不混称相同",
+          "先明确服务输出与消费者决策",
+          "由项目活动确定使用阶段",
+          "分别登记来源映射和项目映射",
+          "未知原图格不推断不适用或唯一阶段"
+        ],
+        "source_refs": [
+          "G217 §4.4.1–4.4.5，图4-3",
+          "G217 附录C.1–C.7、附录D"
+        ],
+        "relationship_definitions": {},
+        "capability_references": [
+          "references/capability-addenda/ea-service-emergence-npd.md",
+          "references/capability-addenda/ea-service-adm-evidence-map.md"
+        ]
+      }
+    },
+    {
+      "target_kind": "work_product_or_artifact",
+      "target_id": "interface-catalog",
+      "operation": "extend",
+      "add": {
+        "entity_types": [
+          "guide:msa_contract"
+        ],
+        "relationship_types": [],
+        "fields": [
+          "service_id",
+          "ABF",
+          "API",
+          "version",
+          "consumer",
+          "consumer_status",
+          "credential",
+          "NFR",
+          "address",
+          "compatibility",
+          "change_impact",
+          "source"
+        ],
+        "required_attributes": {
+          "guide:msa_contract": [
+            "service_id",
+            "ABF",
+            "API",
+            "version",
+            "consumer",
+            "consumer_status",
+            "credential",
+            "NFR",
+            "address",
+            "compatibility",
+            "change_impact",
+            "source"
+          ]
+        },
+        "checks": [
+          "每版本消费者实际/计划明确",
+          "NFR必须有单位/期间/依据或明确待测",
+          "契约变更必须复核消费者影响",
+          "一个服务不能偷包多个独立ABF"
+        ],
+        "analysis_steps": [
+          "从业务功能界定服务范围和ABF",
+          "列契约/API/版本与消费者状态",
+          "检查NFR、凭据及地址可发现性",
+          "分析新增消费者或字段改变的兼容与治理影响"
+        ],
+        "source_refs": [
+          "G21I §8.2、§9.1、§12.2、§13.1–13.2"
+        ],
+        "relationship_definitions": {},
+        "capability_references": [
+          "references/capability-addenda/msa-contract-consumer-evidence.md"
+        ]
+      }
+    },
+    {
+      "target_kind": "work_product_or_artifact",
+      "target_id": "data-dissemination-diagram",
+      "operation": "extend",
+      "add": {
+        "entity_types": [
+          "guide:msa_data_distribution"
+        ],
+        "relationship_types": [],
+        "fields": [
+          "data",
+          "store",
+          "owner_service",
+          "replica_role",
+          "shard_strategy",
+          "external_provider",
+          "transfer_direction",
+          "frequency_trigger",
+          "freshness_limit",
+          "security",
+          "retention",
+          "migration",
+          "access_rule"
+        ],
+        "required_attributes": {
+          "guide:msa_data_distribution": [
+            "data",
+            "store",
+            "owner_service",
+            "replica_role",
+            "shard_strategy",
+            "external_provider",
+            "transfer_direction",
+            "frequency_trigger",
+            "freshness_limit",
+            "security",
+            "retention",
+            "migration",
+            "access_rule"
+          ]
+        },
+        "checks": [
+          "每副本有源与陈旧性处理",
+          "批流标频次或触发",
+          "实体密级不能低于属性最高",
+          "不默认跨库共享"
+        ],
+        "analysis_steps": [
+          "识别数据责任与外部离线供数",
+          "按响应/可用要求选副本/缓存与分片",
+          "声明触发、陈旧性、安全与生命周期",
+          "核查数据流与运行独立性冲突"
+        ],
+        "source_refs": [
+          "G21I §3.3、§8.1、§10.4.1"
+        ],
+        "relationship_definitions": {},
+        "capability_references": [
+          "references/capability-addenda/msa-data-distribution-conditions.md"
+        ]
+      }
+    },
+    {
+      "target_kind": "work_product_or_artifact",
+      "target_id": "software-distribution-diagram",
+      "operation": "extend",
+      "add": {
+        "entity_types": [
+          "guide:msa_unit"
+        ],
+        "relationship_types": [
+          "guide:uses_neutral_library",
+          "guide:builds_deployment",
+          "guide:deploys_instance"
+        ],
+        "fields": [
+          "unit_kind",
+          "service_id",
+          "function",
+          "included_business_services",
+          "libraries",
+          "environment",
+          "instances",
+          "operating_condition"
+        ],
+        "required_attributes": {
+          "guide:msa_unit": [
+            "unit_kind",
+            "service_id",
+            "function",
+            "included_business_services",
+            "libraries",
+            "environment",
+            "instances",
+            "operating_condition"
+          ]
+        },
+        "checks": [
+          "部署单元不得包含多个微服务代码",
+          "公共库必须无业务逻辑",
+          "多实例复用同部署包ID",
+          "部署端点角色与关系方向一致"
+        ],
+        "analysis_steps": [
+          "分开源、公共库、部署包、运行实例",
+          "验证单ABF与每源/包业务代码独立",
+          "构建与部署用不同有向关系",
+          "按需求/故障条件扩实例并保留同包追溯"
+        ],
+        "source_refs": [
+          "G21I §9.1–9.2"
+        ],
+        "relationship_definitions": {
+          "guide:uses_neutral_library": {
+            "source_types": [
+              "guide:msa_unit"
+            ],
+            "target_types": [
+              "guide:msa_unit"
+            ],
+            "meaning": "源单元使用无业务公共库"
+          },
+          "guide:builds_deployment": {
+            "source_types": [
+              "guide:msa_unit"
+            ],
+            "target_types": [
+              "guide:msa_unit"
+            ],
+            "meaning": "源构建成部署单元，非业务流程顺序"
+          },
+          "guide:deploys_instance": {
+            "source_types": [
+              "guide:msa_unit"
+            ],
+            "target_types": [
+              "guide:msa_unit"
+            ],
+            "meaning": "同一部署单元实例化为运行单元"
+          }
+        },
+        "capability_references": [
+          "references/capability-addenda/msa-source-deployment-execution.md"
+        ]
+      }
+    },
+    {
+      "target_kind": "work_product_or_artifact",
+      "target_id": "bi-transition-architecture",
+      "operation": "extend",
+      "add": {
+        "entity_types": [
+          "guide:bi_operating_state"
+        ],
+        "relationship_types": [],
+        "fields": [
+          "state_ref",
+          "evolution_kind",
+          "data_flows",
+          "raw_and_metadata",
+          "consumers",
+          "incremental_benefit",
+          "known_gap",
+          "operating_exit_gate",
+          "legacy_requirement_coverage",
+          "retirement_authorized",
+          "cost_basis",
+          "schedule_basis"
+        ],
+        "required_attributes": {
+          "guide:bi_operating_state": [
+            "state_ref",
+            "evolution_kind",
+            "data_flows",
+            "raw_and_metadata",
+            "consumers",
+            "incremental_benefit",
+            "known_gap",
+            "operating_exit_gate",
+            "legacy_requirement_coverage",
+            "retirement_authorized",
+            "cost_basis",
+            "schedule_basis"
+          ]
+        },
+        "checks": [
+          "step1基线/step2–3过渡/step4目标不混同",
+          "目标未覆盖旧需求不得退旧仓",
+          "数据流方向随状态变化要表达",
+          "无成本/时间依据不估算或强定期限"
+        ],
+        "analysis_steps": [
+          "识别旧系统已满足需求与新价值",
+          "按可选过渡定义流向/数据语义和消费者",
+          "记录每态收益、缺口和可运营条件",
+          "退出前逐项验证旧需求与恢复、治理、元数据"
+        ],
+        "source_refs": [
+          "G238 §3.2.1–3.2.4"
+        ],
+        "relationship_definitions": {},
+        "capability_references": [
+          "references/capability-addenda/bi-stage-operability-and-exit.md"
+        ]
+      }
+    },
+    {
+      "target_kind": "work_product_or_artifact",
+      "target_id": "bi-requirements-profile",
+      "operation": "extend",
+      "add": {
+        "entity_types": [
+          "guide:bi_requirement_provenance"
+        ],
+        "relationship_types": [],
+        "fields": [
+          "statement",
+          "function",
+          "requirement_origin",
+          "origin_locator",
+          "official_requirement_id",
+          "verification",
+          "completeness_claim",
+          "validation_criteria",
+          "companion_sheet"
+        ],
+        "required_attributes": {
+          "guide:bi_requirement_provenance": [
+            "statement",
+            "function",
+            "requirement_origin",
+            "origin_locator",
+            "official_requirement_id",
+            "verification",
+            "completeness_claim",
+            "validation_criteria",
+            "companion_sheet"
+          ]
+        },
+        "checks": [
+          "本地16例不得标原文逐条需求",
+          "缺配套源时official_requirement_id保持unknown",
+          "不宣称完整需求数量或全集覆盖",
+          "来源冲突明确登记"
+        ],
+        "analysis_steps": [
+          "记录来源身份再提炼需求",
+          "按功能解释系统，检查原子/唯一/可验证",
+          "区分项目需求和本地示例与官方配套记录",
+          "未找到电子表格时只交付局部候选与缺口"
+        ],
+        "source_refs": [
+          "G238 §4.4（特别是本地补写示例说明）"
+        ],
+        "relationship_definitions": {},
+        "capability_references": [
+          "references/capability-addenda/bi-requirement-origin-boundary.md"
+        ]
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "mdm-operational-ten-questions",
+      "artifact_id": "customer-mdm-model",
+      "name": "C-MDM十问运营诊断",
+      "name_zh": "C-MDM十问运营诊断",
+      "owner": "togaf-information-data",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "question_number": "附录A.2原始问题编号1–10，不能跳过",
+        "question": "原问题的完整业务含义",
+        "answer": "yes/no/partial/unknown/not-applicable-with-reason项目文字判断",
+        "evidence_detail": "实际观察或明确未取得证据",
+        "consequence": "对C-MDM运营与决策的影响",
+        "action": "补证据/改进/复评行动",
+        "owner": "行动负责人",
+        "scope": "诊断范围与时点",
+        "scoring": "明确none；无来源不得合成总分"
+      },
+      "source_refs": [
+        "G21B 附录A.1–A.2"
+      ],
+      "entity_types": [
+        "guide:mdm_diagnostic_answer"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:mdm_diagnostic_answer": [
+          "question_number",
+          "question",
+          "answer",
+          "evidence_detail",
+          "consequence",
+          "action",
+          "owner",
+          "scope",
+          "scoring"
+        ]
+      },
+      "checks": [
+        "十问各一条且编号不重复",
+        "未知必须有需补证据行动",
+        "不适用必须有范围理由",
+        "无总分/权重/合格线"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "mdm-operational-ten-questions",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/mdm-operational-ten-questions/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/mdm-operational-ten-questions/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构三馆读者主数据试点：已有用例清单但未连路线；同意请求流程未知；有0.2愿景/四平台态草案；架构师与管家参与但所有者未定；字典无变更历史；问题簿有负责人；没有量化质量证据；暂不使用外部数据。逐问判断须保留这些证据与未知，不计算总分。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "MDM-Q01",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断1",
+            "attributes": {
+              "question_number": 1,
+              "question": "用例是否被管理并驱动C-MDM愿景与路线图？",
+              "answer": "partial",
+              "evidence_detail": "用例清单存在但无优先级到路线的引用",
+              "consequence": "未证明的能力不能标通过",
+              "action": "补用例—路线追溯",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MDM-Q02",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断2",
+            "attributes": {
+              "question_number": 2,
+              "question": "C-MDM是否加速集中同意/偏好及数据法规客户请求管理？",
+              "answer": "unknown",
+              "evidence_detail": "仅知道有同意字段，无客户请求记录",
+              "consequence": "未证明的能力不能标通过",
+              "action": "访谈隐私负责人并收集请求流程",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MDM-Q03",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断3",
+            "attributes": {
+              "question_number": 3,
+              "question": "是否定义C-MDM战略愿景与路线图？",
+              "answer": "yes",
+              "evidence_detail": "版本0.2愿景和四平台态草案已记录",
+              "consequence": "按试点范围保留判断",
+              "action": "业务负责人审阅并说明批准状态",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MDM-Q04",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断4",
+            "attributes": {
+              "question_number": 4,
+              "question": "是否有架构师/管理员/管家/所有者组成的运营数据管理团队？",
+              "answer": "partial",
+              "evidence_detail": "有架构师和管家，数据所有者未正式参与",
+              "consequence": "未证明的能力不能标通过",
+              "action": "明确跨馆所有者参与职责",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MDM-Q05",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断5",
+            "attributes": {
+              "question_number": 5,
+              "question": "是否识别业务数据所有者并让其参与？",
+              "answer": "no",
+              "evidence_detail": "三馆均认为另一馆拥有黄金记录",
+              "consequence": "未证明的能力不能标通过",
+              "action": "指定按属性负责的业务所有者",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MDM-Q06",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断6",
+            "attributes": {
+              "question_number": 6,
+              "question": "是否识别客户数据管家？",
+              "answer": "yes",
+              "evidence_detail": "试点管家已在值班安排列名",
+              "consequence": "按试点范围保留判断",
+              "action": "验证可用容量",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MDM-Q07",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断7",
+            "attributes": {
+              "question_number": 7,
+              "question": "客户数据文档是否共享并维护？",
+              "answer": "partial",
+              "evidence_detail": "字典共享但无变更历史",
+              "consequence": "未证明的能力不能标通过",
+              "action": "补版本/责任和更新工作流",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MDM-Q08",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断8",
+            "attributes": {
+              "question_number": 8,
+              "question": "客户数据/质量问题是否捕获并妥善管理？",
+              "answer": "yes",
+              "evidence_detail": "问题簿有编号、负责人和复核日期",
+              "consequence": "按试点范围保留判断",
+              "action": "持续核对关闭证据",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MDM-Q09",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断9",
+            "attributes": {
+              "question_number": 9,
+              "question": "是否量测质量并管理改进？",
+              "answer": "no",
+              "evidence_detail": "只有“质量好”的口头判断",
+              "consequence": "未证明的能力不能标通过",
+              "action": "定义业务质量规则与观测口径",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MDM-Q10",
+            "type": "guide:mdm_diagnostic_answer",
+            "name": "诊断10",
+            "attributes": {
+              "question_number": 10,
+              "question": "外部数据是否为改进关键轴？",
+              "answer": "not-applicable-with-reason",
+              "evidence_detail": "试点只使用本馆合法采集的数据，外部数据无已识别用例",
+              "consequence": "按试点范围保留判断",
+              "action": "如将来增加来源重评",
+              "owner": "跨馆数据治理负责人",
+              "scope": "三馆试点，2026-11",
+              "scoring": "none；十问无综合分数"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "states": [],
+        "view": {
+          "id": "v-mdm-operational-ten-questions",
+          "artifact_id": "customer-mdm-model",
+          "profile_id": "mdm-operational-ten-questions",
+          "title": "C-MDM十问运营诊断",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "MDM-Q01",
+            "MDM-Q02",
+            "MDM-Q03",
+            "MDM-Q04",
+            "MDM-Q05",
+            "MDM-Q06",
+            "MDM-Q07",
+            "MDM-Q08",
+            "MDM-Q09",
+            "MDM-Q10"
+          ],
+          "relationship_ids": [],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true
+        }
+      },
+      "reference_document": "references/capability-addenda/mdm-operational-ten-questions.md"
+    },
+    {
+      "id": "mdm-four-plateau-operations",
+      "artifact_id": "customer-mdm-model",
+      "name": "C-MDM四平台态运营计划",
+      "name_zh": "C-MDM四平台态运营计划",
+      "owner": "togaf-information-data",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "state_ref": "命名状态ID，连接v2 states",
+        "evolution_kind": "baseline/transition/target，不是审批状态",
+        "mastership": "按属性/范围声明主控",
+        "golden_record": "是否可信及分析/运营用途",
+        "CRUD_ownership": "谁可创建读取更新删除",
+        "propagation": "方向、同步或异步、版本/重试语义",
+        "use_cases": "该态可实际运行的用例",
+        "operating_gate": "投入该态需验证条件",
+        "next_trigger": "演进触发，非凭日期",
+        "rollback": "可操作恢复与未决限制",
+        "scope": "内核边界与排除",
+        "source_mapping": "参考态与本地裁剪关系"
+      },
+      "source_refs": [
+        "G21B §4.4、§6.1.1–6.1.2"
+      ],
+      "entity_types": [
+        "guide:mdm_plateau"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:mdm_plateau": [
+          "state_ref",
+          "evolution_kind",
+          "mastership",
+          "golden_record",
+          "CRUD_ownership",
+          "propagation",
+          "use_cases",
+          "operating_gate",
+          "next_trigger",
+          "rollback",
+          "scope",
+          "source_mapping"
+        ]
+      },
+      "checks": [
+        "两个命名transition保留",
+        "分析黄金态不声称自动双向同步",
+        "每态有主控/CRUD/可运营门槛/恢复",
+        "不覆写历史交易事实"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "mdm-four-plateau-operations",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/mdm-four-plateau-operations/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/mdm-four-plateau-operations/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构试点初期三馆源系统各自更新读者。先建立仅用于分析的黄金记录，不同步源；待责任、授权、错合并恢复和事件积压监控验证后，让MDM对约定内核CRUD主控，再扩全馆范围。借阅交易历史保持其历史语境；没有项目日期和成本依据。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "MDM-P0",
+            "type": "guide:mdm_plateau",
+            "name": "MDM-S0",
+            "attributes": {
+              "state_ref": "MDM-S0",
+              "evolution_kind": "baseline",
+              "mastership": "源系统",
+              "golden_record": "无可信黄金记录",
+              "CRUD_ownership": "仅源系统更新",
+              "propagation": "仅汇集，不双向同步",
+              "use_cases": "历史借阅报表",
+              "operating_gate": "已有源记录可供分析但错配未量测",
+              "next_trigger": "建立稳定客户键与人工治理",
+              "rollback": "源系统保持真源",
+              "scope": "读者身份/联络/同意内核，合同与借阅交易不属内核",
+              "source_mapping": "G21B表4-6参考态的项目裁剪；不是四个过渡均transition"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "state_id": "MDM-S0"
+          },
+          {
+            "id": "MDM-P1",
+            "type": "guide:mdm_plateau",
+            "name": "MDM-T1",
+            "attributes": {
+              "state_ref": "MDM-T1",
+              "evolution_kind": "transition",
+              "mastership": "源系统仍为运营主控",
+              "golden_record": "有分析黄金记录/稳定组织ID",
+              "CRUD_ownership": "源系统更新；管家管理分析记录",
+              "propagation": "黄金记录可分发，但不与源自动同步",
+              "use_cases": "跨馆读者去重分析",
+              "operating_gate": "每次候选合并可人工撤销并留来源",
+              "next_trigger": "源质量/SLA/契约验证后才引运营主控",
+              "rollback": "停止新分析分发，源系统继续运营",
+              "scope": "读者身份/联络/同意内核，合同与借阅交易不属内核",
+              "source_mapping": "G21B表4-6参考态的项目裁剪；不是四个过渡均transition"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "state_id": "MDM-T1"
+          },
+          {
+            "id": "MDM-P2",
+            "type": "guide:mdm_plateau",
+            "name": "MDM-T2",
+            "attributes": {
+              "state_ref": "MDM-T2",
+              "evolution_kind": "transition",
+              "mastership": "C-MDM为约定内核属性主控",
+              "golden_record": "运营黄金记录",
+              "CRUD_ownership": "内核CRUD通过MDM服务，消费者不得自行写该属性",
+              "propagation": "有版本事件分发；重试与幂等按项目规则",
+              "use_cases": "读者信息更新和偏好同步",
+              "operating_gate": "授权、错合并恢复、事件积压监控通过试点验证",
+              "next_trigger": "所有业务范围逐步接入且价值/责任受控",
+              "rollback": "冻结写入，按审计重放/恢复到旧主控前先核对数据",
+              "scope": "读者身份/联络/同意内核，合同与借阅交易不属内核",
+              "source_mapping": "G21B表4-6参考态的项目裁剪；不是四个过渡均transition"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "state_id": "MDM-T2"
+          },
+          {
+            "id": "MDM-P3",
+            "type": "guide:mdm_plateau",
+            "name": "MDM-S3",
+            "attributes": {
+              "state_ref": "MDM-S3",
+              "evolution_kind": "target",
+              "mastership": "C-MDM约定完整内核范围",
+              "golden_record": "制度化可信记录",
+              "CRUD_ownership": "责任/生命周期策略一致执行",
+              "propagation": "范围内传播受治理；并非所有历史交易改写",
+              "use_cases": "全馆合格用例",
+              "operating_gate": "业务价值与质量有持续观测，治理长期运行",
+              "next_trigger": "持续治理，不是固定日期结束",
+              "rollback": "按批准的变更计划恢复；当前仅提案",
+              "scope": "读者身份/联络/同意内核，合同与借阅交易不属内核",
+              "source_mapping": "G21B表4-6参考态的项目裁剪；不是四个过渡均transition"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "state_id": "MDM-S3"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "states": [
+          {
+            "id": "MDM-S0",
+            "name": "现状归并",
+            "evolution": "baseline",
+            "evidence": [
+              "case-source"
+            ],
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "operating_conditions": {
+              "owner": "源系统负责人",
+              "service_levels": "沿用试点现有人工保障；未承诺新SLA",
+              "data_consistency": "保留旧记录/来源映射，按消费者核对迁移期间的一致性",
+              "controls": "受控授权与审计",
+              "monitoring": "管家监视错配/积压",
+              "rollback": "按状态保留旧主控与可恢复记录",
+              "operations": "管家与运维值班，服务告警与人工恢复流程保持可用",
+              "dependencies": "前置质量与责任条件满足后进入"
+            }
+          },
+          {
+            "id": "MDM-T1",
+            "name": "分析黄金记录",
+            "evolution": "transition",
+            "evidence": [
+              "case-source"
+            ],
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "operating_conditions": {
+              "owner": "数据管家",
+              "service_levels": "沿用试点现有人工保障；未承诺新SLA",
+              "data_consistency": "保留旧记录/来源映射，按消费者核对迁移期间的一致性",
+              "controls": "受控授权与审计",
+              "monitoring": "管家监视错配/积压",
+              "rollback": "按状态保留旧主控与可恢复记录",
+              "operations": "管家与运维值班，服务告警与人工恢复流程保持可用",
+              "dependencies": "前置质量与责任条件满足后进入"
+            }
+          },
+          {
+            "id": "MDM-T2",
+            "name": "运营主控",
+            "evolution": "transition",
+            "evidence": [
+              "case-source"
+            ],
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "operating_conditions": {
+              "owner": "MDM服务负责人",
+              "service_levels": "沿用试点现有人工保障；未承诺新SLA",
+              "data_consistency": "保留旧记录/来源映射，按消费者核对迁移期间的一致性",
+              "controls": "受控授权与审计",
+              "monitoring": "管家监视错配/积压",
+              "rollback": "按状态保留旧主控与可恢复记录",
+              "operations": "管家与运维值班，服务告警与人工恢复流程保持可用",
+              "dependencies": "前置质量与责任条件满足后进入"
+            }
+          },
+          {
+            "id": "MDM-S3",
+            "name": "全范围制度化",
+            "evolution": "target",
+            "evidence": [
+              "case-source"
+            ],
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "operating_conditions": {
+              "owner": "数据治理负责人",
+              "service_levels": "沿用试点现有人工保障；未承诺新SLA",
+              "data_consistency": "保留旧记录/来源映射，按消费者核对迁移期间的一致性",
+              "controls": "受控授权与审计",
+              "monitoring": "管家监视错配/积压",
+              "rollback": "按状态保留旧主控与可恢复记录",
+              "operations": "管家与运维值班，服务告警与人工恢复流程保持可用",
+              "dependencies": "前置质量与责任条件满足后进入"
+            }
+          }
+        ],
+        "view": {
+          "id": "v-mdm-four-plateau-operations",
+          "artifact_id": "customer-mdm-model",
+          "profile_id": "mdm-four-plateau-operations",
+          "title": "C-MDM四平台态运营计划",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "MDM-P0",
+            "MDM-P1",
+            "MDM-P2",
+            "MDM-P3"
+          ],
+          "relationship_ids": [],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true,
+          "state_ids": [
+            "MDM-S0",
+            "MDM-T1",
+            "MDM-T2",
+            "MDM-S3"
+          ]
+        }
+      },
+      "reference_document": "references/capability-addenda/mdm-four-plateau-operations.md"
+    },
+    {
+      "id": "mdm-match-merge-arbitration",
+      "artifact_id": "customer-mdm-model",
+      "name": "C-MDM匹配、合并与人工仲裁",
+      "name_zh": "C-MDM匹配、合并与人工仲裁",
+      "owner": "togaf-information-data",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "rule": "项目明确匹配规则及来源，不假冒TOGAF阈值",
+        "record_refs": "各源记录稳定ID",
+        "key_comparison": "标识与属性比较，保留未知和冲突",
+        "proposal": "do-not-merge/manual-review/merge-candidate等候选判断",
+        "matching_basis": "推理证据",
+        "manual_arbitration": "谁核对什么再如何处理",
+        "decision_status": "候选/已决定等业务状态，非真实批准",
+        "merge_lineage": "源记录/黄金记录/版本及实际或候选操作",
+        "unmerge_plan": "恢复ID/原值/版本及消费者关联的方法",
+        "historical_policy": "历史用途与当前真值分离规则"
+      },
+      "source_refs": [
+        "G21B §3、§5.2.2"
+      ],
+      "entity_types": [
+        "guide:mdm_match_case"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:mdm_match_case": [
+          "rule",
+          "record_refs",
+          "key_comparison",
+          "proposal",
+          "matching_basis",
+          "manual_arbitration",
+          "decision_status",
+          "merge_lineage",
+          "unmerge_plan",
+          "historical_policy"
+        ]
+      },
+      "checks": [
+        "姓名相同不作为唯一合并依据",
+        "merge状态需人工证据及实际谱系",
+        "概率/阈值必须有项目来源",
+        "历史原值与源ID保留"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "mdm-match-merge-arbitration",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/mdm-match-merge-arbitration/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/mdm-match-merge-arbitration/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构两对记录：R17与R92姓名相同但已核实证件不同；R18与R54已核实证件相同但地址与采集日期不同。项目规则仅把同证件视为候选，需人工核实后才合并。没有概率分数和匹配阈值；必须能取消错合并。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "MATCH-01",
+            "type": "guide:mdm_match_case",
+            "name": "同名不同证件",
+            "attributes": {
+              "rule": "project-exact-identifier",
+              "record_refs": [
+                "甲馆:R17",
+                "乙馆:R92"
+              ],
+              "key_comparison": {
+                "name": "相同",
+                "verified_identifier": "不同"
+              },
+              "proposal": "do-not-merge",
+              "matching_basis": "已核实标识不同；姓名相同不足以确认",
+              "manual_arbitration": "管家保持分离，记录差异，未改变历史借阅",
+              "decision_status": "proposed",
+              "merge_lineage": [],
+              "unmerge_plan": "本例未合并，无需反向拆分",
+              "historical_policy": "保留源记录、来源、时间及原交易关系"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MATCH-02",
+            "type": "guide:mdm_match_case",
+            "name": "同证件地址冲突",
+            "attributes": {
+              "rule": "project-exact-identifier",
+              "record_refs": [
+                "甲馆:R18",
+                "丙馆:R54"
+              ],
+              "key_comparison": {
+                "verified_identifier": "相同",
+                "address": "冲突",
+                "address_dates": "不同"
+              },
+              "proposal": "manual-review",
+              "matching_basis": "证件相同仅产生候选，地址取值需源/时间与使用目的",
+              "manual_arbitration": "管家先核实证件及两次地址时间；通过后可合并身份但保留地址历史",
+              "decision_status": "proposed",
+              "merge_lineage": [
+                {
+                  "candidate": "MRG-02",
+                  "sources": [
+                    "甲馆:R18",
+                    "丙馆:R54"
+                  ],
+                  "state": "not-executed"
+                }
+              ],
+              "unmerge_plan": "保存来源ID到黄金ID映射、原值与版本；错合并时恢复两个源身份并修正消费者关联",
+              "historical_policy": "当前地址不得回写历史交易解释"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "states": [],
+        "view": {
+          "id": "v-mdm-match-merge-arbitration",
+          "artifact_id": "customer-mdm-model",
+          "profile_id": "mdm-match-merge-arbitration",
+          "title": "C-MDM匹配、合并与人工仲裁",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "MATCH-01",
+            "MATCH-02"
+          ],
+          "relationship_ids": [],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true
+        }
+      },
+      "reference_document": "references/capability-addenda/mdm-match-merge-arbitration.md"
+    },
+    {
+      "id": "ea-service-emergence-npd",
+      "artifact_id": "ea-service-catalog",
+      "name": "EA服务N／P／D语境矩阵",
+      "name_zh": "EA服务N／P／D语境矩阵",
+      "owner": "togaf-ea-capability",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "service": "同一稳定服务名/ID",
+        "context": "四DPBoK语境，不是成熟度评分",
+        "emergence": "N/P/D或本地明确未引入",
+        "meaning": "N首次/P此前/D加深",
+        "local_depth": "D必须说明增加何种活动/范围",
+        "evidence_detail": "项目服务演进证据",
+        "mapping_origin": "项目裁剪或来源逐格转录必须区分",
+        "source_cell_status": "原图对应格核实状态",
+        "resources": "交付服务所需责任/容量及缺口"
+      },
+      "source_refs": [
+        "G217 §4.4.1–4.4.5，图4-3"
+      ],
+      "entity_types": [
+        "guide:ea_service_context"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:ea_service_context": [
+          "service",
+          "context",
+          "emergence",
+          "meaning",
+          "local_depth",
+          "evidence_detail",
+          "mapping_origin",
+          "source_cell_status",
+          "resources"
+        ]
+      },
+      "checks": [
+        "D有深化说明",
+        "P/D前应有已引入历史",
+        "未引入不能误用D",
+        "项目映射不得标为原图逐格复刻"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "ea-service-emergence-npd",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/ea-service-emergence-npd/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/ea-service-emergence-npd/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构数字借阅团队回顾：创始阶段已做价值评估；团队阶段引入变更建议，价值评估范围沿用；团队之团队阶段价值评估增加跨产品依赖风险；持久企业阶段两者继续深化且首次引入合规准则服务。这里只声称项目映射，原图逐格关系尚未核实。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "EA-01",
+            "type": "guide:ea_service_context",
+            "name": "价值评估／语境1",
+            "attributes": {
+              "service": "价值评估",
+              "context": "Context 1",
+              "emergence": "N",
+              "meaning": "首次引入",
+              "local_depth": "基本服务范围",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-02",
+            "type": "guide:ea_service_context",
+            "name": "价值评估／语境2",
+            "attributes": {
+              "service": "价值评估",
+              "context": "Context 2",
+              "emergence": "P",
+              "meaning": "之前已引入",
+              "local_depth": "基本服务范围",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-03",
+            "type": "guide:ea_service_context",
+            "name": "价值评估／语境3",
+            "attributes": {
+              "service": "价值评估",
+              "context": "Context 3",
+              "emergence": "D",
+              "meaning": "执行深度增加",
+              "local_depth": "两个产品共同评估依赖/风险",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-04",
+            "type": "guide:ea_service_context",
+            "name": "价值评估／语境4",
+            "attributes": {
+              "service": "价值评估",
+              "context": "Context 4",
+              "emergence": "D",
+              "meaning": "执行深度增加",
+              "local_depth": "两个产品共同评估依赖/风险",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-05",
+            "type": "guide:ea_service_context",
+            "name": "变更建议／语境1",
+            "attributes": {
+              "service": "变更建议",
+              "context": "Context 1",
+              "emergence": "not-introduced",
+              "meaning": "本项目该语境未引入",
+              "local_depth": "基本服务范围",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-06",
+            "type": "guide:ea_service_context",
+            "name": "变更建议／语境2",
+            "attributes": {
+              "service": "变更建议",
+              "context": "Context 2",
+              "emergence": "N",
+              "meaning": "首次引入",
+              "local_depth": "基本服务范围",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-07",
+            "type": "guide:ea_service_context",
+            "name": "变更建议／语境3",
+            "attributes": {
+              "service": "变更建议",
+              "context": "Context 3",
+              "emergence": "P",
+              "meaning": "之前已引入",
+              "local_depth": "基本服务范围",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-08",
+            "type": "guide:ea_service_context",
+            "name": "变更建议／语境4",
+            "attributes": {
+              "service": "变更建议",
+              "context": "Context 4",
+              "emergence": "D",
+              "meaning": "执行深度增加",
+              "local_depth": "两个产品共同评估依赖/风险",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-09",
+            "type": "guide:ea_service_context",
+            "name": "合规准则开发／语境1",
+            "attributes": {
+              "service": "合规准则开发",
+              "context": "Context 1",
+              "emergence": "not-introduced",
+              "meaning": "本项目该语境未引入",
+              "local_depth": "基本服务范围",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-10",
+            "type": "guide:ea_service_context",
+            "name": "合规准则开发／语境2",
+            "attributes": {
+              "service": "合规准则开发",
+              "context": "Context 2",
+              "emergence": "not-introduced",
+              "meaning": "本项目该语境未引入",
+              "local_depth": "基本服务范围",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-11",
+            "type": "guide:ea_service_context",
+            "name": "合规准则开发／语境3",
+            "attributes": {
+              "service": "合规准则开发",
+              "context": "Context 3",
+              "emergence": "not-introduced",
+              "meaning": "本项目该语境未引入",
+              "local_depth": "基本服务范围",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EA-12",
+            "type": "guide:ea_service_context",
+            "name": "合规准则开发／语境4",
+            "attributes": {
+              "service": "合规准则开发",
+              "context": "Context 4",
+              "emergence": "N",
+              "meaning": "首次引入",
+              "local_depth": "基本服务范围",
+              "evidence_detail": "虚构团队服务演进会议记录；N/P/D词义来自G217",
+              "mapping_origin": "project-tailoring-not-source-cell-transcription",
+              "source_cell_status": "not-verified",
+              "resources": "责任EA角色每周复核；容量待项目确认"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "states": [],
+        "view": {
+          "id": "v-ea-service-emergence-npd",
+          "artifact_id": "ea-service-catalog",
+          "profile_id": "ea-service-emergence-npd",
+          "title": "EA服务N／P／D语境矩阵",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "EA-01",
+            "EA-02",
+            "EA-03",
+            "EA-04",
+            "EA-05",
+            "EA-06",
+            "EA-07",
+            "EA-08",
+            "EA-09",
+            "EA-10",
+            "EA-11",
+            "EA-12"
+          ],
+          "relationship_ids": [],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true
+        }
+      },
+      "reference_document": "references/capability-addenda/ea-service-emergence-npd.md"
+    },
+    {
+      "id": "ea-service-adm-evidence-map",
+      "artifact_id": "ea-service-catalog",
+      "name": "EA服务与ADM证据映射",
+      "name_zh": "EA服务与ADM证据映射",
+      "owner": "togaf-ea-capability",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "service": "服务目录项",
+        "ADM_phase": "项目使用阶段，可多记录而非唯一归属",
+        "project_activity": "服务在该阶段支持的活动",
+        "output": "具体交付或决策输入",
+        "owner": "责任角色",
+        "mapping_origin": "project-observation/project-proposal/source-verified区分",
+        "evidence_detail": "项目或来源定位",
+        "source_mapping": "原图映射核实结果；未知不填不适用"
+      },
+      "source_refs": [
+        "G217 附录C.1–C.7、附录D"
+      ],
+      "entity_types": [
+        "guide:ea_adm_mapping"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:ea_adm_mapping": [
+          "service",
+          "ADM_phase",
+          "project_activity",
+          "output",
+          "owner",
+          "mapping_origin",
+          "evidence_detail",
+          "source_mapping"
+        ]
+      },
+      "checks": [
+        "每条映射有来源与目的",
+        "制定准则和执行评估分开",
+        "未知保持unknown",
+        "不得把项目安排伪称原图精确对应"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "ea-service-adm-evidence-map",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/ea-service-adm-evidence-map/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/ea-service-adm-evidence-map/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构项目会议把价值评估用于愿景A，把消费者变化建议用于H，将合规准则准备作为G实施评审的输入。服务名称及候选目录来自G217，源图C-1具体逐格映射本轮未核实，因此这些映射只作为项目操作记录。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "EAM-01",
+            "type": "guide:ea_adm_mapping",
+            "name": "价值评估→阶段A",
+            "attributes": {
+              "service": "价值评估",
+              "ADM_phase": "A",
+              "project_activity": "比较跨馆试点目标与预期收益",
+              "output": "愿景的价值假设与待验证指标",
+              "owner": "EA顾问与业务负责人",
+              "mapping_origin": "project-observation",
+              "evidence_detail": "项目规划会明确A阶段使用；不是声称图C-1原格",
+              "source_mapping": "unknown；待原图C-1对应格核查"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EAM-02",
+            "type": "guide:ea_adm_mapping",
+            "name": "变更建议→阶段H",
+            "attributes": {
+              "service": "变更建议",
+              "ADM_phase": "H",
+              "project_activity": "复核消费者增加对契约的影响",
+              "output": "变更请求及影响建议",
+              "owner": "接口负责人",
+              "mapping_origin": "project-observation",
+              "evidence_detail": "运营会议把变更建议安排在H的处理活动",
+              "source_mapping": "unknown；待原图C-1对应格核查"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "EAM-03",
+            "type": "guide:ea_adm_mapping",
+            "name": "合规准则开发→阶段G输入",
+            "attributes": {
+              "service": "合规准则开发",
+              "ADM_phase": "G",
+              "project_activity": "将已制定的可执行准则作为实施评审输入",
+              "output": "准则与检查证据要求",
+              "owner": "治理负责人",
+              "mapping_origin": "project-proposal",
+              "evidence_detail": "本项目拟在G前准备准则；制定与合规评估结果不能混同",
+              "source_mapping": "unknown；不推断图C-1仅映射G"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "states": [],
+        "view": {
+          "id": "v-ea-service-adm-evidence-map",
+          "artifact_id": "ea-service-catalog",
+          "profile_id": "ea-service-adm-evidence-map",
+          "title": "EA服务与ADM证据映射",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "EAM-01",
+            "EAM-02",
+            "EAM-03"
+          ],
+          "relationship_ids": [],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true
+        }
+      },
+      "reference_document": "references/capability-addenda/ea-service-adm-evidence-map.md"
+    },
+    {
+      "id": "msa-contract-consumer-evidence",
+      "artifact_id": "interface-catalog",
+      "name": "微服务契约与实际／计划消费者",
+      "name_zh": "微服务契约与实际／计划消费者",
+      "owner": "togaf-application-architecture",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "service_id": "逻辑服务稳定ID，版本独立",
+        "ABF": "唯一原子业务功能",
+        "API": "接口操作及路径",
+        "version": "契约版本，不等于架构状态",
+        "consumer": "实际/计划消费者身份或明确类别",
+        "consumer_status": "计划与实际采用分开",
+        "credential": "认证授权和缺口",
+        "NFR": "性能/可用/安全的单位、期间、证据或待测状态",
+        "address": "可发现的稳定逻辑地址，不暴露真实密钥",
+        "compatibility": "版本兼容规则及来源",
+        "change_impact": "变更对消费者的具体影响",
+        "source": "业务来源定位"
+      },
+      "source_refs": [
+        "G21I §8.2、§9.1、§12.2、§13.1–13.2"
+      ],
+      "entity_types": [
+        "guide:msa_contract"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:msa_contract": [
+          "service_id",
+          "ABF",
+          "API",
+          "version",
+          "consumer",
+          "consumer_status",
+          "credential",
+          "NFR",
+          "address",
+          "compatibility",
+          "change_impact",
+          "source"
+        ]
+      },
+      "checks": [
+        "每版本消费者实际/计划明确",
+        "NFR必须有单位/期间/依据或明确待测",
+        "契约变更必须复核消费者影响",
+        "一个服务不能偷包多个独立ABF"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "msa-contract-consumer-evidence",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/msa-contract-consumer-evidence/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/msa-contract-consumer-evidence/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构借阅资格微服务只判断一个ABF。1.0已有预约服务和馆员台两个试点消费者；移动端拟用1.1但未获批。服务契约要求身份令牌、最小返回，项目候选p95≤200ms、月可用99.5%，尚未测试。增加原因码须检查旧消费者映射。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "MSC-01",
+            "type": "guide:msa_contract",
+            "name": "读者借阅资格服务1.0",
+            "attributes": {
+              "service_id": "MS-eligibility",
+              "ABF": "判断读者在指定时点的借阅资格",
+              "API": "GET /eligibility/{readerId}",
+              "version": "1.0",
+              "consumer": "预约服务；馆员台",
+              "consumer_status": "actual-in-fictional-pilot",
+              "credential": "服务身份令牌；角色read-eligibility",
+              "NFR": {
+                "latency": "项目约定p95≤200ms，试点待测",
+                "availability": "项目目标99.5%月度，未验证",
+                "security": "不返回证件号；仅资格结论及原因码"
+              },
+              "address": "svc://eligibility/v1（虚构稳定逻辑名）",
+              "compatibility": "既有字段不改含义，新增原因码须消费者复核",
+              "change_impact": "新增原因码影响两消费者映射；不得无通知直接删除",
+              "source": "项目契约草案；未真实发布"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MSC-02",
+            "type": "guide:msa_contract",
+            "name": "读者借阅资格服务1.1候选",
+            "attributes": {
+              "service_id": "MS-eligibility",
+              "ABF": "判断读者在指定时点的借阅资格",
+              "API": "GET /eligibility/{readerId}",
+              "version": "1.1-candidate",
+              "consumer": "移动端自助预约",
+              "consumer_status": "planned",
+              "credential": "待安全负责人确认授权范围",
+              "NFR": {
+                "latency": "沿用1.0候选SLA，需负载重测",
+                "availability": "待容量确认",
+                "security": "候选同1.0最小返回"
+              },
+              "address": "svc://eligibility/v1（候选兼容部署）",
+              "compatibility": "新消费者不得被当作已迁移；是否增加字段待需求核实",
+              "change_impact": "第三消费者增加流量与跨团队变更范围",
+              "source": "项目新增渠道申请，未真实批准"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "states": [],
+        "view": {
+          "id": "v-msa-contract-consumer-evidence",
+          "artifact_id": "interface-catalog",
+          "profile_id": "msa-contract-consumer-evidence",
+          "title": "微服务契约与实际／计划消费者",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "MSC-01",
+            "MSC-02"
+          ],
+          "relationship_ids": [],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true
+        }
+      },
+      "reference_document": "references/capability-addenda/msa-contract-consumer-evidence.md"
+    },
+    {
+      "id": "msa-data-distribution-conditions",
+      "artifact_id": "data-dissemination-diagram",
+      "name": "MSA数据分布、分片与批次条件表",
+      "name_zh": "MSA数据分布、分片与批次条件表",
+      "owner": "togaf-information-data",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "data": "逻辑数据内容，副本不自动成为另一实体",
+        "store": "物理或逻辑存储身份",
+        "owner_service": "数据责任服务",
+        "replica_role": "主控/副本/缓存用途",
+        "shard_strategy": "分片键、规则与依据或明确不分片",
+        "external_provider": "外部供数责任方",
+        "transfer_direction": "源→目标的数据方向",
+        "frequency_trigger": "批频次/触发、失败动作",
+        "freshness_limit": "最大陈旧性与超限处理",
+        "security": "属性/实体密级及声明量表",
+        "retention": "保留与删除/恢复范围",
+        "migration": "初始与增量迁移方式",
+        "access_rule": "接口访问与数据库边界"
+      },
+      "source_refs": [
+        "G21I §3.3、§8.1、§10.4.1"
+      ],
+      "entity_types": [
+        "guide:msa_data_distribution"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:msa_data_distribution": [
+          "data",
+          "store",
+          "owner_service",
+          "replica_role",
+          "shard_strategy",
+          "external_provider",
+          "transfer_direction",
+          "frequency_trigger",
+          "freshness_limit",
+          "security",
+          "retention",
+          "migration",
+          "access_rule"
+        ]
+      },
+      "checks": [
+        "每副本有源与陈旧性处理",
+        "批流标频次或触发",
+        "实体密级不能低于属性最高",
+        "不默认跨库共享"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "msa-data-distribution-conditions",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/msa-data-distribution-conditions/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/msa-data-distribution-conditions/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构资格服务为保持运行独立性每晚经受控导出取得读者资格快照；两分片按项目readerId哈希策略，保留2版本。快照超过24小时拒绝肯定资格并转人工。缓存不超过快照有效期，属性密级按项目internal<confidential取最高；没有直接跨服务数据库访问。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "MSD-01",
+            "type": "guide:msa_data_distribution",
+            "name": "借阅资格服务本地读者快照",
+            "attributes": {
+              "data": "reader_eligibility_snapshot",
+              "store": "eligibility-read-store",
+              "owner_service": "MS-eligibility",
+              "replica_role": "独立服务本地只读副本",
+              "shard_strategy": "项目选择按readerId哈希分2片；不是TOGAF规定",
+              "external_provider": "读者主数据服务",
+              "transfer_direction": "主数据导出→资格快照",
+              "frequency_trigger": "每晚02:00受控批次；失败重试并通知值班",
+              "freshness_limit": "项目规定≤24小时；过期拒绝返回肯定资格并转人工",
+              "security": {
+                "readerId": "internal",
+                "eligibilityReason": "confidential",
+                "entity_level": "confidential",
+                "rule": "项目密级顺序，取最高属性"
+              },
+              "retention": "保留最近2版本用于恢复；时间依据为项目试点",
+              "migration": "上线前全量受控导入，之后增量批次",
+              "access_rule": "不直接访问另一微服务数据库；消费已发布导出契约"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MSD-02",
+            "type": "guide:msa_data_distribution",
+            "name": "资格缓存",
+            "attributes": {
+              "data": "eligibility_response_cache",
+              "store": "eligibility-cache",
+              "owner_service": "MS-eligibility",
+              "replica_role": "同服务缓存，不是新的业务实体",
+              "shard_strategy": "不分片；项目流量试验后复评",
+              "external_provider": "本服务快照",
+              "transfer_direction": "快照计算→本服务缓存",
+              "frequency_trigger": "按查询生成；快照版本更新失效",
+              "freshness_limit": "不超过当前快照版本的有效期",
+              "security": {
+                "readerId": "internal",
+                "eligibilityReason": "confidential",
+                "entity_level": "confidential",
+                "rule": "沿用项目最高属性规则"
+              },
+              "retention": "随快照失效；不长期保留原始证件",
+              "migration": "无需跨服务库迁移，版本切换清空",
+              "access_rule": "仅本服务进程可访问"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "states": [],
+        "view": {
+          "id": "v-msa-data-distribution-conditions",
+          "artifact_id": "data-dissemination-diagram",
+          "profile_id": "msa-data-distribution-conditions",
+          "title": "MSA数据分布、分片与批次条件表",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "MSD-01",
+            "MSD-02"
+          ],
+          "relationship_ids": [],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true
+        }
+      },
+      "reference_document": "references/capability-addenda/msa-data-distribution-conditions.md"
+    },
+    {
+      "id": "msa-source-deployment-execution",
+      "artifact_id": "software-distribution-diagram",
+      "name": "MSA源、部署与执行单元追溯表",
+      "name_zh": "MSA源、部署与执行单元追溯表",
+      "owner": "togaf-technology-architecture",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "unit_kind": "source/library/deployment/execution角色",
+        "service_id": "所属逻辑服务，无业务库明确business-neutral",
+        "function": "各单元职责及ABF实现关系",
+        "included_business_services": "包/源含的业务服务，禁止默默混包",
+        "libraries": "依赖库ID；需验证无业务",
+        "environment": "源码/制品仓库/执行环境身份",
+        "instances": "实际或候选运行数量，非源与包复制数",
+        "operating_condition": "健康、数据和故障/伸缩条件"
+      },
+      "source_refs": [
+        "G21I §9.1–9.2"
+      ],
+      "entity_types": [
+        "guide:msa_unit"
+      ],
+      "relationship_types": [
+        "guide:uses_neutral_library",
+        "guide:builds_deployment",
+        "guide:deploys_instance"
+      ],
+      "required_attributes": {
+        "guide:msa_unit": [
+          "unit_kind",
+          "service_id",
+          "function",
+          "included_business_services",
+          "libraries",
+          "environment",
+          "instances",
+          "operating_condition"
+        ]
+      },
+      "checks": [
+        "部署单元不得包含多个微服务代码",
+        "公共库必须无业务逻辑",
+        "多实例复用同部署包ID",
+        "部署端点角色与关系方向一致"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "msa-source-deployment-execution",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/msa-source-deployment-execution/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/msa-source-deployment-execution/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构资格服务有独立源单元；可复用不含业务逻辑的脱敏日志库。单一部署包只包含资格服务代码，分别在节点A/B运行同代码实例，数据有效且健康后接流量；没有把两个服务打成一个部署包。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "MSU-S",
+            "type": "guide:msa_unit",
+            "name": "资格源单元",
+            "attributes": {
+              "unit_kind": "source",
+              "service_id": "MS-eligibility",
+              "function": "实现借阅资格ABF",
+              "included_business_services": [
+                "MS-eligibility"
+              ],
+              "libraries": [
+                "LIB-log"
+              ],
+              "environment": "源码库",
+              "instances": "not-applicable",
+              "operating_condition": "不含其他微服务业务代码或直接访问其数据"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "LIB-log",
+            "type": "guide:msa_unit",
+            "name": "通用日志库",
+            "attributes": {
+              "unit_kind": "library",
+              "service_id": "business-neutral",
+              "function": "通用脱敏日志格式化，无借阅规则",
+              "included_business_services": [],
+              "libraries": [],
+              "environment": "共享基础库",
+              "instances": "not-applicable",
+              "operating_condition": "只有无业务功能库可被多个源单元复用"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MSU-D",
+            "type": "guide:msa_unit",
+            "name": "资格部署包",
+            "attributes": {
+              "unit_kind": "deployment",
+              "service_id": "MS-eligibility",
+              "function": "由资格源单元和日志库构建",
+              "included_business_services": [
+                "MS-eligibility"
+              ],
+              "libraries": [
+                "LIB-log"
+              ],
+              "environment": "候选制品仓库",
+              "instances": "one-deployment-unit",
+              "operating_condition": "不混入其他微服务代码；独立测试/部署"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MSU-E1",
+            "type": "guide:msa_unit",
+            "name": "资格运行实例A",
+            "attributes": {
+              "unit_kind": "execution",
+              "service_id": "MS-eligibility",
+              "function": "执行同一资格部署包",
+              "included_business_services": [
+                "MS-eligibility"
+              ],
+              "libraries": [],
+              "environment": "试点节点A",
+              "instances": 1,
+              "operating_condition": "接收健康检查；失败时由另一同代码实例接管"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "MSU-E2",
+            "type": "guide:msa_unit",
+            "name": "资格运行实例B",
+            "attributes": {
+              "unit_kind": "execution",
+              "service_id": "MS-eligibility",
+              "function": "执行同一资格部署包",
+              "included_business_services": [
+                "MS-eligibility"
+              ],
+              "libraries": [],
+              "environment": "试点节点B",
+              "instances": 1,
+              "operating_condition": "与A同代码；副本数据有效后才接流量"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "MSR-lib",
+            "type": "guide:uses_neutral_library",
+            "source": "MSU-S",
+            "target": "LIB-log",
+            "label": "使用无业务日志库",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "MSR-build",
+            "type": "guide:builds_deployment",
+            "source": "MSU-S",
+            "target": "MSU-D",
+            "label": "构建一个独立资格服务包",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "MSR-A",
+            "type": "guide:deploys_instance",
+            "source": "MSU-D",
+            "target": "MSU-E1",
+            "label": "部署同代码实例A",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "MSR-B",
+            "type": "guide:deploys_instance",
+            "source": "MSU-D",
+            "target": "MSU-E2",
+            "label": "部署同代码实例B",
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "extensions": {
+          "relationship_types": {
+            "guide:uses_neutral_library": {
+              "source_types": [
+                "guide:msa_unit"
+              ],
+              "target_types": [
+                "guide:msa_unit"
+              ],
+              "meaning": "源单元使用无业务公共库"
+            },
+            "guide:builds_deployment": {
+              "source_types": [
+                "guide:msa_unit"
+              ],
+              "target_types": [
+                "guide:msa_unit"
+              ],
+              "meaning": "源构建成部署单元，非业务流程顺序"
+            },
+            "guide:deploys_instance": {
+              "source_types": [
+                "guide:msa_unit"
+              ],
+              "target_types": [
+                "guide:msa_unit"
+              ],
+              "meaning": "同一部署单元实例化为运行单元"
+            }
+          }
+        },
+        "states": [],
+        "view": {
+          "id": "v-msa-source-deployment-execution",
+          "artifact_id": "software-distribution-diagram",
+          "profile_id": "msa-source-deployment-execution",
+          "title": "MSA源、部署与执行单元追溯表",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "MSU-S",
+            "LIB-log",
+            "MSU-D",
+            "MSU-E1",
+            "MSU-E2"
+          ],
+          "relationship_ids": [
+            "MSR-lib",
+            "MSR-build",
+            "MSR-A",
+            "MSR-B"
+          ],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true
+        }
+      },
+      "reference_document": "references/capability-addenda/msa-source-deployment-execution.md"
+    },
+    {
+      "id": "bi-stage-operability-and-exit",
+      "artifact_id": "bi-transition-architecture",
+      "name": "BI多阶段运营与退出条件",
+      "name_zh": "BI多阶段运营与退出条件",
+      "owner": "togaf-information-data",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "state_ref": "v2命名状态",
+        "evolution_kind": "基线/多个过渡/目标区分",
+        "data_flows": "源→目标及清洗/原始区别",
+        "raw_and_metadata": "原始数据和元数据覆盖",
+        "consumers": "逐消费者切换和双供数",
+        "incremental_benefit": "该态的新增业务价值",
+        "known_gap": "仍未解决的能力与运营代价",
+        "operating_exit_gate": "可运营条件与退出验证",
+        "legacy_requirement_coverage": "旧需求逐项映射/验证状态",
+        "retirement_authorized": "是否获得退出依据；与架构状态不同",
+        "cost_basis": "成本的已知/未知依据",
+        "schedule_basis": "本地时间依据；指南参考非硬期限"
+      },
+      "source_refs": [
+        "G238 §3.2.1–3.2.4"
+      ],
+      "entity_types": [
+        "guide:bi_operating_state"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:bi_operating_state": [
+          "state_ref",
+          "evolution_kind",
+          "data_flows",
+          "raw_and_metadata",
+          "consumers",
+          "incremental_benefit",
+          "known_gap",
+          "operating_exit_gate",
+          "legacy_requirement_coverage",
+          "retirement_authorized",
+          "cost_basis",
+          "schedule_basis"
+        ]
+      },
+      "checks": [
+        "step1基线/step2–3过渡/step4目标不混同",
+        "目标未覆盖旧需求不得退旧仓",
+        "数据流方向随状态变化要表达",
+        "无成本/时间依据不估算或强定期限"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "bi-stage-operability-and-exit",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/bi-stage-operability-and-exit/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/bi-stage-operability-and-exit/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构图书平台旧仓支持月报与审计。新需求为设备事件分析；先让旧仓清洗数据供新平台，再让交易原始数据和元数据直接进新平台，消费者分批切换。目标拟退旧仓，但OLD-audit尚未证实覆盖，因此退役未获准。没有成本或工期数据。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "BI-P0",
+            "type": "guide:bi_operating_state",
+            "name": "BI-B",
+            "attributes": {
+              "state_ref": "BI-B",
+              "evolution_kind": "baseline",
+              "data_flows": "交易应用→旧数仓→借阅报表",
+              "raw_and_metadata": "旧仓无完整原始/元数据",
+              "consumers": "借阅月报依旧数仓",
+              "incremental_benefit": "已有历史报表可运行",
+              "known_gap": "无法分析设备事件",
+              "operating_exit_gate": "新需求和已声明容量/成本约束触发；不是自动替换",
+              "legacy_requirement_coverage": {
+                "OLD-month": "verified-in-example",
+                "OLD-audit": "legacy-service-retained"
+              },
+              "retirement_authorized": false,
+              "cost_basis": "未给成本数据，不用“双份存储”推断总成本翻倍",
+              "schedule_basis": "无项目工期，不套用指南3–5年叙述"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "state_id": "BI-B"
+          },
+          {
+            "id": "BI-P1",
+            "type": "guide:bi_operating_state",
+            "name": "BI-T1",
+            "attributes": {
+              "state_ref": "BI-T1",
+              "evolution_kind": "transition",
+              "data_flows": "旧数仓清洗数据→新平台；设备事件→新平台",
+              "raw_and_metadata": "只有新增设备原始流，旧源原始不完整",
+              "consumers": "旧月报保持；新事件报表在新平台",
+              "incremental_benefit": "新增事件分析",
+              "known_gap": "双历史存储、旧源血缘不足",
+              "operating_exit_gate": "保留旧报表服务；监控双摄取/备份/访问；恢复可切回旧报表",
+              "legacy_requirement_coverage": {
+                "OLD-month": "verified-in-example",
+                "OLD-audit": "legacy-service-retained"
+              },
+              "retirement_authorized": false,
+              "cost_basis": "未给成本数据，不用“双份存储”推断总成本翻倍",
+              "schedule_basis": "无项目工期，不套用指南3–5年叙述"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "state_id": "BI-T1"
+          },
+          {
+            "id": "BI-P2",
+            "type": "guide:bi_operating_state",
+            "name": "BI-T2",
+            "attributes": {
+              "state_ref": "BI-T2",
+              "evolution_kind": "transition",
+              "data_flows": "交易原始/元数据→新平台；新数据可供旧仓；消费者分批切换",
+              "raw_and_metadata": "完整原始和相关元数据",
+              "consumers": "旧月报与新事件报表双轨迁移",
+              "incremental_benefit": "保留原始并支持重加工/血缘",
+              "known_gap": "双存储/双摄取运营成本待测",
+              "operating_exit_gate": "每消费者对账后切换；维护两平台支持；可按消费者回退",
+              "legacy_requirement_coverage": {
+                "OLD-month": "verified-in-example",
+                "OLD-audit": "legacy-service-retained"
+              },
+              "retirement_authorized": false,
+              "cost_basis": "未给成本数据，不用“双份存储”推断总成本翻倍",
+              "schedule_basis": "无项目工期，不套用指南3–5年叙述"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "state_id": "BI-T2"
+          },
+          {
+            "id": "BI-P3",
+            "type": "guide:bi_operating_state",
+            "name": "BI-T",
+            "attributes": {
+              "state_ref": "BI-T",
+              "evolution_kind": "target",
+              "data_flows": "新平台→全部合格集市；旧仓退出",
+              "raw_and_metadata": "项目相关原始/准备/业务信息有治理",
+              "consumers": "两旧需求OLD-month/OLD-audit均覆盖证据待确认",
+              "incremental_benefit": "目标历史数据单一来源，保留已有报表投资",
+              "known_gap": "未覆盖旧审计需求前不得退役",
+              "operating_exit_gate": "旧月报和审计需求全部验证，权限/血缘/恢复已演练才退出",
+              "legacy_requirement_coverage": {
+                "OLD-month": "verified-in-example",
+                "OLD-audit": "pending"
+              },
+              "retirement_authorized": false,
+              "cost_basis": "未给成本数据，不用“双份存储”推断总成本翻倍",
+              "schedule_basis": "无项目工期，不套用指南3–5年叙述"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "state_id": "BI-T"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "states": [
+          {
+            "id": "BI-B",
+            "name": "旧数仓基线",
+            "evolution": "baseline",
+            "evidence": [
+              "case-source"
+            ],
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "operating_conditions": {
+              "owner": "数仓运维",
+              "service_levels": "沿用试点现有人工保障；未承诺新SLA",
+              "data_consistency": "保留旧记录/来源映射，按消费者核对迁移期间的一致性",
+              "controls": "受控授权与审计",
+              "monitoring": "管家监视错配/积压",
+              "rollback": "按状态保留旧主控与可恢复记录",
+              "operations": "管家与运维值班，服务告警与人工恢复流程保持可用",
+              "dependencies": "前置质量与责任条件满足后进入"
+            }
+          },
+          {
+            "id": "BI-T1",
+            "name": "新平台承接清洗数据",
+            "evolution": "transition",
+            "evidence": [
+              "case-source"
+            ],
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "operating_conditions": {
+              "owner": "双平台运维",
+              "service_levels": "沿用试点现有人工保障；未承诺新SLA",
+              "data_consistency": "保留旧记录/来源映射，按消费者核对迁移期间的一致性",
+              "controls": "受控授权与审计",
+              "monitoring": "管家监视错配/积压",
+              "rollback": "按状态保留旧主控与可恢复记录",
+              "operations": "管家与运维值班，服务告警与人工恢复流程保持可用",
+              "dependencies": "前置质量与责任条件满足后进入"
+            }
+          },
+          {
+            "id": "BI-T2",
+            "name": "新平台全量原始数据",
+            "evolution": "transition",
+            "evidence": [
+              "case-source"
+            ],
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "operating_conditions": {
+              "owner": "双平台运维",
+              "service_levels": "沿用试点现有人工保障；未承诺新SLA",
+              "data_consistency": "保留旧记录/来源映射，按消费者核对迁移期间的一致性",
+              "controls": "受控授权与审计",
+              "monitoring": "管家监视错配/积压",
+              "rollback": "按状态保留旧主控与可恢复记录",
+              "operations": "管家与运维值班，服务告警与人工恢复流程保持可用",
+              "dependencies": "前置质量与责任条件满足后进入"
+            }
+          },
+          {
+            "id": "BI-T",
+            "name": "新平台单一历史源",
+            "evolution": "target",
+            "evidence": [
+              "case-source"
+            ],
+            "approval_status": "candidate",
+            "implementation_status": "unknown",
+            "operating_conditions": {
+              "owner": "新平台运维",
+              "service_levels": "沿用试点现有人工保障；未承诺新SLA",
+              "data_consistency": "保留旧记录/来源映射，按消费者核对迁移期间的一致性",
+              "controls": "受控授权与审计",
+              "monitoring": "管家监视错配/积压",
+              "rollback": "按状态保留旧主控与可恢复记录",
+              "operations": "管家与运维值班，服务告警与人工恢复流程保持可用",
+              "dependencies": "前置质量与责任条件满足后进入"
+            }
+          }
+        ],
+        "view": {
+          "id": "v-bi-stage-operability-and-exit",
+          "artifact_id": "bi-transition-architecture",
+          "profile_id": "bi-stage-operability-and-exit",
+          "title": "BI多阶段运营与退出条件",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "BI-P0",
+            "BI-P1",
+            "BI-P2",
+            "BI-P3"
+          ],
+          "relationship_ids": [],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true,
+          "state_ids": [
+            "BI-B",
+            "BI-T1",
+            "BI-T2",
+            "BI-T"
+          ]
+        }
+      },
+      "reference_document": "references/capability-addenda/bi-stage-operability-and-exit.md"
+    },
+    {
+      "id": "bi-requirement-origin-boundary",
+      "artifact_id": "bi-requirements-profile",
+      "name": "BI架构需求及来源边界",
+      "name_zh": "BI架构需求及来源边界",
+      "owner": "togaf-requirements",
+      "version": "2.1-extension-1",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "attribute_semantics": {
+        "statement": "系统应+动词+对象+利益相关者，避免指定产品",
+        "function": "“系统”指的功能子系统",
+        "requirement_origin": "project-user-input/local-translation-added-example/verified-companion区别",
+        "origin_locator": "具体出处",
+        "official_requirement_id": "未取得配套源则unknown",
+        "verification": "当前核实范围",
+        "completeness_claim": "项目局部/示例/全集的严格边界",
+        "validation_criteria": "清晰原子唯一可验证，不混成测试细节",
+        "companion_sheet": "配套电子表格是否实际找到并读完"
+      },
+      "source_refs": [
+        "G238 §4.4（特别是本地补写示例说明）"
+      ],
+      "entity_types": [
+        "guide:bi_requirement_provenance"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:bi_requirement_provenance": [
+          "statement",
+          "function",
+          "requirement_origin",
+          "origin_locator",
+          "official_requirement_id",
+          "verification",
+          "completeness_claim",
+          "validation_criteria",
+          "companion_sheet"
+        ]
+      },
+      "checks": [
+        "本地16例不得标原文逐条需求",
+        "缺配套源时official_requirement_id保持unknown",
+        "不宣称完整需求数量或全集覆盖",
+        "来源冲突明确登记"
+      ],
+      "definition_status": "body-reviewed-project-operational-table",
+      "template": {
+        "id": "bi-requirement-origin-boundary",
+        "version": "1.0",
+        "source_verified": false,
+        "layout_notes": "完整字段及关系表；原图结构复刻由独立图形规范验证，本表不冒领。"
+      },
+      "example": {
+        "notice": "虚构完整案例；表格伴随语义不冒称原图视觉通过。",
+        "raw_input": "examples/addenda/existing-extensions/bi-requirement-origin-boundary/raw-brief.md",
+        "analysis_path": "examples/addenda/existing-extensions/bi-requirement-origin-boundary/analysis.md",
+        "sources": [
+          {
+            "id": "case-source",
+            "kind": "example",
+            "description": "虚构业务方提出审计血缘需求R1。分析师另看到中文G238的R-13漂移示例；该节明确16例由译者按功能补写，完整原文需求另附电子表格且本地未找到。因此R1属项目需求、R-13属本地示例，均不能用官方需求ID或声称需求全集完整。",
+            "locator": "raw-brief.md"
+          }
+        ],
+        "entities": [
+          {
+            "id": "BIR-01",
+            "type": "guide:bi_requirement_provenance",
+            "name": "借阅审计血缘需求",
+            "attributes": {
+              "statement": "系统应记录借阅审计数据从来源到报表的路径，向审计人员提供追溯。",
+              "function": "血缘与审计",
+              "requirement_origin": "project-user-input",
+              "origin_locator": "本例需求访谈R1",
+              "official_requirement_id": "unknown",
+              "verification": "project-rule-reviewed",
+              "completeness_claim": "project-scope-only；非G238需求全集",
+              "validation_criteria": "清晰/无工具/原子/唯一/可验证，测试细节另行",
+              "companion_sheet": "missing-locally"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "BIR-02",
+            "type": "guide:bi_requirement_provenance",
+            "name": "译者示例R-13的使用边界",
+            "attributes": {
+              "statement": "系统应监控数据科学模型漂移并触发告警，向模型负责人提供趋势视图。",
+              "function": "业务使用监控",
+              "requirement_origin": "local-translation-added-example",
+              "origin_locator": "G238中文§4.4 R-13；正文说明示例非原文逐条照录",
+              "official_requirement_id": "unknown",
+              "verification": "not-original-spreadsheet-verified",
+              "completeness_claim": "illustration-only；不能冒充官方全部需求",
+              "validation_criteria": "作为候选需求启发；模型/阈值/数据需另取证",
+              "companion_sheet": "missing-locally"
+            },
+            "evidence": [
+              "case-source"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "states": [],
+        "view": {
+          "id": "v-bi-requirement-origin-boundary",
+          "artifact_id": "bi-requirements-profile",
+          "profile_id": "bi-requirement-origin-boundary",
+          "title": "BI架构需求及来源边界",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "BIR-01",
+            "BIR-02"
+          ],
+          "relationship_ids": [],
+          "analysis": "见本例analysis.md；模型为依据raw-brief.md形成的人工候选分析，不是真实批准。",
+          "legend": "表格表达正文操作语义，不声称原图复刻。未知显式保留，ID稳定。",
+          "allow_mixed_evolution": true
+        }
+      },
+      "reference_document": "references/capability-addenda/bi-requirement-origin-boundary.md"
+    }
+  ],
+  "analysis_methods": [
+    {
+      "id": "mdm-operational-ten-questions-method",
+      "name": "C-MDM十问运营诊断分析",
+      "owner": "togaf-information-data",
+      "source_refs": [
+        "G21B 附录A.1–A.2"
+      ],
+      "steps": [
+        "保持十问题ID与原问题含义",
+        "逐项取证，区分否定、未知、部分和不适用",
+        "将缺口映射行动、责任、影响；不得按yes比例冒充成熟度"
+      ],
+      "output_work_products": [
+        "customer-mdm-model"
+      ],
+      "profile_id": "mdm-operational-ten-questions",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/mdm-operational-ten-questions.md"
+    },
+    {
+      "id": "mdm-four-plateau-operations-method",
+      "name": "C-MDM四平台态运营计划分析",
+      "owner": "togaf-information-data",
+      "source_refs": [
+        "G21B §4.4、§6.1.1–6.1.2"
+      ],
+      "steps": [
+        "识别当前主控和可用业务能力",
+        "分开分析黄金记录与运营主控",
+        "逐状态验证用例/质量/授权/恢复/支持条件",
+        "选择演进触发，不强制固定四期"
+      ],
+      "output_work_products": [
+        "customer-mdm-model"
+      ],
+      "profile_id": "mdm-four-plateau-operations",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/mdm-four-plateau-operations.md"
+    },
+    {
+      "id": "mdm-match-merge-arbitration-method",
+      "name": "C-MDM匹配、合并与人工仲裁分析",
+      "owner": "togaf-information-data",
+      "source_refs": [
+        "G21B §3、§5.2.2"
+      ],
+      "steps": [
+        "区分业务键、技术键与姓名属性",
+        "按给定规则提出候选，不直接自动合并",
+        "人工判定并保留来源/版本/证据",
+        "执行前验证可取消合并与历史语义"
+      ],
+      "output_work_products": [
+        "customer-mdm-model"
+      ],
+      "profile_id": "mdm-match-merge-arbitration",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/mdm-match-merge-arbitration.md"
+    },
+    {
+      "id": "ea-service-emergence-npd-method",
+      "name": "EA服务N／P／D语境矩阵分析",
+      "owner": "togaf-ea-capability",
+      "source_refs": [
+        "G217 §4.4.1–4.4.5，图4-3"
+      ],
+      "steps": [
+        "按服务梳理首次出现与后续范围",
+        "N只用于首次引入，P表示沿用，D要求明确新增深度",
+        "记录项目证据与原图证据两个状态，不混称相同"
+      ],
+      "output_work_products": [
+        "ea-service-catalog"
+      ],
+      "profile_id": "ea-service-emergence-npd",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/ea-service-emergence-npd.md"
+    },
+    {
+      "id": "ea-service-adm-evidence-map-method",
+      "name": "EA服务与ADM证据映射分析",
+      "owner": "togaf-ea-capability",
+      "source_refs": [
+        "G217 附录C.1–C.7、附录D"
+      ],
+      "steps": [
+        "先明确服务输出与消费者决策",
+        "由项目活动确定使用阶段",
+        "分别登记来源映射和项目映射",
+        "未知原图格不推断不适用或唯一阶段"
+      ],
+      "output_work_products": [
+        "ea-service-catalog"
+      ],
+      "profile_id": "ea-service-adm-evidence-map",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/ea-service-adm-evidence-map.md"
+    },
+    {
+      "id": "msa-contract-consumer-evidence-method",
+      "name": "微服务契约与实际／计划消费者分析",
+      "owner": "togaf-application-architecture",
+      "source_refs": [
+        "G21I §8.2、§9.1、§12.2、§13.1–13.2"
+      ],
+      "steps": [
+        "从业务功能界定服务范围和ABF",
+        "列契约/API/版本与消费者状态",
+        "检查NFR、凭据及地址可发现性",
+        "分析新增消费者或字段改变的兼容与治理影响"
+      ],
+      "output_work_products": [
+        "interface-catalog"
+      ],
+      "profile_id": "msa-contract-consumer-evidence",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/msa-contract-consumer-evidence.md"
+    },
+    {
+      "id": "msa-data-distribution-conditions-method",
+      "name": "MSA数据分布、分片与批次条件表分析",
+      "owner": "togaf-information-data",
+      "source_refs": [
+        "G21I §3.3、§8.1、§10.4.1"
+      ],
+      "steps": [
+        "识别数据责任与外部离线供数",
+        "按响应/可用要求选副本/缓存与分片",
+        "声明触发、陈旧性、安全与生命周期",
+        "核查数据流与运行独立性冲突"
+      ],
+      "output_work_products": [
+        "data-dissemination-diagram"
+      ],
+      "profile_id": "msa-data-distribution-conditions",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/msa-data-distribution-conditions.md"
+    },
+    {
+      "id": "msa-source-deployment-execution-method",
+      "name": "MSA源、部署与执行单元追溯表分析",
+      "owner": "togaf-technology-architecture",
+      "source_refs": [
+        "G21I §9.1–9.2"
+      ],
+      "steps": [
+        "分开源、公共库、部署包、运行实例",
+        "验证单ABF与每源/包业务代码独立",
+        "构建与部署用不同有向关系",
+        "按需求/故障条件扩实例并保留同包追溯"
+      ],
+      "output_work_products": [
+        "software-distribution-diagram"
+      ],
+      "profile_id": "msa-source-deployment-execution",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/msa-source-deployment-execution.md"
+    },
+    {
+      "id": "bi-stage-operability-and-exit-method",
+      "name": "BI多阶段运营与退出条件分析",
+      "owner": "togaf-information-data",
+      "source_refs": [
+        "G238 §3.2.1–3.2.4"
+      ],
+      "steps": [
+        "识别旧系统已满足需求与新价值",
+        "按可选过渡定义流向/数据语义和消费者",
+        "记录每态收益、缺口和可运营条件",
+        "退出前逐项验证旧需求与恢复、治理、元数据"
+      ],
+      "output_work_products": [
+        "bi-transition-architecture"
+      ],
+      "profile_id": "bi-stage-operability-and-exit",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/bi-stage-operability-and-exit.md"
+    },
+    {
+      "id": "bi-requirement-origin-boundary-method",
+      "name": "BI架构需求及来源边界分析",
+      "owner": "togaf-requirements",
+      "source_refs": [
+        "G238 §4.4（特别是本地补写示例说明）"
+      ],
+      "steps": [
+        "记录来源身份再提炼需求",
+        "按功能解释系统，检查原子/唯一/可验证",
+        "区分项目需求和本地示例与官方配套记录",
+        "未找到电子表格时只交付局部候选与缺口"
+      ],
+      "output_work_products": [
+        "bi-requirements-profile"
+      ],
+      "profile_id": "bi-requirement-origin-boundary",
+      "calculation_policy": "不新增TOGAF分值/阈值/权重；示例数值均来自虚构项目声明",
+      "execution_mode": "agent-procedural-analysis; observable-case-rules-validated",
+      "reference_document": "references/capability-addenda/bi-requirement-origin-boundary.md"
+    }
+  ],
+  "adapter": {
+    "patches": "找到target_id（可在artifacts或work_products），按add合并：数组去重追加，required_attributes按类型追加字段，字典按新键添加；不覆盖同名核心语义。字段存在但意义不同需人工审查，不能静默覆盖。",
+    "new_profiles": "profiles为完整记录，不更改旧默认视图；显式--profile调用。",
+    "examples": "完整模型在model.json；构建profile例时保留example.extensions.relationship_types、example.states和view.state_ids；不重复声明已由注册表识别的entity_types。",
+    "tables": "全部output_kind=table；这些是现有图形的语义伴随/工作产品视图，不免除原图模板SVG/PNG要求。",
+    "methods": "程序性人工分析，不假设analyze.py已实现自动诊断；本脚本issues仅验证明确反例。"
+  },
+  "not_implemented_here": [
+    "G217图4-3与图C-1全部原始单元格的复刻及官方核实",
+    "这些新增表格的来源图reference/adaptive SVG/PNG及视觉核验",
+    "完整OSIMM、DDD、MLOps训练或未提供的财务/碳算法",
+    "G238缺失配套电子表格的原文需求全集",
+    "其他候选提案未因本包自动计通过"
+  ],
+  "candidate_resolutions": [
+    {
+      "candidate_id": "mdm-operational-diagnostic",
+      "work_product_ids": [
+        "customer-mdm-model"
+      ],
+      "profile_ids": [
+        "mdm-operational-ten-questions"
+      ],
+      "method_ids": [
+        "mdm-operational-ten-questions-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/existing-extensions/mdm-operational-ten-questions"
+      ],
+      "evidence_paths": [
+        "examples/addenda/existing-extensions/local-validation.json",
+        "examples/addenda/existing-extensions/standard-integration.json",
+        "examples/addenda/existing-extensions/mdm-operational-ten-questions/baseline-standard-validation.json",
+        "examples/addenda/existing-extensions/mdm-operational-ten-questions/modified-standard-validation.json",
+        "examples/addenda/existing-extensions/mdm-operational-ten-questions/negative-case.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现可操作表格规范；来源对应图reference/adaptive结构与SVG/PNG验收另记。",
+        "公开官方定义及独立业务评审不因案例生成自动通过。",
+        "十问完整诊断可调用；六运营挑战的独立逐问映射和下一次具体复评日需按项目补充。"
+      ]
+    },
+    {
+      "candidate_id": "mdm-plateau-roadmap",
+      "work_product_ids": [
+        "customer-mdm-model"
+      ],
+      "profile_ids": [
+        "mdm-four-plateau-operations"
+      ],
+      "method_ids": [
+        "mdm-four-plateau-operations-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/existing-extensions/mdm-four-plateau-operations"
+      ],
+      "evidence_paths": [
+        "examples/addenda/existing-extensions/local-validation.json",
+        "examples/addenda/existing-extensions/standard-integration.json",
+        "examples/addenda/existing-extensions/mdm-four-plateau-operations/baseline-standard-validation.json",
+        "examples/addenda/existing-extensions/mdm-four-plateau-operations/modified-standard-validation.json",
+        "examples/addenda/existing-extensions/mdm-four-plateau-operations/negative-case.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现可操作表格规范；来源对应图reference/adaptive结构与SVG/PNG验收另记。",
+        "公开官方定义及独立业务评审不因案例生成自动通过。"
+      ]
+    },
+    {
+      "candidate_id": "mdm-match-merge-evidence",
+      "work_product_ids": [
+        "customer-mdm-model"
+      ],
+      "profile_ids": [
+        "mdm-match-merge-arbitration"
+      ],
+      "method_ids": [
+        "mdm-match-merge-arbitration-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/existing-extensions/mdm-match-merge-arbitration"
+      ],
+      "evidence_paths": [
+        "examples/addenda/existing-extensions/local-validation.json",
+        "examples/addenda/existing-extensions/standard-integration.json",
+        "examples/addenda/existing-extensions/mdm-match-merge-arbitration/baseline-standard-validation.json",
+        "examples/addenda/existing-extensions/mdm-match-merge-arbitration/modified-standard-validation.json",
+        "examples/addenda/existing-extensions/mdm-match-merge-arbitration/negative-case.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现可操作表格规范；来源对应图reference/adaptive结构与SVG/PNG验收另记。",
+        "公开官方定义及独立业务评审不因案例生成自动通过。"
+      ]
+    },
+    {
+      "candidate_id": "ea-service-emergence-matrix",
+      "work_product_ids": [
+        "ea-service-catalog"
+      ],
+      "profile_ids": [
+        "ea-service-emergence-npd"
+      ],
+      "method_ids": [
+        "ea-service-emergence-npd-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/existing-extensions/ea-service-emergence-npd"
+      ],
+      "evidence_paths": [
+        "examples/addenda/existing-extensions/local-validation.json",
+        "examples/addenda/existing-extensions/standard-integration.json",
+        "examples/addenda/existing-extensions/ea-service-emergence-npd/baseline-standard-validation.json",
+        "examples/addenda/existing-extensions/ea-service-emergence-npd/modified-standard-validation.json",
+        "examples/addenda/existing-extensions/ea-service-emergence-npd/negative-case.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现可操作表格规范；来源对应图reference/adaptive结构与SVG/PNG验收另记。",
+        "公开官方定义及独立业务评审不因案例生成自动通过。",
+        "G217图4-3/图C-1逐格来源映射尚未核实；案例明确使用项目映射。"
+      ]
+    },
+    {
+      "candidate_id": "ea-service-adm-mapping",
+      "work_product_ids": [
+        "ea-service-catalog"
+      ],
+      "profile_ids": [
+        "ea-service-adm-evidence-map"
+      ],
+      "method_ids": [
+        "ea-service-adm-evidence-map-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/existing-extensions/ea-service-adm-evidence-map"
+      ],
+      "evidence_paths": [
+        "examples/addenda/existing-extensions/local-validation.json",
+        "examples/addenda/existing-extensions/standard-integration.json",
+        "examples/addenda/existing-extensions/ea-service-adm-evidence-map/baseline-standard-validation.json",
+        "examples/addenda/existing-extensions/ea-service-adm-evidence-map/modified-standard-validation.json",
+        "examples/addenda/existing-extensions/ea-service-adm-evidence-map/negative-case.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现可操作表格规范；来源对应图reference/adaptive结构与SVG/PNG验收另记。",
+        "公开官方定义及独立业务评审不因案例生成自动通过。",
+        "G217图4-3/图C-1逐格来源映射尚未核实；案例明确使用项目映射。"
+      ]
+    },
+    {
+      "candidate_id": "msa-service-contract-consumer-catalog",
+      "work_product_ids": [],
+      "profile_ids": [
+        "msa-contract-consumer-evidence"
+      ],
+      "method_ids": [
+        "msa-contract-consumer-evidence-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/existing-extensions/msa-contract-consumer-evidence"
+      ],
+      "evidence_paths": [
+        "examples/addenda/existing-extensions/local-validation.json",
+        "examples/addenda/existing-extensions/standard-integration.json",
+        "examples/addenda/existing-extensions/msa-contract-consumer-evidence/baseline-standard-validation.json",
+        "examples/addenda/existing-extensions/msa-contract-consumer-evidence/modified-standard-validation.json",
+        "examples/addenda/existing-extensions/msa-contract-consumer-evidence/negative-case.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现可操作表格规范；来源对应图reference/adaptive结构与SVG/PNG验收另记。",
+        "公开官方定义及独立业务评审不因案例生成自动通过。"
+      ]
+    },
+    {
+      "candidate_id": "msa-data-distribution-profile",
+      "work_product_ids": [],
+      "profile_ids": [
+        "msa-data-distribution-conditions"
+      ],
+      "method_ids": [
+        "msa-data-distribution-conditions-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/existing-extensions/msa-data-distribution-conditions"
+      ],
+      "evidence_paths": [
+        "examples/addenda/existing-extensions/local-validation.json",
+        "examples/addenda/existing-extensions/standard-integration.json",
+        "examples/addenda/existing-extensions/msa-data-distribution-conditions/baseline-standard-validation.json",
+        "examples/addenda/existing-extensions/msa-data-distribution-conditions/modified-standard-validation.json",
+        "examples/addenda/existing-extensions/msa-data-distribution-conditions/negative-case.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现可操作表格规范；来源对应图reference/adaptive结构与SVG/PNG验收另记。",
+        "公开官方定义及独立业务评审不因案例生成自动通过。"
+      ]
+    },
+    {
+      "candidate_id": "msa-build-deploy-execute-profile",
+      "work_product_ids": [],
+      "profile_ids": [
+        "msa-source-deployment-execution"
+      ],
+      "method_ids": [
+        "msa-source-deployment-execution-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/existing-extensions/msa-source-deployment-execution"
+      ],
+      "evidence_paths": [
+        "examples/addenda/existing-extensions/local-validation.json",
+        "examples/addenda/existing-extensions/standard-integration.json",
+        "examples/addenda/existing-extensions/msa-source-deployment-execution/baseline-standard-validation.json",
+        "examples/addenda/existing-extensions/msa-source-deployment-execution/modified-standard-validation.json",
+        "examples/addenda/existing-extensions/msa-source-deployment-execution/negative-case.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现可操作表格规范；来源对应图reference/adaptive结构与SVG/PNG验收另记。",
+        "公开官方定义及独立业务评审不因案例生成自动通过。"
+      ]
+    },
+    {
+      "candidate_id": "bi-transition-exit-criteria",
+      "work_product_ids": [
+        "bi-transition-architecture"
+      ],
+      "profile_ids": [
+        "bi-stage-operability-and-exit"
+      ],
+      "method_ids": [
+        "bi-stage-operability-and-exit-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/existing-extensions/bi-stage-operability-and-exit"
+      ],
+      "evidence_paths": [
+        "examples/addenda/existing-extensions/local-validation.json",
+        "examples/addenda/existing-extensions/standard-integration.json",
+        "examples/addenda/existing-extensions/bi-stage-operability-and-exit/baseline-standard-validation.json",
+        "examples/addenda/existing-extensions/bi-stage-operability-and-exit/modified-standard-validation.json",
+        "examples/addenda/existing-extensions/bi-stage-operability-and-exit/negative-case.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现可操作表格规范；来源对应图reference/adaptive结构与SVG/PNG验收另记。",
+        "公开官方定义及独立业务评审不因案例生成自动通过。"
+      ]
+    }
+  ]
+}

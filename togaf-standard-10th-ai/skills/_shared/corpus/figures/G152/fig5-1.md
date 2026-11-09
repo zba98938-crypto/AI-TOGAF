@@ -1,0 +1,1633 @@
+# G152/fig5-1 · SABSA 业务属性分类法示例
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G152/fig5-1.md) · [JSON](../../architecture/diagrams/G152/fig5-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G152e.pdf`；SHA-256：`919c53bfa4259a4b3a9686762f37c0576a1cd2f8e77e74648826d9f9c84ed6e0`。
+
+## 原图 · PDF 第 40 页
+
+![英文原图](../assets/G152/fig5-1-p0040.png)
+
+PDF 坐标：`[61.1, 317.6, 550.9, 696.5]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+‘Architecturaty Open
+‘Brand Enhancing
+‘Changemanaged || Detectatie
+Compliant
+COTS /GOTS
+Error Free
+‘Assurable
+‘Cost-Ettective
+trter-Operatie
+‘Assuring Honesty
+insurable
+Flexible / Adagtable
+Duty Segregated | | Etficiert
+(Untlty Managed
+Future Proot
+Educated & Aware | [ Mantanabie
+Time-bound
+Migratatie
+‘and Custody
+Capturing New Risks
+Proving investment
+Crime-Free
+Flexdbty Secure
+‘Standards Compliant
+Timaty
+Traceable
+Independently Secure
+now sole possension
+wtegrty Assured
+‘Trustecrthy
+```
+
+## 概要（历史解释；局部修正见上）
+
+SABSA 业务属性分类法示例：把 75 个业务属性归入 7 类，作为构建业务属性画像的候选菜单。
+
+## 目的（历史解释；局部修正见上）
+
+为 5.10.1 的业务属性画像提供一份示例分类法：架构师以此为指导，挑选与当前业务论证相关的属性，再逐一按业务语境重新定义、设定度量与目标；图的作用是展示属性的完整范围与分组，而不是规定必须全部采用。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从顶部青色 Business Attributes 读起，横杆向下分出 7 个绿色分类（User、Management、Operational、Risk Management、Legal/Regulatory、Technical Strategy、Business Strategy）。每个分类下是一条竖直的属性链，自上而下逐个列出黄色属性框；链上的竖线只表示“同属该分类的列举”，不表示先后或依赖。按列读，不要横向跨列比较。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 分类法共 7 类、75 个业务属性：User 13 个、Management 8 个、Operational 6 个、Risk Management 19 个、Legal/Regulatory 7 个、Technical Strategy 13 个、Business Strategy 9 个。
+- Risk Management Attributes 是最大的一类（19 个），集中了访问控制、可问责、可审计、认证/授权、保密、完整性保证、不可否认、私有、可信等安全与保证属性，是 SABSA 安全需求的主体。
+- User Attributes 描述最终用户对服务的感受与使用条件（可访问、准确、一致、现行、职责分离、受培训、知情、有动力、受保护、可靠、受支持、及时、可用）。
+- Management Attributes 描述经营管理层面的质量（自动化、变更受控、受控、成本有效、高效、可维护、可度量、可支持）；Operational Attributes 描述运行层面的行为（可用、可检测、无差错、可互操作、高生产率、可恢复）。
+- Legal/Regulatory Attributes 覆盖可采信、合规、可执行、可保险、责任已管理、可解决、有时限；Technical Strategy Attributes 覆盖架构开放、COTS/GOTS、可扩展、灵活可适应、面向未来、兼顾遗留、可迁移、多来源、可伸缩、简单、符合标准、可追溯、可升级；Business Strategy Attributes 覆盖品牌、业务使能、胜任、自信、可信、可治理、良好保管、投资复用、声誉。
+- 正文说明每个属性都有详细的通用定义与度量建议（本图未列出）；业务属性画像由架构师按具体业务论证挑选属性并重新定义，因此分类法可扩展、画像是高度定制的。
+- 分类法本身不是流程：它回答“可以从哪些维度描述业务需求”，不回答“先做哪一类”。
+
+## 层级（历史解释；局部修正见上）
+
+三层。L0：Business Attributes（青色根）；L1：7 个绿色分类表头；L2：各分类下的黄色业务属性（共 75 个）。根到分类是分支箭头，分类到属性是竖直串接的成员关系。属性之间没有上下级。
+
+## 线条含义（历史解释；局部修正见上）
+
+根框下的横杆与 7 个向下短箭头表示分类分支；每个分类表头下的竖直脊线依次穿过所有属性框，表示这些属性都属于该分类（为版面紧凑画成链状，不是属性之间的先后或依赖）。全图没有横向连线，也没有箭头指向属性框。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 同一列内属性的上下顺序基本按字母排列，不是优先级、成熟度或实施顺序。
+- 不要把 75 个属性理解为每个画像都必须全部采用；正文明确画像只挑选与当前业务论证相关的属性并重新定义。
+- Risk Management Attributes 不是风险登记册或风险清单，而是一组用于描述业务安全需求的性质。
+- 带连字符的名称是一个整体属性（如 Non-Repudiable、In our sole possession），不要拆成两个属性。
+- 分类法不是流程或价值链；7 个分类之间没有先后关系。
+
+## 元素
+
+```json
+[
+  {
+    "id": "business_attributes",
+    "label_en": "Business Attributes",
+    "label_zh": "业务属性（根）",
+    "type": "concept",
+    "parent": null,
+    "level": 0
+  },
+  {
+    "id": "cat_user",
+    "label_en": "User Attributes",
+    "label_zh": "用户属性",
+    "type": "group",
+    "parent": "business_attributes",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "cat_management",
+    "label_en": "Management Attributes",
+    "label_zh": "管理属性",
+    "type": "group",
+    "parent": "business_attributes",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "cat_operational",
+    "label_en": "Operational Attributes",
+    "label_zh": "运营属性",
+    "type": "group",
+    "parent": "business_attributes",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "cat_risk",
+    "label_en": "Risk Management Attributes",
+    "label_zh": "风险管理属性",
+    "type": "group",
+    "parent": "business_attributes",
+    "level": 1,
+    "order": 4
+  },
+  {
+    "id": "cat_legal",
+    "label_en": "Legal / Regulatory Attributes",
+    "label_zh": "法律/监管属性",
+    "type": "group",
+    "parent": "business_attributes",
+    "level": 1,
+    "order": 5
+  },
+  {
+    "id": "cat_tech",
+    "label_en": "Technical Strategy Attributes",
+    "label_zh": "技术战略属性",
+    "type": "group",
+    "parent": "business_attributes",
+    "level": 1,
+    "order": 6
+  },
+  {
+    "id": "cat_business",
+    "label_en": "Business Strategy Attributes",
+    "label_zh": "业务战略属性",
+    "type": "group",
+    "parent": "business_attributes",
+    "level": 1,
+    "order": 7
+  },
+  {
+    "id": "ua_accessible",
+    "label_en": "Accessible",
+    "label_zh": "可访问",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "ua_accurate",
+    "label_en": "Accurate",
+    "label_zh": "准确",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "ua_consistent",
+    "label_en": "Consistent",
+    "label_zh": "一致",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "ua_current",
+    "label_en": "Current",
+    "label_zh": "现行",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "ua_duty_segregated",
+    "label_en": "Duty Segregated",
+    "label_zh": "职责分离",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "ua_educated_aware",
+    "label_en": "Educated & Aware",
+    "label_zh": "受培训且有意识",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "ua_informed",
+    "label_en": "Informed",
+    "label_zh": "知情",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "ua_motivated",
+    "label_en": "Motivated",
+    "label_zh": "有动力",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 8
+  },
+  {
+    "id": "ua_protected",
+    "label_en": "Protected",
+    "label_zh": "受保护",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 9
+  },
+  {
+    "id": "ua_reliable",
+    "label_en": "Reliable",
+    "label_zh": "可靠",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 10
+  },
+  {
+    "id": "ua_supported",
+    "label_en": "Supported",
+    "label_zh": "受支持",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 11
+  },
+  {
+    "id": "ua_timely",
+    "label_en": "Timely",
+    "label_zh": "及时",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 12
+  },
+  {
+    "id": "ua_usable",
+    "label_en": "Usable",
+    "label_zh": "可用",
+    "type": "concept",
+    "parent": "cat_user",
+    "level": 2,
+    "order": 13
+  },
+  {
+    "id": "ma_automated",
+    "label_en": "Automated",
+    "label_zh": "自动化",
+    "type": "concept",
+    "parent": "cat_management",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "ma_change_managed",
+    "label_en": "Change-managed",
+    "label_zh": "变更受管理",
+    "type": "concept",
+    "parent": "cat_management",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "ma_controlled",
+    "label_en": "Controlled",
+    "label_zh": "受控",
+    "type": "concept",
+    "parent": "cat_management",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "ma_cost_effective",
+    "label_en": "Cost-Effective",
+    "label_zh": "成本有效",
+    "type": "concept",
+    "parent": "cat_management",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "ma_efficient",
+    "label_en": "Efficient",
+    "label_zh": "高效",
+    "type": "concept",
+    "parent": "cat_management",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "ma_maintainable",
+    "label_en": "Maintainable",
+    "label_zh": "可维护",
+    "type": "concept",
+    "parent": "cat_management",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "ma_measured",
+    "label_en": "Measured",
+    "label_zh": "可度量",
+    "type": "concept",
+    "parent": "cat_management",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "ma_supportable",
+    "label_en": "Supportable",
+    "label_zh": "可支持",
+    "type": "concept",
+    "parent": "cat_management",
+    "level": 2,
+    "order": 8
+  },
+  {
+    "id": "oa_available",
+    "label_en": "Available",
+    "label_zh": "可用",
+    "type": "concept",
+    "parent": "cat_operational",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "oa_detectable",
+    "label_en": "Detectable",
+    "label_zh": "可检测",
+    "type": "concept",
+    "parent": "cat_operational",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "oa_error_free",
+    "label_en": "Error-Free",
+    "label_zh": "无差错",
+    "type": "concept",
+    "parent": "cat_operational",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "oa_inter_operable",
+    "label_en": "Inter-Operable",
+    "label_zh": "可互操作",
+    "type": "concept",
+    "parent": "cat_operational",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "oa_productive",
+    "label_en": "Productive",
+    "label_zh": "高生产率",
+    "type": "concept",
+    "parent": "cat_operational",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "oa_recoverable",
+    "label_en": "Recoverable",
+    "label_zh": "可恢复",
+    "type": "concept",
+    "parent": "cat_operational",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "rma_access_controlled",
+    "label_en": "Access-controlled",
+    "label_zh": "访问受控",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "rma_accountable",
+    "label_en": "Accountable",
+    "label_zh": "可问责",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "rma_assurable",
+    "label_en": "Assurable",
+    "label_zh": "可保证",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "rma_assuring_honesty",
+    "label_en": "Assuring Honesty",
+    "label_zh": "保证诚实",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "rma_auditable",
+    "label_en": "Auditable",
+    "label_zh": "可审计",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "rma_authenticated",
+    "label_en": "Authenticated",
+    "label_zh": "已认证",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "rma_authorized",
+    "label_en": "Authorized",
+    "label_zh": "已授权",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "rma_capturing_new_risks",
+    "label_en": "Capturing New Risks",
+    "label_zh": "捕获新风险",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 8
+  },
+  {
+    "id": "rma_confidential",
+    "label_en": "Confidential",
+    "label_zh": "保密",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 9
+  },
+  {
+    "id": "rma_crime_free",
+    "label_en": "Crime-Free",
+    "label_zh": "无犯罪",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 10
+  },
+  {
+    "id": "rma_flexibly_secure",
+    "label_en": "Flexibly Secure",
+    "label_zh": "灵活安全",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 11
+  },
+  {
+    "id": "rma_identified",
+    "label_en": "Identified",
+    "label_zh": "已识别",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 12
+  },
+  {
+    "id": "rma_independently_secure",
+    "label_en": "Independently Secure",
+    "label_zh": "独立安全",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 13
+  },
+  {
+    "id": "rma_sole_possession",
+    "label_en": "In our sole possession",
+    "label_zh": "由我方独占",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 14
+  },
+  {
+    "id": "rma_integrity_assured",
+    "label_en": "Integrity-Assured",
+    "label_zh": "完整性保证",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 15
+  },
+  {
+    "id": "rma_non_repudiable",
+    "label_en": "Non-Repudiable",
+    "label_zh": "不可否认",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 16
+  },
+  {
+    "id": "rma_owned",
+    "label_en": "Owned",
+    "label_zh": "有主",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 17
+  },
+  {
+    "id": "rma_private",
+    "label_en": "Private",
+    "label_zh": "私密",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 18
+  },
+  {
+    "id": "rma_trustworthy",
+    "label_en": "Trustworthy",
+    "label_zh": "可信",
+    "type": "concept",
+    "parent": "cat_risk",
+    "level": 2,
+    "order": 19
+  },
+  {
+    "id": "lra_admissible",
+    "label_en": "Admissible",
+    "label_zh": "可采信",
+    "type": "concept",
+    "parent": "cat_legal",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "lra_compliant",
+    "label_en": "Compliant",
+    "label_zh": "合规",
+    "type": "concept",
+    "parent": "cat_legal",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "lra_enforceable",
+    "label_en": "Enforceable",
+    "label_zh": "可执行",
+    "type": "concept",
+    "parent": "cat_legal",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "lra_insurable",
+    "label_en": "Insurable",
+    "label_zh": "可保险",
+    "type": "concept",
+    "parent": "cat_legal",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "lra_liability_managed",
+    "label_en": "Liability Managed",
+    "label_zh": "责任已管理",
+    "type": "concept",
+    "parent": "cat_legal",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "lra_resolvable",
+    "label_en": "Resolvable",
+    "label_zh": "可解决",
+    "type": "concept",
+    "parent": "cat_legal",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "lra_time_bound",
+    "label_en": "Time-bound",
+    "label_zh": "有时限",
+    "type": "concept",
+    "parent": "cat_legal",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "tsa_architecturally_open",
+    "label_en": "Architecturally Open",
+    "label_zh": "架构开放",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "tsa_cots_gots",
+    "label_en": "COTS / GOTS",
+    "label_zh": "商用现货/政府现货",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "tsa_extendible",
+    "label_en": "Extendible",
+    "label_zh": "可扩展",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "tsa_flexible_adaptable",
+    "label_en": "Flexible / Adaptable",
+    "label_zh": "灵活/可适应",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "tsa_future_proof",
+    "label_en": "Future-Proof",
+    "label_zh": "面向未来",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "tsa_legacy_sensitive",
+    "label_en": "Legacy-Sensitive",
+    "label_zh": "兼顾遗留",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "tsa_migratable",
+    "label_en": "Migratable",
+    "label_zh": "可迁移",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "tsa_multi_sourced",
+    "label_en": "Multi-Sourced",
+    "label_zh": "多来源",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 8
+  },
+  {
+    "id": "tsa_scalable",
+    "label_en": "Scalable",
+    "label_zh": "可伸缩",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 9
+  },
+  {
+    "id": "tsa_simple",
+    "label_en": "Simple",
+    "label_zh": "简单",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 10
+  },
+  {
+    "id": "tsa_standards_compliant",
+    "label_en": "Standards Compliant",
+    "label_zh": "符合标准",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 11
+  },
+  {
+    "id": "tsa_traceable",
+    "label_en": "Traceable",
+    "label_zh": "可追溯",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 12
+  },
+  {
+    "id": "tsa_upgradeable",
+    "label_en": "Upgradeable",
+    "label_zh": "可升级",
+    "type": "concept",
+    "parent": "cat_tech",
+    "level": 2,
+    "order": 13
+  },
+  {
+    "id": "bsa_brand_enhancing",
+    "label_en": "Brand Enhancing",
+    "label_zh": "提升品牌",
+    "type": "concept",
+    "parent": "cat_business",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "bsa_business_enabled",
+    "label_en": "Business-Enabled",
+    "label_zh": "业务使能",
+    "type": "concept",
+    "parent": "cat_business",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "bsa_competent",
+    "label_en": "Competent",
+    "label_zh": "有胜任力",
+    "type": "concept",
+    "parent": "cat_business",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "bsa_confident",
+    "label_en": "Confident",
+    "label_zh": "有把握",
+    "type": "concept",
+    "parent": "cat_business",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "bsa_credible",
+    "label_en": "Credible",
+    "label_zh": "可信",
+    "type": "concept",
+    "parent": "cat_business",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "bsa_governable",
+    "label_en": "Governable",
+    "label_zh": "可治理",
+    "type": "concept",
+    "parent": "cat_business",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "bsa_stewardship",
+    "label_en": "Providing Good Stewardship and Custody",
+    "label_zh": "提供良好保管与托管",
+    "type": "concept",
+    "parent": "cat_business",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "bsa_investment_reuse",
+    "label_en": "Providing Investment Re-use",
+    "label_zh": "提供投资复用",
+    "type": "concept",
+    "parent": "cat_business",
+    "level": 2,
+    "order": 8
+  },
+  {
+    "id": "bsa_reputable",
+    "label_en": "Reputable",
+    "label_zh": "声誉良好",
+    "type": "concept",
+    "parent": "cat_business",
+    "level": 2,
+    "order": 9
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "business_attributes",
+    "to": "cat_user",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "business_attributes",
+    "to": "cat_management",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "business_attributes",
+    "to": "cat_operational",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "business_attributes",
+    "to": "cat_risk",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "business_attributes",
+    "to": "cat_legal",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "business_attributes",
+    "to": "cat_tech",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "business_attributes",
+    "to": "cat_business",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "cat_user",
+    "to": "ua_accessible",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "分类表头下的竖直脊线，依次串接属性。"
+  },
+  {
+    "from": "ua_accessible",
+    "to": "ua_accurate",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_accurate",
+    "to": "ua_consistent",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_consistent",
+    "to": "ua_current",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_current",
+    "to": "ua_duty_segregated",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_duty_segregated",
+    "to": "ua_educated_aware",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_educated_aware",
+    "to": "ua_informed",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_informed",
+    "to": "ua_motivated",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_motivated",
+    "to": "ua_protected",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_protected",
+    "to": "ua_reliable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_reliable",
+    "to": "ua_supported",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_supported",
+    "to": "ua_timely",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ua_timely",
+    "to": "ua_usable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "cat_management",
+    "to": "ma_automated",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ma_automated",
+    "to": "ma_change_managed",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ma_change_managed",
+    "to": "ma_controlled",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ma_controlled",
+    "to": "ma_cost_effective",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ma_cost_effective",
+    "to": "ma_efficient",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ma_efficient",
+    "to": "ma_maintainable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ma_maintainable",
+    "to": "ma_measured",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "ma_measured",
+    "to": "ma_supportable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "cat_operational",
+    "to": "oa_available",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "oa_available",
+    "to": "oa_detectable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "oa_detectable",
+    "to": "oa_error_free",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "oa_error_free",
+    "to": "oa_inter_operable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "oa_inter_operable",
+    "to": "oa_productive",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "oa_productive",
+    "to": "oa_recoverable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "cat_risk",
+    "to": "rma_access_controlled",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_access_controlled",
+    "to": "rma_accountable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_accountable",
+    "to": "rma_assurable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_assurable",
+    "to": "rma_assuring_honesty",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_assuring_honesty",
+    "to": "rma_auditable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_auditable",
+    "to": "rma_authenticated",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_authenticated",
+    "to": "rma_authorized",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_authorized",
+    "to": "rma_capturing_new_risks",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_capturing_new_risks",
+    "to": "rma_confidential",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_confidential",
+    "to": "rma_crime_free",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_crime_free",
+    "to": "rma_flexibly_secure",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_flexibly_secure",
+    "to": "rma_identified",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_identified",
+    "to": "rma_independently_secure",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_independently_secure",
+    "to": "rma_sole_possession",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_sole_possession",
+    "to": "rma_integrity_assured",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_integrity_assured",
+    "to": "rma_non_repudiable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_non_repudiable",
+    "to": "rma_owned",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_owned",
+    "to": "rma_private",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "rma_private",
+    "to": "rma_trustworthy",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "cat_legal",
+    "to": "lra_admissible",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "lra_admissible",
+    "to": "lra_compliant",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "lra_compliant",
+    "to": "lra_enforceable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "lra_enforceable",
+    "to": "lra_insurable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "lra_insurable",
+    "to": "lra_liability_managed",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "lra_liability_managed",
+    "to": "lra_resolvable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "lra_resolvable",
+    "to": "lra_time_bound",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "cat_tech",
+    "to": "tsa_architecturally_open",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_architecturally_open",
+    "to": "tsa_cots_gots",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_cots_gots",
+    "to": "tsa_extendible",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_extendible",
+    "to": "tsa_flexible_adaptable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_flexible_adaptable",
+    "to": "tsa_future_proof",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_future_proof",
+    "to": "tsa_legacy_sensitive",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_legacy_sensitive",
+    "to": "tsa_migratable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_migratable",
+    "to": "tsa_multi_sourced",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_multi_sourced",
+    "to": "tsa_scalable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_scalable",
+    "to": "tsa_simple",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_simple",
+    "to": "tsa_standards_compliant",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_standards_compliant",
+    "to": "tsa_traceable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "tsa_traceable",
+    "to": "tsa_upgradeable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "cat_business",
+    "to": "bsa_brand_enhancing",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "bsa_brand_enhancing",
+    "to": "bsa_business_enabled",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "bsa_business_enabled",
+    "to": "bsa_competent",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "bsa_competent",
+    "to": "bsa_confident",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "bsa_confident",
+    "to": "bsa_credible",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "bsa_credible",
+    "to": "bsa_governable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "bsa_governable",
+    "to": "bsa_stewardship",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "bsa_stewardship",
+    "to": "bsa_investment_reuse",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  },
+  {
+    "from": "bsa_investment_reuse",
+    "to": "bsa_reputable",
+    "type": "composition",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none"
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_taxonomy",
+    "title_zh": "SABSA 业务属性分类法逐列转录（每列自上而下）",
+    "columns": [
+      "分类",
+      "属性（按原图自上而下）"
+    ],
+    "rows": [
+      [
+        "User Attributes 用户属性",
+        "Accessible；Accurate；Consistent；Current；Duty Segregated；Educated & Aware；Informed；Motivated；Protected；Reliable；Supported；Timely；Usable"
+      ],
+      [
+        "Management Attributes 管理属性",
+        "Automated；Change-managed；Controlled；Cost-Effective；Efficient；Maintainable；Measured；Supportable"
+      ],
+      [
+        "Operational Attributes 运营属性",
+        "Available；Detectable；Error-Free；Inter-Operable；Productive；Recoverable"
+      ],
+      [
+        "Risk Management Attributes 风险管理属性",
+        "Access-controlled；Accountable；Assurable；Assuring Honesty；Auditable；Authenticated；Authorized；Capturing New Risks；Confidential；Crime-Free；Flexibly Secure；Identified；Independently Secure；In our sole possession；Integrity-Assured；Non-Repudiable；Owned；Private；Trustworthy"
+      ],
+      [
+        "Legal / Regulatory Attributes 法律/监管属性",
+        "Admissible；Compliant；Enforceable；Insurable；Liability Managed；Resolvable；Time-bound"
+      ],
+      [
+        "Technical Strategy Attributes 技术战略属性",
+        "Architecturally Open；COTS / GOTS；Extendible；Flexible / Adaptable；Future-Proof；Legacy-Sensitive；Migratable；Multi-Sourced；Scalable；Simple；Standards Compliant；Traceable；Upgradeable"
+      ],
+      [
+        "Business Strategy Attributes 业务战略属性",
+        "Brand Enhancing；Business-Enabled；Competent；Confident；Credible；Governable；Providing Good Stewardship and Custody；Providing Investment Re-use；Reputable"
+      ]
+    ],
+    "notes_zh": "共 7 类 75 个属性；原图未编号，顺序即版面自上而下顺序。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "青色框 Business Attributes",
+    "meaning_zh": "分类法根节点",
+    "explicit": false
+  },
+  {
+    "symbol": "绿色表头",
+    "meaning_zh": "业务属性的 7 个分类",
+    "explicit": false
+  },
+  {
+    "symbol": "黄色框",
+    "meaning_zh": "一个业务属性",
+    "explicit": false
+  },
+  {
+    "symbol": "分类表头下的竖直脊线",
+    "meaning_zh": "该列属性都属于此分类（列举，不是顺序）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "根框在顶部中央，横向分支杆向下连到 7 个绿色分类表头；每个表头下为一列黄色属性框，自上而下排列，列高不一（Risk Management 列最长）。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G152/fig1-1",
+    "relation": "related",
+    "note_zh": "图 1-1 中央概念列的 Business Attribute Profile 即使用本图这类分类法构建；本图是该方法在需求管理中的展开。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "75 个属性的中文译名由解析者拟定（中文稿只给出 Business Attribute=业务属性，没有逐项对照）；个别近义词（如 Assurable/Assuring Honesty、Owned/In our sole possession）译法可能与其他章节不一致。",
+    "原图无图例；“绿色=分类、黄色=属性、青色=根”按颜色与版式判读。",
+    "属性列内部的竖直连线为版面脊线；本分析用连续的 composition 关系记录，未把它们解释为属性之间的语义依赖。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 40 页原图截图（220 dpi）及 2x2 放大分块",
+    "英文 PDF 第 40 页 600 dpi 重渲染，左右两半分别放大逐列转录",
+    "英文 PDF 第 40–41 页正文",
+    "中文稿 G152e_将风险与安全融入TOGAF企业架构.md 第 410 行"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

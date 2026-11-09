@@ -1,0 +1,314 @@
+{
+  "schema_version": "method-teaching-materials/1",
+  "method_id": "incident-architecture-adjustment-review",
+  "is_example": true,
+  "title": "预约中断后的风险偏好变化与三类方案",
+  "source": "G186 §12.3",
+  "decision": "40分钟中断后，是否必然选择双活系统，还是需要重审目标、变更与残余风险？",
+  "materials": [
+    [
+      "INCIDENT",
+      "事件记录仅确认中断40分钟，根因尚未确认。"
+    ],
+    [
+      "RISK-DECISION",
+      "虚构风险委员会将可接受中断由60分钟调整为15分钟，并规定超出后升级复议。"
+    ],
+    [
+      "IMPACT",
+      "自动切换估算20万元但未演练；取消目标和取消变更分别有业务后果。"
+    ]
+  ],
+  "reasoning": [
+    "观察到中断不等于知道根因，不能直接宣称双活能解决问题。",
+    "偏好变化需形成有目标追溯和影响评估的需求变更。",
+    "取消目标是改变业务承诺；取消变更是保留现状，两者不可合并为一个“不做”。",
+    "保险转移经济后果不会减少服务中断概率；残余服务风险继续由责任方决定。"
+  ],
+  "scenarios": {
+    "sufficient": {
+      "inputs": {
+        "source_ids": [
+          "INCIDENT",
+          "RISK-DECISION",
+          "IMPACT"
+        ],
+        "incident": {
+          "id": "INC-4",
+          "description": "预约中断40分钟",
+          "occurred_on": "2026-11-01",
+          "evidence": [
+            "INCIDENT"
+          ]
+        },
+        "objectives": [
+          {
+            "id": "OBJ-RESERVE",
+            "statement": "试点预约可用"
+          }
+        ],
+        "risk_appetite_before": {
+          "statement": "接受一次60分钟中断",
+          "authority": "虚构风险委员会"
+        },
+        "risk_appetite_after": {
+          "statement": "接受一次15分钟中断",
+          "authority": "虚构风险委员会"
+        },
+        "risk_tolerance": {
+          "statement": "超过15分钟即升级复议",
+          "authority": "虚构风险委员会"
+        },
+        "requirement_changes": [
+          {
+            "id": "RC-RECOVERY",
+            "objective_id": "OBJ-RESERVE",
+            "change": "恢复目标由60分钟改为15分钟",
+            "impact_assessment_ref": "IMPACT-1"
+          }
+        ],
+        "options": [
+          {
+            "id": "OPT-RECOVER",
+            "kind": "change-target",
+            "target_change": "自动切换",
+            "work": "恢复流程及演练",
+            "cost": "虚构估算20万元",
+            "certainty_basis": "尚待故障演练验证的方案",
+            "residual_vs_appetite": "exceeds",
+            "excess_strategy": "评估转移业务损失并保留服务中断残余风险"
+          },
+          {
+            "id": "OPT-CANCEL-GOAL",
+            "kind": "cancel-objective",
+            "consequence": "取消试点预约可用性目标，改人工受理"
+          },
+          {
+            "id": "OPT-CANCEL-CHANGE",
+            "kind": "cancel-change",
+            "consequence": "保留原系统并上报与新偏好不符的风险"
+          }
+        ],
+        "decision": {
+          "status": "pending"
+        }
+      },
+      "expected": {
+        "appetite_changed": true,
+        "decision_state": "pending",
+        "gap_reasons": [],
+        "option_kinds": [
+          "cancel-change",
+          "cancel-objective",
+          "change-target"
+        ]
+      },
+      "explanation": "三类方案记录完整，但没有授权选择。"
+    },
+    "missing": {
+      "inputs": {
+        "source_ids": [
+          "INCIDENT",
+          "RISK-DECISION",
+          "IMPACT"
+        ],
+        "incident": {
+          "id": "INC-4",
+          "description": "预约中断40分钟",
+          "occurred_on": "2026-11-01",
+          "evidence": [
+            "INCIDENT"
+          ]
+        },
+        "objectives": [
+          {
+            "id": "OBJ-RESERVE",
+            "statement": "试点预约可用"
+          }
+        ],
+        "risk_appetite_before": {
+          "statement": "接受一次60分钟中断",
+          "authority": "虚构风险委员会"
+        },
+        "risk_appetite_after": {
+          "statement": "接受一次15分钟中断",
+          "authority": "虚构风险委员会"
+        },
+        "risk_tolerance": {
+          "statement": "超过15分钟即升级复议",
+          "authority": "虚构风险委员会"
+        },
+        "requirement_changes": [],
+        "options": [
+          {
+            "id": "OPT-RECOVER",
+            "kind": "change-target",
+            "target_change": "自动切换",
+            "work": "恢复流程及演练",
+            "cost": "虚构估算20万元",
+            "certainty_basis": "尚待故障演练验证的方案",
+            "residual_vs_appetite": "exceeds",
+            "excess_strategy": "评估转移业务损失并保留服务中断残余风险"
+          },
+          {
+            "id": "OPT-CANCEL-GOAL",
+            "kind": "cancel-objective",
+            "consequence": "取消试点预约可用性目标，改人工受理"
+          },
+          {
+            "id": "OPT-CANCEL-CHANGE",
+            "kind": "cancel-change",
+            "consequence": "保留原系统并上报与新偏好不符的风险"
+          }
+        ],
+        "decision": {
+          "status": "pending"
+        }
+      },
+      "expected": {
+        "gap_reasons": [
+          "appetite-change-without-requirement-change"
+        ]
+      },
+      "explanation": "偏好已变而需求变更为空，不能跳到实施方案。"
+    },
+    "change": {
+      "inputs": {
+        "source_ids": [
+          "INCIDENT",
+          "RISK-DECISION",
+          "IMPACT"
+        ],
+        "incident": {
+          "id": "INC-4",
+          "description": "预约中断40分钟",
+          "occurred_on": "2026-11-01",
+          "evidence": [
+            "INCIDENT"
+          ]
+        },
+        "objectives": [
+          {
+            "id": "OBJ-RESERVE",
+            "statement": "试点预约可用"
+          }
+        ],
+        "risk_appetite_before": {
+          "statement": "接受一次60分钟中断",
+          "authority": "虚构风险委员会"
+        },
+        "risk_appetite_after": {
+          "statement": "接受一次60分钟中断",
+          "authority": "虚构风险委员会"
+        },
+        "risk_tolerance": {
+          "statement": "超过15分钟即升级复议",
+          "authority": "虚构风险委员会"
+        },
+        "requirement_changes": [],
+        "options": [
+          {
+            "id": "OPT-RECOVER",
+            "kind": "change-target",
+            "target_change": "自动切换",
+            "work": "恢复流程及演练",
+            "cost": "虚构估算20万元",
+            "certainty_basis": "尚待故障演练验证的方案",
+            "residual_vs_appetite": "exceeds",
+            "excess_strategy": "评估转移业务损失并保留服务中断残余风险"
+          },
+          {
+            "id": "OPT-CANCEL-GOAL",
+            "kind": "cancel-objective",
+            "consequence": "取消试点预约可用性目标，改人工受理"
+          },
+          {
+            "id": "OPT-CANCEL-CHANGE",
+            "kind": "cancel-change",
+            "consequence": "保留原系统并上报与新偏好不符的风险"
+          }
+        ],
+        "decision": {
+          "status": "pending"
+        }
+      },
+      "expected": {
+        "appetite_changed": false,
+        "decision_state": "pending"
+      },
+      "explanation": "委员会撤回偏好调整并保持原口径；不因发生事件就强制认定偏好已变。"
+    },
+    "counterexample": {
+      "inputs": {
+        "source_ids": [
+          "INCIDENT",
+          "RISK-DECISION",
+          "IMPACT"
+        ],
+        "incident": {
+          "id": "INC-4",
+          "description": "预约中断40分钟",
+          "occurred_on": "2026-11-01",
+          "evidence": [
+            "INCIDENT"
+          ]
+        },
+        "objectives": [
+          {
+            "id": "OBJ-RESERVE",
+            "statement": "试点预约可用"
+          }
+        ],
+        "risk_appetite_before": {
+          "statement": "接受一次60分钟中断",
+          "authority": "虚构风险委员会"
+        },
+        "risk_appetite_after": {
+          "statement": "接受一次15分钟中断",
+          "authority": "虚构风险委员会"
+        },
+        "risk_tolerance": {
+          "statement": "超过15分钟即升级复议",
+          "authority": "虚构风险委员会"
+        },
+        "requirement_changes": [
+          {
+            "id": "RC-RECOVERY",
+            "objective_id": "OBJ-ABSENT",
+            "change": "恢复目标由60分钟改为15分钟",
+            "impact_assessment_ref": "IMPACT-1"
+          }
+        ],
+        "options": [
+          {
+            "id": "OPT-RECOVER",
+            "kind": "change-target",
+            "target_change": "自动切换",
+            "work": "恢复流程及演练",
+            "cost": "虚构估算20万元",
+            "certainty_basis": "尚待故障演练验证的方案",
+            "residual_vs_appetite": "exceeds",
+            "excess_strategy": "评估转移业务损失并保留服务中断残余风险"
+          },
+          {
+            "id": "OPT-CANCEL-GOAL",
+            "kind": "cancel-objective",
+            "consequence": "取消试点预约可用性目标，改人工受理"
+          },
+          {
+            "id": "OPT-CANCEL-CHANGE",
+            "kind": "cancel-change",
+            "consequence": "保留原系统并上报与新偏好不符的风险"
+          }
+        ],
+        "decision": {
+          "status": "pending"
+        }
+      },
+      "expected": {
+        "reject": "IAA-003"
+      },
+      "explanation": "需求变更必须指向受影响的已登记目标。"
+    }
+  }
+}

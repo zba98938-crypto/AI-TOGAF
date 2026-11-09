@@ -1,0 +1,853 @@
+# G217/figC-1 · 企业架构服务到 ADM 阶段的映射
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G217/figC-1.md) · [JSON](../../architecture/diagrams/G217/figC-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G217e.pdf`；SHA-256：`ad38b0c9563a3558532e7ffd7f4e84e0ab82d29fc86f53bc08d583b604738488`。
+
+## 原图 · PDF 第 84 页
+
+![英文原图](../assets/G217/figC-1-p0084.png)
+
+PDF 坐标：`[48.2, 226.5, 563.8, 516.5]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+8
+3
+ES
+z
+2
+Ea
+z
+carans
+H
+Ea
+is
+3
+z 6 i 8
+[Preliminary Phase
+[Phase A: Architecture Vision
+[Phase B: Business Architecture
+[Phase C: Information Systems Architectures
+[Phase D: Technology Architecture
+[Phase F: Migration Planning
+[Phase E: Opportunities & Solutions
+[Phase G: Implementation Governance
+[Phase H: Architecture Change Management
+[ADM Architecture Requirements Management
+af.
+```
+
+## 概要（历史解释；局部修正见上）
+
+把 18 项企业架构服务（分 6 类）映射到预备阶段至阶段 H 及需求管理。
+
+## 目的（历史解释；局部修正见上）
+
+在附录 C 末尾给出企业架构服务与 ADM 阶段的总览映射，帮助架构师在具体 ADM 阶段选取相应的 EA 服务；它把前面按服务类别逐条描述的服务目录，转成按阶段可查的适用性视图。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+按行读：预备阶段 → 阶段 A–H → ADM 架构需求管理；按列读：24 列中 6 个加粗竖排标题是服务分类带，右侧的普通列才是具体服务。绿色格中的 × 表示该服务在该阶段适用。想查“某阶段可用哪些服务”就横向读一行；想查“某服务贯穿哪些阶段”就纵向读一列。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 10 行分别是预备阶段、阶段 A–H、ADM 架构需求管理；24 列 = 6 个加粗分类带（需求获取、架构规划、设计支持、开发支持、企业支持、EA 实践发展支持）+ 18 项具体服务。
+- 每个阶段至少映射 2 项服务；ADM 架构需求管理只有 2 项（利益相关者管理、业务价值评估与分析）。
+- 预备阶段 4 项：利益相关者管理、业务价值评估与分析、架构项目规划、架构裁剪。
+- 阶段 B 与阶段 G 各 8 项，阶段 C/D 各 7 项；B/C/D 的服务集中在架构项目规划、愿景与战略、建模与文档、集成、标准指导、可持续性、企业分析与评估。
+- 阶段 G 有 8 项，并且是唯一在“开发支持服务”分类带上打 × 的阶段；同时标出标准指导、合规评估、发布支持、组合管理、能力规划。
+- 阶段 H 覆盖最广（10 项），横跨需求、规划、设计、开发与企业支持，并包含风险管理与企业架构开发过程改进。
+- 覆盖面最广的是架构与标准指导服务（B–H 共 7 个阶段）和架构项目规划服务（预备、A–D、F、H 共 7 个阶段）。
+- 这不是 ADM 流程图：行按阶段编号排列但没有箭头，只表达“哪些服务可适用于哪个阶段”，不表示阶段先后或服务先后。
+
+## 层级（历史解释；局部修正见上）
+
+列方向两层：6 个服务分类（加粗带）> 18 项具体服务；行方向一层：10 个 ADM 阶段/需求管理。分类带只做视觉分组，通常不参与映射。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有连线。绿色底 + × 是唯一的数据编码；竖线与加粗列边界只是表格网格和分类带分隔，不表示流程、依赖或阶段顺序。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不是 ADM 流程图：行序只是阶段编号，没有箭头，也不表示从一个阶段流向另一个阶段。
+- 6 个加粗列是分类标题，通常不是服务；唯一例外是阶段 G 在“开发支持服务”分类带上的 ×，不能据此认为所有分类列都参与映射。
+- × 表示“可适用/可考虑使用”，不是每个阶段必须交付这些服务。
+- 空白不表示禁止，只表示该服务未映射到该阶段。
+- 同一行多个 × 没有先后顺序，它们只是并列的可用服务。
+- 中文稿实际引用的重绘 SVG（骨架未列出该资产）把矩阵转置且多处映射错误；中文 PNG 也损坏，均不能作为映射依据。
+
+## 元素
+
+```json
+[
+  {
+    "id": "ph_preliminary",
+    "label_en": "Preliminary Phase",
+    "label_zh": "预备阶段",
+    "type": "phase",
+    "parent": null,
+    "order": 1,
+    "level": 1,
+    "position": "第 1 行"
+  },
+  {
+    "id": "ph_a",
+    "label_en": "Phase A: Architecture Vision",
+    "label_zh": "阶段 A：架构愿景",
+    "type": "phase",
+    "parent": null,
+    "order": 2,
+    "level": 1,
+    "position": "第 2 行"
+  },
+  {
+    "id": "ph_b",
+    "label_en": "Phase B: Business Architecture",
+    "label_zh": "阶段 B：业务架构",
+    "type": "phase",
+    "parent": null,
+    "order": 3,
+    "level": 1,
+    "position": "第 3 行"
+  },
+  {
+    "id": "ph_c",
+    "label_en": "Phase C: Information Systems Architectures",
+    "label_zh": "阶段 C：信息系统架构",
+    "type": "phase",
+    "parent": null,
+    "order": 4,
+    "level": 1,
+    "position": "第 4 行"
+  },
+  {
+    "id": "ph_d",
+    "label_en": "Phase D: Technology Architecture",
+    "label_zh": "阶段 D：技术架构",
+    "type": "phase",
+    "parent": null,
+    "order": 5,
+    "level": 1,
+    "position": "第 5 行"
+  },
+  {
+    "id": "ph_e",
+    "label_en": "Phase E: Opportunities & Solutions",
+    "label_zh": "阶段 E：机会与解决方案",
+    "type": "phase",
+    "parent": null,
+    "order": 6,
+    "level": 1,
+    "position": "第 6 行"
+  },
+  {
+    "id": "ph_f",
+    "label_en": "Phase F: Migration Planning",
+    "label_zh": "阶段 F：迁移规划",
+    "type": "phase",
+    "parent": null,
+    "order": 7,
+    "level": 1,
+    "position": "第 7 行"
+  },
+  {
+    "id": "ph_g",
+    "label_en": "Phase G: Implementation Governance",
+    "label_zh": "阶段 G：实施治理",
+    "type": "phase",
+    "parent": null,
+    "order": 8,
+    "level": 1,
+    "position": "第 8 行"
+  },
+  {
+    "id": "ph_h",
+    "label_en": "Phase H: Architecture Change Management",
+    "label_zh": "阶段 H：架构变更管理",
+    "type": "phase",
+    "parent": null,
+    "order": 9,
+    "level": 1,
+    "position": "第 9 行"
+  },
+  {
+    "id": "req_mgmt",
+    "label_en": "ADM Architecture Requirements Management",
+    "label_zh": "ADM 架构需求管理",
+    "type": "process",
+    "parent": null,
+    "order": 10,
+    "level": 1,
+    "position": "第 10 行"
+  },
+  {
+    "id": "cat_req",
+    "label_en": "Requirements Elicitation and Understanding Services",
+    "label_zh": "需求获取与理解服务",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "position": "第 1 列（分类带）"
+  },
+  {
+    "id": "svc_stakeholders",
+    "label_en": "Stakeholders Management Services",
+    "label_zh": "利益相关者管理服务",
+    "type": "service",
+    "parent": "cat_req",
+    "level": 2,
+    "position": "第 2 列",
+    "description_zh": "覆盖预备、A、E、H、需求管理。"
+  },
+  {
+    "id": "svc_business_value",
+    "label_en": "Business Value Assessment and Analysis Service",
+    "label_zh": "业务价值评估与分析服务",
+    "type": "service",
+    "parent": "cat_req",
+    "level": 2,
+    "position": "第 3 列",
+    "description_zh": "覆盖预备、A、E、F、需求管理。"
+  },
+  {
+    "id": "cat_arch_plan",
+    "label_en": "Architecture Planning Services",
+    "label_zh": "架构规划服务",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "position": "第 4 列（分类带）"
+  },
+  {
+    "id": "svc_arch_project_planning",
+    "label_en": "Architecture Project Planning Services",
+    "label_zh": "架构项目规划服务",
+    "type": "service",
+    "parent": "cat_arch_plan",
+    "level": 2,
+    "position": "第 5 列",
+    "description_zh": "覆盖预备、A、B、C、D、F、H，共 7 个阶段。"
+  },
+  {
+    "id": "svc_arch_tailoring",
+    "label_en": "Architecting Tailoring Services",
+    "label_zh": "架构裁剪服务",
+    "type": "service",
+    "parent": "cat_arch_plan",
+    "level": 2,
+    "position": "第 6 列",
+    "description_zh": "覆盖预备、A、H。"
+  },
+  {
+    "id": "cat_design",
+    "label_en": "Design Support Services",
+    "label_zh": "设计支持服务",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "position": "第 7 列（分类带）"
+  },
+  {
+    "id": "svc_vision",
+    "label_en": "Architecture Vision and Strategy Services",
+    "label_zh": "架构愿景与战略服务",
+    "type": "service",
+    "parent": "cat_design",
+    "level": 2,
+    "position": "第 8 列",
+    "description_zh": "覆盖 A、B、C、D、H。"
+  },
+  {
+    "id": "svc_modeling",
+    "label_en": "Architecture Modeling and Documentation Services (MVA)",
+    "label_zh": "架构建模与文档服务（MVA）",
+    "type": "service",
+    "parent": "cat_design",
+    "level": 2,
+    "position": "第 9 列",
+    "description_zh": "覆盖 B、C、D、H。"
+  },
+  {
+    "id": "svc_integration",
+    "label_en": "Architecture Integration Services",
+    "label_zh": "架构集成服务",
+    "type": "service",
+    "parent": "cat_design",
+    "level": 2,
+    "position": "第 10 列",
+    "description_zh": "覆盖 B、C、D、E、F。"
+  },
+  {
+    "id": "svc_compliance_dev",
+    "label_en": "Architecture Compliance Development Services (Business, Info, Appl, Infra, Systs, ...)",
+    "label_zh": "架构合规开发服务（业务、信息、应用、基础设施、系统等）",
+    "type": "service",
+    "parent": "cat_design",
+    "level": 2,
+    "position": "第 11 列",
+    "description_zh": "覆盖 G、H。"
+  },
+  {
+    "id": "cat_dev",
+    "label_en": "Development Support Services",
+    "label_zh": "开发支持服务",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "position": "第 12 列（分类带）",
+    "description_zh": "唯一在分类带上也出现 × 的分类：阶段 G 一行。"
+  },
+  {
+    "id": "svc_standards",
+    "label_en": "Architecture and Standards Guidance Service",
+    "label_zh": "架构与标准指导服务",
+    "type": "service",
+    "parent": "cat_dev",
+    "level": 2,
+    "position": "第 13 列",
+    "description_zh": "覆盖 B–H，共 7 个阶段，是覆盖面最广的服务。"
+  },
+  {
+    "id": "svc_change",
+    "label_en": "Change Management",
+    "label_zh": "变更管理",
+    "type": "service",
+    "parent": "cat_dev",
+    "level": 2,
+    "position": "第 14 列",
+    "description_zh": "只覆盖阶段 G。"
+  },
+  {
+    "id": "svc_compliance_assessment",
+    "label_en": "Compliance Assessment and Analysis Service",
+    "label_zh": "合规评估与分析服务",
+    "type": "service",
+    "parent": "cat_dev",
+    "level": 2,
+    "position": "第 15 列",
+    "description_zh": "覆盖 B、C、D、E、G。"
+  },
+  {
+    "id": "svc_release",
+    "label_en": "Release Support Services",
+    "label_zh": "发布支持服务",
+    "type": "service",
+    "parent": "cat_dev",
+    "level": 2,
+    "position": "第 16 列",
+    "description_zh": "只覆盖阶段 G。"
+  },
+  {
+    "id": "cat_enterprise",
+    "label_en": "Enterprise Support Services",
+    "label_zh": "企业支持服务",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "position": "第 17 列（分类带）"
+  },
+  {
+    "id": "svc_portfolio",
+    "label_en": "Portfolio Management Support Services (including Asset Mgmt, Acquisitions)",
+    "label_zh": "组合管理支持服务（含资产管理、收购）",
+    "type": "service",
+    "parent": "cat_enterprise",
+    "level": 2,
+    "position": "第 18 列",
+    "description_zh": "覆盖 E、F、G、H。"
+  },
+  {
+    "id": "svc_risk",
+    "label_en": "Risk Management Services",
+    "label_zh": "风险管理服务",
+    "type": "service",
+    "parent": "cat_enterprise",
+    "level": 2,
+    "position": "第 19 列",
+    "description_zh": "覆盖 A、E、G、H。"
+  },
+  {
+    "id": "svc_sustainability",
+    "label_en": "Sustainability Management Support Services",
+    "label_zh": "可持续性管理支持服务",
+    "type": "service",
+    "parent": "cat_enterprise",
+    "level": 2,
+    "position": "第 20 列",
+    "description_zh": "覆盖 B、C、D、E、G。"
+  },
+  {
+    "id": "svc_enterprise_analysis",
+    "label_en": "Enterprise Analysis and Assessment Services",
+    "label_zh": "企业分析与评估服务",
+    "type": "service",
+    "parent": "cat_enterprise",
+    "level": 2,
+    "position": "第 21 列",
+    "description_zh": "覆盖 B、C、D、F、G、H。"
+  },
+  {
+    "id": "svc_capability",
+    "label_en": "Capability Planning Support Service",
+    "label_zh": "能力规划支持服务",
+    "type": "service",
+    "parent": "cat_enterprise",
+    "level": 2,
+    "position": "第 22 列",
+    "description_zh": "只覆盖阶段 B。"
+  },
+  {
+    "id": "cat_practice",
+    "label_en": "Enterprise Architecture Practice Development Support Services",
+    "label_zh": "企业架构实践发展支持服务",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "position": "第 23 列（分类带）"
+  },
+  {
+    "id": "svc_process_improvement",
+    "label_en": "Enterprise Architecture Dev Process Improvement Service",
+    "label_zh": "企业架构开发过程改进服务",
+    "type": "service",
+    "parent": "cat_practice",
+    "level": 2,
+    "position": "第 24 列",
+    "description_zh": "只覆盖阶段 H。"
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_adm",
+    "title_zh": "企业架构服务 × ADM 阶段映射（按原图列序转录；原图行=阶段、列=服务，本表转置为服务行）",
+    "columns": [
+      "服务 / 分类（按原图从左到右）",
+      "Preliminary Phase",
+      "Phase A",
+      "Phase B",
+      "Phase C",
+      "Phase D",
+      "Phase E",
+      "Phase F",
+      "Phase G",
+      "Phase H",
+      "ADM Architecture Requirements Management"
+    ],
+    "rows": [
+      [
+        "Requirements Elicitation and Understanding Services（分类带）",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Stakeholders Management Services",
+        "×",
+        "×",
+        "",
+        "",
+        "",
+        "×",
+        "",
+        "",
+        "×",
+        "×"
+      ],
+      [
+        "Business Value Assessment and Analysis Service",
+        "×",
+        "×",
+        "",
+        "",
+        "",
+        "×",
+        "×",
+        "",
+        "",
+        "×"
+      ],
+      [
+        "Architecture Planning Services（分类带）",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Architecture Project Planning Services",
+        "×",
+        "×",
+        "×",
+        "×",
+        "×",
+        "",
+        "×",
+        "",
+        "×",
+        ""
+      ],
+      [
+        "Architecting Tailoring Services",
+        "×",
+        "×",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "×",
+        ""
+      ],
+      [
+        "Design Support Services（分类带）",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Architecture Vision and Strategy Services",
+        "",
+        "×",
+        "×",
+        "×",
+        "×",
+        "",
+        "",
+        "",
+        "×",
+        ""
+      ],
+      [
+        "Architecture Modeling and Documentation Services (MVA)",
+        "",
+        "",
+        "×",
+        "×",
+        "×",
+        "",
+        "",
+        "",
+        "×",
+        ""
+      ],
+      [
+        "Architecture Integration Services",
+        "",
+        "",
+        "×",
+        "×",
+        "×",
+        "×",
+        "×",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Architecture Compliance Development Services (Business, Info, Appl, Infra, Systs, ...)",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "×",
+        "×",
+        ""
+      ],
+      [
+        "Development Support Services（分类带）",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "×",
+        "",
+        ""
+      ],
+      [
+        "Architecture and Standards Guidance Service",
+        "",
+        "",
+        "×",
+        "×",
+        "×",
+        "×",
+        "×",
+        "×",
+        "×",
+        ""
+      ],
+      [
+        "Change Management",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "×",
+        "",
+        ""
+      ],
+      [
+        "Compliance Assessment and Analysis Service",
+        "",
+        "",
+        "×",
+        "×",
+        "×",
+        "×",
+        "",
+        "×",
+        "",
+        ""
+      ],
+      [
+        "Release Support Services",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "×",
+        "",
+        ""
+      ],
+      [
+        "Enterprise Support Services（分类带）",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Portfolio Management Support Services (including Asset Mgmt, Acquisitions)",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "×",
+        "×",
+        "×",
+        "×",
+        ""
+      ],
+      [
+        "Risk Management Services",
+        "",
+        "×",
+        "",
+        "",
+        "",
+        "×",
+        "",
+        "×",
+        "×",
+        ""
+      ],
+      [
+        "Sustainability Management Support Services",
+        "",
+        "",
+        "×",
+        "×",
+        "×",
+        "×",
+        "",
+        "×",
+        "",
+        ""
+      ],
+      [
+        "Enterprise Analysis and Assessment Services",
+        "",
+        "",
+        "×",
+        "×",
+        "×",
+        "",
+        "×",
+        "×",
+        "×",
+        ""
+      ],
+      [
+        "Capability Planning Support Service",
+        "",
+        "",
+        "×",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Enterprise Architecture Practice Development Support Services（分类带）",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Enterprise Architecture Dev Process Improvement Service",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "×",
+        ""
+      ]
+    ],
+    "cell_legend": [
+      "× = 该服务在该 ADM 阶段适用；空白 = 未映射"
+    ],
+    "notes_zh": "原图 10 行 × 24 列；本表转置为 24 行 × 10 个阶段列，列顺序仍为原图从左到右。6 个加粗分类带中只有“Development Support Services”在阶段 G 有 ×，其余分类带全空；该格按原图照录，语义存疑。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "绿色单元格 + ×",
+    "meaning_zh": "该企业架构服务在该 ADM 阶段适用",
+    "explicit": false
+  },
+  {
+    "symbol": "空白单元格",
+    "meaning_zh": "该服务未映射到该阶段",
+    "explicit": false
+  },
+  {
+    "symbol": "加粗竖排标题列",
+    "meaning_zh": "服务分类带（需求获取、架构规划、设计支持、开发支持、企业支持、EA 实践发展），通常不是具体服务",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "grid",
+  "description_zh": "矩阵：左侧 10 行阶段标签；右侧 24 个竖排列，第 1、4、7、12、17、23 列为加粗分类带（同宽、右侧粗线），其余为服务列；无图例，图题在图下方。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G217/fig4-2",
+    "relation": "complements",
+    "note_zh": "同一套 6 类 / 18 项企业架构服务，图 4-2 映射到 DPBoK 语境，图 C-1 映射到 ADM 阶段。"
+  },
+  {
+    "target": "G217/fig4-3",
+    "relation": "related",
+    "note_zh": "图 4-3 同样使用这 18 项服务，但用 N/P/D 表示语境间的引入与深化，不涉及 ADM 阶段。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "阶段 G 在“Development Support Services”分类带列上有 ×，而其余分类带没有任何 ×；该格按原图像素照录，但其语义（分类整体适用）原文未说明。",
+    "骨架 assets 只列了 g217e_figC-1_en.png 与 g217e_figC-1_zh.png，但中文稿 L1157 实际引用的是 figs/zh/g217e_figC-1_zh.svg；本文件按实际引用核对了 SVG，并同时核对未引用的 PNG。",
+    "× 的含义按表格惯例理解为适用；原图没有图例。",
+    "重绘 SVG 转置了矩阵并存在多处映射错误，不能代替原图。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 84 页 500 dpi 渲染与 figctx 220 dpi 截图",
+    "figC-1_p84_1.png 及放大分块 z11/z12/z21/z22",
+    "单元格绿色底像素统计（24 列 × 10 行）与列线检测",
+    "英文 PDF 第 84 页 C.7 标题与图题（Figure C-1）",
+    "中文稿 G217e_在数字企业中使用TOGAF标准.md 第 1155–1157 行",
+    "figs/zh/g217e_figC-1_zh.svg 源码与 figs/zh/g217e_figC-1_zh.png"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

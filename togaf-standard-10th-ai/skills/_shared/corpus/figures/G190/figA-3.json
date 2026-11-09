@@ -1,0 +1,844 @@
+{
+  "schema_version": "1.0",
+  "id": "G190/figA-3",
+  "status": "done",
+  "doc": {
+    "code": "G190",
+    "title_zh": "信息映射",
+    "title_en": "Information Mapping",
+    "zh_md": "G190e_信息映射.md",
+    "en_pdf": "togaf-standard-10th/G190e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "A-3",
+    "title_en": "Information Map in UML",
+    "title_zh": "UML 中的信息地图",
+    "section_en": "A.2. Unified Modeling Language (UML)",
+    "section_zh": "A.2 统一建模语言（UML）",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        24
+      ],
+      "printed_page": 14,
+      "bboxes": [
+        [
+          86.9,
+          143.3,
+          525.1,
+          397.7
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        257
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g190_figA-3.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "f3f0f7ecd6ab",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "实体完全不同：原图 6 个类（Payment、Loan、Customer、Branch、Account、Employee），SVG 只有“客户/账户/交易”3 个类，贷款、分支机构、员工全部缺失",
+        "属性全部是自拟的：原图属性为 Payment_Number/Payment_Date/Payment_Amount、Amount/Loan_Number、Customer_ID/Customer_Name/Customer_City/Customer_Street、Branch_Name/Branch_Code/Branch_City、Account_ID/Balance、Employee_ID/Employee_Name/Dependent_Name/Telephone_Number/Start_Date；SVG 写成“客户编号/名称/客户类型”等，且把交易当作实体",
+        "关系被改画：原图 7 条无标签、无基数、无箭头的普通关联；SVG 只画 3 条，并自拟“持有 1..*”“1..*”“发起”等标签与基数，原图没有任何基数",
+        "可见性符号反了：原图属性前缀为 +（public），SVG 用 -（private）",
+        "类框样式被改为普通浅灰标题条矩形，原图是黄色标题条的“堆叠纸张”式类框"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "er_model"
+    ],
+    "notation": "UML 类图：黄色标题条写类名，下方逐行列出属性（前缀 + 表示 public，属性名前的浅蓝小图标为建模工具符号）；类之间用无标签、无基数、无箭头的实线关联连接",
+    "concepts": [
+      "information_map",
+      "information_concept",
+      "uml",
+      "business_architecture"
+    ],
+    "adm_phases": [
+      "adm_phase_c",
+      "adm_phase_d"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "用 6 个 UML 类及其属性清单表达信息地图，示范比 ArchiMate 更细一层的业务信息结构。",
+    "purpose_zh": "附录 A.2 要说明 UML 类图特别适合信息映射：它比 ArchiMate 多出属性（以及后文的基数），可以把每个业务实体所承载的逻辑信息单元列清楚。本图先给类与属性的全貌，基数留给图 A-4 单独示范。",
+    "reading_guide_zh": "逐个类读：黄色标题条是类名，下面每行是一个属性，前缀 + 表示 public。类之间的实线只表示“业务上相关”，没有箭头、没有基数、没有关联名。先读类名确认有哪些信息类型，再按线看它们如何相连（付款—贷款—客户、贷款—分支机构—账户、分支机构—员工—客户）。",
+    "key_points_zh": [
+      "6 个类与图 2-1 的 6 个信息概念一一对应（付款、贷款、客户、分支机构、账户、员工），但这里补上了属性，信息量更大。",
+      "属性列在类框内，全部为 public（+），且只给名称不给类型；正文说属性是与各业务实体相关的逻辑信息单元，必须在某处完整定义。",
+      "7 条关联线没有任何标签、箭头或基数，只表达“这两个信息类型相关”；多重度要到图 A-4 才出现。",
+      "关联的拓扑与图 2-1 相同：付款—贷款—客户、贷款—分支机构—账户、分支机构—员工—客户，形成一个闭合的关系网。",
+      "类框画成右侧/底部带阴影的“堆叠纸张”样式，是原图的制图风格，不代表多个类或多重实例。",
+      "正文指出 UML 比 ArchiMate 更详细（有属性、基数和可选的关联名），但本图仍属于概念层，不含方法或数据库实现。"
+    ],
+    "hierarchy_zh": "没有层级：6 个类平级，关联线只表示相关，不是分类或包含。属性在类框内形成“类—属性”的两级文字结构，但属性不是独立元素。",
+    "line_semantics_zh": "7 条黑色实线均为无向关联（UML association），没有箭头（不表示导航性）、没有关联名、没有多重度；线只是把两个类连起来，方向不可读。",
+    "misreadings_zh": [
+      "关联线没有箭头，不能读成“付款产生贷款”之类的流向；UML 关联默认是双向/未指定的。",
+      "图中没有多重度，不要因为付款只连贷款就推断“一对一”。",
+      "属性前的 + 是 UML 可见性 public，不是“新增”或“主键”。",
+      "黄色标题条是类名，不是包或分组；类框的阴影只是画法。",
+      "中文重绘 SVG 是客户/账户/交易三个类的另一种模型，且自加了基数与关系名，不能代替本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p24",
+        "summary_zh": "UML 源自面向对象设计，类图对信息映射尤其有用；ArchiMate 对业务对象及其关系的表达大量借鉴 UML，但更简化，省略方法、属性和关系基数；图 A-3 是 UML 中的信息地图；UML 的基数可约束一个类的对象能与另一类单个对象关联的数量（见图 A-4）。"
+      },
+      {
+        "source": "en_pdf p25",
+        "summary_zh": "属性是与图中各业务实体相关的逻辑信息单元；不必每张图都显示所有属性，但必须在某处为所有业务实体定义全部属性。"
+      },
+      {
+        "source": "zh_md L255",
+        "summary_zh": "中文稿说明 UML 类图对信息映射有用，ArchiMate 是更简化的模型，省略方法、属性与关系基数。"
+      },
+      {
+        "source": "zh_md L257",
+        "summary_zh": "中文稿在此处引用图 A-3（figs/g190_figA-3.svg）。"
+      },
+      {
+        "source": "zh_md L263",
+        "summary_zh": "中文稿说明属性是与各业务实体相关的逻辑信息单元，必须在某处完整定义。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "6 个类框分三行错落：Payment（左上）、Loan（上中）、Customer（右上）；Branch（中左）、Account（中中）；Employee（下中偏右）。7 条折线在框间连接，Customer 与 Employee 分别有两条折线绕到右下方。"
+  },
+  "legend": [
+    {
+      "symbol": "黄色标题条 + 白色属性区",
+      "meaning_zh": "UML 类（类名 + 属性清单）",
+      "explicit": false
+    },
+    {
+      "symbol": "属性前的 +",
+      "meaning_zh": "public 可见性",
+      "explicit": false
+    },
+    {
+      "symbol": "无箭头实线",
+      "meaning_zh": "UML 关联（未标基数、未标导航性）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "cls_payment",
+      "label_en": "Payment",
+      "label_zh": "付款",
+      "type": "data",
+      "notation_type": "UML Class",
+      "level": 1,
+      "position": "左上",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Payment_Number",
+          "Payment_Date",
+          "Payment_Amount"
+        ]
+      }
+    },
+    {
+      "id": "cls_loan",
+      "label_en": "Loan",
+      "label_zh": "贷款",
+      "type": "data",
+      "notation_type": "UML Class",
+      "level": 1,
+      "position": "上中",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Amount",
+          "Loan_Number"
+        ]
+      }
+    },
+    {
+      "id": "cls_customer",
+      "label_en": "Customer",
+      "label_zh": "客户",
+      "type": "data",
+      "notation_type": "UML Class",
+      "level": 1,
+      "position": "右上",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Customer_ID",
+          "Customer_Name",
+          "Customer_City",
+          "Customer_Street"
+        ]
+      }
+    },
+    {
+      "id": "cls_branch",
+      "label_en": "Branch",
+      "label_zh": "分支机构",
+      "type": "data",
+      "notation_type": "UML Class",
+      "level": 1,
+      "position": "中左",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Branch_Name",
+          "Branch_Code",
+          "Branch_City"
+        ]
+      }
+    },
+    {
+      "id": "cls_account",
+      "label_en": "Account",
+      "label_zh": "账户",
+      "type": "data",
+      "notation_type": "UML Class",
+      "level": 1,
+      "position": "中中",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Account_ID",
+          "Balance"
+        ]
+      }
+    },
+    {
+      "id": "cls_employee",
+      "label_en": "Employee",
+      "label_zh": "员工",
+      "type": "data",
+      "notation_type": "UML Class",
+      "level": 1,
+      "position": "下中偏右",
+      "attributes": {
+        "visibility": "+",
+        "attributes": [
+          "Employee_ID",
+          "Employee_Name",
+          "Dependent_Name",
+          "Telephone_Number",
+          "Start_Date"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from": "cls_payment",
+      "to": "cls_loan",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "上排水平实线，无标签。"
+    },
+    {
+      "from": "cls_loan",
+      "to": "cls_customer",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "上排水平实线，无标签。"
+    },
+    {
+      "from": "cls_loan",
+      "to": "cls_branch",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "从 Loan 左边缘折向左下，再接到 Branch 右上角。"
+    },
+    {
+      "from": "cls_branch",
+      "to": "cls_account",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "中部水平实线，无标签。"
+    },
+    {
+      "from": "cls_account",
+      "to": "cls_customer",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "从 Account 右边缘向右再向上，接到 Customer 底边。"
+    },
+    {
+      "from": "cls_branch",
+      "to": "cls_employee",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "从 Branch 底边向下再向右，接到 Employee 左边缘。"
+    },
+    {
+      "from": "cls_employee",
+      "to": "cls_customer",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "从 Employee 右边缘向右再向上，接到 Customer 底边右侧。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G190/figA-5",
+      "relation": "variant_of",
+      "note_zh": "同样的 6 个实体与 7 组关联，图 A-5 改用带鸦爪基数的 ERD 表达"
+    },
+    {
+      "target": "G190/fig2-1",
+      "relation": "related",
+      "note_zh": "同一组 6 个概念与 7 组关系；本图是补上属性的 UML 版本"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "属性名前的浅蓝色小图标在原图中过小，无法确认是建模工具的“public 属性”图标还是“数据类型”图标；属性本身没有给类型，故只记录名称。",
+      "7 条关联线均无标签、无基数、无导航箭头，关联的语义只能按“业务相关”理解，无法确定两端角色名。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 24 页图 A-3 原图截图及 2x 放大分块（逐类转录属性）",
+      "英文 PDF 第 24 页整页与正文",
+      "英文 PDF 第 25 页属性段落",
+      "中文稿 G190e_信息映射.md 第 255–263 行",
+      "figs/g190_figA-3.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G190e.pdf",
+    "pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G190/figA-3.json",
+    "interpretation_sha256": "4914cd3c8491b6ad89efc164db38cc13f9c7c39aa4e79181f2e25ec540ef6c01",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 24,
+        "text": "Figure A-3: Information Map in UML",
+        "bbox_pdf_points": [
+          48.24,
+          402.461,
+          221.306,
+          416.027
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 24,
+      "printed_page": 14,
+      "bbox_pdf_points": [
+        86.9,
+        143.3,
+        525.1,
+        397.7
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G190/figA-3-p0024.png",
+      "image_sha256": "c323962a33540f108e75dbe6ecfde203b241fd81966c373f3e0adc8b54bbb392",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "c323962a33540f108e75dbe6ecfde203b241fd81966c373f3e0adc8b54bbb392",
+          "status": "extracted-unverified",
+          "text": "+ CD Payment_Number\n+ Customer_ID\n+ CD Payment_Date\n+ CD Customer_Name\n+ CD Payment_Amount\n+ CD Customer_city\n+ CD Customer_Street\n+ CD Branch_Name\n+ CD Branch_Code\n+ CD Branch_City\n+ CD Employee_ID\n+ CD Employee_Name\n+ CD Dependent_Name\n+ CD Telephone_Number\n+ CD Start_Date",
+          "words": [
+            {
+              "text": "+",
+              "confidence": 79.319939,
+              "bbox_pixels_xywh": [
+                10,
+                41,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 33.209221,
+              "bbox_pixels_xywh": [
+                27,
+                41,
+                20,
+                12
+              ]
+            },
+            {
+              "text": "Payment_Number",
+              "confidence": 91.097542,
+              "bbox_pixels_xywh": [
+                52,
+                40,
+                124,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 42.413109,
+              "bbox_pixels_xywh": [
+                674,
+                45,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Customer_ID",
+              "confidence": 65.914146,
+              "bbox_pixels_xywh": [
+                716,
+                44,
+                91,
+                16
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 66.089478,
+              "bbox_pixels_xywh": [
+                10,
+                68,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 36.247009,
+              "bbox_pixels_xywh": [
+                27,
+                68,
+                20,
+                12
+              ]
+            },
+            {
+              "text": "Payment_Date",
+              "confidence": 90.623749,
+              "bbox_pixels_xywh": [
+                52,
+                67,
+                101,
+                16
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 88.549667,
+              "bbox_pixels_xywh": [
+                674,
+                73,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 36.486782,
+              "bbox_pixels_xywh": [
+                691,
+                72,
+                20,
+                12
+              ]
+            },
+            {
+              "text": "Customer_Name",
+              "confidence": 88.384293,
+              "bbox_pixels_xywh": [
+                716,
+                72,
+                117,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 69.498642,
+              "bbox_pixels_xywh": [
+                10,
+                95,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 46.716446,
+              "bbox_pixels_xywh": [
+                27,
+                95,
+                20,
+                12
+              ]
+            },
+            {
+              "text": "Payment_Amount",
+              "confidence": 88.675697,
+              "bbox_pixels_xywh": [
+                52,
+                94,
+                123,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 76.884705,
+              "bbox_pixels_xywh": [
+                674,
+                100,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 2.748547,
+              "bbox_pixels_xywh": [
+                691,
+                99,
+                20,
+                12
+              ]
+            },
+            {
+              "text": "Customer_city",
+              "confidence": 70.099586,
+              "bbox_pixels_xywh": [
+                716,
+                99,
+                102,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 57.439125,
+              "bbox_pixels_xywh": [
+                674,
+                127,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 57.439125,
+              "bbox_pixels_xywh": [
+                691,
+                126,
+                20,
+                13
+              ]
+            },
+            {
+              "text": "Customer_Street",
+              "confidence": 68.373329,
+              "bbox_pixels_xywh": [
+                716,
+                126,
+                117,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 81.208374,
+              "bbox_pixels_xywh": [
+                10,
+                222,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 29.861431,
+              "bbox_pixels_xywh": [
+                27,
+                222,
+                20,
+                12
+              ]
+            },
+            {
+              "text": "Branch_Name",
+              "confidence": 93.049583,
+              "bbox_pixels_xywh": [
+                52,
+                221,
+                98,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 77.21109,
+              "bbox_pixels_xywh": [
+                10,
+                249,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 15.369186,
+              "bbox_pixels_xywh": [
+                27,
+                249,
+                20,
+                12
+              ]
+            },
+            {
+              "text": "Branch_Code",
+              "confidence": 78.51963,
+              "bbox_pixels_xywh": [
+                52,
+                248,
+                94,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 81.984291,
+              "bbox_pixels_xywh": [
+                10,
+                276,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 41.086197,
+              "bbox_pixels_xywh": [
+                27,
+                276,
+                20,
+                12
+              ]
+            },
+            {
+              "text": "Branch_City",
+              "confidence": 78.849892,
+              "bbox_pixels_xywh": [
+                52,
+                275,
+                84,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 86.52507,
+              "bbox_pixels_xywh": [
+                333,
+                367,
+                11,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 30.349846,
+              "bbox_pixels_xywh": [
+                350,
+                367,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "Employee_ID",
+              "confidence": 57.097115,
+              "bbox_pixels_xywh": [
+                375,
+                366,
+                90,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 88.325363,
+              "bbox_pixels_xywh": [
+                333,
+                394,
+                11,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 28.777056,
+              "bbox_pixels_xywh": [
+                350,
+                394,
+                19,
+                12
+              ]
+            },
+            {
+              "text": "Employee_Name",
+              "confidence": 78.118698,
+              "bbox_pixels_xywh": [
+                375,
+                393,
+                116,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 89.061623,
+              "bbox_pixels_xywh": [
+                333,
+                421,
+                11,
+                11
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                350,
+                421,
+                19,
+                12
+              ]
+            },
+            {
+              "text": "Dependent_Name",
+              "confidence": 92.118835,
+              "bbox_pixels_xywh": [
+                375,
+                420,
+                123,
+                15
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 86.065315,
+              "bbox_pixels_xywh": [
+                333,
+                448,
+                11,
+                12
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 64.1213,
+              "bbox_pixels_xywh": [
+                350,
+                448,
+                19,
+                12
+              ]
+            },
+            {
+              "text": "Telephone_Number",
+              "confidence": 91.025505,
+              "bbox_pixels_xywh": [
+                374,
+                447,
+                135,
+                16
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 67.868141,
+              "bbox_pixels_xywh": [
+                333,
+                475,
+                11,
+                12
+              ]
+            },
+            {
+              "text": "CD",
+              "confidence": 64.185593,
+              "bbox_pixels_xywh": [
+                350,
+                475,
+                19,
+                12
+              ]
+            },
+            {
+              "text": "Start_Date",
+              "confidence": 64.185593,
+              "bbox_pixels_xywh": [
+                375,
+                474,
+                73,
+                16
+              ]
+            }
+          ],
+          "mean_word_confidence": 64.12,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

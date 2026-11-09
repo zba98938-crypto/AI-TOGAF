@@ -1,0 +1,169 @@
+{
+  "schema_version": "2.0",
+  "id": "G21I/fig5-1",
+  "title": "SOA 治理支持 IT 治理与企业架构治理",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      289
+    ],
+    "label_table_lines": [
+      293,
+      305
+    ]
+  },
+  "reading": {
+    "purpose_zh": "第 5.3 节（预备阶段的治理与支持策略）用本图给出 MSA 治理与企业架构治理、IT 治理之间关系的高层视图，说明 MSA 团队要走两条并行的治理轨道：只对本 MSA 生效的自主治理决策，同时不越出企业设定的护栏。",
+    "reading_guide_zh": "自上而下分三层读：顶部是企业治理；中间是并列的 IT 治理（左）和企业架构治理（右），两者用双向箭头“对齐”，并各有一条向上箭头“支持”企业治理；底部是 MSA/云原生治理，左侧箭头向上“扩展”IT 治理，右侧箭头从企业架构治理向下“约束”它。箭头所指为关系的宾语。",
+    "key_points_zh": [
+      "IT 治理和企业架构治理是同级的两个治理领域，二者相互对齐，并共同支持企业治理。",
+      "MSA/云原生治理与上层有两种不同的关系：它扩展 IT 治理（在 IT 治理之上增加 MSA 专属的治理内容），同时受企业架构治理约束。",
+      "“约束”对应正文所说的护栏：开发团队可以自由选择最合适的技术与方法，但必须遵守企业架构师制定的总体治理规则，或显式申请豁免；不遵守会使技术混乱与不稳定制度化。",
+      "正文强调 MSA 这类分布式架构的治理与传统企业架构（包括聚焦 SOA 的企业架构）大不相同；治理是应用要求的过程，应由架构师与实施团队并肩持续开展。",
+      "正文列出 MSA 需要的治理工具：变更发布前适当层级的评审（“四眼”原则）、生产管道的最小权限、稳健的变更监控、监控与测试的高度自动化。",
+      "图题仍写“SOA 治理”，图内最底层却是“MSA/云原生治理”；原文同页说明 MSA 治理参考模型与 SOA 治理参考模型大体相同，只是范围限于 MSA 过程（图 5-2）。"
+    ],
+    "hierarchy_zh": "三层：企业治理在最上层；IT 治理与企业架构治理在中层，二者同级；MSA/云原生治理在最下层。上下位置表示治理的层次，没有框中框的包含关系。",
+    "line_semantics_zh": "5 条蓝色粗箭头，均带标签：IT 治理→企业治理“支持”；企业架构治理→企业治理“支持”；IT 治理↔企业架构治理“对齐”（双向）；MSA/云原生治理→IT 治理“扩展”（箭头朝上）；企业架构治理→MSA/云原生治理“约束”（箭头朝下）。",
+    "misreadings_zh": [
+      "“约束”的方向是企业架构治理约束 MSA/云原生治理，不是反过来；“扩展”的方向是 MSA/云原生治理扩展 IT 治理。",
+      "IT 治理与企业架构治理是同级、相互对齐的关系，不是上下级。",
+      "图题中的“SOA”不代表图在讲 SOA 治理，图中的对象是 MSA/云原生治理。",
+      "未被引用的 figs/g21i_fig5-1.svg 与本图同号，画的却是“MSA 在各 ADM 阶段的关注点”，不能当作本图使用。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "corp_gov",
+      "label_en": "Corporate Governance",
+      "label_zh": "企业治理",
+      "type": "concept",
+      "level": 1,
+      "position": "顶部通栏"
+    },
+    {
+      "id": "it_gov",
+      "label_en": "IT Governance",
+      "label_zh": "IT 治理",
+      "type": "concept",
+      "level": 2,
+      "position": "中层左"
+    },
+    {
+      "id": "ea_gov",
+      "label_en": "Enterprise Architecture Governance",
+      "label_zh": "企业架构治理",
+      "type": "concept",
+      "level": 2,
+      "position": "中层右"
+    },
+    {
+      "id": "msa_gov",
+      "label_en": "MSA/Cloud-Native Governance",
+      "label_zh": "微服务架构/云原生治理",
+      "type": "concept",
+      "level": 3,
+      "position": "底部通栏",
+      "description_zh": "MSA 团队自己的治理，只适用于本 MSA。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "it_gov",
+      "to": "corp_gov",
+      "type": "serving",
+      "label_en": "Supports",
+      "label_zh": "支持",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward"
+    },
+    {
+      "from": "ea_gov",
+      "to": "corp_gov",
+      "type": "serving",
+      "label_en": "Supports",
+      "label_zh": "支持",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward"
+    },
+    {
+      "from": "it_gov",
+      "to": "ea_gov",
+      "type": "association",
+      "label_en": "Aligns",
+      "label_zh": "对齐",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "both",
+      "description_zh": "双向箭头"
+    },
+    {
+      "from": "msa_gov",
+      "to": "it_gov",
+      "type": "specialization",
+      "label_en": "Extends",
+      "label_zh": "扩展",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "箭头朝上指向 IT 治理：MSA/云原生治理在 IT 治理基础上扩展"
+    },
+    {
+      "from": "ea_gov",
+      "to": "msa_gov",
+      "type": "governs",
+      "label_en": "Constrains",
+      "label_zh": "约束",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "箭头朝下指向 MSA/云原生治理：企业架构治理设定护栏"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "圆角蓝框",
+      "meaning_zh": "治理领域",
+      "explicit": false
+    },
+    {
+      "symbol": "带标签的蓝色箭头",
+      "meaning_zh": "治理领域之间的关系，箭头指向关系的宾语",
+      "explicit": false
+    },
+    {
+      "symbol": "双向箭头",
+      "meaning_zh": "相互对齐",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "“扩展”记为 specialization（MSA/云原生治理是 IT 治理的扩展），属解析者对关系类型的选择；原文没有进一步解释。",
+      "中文稿 README 提到的“G21I 图 2-1/5-1 错配”没有留下具体记录；从现状推断，这两个自拟 SVG 曾分别被当作图 2-1、图 5-1 引用，修正后图 5-1 改引中文化 PNG，两个 SVG 都成了未被引用的文件。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 26 页原图截图（220 dpi）及像素扫描（确认 5 个箭头头部的位置与方向）",
+      "英文 PDF 第 25–26 页正文；全文检索 SVG 中的术语",
+      "中文稿 G21Ie_微服务架构.md 第 108–128、270–306 行（含图内标签对照表 L293–L304）",
+      "中文稿 README.md 第 19 行、QA-文档对比核查报告.md 第 34 行",
+      "figs/zh/g21ie_fig5-1_zh.png、figs/g21ie_fig5-1_en.png、figs/g21i_fig5-1.svg 与 figs/g21i_fig2-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G21I/fig5-1",
+    "asset": "figs/g21ie_fig5-1_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "13"
+  }
+}

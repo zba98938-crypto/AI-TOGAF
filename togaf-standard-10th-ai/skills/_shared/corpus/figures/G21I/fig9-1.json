@@ -1,0 +1,411 @@
+{
+  "schema_version": "1.0",
+  "id": "G21I/fig9-1",
+  "status": "done",
+  "doc": {
+    "code": "G21I",
+    "title_zh": "微服务架构",
+    "title_en": "Microservices Architecture (MSA)",
+    "zh_md": "G21Ie_微服务架构.md",
+    "en_pdf": "togaf-standard-10th/G21Ie.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "9-1",
+    "title_en": "Development, Deployment, and Execution of Microservices",
+    "title_zh": "微服务的开发、部署与执行",
+    "section_en": "9.1 Microservices",
+    "section_zh": "9.1 微服务",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        41
+      ],
+      "printed_page": 27,
+      "bboxes": [
+        [
+          74.0,
+          499.8,
+          538.0,
+          685.5
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        583
+      ],
+      "label_table_lines": [
+        587,
+        598
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21ie_fig9-1_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "6a070c7971d9",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.988（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g21ie_fig9-1_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "225a9f11f44c",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "“Libraries”没有中文化，图中仍是英文，而标签对照表译为“库”",
+        "字号不统一：“部署单元”很大，“构建”“执行环境”偏小；原图各标签字号接近",
+        "其余 6 个标签译名正确，7 个图形（含层叠效果）和 2 个大箭头的位置与方向与原图一致"
+      ]
+    },
+    {
+      "path": "G21Ie_微服务架构.md#L587-L598",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "9e6828d91f55",
+      "fidelity": "faithful",
+      "issues_zh": []
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "flow"
+    ],
+    "notation": "非正式流程示意图：层叠的折角文档（源单元）、层叠的波浪边图形（库）、层叠圆（部署单元）、层叠六边形（执行单元）、长方形（执行环境）；两个带文字的大块箭头表示构建与部署两步。层叠表示同类有多个",
+    "concepts": [
+      "microservices",
+      "technology_architecture"
+    ],
+    "adm_phases": [
+      "adm_phase_d"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "微服务从源单元与库构建为部署单元，再部署为一个或多个执行单元，运行在执行环境中。",
+    "purpose_zh": "第 9 章（阶段 D：技术架构）用本图说明微服务的开发、部署与执行，支撑“微服务独立开发、可独立部署”这一特征；阶段 D 需要规定微服务的部署机制和执行环境。",
+    "reading_guide_zh": "从左到右读：左侧上下两组输入是源单元和库，经“构建”箭头得到中间的部署单元，再经“部署”箭头得到右侧的执行单元；执行单元下方的长方形是执行环境。每种图形都画成多层叠放，表示有多个。",
+    "key_points_zh": [
+      "每个微服务有自己的源单元，包含实现该微服务 ABF 的代码；源单元不与其他微服务的源单元共享代码，也不能访问它们的数据。",
+      "源单元可以使用库，但库只提供与业务无关的功能；构建时库与源单元一起进入部署单元。",
+      "每个微服务有一个部署单元，由它的源单元和所用的库构建而成；一个部署单元不能包含多个微服务的代码。",
+      "部署单元部署为一个执行单元；在大规模系统中，部署为运行相同代码的多个执行单元。",
+      "执行单元运行在执行环境中；阶段 D 的补充步骤之一是规定微服务的部署机制和执行环境。",
+      "编程语言、库、开发工具和构建机制的选择可交给各微服务的 DevOps 团队，但可能在一定程度上受技术架构约束。"
+    ],
+    "hierarchy_zh": "没有嵌套。层叠的图形只表示同类对象有多个；执行环境画在执行单元下方，表示承载关系，不是包含框。",
+    "line_semantics_zh": "只有两个大块箭头，均从左指向右：“构建”从源单元和库指向部署单元，“部署”从部署单元指向执行单元。执行单元与执行环境之间没有连线，承载关系由上下位置表达（关系清单中标为推断）。",
+    "misreadings_zh": [
+      "层叠图形表示“有多个”，不表示版本历史或层级。",
+      "库不是共享的业务代码：原文规定库只用于与业务无关的功能，微服务之间不共享业务代码。",
+      "一个部署单元可以对应多个执行单元（运行相同代码的副本），但一个部署单元不能包含多个微服务的代码。",
+      "原图左上方的空心大字是英文 PDF 的“Evaluation Copy”水印，不是图的内容。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p41",
+        "summary_zh": "使用微服务是技术决策，可在架构愿景阶段原则上作出，在阶段 D 确认、确定范围并规定支撑它的技术架构；整个架构不必都基于微服务。"
+      },
+      {
+        "source": "en_pdf p41",
+        "summary_zh": "微服务执行单一 ABF、独立于其他微服务，独立开发、可独立部署；它有包含 API 规范的服务契约，可用的微服务列在服务目录中；开发、部署与执行见图 9-1。"
+      },
+      {
+        "source": "en_pdf p42",
+        "summary_zh": "每个微服务有一个源单元，不与其他源单元共享代码、不能访问其数据，可使用与业务无关的库；部署单元由源单元及其所用库构建，不能包含多个微服务的代码；部署为一个执行单元，或在大规模系统中部署为运行相同代码的多个执行单元。"
+      },
+      {
+        "source": "en_pdf p42",
+        "summary_zh": "阶段 D 的补充步骤包括规定微服务的部署机制与执行环境；语言、库、工具与构建机制的选择可交给 DevOps 团队，但受技术架构一定约束。"
+      },
+      {
+        "source": "zh_md L599",
+        "summary_zh": "中文稿对源单元、库、部署单元、执行单元关系的说明与英文一致。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "左列上下两组：源单元（层叠折角文档）在上，库（层叠波浪边图形）在下；中间是“构建”箭头和部署单元（3 个层叠圆）；右侧是“部署”箭头和执行单元（3 个层叠六边形），执行单元下方是横向长方形“执行环境”。"
+  },
+  "legend": [
+    {
+      "symbol": "层叠的折角文档",
+      "meaning_zh": "源单元（源代码）",
+      "explicit": false
+    },
+    {
+      "symbol": "层叠的波浪边图形",
+      "meaning_zh": "库",
+      "explicit": false
+    },
+    {
+      "symbol": "层叠圆",
+      "meaning_zh": "部署单元（构建产物）",
+      "explicit": false
+    },
+    {
+      "symbol": "层叠六边形",
+      "meaning_zh": "执行单元（运行实例）",
+      "explicit": false
+    },
+    {
+      "symbol": "长方形",
+      "meaning_zh": "执行环境",
+      "explicit": false
+    },
+    {
+      "symbol": "多层叠放",
+      "meaning_zh": "同类对象有多个",
+      "explicit": false
+    },
+    {
+      "symbol": "带文字的大块箭头",
+      "meaning_zh": "构建 / 部署两个步骤，箭头指向产物",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "source_units",
+      "label_en": "Source Units",
+      "label_zh": "源单元",
+      "type": "artifact",
+      "order": 1,
+      "position": "左上",
+      "description_zh": "每个微服务一个，包含实现其 ABF 的代码。"
+    },
+    {
+      "id": "libraries",
+      "label_en": "Libraries",
+      "label_zh": "库",
+      "type": "artifact",
+      "order": 1,
+      "position": "左下",
+      "description_zh": "只提供与业务无关的功能。"
+    },
+    {
+      "id": "deployment_units",
+      "label_en": "Deployment Units",
+      "label_zh": "部署单元",
+      "type": "artifact",
+      "order": 2,
+      "position": "中",
+      "description_zh": "每个微服务一个，由源单元和所用库构建。"
+    },
+    {
+      "id": "execution_units",
+      "label_en": "Execution Units",
+      "label_zh": "执行单元",
+      "type": "technology",
+      "order": 3,
+      "position": "右上",
+      "description_zh": "部署单元的运行实例，可为一个或多个。"
+    },
+    {
+      "id": "execution_env",
+      "label_en": "Execution Environment",
+      "label_zh": "执行环境",
+      "type": "technology",
+      "position": "右下"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "source_units",
+      "to": "deployment_units",
+      "type": "flow",
+      "label_en": "Build",
+      "label_zh": "构建",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "cardinality": "1:1",
+      "description_zh": "每个微服务的源单元构建为该微服务的一个部署单元"
+    },
+    {
+      "from": "libraries",
+      "to": "deployment_units",
+      "type": "flow",
+      "label_en": "Build",
+      "label_zh": "构建",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "源单元所用的库一并构建进部署单元（与源单元共用同一个“构建”箭头）"
+    },
+    {
+      "from": "deployment_units",
+      "to": "execution_units",
+      "type": "flow",
+      "label_en": "Deploy",
+      "label_zh": "部署",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "cardinality": "1:1..*",
+      "description_zh": "一个部署单元部署为一个执行单元，大规模时为运行相同代码的多个执行单元"
+    },
+    {
+      "from": "execution_env",
+      "to": "execution_units",
+      "type": "serving",
+      "label_zh": "承载",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "执行环境画在执行单元下方"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_lifecycle",
+      "kind": "sequence",
+      "name_zh": "微服务的开发、部署与执行",
+      "steps": [
+        "source_units",
+        "deployment_units",
+        "execution_units"
+      ],
+      "description_zh": "构建时库与源单元一起进入部署单元；执行单元运行在执行环境中。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_cardinality",
+      "title_zh": "各单元的数量规则（据原文 p42）",
+      "columns": [
+        "对象",
+        "与微服务的对应",
+        "规则"
+      ],
+      "rows": [
+        [
+          "源单元",
+          "每个微服务 1 个",
+          "不与其他微服务的源单元共享代码，不能访问其数据"
+        ],
+        [
+          "库",
+          "可选，可被使用",
+          "只用于与业务无关的功能"
+        ],
+        [
+          "部署单元",
+          "每个微服务 1 个",
+          "由源单元及其所用库构建；不能包含多个微服务的代码"
+        ],
+        [
+          "执行单元",
+          "每个部署单元 1 个或多个",
+          "大规模系统中为运行相同代码的多个执行单元"
+        ]
+      ]
+    }
+  ],
+  "related_figures": [],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [],
+    "analyzed_from": [
+      "英文 PDF 第 41 页原图截图（220 dpi）",
+      "英文 PDF 第 41–42 页正文",
+      "中文稿 G21Ie_微服务架构.md 第 575–612 行（含图内标签对照表 L587–L597）",
+      "figs/zh/g21ie_fig9-1_zh.png",
+      "figs/g21ie_fig9-1_en.png（自动相似度 0.988）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Ie.pdf",
+    "pdf_sha256": "279f6c06124f49a147a168591965805115b2fc976eea2664e41e491ac5d163bf",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21I/fig9-1.json",
+    "interpretation_sha256": "b0fcd8d9529de0a3ecced7d295e88f11dd99ed55cfa09fa362dbdab76b24ff31",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 41,
+        "text": "Figure 9-1: Development, Deployment, and Execution of Microservices",
+        "bbox_pdf_points": [
+          48.24,
+          690.235,
+          370.861,
+          703.801
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 41,
+      "printed_page": 27,
+      "bbox_pdf_points": [
+        74.0,
+        499.8,
+        538.0,
+        685.5
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21I/fig9-1-p0041.png",
+      "image_sha256": "2bd6d52d09b1a63e39b06e9afe22e0f8096000bc9406899fb7ad23f691ebb3a7",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "2bd6d52d09b1a63e39b06e9afe22e0f8096000bc9406899fb7ad23f691ebb3a7",
+          "status": "extracted-unverified",
+          "text": "a” S°G",
+          "words": [
+            {
+              "text": "a”",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                1,
+                142,
+                305,
+                207
+              ]
+            },
+            {
+              "text": "S°G",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                393,
+                95,
+                481,
+                179
+              ]
+            }
+          ],
+          "mean_word_confidence": 0.0,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

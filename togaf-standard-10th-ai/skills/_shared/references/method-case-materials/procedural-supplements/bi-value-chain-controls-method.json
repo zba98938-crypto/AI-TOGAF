@@ -1,0 +1,124 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "bi-value-chain-controls-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 3,
+      "declared_step": "记录输入输出及有向派生关系",
+      "new_fictional_input": "新虚构批次B-SUP-1：RAW-1库存10、需求12；TECH-1只转日期类型，BUS-1按12>10形成缺件候选，SEM-1解释同一站点/时点，CONSUME-1等待调度确认。",
+      "transformation": "逐层输出保存input_record_ids、output_record_ids、rule_id和batch_id；derived_from方向输出→输入或derives方向输入→输出必须按选定词汇声明。",
+      "candidate_output": "四条声明方向的派生关系与五层记录，原RAW不可变，候选不自动下单。",
+      "adverse_variant_expected": "反转派生方向、就地改库存或只表名血缘无规则版本，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 4,
+      "declared_step": "检查质量、安全、元数据和运营责任贯穿全链",
+      "new_fictional_input": "新虚构每层责任RAW平台/TECH工程/BUS业务/SEM业务/消费调度；字段仅站点/时点/数量，不含联系方式；源as-of未知则不授实时，质量异常隔离。",
+      "transformation": "逐层核质量、访问范围、元数据和责任，与项目使用授权分开；缺一类登记具体缺口。",
+      "candidate_output": "五层控制矩阵有字段清单和提议负责人；源时效unknown阻断及时性结论，运行授权candidate。",
+      "adverse_variant_expected": "用血缘存在证明数据正确/及时，或仅技术类型正确就认为口径统一，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [],
+  "candidate_records": [
+    {
+      "id": "RAW-1",
+      "batch_id": "B-SUP-1",
+      "fields": {
+        "station": "A",
+        "as_of": "unknown",
+        "stock": 10,
+        "demand": 12
+      },
+      "proposed_owner": "平台组",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "TECH-1",
+      "batch_id": "B-SUP-1",
+      "fields": {
+        "date_type_conversion_only": true
+      },
+      "proposed_owner": "工程组",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "BUS-1",
+      "batch_id": "B-SUP-1",
+      "fields": {
+        "shortage_candidate": 2,
+        "decision_authorized": false
+      },
+      "proposed_owner": "业务组",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "SEM-1",
+      "batch_id": "B-SUP-1",
+      "fields": {
+        "definition": "同站点同声明批次需求12减库存10为缺件候选2"
+      },
+      "proposed_owner": "业务组",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "CONSUME-1",
+      "batch_id": "B-SUP-1",
+      "fields": {
+        "decision": "awaiting-dispatcher-confirmation"
+      },
+      "proposed_owner": "调度",
+      "approval_status": "candidate"
+    }
+  ],
+  "candidate_relationships": [
+    {
+      "id": "DERIVE-1",
+      "type": "derived_from",
+      "source": "TECH-1",
+      "target": "RAW-1",
+      "rule_id": "RULE-SUP-1",
+      "rule_version": "1",
+      "batch_id": "B-SUP-1",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "DERIVE-2",
+      "type": "derived_from",
+      "source": "BUS-1",
+      "target": "TECH-1",
+      "rule_id": "RULE-SUP-2",
+      "rule_version": "1",
+      "batch_id": "B-SUP-1",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "DERIVE-3",
+      "type": "derived_from",
+      "source": "SEM-1",
+      "target": "BUS-1",
+      "rule_id": "RULE-SUP-3",
+      "rule_version": "1",
+      "batch_id": "B-SUP-1",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "DERIVE-4",
+      "type": "derived_from",
+      "source": "CONSUME-1",
+      "target": "SEM-1",
+      "rule_id": "RULE-SUP-4",
+      "rule_version": "1",
+      "batch_id": "B-SUP-1",
+      "approval_status": "candidate"
+    }
+  ]
+}

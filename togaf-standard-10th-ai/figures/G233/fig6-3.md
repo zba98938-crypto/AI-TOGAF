@@ -1,0 +1,1503 @@
+# G233/fig6-3 · 在线获取零售产品价值流
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G233/fig6-3.md) · [JSON](../../architecture/diagrams/G233/fig6-3.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G233e.pdf`；SHA-256：`d5c62f9edb2465d10e59f0a1c9c23fb5d8a0b14e506cf7739a09886fbee07754`。
+
+## 原图 · PDF 第 39 页
+
+![英文原图](../assets/G233/fig6-3-p0039.png)
+
+PDF 坐标：`[48.2, 36.0, 563.8, 541.1]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Customer arves et store
+Acquire Retail Product Online Value Stream
+Dd
+«
+Customer)
+Browse Online Store >)
+Select Product(s)
+>
+Review Basket
+>
+Purchase Products >
+Deliver Products
+>
+Basket Management £5)
+Basket Management <<
+Delivery Management <i]
+Warehouse Order
+‘Store Layout
+i
+Be
+‘Customer
+Fulfilment Value
+Management
+«
+Customer
+D>
+Customer
+®
+2
+Stream
+¢
+‘Customer
+2
+Select Delivery Mathod <>
+Put Product n Basket <>)
+Remove Product trom >
+Inventory Management
+Search Sie
+2)
+Online Sore
+Modern Warehouse
+Onin Store
+‘Apply Voucher
+>
+Management Appestion
+Navigate Store <>)
+‘Ade Product to
+Setsnipning =>)
+Conti order
+Basket
+COnsine Store
+has been poked
+Interet Browser
+tp by shipper
+‘Adjust Basket <>)
+Product
+Quantities
+Oniine Store
+_ Payment Processing
+Catalog Products i]
+Customer
+@)
+Online Store|
+‘oply Voucher 5)
+(CRM Application
+‘Sita Navigation
+tncentve
+Provide Payment
+>)
+Nott customer <)
+Produet Calalog
+Information
+products has
+———
+shipped wit
+to
+‘rocking
+Product
+Incentive Management i)
+Online Store
+information
+Informaton
+|
+a
+Onine Store
+aba
+2)
+Purchase
+Product Catalog
+Product
+Ofer Basket)
+Payment
+‘Configuration
+‘specie
+r
+Catalog Products
+Incentives
+Inventory Management fi
+Cooma Bag
+Legacy Warchouse
+‘ppcation
+Management Application
+Identity Management
+OferLoyat <>
+‘Aushorize
+Interet Browser
+Incentives
+‘Taneacton
+Inventory Management £5)
+Modern Warehouse
+CContem order i way =>
+tobe picked up by
+Porsonatizaton
+Management Aepication|
+‘shipper
+Cookie”
+Identity Managoment
+Basket Mar
+jement i)
+roduc Inventory
+A
+COnsine Store
+Customer)
+i
+Delivery Management 8)
+-
+-
+7
+Website
+Reskame Overy
+‘Aushenication
+Onin Store
+‘Customer finds the product they >,
+)
+Customer
+®
+‘want to purchase
+ning Store
++
+‘Ada Shipping <>)
+Costs to Basket
+Display Product =>)
+Vee
+Delivery Driver
+o
+‘avababity
+ni
+Caleuate
+(CRM Application
+Basket Total
+Conte Package
+>
+Delivery
+Loyalty Customer
+erty
+Checkout =p)
+‘Sipping Company
+Tracking Appeation
+Customer selected products 1
+C
+Identity Management
+Nott customer <b)
+Customer comfims basket or
+Customer
+2
+‘of ehipping
+‘checkout
+progress
+-
+-
+-
+-
+Online Sore
+Existing
+3
+customer Login
+New Customer
+‘Creation
+Customer receives purchase
+tomer successfully acquces
+‘Customer pays fr purchase
+(on
+etal product
+```
+
+## 概要（历史解释；局部修正见上）
+
+把在线获取零售产品的五个阶段展开成 16 个业务能力实例，逐层嵌套角色、应用、数据对象与流程，并标出阶段成果。
+
+## 目的（历史解释；局部修正见上）
+
+第 6.4 节的核心示例：能力只有被“实例化”后才能分析如何改进。作者把前文的叙事（浏览、选择、查看购物篮、购买、交付）建模为价值流中的能力实例，示范“用嵌套而非箭头”表达能力由哪些人员、应用、流程、数据与资源组成，并让读者看到同一能力在不同阶段可以有不同实例。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左到右五个阶段列：Browse Online Store、Select Product(s)、Review Basket、Purchase Products、Deliver Products。每列顶部的白卡是阶段，卡内每个沙色框是一个能力实例；能力框内从上到下读：谁参与（紫色 Customer）、哪个应用（青色框）、应用里嵌了什么数据对象/应用过程（白色）、由哪个业务流程或角色执行（黄色）。每列底部的紫色椭圆是该阶段的成果（退出标准），最右下的椭圆是整条价值流的成果。带标签的虚线是能力实例之间的信息流/校验，不是阶段顺序。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 五个阶段共 16 个能力实例，覆盖 8 种业务能力：Store Layout Management、Catalog Products、Identity Management、Basket Management、Inventory Management、Incentive Management、Delivery Management、Payment Processing。
+- Inventory Management 出现两次且是两个不同实例：Deliver Products 列上方用 Modern Warehouse Management Application 与 CRM Application，下方用 Legacy Warehouse Management Application 加一个业务流程；这正是“同一能力、不同实例”的教学重点，也是第 7 章整合/退役决策的对象。
+- Identity Management 在 Browse、Review、Purchase 三列各有一个实例，分别由 Internet Browser（Cookies）、Online Store＋CRM（网站认证/忠诚客户身份）、Online Store（登录/新建客户）实现；能力名相同但组件完全不同。
+- Basket Management 在 Select、Review、Purchase 三列各一个实例：加购、调整数量/应用优惠券、计算总价/结账，展示同一能力在价值流不同环节的职责差异。
+- 多数能力实例可追溯到具体应用：Internet Browser、Online Store、CRM Application、Modern/Legacy Warehouse Management Application、Commercial Banking Application、Shipping Company Tracking Application；Browse 列的 Catalog Products 只用业务对象 Product Catalog 表示，没有应用组件。
+- Deliver Products 列首项不是能力而是子价值流 Warehouse Order Fulfillment Value Stream，表示该阶段通过另一条价值流完成（其阶段见图 5-1）。
+- 每个阶段卡底部的紫色椭圆是阶段成果（如 Customer finds the product they want to purchase、Customer pays for purchase），最右下的 Customer successfully acquires retail product 是整条价值流的成果。
+- 图上的显式连线只有四条：Influences、Real-time Query、Validates，以及一条无标签的支付授权虚线；其余关系全部由嵌套表达——正文明确说“使用嵌套而非箭头可提升可读性”。
+
+## 层级（历史解释；局部修正见上）
+
+四层嵌套：价值流 → 阶段 → 能力实例 → 组件（利益相关者/应用组件/业务流程/业务对象）。应用组件内再嵌数据对象与应用过程（第五层）。同一能力在不同阶段是并列的不同实例，不是父子关系。
+
+## 线条含义（历史解释；局部修正见上）
+
+实线无箭头“Influences”：Browse 阶段的 Online Store 应用组件指向 Catalog Products 能力下的 Product Catalog 业务对象。虚线上箭头“Real-time Query”：Online Store 应用组件向 Modern Warehouse Management Application 内的 Product Inventory 数据对象查询库存（内部过程为 Display Product Availability）。虚线上箭头“Validates”：CRM Application 向 Online Store 提供身份/忠诚度校验（内部为 Website Authentication）。虚线下箭头（无标签）：Online Store 应用向 Commercial Banking Application 发起支付授权（内部为 Authorize Transaction）。其余全是嵌套包含，不画线。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把两个 Inventory Management 当成重复绘制或错误；它们是现代仓库与遗留仓库两个不同能力实例，是本图最重要的信息。
+- 不要把 Deliver Products 列首的灰色框当成能力；它是被调用的子价值流。
+- 不要把白色小框都当成数据对象：应用框内的白色圆角框带箭头图标的是应用过程（如 Authorize Transaction），白色直角框是数据对象（如 Product Inventory）；Browse 列的 Product Catalog 是黄色业务对象，与 Select 列的白色 Product Catalog 数据对象不是同一层。
+- 不要按虚线读阶段顺序：阶段顺序只由列从左到右表达，虚线是信息流/校验。
+- 不要以为每个能力只出现一次；同一能力在不同阶段可以有完全不同的实例与组件。
+- 中文稿标签表自述省略了能力组内的操作标签，若要核对细节必须看英文原图。
+
+## 元素
+
+```json
+[
+  {
+    "id": "vs_acquire",
+    "label_en": "Acquire Retail Product Online Value Stream",
+    "label_zh": "在线获取零售产品价值流",
+    "type": "value_stream",
+    "parent": null,
+    "position": "沙色大容器"
+  },
+  {
+    "id": "ev_arrives",
+    "label_en": "Customer arrives at store",
+    "label_zh": "客户到店",
+    "type": "event",
+    "parent": "vs_acquire",
+    "position": "容器左上（黄）"
+  },
+  {
+    "id": "st_customer",
+    "label_en": "Customer",
+    "label_zh": "客户",
+    "type": "stakeholder",
+    "parent": null,
+    "position": "顶部以及 9 个能力实例内",
+    "description_zh": "同一利益相关者在顶部与 9 个能力实例内重复出现（Store Layout、Basket×3、Incentive、Delivery×2、Payment、Identity×1）。"
+  },
+  {
+    "id": "stg_browse",
+    "label_en": "Browse Online Store",
+    "label_zh": "浏览在线商店",
+    "type": "value_stream_stage",
+    "parent": "vs_acquire",
+    "order": 1,
+    "position": "第一列"
+  },
+  {
+    "id": "stg_select",
+    "label_en": "Select Product(s)",
+    "label_zh": "选择产品",
+    "type": "value_stream_stage",
+    "parent": "vs_acquire",
+    "order": 2,
+    "position": "第二列"
+  },
+  {
+    "id": "stg_review",
+    "label_en": "Review Basket",
+    "label_zh": "查看购物篮",
+    "type": "value_stream_stage",
+    "parent": "vs_acquire",
+    "order": 3,
+    "position": "第三列"
+  },
+  {
+    "id": "stg_purchase",
+    "label_en": "Purchase Products",
+    "label_zh": "购买产品",
+    "type": "value_stream_stage",
+    "parent": "vs_acquire",
+    "order": 4,
+    "position": "第四列"
+  },
+  {
+    "id": "stg_deliver",
+    "label_en": "Deliver Products",
+    "label_zh": "交付产品",
+    "type": "value_stream_stage",
+    "parent": "vs_acquire",
+    "order": 5,
+    "position": "第五列"
+  },
+  {
+    "id": "cap_b_store_layout",
+    "label_en": "Store Layout Management",
+    "label_zh": "门店布局管理",
+    "type": "capability",
+    "parent": "stg_browse",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "cap_b_catalog",
+    "label_en": "Catalog Products",
+    "label_zh": "产品编目",
+    "type": "capability",
+    "parent": "stg_browse",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "cap_b_identity",
+    "label_en": "Identity Management",
+    "label_zh": "身份管理",
+    "type": "capability",
+    "parent": "stg_browse",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "cap_s_basket",
+    "label_en": "Basket Management",
+    "label_zh": "购物篮管理",
+    "type": "capability",
+    "parent": "stg_select",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "cap_s_catalog",
+    "label_en": "Catalog Products",
+    "label_zh": "产品编目",
+    "type": "capability",
+    "parent": "stg_select",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "cap_s_inventory",
+    "label_en": "Inventory Management",
+    "label_zh": "库存管理",
+    "type": "capability",
+    "parent": "stg_select",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "cap_r_basket",
+    "label_en": "Basket Management",
+    "label_zh": "购物篮管理",
+    "type": "capability",
+    "parent": "stg_review",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "cap_r_incentive",
+    "label_en": "Incentive Management",
+    "label_zh": "激励管理",
+    "type": "capability",
+    "parent": "stg_review",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "cap_r_identity",
+    "label_en": "Identity Management",
+    "label_zh": "身份管理",
+    "type": "capability",
+    "parent": "stg_review",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "cap_p_delivery",
+    "label_en": "Delivery Management",
+    "label_zh": "交付管理",
+    "type": "capability",
+    "parent": "stg_purchase",
+    "level": 1,
+    "order": 1
+  },
+  {
+    "id": "cap_p_payment",
+    "label_en": "Payment Processing",
+    "label_zh": "支付处理",
+    "type": "capability",
+    "parent": "stg_purchase",
+    "level": 1,
+    "order": 2
+  },
+  {
+    "id": "cap_p_basket",
+    "label_en": "Basket Management",
+    "label_zh": "购物篮管理",
+    "type": "capability",
+    "parent": "stg_purchase",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "cap_p_identity",
+    "label_en": "Identity Management",
+    "label_zh": "身份管理",
+    "type": "capability",
+    "parent": "stg_purchase",
+    "level": 1,
+    "order": 4
+  },
+  {
+    "id": "cap_d_inventory_modern",
+    "label_en": "Inventory Management",
+    "label_zh": "库存管理",
+    "type": "capability",
+    "parent": "stg_deliver",
+    "level": 1,
+    "order": 1,
+    "description_zh": "用 Modern Warehouse Management Application 与 CRM Application 实现；现代仓库实例"
+  },
+  {
+    "id": "cap_d_inventory_legacy",
+    "label_en": "Inventory Management",
+    "label_zh": "库存管理",
+    "type": "capability",
+    "parent": "stg_deliver",
+    "level": 1,
+    "order": 2,
+    "description_zh": "用 Legacy Warehouse Management Application 实现，是整合/退役的对象；遗留仓库实例"
+  },
+  {
+    "id": "cap_d_delivery",
+    "label_en": "Delivery Management",
+    "label_zh": "交付管理",
+    "type": "capability",
+    "parent": "stg_deliver",
+    "level": 1,
+    "order": 3
+  },
+  {
+    "id": "vs_warehouse",
+    "label_en": "Warehouse Order Fulfillment Value Stream",
+    "label_zh": "仓库订单履约价值流",
+    "type": "value_stream",
+    "parent": "stg_deliver",
+    "position": "交付列顶部灰蓝框",
+    "description_zh": "子价值流，不是能力。"
+  },
+  {
+    "id": "proc_b_search",
+    "label_en": "Search Store",
+    "label_zh": "搜索门店",
+    "type": "process",
+    "parent": "cap_b_store_layout",
+    "order": 1
+  },
+  {
+    "id": "proc_b_navigate",
+    "label_en": "Navigate Store",
+    "label_zh": "浏览门店",
+    "type": "process",
+    "parent": "cap_b_store_layout",
+    "order": 2
+  },
+  {
+    "id": "app_b_browser",
+    "label_en": "Internet Browser",
+    "label_zh": "互联网浏览器",
+    "type": "application",
+    "parent": "cap_b_store_layout",
+    "order": 3
+  },
+  {
+    "id": "app_b_online_store",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_b_store_layout",
+    "order": 4
+  },
+  {
+    "id": "dat_b_site_nav",
+    "label_en": "Site Navigation",
+    "label_zh": "站点导航",
+    "type": "data",
+    "parent": "app_b_online_store"
+  },
+  {
+    "id": "obj_b_product_catalog",
+    "label_en": "Product Catalog",
+    "label_zh": "产品目录",
+    "type": "data",
+    "parent": "cap_b_catalog",
+    "description_zh": "黄色矩形，业务对象"
+  },
+  {
+    "id": "app_b_identity_browser",
+    "label_en": "Internet Browser",
+    "label_zh": "互联网浏览器",
+    "type": "application",
+    "parent": "cap_b_identity",
+    "description_zh": "身份实例"
+  },
+  {
+    "id": "dat_b_cookies",
+    "label_en": "Personalization 'Cookies'",
+    "label_zh": "个性化 Cookie",
+    "type": "data",
+    "parent": "app_b_identity_browser"
+  },
+  {
+    "id": "proc_s_put_product",
+    "label_en": "Put Product in Basket",
+    "label_zh": "将产品放入购物篮",
+    "type": "process",
+    "parent": "cap_s_basket",
+    "order": 1
+  },
+  {
+    "id": "app_s_basket_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_s_basket",
+    "order": 2,
+    "description_zh": "加购实例"
+  },
+  {
+    "id": "ap_s_add_product",
+    "label_en": "Add Product to Basket",
+    "label_zh": "将产品加入购物篮",
+    "type": "process",
+    "parent": "app_s_basket_os"
+  },
+  {
+    "id": "app_s_catalog_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_s_catalog",
+    "order": 1,
+    "description_zh": "产品目录实例"
+  },
+  {
+    "id": "dat_s_product_catalog",
+    "label_en": "Product Catalog",
+    "label_zh": "产品目录",
+    "type": "data",
+    "parent": "app_s_catalog_os",
+    "description_zh": "数据对象"
+  },
+  {
+    "id": "dat_s_product_info",
+    "label_en": "Product Information",
+    "label_zh": "产品信息",
+    "type": "data",
+    "parent": "dat_s_product_catalog"
+  },
+  {
+    "id": "dat_s_product_config",
+    "label_en": "Product Configuration",
+    "label_zh": "产品配置",
+    "type": "data",
+    "parent": "dat_s_product_catalog"
+  },
+  {
+    "id": "app_s_modern_wh",
+    "label_en": "Modern Warehouse Management Application",
+    "label_zh": "现代仓库管理应用",
+    "type": "application",
+    "parent": "cap_s_inventory",
+    "order": 1
+  },
+  {
+    "id": "dat_s_product_inventory",
+    "label_en": "Product Inventory",
+    "label_zh": "产品库存",
+    "type": "data",
+    "parent": "app_s_modern_wh"
+  },
+  {
+    "id": "app_s_inventory_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_s_inventory",
+    "order": 2,
+    "description_zh": "库存展示实例"
+  },
+  {
+    "id": "ap_s_display_avail",
+    "label_en": "Display Product Availability",
+    "label_zh": "展示产品可用性",
+    "type": "process",
+    "parent": "app_s_inventory_os"
+  },
+  {
+    "id": "proc_r_remove",
+    "label_en": "Remove Product from Basket",
+    "label_zh": "从购物篮移除产品",
+    "type": "process",
+    "parent": "cap_r_basket",
+    "order": 1
+  },
+  {
+    "id": "proc_r_apply_voucher",
+    "label_en": "Apply Voucher",
+    "label_zh": "应用优惠券",
+    "type": "process",
+    "parent": "cap_r_basket",
+    "order": 2
+  },
+  {
+    "id": "app_r_basket_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_r_basket",
+    "order": 3,
+    "description_zh": "购物篮实例"
+  },
+  {
+    "id": "ap_r_adjust_qty",
+    "label_en": "Adjust Basket Product Quantities",
+    "label_zh": "调整购物篮产品数量",
+    "type": "process",
+    "parent": "app_r_basket_os"
+  },
+  {
+    "id": "ap_r_apply_voucher",
+    "label_en": "Apply Voucher Incentive",
+    "label_zh": "应用优惠券激励",
+    "type": "process",
+    "parent": "app_r_basket_os"
+  },
+  {
+    "id": "app_r_incentive_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_r_incentive",
+    "description_zh": "激励实例"
+  },
+  {
+    "id": "ap_r_offer_basket",
+    "label_en": "Offer Basket-specific Incentives",
+    "label_zh": "提供购物篮专属激励",
+    "type": "process",
+    "parent": "app_r_incentive_os"
+  },
+  {
+    "id": "ap_r_offer_loyalty",
+    "label_en": "Offer Loyalty-specific Incentives",
+    "label_zh": "提供忠诚度专属激励",
+    "type": "process",
+    "parent": "app_r_incentive_os"
+  },
+  {
+    "id": "app_r_identity_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_r_identity",
+    "order": 1,
+    "description_zh": "认证实例"
+  },
+  {
+    "id": "ap_r_website_auth",
+    "label_en": "Website Authentication",
+    "label_zh": "网站认证",
+    "type": "process",
+    "parent": "app_r_identity_os"
+  },
+  {
+    "id": "app_r_crm",
+    "label_en": "CRM Application",
+    "label_zh": "客户关系管理应用",
+    "type": "application",
+    "parent": "cap_r_identity",
+    "order": 2
+  },
+  {
+    "id": "dat_r_loyalty_id",
+    "label_en": "Loyalty Customer Identity",
+    "label_zh": "忠诚客户身份",
+    "type": "data",
+    "parent": "app_r_crm"
+  },
+  {
+    "id": "proc_p_select_delivery",
+    "label_en": "Select Delivery Method",
+    "label_zh": "选择配送方式",
+    "type": "process",
+    "parent": "cap_p_delivery",
+    "order": 1
+  },
+  {
+    "id": "app_p_delivery_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_p_delivery",
+    "order": 2,
+    "description_zh": "配送实例"
+  },
+  {
+    "id": "ap_p_set_shipping",
+    "label_en": "Set Shipping Method",
+    "label_zh": "设置运输方式",
+    "type": "process",
+    "parent": "app_p_delivery_os"
+  },
+  {
+    "id": "proc_p_provide_payment",
+    "label_en": "Provide Payment Information",
+    "label_zh": "提供支付信息",
+    "type": "process",
+    "parent": "cap_p_payment",
+    "order": 1
+  },
+  {
+    "id": "app_p_payment_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_p_payment",
+    "order": 2,
+    "description_zh": "支付实例"
+  },
+  {
+    "id": "ap_p_validate_payment",
+    "label_en": "Validate Purchase Payment",
+    "label_zh": "校验购买支付",
+    "type": "process",
+    "parent": "app_p_payment_os"
+  },
+  {
+    "id": "app_p_banking",
+    "label_en": "Commercial Banking Application",
+    "label_zh": "商业银行应用",
+    "type": "application",
+    "parent": "cap_p_payment",
+    "order": 3
+  },
+  {
+    "id": "ap_p_authorize",
+    "label_en": "Authorize Transaction",
+    "label_zh": "授权交易",
+    "type": "process",
+    "parent": "app_p_banking"
+  },
+  {
+    "id": "app_p_basket_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_p_basket",
+    "order": 1,
+    "description_zh": "结账实例"
+  },
+  {
+    "id": "ap_p_add_shipping",
+    "label_en": "Add Shipping Costs to Basket",
+    "label_zh": "将运输费用加入购物篮",
+    "type": "process",
+    "parent": "app_p_basket_os"
+  },
+  {
+    "id": "ap_p_calc_total",
+    "label_en": "Calculate Basket Total",
+    "label_zh": "计算购物篮总额",
+    "type": "process",
+    "parent": "app_p_basket_os"
+  },
+  {
+    "id": "ap_p_checkout",
+    "label_en": "Checkout",
+    "label_zh": "结账",
+    "type": "process",
+    "parent": "app_p_basket_os"
+  },
+  {
+    "id": "app_p_identity_os",
+    "label_en": "Online Store",
+    "label_zh": "在线商店",
+    "type": "application",
+    "parent": "cap_p_identity",
+    "description_zh": "身份实例"
+  },
+  {
+    "id": "ap_p_existing_login",
+    "label_en": "Existing Customer Login",
+    "label_zh": "既有客户登录",
+    "type": "process",
+    "parent": "app_p_identity_os"
+  },
+  {
+    "id": "ap_p_new_customer",
+    "label_en": "New Customer Creation",
+    "label_zh": "新建客户",
+    "type": "process",
+    "parent": "app_p_identity_os"
+  },
+  {
+    "id": "app_d_modern_wh",
+    "label_en": "Modern Warehouse Management Application",
+    "label_zh": "现代仓库管理应用",
+    "type": "application",
+    "parent": "cap_d_inventory_modern",
+    "order": 1,
+    "description_zh": "交付实例"
+  },
+  {
+    "id": "ap_d_confirm_picked",
+    "label_en": "Confirm order has been picked up by shipper",
+    "label_zh": "确认订单已被承运商取件",
+    "type": "process",
+    "parent": "app_d_modern_wh"
+  },
+  {
+    "id": "app_d_crm",
+    "label_en": "CRM Application",
+    "label_zh": "客户关系管理应用",
+    "type": "application",
+    "parent": "cap_d_inventory_modern",
+    "order": 2,
+    "description_zh": "交付通知"
+  },
+  {
+    "id": "ap_d_notify_shipped",
+    "label_en": "Notify customer products has shipped with tracking information",
+    "label_zh": "通知客户产品已发货并附跟踪信息",
+    "type": "process",
+    "parent": "app_d_crm"
+  },
+  {
+    "id": "app_d_legacy_wh",
+    "label_en": "Legacy Warehouse Management Application",
+    "label_zh": "遗留仓库管理应用",
+    "type": "application",
+    "parent": "cap_d_inventory_legacy"
+  },
+  {
+    "id": "proc_d_confirm_ready",
+    "label_en": "Confirm order is ready to be picked up by shipper",
+    "label_zh": "确认订单已备妥、可被承运商取件",
+    "type": "process",
+    "parent": "cap_d_inventory_legacy"
+  },
+  {
+    "id": "role_delivery_driver",
+    "label_en": "Delivery Driver",
+    "label_zh": "配送司机",
+    "type": "role",
+    "parent": "cap_d_delivery",
+    "order": 1
+  },
+  {
+    "id": "proc_d_confirm_package",
+    "label_en": "Confirm Package Delivery",
+    "label_zh": "确认包裹送达",
+    "type": "process",
+    "parent": "cap_d_delivery",
+    "order": 2
+  },
+  {
+    "id": "app_d_shipping",
+    "label_en": "Shipping Company Tracking Application",
+    "label_zh": "运输公司跟踪应用",
+    "type": "application",
+    "parent": "cap_d_delivery",
+    "order": 3
+  },
+  {
+    "id": "ap_d_notify_progress",
+    "label_en": "Notify customer of shipping progress",
+    "label_zh": "通知客户运输进度",
+    "type": "process",
+    "parent": "app_d_shipping"
+  },
+  {
+    "id": "out_browse",
+    "label_en": "Customer finds the product they want to purchase",
+    "label_zh": "客户找到想要购买的产品",
+    "type": "goal",
+    "parent": "stg_browse"
+  },
+  {
+    "id": "out_select",
+    "label_en": "Customer selected products to purchase",
+    "label_zh": "客户已选出要购买的产品",
+    "type": "goal",
+    "parent": "stg_select"
+  },
+  {
+    "id": "out_review",
+    "label_en": "Customer confirms basket for checkout",
+    "label_zh": "客户确认购物篮并结账",
+    "type": "goal",
+    "parent": "stg_review"
+  },
+  {
+    "id": "out_purchase",
+    "label_en": "Customer pays for purchase",
+    "label_zh": "客户完成购买付款",
+    "type": "goal",
+    "parent": "stg_purchase"
+  },
+  {
+    "id": "out_deliver",
+    "label_en": "Customer receives purchase",
+    "label_zh": "客户收到所购商品",
+    "type": "goal",
+    "parent": "stg_deliver"
+  },
+  {
+    "id": "out_acquired",
+    "label_en": "Customer successfully acquires retail product",
+    "label_zh": "客户成功获得零售产品",
+    "type": "goal",
+    "parent": "vs_acquire"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "app_b_online_store",
+    "to": "obj_b_product_catalog",
+    "type": "influence",
+    "label_en": "Influences",
+    "label_zh": "影响",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "从 Online Store 应用组件底部垂直向下连到 Product Catalog 业务对象。"
+  },
+  {
+    "from": "app_s_inventory_os",
+    "to": "dat_s_product_inventory",
+    "type": "flow",
+    "label_en": "Real-time Query",
+    "label_zh": "实时查询",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "虚线箭头由 Online Store 应用组件指向 Modern Warehouse Management Application 内的 Product Inventory 数据对象（对应内部过程 Display Product Availability），表示实时库存查询。"
+  },
+  {
+    "from": "app_r_crm",
+    "to": "app_r_identity_os",
+    "type": "flow",
+    "label_en": "Validates",
+    "label_zh": "校验",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "虚线箭头由 CRM Application 指向 Online Store（内部为 Website Authentication），表示 CRM 校验客户身份/忠诚度。"
+  },
+  {
+    "from": "app_p_payment_os",
+    "to": "app_p_banking",
+    "type": "flow",
+    "label_en": null,
+    "label_zh": null,
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "无标签虚线，由 Online Store 应用组件指向 Commercial Banking Application（内部为 Authorize Transaction），表示支付授权请求。"
+  },
+  {
+    "from": "ev_arrives",
+    "to": "vs_acquire",
+    "type": "triggering",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "st_customer",
+    "to": "vs_acquire",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "客户是接收价值的利益相关者。"
+  },
+  {
+    "from": "vs_warehouse",
+    "to": "stg_deliver",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "子价值流作为交付阶段的使能要素嵌入。"
+  },
+  {
+    "from": "cap_b_store_layout",
+    "to": "stg_browse",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_b_catalog",
+    "to": "stg_browse",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_b_identity",
+    "to": "stg_browse",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_s_basket",
+    "to": "stg_select",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_s_catalog",
+    "to": "stg_select",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_s_inventory",
+    "to": "stg_select",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_r_basket",
+    "to": "stg_review",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_r_incentive",
+    "to": "stg_review",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_r_identity",
+    "to": "stg_review",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_p_delivery",
+    "to": "stg_purchase",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_p_payment",
+    "to": "stg_purchase",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_p_basket",
+    "to": "stg_purchase",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_p_identity",
+    "to": "stg_purchase",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_d_inventory_modern",
+    "to": "stg_deliver",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_d_inventory_legacy",
+    "to": "stg_deliver",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "cap_d_delivery",
+    "to": "stg_deliver",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "stg_browse",
+    "to": "out_browse",
+    "type": "produces",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "stg_select",
+    "to": "out_select",
+    "type": "produces",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "stg_review",
+    "to": "out_review",
+    "type": "produces",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "stg_purchase",
+    "to": "out_purchase",
+    "type": "produces",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "stg_deliver",
+    "to": "out_deliver",
+    "type": "produces",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "vs_acquire",
+    "to": "out_acquired",
+    "type": "produces",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_acquire",
+    "kind": "sequence",
+    "name_zh": "在线获取零售产品阶段序列",
+    "steps": [
+      "stg_browse",
+      "stg_select",
+      "stg_review",
+      "stg_purchase",
+      "stg_deliver"
+    ],
+    "description_zh": "五列从左到右；正文说明可回退、跳过或循环（如不查看购物篮直接结账）。"
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_instances",
+    "title_zh": "阶段×能力实例×组件逐项转录",
+    "columns": [
+      "阶段",
+      "能力实例",
+      "应用组件（内嵌）",
+      "业务流程/角色/对象",
+      "阶段成果"
+    ],
+    "rows": [
+      [
+        "Browse Online Store 浏览在线商店",
+        "Store Layout Management 门店布局管理",
+        "Internet Browser 互联网浏览器；Online Store 在线商店（Site Navigation 站点导航）",
+        "Search Store 搜索门店；Navigate Store 浏览门店",
+        "Customer finds the product they want to purchase 客户找到想要购买的产品"
+      ],
+      [
+        "Browse Online Store 浏览在线商店",
+        "Catalog Products 产品编目",
+        "—",
+        "Product Catalog 产品目录（业务对象，黄）",
+        "同上"
+      ],
+      [
+        "Browse Online Store 浏览在线商店",
+        "Identity Management 身份管理",
+        "Internet Browser 互联网浏览器（Personalization 'Cookies' 个性化 Cookie）",
+        "—",
+        "同上"
+      ],
+      [
+        "Select Product(s) 选择产品",
+        "Basket Management 购物篮管理",
+        "Online Store 在线商店（Add Product to Basket 加入购物篮）",
+        "Put Product in Basket 将产品放入购物篮",
+        "Customer selected products to purchase 客户已选出要购买的产品"
+      ],
+      [
+        "Select Product(s) 选择产品",
+        "Catalog Products 产品编目",
+        "Online Store 在线商店（Product Catalog 产品目录 → Product Information 产品信息、Product Configuration 产品配置）",
+        "—",
+        "同上"
+      ],
+      [
+        "Select Product(s) 选择产品",
+        "Inventory Management 库存管理",
+        "Modern Warehouse Management Application 现代仓库管理应用（Product Inventory 产品库存）；Online Store 在线商店（Display Product Availability 展示可用性）",
+        "—",
+        "同上"
+      ],
+      [
+        "Review Basket 查看购物篮",
+        "Basket Management 购物篮管理",
+        "Online Store 在线商店（Adjust Basket Product Quantities 调整数量；Apply Voucher Incentive 应用优惠券激励）",
+        "Remove Product from Basket 移除产品；Apply Voucher 应用优惠券",
+        "Customer confirms basket for checkout 客户确认购物篮以结账"
+      ],
+      [
+        "Review Basket 查看购物篮",
+        "Incentive Management 激励管理",
+        "Online Store 在线商店（Offer Basket-specific Incentives 购物篮激励；Offer Loyalty-specific Incentives 忠诚度激励）",
+        "—",
+        "同上"
+      ],
+      [
+        "Review Basket 查看购物篮",
+        "Identity Management 身份管理",
+        "Online Store 在线商店（Website Authentication 网站认证）；CRM Application 客户关系管理应用（Loyalty Customer Identity 忠诚客户身份）",
+        "—",
+        "同上"
+      ],
+      [
+        "Purchase Products 购买产品",
+        "Delivery Management 交付管理",
+        "Online Store 在线商店（Set Shipping Method 设置运输方式）",
+        "Select Delivery Method 选择配送方式",
+        "Customer pays for purchase 客户完成购买付款"
+      ],
+      [
+        "Purchase Products 购买产品",
+        "Payment Processing 支付处理",
+        "Online Store 在线商店（Validate Purchase Payment 校验支付）；Commercial Banking Application 商业银行应用（Authorize Transaction 授权交易）",
+        "Provide Payment Information 提供支付信息",
+        "同上"
+      ],
+      [
+        "Purchase Products 购买产品",
+        "Basket Management 购物篮管理",
+        "Online Store 在线商店（Add Shipping Costs to Basket 加运费；Calculate Basket Total 算总额；Checkout 结账）",
+        "—",
+        "同上"
+      ],
+      [
+        "Purchase Products 购买产品",
+        "Identity Management 身份管理",
+        "Online Store 在线商店（Existing Customer Login 既有客户登录；New Customer Creation 新建客户）",
+        "—",
+        "同上"
+      ],
+      [
+        "Deliver Products 交付产品",
+        "Inventory Management（现代仓库实例）库存管理",
+        "Modern Warehouse Management Application 现代仓库管理应用（Confirm order has been picked up by shipper 确认已取件）；CRM Application 客户关系管理应用（Notify customer products has shipped with tracking information 通知发货与跟踪）",
+        "—",
+        "Customer receives purchase 客户收到所购商品"
+      ],
+      [
+        "Deliver Products 交付产品",
+        "Inventory Management（遗留仓库实例）库存管理",
+        "Legacy Warehouse Management Application 遗留仓库管理应用",
+        "Confirm order is ready to be picked up by shipper 确认备妥待取件",
+        "同上"
+      ],
+      [
+        "Deliver Products 交付产品",
+        "Delivery Management 交付管理",
+        "Shipping Company Tracking Application 运输公司跟踪应用（Notify customer of shipping progress 通知运输进度）",
+        "Delivery Driver 配送司机；Confirm Package Delivery 确认包裹送达",
+        "同上"
+      ]
+    ],
+    "notes_zh": "同一阶段多行即该列自上而下的多个能力实例；Deliver Products 列顶部另有子价值流 Warehouse Order Fulfillment Value Stream，不在本表能力行中。 业务对象（黄色矩形）也记在“业务流程/角色/对象”列。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "沙色大框 + V 形图标",
+    "meaning_zh": "价值流",
+    "explicit": false
+  },
+  {
+    "symbol": "黄色框 + 事件图标",
+    "meaning_zh": "触发事件",
+    "explicit": false
+  },
+  {
+    "symbol": "紫色六边形 + 双环图标",
+    "meaning_zh": "利益相关者",
+    "explicit": false
+  },
+  {
+    "symbol": "白色阶段卡 + V 形图标",
+    "meaning_zh": "价值流阶段",
+    "explicit": false
+  },
+  {
+    "symbol": "沙色框 + 能力图标",
+    "meaning_zh": "业务能力实例",
+    "explicit": false
+  },
+  {
+    "symbol": "青色框 + 左侧双页签",
+    "meaning_zh": "应用组件",
+    "explicit": false
+  },
+  {
+    "symbol": "白色直角框（应用内）",
+    "meaning_zh": "数据对象",
+    "explicit": false
+  },
+  {
+    "symbol": "白色圆角框 + 右箭头图标（应用内）",
+    "meaning_zh": "应用过程",
+    "explicit": false
+  },
+  {
+    "symbol": "黄色矩形",
+    "meaning_zh": "业务对象（如 Browse 列的 Product Catalog）",
+    "explicit": false
+  },
+  {
+    "symbol": "黄色圆角框 / 矩形 + 箭头或角色图标",
+    "meaning_zh": "业务流程 / 业务角色",
+    "explicit": false
+  },
+  {
+    "symbol": "灰蓝色框 + V 形图标",
+    "meaning_zh": "被调用的子价值流",
+    "explicit": false
+  },
+  {
+    "symbol": "紫色椭圆（无图标）",
+    "meaning_zh": "阶段成果 / 价值流成果",
+    "explicit": false
+  },
+  {
+    "symbol": "带标签虚线箭头",
+    "meaning_zh": "信息流/校验（Influences 为无箭头实线）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "沙色价值流容器内横向五列：每列一张白色阶段卡，卡内纵向堆叠 2–4 个沙色能力实例框；每个能力框内再纵向嵌套客户、应用、流程；阶段卡底部为成果椭圆；Deliver 列首为灰蓝色子价值流框，容器右下为总成果椭圆。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G233/fig6-2",
+    "relation": "detail_of",
+    "note_zh": "图 6-2 只给“阶段×能力”映射；本图为每个能力框补上利益相关者、应用组件、数据对象、业务流程与成果，是它的细化"
+  },
+  {
+    "target": "G233/fig7-1",
+    "relation": "precedes",
+    "note_zh": "图 7-1 把本图的能力实例抽象成按阶段分组的活动叙述，并用红黄绿标出退役/新增/改进"
+  },
+  {
+    "target": "G233/fig7-2",
+    "relation": "precedes",
+    "note_zh": "图 7-2 在本图基础上增加 Incentive Management 新实例、Modern/Legacy 仓库整合与 Signature Pad 缺口"
+  },
+  {
+    "target": "G233/fig5-1",
+    "relation": "related",
+    "note_zh": "本图 Deliver Products 列调用的 Warehouse Order Fulfillment Value Stream 即图 5-1 的价值流"
+  },
+  {
+    "target": "G178/fig4-1",
+    "relation": "related",
+    "note_zh": "G178 图 4-1 用简化 V 形阶段展示同一 Acquire Retail Product 价值流（Advertise Channels/Display Merchandise/Enable Selection/Process Payment/Deliver Merchandise，无能力实例），可对照本图阶段划分与细化程度"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "能力实例内的 Customer 是同一利益相关者的重复出现还是一次独立分配，图上无法区分；本文按同一元素记录。",
+    "Deliver Products 列两个 Inventory Management 实例在图中平级，未标明现代/遗留的先后或主次；本文按上下位置分别命名。",
+    "“Confirm order has been picked up by shipper”在图中为白色圆角框（应用过程），“Confirm order is ready to be picked up by shipper”为黄色框（业务流程），二者措辞相近但元素类型不同，已分别记录。",
+    "图中虚线端点落在应用组件边框（而非内部过程框），关系按应用级连接记录；语义上对应 Display Product Availability、Website Authentication、Authorize Transaction 等内部过程。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 39 页图 6-3 截图（500 dpi）与 650 dpi 五列分栏放大",
+    "英文 PDF 第 36–39 页正文",
+    "中文稿 G233e_业务能力规划.md 第 539–637 行（含标签对照表）",
+    "figs/zh/g233e_fig6-3_zh.png 及其局部放大"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

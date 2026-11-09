@@ -1,0 +1,1052 @@
+{
+  "schema_version": "1.0",
+  "id": "G206/fig3-2",
+  "status": "done",
+  "doc": {
+    "code": "G206",
+    "title_zh": "组织映射",
+    "title_en": "Organization Mapping",
+    "zh_md": "G206e_组织映射.md",
+    "en_pdf": "togaf-standard-10th/G206e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-2",
+    "title_en": "Generic Organization Map",
+    "title_zh": "通用组织地图",
+    "section_en": "3. Differentiating between Organization Maps and Organization Charts",
+    "section_zh": "3. 组织地图与组织架构图的区别",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        15
+      ],
+      "printed_page": 5,
+      "bboxes": [
+        [
+          48.2,
+          36.0,
+          563.8,
+          324.7
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        176
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g206_fig3-2.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "dd15ffd0522d",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "18 个节点齐全，颜色类型基本正确（企业蓝、业务单元绿、部门紫、外部伙伴橙、协作团队灰），但原图 20 条箭头在 SVG 中只有 17 条，且多条连接错误",
+        "漏画 7 条：人力资源→临时用工、人力资源→工会、设施→临时用工、供应链→质量保证、产品供应商→供应链、市场部→广告代理商、市场部→公共关系机构",
+        "箭头落空：从企业引出的一条箭头停在市场部上方空白处（355,305）；供应链旁另有一条箭头指向一个 rx=0 的占位椭圆（615,215）",
+        "改向/错接：财务部→广告代理商（原图财务部无出边）；供应链与产品设计委员会之间的空白位置引出两条箭头，分别指向产品供应商和仓库，而原图是产品供应商→产品设计委员会、供应链→仓库",
+        "图例色块由原图的椭圆改成圆角矩形，与节点形状不一致，容易被当作另一种元素类型",
+        "版式整体重排为放射状，原图企业居中央、业务单元环绕；版式可接受，但上述连线错误会导致误读"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "network"
+    ],
+    "notation": "彩色椭圆节点 + 深青色曲线箭头的组织地图；颜色编码 5 类组织单元（企业/业务单元/部门/外部伙伴/协作团队），右上角 Key 给出图例",
+    "concepts": [
+      "organization_map",
+      "enterprise_context"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "以企业为中心，用五色椭圆和箭头把业务单元、部门、外部伙伴与协作团队连成一张工作关系网。",
+    "purpose_zh": "给出组织地图的“通用模板”：在同一张图里同时容纳企业内部单元、外部伙伴和跨单元协作团队，并用颜色区分组织单元类型，从而直观说明组织地图比组织架构图画得更宽、更深。",
+    "reading_guide_zh": "从中央蓝色椭圆 ABC Corporation 读起，它表示地图范围；向外先看绿色业务单元（财务与行政、工程、供应链、市场），再沿箭头看紫色部门、橙色外部伙伴和灰色协作团队。先按颜色判断类型，再按箭头判断工作关系。",
+    "key_points_zh": [
+      "全图 18 个组织单元、5 种类型：1 个企业、4 个业务单元、4 个部门、6 个外部伙伴、3 个协作团队。",
+      "中央企业椭圆表示地图所要覆盖的整体范围，不只是法律实体名称。",
+      "4 个业务单元实为职能领域（财务与行政、工程、供应链、市场），说明此处的 business unit 指企业之下的下一层级。",
+      "部门（紫色）围绕所属业务单元：HR、设施、财务属财务与行政，仓库属供应链；工程与市场没有紫色部门。",
+      "外部伙伴（橙色）贴近对应业务单元：临时用工与工会连 HR，网络供应商连工程，产品供应商连供应链，广告代理商与公共关系机构连市场。",
+      "协作团队（灰色）跨单元：董事会连企业，质量保证同时接工程与供应链，产品设计委员会接企业与产品供应商。",
+      "箭头是工作关系而非汇报线，方向表示“谁向谁发起/提供”，例如人力资源与设施都指向临时用工。"
+    ],
+    "hierarchy_zh": "按表 2-1 的类型层级：企业为 L0；业务单元为 L1；部门与外部伙伴同为 L2；协作团队为 L3。图中没有包含框，层级不由嵌套而由颜色和围绕关系表达。",
+    "line_semantics_zh": "深青色曲线箭头，无文字标签，表示组织单元之间的工作关系/互动；箭头指出关系的主动方或提供方。箭头不表示汇报，也不表示数据流或价值流。",
+    "misreadings_zh": [
+      "不要把绿色业务单元当作紫色部门的汇报上级；图只画工作关系，未画汇报线。",
+      "橙色是外部伙伴，不是部门；工会、临时用工、广告代理商都在企业法定边界之外。",
+      "灰色不是“其他/未分类”，而是跨单元的协作团队。",
+      "中央椭圆不是总部，而是整张地图的范围。",
+      "中文重绘 SVG 的连线与方向有多处错误（财务部→广告代理商、产品设计委员会→仓库、产品设计委员会→产品供应商等），不能据它读关系。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p14",
+        "summary_zh": "组织地图（图 3-2）进一步描绘内部与外部关系以及跨企业乃至生态系统的协作；中央椭圆应理解为地图范围，而非仅法人名称；图中所有实体都是组织单元。"
+      },
+      {
+        "source": "en_pdf p15",
+        "summary_zh": "组织地图用于分析师、规划人员和架构师，表达组织单元或业务实体视角下的内部与外部关系；与组织架构图相比范围更广、复杂度更高。"
+      },
+      {
+        "source": "zh_md L174",
+        "summary_zh": "图 3-2 同时描绘内部与外部关系及生态系统协作；中央椭圆表示地图范围；所有实体都是组织单元，“业务单元”指企业之下的下一层级。"
+      },
+      {
+        "source": "zh_md L178",
+        "summary_zh": "组织地图的用途是描绘更丰富的组织模型，从组织单元或业务实体视角传达内部与外部的各种关系与协作。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "radial",
+    "description_zh": "中央蓝色企业椭圆；左侧与下方为四个绿色业务单元及其紫色部门、橙色伙伴；上方与右侧为工程/供应链及其伙伴、协作团队；右侧独立一列 Key。"
+  },
+  "legend": [
+    {
+      "symbol": "蓝色椭圆 Enterprise",
+      "meaning_zh": "企业（地图范围）",
+      "explicit": true
+    },
+    {
+      "symbol": "绿色椭圆 Business Unit",
+      "meaning_zh": "业务单元",
+      "explicit": true
+    },
+    {
+      "symbol": "紫色椭圆 Department",
+      "meaning_zh": "部门",
+      "explicit": true
+    },
+    {
+      "symbol": "橙色椭圆 External Partner",
+      "meaning_zh": "外部合作伙伴",
+      "explicit": true
+    },
+    {
+      "symbol": "灰蓝色椭圆 Collaborative Team",
+      "meaning_zh": "协作团队",
+      "explicit": true
+    },
+    {
+      "symbol": "深青色曲线箭头",
+      "meaning_zh": "组织单元之间的工作关系，箭头指方向",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "abc_corporation",
+      "label_en": "ABC Corporation",
+      "label_zh": "ABC 公司",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 0,
+      "position": "中央",
+      "attributes": {
+        "org_type": "Enterprise"
+      }
+    },
+    {
+      "id": "finance_admin",
+      "label_en": "Finance & Admin",
+      "label_zh": "财务与行政",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 1,
+      "order": 1,
+      "position": "中左偏上",
+      "attributes": {
+        "org_type": "Business Unit"
+      }
+    },
+    {
+      "id": "engineering",
+      "label_en": "Engineering",
+      "label_zh": "工程",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 1,
+      "order": 2,
+      "position": "右上",
+      "attributes": {
+        "org_type": "Business Unit"
+      }
+    },
+    {
+      "id": "supply_chain",
+      "label_en": "Supply Chain",
+      "label_zh": "供应链",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 1,
+      "order": 3,
+      "position": "右中",
+      "attributes": {
+        "org_type": "Business Unit"
+      }
+    },
+    {
+      "id": "marketing",
+      "label_en": "Marketing",
+      "label_zh": "市场",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 1,
+      "order": 4,
+      "position": "左下",
+      "attributes": {
+        "org_type": "Business Unit"
+      }
+    },
+    {
+      "id": "human_resources",
+      "label_en": "Human Resources",
+      "label_zh": "人力资源",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "左上",
+      "attributes": {
+        "org_type": "Department"
+      }
+    },
+    {
+      "id": "facilities",
+      "label_en": "Facilities",
+      "label_zh": "设施",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "上中偏右",
+      "attributes": {
+        "org_type": "Department"
+      }
+    },
+    {
+      "id": "finance",
+      "label_en": "Finance",
+      "label_zh": "财务",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "左中",
+      "attributes": {
+        "org_type": "Department"
+      }
+    },
+    {
+      "id": "warehouse",
+      "label_en": "Warehouse",
+      "label_zh": "仓库",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "右下",
+      "attributes": {
+        "org_type": "Department"
+      }
+    },
+    {
+      "id": "temp_staffing",
+      "label_en": "Temp Staffing",
+      "label_zh": "临时用工",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "左上角",
+      "attributes": {
+        "org_type": "External Partner"
+      }
+    },
+    {
+      "id": "employee_union",
+      "label_en": "Employee Union",
+      "label_zh": "工会",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "最左",
+      "attributes": {
+        "org_type": "External Partner"
+      }
+    },
+    {
+      "id": "network_provider",
+      "label_en": "Network Provider",
+      "label_zh": "网络供应商",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "右上角",
+      "attributes": {
+        "org_type": "External Partner"
+      }
+    },
+    {
+      "id": "product_suppliers",
+      "label_en": "Product Suppliers",
+      "label_zh": "产品供应商",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "中下偏右",
+      "attributes": {
+        "org_type": "External Partner"
+      }
+    },
+    {
+      "id": "advertising_agencies",
+      "label_en": "Advertising Agencies",
+      "label_zh": "广告代理商",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "左下偏左",
+      "attributes": {
+        "org_type": "External Partner"
+      }
+    },
+    {
+      "id": "public_relations_agency",
+      "label_en": "Public Relations Agency",
+      "label_zh": "公共关系机构",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "左下角",
+      "attributes": {
+        "org_type": "External Partner"
+      }
+    },
+    {
+      "id": "board_of_directors",
+      "label_en": "Board of Directors",
+      "label_zh": "董事会",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 3,
+      "position": "上中",
+      "attributes": {
+        "org_type": "Collaborative Team"
+      }
+    },
+    {
+      "id": "quality_assurance",
+      "label_en": "Quality Assurance",
+      "label_zh": "质量保证",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 3,
+      "position": "右中偏上",
+      "attributes": {
+        "org_type": "Collaborative Team"
+      }
+    },
+    {
+      "id": "product_design_board",
+      "label_en": "Product Design Board",
+      "label_zh": "产品设计委员会",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 3,
+      "position": "中下",
+      "attributes": {
+        "org_type": "Collaborative Team"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from": "abc_corporation",
+      "to": "finance_admin",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "企业指向业务单元的工作关系"
+    },
+    {
+      "from": "abc_corporation",
+      "to": "engineering",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "abc_corporation",
+      "to": "supply_chain",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "abc_corporation",
+      "to": "marketing",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "abc_corporation",
+      "to": "board_of_directors",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "abc_corporation",
+      "to": "product_design_board",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "finance_admin",
+      "to": "human_resources",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "finance_admin",
+      "to": "facilities",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "finance_admin",
+      "to": "finance",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "human_resources",
+      "to": "temp_staffing",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "human_resources",
+      "to": "employee_union",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "facilities",
+      "to": "temp_staffing",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "engineering",
+      "to": "network_provider",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "engineering",
+      "to": "quality_assurance",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "supply_chain",
+      "to": "quality_assurance",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "supply_chain",
+      "to": "warehouse",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "product_suppliers",
+      "to": "product_design_board",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "product_suppliers",
+      "to": "supply_chain",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "marketing",
+      "to": "advertising_agencies",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "marketing",
+      "to": "public_relations_agency",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G206/fig7-1",
+      "relation": "generalizes",
+      "note_zh": "图 3-2 给出与行业无关的通用组织地图模板，图 7-1 用同一套五色记法把它落成全球零售企业实例"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "所有箭头都没有文字标签，具体语义（工作关系/提供/影响）由图形推断，统一记为 association",
+      "“产品设计委员会”与“质量保证”画成灰色协作团队，但英文正文未逐一解释其成员构成",
+      "英文页脚与图内左上有“© The Open Group”水印"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 15 页原图（600 dpi 裁切）及 figctx 2x2 放大分块",
+      "英文 PDF 第 14–15 页正文",
+      "中文稿 G206e_组织映射.md 第 152–186 行",
+      "figs/g206_fig3-2.svg 源码（节点与连线坐标）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G206e.pdf",
+    "pdf_sha256": "5de1a634ef389e88b16b11454fdf96350ab33664468a0df2a6aed513e2270c35",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G206/fig3-2.json",
+    "interpretation_sha256": "1fdaf2f4e691a1e363fe76fbc437979608efd03c0e30e692b0edbb23016f486b",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 15,
+        "text": "Figure 3-2: Generic Organization Map",
+        "bbox_pdf_points": [
+          48.24,
+          329.369,
+          226.264,
+          342.935
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 15,
+      "printed_page": 5,
+      "bbox_pdf_points": [
+        48.2,
+        36.0,
+        563.8,
+        324.7
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G206/fig3-2-p0015.png",
+      "image_sha256": "bc53efcfe5b17192da80c05938464e62ac23a78a01701cd570944712dec23861",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "bc53efcfe5b17192da80c05938464e62ac23a78a01701cd570944712dec23861",
+          "status": "extracted-unverified",
+          "text": "The Oy\nTemp\nStaffing\nNetwork\nProvider\nBoard of\nDirectors\nHuman\nFacilities\nResources\nKey\nEngi\ning\nEmploye\nFinal\nUnion\n&\nmin\nFinance\nQuality\nAssurance\nABC\nCorporation\nDepartment\nsupply\nain\nAd\nertising\nMarketing\nProduct\nAgencies\nDesign Board\nCollaborative\nTeam\nPublic\nProduct\nRelations\nSuppliers\nAgen\nWarehouse",
+          "words": [
+            {
+              "text": "The",
+              "confidence": 96.868088,
+              "bbox_pixels_xywh": [
+                50,
+                26,
+                28,
+                7
+              ]
+            },
+            {
+              "text": "Oy",
+              "confidence": 33.946541,
+              "bbox_pixels_xywh": [
+                71,
+                14,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Temp",
+              "confidence": 96.554802,
+              "bbox_pixels_xywh": [
+                286,
+                22,
+                35,
+                13
+              ]
+            },
+            {
+              "text": "Staffing",
+              "confidence": 17.898788,
+              "bbox_pixels_xywh": [
+                287,
+                41,
+                41,
+                12
+              ]
+            },
+            {
+              "text": "Network",
+              "confidence": 86.234329,
+              "bbox_pixels_xywh": [
+                808,
+                39,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "Provider",
+              "confidence": 95.13932,
+              "bbox_pixels_xywh": [
+                806,
+                57,
+                54,
+                10
+              ]
+            },
+            {
+              "text": "Board",
+              "confidence": 96.926041,
+              "bbox_pixels_xywh": [
+                582,
+                64,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 74.463226,
+              "bbox_pixels_xywh": [
+                624,
+                64,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "Directors",
+              "confidence": 95.643021,
+              "bbox_pixels_xywh": [
+                580,
+                81,
+                58,
+                11
+              ]
+            },
+            {
+              "text": "Human",
+              "confidence": 96.705925,
+              "bbox_pixels_xywh": [
+                158,
+                93,
+                44,
+                10
+              ]
+            },
+            {
+              "text": "Facilities",
+              "confidence": 65.261566,
+              "bbox_pixels_xywh": [
+                425,
+                93,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "Resources",
+              "confidence": 95.163811,
+              "bbox_pixels_xywh": [
+                146,
+                110,
+                68,
+                11
+              ]
+            },
+            {
+              "text": "Key",
+              "confidence": 96.41024,
+              "bbox_pixels_xywh": [
+                950,
+                127,
+                24,
+                13
+              ]
+            },
+            {
+              "text": "Engi",
+              "confidence": 91.764481,
+              "bbox_pixels_xywh": [
+                713,
+                159,
+                27,
+                13
+              ]
+            },
+            {
+              "text": "ing",
+              "confidence": 92.85685,
+              "bbox_pixels_xywh": [
+                770,
+                162,
+                16,
+                10
+              ]
+            },
+            {
+              "text": "Employe",
+              "confidence": 91.237938,
+              "bbox_pixels_xywh": [
+                40,
+                171,
+                56,
+                13
+              ]
+            },
+            {
+              "text": "Final",
+              "confidence": 45.339352,
+              "bbox_pixels_xywh": [
+                337,
+                175,
+                25,
+                10
+              ]
+            },
+            {
+              "text": "Union",
+              "confidence": 96.547058,
+              "bbox_pixels_xywh": [
+                54,
+                189,
+                35,
+                10
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 91.197815,
+              "bbox_pixels_xywh": [
+                336,
+                193,
+                5,
+                6
+              ]
+            },
+            {
+              "text": "min",
+              "confidence": 88.359695,
+              "bbox_pixels_xywh": [
+                367,
+                195,
+                21,
+                8
+              ]
+            },
+            {
+              "text": "Finance",
+              "confidence": 96.692093,
+              "bbox_pixels_xywh": [
+                180,
+                234,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 89.523567,
+              "bbox_pixels_xywh": [
+                778,
+                254,
+                44,
+                14
+              ]
+            },
+            {
+              "text": "Assurance",
+              "confidence": 93.67437,
+              "bbox_pixels_xywh": [
+                766,
+                271,
+                68,
+                11
+              ]
+            },
+            {
+              "text": "ABC",
+              "confidence": 86.419243,
+              "bbox_pixels_xywh": [
+                543,
+                288,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "Corporation",
+              "confidence": 91.948456,
+              "bbox_pixels_xywh": [
+                516,
+                308,
+                90,
+                16
+              ]
+            },
+            {
+              "text": "Department",
+              "confidence": 92.292015,
+              "bbox_pixels_xywh": [
+                925,
+                324,
+                75,
+                13
+              ]
+            },
+            {
+              "text": "supply",
+              "confidence": 36.002918,
+              "bbox_pixels_xywh": [
+                754,
+                385,
+                32,
+                10
+              ]
+            },
+            {
+              "text": "ain",
+              "confidence": 62.524242,
+              "bbox_pixels_xywh": [
+                769,
+                402,
+                12,
+                7
+              ]
+            },
+            {
+              "text": "Ad",
+              "confidence": 96.115944,
+              "bbox_pixels_xywh": [
+                169,
+                419,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "ertising",
+              "confidence": 84.858215,
+              "bbox_pixels_xywh": [
+                195,
+                420,
+                44,
+                12
+              ]
+            },
+            {
+              "text": "Marketing",
+              "confidence": 96.648102,
+              "bbox_pixels_xywh": [
+                347,
+                415,
+                61,
+                13
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 85.383987,
+              "bbox_pixels_xywh": [
+                544,
+                418,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "Agencies",
+              "confidence": 95.920113,
+              "bbox_pixels_xywh": [
+                176,
+                437,
+                58,
+                13
+              ]
+            },
+            {
+              "text": "Design",
+              "confidence": 95.019211,
+              "bbox_pixels_xywh": [
+                525,
+                436,
+                45,
+                13
+              ]
+            },
+            {
+              "text": "Board",
+              "confidence": 95.019211,
+              "bbox_pixels_xywh": [
+                574,
+                436,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "Collaborative",
+              "confidence": 94.825729,
+              "bbox_pixels_xywh": [
+                919,
+                451,
+                86,
+                10
+              ]
+            },
+            {
+              "text": "Team",
+              "confidence": 96.207733,
+              "bbox_pixels_xywh": [
+                944,
+                468,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "Public",
+              "confidence": 96.029541,
+              "bbox_pixels_xywh": [
+                268,
+                502,
+                38,
+                10
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 87.735489,
+              "bbox_pixels_xywh": [
+                643,
+                509,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "Relations",
+              "confidence": 96.626663,
+              "bbox_pixels_xywh": [
+                258,
+                519,
+                59,
+                10
+              ]
+            },
+            {
+              "text": "Suppliers",
+              "confidence": 96.822655,
+              "bbox_pixels_xywh": [
+                638,
+                526,
+                59,
+                13
+              ]
+            },
+            {
+              "text": "Agen",
+              "confidence": 96.683311,
+              "bbox_pixels_xywh": [
+                264,
+                537,
+                31,
+                13
+              ]
+            },
+            {
+              "text": "Warehouse",
+              "confidence": 89.339172,
+              "bbox_pixels_xywh": [
+                822,
+                539,
+                72,
+                11
+              ]
+            }
+          ],
+          "mean_word_confidence": 85.97,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

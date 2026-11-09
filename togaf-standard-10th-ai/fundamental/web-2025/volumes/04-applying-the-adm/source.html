@@ -1,0 +1,1804 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.18">
+<meta name="keywords" content="architecture, architecture framework, architecture development method, architect, architecting, enterprise architecture, enterprise architecture framework, enterprise architecture method">
+<meta name="author" content="The Open Group">
+<meta name="copyright" content="©The Open Group, 2005 - 2025">
+<title>TOGAF® Standard — Applying the ADM</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link type="text/css" rel="stylesheet" href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>TOGAF® Standard — Applying the ADM</h1>
+<div class="details">
+<span id="author" class="author">The Open Group</span><br>
+</div>
+<div id="toc" class="toc2"> 
+<div id="toctitle"><a target="_parent" href="https://pubs.opengroup.org/togaf-standard/index.html"><img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/home.png" width="20" border="0" alt="Home" text="Home"></a> The TOGAF® Standard</div> 
+<hr> 
+<div class="tooltip"> 
+<span class="tooltiptext">Provide feedback on this page</span> 
+<a href="https://pubs.opengroup.org/cgi/c220feedback.cgi" target="_blank"> 
+<span style="color: #00667F;"> 
+<i class="fa fa-comments fa-2x" aria-hidden="true"></i> 
+<i class="fa fa-bug fa-2x" aria-hidden="true"></i> 
+</span> 
+</a> 
+</div> 
+<hr>
+<div id="toctitle">Table of Contents</div>
+<br>[<a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm/index.html">Multi Page View</a>]<ul class="sectlevel1">
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#_togaf_standard_applying_the_adm">TOGAF® Standard — Applying the ADM</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#_preface">Preface</a>
+<ul class="sectlevel2">
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#_the_open_group">The Open Group</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#_the_togaf_standard">The TOGAF® Standard</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#_the_togaf_documentation">The TOGAF Documentation</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#_this_document">This Document</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#_intended_audience">Intended Audience</a></li>
+</ul>
+</li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#Trademarks">Trademarks</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#Acknowledgements">Acknowledgements</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#Referenced-docs">Referenced Documents</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#chap01"> 1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_01_01">1.1. Using the TOGAF Framework with Different Architecture Styles</a></li>
+</ul>
+</li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#chap02"> 2. Applying Iteration to the ADM</a>
+<ul class="sectlevel2">
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_01">2.1. Overview</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_02">2.2. Iteration Cycles</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_03">2.3. Classes of Architecture Engagement</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_04">2.4. Approaches to Architecture Development</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_05">2.5. Iteration Considerations</a>
+<ul class="sectlevel3">
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_05_01">2.5.1. Iteration between ADM Cycles</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_05_02">2.5.2. Iteration within an ADM Cycle</a></li>
+</ul>
+</li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_06">2.6. Conclusions</a></li>
+</ul>
+</li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#chap03"> 3. Applying the ADM Across the Architecture Landscape</a>
+<ul class="sectlevel2">
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_03_01">3.1. Overview</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_03_02">3.2. Architecture Landscape</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_03_03">3.3. Developing Architectures at Different Levels</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_03_04">3.4. Organizing the Architecture Landscape</a></li>
+</ul>
+</li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#chap04"> 4. Architecture Partitioning</a>
+<ul class="sectlevel2">
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_04_01">4.1. Overview</a></li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_04_02">4.2. Applying Classification to Create Partitioned Architectures</a>
+<ul class="sectlevel3">
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_04_02_01">4.2.1. Activities within the Preliminary Phase</a></li>
+</ul>
+</li>
+<li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_04_03">4.3. Integration</a></li>
+</ul>
+</li>
+</ul>
+<hr style="height: 1px; background-color: #00667f; border: none;">
+<div id="toctitle">TOGAF® Fundamental Content
+<small><a href="https://pubs.opengroup.org/togaf-standard/info/fundamental-content.html"><i class="fa fa-info-circle"></i></a></small>
+</div>
+
+<ul class="sectlevel0">
+
+<li><a href="https://pubs.opengroup.org/togaf-standard/introduction/chap01.html">Introduction and Core Concepts</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/adm/chap01.html">Architecture Development Method (ADM)</a>
+
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/adm-techniques/chap01.html">ADM Techniques</a>
+
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm/chap01.html">Applying the ADM</a>
+
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/architecture-content/chap01.html">Architecture Content</a>
+
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/ea-capability-and-governance/chap01.html">Enterprise Architecture Capability and Governance</a>
+
+</li></ul>
+
+<!-- common -->
+<hr style="height: 1px; background-color: #00667f; border: none;">
+<div id="toctitle">TOGAF® Series Guides</div>
+<hr>
+
+<div id="toctitle">General How-To
+<small><a href="https://pubs.opengroup.org/togaf-standard/info/general-howto.html"><i class="fa fa-info-circle"></i></a></small>
+</div>
+<ul class="sectlevel0">
+<li><a href="https://pubs.opengroup.org/togaf-standard/adm-practitioners/index.html">A Practitioners’ Approach to Developing
+Enterprise Architecture Following the TOGAF® ADM</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/using-the-togaf-standard-in-the-digital-enterprise/index.html">Using the TOGAF® Standard in the Digital Enterprise</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/digital-technology-adoption/index.html">Digital Technology Adoption:
+A Guide to Readiness Assessment and Roadmap Development</a>
+</li></ul>
+<hr>
+<div id="toctitle">Establishing an EA Team
+<small><a href="https://pubs.opengroup.org/togaf-standard/info/establishing-an-eateam.html"><i class="fa fa-info-circle"></i></a></small>
+</div>
+<ul class="sectlevel0">
+<li><a href="https://pubs.opengroup.org/togaf-standard/togaf-leaders-guide/index.html">The TOGAF® Leader’s Guide to Establishing and Evolving
+an EA Capability</a>
+</li></ul>
+<hr>
+<div id="toctitle">Domains
+<small><a href="https://pubs.opengroup.org/togaf-standard/info/domains.html"><i class="fa fa-info-circle"></i></a></small>
+</div>
+<div class="tocspacer"></div>
+<div id="toctitle">Agile Methods
+</div>
+<ul class="sectlevel0">
+<li><a href="https://pubs.opengroup.org/togaf-standard/enabling-enterprise-agility/index.html">Enabling Enterprise Agility</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/agile-sprints/index.html">Applying the TOGAF® ADM using Agile Sprints</a>
+</li></ul>
+<div class="tocspacer"></div>
+<div id="toctitle">Business Architecture
+</div>
+<ul class="sectlevel0">
+<li><a href="https://pubs.opengroup.org/togaf-standard/business-capabilities/index.html">Business Capabilities</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/business-capability-planning/index.html">Business Capability Planning</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/business-models/index.html">Business Models</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/business-scenarios/index.html">Business Scenarios</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/information-mapping/index.html">Information Mapping</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/organization-mapping/index.html">Organization Mapping</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/value-streams/index.html">Value Streams</a>
+</li></ul>
+
+<div class="tocspacer"></div>
+<div id="toctitle">Data/Information Architecture</div>
+<ul class="sectlevel0">
+<li><a href="https://pubs.opengroup.org/togaf-standard/bi-analytics/index.html">Business Intelligence &amp; Analytics</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/master-data-management/index.html">Customer Master Data Management</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/metadata-management/index.html">Metadata Management</a>
+</li></ul>
+<div class="tocspacer"></div>
+<div id="toctitle">Sustainability
+</div>
+<ul class="sectlevel0">
+<li><a href="https://pubs.opengroup.org/togaf-standard/sustainable-information-systems/index.html">Environmentally Sustainable Information Systems</a>
+</li></ul>
+<div class="tocspacer"></div>
+<div id="toctitle">Security Architecture
+</div>
+<ul class="sectlevel0">
+<li><a href="https://pubs.opengroup.org/togaf-standard/integrating-risk-and-security/index.html">Integrating Risk and Security within a
+TOGAF® Enterprise Architecture</a>
+</li></ul>
+
+<hr>
+<div id="toctitle">Reference Models &amp; Method
+<small><a href="https://pubs.opengroup.org/togaf-standard/info/refmodels.html"><i class="fa fa-info-circle"></i></a></small>
+</div>
+<ul class="sectlevel0">
+<li><a href="https://pubs.opengroup.org/togaf-standard/selecting-building-blocks/">An Approach to Selecting Building Blocks</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/architecture-maturity-models/">Architecture Maturity Models</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/architecture-project-management/index.html">Architecture Project Management</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/architecture-roles-and-skills/index.html">Architecture Roles and Skills</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/architecture-skills-framework/index.html">Architecture Skills Framework [Superseded]</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/digital-business-reference-model/index.html">Digital Business Reference Model (DBRM)</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/government-reference-model/index.html">Government Reference Model (GRM)</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/microservices-architecture/index.html">Microservices Architecture (MSA)</a>
+<!--
+<li><a href=iiirm.html>The TOGAF Integrated Information Infrastructure Reference Model (III-RM): An Architected Approach to Boundaryless Information Flow&trade; [Historical]</a>
+<li><a href=trm.html>The TOGAF&reg; Technical Reference Model (TRM) [Historical]</a>
+<li><a href=soa.html>Using the TOGAF&reg; Framework to Define and Govern Service-Oriented Architectures</a> 
+-->
+</li></ul>
+
+<hr style="height: 1px; background-color: #00667f; border: none;">
+<div id="toctitle">Help</div>
+<ul class="sectlevel0">
+<li><a href="https://pubs.opengroup.org/togaf-standard/nav-help.html">Navigation Help</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/search-help.html">Search Help</a>
+</li><li><a href="https://pubs.opengroup.org/togaf-standard/faqs.html">Frequently Asked Questions</a>
+</li></ul>
+<hr style="height: 1px; background-color: #00667f; border: none;">
+
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_togaf_standard_applying_the_adm">TOGAF® Standard — Applying the ADM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="big"><em>The Open Group Standard</em></span></p>
+</div>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
+<div id="Copyright" class="paragraph">
+<p>Copyright © 2005 - 2025, The Open Group<br>
+All rights reserved.</p>
+</div>
+<div class="paragraph">
+<p>No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form
+or by any means, electronic, mechanical, photocopying, recording, or otherwise, without the prior permission of the copyright owners. Specifically, without such written permission, the use or incorporation of this publication, in whole or in part, is NOT PERMITTED for the purposes of training or developing large language models (LLMs) or any other generative artificial intelligence systems, or
+otherwise for the purposes of using, or in connection with the use of, such technologies, tools, or
+models to generate any data or content and/or to synthesize or combine with any other data or
+content.</p>
+</div>
+<div class="paragraph">
+<p>Any use of this publication for commercial purposes is subject to the terms of the Annual Commercial License relating to it. For further information, see <a href="https://www.opengroup.org/legal/licensing">www.opengroup.org/legal/licensing</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Open Group Standard<br>
+<strong>TOGAF® Standard — Applying the ADM</strong><br>
+ISBN: 1-947754-90-4<br>
+Document Number: C220</p>
+</div>
+<div class="paragraph">
+<p>Published by The Open Group, April 2022.<br>
+Updated May 2025 to include Technical Corrigendum 1</p>
+</div>
+<div class="paragraph">
+<p>Comments relating to the material contained in this document may be submitted to:<br>
+&nbsp;&nbsp;&nbsp;The Open Group, Apex Plaza, Forbury Road, Reading, Berkshire, RG1 1AX, United Kingdom<br>
+or by electronic mail to:<br>
+&nbsp;&nbsp;&nbsp;<a href="mailto:ogspecs@opengroup.org">ogspecs@opengroup.org</a></p>
+</div>
+<div class="paragraph">
+<p>Built with <a href="http://asciidoctor.org/">asciidoctor</a>, version 2.0.18.
+Backend: html5
+Build date: 2025-05-15 12:57:15 +0100</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_preface">Preface</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_open_group">The Open Group</h3>
+<div class="paragraph">
+<p>The Open Group is a global consortium that enables the achievement of business objectives through technology standards and open source initiatives by fostering a culture of collaboration, inclusivity, and mutual respect among our diverse group of 900+ memberships. Our membership includes customers, systems and solutions suppliers, tool vendors, integrators, academics, and consultants across multiple industries.</p>
+</div>
+<div class="paragraph">
+<p>The mission of The Open Group is to drive the creation of Boundaryless Information Flow™ achieved by:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Working with customers to capture, understand, and address current and emerging requirements, establish policies, and share best practices</p>
+</li>
+<li>
+<p>Working with suppliers, consortia, and standards bodies to develop consensus and facilitate interoperability, to evolve and integrate specifications and open source technologies</p>
+</li>
+<li>
+<p>Offering a comprehensive set of services to enhance the operational efficiency of consortia</p>
+</li>
+<li>
+<p>Developing and operating the industry’s premier certification service and encouraging procurement of certified products</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Further information on The Open Group is available at <a href="https://www.opengroup.org/">www.opengroup.org</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Open Group publishes a wide range of technical documentation, most of which is focused on
+development of standards and guides, but which also includes white papers, technical studies,
+certification and testing documentation, and business titles. Full details are available at
+<a href="https://www.opengroup.org/library">www.opengroup.org/library</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_togaf_standard">The TOGAF® Standard</h3>
+<div class="paragraph">
+<p>The TOGAF<sup>®</sup> Standard is an open, industry consensus framework for Enterprise Architecture.</p>
+</div>
+<div class="paragraph">
+<p>It is a foundational framework, which means that it is applicable to the development of any kind of architecture in any context. This foundational framework is supplemented by The Open Group TOGAF Library, a publicly-accessible resource with an extensive and growing portfolio of guidance material, providing practical guidance in the application of the TOGAF framework in specific contexts; refer to: <a href="https://www.opengroup.org/togaf-library">www.opengroup.org/togaf-library</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_togaf_documentation">The TOGAF Documentation</h3>
+<div class="paragraph">
+<p>The TOGAF documentation consists of a set of documents:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The TOGAF Standard, which describes the generally applicable approach to Enterprise and IT Architecture</p>
+</li>
+<li>
+<p>The TOGAF Library, a portfolio of additional guidance material, which supports the practical application of the TOGAF approach</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_this_document">This Document</h3>
+<div class="paragraph">
+<p>This document is the TOGAF® Standard — Applying the ADM.</p>
+</div>
+<div class="paragraph">
+<p>It has been developed and approved by The Open Group.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_intended_audience">Intended Audience</h3>
+<div class="paragraph">
+<p>The TOGAF Standard is intended for Enterprise Architects, Business Architects, IT Architects, Data Architects, Systems Architects, Solution Architects, and anyone responsible for the architecture function within an organization.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Trademarks">Trademarks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ArchiMate, FACE, FACE logo, Future Airborne Capability Environment, Making Standards Work, Open Footprint, Open O logo, Open O and Check certification logo, Open Subsurface Data Universe, OSDU, SOSA, SOSA logo, The Open Group, TOGAF, UNIX, UNIXWARE, and X logo are registered trademarks and Boundaryless Information Flow, Build with Integrity Buy with Confidence, Commercial Aviation Reference Architecture, Dependability Through Assuredness, Digital Practitioner Body of Knowledge, DPBoK, EMMM, FHIM Profile Builder, FHIM logo, FPB, IT4IT, IT4IT logo, O-AA, O-DA, O-DEF, O-HERA, O-PAS, O-TTPS, O-VBA, Open Agile Architecture, Open FAIR, Open Process Automation, Open Trusted Technology Provider, Sensor Integration Simplified, and Sensor Open Systems Architecture are trademarks of The Open Group.</p>
+</div>
+<div class="paragraph">
+<p>The Open Group acknowledges that there may be other company names and products that might be covered by trademark protection and advises the reader to verify them independently.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Acknowledgements">Acknowledgements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Open Group is grateful for the contribution of many individuals and organizations in the development of the TOGAF Standard. See the <a href="https://pubs.opengroup.org/togaf-standard/introduction/chap01.html">TOGAF Standard — Introduction and Core Concepts</a> for details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Referenced-docs">Referenced Documents</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Please refer to the <a href="https://pubs.opengroup.org/togaf-standard/introduction/apdxa.html">TOGAF Standard — Introduction and Core Concepts, Appendix A</a> for documents referenced in the TOGAF Standard.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap01"> 1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter provides an introduction to the guidance provided in the TOGAF Standard — Applying the ADM (this document).</p>
+</div>
+<div class="paragraph">
+<p>The Architecture Development Method (ADM) process can be adapted to deal
+with many different usage scenarios, including different process styles
+(e.g., the use of iteration) and also specific specialist architectures
+(such as security). Guidelines included within this document are as
+follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using the TOGAF Framework with Different Architecture Styles (see
+<a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_01_01">Section 1.1, “Using the TOGAF Framework with Different Architecture Styles”</a>) discusses how the framework can be adapted to
+different architectural styles</p>
+</li>
+<li>
+<p>Applying Iteration to the ADM (see <a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#chap02">Chapter 2, <em>Applying Iteration to the ADM</em></a>)
+discusses the concept of iteration and shows potential strategies for applying iterative concepts to the ADM</p>
+</li>
+<li>
+<p>Applying the ADM across the Architecture Landscape (see <a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#chap03">Chapter 3, <em>Applying the ADM Across the Architecture Landscape</em></a>)
+discusses the different types of architecture engagement
+that may occur at different levels of the enterprise — this section then also discusses how the ADM process can be focused to support different types of engagement</p>
+</li>
+<li>
+<p>Architecture Partitioning (see <a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#chap04">Chapter 4, <em>Architecture Partitioning</em></a>)
+discusses how partitions are used to
+simplify the development and management of the Enterprise Architecture</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="tag_01_01">1.1. Using the TOGAF Framework with Different Architecture Styles</h3>
+<div class="paragraph">
+<p>The TOGAF framework is designed to be flexible and is used with various architectural styles.</p>
+</div>
+<div class="paragraph">
+<p>Architectural styles differ in terms of focus, form, techniques,
+materials, subject, and time period. The TOGAF Standard is a generic
+framework intended to be used in a wide variety of environments. It is a
+flexible and extensible framework that can be readily adapted to a
+number of architectural styles.</p>
+</div>
+<div class="paragraph">
+<p>An organization’s Architecture Landscape can be expected to contain
+architecture work that is developed in many architectural styles. The
+TOGAF Standard ensures that the needs of each stakeholder are
+appropriately addressed in the context of other stakeholders and the
+Baseline Architecture.</p>
+</div>
+<div class="paragraph">
+<p>When using the TOGAF Standard to support a specific architectural style
+the practitioner must take into account the combination of distinctive
+features in which architecture is performed or expressed. As a first
+step, the distinctive features of a style must be identified.</p>
+</div>
+<div class="paragraph">
+<p>The second step is determining how these distinctive features will be
+addressed. Addressing a distinctive style should not call for
+significant changes to the TOGAF framework; instead it should adjust the
+models, viewpoints, and tools used by the practitioner.</p>
+</div>
+<div class="paragraph">
+<p>In Phase B, Phase C, and Phase D the practitioner is expected to select
+the relevant architecture resources, including models, viewpoints, and
+tools, to properly describe the architecture domain and demonstrate that
+stakeholder concerns are addressed (see the
+<a href="https://pubs.opengroup.org/togaf-standard/adm-techniques/chap01.html">TOGAF Standard — ADM Techniques</a>).
+Depending upon the distinctive features, different architectural styles
+will add new elements that must be described, highlight existing
+elements, adjust the notation used to describe the architecture, and
+focus the architect on some stakeholders or stakeholder concerns.</p>
+</div>
+<div class="paragraph">
+<p>Addressing the distinctive features will usually include extensions to
+the Architecture Content Metamodel and the use of specific notation or
+modeling techniques and the identification of viewpoints. Dominance of a
+particular architectural style can direct the practitioner to revisit
+the Preliminary Phase to make changes to the Architecture Capability or
+to address a distinctive feature in the expected scope of a single ADM
+cycle.</p>
+</div>
+<div class="paragraph">
+<p>Style-specific reference models and maturity models are commonly used
+tools that support a practitioner.</p>
+</div>
+<div class="paragraph">
+<p>During the lifetime of the TOGAF framework many architectural styles
+have been developed to address key problems facing practitioners and to
+demonstrate how the TOGAF framework can be made more relevant within
+defined contexts.</p>
+</div>
+<div class="paragraph">
+<p>Some of these have been developed by The Open Group Forums and Work
+Groups working in specific areas and have been published in Guides,
+White Papers, and Standards. Examples include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.opengroup.org/library/g174">TOGAF<sup>®</sup> Series Guide: Using the TOGAF<sup>®</sup> Framework to Define and Govern Service-Oriented Architectures</a></p>
+</li>
+<li>
+<p><a href="https://pubs.opengroup.org/togaf-standard/integrating-risk-and-security/index.html">TOGAF<sup>®</sup> Series Guide: Integrating Risk and Security within a TOGAF<sup>®</sup> Enterprise Architecture</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Some of these have been developed collaboratively between The Open Group
+and other bodies. Examples include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>TOGAF<sup>®</sup> and SABSA<sup>®</sup> Integration</p>
+</li>
+<li>
+<p>Archi Banking Group: Combining the BIAN Reference Model, ArchiMate<sup>®</sup>
+Modeling Notation, and the TOGAF<sup>®</sup> Framework</p>
+</li>
+<li>
+<p>Exploring Synergies between TOGAF<sup>®</sup> and Frameworx</p>
+</li>
+<li>
+<p>TOGAF<sup>®</sup> 9 and DoDAF 2.0</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The TOGAF Library (see
+<a href="https://www.opengroup.org/togaf-library">www.opengroup.org/togaf-library</a>)
+is a structured library of resources that support the TOGAF Standard.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap02"> 2. Applying Iteration to the ADM</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="tag_02_01">2.1. Overview</h3>
+<div class="paragraph">
+<p>The graphical representation of the TOGAF ADM and the description of the
+ADM phases discretely in order, as shown in the
+<a href="https://pubs.opengroup.org/togaf-standard/adm/chap01.html">TOGAF Standard — Architecture Development Method</a>, can be read to imply a deterministic waterfall methodology.
+This method of presentation is provides a means of quickly communicating the basics of architecture development and the
+architecture development cycle. In practice, two key concepts are used to manage the complexity of developing an Enterprise Architecture and managing its lifecycle — iteration and levels; see
+<a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#chap03">Chapter 3, <em>Applying the ADM Across the Architecture Landscape</em></a>.
+The two concepts are tightly linked.</p>
+</div>
+<div class="paragraph">
+<p>The ADM supports a number of concepts that are characterized as iteration. First, iteration describes the process of describing a comprehensive Architecture Landscape through multiple ADM cycles based
+upon individual initiatives bound to the scope of the Request for Architecture Work. Second, iteration describes the integrated process of
+developing an architecture where the activities described in different ADM phases interact to produce an integrated architecture. In order to concisely describe the activity and outputs, this latter iteration is
+described in sequential terms. Third, iteration describes the process of managing change to the organization’s Architecture Capability.</p>
+</div>
+<div class="paragraph">
+<p>Iteration to develop a comprehensive Architecture Landscape:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Projects will exercise through the entire ADM cycle, commencing with
+Phase A</p>
+<div class="paragraph">
+<p>Each cycle of the ADM will be bound by a Request for Architecture Work.
+The architecture output will populate the Architecture Landscape, either extending the landscape described, or changing the landscape where
+required.</p>
+</div>
+</li>
+<li>
+<p>Separate projects may operate their own ADM cycles concurrently, with
+relationships between the different projects</p>
+</li>
+<li>
+<p>One project may trigger the initiation of another project</p>
+<div class="paragraph">
+<p>Typically, this is used when higher-level architecture initiatives identify opportunities or solutions that require more detailed
+architecture, or when a project identifies landscape impacts outside the scope of its Request for Architecture Work.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Iteration within an ADM cycle (Architecture Development iteration):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Projects may operate multiple ADM phases concurrently</p>
+<div class="paragraph">
+<p>Typically, this is used to manage the inter-relationship between Business Architecture, Information Systems Architecture, and Technology
+Architecture.</p>
+</div>
+</li>
+<li>
+<p>Projects may cycle between ADM phases, in planned cycles covering multiple phases</p>
+<div class="paragraph">
+<p>Typically, this is used to converge on a detailed Target Architecture when higher-level architecture does not exist to provide context and
+constraint.</p>
+</div>
+</li>
+<li>
+<p>Projects may return to previous phases to update work products with new information</p>
+<div class="paragraph">
+<p>Typically, this is used to converge on an executable Architecture Roadmap or Implementation and Migration Plan, when the implementation
+details and scope of change trigger a change or re-prioritization of
+stakeholder requirements.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Iteration to manage the Architecture Capability (Architecture Capability
+iteration):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Projects may require a new iteration of the Preliminary Phase to (re-)establish aspects of the Architecture Capability identified in Phase A to address a Request for Architecture Work</p>
+</li>
+<li>
+<p>Projects may require a new iteration of the Preliminary Phase to adjust the organization’s Architecture Capability as a result of
+identifying new or changed requirements for Architecture Capability as a result of a Change Request in Phase H</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag_02_02">2.2. Iteration Cycles</h3>
+<div class="paragraph">
+<p>The suggested iteration cycles for the TOGAF ADM are shown in
+<a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tagfcjh_1">Figure 2-1</a>, and can be used to effectively group related architectural activities to achieve a specific purpose. These
+iteration cycles are referenced in <a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_03">Section 2.3, “Classes of Architecture Engagement”</a> and <a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tag_02_05">Section 2.5, “Iteration Considerations”</a>.</p>
+</div>
+<div id="tagfcjh_1" class="imageblock text-center">
+<div class="content">
+<img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/19_adm_iteration.png" alt="Iteration Cycles" width="450">
+</div>
+<div class="title">Figure 2-1:  Iteration Cycles</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Architecture Capability</strong> iterations support the
+creation<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#_footnotedef_1" title="View footnote.">1</a>]</sup> and evolution of the required Architecture Capability</p>
+<div class="paragraph">
+<p>This includes the initial mobilization of the architecture activity for
+a given purpose or architecture engagement type by establishing or adjusting the architecture approach, principles, scope, vision, and governance.</p>
+</div>
+</li>
+<li>
+<p><strong>Architecture Development</strong> iterations allow the creation of
+architecture content by cycling through, or integrating, Business, Information Systems, and Technology Architecture phases</p>
+<div class="paragraph">
+<p>These iterations ensure that the architecture is considered as a whole. In this type of iteration stakeholder reviews are typically broader. As
+the iterations converge on a target, extensions into the Opportunities &amp; Solutions and Migration Planning phases ensure that the architecture’s
+implementability is considered as the architecture is finalized.</p>
+</div>
+</li>
+<li>
+<p><strong>Transition Planning</strong> iterations support the creation of formal change roadmaps for a defined architecture</p>
+</li>
+<li>
+<p><strong>Architecture Governance</strong> iterations support governance of change activity progressing towards a defined Target Architecture</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag_02_03">2.3. Classes of Architecture Engagement</h3>
+<div class="paragraph">
+<p>An architecture function or services organization may be called upon to assist an enterprise in a number of different contexts, as the
+architectures developed can range from summary to detail, broad to narrow coverage, and current state to future state. In these contexts the concept of iteration should be used in developing the architecture.</p>
+</div>
+<div class="paragraph">
+<p>Typically, there are three areas of engagement for architects:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Identification of Required Change</strong>: outside the context of any change initiative, architecture can be used as a technique to provide
+visibility of the IT capability in order to support strategic
+decision-making and alignment of execution</p>
+</li>
+<li>
+<p><strong>Definition of Change</strong>: where a need to change has been identified, architecture can be used as a technique to define the nature and extent
+of change in a structured fashion</p>
+<div class="paragraph">
+<p>Within large-scale change initiatives, architectures can be developed to provide detailed Architecture Definition for change initiatives that are
+bounded by the scope of a program or portfolio.</p>
+</div>
+</li>
+<li>
+<p><strong>Implementation of Change</strong>: architecture at all levels of the enterprise can be used as a technique to provide design governance to change initiatives by providing big-picture visibility, supplying
+structural constraints, and defining criteria on which to evaluate technical decisions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tagfcjh_2">Figure 2-2</a> and the following table show the classes of Enterprise Architecture engagement.</p>
+</div>
+<div id="tagfcjh_2" class="imageblock text-center">
+<div class="content">
+<img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/20_engagement.png" alt="Classes of Enterprise Architecture Engagement" width="700">
+</div>
+<div class="title">Figure 2-2:  Classes of Enterprise Architecture Engagement</div>
+</div>
+<div class="paragraph">
+<p>Each of these architecture engagement types is described in <a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tbl-engagement-types">Table 2-1</a>.</p>
+</div>
+<table id="tbl-engagement-types" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2-1:  Architecture Engagement Types</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 15%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Area of Engagement</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Architecture Engagement</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Identification of Required Change</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supporting Business Strategy</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>As the business strategies, objectives, goals, and drivers change, it is
+necessary for the enterprise to change in order to maintain alignment.</p>
+</div>
+<div class="paragraph">
+<p>The creation of new business strategies can be supported by Enterprise
+Architecture by:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Providing visibility of change opportunities</p>
+</li>
+<li>
+<p>Providing elaboration on the practical impacts of a particular
+strategic choice</p>
+</li>
+<li>
+<p>Providing tests on the feasibility or viability of a particular
+strategic direction</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Portfolio Management of the Landscape</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>It is common practice across large organizations for a service
+management organization to provide operational reporting and management
+of the IT portfolio.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise Architecture can add a further dimension to service
+management reporting, by supporting a linkage between operational
+performance and the strategic need for IT.</p>
+</div>
+<div class="paragraph">
+<p>Using the traceability between IT and business inherent in Enterprise
+Architecture, it is possible to evaluate the IT portfolio against
+operational performance data and business needs (e.g., cost,
+functionality, availability, responsiveness) to determine areas where
+misalignment is occurring and change needs to take place.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Portfolio Management of Projects</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>It is common practice across large organizations for a program
+management organization to provide operational reporting and management
+of the change portfolio.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise Architecture can add a further dimension to project portfolio
+management reporting, by supporting a linkage between project scope,
+architectural impact, and business value.</p>
+</div>
+<div class="paragraph">
+<p>Architectural factors can be added to other quantitative project factors
+to support strategic decision-making on project priority and funding
+levels.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Definition of Change</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Definition of Foundational Change
+Initiatives</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Foundational change initiatives are change efforts that have a known
+objective, but are not strictly scoped or bounded by a shared vision or
+requirements.</p>
+</div>
+<div class="paragraph">
+<p>In foundational change initiatives, the initial priority is to
+understand the nature of the problem and to bring structure to the
+definition of the problem.</p>
+</div>
+<div class="paragraph">
+<p>Once the problem is more effectively understood, it is possible to
+define appropriate solutions and to align stakeholders around a common
+vision and purpose.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Definition of Bounded Change Initiatives</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Bounded change initiatives are change efforts that typically arise as
+the outcome of a prior architectural strategy, evaluation, or vision.</p>
+</div>
+<div class="paragraph">
+<p>In bounded change initiatives, the desired outcome is already understood
+and agreed upon. The focus of architectural effort in this class of
+engagement is to effectively elaborate a baseline solution that
+addresses the identified requirements, issues, drivers, and constraints.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation of Change</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Governance of Change
+Implementation</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Once an architectural solution model has been defined, it provides a
+basis for design and implementation.</p>
+</div>
+<div class="paragraph">
+<p>In order to ensure that the objectives and value of the defined
+architecture are appropriately realized, it is necessary for continuing
+Architecture Governance of the implementation process to support design
+review, architecture refinement, and issue escalation.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Different classes of architecture engagement at different levels of the
+enterprise will require focus in specific areas, as shown in <a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tbl-classes-of-engagement">Table 2-2</a>.</p>
+</div>
+<table id="tbl-classes-of-engagement" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2-2:  Classes of Architecture Engagement at Levels of the Enterprise</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 35%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Engagement Type</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Focus Iteration Cycles</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Scope Focus</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supporting Business Strategy</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Architecture Capability</p>
+</div>
+<div class="paragraph">
+<p>Architecture Development<br>
+(Baseline First)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Broad, shallow consideration given to the Architecture Landscape in
+order to address a specific strategic question and define terms for more
+detailed architecture efforts to address strategy realization.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Portfolio Management of the Landscape</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Architecture Capability</p>
+</div>
+<div class="paragraph">
+<p>Architecture Development<br>
+(Baseline First)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Focus on physical assessment of baseline applications and technology
+infrastructure to identify improvement opportunities, typically within
+the constraints of maintaining business as usual.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Portfolio Management of Projects</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Transition Planning</p>
+</div>
+<div class="paragraph">
+<p>Architecture Governance</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Focus on projects, project dependencies, and landscape impacts to align
+project sequencing in a way that is architecturally optimized.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Definition of Foundational Change Initiatives</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Architecture Capability</p>
+</div>
+<div class="paragraph">
+<p>Architecture Development<br>
+(Baseline First)</p>
+</div>
+<div class="paragraph">
+<p>Transition Planning</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Focus on elaborating a vision through definition of baseline and
+identifying what needs to change to transition the baseline to the
+target.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Definition of Bounded Change Initiatives</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Architecture Development<br>
+(Target First)</p>
+</div>
+<div class="paragraph">
+<p>Transition Planning</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Focus on elaborating the target to meet a previously defined and agreed
+vision, scope, or set of constraints. Use the target as a basis for
+analysis to avoid perpetuation of baseline, sub-optimal architectures.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural Governance of Change Implementation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture
+Governance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use the Architecture Vision, constraints, principles,
+requirements, Target Architecture definition, and transition roadmap to
+ensure that projects realize their intended benefit, are aligned with
+each other, and are aligned with wider business need.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="tag_02_04">2.4. Approaches to Architecture Development</h3>
+<div class="paragraph">
+<p>Two approaches can be adopted within the ADM for the development of
+architectures:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Baseline First</strong>: in this style, an assessment of the baseline
+landscape is used to identify problem areas and improvement
+opportunities</p>
+<div class="paragraph">
+<p>This process is most suitable when the baseline is complex, not clearly
+understood, or agreed upon. This approach is common where organizational
+units have had a high degree of autonomy.</p>
+</div>
+</li>
+<li>
+<p><strong>Target First</strong>: in this style, the target solution is elaborated in
+detail and then mapped back to the baseline, in order to identify change
+activity</p>
+<div class="paragraph">
+<p>This process is suitable when a target state is agreed at a high level
+and where the enterprise wishes to effectively transition to the target
+model.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Typically, if the baseline is broadly understood a higher value will be
+obtained focusing on the target first then baseline to the extent
+necessary to identify changes.</p>
+</div>
+<div class="paragraph">
+<p>In practical terms, an architecture team will always give informal
+consideration to the baseline when analyzing the target (and <em>vice
+versa</em>). In situations where baseline and target are expected to be
+considered in parallel by stakeholders, it is recommended that the
+architecture team focuses priority on one state in order to maintain
+focus and consistency of execution.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag_02_05">2.5. Iteration Considerations</h3>
+<div class="paragraph">
+<p>Some iteration cycles can be executed once, whereas others have a
+natural minimum number of cycles. For some iteration cycles, each
+iteration follows the same process; where there is more than one
+iteration within a cycle, the process differs slightly for each of the
+iterations.</p>
+</div>
+<div class="paragraph">
+<p>When considering the usage of iteration cycles, it is also necessary to
+consider where to place appropriate checkpoints within the process. If
+the expected level of stakeholder involvement is high, it may be
+sensible to carry out very frequent but informal checkpoints to ensure
+that the process is moving in the intended direction. If stakeholders
+are less closely involved, then checkpoints may be less frequent but
+more formal. Checkpoints at the completion of each iteration cycle, or
+at the end of several iteration cycles, are common.</p>
+</div>
+<div class="sect3">
+<h4 id="tag_02_05_01">2.5.1. Iteration between ADM Cycles</h4>
+<div class="paragraph">
+<p>Each iteration completes an ADM cycle at a single level of Architecture
+Description. This approach to the ADM uses Phase F (Migration Planning) to initiate new more detailed architecture development projects. This approach is illustrated in <a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tagfcjh_3">Figure 2-3</a>. This type of iteration highlights the need for higher-level architecture to guide and constrain more detailed architecture. It also highlights that the complete Architecture Landscape is developed by multiple ADM iterations.</p>
+</div>
+<div id="tagfcjh_3" class="imageblock text-center">
+<div class="content">
+<img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/20_adm_hierarchy.png" alt="A Hierarchy of ADM Processes Example" width="700">
+</div>
+<div class="title">Figure 2-3:  A Hierarchy of ADM Processes Example</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="tag_02_05_02">2.5.2. Iteration within an ADM Cycle</h4>
+<div class="paragraph">
+<p>Each iteration cycle crosses multiple TOGAF ADM phases. The following
+figures show at a high level which phases should be completed for which
+iteration cycle, showing activity that is core (i.e., the primary focus of the iteration), activity that is light (i.e., the secondary focus of
+the iteration), and activity that may be informally conducted (i.e.,
+some activity may be carried out, but it is not explicitly mentioned in the ADM).</p>
+</div>
+<div id="tagfcjh_4" class="imageblock text-center">
+<div class="content">
+<img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/19_baseline.png" alt="Activity by Iteration for Baseline First Architecture Definition" width="700">
+</div>
+<div class="title">Figure 2-4:  Activity by Iteration for Baseline First Architecture Definition</div>
+</div>
+<div id="tagfcjh_5" class="imageblock text-center">
+<div class="content">
+<img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/19_target.png" alt="Activity by Iteration for Target First Architecture Definition" width="700">
+</div>
+<div class="title">Figure 2-5:  Activity by Iteration for Target First Architecture Definition</div>
+</div>
+<div class="paragraph">
+<p>The suggested iteration cycles mapped to the TOGAF phases are described in <a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tbl-Iteration-Cycles">Table 2-3</a>.</p>
+</div>
+<table id="tbl-Iteration-Cycles" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2-3:  Iteration cycles mapped to the TOGAF ADM Phases</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 15%;">
+<col style="width: 20%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Iteration Cycle</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Iteration</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Purpose</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Architecture Development<br>
+(Baseline First)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define the Baseline Architecture.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This iteration comprises a pass through the Business Architecture,
+Information Systems Architecture, and Technology Architecture phases of
+the ADM, focusing on definition of the baseline.</p>
+</div>
+<div class="paragraph">
+<p>Opportunities, solutions, and migration plans are also considered to
+drive out the focus for change and test feasibility.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define the Target Architecture and gaps.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This iteration comprises a pass through the Business Architecture,
+Information Systems Architecture, and Technology Architecture phases of
+the ADM, focusing on definition of the target and analyzing gaps against
+the baseline.</p>
+</div>
+<div class="paragraph">
+<p>Opportunities, solutions, and migration plans are also considered to
+test viability.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Refine baseline, target, and gaps.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subsequent
+Architecture Development iterations attempt to correct and refine the
+target to achieve an outcome that is beneficial, feasible, and viable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Architecture Development<br>
+(Target First)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define the Target Architecture.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This iteration comprises a pass through the Business Architecture,
+Information Systems Architecture, and Technology Architecture phases of
+the ADM, focusing on definition of the target.</p>
+</div>
+<div class="paragraph">
+<p>Opportunities, solutions, and migration plans are also considered to
+drive out the focus for change and test feasibility.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define the Baseline Architecture and gaps.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This iteration comprises a pass through the Business Architecture,
+Information Systems Architecture, and Technology Architecture phases of
+the ADM, focusing on definition of the baseline and analyzing gaps
+against the target.</p>
+</div>
+<div class="paragraph">
+<p>Opportunities, solutions, and migration plans are also considered to
+test viability.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Refine baseline, target, and gaps.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subsequent
+Architecture Development iterations attempt to correct and refine the
+target to achieve an outcome that is beneficial, feasible, and viable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Transition Planning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define and agree a set of improvement
+opportunities, aligned against a provisional Transition Architecture.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The initial iteration of Transition Planning seeks to gain buy-in to a
+portfolio of solution opportunities in the Opportunities &amp; Solutions
+phase of ADM.</p>
+</div>
+<div class="paragraph">
+<p>This iteration also delivers a provisional Migration Plan.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Agree the Transition Architecture, refining the
+identified improvement opportunities to fit.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subsequent iterations of
+Transition Planning seek to refine the Migration Plan, feeding back
+issues into the Opportunities &amp; Solutions phase for refinement.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Architecture Governance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mobilize Architecture Governance
+and change management processes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The initial Architecture Governance
+iteration establishes a process for governance of change and also puts
+in place the appropriate people, processes, and technology to support
+managed access to and change of the defined architecture.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Iteration <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Carry out Architecture Governance and change control.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subsequent iterations of the Architecture Governance cycle focus on
+periodic reviews of change initiatives to resolve issues and ensure
+compliance. Results of a Change Request may trigger another phase to be
+revisited; for example, feeding back a new requirement to the
+Preliminary Phase to improve the Architecture Capability, or a new
+requirement for the architecture into the Architecture Development
+phases.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag_02_06">2.6. Conclusions</h3>
+<div class="paragraph">
+<p>All of these techniques are valid applications of the ADM. Combined
+together, they represent how the ADM can be used in practice. The ADM
+should always be used in an iterative process. How this process is
+exercised is dependent upon organizational factors. Particular factors
+for consideration include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>The formality and nature of established process checkpoints within
+the organization</strong></p>
+<div class="paragraph">
+<p>Does the organization mandate that certain groups of activities are
+carried out between checkpoints? Does the organization mandate that
+certain activities must be finalized before other activities can be
+carried out?</p>
+</div>
+</li>
+<li>
+<p><strong>The level of stakeholder involvement expected within the process</strong></p>
+<div class="paragraph">
+<p>Are stakeholders expecting to be closely involved within the development
+of a solution, or are they expecting to see a complete set of
+deliverables for review and approval?</p>
+</div>
+</li>
+<li>
+<p><strong>The number of teams involved and the relationships between different
+teams</strong></p>
+<div class="paragraph">
+<p>Is the entire architecture being developed by a specific team, or is
+there a hierarchy of teams with governance relationships between them?</p>
+</div>
+</li>
+<li>
+<p><strong>The maturity of the solution area and the expected amount of rework
+and refinement required to arrive at an acceptable solution</strong></p>
+<div class="paragraph">
+<p>Can the solution be achieved in a single pass, or does it require
+extensive proof-of-concept and prototyping work to evolve a suitable
+outcome?</p>
+</div>
+</li>
+<li>
+<p><strong>Attitude to risk</strong></p>
+<div class="paragraph">
+<p>Does the organizational culture react negatively to partially complete
+work products being circulated? Does the organizational culture require
+solutions to be proved in a trial environment before they can be
+implemented for mainstream application?</p>
+</div>
+</li>
+<li>
+<p><strong>The class of engagement</strong></p>
+<div class="paragraph">
+<p>What is the context for development of the Enterprise Architecture?</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap03"> 3. Applying the ADM Across the Architecture Landscape</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="tag_03_01">3.1. Overview</h3>
+<div class="paragraph">
+<p>In a typical enterprise, many architectures will be described in the
+Architecture Landscape at any point in time. Some architectures will
+address very specific needs; others will be more general. Some will
+address detail; some will provide a big picture. To address this
+complexity, the TOGAF Standard uses the concepts of levels and the
+Enterprise Continuum to provide a conceptual framework for organizing
+the Architecture Landscape. These concepts are tightly linked with
+organizing actual content in the Architecture Repository and any
+architecture partitions discussed in the
+<a href="https://pubs.opengroup.org/togaf-standard/architecture-content/chap01.html">TOGAF Standard — Architecture Content</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag_03_02">3.2. Architecture Landscape</h3>
+<div class="paragraph">
+<p>Levels provide a framework for dividing the Architecture Landscape into
+three levels of granularity:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Strategic Architecture</strong> provides an organizing framework for
+operational and change activity and allows for direction setting at an
+executive level</p>
+</li>
+<li>
+<p><strong>Segment Architecture</strong> provides an organizing framework for
+operational and change activity and allows for direction setting and the
+development of effective architecture roadmaps at a program or portfolio
+level</p>
+</li>
+<li>
+<p><strong>Capability Architecture</strong> provides an organizing framework for change
+activity and the development of effective architecture roadmaps
+realizing capability increments</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tagfcjh_6">Figure 3-1</a> shows a summary of the classification model
+for Architecture Landscapes.</p>
+</div>
+<div id="tagfcjh_6" class="imageblock text-center">
+<div class="content">
+<img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/40_partitioning1.png" alt="Summary Classification Model for Architecture Landscapes" width="600">
+</div>
+<div class="title">Figure 3-1:  Summary Classification Model for Architecture Landscapes</div>
+</div>
+<div class="paragraph">
+<p>The Architecture Continuum provides a method of dividing each level of
+the Architecture Landscape (see the
+<a href="https://pubs.opengroup.org/togaf-standard/architecture-content/chap01.html">TOGAF Standard — Architecture Content</a>) by abstraction. It offers a consistent way to define and
+understand the generic rules, representations, and relationships in an
+architecture, including traceability and derivation relationships. The
+Architecture Continuum shows the relationships from foundation elements
+to organization-specific architecture, as shown in
+<a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tagfcjh_7">Figure 3-2</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Architecture Continuum is a useful tool to discover commonality and
+eliminate unnecessary redundancy.</p>
+</div>
+<div id="tagfcjh_7" class="imageblock text-center">
+<div class="content">
+<img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/20_arch_con.png" alt="Summary of Architecture Continuum" width="700">
+</div>
+<div class="title">Figure 3-2:  Summary of Architecture Continuum</div>
+</div>
+<div class="paragraph">
+<p>Levels and the Architecture Continuum provide a comprehensive mechanism
+to describe and classify the Architecture Landscape.</p>
+</div>
+<div class="paragraph">
+<p>These concepts can
+be used to organize the Architecture Landscape into a set of related
+architectures with:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Manageable complexity for each individual architecture or solution</p>
+</li>
+<li>
+<p>Defined groupings</p>
+</li>
+<li>
+<p>Defined hierarchies and navigation structures</p>
+</li>
+<li>
+<p>Appropriate processes, roles, and responsibilities attached to each
+grouping</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There is no definitive organizing model for architecture, as each
+enterprise should adopt a model that reflects its own operating model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag_03_03">3.3. Developing Architectures at Different Levels</h3>
+<div class="paragraph">
+<p>The previous sections have identified that different types of
+architecture are required to address different stakeholder needs at
+different levels of the organization. Each architecture typically does
+not exist in isolation and must therefore sit within a governance
+hierarchy. Broad, summary architectures set the direction for narrow and
+detailed architectures.</p>
+</div>
+<div class="paragraph">
+<p>A number of techniques can be employed to use the ADM as a process that
+supports such hierarchies of architectures. Essentially there are two
+strategies that can be applied:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Architectures at different levels can be developed through iterations
+within a single cycle of the ADM process</p>
+</li>
+<li>
+<p>Architectures at different levels can be developed through a hierarchy
+of ADM processes, executed concurrently</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>At the extreme ends of the scale, either of these two options can be
+fully adopted. In practice, an architect is likely to need to blend
+elements of each to fit the exact requirements of their Request for
+Architecture Work. Each of these approaches is described in
+<a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#chap02">Chapter 2, <em>Applying Iteration to the ADM</em></a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag_03_04">3.4. Organizing the Architecture Landscape</h3>
+<div class="paragraph">
+<p>The following characteristics are typically used to organize the
+Architecture Landscape to understand the state of the enterprise:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Breadth</strong>: the breadth (subject matter) area is generally the primary
+organizing characteristic for describing an Architecture Landscape</p>
+<div class="paragraph">
+<p>Architectures are functionally decomposed into a hierarchy of specific
+subject areas or segments.</p>
+</div>
+</li>
+<li>
+<p><strong>Depth</strong>: with broader subject areas, less detail is needed to ensure
+that the architecture has a manageable size and complexity</p>
+<div class="paragraph">
+<p>More specific subject matter areas will generally permit (and require)
+more detailed architectures.</p>
+</div>
+</li>
+<li>
+<p><strong>Time</strong>: for a specific breadth and depth an enterprise can create a
+Baseline Architecture and a set of Target Architectures that stretch
+into the future</p>
+<div class="paragraph">
+<p>Broader and less detailed architectures will generally be valid for
+longer periods of time and can provide a vision for the enterprise that
+stretches further into the future.</p>
+</div>
+</li>
+<li>
+<p><strong>Recency</strong>: finally, each architecture view will progress through a
+development cycle where it increases in accuracy until finally approved</p>
+<div class="paragraph">
+<p>After approval, an architecture will begin to decrease in accuracy if
+not actively maintained. In some cases recency may be used as an
+organizing factor for historic architectures.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Using the criteria above, architectures can be grouped into Strategic,
+Segment, and Capability Architecture levels, as described in
+<a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tagfcjh_6">Figure 3-1</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap04"> 4. Architecture Partitioning</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="tag_04_01">4.1. Overview</h3>
+<div class="paragraph">
+<p>Partitions are used to simplify the development and management of the
+Enterprise Architecture.</p>
+</div>
+<div class="paragraph">
+<p>Partitions lie at the foundation of Architecture Governance and are
+distinct from levels and the organizing concepts of the Architecture
+Continuum (see the <a href="https://pubs.opengroup.org/togaf-standard/architecture-content/chap01.html">TOGAF Standard — Architecture Content</a>).</p>
+</div>
+<div class="paragraph">
+<p>Architectures are partitioned because:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Organizational unit architectures conflict with one another</p>
+</li>
+<li>
+<p>Different teams need to work on different elements of architecture at
+the same time and partitions allow for specific groups of architects to
+own and develop specific elements of the architecture</p>
+</li>
+<li>
+<p>Effective architecture re-use requires modular architecture segments
+that can be taken and incorporated into broader architectures and
+solutions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is impractical to present a definitive partitioning model for
+architecture. Each enterprise needs to adopt a partitioning model that
+reflects its own operating model.</p>
+</div>
+<div class="paragraph">
+<p>This chapter discusses the classification criteria that are generally
+applied to architectures and how these can be leveraged to partition the
+enterprise into a set of architectures with manageable complexity and
+effective governance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag_04_02">4.2. Applying Classification to Create Partitioned Architectures</h3>
+<div class="paragraph">
+<p>For the reasons outlined in the previous section, it is valuable to
+partition and organize the Enterprise Continuum into a set of related
+solutions and architectures with:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Manageable complexity for each individual architecture or solution</p>
+</li>
+<li>
+<p>Defined groupings</p>
+</li>
+<li>
+<p>Defined hierarchies and navigation structures</p>
+</li>
+<li>
+<p>Appropriate processes, roles, and responsibilities attached to each
+grouping</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tbl-criteria-solns">Table 4-1</a> shows how suitable classification criteria can be
+used to support partitioning of solutions:</p>
+</div>
+<table id="tbl-criteria-solns" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4-1:  Classification Criteria to support Partitioning of Solutions</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Characteristic</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Usage to Support Solution Partitioning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subject Matter (Breadth)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Solutions are naturally organized into groups to support operational
+management and control. Examples of solution partitions according to
+subject matter would include applications, departments, divisions,
+products, services, service centers, sites, etc.</p>
+</div>
+<div class="paragraph">
+<p>Solution decomposition by subject matter is typically the fundamental
+technique for structuring both solutions and the architectures that
+represent them.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solution lifecycles are typically organized around a timeline,
+which allows the impact of solution development, introduction,
+operation, and retirement to be managed against other business activity
+occurring in similar time periods.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maturity/Volatility</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The maturity and volatility of a solution will typically impact the
+speed of execution required for the solution lifecycle.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, volatility and maturity will shape investment priorities.
+Solutions existing in highly volatile environments may be better suited
+to rapid, agile development techniques.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tbl-criteria-arch">Table 4-2</a> shows how each classification criteria can be used
+to support partitioning of architectures:</p>
+</div>
+<table id="tbl-criteria-arch" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4-2:  Classification Criteria to support Partitioning of Architectures</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Characteristic</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Usage to Support Architecture Partitioning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Depth</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The level of detail within an architecture has a strong correlation to
+the stakeholder groups that will be interested in the architecture.</p>
+</div>
+<div class="paragraph">
+<p>Typically, less detailed architectures will be of interest to executive
+stakeholders. As architectures increase in detail, their relevance to
+implementation and operational personnel will also increase.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In practical terms, architecture discipline is used to support a number
+of different types of architecture that are used for different
+objectives. The classification criteria described above can be used in
+different ways to support the achievement of each objective.</p>
+</div>
+<div class="paragraph">
+<p>The following characteristics are generally not used to partition an
+Architecture Landscape:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Architectures used to describe the Architecture Landscape are
+generally not abstract</p>
+</li>
+<li>
+<p>Solution volatility generally prevents architectures from being
+defined that are far in the future; volatility also reduces the accuracy
+of historic architectures over time, as the organization changes and
+adapts to new circumstances</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Using the criteria above, architectures can be grouped into partitions.</p>
+</div>
+<div class="sect3">
+<h4 id="tag_04_02_01">4.2.1. Activities within the Preliminary Phase</h4>
+<div class="paragraph">
+<p>The key objective of the Preliminary Phase is to establish the
+Architecture Capability for the enterprise. In practical terms this
+activity will require the establishment of a number of architecture
+partitions, providing defined boundaries, governance, and ownership.</p>
+</div>
+<div class="paragraph">
+<p>Generally speaking, each team carrying out architecture activity within
+the enterprise will own one or more architecture partitions and will
+execute the ADM to define, govern, and realize their architectures.</p>
+</div>
+<div class="paragraph">
+<p>If more than one team is expected to work on a single architecture, this
+can become problematic, as the precise responsibilities of each team are
+difficult to establish. For this reason, it is preferable to apply
+partitioning to the architecture until each architecture has one owning
+team.</p>
+</div>
+<div class="paragraph">
+<p>Finally, it is worth considering the distinction between standing
+capabilities of the enterprise and temporary teams mobilized to support
+a particular change initiative. Although the remit of standing teams
+within the enterprise can be precisely defined, it is more difficult to
+anticipate and specify the responsibilities of (possibly unknown)
+temporary architecture teams. In the cases of these temporary teams,
+each team should come under the governance of a standing architecture
+team and there should be a process within the ADM cycle of these teams
+to establish appropriate architecture partitioning.</p>
+</div>
+<div class="paragraph">
+<p>Steps within the Preliminary Phase to support architecture partitioning
+are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Determine the organization structure for architecture within the
+enterprise</strong>: the various standing teams that will create the
+architecture should be identified</p>
+<div class="paragraph">
+<p>For each of these teams, appropriate boundaries should be established,
+including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Governance bodies that are applicable to the team</p>
+</li>
+<li>
+<p>Team membership</p>
+</li>
+<li>
+<p>Team reporting lines</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Determine the responsibilities for each standing architecture team</strong>:
+for each architecture team, the responsibilities should be identified</p>
+<div class="paragraph">
+<p>This step applies partitioning logic to the Enterprise Architecture in
+order to firstly identify the scope of each team and secondly to
+partition the architecture under the remit of a single team. Once
+complete, this step should have partitioned the entire scope of the
+enterprise and should have assigned responsibility for each partitioned
+architecture to a single team. Partitioning should create a definition
+of each architecture that includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Subject matter areas being covered</p>
+</li>
+<li>
+<p>Level of detail at which the team will work</p>
+</li>
+<li>
+<p>Time periods to be covered</p>
+</li>
+<li>
+<p>Stakeholders</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Determine the relationships between architectures</strong>: once a set of
+partitioned architectures has been created, the relationships between
+architectures should be developed</p>
+<div class="paragraph">
+<p>This step allows governance relationships to be formalized and also
+shows where artifacts from one architecture are expected to be re-used
+within other architectures.<br></p>
+</div>
+<div class="paragraph">
+<p>Areas of consideration include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Where do different architectures overlap/dovetail/drill-down?</p>
+</li>
+<li>
+<p>What are the compliance requirements between architectures?</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once the Preliminary Phase is complete, the teams conducting the
+architecture should be understood. Each team should have a defined scope
+and the relationships between teams and architecture should be
+understood. Allocation of teams to architecture scope is illustrated in
+<a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tagfcjh_8">Figure 4-1</a>.</p>
+</div>
+<div id="tagfcjh_8" class="imageblock text-center">
+<div class="content">
+<img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/40_partitioning5.png" alt="Allocation of Teams to Architecture Scope" width="700">
+</div>
+<div class="title">Figure 4-1:  Allocation of Teams to Architecture Scope</div>
+</div>
+<div class="paragraph">
+<p><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tagfcjh_8">Figure 4-1</a> shows that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Enterprise Layer is defined through collaboration between the Corporate Enterprise Capability and Segment EA Capability</p>
+</li>
+<li>
+<p>The Segment Layer is defined through collaboration between the Corporate Enterprise Capability, the Segment EA Capability, and the Portfolio Team</p>
+</li>
+<li>
+<p>The Capability Layer is defined through collaboration between the Portfolio Team and the Project Team</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag_04_03">4.3. Integration</h3>
+<div class="paragraph">
+<p>The creation of partitioned architectures runs the risk of producing a
+fragmented and disjointed collection of architectures that cannot be
+integrated to form an overall big picture (see the
+<a href="https://pubs.opengroup.org/togaf-standard/adm/chap01.html">TOGAF Standard — Architecture Development Method</a>).</p>
+</div>
+<div class="paragraph">
+<p>For large complex enterprises, federated architectures — independently
+developed, maintained, and managed architectures that are subsequently
+integrated within an integration framework — are typical. Federated
+architectures typically are used in governments and conglomerates, where
+the separate organizational units need separate architectures. Such a
+framework specifies the principles for interoperability, migration, and
+conformance. This allows specific business units to have architectures
+developed and governed as stand-alone architecture projects. More
+details and guidance on specifying the interoperability requirements for
+different solutions can be found in the
+<a href="https://pubs.opengroup.org/togaf-standard/adm-techniques/chap01.html">TOGAF Standard — ADM Techniques</a>.</p>
+</div>
+<div class="paragraph">
+<p>In order to mitigate against this risk, standards for content
+integration should be defined and Architecture Governance should address
+content integration as a condition of architectural compliance. Content
+frameworks, such as the TOGAF content framework (refer to the
+<a href="https://pubs.opengroup.org/togaf-standard/architecture-content/chap01.html">TOGAF Standard — Architecture Content</a>) can be used to specify standard building blocks and artifacts
+that are the subject of content integration standards.<br></p>
+</div>
+<div class="paragraph">
+<p>For example, a standard catalog of business processes can be agreed for
+an enterprise. Subsequent architectures can then ease integration by
+using the same process list and cross-referencing other aspects of the
+architecture to those standard processes.<br></p>
+</div>
+<div class="paragraph">
+<p>Integration can be addressed from a number of dimensions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Integration across the architecture domains provides a cross-domain
+view of the state of a segment of the enterprise for a point in time</p>
+</li>
+<li>
+<p>Integration across the organizational scope of the business provides a
+cross-segment view of the enterprise</p>
+</li>
+<li>
+<p>The Architecture Vision provides an integrated summary of Architecture
+Definitions, which provide an integrated summary of Transition
+Architectures</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#tagfcjh_9">Figure 4-2</a> shows how architectural content can be aggregated using a variety of techniques.</p>
+</div>
+<div id="tagfcjh_9" class="imageblock text-center">
+<div class="content">
+<img src="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/images/40_partitioning7.png" alt="Architecture Content Aggregation" width="500">
+</div>
+<div class="title">Figure 4-2:  Architecture Content Aggregation</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="https://pubs.opengroup.org/togaf-standard/applying-the-adm.single/togaf-standard-applying-the-adm.html#_footnoteref_1">1</a>. Guidance on how to use a full ADM cycle for initially establishing an organization’s Architecture Capability is found in the <a href="https://pubs.opengroup.org/togaf-standard/ea-capability-and-governance/chap01.html">TOGAF Standard — EA Capability and Governance</a>.
+</div>
+</div>
+<div id="footer">
+<div id="footer-text"> © The Open Group, All Rights Reserved.
+Last updated 2025-05-15 12:57:15 +0100
+</div>
+</div>
+
+
+</body></html>

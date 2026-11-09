@@ -1,0 +1,611 @@
+{
+  "schema_version": "1.0",
+  "id": "G188/fig1-1",
+  "status": "done",
+  "doc": {
+    "code": "G188",
+    "title_zh": "架构项目管理",
+    "title_en": "Architecture Project Management",
+    "zh_md": "G188e_架构项目管理.md",
+    "en_pdf": "togaf-standard-10th/G188e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "1-1",
+    "title_en": "Architecture Project Relationship to the TOGAF ADM (Adapted from the TOGAF Standard)",
+    "title_zh": "架构项目与 TOGAF ADM 的关系",
+    "section_en": "1.2 Background",
+    "section_zh": "1.2 背景",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        16
+      ],
+      "printed_page": 2,
+      "bboxes": [
+        [
+          125.6,
+          36.0,
+          486.4,
+          306.6
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        96
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g188_fig1-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "9461229dd678",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "原图是 ADM 圆形图加一个浅蓝色不规则“Architecture Project”范围轮廓；SVG 改成虚线正圆，且圆半径不足以把 A、B、H 全部包住，导致“哪些阶段在项目范围内”这一核心信息画错：A 与 H 落在虚线外，而它们本应在范围内",
+        "原图每个圆内是“字母 + 阶段全名”（A. Architecture Vision … H. Architecture Change Management）；SVG 只保留字母 A–H，丢掉全部阶段名称，读者无法知道各阶段含义",
+        "原图右上角有青色 “Architecture Project” 标注，指向浅蓝范围轮廓；SVG 删掉该标注，改为在空白处写“架构项目 = A–F + 需求管理”，范围边界不再是图形信息",
+        "原图 G、H、Preliminary 用亮黄色表示范围之外，A–F 为浅黄、需求管理为深琥珀色，中心与八阶段的连线粗细一致；SVG 用灰色/蓝色区分，但颜色含义未说明，且没有模拟原图的中心放射连线结构",
+        "SVG 增加了原图没有的“输入：架构工作请求；输出：架构定义、路线图与实施计划……”说明文字，属于正文内容，不是图内标签",
+        "版式由“圆环 + 中心需求管理 + 不规则范围轮廓”改为“虚线圆 + 缩小的节点”，节点间距与原图不一致，H 与 A 的相对位置关系被破坏"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "network",
+      "cycle"
+    ],
+    "notation": "ADM 圆形示意图：8 个阶段圆 + 中心需求管理圆，外圈细线相连，外围浅蓝色手绘轮廓标注项目范围",
+    "concepts": [
+      "adm",
+      "project_management",
+      "requirements_management",
+      "architecture_levels"
+    ],
+    "adm_phases": [
+      "adm_preliminary",
+      "adm_phase_a",
+      "adm_phase_b",
+      "adm_phase_c",
+      "adm_phase_d",
+      "adm_phase_e",
+      "adm_phase_f",
+      "adm_phase_g",
+      "adm_phase_h",
+      "requirements_management"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "用 ADM 圆盘标出架构项目的范围：阶段 A–F 加需求管理在项目内，预备阶段、G、H 在项目外。",
+    "purpose_zh": "为“架构项目”下操作性定义：作者不按 TOGAF 术语而按项目边界来界定，用一张 ADM 图直观说明哪些 ADM 活动属于架构项目、哪些不属于，从而为后文按项目管理方法管理 A–F 奠定范围基础。",
+    "reading_guide_zh": "先看中心：需求管理是贯穿各阶段的中心活动。再沿圆周按 A→B→C→D→E→F→G→H→A 的顺序读八个阶段（图中只有连线、没有箭头，循环方向来自 ADM 常识）。最后看浅蓝色不规则的“Architecture Project”轮廓：它把 A–F 与中心需求管理包在一起，预备阶段、G、H 落在轮廓之外。",
+    "key_points_zh": [
+      "架构项目 = ADM 阶段 A 至 F + 需求管理；这是本文档对“架构项目”的工作定义，而非 TOGAF 标准术语。",
+      "预备阶段在项目之外：它建立企业的架构能力，其输出（尤其是架构工作请求）作为架构项目的输入。",
+      "阶段 G（实施治理）在项目之外：它治理架构的实施，通常作为另一个项目或项目群运行。",
+      "阶段 H（架构变更管理）在项目之外：它维护已实施的架构，属于运营业务/流程而非项目管理。",
+      "需求管理位于圆心，用放射线与八个阶段相连，表示它贯穿整个 ADM 周期，而不是一个前后相继的阶段。",
+      "阶段 A–F 首尾相接成环，说明架构项目虽然在 F 结束，但 ADM 本身是循环的；架构项目只是其中的一段。"
+    ],
+    "hierarchy_zh": "两层视觉结构：外层是 ADM 的九个圆（预备 + A–H）加中心的需求管理；内层是浅蓝色“Architecture Project”范围轮廓，包住 A–F 与需求管理。图中没有组织上下级，只有范围包含（轮廓）与连接（圆之间细线）。",
+    "line_semantics_zh": "细灰线连接相邻阶段（A–B、B–C……H–A）以及预备阶段–A，表示 ADM 的阶段顺序；中心需求管理向八个阶段各发一条放射线，表示需求管理贯穿每个阶段。所有线都没有箭头，方向由 ADM 的循环阅读习惯给出。浅蓝轮廓是范围边界，不是连线。",
+    "misreadings_zh": [
+      "不要把浅蓝色轮廓理解为“架构项目包含 G/H”：G、H 画在轮廓外，颜色也更亮（表示范围外）。",
+      "不要以为需求管理是第九个阶段；它在圆心，与所有阶段相连，是贯穿性活动。",
+      "图中没有箭头，不能据此判断阶段之间的严格先后或迭代次数；ADM 实际是迭代执行的。",
+      "中文稿当前引用的 figs/g188_fig1-1.svg 用虚线圆表示范围，但圆没有包住 A 和 H，且只留字母，不能据它判断项目边界。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p16",
+        "summary_zh": "阶段 A–F 的关键成果是架构定义文档，描述将在阶段 G 实施、阶段 H 维护的企业架构；阶段 F 结束时架构项目即告完成。预备阶段、阶段 G、阶段 H 不在架构项目范围内，并分别说明理由。"
+      },
+      {
+        "source": "zh_md L94",
+        "summary_zh": "“架构项目”并非 TOGAF 标准术语，本文档用它指为定义并描述待实施企业架构而开展的项目，涵盖阶段 A 至 F 及需求管理中的所有活动。"
+      },
+      {
+        "source": "zh_md L98",
+        "summary_zh": "阶段 A–F 的关键成果是架构定义文档；阶段 F 结束时待实施的企业架构已被定义与描述，架构项目即告完成。"
+      },
+      {
+        "source": "zh_md L100",
+        "summary_zh": "预备阶段关注确保组织的企业架构能力；阶段 G 治理架构实施；阶段 H 维护已实施架构，属于运营业务而非项目管理。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "radial",
+    "description_zh": "以需求管理为圆心，八个 ADM 阶段按 A（上）→B（右上）→C（右）→D（右下）→E（下）→F（左下）→G（左）→H（左上）排成圆环；预备阶段位于 A 正上方、圆环之外。浅蓝色不规则轮廓从 A 外缘起，绕过 B–F，把中心与 A–F 围住，G、H 留在轮廓左侧之外。"
+  },
+  "legend": [
+    {
+      "symbol": "浅蓝色不规则轮廓 + 青色文字 Architecture Project",
+      "meaning_zh": "架构项目的范围边界（包住 A–F 与需求管理）",
+      "explicit": true
+    },
+    {
+      "symbol": "亮黄色圆（Preliminary、G、H）",
+      "meaning_zh": "不在架构项目范围内的 ADM 阶段",
+      "explicit": false
+    },
+    {
+      "symbol": "浅黄色圆（A–F）",
+      "meaning_zh": "在架构项目范围内的 ADM 阶段",
+      "explicit": false
+    },
+    {
+      "symbol": "深琥珀色大圆（Requirements Management）",
+      "meaning_zh": "贯穿所有阶段的需求管理",
+      "explicit": false
+    },
+    {
+      "symbol": "细灰线",
+      "meaning_zh": "阶段相邻关系/需求管理与各阶段的连接，无箭头",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "arch_project",
+      "label_en": "Architecture Project",
+      "label_zh": "架构项目",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "浅蓝色不规则轮廓，覆盖中右部",
+      "description_zh": "范围边界，不是一个阶段；轮廓内为 A–F 与需求管理。"
+    },
+    {
+      "id": "preliminary",
+      "label_en": "Preliminary",
+      "label_zh": "预备阶段",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "position": "顶部，A 正上方",
+      "description_zh": "在架构项目范围之外。"
+    },
+    {
+      "id": "phase_a",
+      "label_en": "A. Architecture Vision",
+      "label_zh": "阶段 A：架构愿景",
+      "type": "phase",
+      "parent": "arch_project",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "phase_b",
+      "label_en": "B. Business Architecture",
+      "label_zh": "阶段 B：业务架构",
+      "type": "phase",
+      "parent": "arch_project",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "phase_c",
+      "label_en": "C. Information Systems Architectures",
+      "label_zh": "阶段 C：信息系统架构",
+      "type": "phase",
+      "parent": "arch_project",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "phase_d",
+      "label_en": "D. Technology Architecture",
+      "label_zh": "阶段 D：技术架构",
+      "type": "phase",
+      "parent": "arch_project",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "phase_e",
+      "label_en": "E. Opportunities and Solutions",
+      "label_zh": "阶段 E：机会与解决方案",
+      "type": "phase",
+      "parent": "arch_project",
+      "level": 1,
+      "order": 5
+    },
+    {
+      "id": "phase_f",
+      "label_en": "F. Migration Planning",
+      "label_zh": "阶段 F：迁移规划",
+      "type": "phase",
+      "parent": "arch_project",
+      "level": 1,
+      "order": 6
+    },
+    {
+      "id": "phase_g",
+      "label_en": "G. Implementation Governance",
+      "label_zh": "阶段 G：实施治理",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "order": 7,
+      "description_zh": "在架构项目范围之外。"
+    },
+    {
+      "id": "phase_h",
+      "label_en": "H. Architecture Change Management",
+      "label_zh": "阶段 H：架构变更管理",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "order": 8,
+      "description_zh": "在架构项目范围之外。"
+    },
+    {
+      "id": "requirements_management",
+      "label_en": "Requirements Management",
+      "label_zh": "需求管理",
+      "type": "phase",
+      "parent": "arch_project",
+      "level": 1,
+      "position": "圆心",
+      "description_zh": "贯穿性活动，与八个阶段都有连接。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "preliminary",
+      "to": "phase_a",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "预备阶段位于 A 上方并以细线相连，表示 ADM 从预备进入 A"
+    },
+    {
+      "from": "phase_a",
+      "to": "phase_b",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_b",
+      "to": "phase_c",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_c",
+      "to": "phase_d",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_d",
+      "to": "phase_e",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_e",
+      "to": "phase_f",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_f",
+      "to": "phase_g",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_g",
+      "to": "phase_h",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_h",
+      "to": "phase_a",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "闭合 ADM 圆环的连线"
+    },
+    {
+      "from": "phase_a",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "需求管理放射线之一，表示需求贯穿阶段 A"
+    },
+    {
+      "from": "phase_b",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_c",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_d",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_e",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_f",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_g",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "phase_h",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "arch_project",
+      "to": "phase_a",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "浅蓝轮廓包住该阶段，表示其在架构项目范围内"
+    },
+    {
+      "from": "arch_project",
+      "to": "phase_b",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "浅蓝轮廓包住该阶段，表示其在架构项目范围内"
+    },
+    {
+      "from": "arch_project",
+      "to": "phase_c",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "浅蓝轮廓包住该阶段，表示其在架构项目范围内"
+    },
+    {
+      "from": "arch_project",
+      "to": "phase_d",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "浅蓝轮廓包住该阶段，表示其在架构项目范围内"
+    },
+    {
+      "from": "arch_project",
+      "to": "phase_e",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "浅蓝轮廓包住该阶段，表示其在架构项目范围内"
+    },
+    {
+      "from": "arch_project",
+      "to": "phase_f",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "浅蓝轮廓包住该阶段，表示其在架构项目范围内"
+    },
+    {
+      "from": "arch_project",
+      "to": "phase_g",
+      "type": "contrast",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "G 与 H 位于轮廓之外，表示不在项目范围内"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_adm",
+      "kind": "cycle",
+      "name_zh": "ADM 循环（图中只画到 H，再回到 A）",
+      "steps": [
+        "preliminary",
+        "phase_a",
+        "phase_b",
+        "phase_c",
+        "phase_d",
+        "phase_e",
+        "phase_f",
+        "phase_g",
+        "phase_h",
+        "phase_a"
+      ]
+    }
+  ],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G188/fig2-2",
+      "relation": "overview_of",
+      "note_zh": "图 2-2 在同一 ADM 圆盘上展开项目阶段与迭代回路，本图只给项目范围"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图圆环上 H 与 A 之间的连线被浅蓝轮廓遮挡，是否表示从 H 返回 A 只能按 ADM 常识判断；本分析记为闭环连线。",
+      "中文稿所附 SVG 的虚线圆半径与节点位置不一致，本文按英文原图判断范围，未采用 SVG 的边界。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 16 页原图截图（含 2x2 放大分块）",
+      "英文 PDF 第 16 页正文",
+      "中文稿 G188e_架构项目管理.md 第 89–100 行",
+      "figs/g188_fig1-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G188e.pdf",
+    "pdf_sha256": "6e654af12a0bc034c7548d425a01123331ac9129c478a0bb957db89dd353dd29",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G188/fig1-1.json",
+    "interpretation_sha256": "a11631b711c8bb20ed5729d5598645e21570f0dfee890c07b42ad0481e424ab5",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 16,
+        "text": "Figure 1-1: Architecture Project Relationship to the TOGAF ADM (Adapted from the TOGAF Standard)",
+        "bbox_pdf_points": [
+          48.24,
+          311.361,
+          520.246,
+          324.926
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 16,
+      "printed_page": 2,
+      "bbox_pdf_points": [
+        125.6,
+        36.0,
+        486.4,
+        306.6
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G188/fig1-1-p0016.png",
+      "image_sha256": "1d8047cedac608dd539d097b909583a4216e2c8a0f2c55d2e73c1ec938e00c19",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "1d8047cedac608dd539d097b909583a4216e2c8a0f2c55d2e73c1ec938e00c19",
+          "status": "extracted-unverified",
+          "text": "Architecture Project\nomc coe",
+          "words": [
+            {
+              "text": "Architecture",
+              "confidence": 96.491539,
+              "bbox_pixels_xywh": [
+                471,
+                119,
+                106,
+                14
+              ]
+            },
+            {
+              "text": "Project",
+              "confidence": 96.610672,
+              "bbox_pixels_xywh": [
+                583,
+                119,
+                60,
+                18
+              ]
+            },
+            {
+              "text": "omc",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                473,
+                515,
+                34,
+                7
+              ]
+            },
+            {
+              "text": "coe",
+              "confidence": 47.978897,
+              "bbox_pixels_xywh": [
+                515,
+                503,
+                24,
+                28
+              ]
+            }
+          ],
+          "mean_word_confidence": 60.27,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

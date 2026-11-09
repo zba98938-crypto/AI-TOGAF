@@ -1,0 +1,286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-togaf:corpus:document:1",
+  "title": "Source PDF converted to traceable TOGAF document",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "content_role",
+    "language",
+    "source",
+    "outline",
+    "pages",
+    "tables",
+    "quality",
+    "statistics"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^G[A-Z0-9]{3}$"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "title_zh": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "content_role": {
+      "const": "source"
+    },
+    "language": {
+      "const": "en"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256",
+        "page_count"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "page_count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "outline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "level",
+          "title",
+          "pdf_page",
+          "parent_id",
+          "end_pdf_page"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pdf_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "end_pdf_page": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "pdf_page",
+          "raw_text",
+          "reading_order_text",
+          "blocks",
+          "content",
+          "tables",
+          "figure_ids"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "pdf_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "raw_text": {
+            "type": "string"
+          },
+          "reading_order_text": {
+            "type": "string"
+          },
+          "blocks": {
+            "type": "array"
+          },
+          "content": {
+            "type": "array"
+          },
+          "tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/table"
+            }
+          },
+          "figure_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "current_image_analysis": {
+            "type": "array",
+            "description": "Derived interpretation links; original source text remains in raw_text and content.",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "json_path",
+                "markdown_path",
+                "content_role",
+                "quality"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "json_path": {
+                  "type": "string"
+                },
+                "markdown_path": {
+                  "type": "string"
+                },
+                "content_role": {
+                  "const": "derived-architecture-analysis"
+                },
+                "quality": {
+                  "type": "object"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "tables": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/table"
+      }
+    },
+    "quality": {
+      "type": "object"
+    },
+    "statistics": {
+      "type": "object",
+      "required": [
+        "pages",
+        "sections",
+        "table_fragments",
+        "chunks"
+      ]
+    },
+    "current_figure_analysis": {
+      "type": "string",
+      "description": "Path relative to corpus root to current image analysis routing index."
+    }
+  },
+  "$defs": {
+    "bbox": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "table": {
+      "type": "object",
+      "required": [
+        "id",
+        "pdf_page",
+        "bbox",
+        "rows",
+        "row_count",
+        "column_count",
+        "cell_bboxes",
+        "markdown"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "pdf_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "bbox": {
+          "$ref": "#/$defs/bbox"
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "row_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "column_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cell_bboxes": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/bbox"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "markdown": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

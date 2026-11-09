@@ -1,0 +1,628 @@
+{
+  "schema_version": "architecture-diagram-reviews/1",
+  "notice_zh": "独立对源图逐线复核，修正关系端点、符号、虚构连线与旁注。仅列明已观察图，不外推其他图质量。",
+  "figures": {
+    "G152/fig5-2": {
+      "source_pdf_sha256": "919c53bfa4259a4b3a9686762f37c0576a1cd2f8e77e74648826d9f9c84ed6e0",
+      "source_crop_sha256": [
+        "9adebb42053d1f1ce75fe52b5a88056532e45febbd3f73196240153cad761cc5"
+      ],
+      "source_pdf_pages": [
+        43
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "PDF第43页原生1636×1036栅格逐线复核：Loss event和Risk之间没有箭头；唯一实心触发箭头是Threat event→Loss event。",
+        "Control measure→Security requirement是实线空心三角（特化）；Control measure→Security principle是点线空心三角（实现），旧解释把两条线型读反。",
+        "域右侧折线连接Control measure，不是Security requirement；Loss event→Asset和域→Risk control objective两条旧记录未在源图观察到。",
+        "底部两组内各有三个未命名元素和省略号；连线接到具体的未命名业务对象/行为，不能把组边界自动当成线端点。",
+        "底部水平虚线没有可辨箭头；旧解释把业务流程框右上角的箭头形图标误当成该连线箭头。"
+      ],
+      "additional_nodes": [
+        {
+          "id": "asset_business_object",
+          "label_en": null,
+          "label_zh": "资产示例：未命名业务对象",
+          "type": "data",
+          "parent": "asset_at_risk",
+          "notation_type": "Business Object",
+          "position": "左下分组最前方黄色带顶栏矩形",
+          "description_zh": "未命名的业务对象记法；不是名为“资产示例”的原文业务实体。"
+        },
+        {
+          "id": "asset_business_process",
+          "label_en": null,
+          "label_zh": "资产示例：未命名业务流程",
+          "type": "process",
+          "parent": "asset_at_risk",
+          "notation_type": "Business Process",
+          "position": "左下分组第二层黄色圆角框，右上角箭头图标",
+          "description_zh": "未命名业务流程记法；框内箭头是图标，不是指向别的元素的关系箭头。"
+        },
+        {
+          "id": "asset_application_component",
+          "label_en": null,
+          "label_zh": "资产示例：未命名应用组件",
+          "type": "application",
+          "parent": "asset_at_risk",
+          "notation_type": "Application Component",
+          "position": "左下分组第三层青色框",
+          "description_zh": "未命名应用组件记法，表示资产可能来自应用层。"
+        },
+        {
+          "id": "implementation_business_behavior",
+          "label_en": null,
+          "label_zh": "控制实现示例：未命名业务行为",
+          "type": "process",
+          "parent": "implementation_of_control_measure",
+          "notation_type": "Unspecified Business Behavior",
+          "position": "右下分组最前方黄色圆角形",
+          "description_zh": "未命名业务行为的抽象记法；源图没有文字，不能进一步命名为特定流程。"
+        },
+        {
+          "id": "implementation_application_component",
+          "label_en": null,
+          "label_zh": "控制实现示例：未命名应用组件",
+          "type": "application",
+          "parent": "implementation_of_control_measure",
+          "notation_type": "Application Component",
+          "position": "右下分组中间青色组件形",
+          "description_zh": "未命名应用层实现示例。"
+        },
+        {
+          "id": "implementation_technology_node",
+          "label_en": null,
+          "label_zh": "控制实现示例：未命名技术节点",
+          "type": "technology",
+          "parent": "implementation_of_control_measure",
+          "notation_type": "Node",
+          "position": "右下分组绿色立方体",
+          "description_zh": "未命名技术层节点实现示例；不是实际部署清单。"
+        }
+      ],
+      "edge_overrides": {
+        "4": {
+          "reason_zh": "原图垂直线到资产组内最前方业务对象的顶边，不是到灰色分组边界。",
+          "to": "asset_business_object",
+          "visual": {
+            "to": "asset_business_object"
+          }
+        },
+        "5": {
+          "reason_zh": "Loss event—Risk为无箭头实线关联；不能记录为损失事件触发风险。",
+          "predicate": "association",
+          "direction": "undirected",
+          "visual": {
+            "arrow": "none",
+            "line_style": "solid"
+          }
+        },
+        "7": {
+          "reason_zh": "原图Loss event向下的线到Risk/security domain；没有另一路直接连接Asset at risk，旧记录把经分组连接拼成了直接边。",
+          "predicate": "unsupported_historical_relation",
+          "visual_explicit_connection": false,
+          "direction": "undirected",
+          "semantic_state": "rejected-unobserved",
+          "visual": {
+            "arrow": "none",
+            "line_style": "not-present"
+          }
+        },
+        "14": {
+          "reason_zh": "原生栅格显示实线加空心三角指向Security requirement；Control measure是Security requirement的特化。",
+          "predicate": "specialization",
+          "visual": {
+            "line_style": "solid",
+            "arrow": "forward"
+          }
+        },
+        "15": {
+          "reason_zh": "原生栅格显示点线加空心三角指向Security principle，保持realization并纠正旧实线描述。",
+          "predicate": "realization",
+          "visual": {
+            "line_style": "dotted",
+            "arrow": "forward"
+          }
+        },
+        "16": {
+          "reason_zh": "实现线从右下组内黄色业务行为形向上到Control measure，源端是未命名业务行为。",
+          "from": "implementation_business_behavior",
+          "visual": {
+            "from": "implementation_business_behavior"
+          }
+        },
+        "19": {
+          "reason_zh": "逐线追踪只看到域→Risk的斜线；没有域到Risk control objective的另一条线。旧记录没有源图依据。",
+          "predicate": "unsupported_historical_relation",
+          "visual_explicit_connection": false,
+          "direction": "undirected",
+          "semantic_state": "rejected-unobserved",
+          "visual": {
+            "arrow": "none",
+            "line_style": "not-present"
+          }
+        },
+        "20": {
+          "reason_zh": "域右侧点状折线下降后到Control measure上边缘；Security requirement位于更上方且未与域连线。",
+          "to": "control_measure",
+          "visual": {
+            "to": "control_measure"
+          }
+        },
+        "21": {
+          "reason_zh": "域左下斜线连接资产组内业务对象右上角。",
+          "to": "asset_business_object",
+          "visual": {
+            "to": "asset_business_object"
+          }
+        },
+        "22": {
+          "reason_zh": "域右下斜线连接控制实现组内黄色业务行为形。",
+          "to": "implementation_business_behavior",
+          "visual": {
+            "to": "implementation_business_behavior"
+          }
+        },
+        "23": {
+          "reason_zh": "水平虚线连接两组内业务对象与业务行为；没有可辨箭头。左端下方箭头形是另一个业务流程框的记法图标。",
+          "from": "implementation_business_behavior",
+          "to": "asset_business_object",
+          "predicate": "association",
+          "direction": "undirected",
+          "visual": {
+            "from": "implementation_business_behavior",
+            "to": "asset_business_object",
+            "arrow": "none",
+            "line_style": "dotted"
+          }
+        }
+      },
+      "hierarchy_zh": "上下位置区分风险、控制与实现的阅读区域，不是组织上下级。资产与控制实现两个灰色分组各包含三类未命名示例元素及省略号。Risk/security domain通过明确连线关联对象；它不是覆盖整个图的视觉外框。",
+      "line_semantics_zh": "只有Threat event→Loss event为实心触发箭头。无箭头实线为关联；实线空心三角为特化（Security control objective→Risk control objective、Control measure→Security requirement）；点线空心三角为实现（Security requirement/ Security principle→Security control objective、Control measure→Security principle、实现业务行为→Control measure）。底部水平点线无可辨方向。",
+      "semantics_overrides": {
+        "one_line_zh": "用ArchiMate关联、触发、特化、实现与分组表达风险和安全控制模型。",
+        "reading_guide_zh": "先读威胁主体与威胁事件的关联，再沿唯一实心触发箭头到损失事件；损失事件与风险是关联。右侧区分安全控制目标对风险控制目标的特化、控制措施对安全需求的特化，以及需求/原则/实现行为之间的实现关系。底部未命名元素是跨层示例，不能当作项目实际实体。",
+        "key_points_zh": [
+          "Threat event触发Loss event；Threat agent—Threat event及Loss event—Risk均为无箭头关联。",
+          "Vulnerability关联Threat event、Loss event和资产组内业务对象。",
+          "Security control objective特化Risk control objective；Control measure特化Security requirement，两条都是实线空心三角。",
+          "Security requirement和Security principle实现Security control objective；Control measure实现Security principle；控制实现业务行为实现Control measure。",
+          "Risk/security domain明确关联Loss event、Risk、Vulnerability、Control measure及两组内的业务对象/行为。图中没有域到Risk control objective的直连。",
+          "资产与控制实现是灰色分组，每组展示未命名的业务/应用/技术记法及省略号，表达多类型示例而非部署清单。",
+          "底部虚线连到具体业务对象与行为，没有可辨箭头；流程框右上角的小箭头是元素图标。"
+        ],
+        "misreadings_zh": [
+          "不要把Loss event—Risk画成触发；源图没有该箭头。",
+          "不要把Control measure→Security requirement的实线特化误成实现，也不要把其到Security principle的点线实现误成特化。",
+          "不能把经过Risk/security domain的两段关系折叠为Loss event→Asset直接关联。",
+          "所有未命名形状都只是示例记法，不可补造系统名、岗位或业务流程名。",
+          "视觉位置和分组不构成岗位直属汇报关系。"
+        ]
+      }
+    },
+    "G152/fig3-1": {
+      "source_pdf_sha256": "919c53bfa4259a4b3a9686762f37c0576a1cd2f8e77e74648826d9f9c84ed6e0",
+      "source_crop_sha256": [
+        "30ddb652af11c9009e3c0b09f4969cdbd534f5c973f0e34e8e2c6ba3c7e318e1"
+      ],
+      "source_pdf_pages": [
+        22
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "源图七个栈层中，价值链与能力之间没有紫色连线；实际五条向下箭头从能力层开始。",
+        "Service Management外框包含People与Support Services两条带，竖带从能力层起，跨业务/网络管理区域但不覆盖价值链行。"
+      ],
+      "edge_overrides": {
+        "0": {
+          "reason_zh": "Business Value Chains与Business Capabilities之间有白色间隔而没有箭头；旧解释补画了第六条向下关系。原文业务价值驱动风险评估不等于此处显式连线。",
+          "predicate": "unsupported_historical_relation",
+          "visual_explicit_connection": false,
+          "direction": "undirected",
+          "semantic_state": "rejected-unobserved",
+          "visual": {
+            "arrow": "none",
+            "line_style": "not-present"
+          }
+        }
+      },
+      "semantics_overrides": {
+        "reading_guide_zh": "先读七个业务栈层和右侧的业务/网络风险管理范围。紫色向下箭头从Business Capabilities开始，依次连到Business Processes、Business Services、Applications、ICT Infrastructure和Technical Components。价值链在顶部但与能力之间没有画线。左侧Service Management容器包含People与Support Services两条竖带，从能力层延伸至技术组件层。",
+        "key_points_zh": [
+          "七个栈层从业务价值链到技术组件；右侧大括号划分业务风险与网络风险的管理范围。",
+          "实际五条向下箭头起于Business Capabilities；Business Value Chains与其下一层没有画箭头。",
+          "Business Services→Applications跨管理范围边界，管理划分没有切断架构层间联系。",
+          "Service Management包含People与Support Services两条带，跨两种管理范围，未覆盖顶部价值链行。",
+          "图中风险管理范围是关注视角，不是部门或岗位的汇报关系。"
+        ],
+        "misreadings_zh": [
+          "不要把从上到下排列自动变成七层连续箭头；价值链至能力没有线。",
+          "不要将两个风险管理范围理解为两套完全独立的架构。",
+          "不要把竖带当成另几个流程步骤，或声称它们视觉上覆盖价值链行。"
+        ]
+      },
+      "line_semantics_zh": "五条紫色实心箭头：能力→流程→业务服务→应用→ICT基础设施→技术组件；箭头表达源图层间支撑/依赖，不是数据流。价值链至能力没有连线。大括号标范围，竖带相交范围不产生显式连线。"
+    },
+    "G190/figA-2": {
+      "source_pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+      "source_crop_sha256": [
+        "6f68a2f81012e840878368a6dcd81308f922e41a432e04f2fa919c24077df66b"
+      ],
+      "source_pdf_pages": [
+        23
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "四条Uses线画面箭头指向能力，但文字主语是能力使用信息；规范为能力uses信息，保留画面方向。",
+        "上部两个分组之间是概括关系；下部仅展开Investment management，不能推导其他能力与所有信息的全连接。"
+      ],
+      "edge_overrides": {
+        "0": {
+          "reason_zh": "Uses的语义是能力使用信息；画面箭头朝能力保存在visual，语义边用使用者→信息对象。",
+          "from": "grp_capabilities",
+          "to": "grp_information",
+          "predicate": "uses",
+          "direction": "subject-to-object"
+        },
+        "3": {
+          "reason_zh": "Uses的语义是能力使用信息；画面箭头朝能力保存在visual，语义边用使用者→信息对象。",
+          "from": "cap_investment",
+          "to": "info_investment",
+          "predicate": "uses",
+          "direction": "subject-to-object"
+        },
+        "4": {
+          "reason_zh": "Uses的语义是能力使用信息；画面箭头朝能力保存在visual，语义边用使用者→信息对象。",
+          "from": "cap_investment",
+          "to": "info_financial_instrument",
+          "predicate": "uses",
+          "direction": "subject-to-object"
+        },
+        "5": {
+          "reason_zh": "Uses的语义是能力使用信息；画面箭头朝能力保存在visual，语义边用使用者→信息对象。",
+          "from": "cap_investment",
+          "to": "info_financial_transaction",
+          "predicate": "uses",
+          "direction": "subject-to-object"
+        }
+      },
+      "line_semantics_zh": "Uses的虚线箭头在画面从信息指向能力，语义按能力uses信息保存；Modifies无向实线按标签读为能力修改信息。视觉方向与使用关系主语分别记录。"
+    },
+    "G234/fig4-9": {
+      "source_pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+      "source_crop_sha256": [
+        "d9e5126d7243f944d6d4c6ce3709e3d25a4ee2af06c3e5ad67aa0fc702e9d2a5"
+      ],
+      "source_pdf_pages": [
+        28
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "直接查看2019×425源栅格：人工和推送面板各有两条Int→Metadata Management Tool直连，人物/API在连线旁作注记，不是两段显式线的中转节点。",
+        "Pulling面板中工具箭头朝Agent，Agent箭头朝源数据库；它表达工具发起采集，不是元数据值流向数据库。",
+        "每个环境三只数据库图标中仅两只画有内部箭头；汇总节点表示源集合，不声称三只图标均有线。"
+      ],
+      "edge_overrides": {
+        "1": {
+          "reason_zh": "原图线端点为Int与Metadata Management Tool，人物/API只是邻线注记。",
+          "to": "p1_tool",
+          "visual": {
+            "to": "p1_tool"
+          }
+        },
+        "4": {
+          "reason_zh": "原图线端点为Int与Metadata Management Tool，人物/API只是邻线注记。",
+          "to": "p1_tool",
+          "visual": {
+            "to": "p1_tool"
+          }
+        },
+        "7": {
+          "reason_zh": "原图线端点为Int与Metadata Management Tool，人物/API只是邻线注记。",
+          "to": "p2_tool",
+          "visual": {
+            "to": "p2_tool"
+          }
+        },
+        "10": {
+          "reason_zh": "原图线端点为Int与Metadata Management Tool，人物/API只是邻线注记。",
+          "to": "p2_tool",
+          "visual": {
+            "to": "p2_tool"
+          }
+        },
+        "2": {
+          "reason_zh": "人物图标表达人工上传参与；原图没有人物图标作为端点的独立连线。",
+          "predicate": "participates_in",
+          "visual_explicit_connection": false,
+          "direction": "subject-to-object",
+          "visual": {
+            "line_style": "implicit",
+            "arrow": "none"
+          }
+        },
+        "5": {
+          "reason_zh": "人物图标表达人工上传参与；原图没有人物图标作为端点的独立连线。",
+          "predicate": "participates_in",
+          "visual_explicit_connection": false,
+          "direction": "subject-to-object",
+          "visual": {
+            "line_style": "implicit",
+            "arrow": "none"
+          }
+        },
+        "8": {
+          "reason_zh": "API是工具接口注记，与工具的关联来自位置及正文；没有从API徽标到工具的第二段独立箭头。",
+          "predicate": "association",
+          "visual_explicit_connection": false,
+          "direction": "undirected",
+          "visual": {
+            "line_style": "implicit",
+            "arrow": "none"
+          }
+        },
+        "11": {
+          "reason_zh": "API是工具接口注记，与工具的关联来自位置及正文；没有从API徽标到工具的第二段独立箭头。",
+          "predicate": "association",
+          "visual_explicit_connection": false,
+          "direction": "undirected",
+          "visual": {
+            "line_style": "implicit",
+            "arrow": "none"
+          }
+        },
+        "0": {
+          "reason_zh": "源数据库集合向Int汇入；原图三只图标中两只画线，此汇总边不声称每个数据库各有一条箭头。",
+          "scope_qualifier": "aggregate-source-symbols-two-visible-connectors"
+        },
+        "3": {
+          "reason_zh": "源数据库集合向Int汇入；原图三只图标中两只画线，此汇总边不声称每个数据库各有一条箭头。",
+          "scope_qualifier": "aggregate-source-symbols-two-visible-connectors"
+        },
+        "6": {
+          "reason_zh": "源数据库集合向Int汇入；原图三只图标中两只画线，此汇总边不声称每个数据库各有一条箭头。",
+          "scope_qualifier": "aggregate-source-symbols-two-visible-connectors"
+        },
+        "9": {
+          "reason_zh": "源数据库集合向Int汇入；原图三只图标中两只画线，此汇总边不声称每个数据库各有一条箭头。",
+          "scope_qualifier": "aggregate-source-symbols-two-visible-connectors"
+        },
+        "12": {
+          "reason_zh": "Agent向源数据库发起读取；是采集访问方向，不是元数据内容从工具流入源库。",
+          "scope_qualifier": "aggregate-source-symbols-two-visible-connectors"
+        },
+        "14": {
+          "reason_zh": "Agent向源数据库发起读取；是采集访问方向，不是元数据内容从工具流入源库。",
+          "scope_qualifier": "aggregate-source-symbols-two-visible-connectors"
+        }
+      },
+      "semantics_overrides": {
+        "reading_guide_zh": "三个面板是可选交换模式。Manual与Pushing中显式箭头直接从各环境Int指向Metadata Management Tool，人物与API作为旁注说明人工或接口方式；不能把旁注改画成两段独立线。Pulling中工具发起采集，箭头朝源端Agent，Agent读取源库；控制/访问方向与元数据回传方向不同。",
+        "line_semantics_zh": "灰色虚线直连Int与工具，并以人物旁注说明人工上传；黑色虚线直连Int与工具，以API旁注说明推送；拉取的黑色实线从工具到Agent。内部细灰线是源集合的部分示意连接，不证明每个图标都存在一根线。",
+        "misreadings_zh": [
+          "三个模式不是先后阶段。",
+          "人物与API旁注不是原图画出的独立中转节点；参与关系与接口注记应标为隐式。",
+          "拉取箭头是采集发起/访问方向，不代表元数据值写入源数据库。",
+          "每环境的数据库图标是来源集合示意，不能从图标数量生成实际数据库清单。"
+        ]
+      }
+    },
+    "G178/fig1-2": {
+      "source_pdf_sha256": "517130a041a8d956b2868dc39d570b84e2d80c64709e4c1368f9747388a3a026",
+      "source_crop_sha256": [
+        "8b26913017056805aa875bf02450a8e92445c77b718446657f5bf874a7fb195d"
+      ],
+      "source_pdf_pages": [
+        13
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "6个实体、8个具名关联均核对；黑三角是关系阅读方向，非额外实体或箭头尖端。Process operationalizes Capability/Value Stage、Capability enables Value Stage、Value Stream consists of Value Stage保持不同语义。"
+      ],
+      "edge_overrides": {
+        "0": {
+          "predicate": "participates_in",
+          "reason_zh": "黑三角位于标签旁并与线分离，是关系名称的阅读方向标记；保留语义主语到宾语。",
+          "visual": {
+            "arrow": "label-reading-direction-marker"
+          },
+          "direction": "subject-to-object"
+        },
+        "1": {
+          "reason_zh": "黑三角位于标签旁并与线分离，是关系名称的阅读方向标记；保留语义主语到宾语。",
+          "visual": {
+            "arrow": "label-reading-direction-marker"
+          },
+          "direction": "subject-to-object"
+        },
+        "2": {
+          "predicate": "receives",
+          "reason_zh": "黑三角位于标签旁并与线分离，是关系名称的阅读方向标记；保留语义主语到宾语。",
+          "visual": {
+            "arrow": "label-reading-direction-marker"
+          },
+          "direction": "subject-to-object"
+        },
+        "3": {
+          "reason_zh": "黑三角位于标签旁并与线分离，是关系名称的阅读方向标记；保留语义主语到宾语。",
+          "visual": {
+            "arrow": "label-reading-direction-marker"
+          },
+          "direction": "subject-to-object"
+        },
+        "4": {
+          "reason_zh": "黑三角位于标签旁并与线分离，是关系名称的阅读方向标记；保留语义主语到宾语。",
+          "visual": {
+            "arrow": "label-reading-direction-marker"
+          },
+          "direction": "subject-to-object"
+        },
+        "5": {
+          "predicate": "enables",
+          "reason_zh": "黑三角位于标签旁并与线分离，是关系名称的阅读方向标记；保留语义主语到宾语。",
+          "visual": {
+            "arrow": "label-reading-direction-marker"
+          },
+          "direction": "subject-to-object"
+        },
+        "6": {
+          "predicate": "operationalizes",
+          "reason_zh": "黑三角位于标签旁并与线分离，是关系名称的阅读方向标记；保留语义主语到宾语。",
+          "visual": {
+            "arrow": "label-reading-direction-marker"
+          },
+          "direction": "subject-to-object"
+        },
+        "7": {
+          "predicate": "operationalizes",
+          "reason_zh": "黑三角位于标签旁并与线分离，是关系名称的阅读方向标记；保留语义主语到宾语。",
+          "visual": {
+            "arrow": "label-reading-direction-marker"
+          },
+          "direction": "subject-to-object"
+        }
+      }
+    },
+    "G190/figA-1": {
+      "source_pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+      "source_crop_sha256": [
+        "34e001a94e39f033d74b28d8a5df7a54beb076b2f283992dbd1b792971bfdeb1"
+      ],
+      "source_pdf_pages": [
+        22
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "9个业务对象与10条关系核对：Customer端空菱形聚合Insurance File；文件端实心菱形组合Request/Policy/Claim；四种保单特化Insurance Policy。"
+      ]
+    },
+    "G190/figA-3": {
+      "source_pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+      "source_crop_sha256": [
+        "c323962a33540f108e75dbe6ecfde203b241fd81966c373f3e0adc8b54bbb392"
+      ],
+      "source_pdf_pages": [
+        24
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "6个类、7条无名无向关联端点逐一核对；类内属性不是新的业务实体，不补造关系动词。"
+      ]
+    },
+    "G190/figA-4": {
+      "source_pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+      "source_crop_sha256": [
+        "27660498bace6718447378578f753768c7887428247d1b153db57b15bb6d9f03"
+      ],
+      "source_pdf_pages": [
+        25
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "Customer端1..2与Account端1..*按原图保留；每账户关联1至2位客户、每客户关联至少1个账户。"
+      ]
+    },
+    "G190/figA-5": {
+      "source_pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+      "source_crop_sha256": [
+        "30fa47b2f6db6130c4e1d5f88feae619d6d49d36e957fbc4fba802f11735fe44"
+      ],
+      "source_pdf_pages": [
+        26
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "六实体七条关系、圈/竖杠/鸦爪端符逐条核对；不以常见银行业务常识改写此图不寻常的基数。Employee原图属性Telephone_Numer的拼写保持。"
+      ]
+    },
+    "G21D/fig1-1": {
+      "source_pdf_sha256": "220ead5fef846c52417b9b7a915ff4a64f327680b384c369840926b85958786a",
+      "source_crop_sha256": [
+        "d0379fad4c81c0f6364f7e2dea27acf4038594598ec9539db69e7a55f553a703"
+      ],
+      "source_pdf_pages": [
+        23
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "L1 Sector侧实心菱形连接L2 Function；L2侧实心菱形连接L3 Service，为组成，未规定基数或组织岗位汇报。"
+      ],
+      "edge_overrides": {
+        "0": {
+          "reason_zh": "组成由上端实心菱形表示，图没有普通箭头；语义仍是整体→部分。",
+          "visual": {
+            "arrow": "none"
+          },
+          "direction": "subject-to-object"
+        },
+        "1": {
+          "reason_zh": "组成由上端实心菱形表示，图没有普通箭头；语义仍是整体→部分。",
+          "visual": {
+            "arrow": "none"
+          },
+          "direction": "subject-to-object"
+        }
+      }
+    },
+    "G21B/fig6-1": {
+      "source_pdf_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+      "source_crop_sha256": [
+        "faab3228ee44af806c0cbb2d18e9964f7be08b1a7f7b4f16343c708845a83567"
+      ],
+      "source_pdf_pages": [
+        49
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "Consolidation三源→MDM；Cooperation四条双向线；Centralized四条MDM→源端单向线已逐箭头核对。"
+      ]
+    },
+    "G238/fig3-2": {
+      "source_pdf_sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+      "source_crop_sha256": [
+        "1cafd3ef90c480e5fa94ce7d6dd1e2f628eee228ad8bf5182112d1ff5f7cd03b"
+      ],
+      "source_pdf_pages": [
+        20
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "13条平台间/外部数据流逐端点核对，EDW和新平台均向Data Mart #3输出，Application #3同时有出站/入站。数据库access关系来自附属图标，不是额外显式数据流。"
+      ]
+    },
+    "G238/fig3-3": {
+      "source_pdf_sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+      "source_crop_sha256": [
+        "5fe962dd12c09264d555e93c1e7abe2ef0db288a0e0ebbfa0373fc5f6cea772e"
+      ],
+      "source_pdf_pages": [
+        22
+      ],
+      "scope": "original-crop-and-relevant-English-page",
+      "findings_zh": [
+        "17条数据流逐端点核对；两个平台双向联系，App #2/#3双向，事务应用#1仅到新平台，#2和嵌入BI应用同时到两平台。"
+      ]
+    }
+  },
+  "audit_summary": {
+    "reviewed_figures": 13,
+    "correction_figures": [
+      "G152/fig5-2",
+      "G152/fig3-1",
+      "G190/figA-2",
+      "G234/fig4-9",
+      "G178/fig1-2",
+      "G21D/fig1-1"
+    ],
+    "scope_exclusions": [
+      "G198",
+      "G249",
+      "G248",
+      "G233"
+    ],
+    "limitations_zh": [
+      "未逐图复核剩余全部指南插图；这里只宣称列出图的指定事实复核。",
+      "无文字的抽象形状以记法占位符保存，不命名实际业务实例。"
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": "forward-acceptance/1",
+  "passed": true,
+  "checks": [
+    {
+      "id": "recommendation-from-raw-target-and-experiment",
+      "passed": true,
+      "actual": {
+        "option": "A-central-synchronous",
+        "A_p95": 160,
+        "B_p95": 420,
+        "limit": 300
+      }
+    },
+    {
+      "id": "unknown-case-retains-missing-consistency",
+      "passed": true,
+      "actual": "no optimum selected"
+    },
+    {
+      "id": "capacity-and-period-from-raw-material",
+      "passed": true,
+      "actual": {
+        "roles": 4,
+        "period": "2026-11-09/2026-12-04",
+        "real_approval": "not-granted"
+      }
+    },
+    {
+      "id": "development-reassessment-traces-new-behavior",
+      "passed": true,
+      "actual": "unknown -> course/no change -> new behavior review; not runtime-inferred promotion"
+    },
+    {
+      "id": "policy-change-propagates-to-interface-risk-operations-transition-tests",
+      "passed": true,
+      "actual": {
+        "object_id": "CAP-RESERVE",
+        "change_type": "business-policy-change",
+        "required_review_object_ids": [
+          "IF-RECOVERY",
+          "RISK-STOCK",
+          "TRANS-OFFLINE",
+          "DELIVERY-NOTE"
+        ],
+        "projection_issues": [],
+        "approval": "not-inferred"
+      }
+    },
+    {
+      "id": "reject-stale-policy-IF-RECOVERY",
+      "passed": true,
+      "actual": [
+        "policy-projection-stale"
+      ]
+    },
+    {
+      "id": "reject-stale-policy-RISK-STOCK",
+      "passed": true,
+      "actual": [
+        "policy-projection-stale"
+      ]
+    },
+    {
+      "id": "reject-stale-policy-TRANS-OFFLINE",
+      "passed": true,
+      "actual": [
+        "policy-projection-stale"
+      ]
+    },
+    {
+      "id": "reject-stale-policy-DELIVERY-NOTE",
+      "passed": true,
+      "actual": [
+        "policy-projection-stale"
+      ]
+    },
+    {
+      "id": "editorial-rename-preserves-policy",
+      "passed": true,
+      "actual": {
+        "object_id": "CAP-RESERVE",
+        "change_type": "editorial-only",
+        "required_review_object_ids": [],
+        "projection_issues": [],
+        "approval": "not-inferred"
+      }
+    },
+    {
+      "id": "no-unconfirmed-logistics-handoff",
+      "passed": true,
+      "actual": "all variants gate logistics on confirmation"
+    },
+    {
+      "id": "cross-view-observation-role-and-policy-semantics",
+      "passed": true,
+      "actual": "observation-role edges and resolved policy agree with original material"
+    }
+  ],
+  "counts": {
+    "checks": 12,
+    "passed": 12,
+    "failed": 0
+  },
+  "input_sha256": {
+    "maintenance/cases/omnichannel/sufficient-business-materials.md": "ff6a4f5de8c26e08f26dce7d6dcbcc540a8fc564bda228bc25945a365a3ccc9b",
+    "maintenance/cases/omnichannel/sufficient-role-skill-inputs.json": "86fa2f7d02d45c1dc8ce1a254b040ff4a8d40c563dc966cfb918de6dd703a459",
+    "maintenance/cases/omnichannel/forward_acceptance.py": "62ae22a5abfe5452735529bbf06195407610acbfa7720d338c2227d89b51c875"
+  },
+  "review_independence_zh": "不同验证程序直接从原始材料核对，不调用案例构建器；同一实现者复核，尚非不同评审人盲审。",
+  "real_business_approval": "not-granted"
+}

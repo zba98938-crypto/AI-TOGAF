@@ -1,0 +1,2472 @@
+{
+  "schema_version": "procedural-method-behavior-review/2",
+  "date": "2026-11-08",
+  "scope": "44 current methods without calculator; AI review of candidate teaching outputs and supplemental model-to-artifact runs; no blind Agent method execution or human business acceptance",
+  "reviewer_kind": "AI-implementation-agent",
+  "accepted": false,
+  "case_reviews": [
+    {
+      "method_id": "scenario-elicitation",
+      "case_path": "skills/_shared/references/method-cases/scenario-elicitation.md",
+      "case_sha256": "2885e81fd1fdcc3ee5bc0a5e498c7db3b430f0ae72cbfb21279dd6eda738b6e4",
+      "method_sha256": "55a911d1ae69a558156682a390e7007cde04b2c74eb823eed97c086e2ee01277",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "sc-1/sc-2/sc-3不能证明全局性能根因；30张仅样本内12+8+3+7且未知不分摊。补充七领域、FOLLOWUP-1/2和BAS-001/002后八步骤可在候选文档中定位。",
+      "adverse_or_changed_input_review": "sc-3改为损坏漏登记时撤回同步瓶颈，sc-4给有效期后才关闭GAP-1。",
+      "limitations": "仍缺全量分母、成本、法规、容量、验收与真实执行。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "拆分陈述",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "亲和归类",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "保持原始到归一化映射",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "验证前提",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "形成需求",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 6,
+          "declared_step": "按G176 §7.2七个问题领域访谈：识别、记录并排序问题：问“需要完成什么”而非“如何做”，并问清何处、何时与成本；识别业务与技术环境：关键流程、内外部位置规模、业务规则法规、技术组件、约束与原则；识别并记录目标：为“做什么”要可度量的理由（回报、扩展、性能、标准、易用）；识别人的参与者及其在业务模型中的位置，从开发、维护、运维、管理和用户视角询问；识别计算机参与者及其在技术模型中的位置；记录角色、职责、成功度量与所需脚本；检查适用性：是否足以识别谁能满足需求、何时与多频繁",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 7,
+          "declared_step": "标记问题陈述是“做什么”还是“如何做”；过于具体或模糊时追问并记录追问",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 8,
+          "declared_step": "按G176 §8把主要发现放正文、细节放附录，模型编号并保持简洁",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "2885e81fd1fdcc3ee5bc0a5e498c7db3b430f0ae72cbfb21279dd6eda738b6e4"
+    },
+    {
+      "method_id": "business-impact-method",
+      "case_path": "skills/_shared/references/method-cases/business-impact-method.md",
+      "case_sha256": "1af1d8f7dd41107c7568a8c32ded7f23c60feadc3cbb749cb100e0f802d41fc5",
+      "method_sha256": "2a08073200e88b1ef024ef9c5ef26cd6f876ed23b3dd624ba2670753d5b193f2",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "bia-1只支持分段后果，2小时至半天未知；bia-3的4h/1h为候选恢复目标，影响不含概率。",
+      "adverse_or_changed_input_review": "一天离线受理不证明审核恢复；单一财务公式不许可合成四维总分。",
+      "limitations": "依赖是候选，损失金额、隐私与恢复设施成本未证明。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "识别失败影响",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "评价业务关键性",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "形成风险领域",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "供风险评估使用",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "1af1d8f7dd41107c7568a8c32ded7f23c60feadc3cbb749cb100e0f802d41fc5"
+    },
+    {
+      "method_id": "capability-decomposition-method",
+      "case_path": "skills/_shared/references/method-cases/capability-decomposition-method.md",
+      "case_sha256": "7f46ef8d636dbfddf3fb480da1b982f695f33cc0eba01603a29a4be0976431bf",
+      "method_sha256": "1d07497592ab97f274361522dcee4f3ea05cbcde64c8d65fa3180fcde5d2a581",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "cap-1至3支持承诺/变更/状态三子能力；网站、组织、按钮、应用仍保留但不作为decomposes子能力。",
+      "adverse_or_changed_input_review": "组织分拆只改映射，新增订阅需业务语义判断，能力合并不自动合权限。",
+      "limitations": "特殊取消授权与外部协作接口待补；分类是候选。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "稳定命名",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "分同层粒度",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "检验分解覆盖",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "保持组织和实现独立",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "7f46ef8d636dbfddf3fb480da1b982f695f33cc0eba01603a29a4be0976431bf"
+    },
+    {
+      "method_id": "capability-instance-gap-method",
+      "case_path": "skills/_shared/references/method-cases/capability-instance-gap-method.md",
+      "case_sha256": "ef87fe00a1d36446010dee77b6fdb86a16bcf96a747f73e34be8b438fd8c1366",
+      "method_sha256": "6101166c716f86558bbfcd251c86bba5832e5092ead804a07de1f29f982939e3",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "I-WEB-B/T共概念但对象分开，I-STORE是不同语境；四类组成逐项比较，名称相同不证明API兼容。",
+      "adverse_or_changed_input_review": "门店不兼容仅影响共享API假设，客服与OMS复用仍成立；扩大需要对账和回退。",
+      "limitations": "T3条件未量化、成本工期无依据；已删除变化性质对应工作量等级。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "对齐类型实例",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "比较人员流程应用数据",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "分类优化整合新建退役",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "组织可交付增量",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "ef87fe00a1d36446010dee77b6fdb86a16bcf96a747f73e34be8b438fd8c1366"
+    },
+    {
+      "method_id": "value-stream-definition-method",
+      "case_path": "skills/_shared/references/method-cases/value-stream-definition-method.md",
+      "case_sha256": "b0865ae5e46851bbb6ad589ffe88c74afe98ac70ba1ed802d921b2a61f037ba4",
+      "method_sha256": "e01ee92a133984c6b01745baa6daf1cdf2bda7ca1f0e085a288b23a7f5e6dcd2",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "vs-1至3支持顾客取得可用商品四阶段；接收与可用性确认区分，C-2/C-4复用同ID。",
+      "adverse_or_changed_input_review": "自提改实现保持价值阶段，供应商收款须新价值流；新增验收记录不等于退出条件满足。",
+      "limitations": "无完成时限、损坏率、正式问责人；未生成有业务验收的流程。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "确定最终价值",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "定义阶段进入退出",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "关联使能能力",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "识别阶段差距",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "b0865ae5e46851bbb6ad589ffe88c74afe98ac70ba1ed802d921b2a61f037ba4"
+    },
+    {
+      "method_id": "metadata-requirement-method",
+      "case_path": "skills/_shared/references/method-cases/metadata-requirement-method.md",
+      "case_sha256": "c5827bbb6fa61130aaf6feb094eecff04c9d6e60a5b65a7a682ea81c1786a134",
+      "method_sha256": "040d3240dab32dc1cb490094e240b96d40c020606beb187f44ec983636d524fb",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "mr-1有口径差异但未证明12万元全由此引起；两个术语版本、两看板范围和有向血缘分别保留。",
+      "adverse_or_changed_input_review": "新增报表复用术语，新口径追加版本；血缘无法拼接先记实现缺口。",
+      "limitations": "隐私/授权和跨工具可行性未知，不给正确值或平台选型。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "自上而下或自下而上引出需求",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "定义类别质量",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "限定资产范围",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "形成概念逻辑模型",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "c5827bbb6fa61130aaf6feb094eecff04c9d6e60a5b65a7a682ea81c1786a134"
+    },
+    {
+      "method_id": "metadata-integration-tradeoff",
+      "case_path": "skills/_shared/references/method-cases/metadata-integration-tradeoff.md",
+      "case_sha256": "7aa6a721ffaeb469a194532bd396cb0b09f9bbb8e1a78bf11d245594c5f8e260",
+      "method_sha256": "4dcced2d61a3afd1ffcccb42e28823c9dbfef542ae2f896989bd171e4837e714",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "mi-1主控约束排除两个方式，Hybrid候选；主控方式与采集机制两维区分，拉取请求和返回方向不同。",
+      "adverse_or_changed_input_review": "日志改推送不改变主控方式；禁止副本只撤回pull，不撤DDL推送。",
+      "limitations": "日志手工接入只是候选；成本、许可、受控副本时效与接口测试未知。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "比较集中混合统一",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "独立比较手工推送拉取",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "定义协作契约",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "评估代价",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "7aa6a721ffaeb469a194532bd396cb0b09f9bbb8e1a78bf11d245594c5f8e260"
+    },
+    {
+      "method_id": "mdm-identity-analysis",
+      "case_path": "skills/_shared/references/method-cases/mdm-identity-analysis.md",
+      "case_sha256": "a17944e5c2fe91473136331174fcc2a17d0da9641fe88aad115fb836d7487e43",
+      "method_sha256": "fe24000543c356ab85073c985cedd16b691f3d79e33c359af64b307270b042de",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "mdm-2核验支持CRM-42/WEB-8同人，CRM-77未合并不等于排除；同意分目的，来源标识分命名空间。",
+      "adverse_or_changed_input_review": "家庭成员纠正追加映射版本并更正下游，不迁移原人的同意；主写能力变化仍需治理。",
+      "limitations": "核验人和时点、同意存储及CRM-77关系待补。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "分析内核客户概念",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "明确匹配合并",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "选择集成风格",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "定义交换和治理",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "a17944e5c2fe91473136331174fcc2a17d0da9641fe88aad115fb836d7487e43"
+    },
+    {
+      "method_id": "bi-transition-method",
+      "case_path": "skills/_shared/references/method-cases/bi-transition-method.md",
+      "case_sha256": "523ef33062a76432e2e23bf158f533d8f6217e8578c5a831186a356dd61b61c6",
+      "method_sha256": "3cf9899798e3d9f91b8ada8d1d258cf9342624de48e3cff31912b4cbd06ffd7a",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "bi-1至3明确月结可复现、7连续工作日完全对账；T1只读候选与T2供EDW方向分开，不从目标框推退役。",
+      "adverse_or_changed_input_review": "第5日差异重置连续窗口；可解释差异仍不满足原门槛，回写需另加控制。",
+      "limitations": "B0/T3条件明细、值班和演练、厂商、监管留存未验证。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "对齐状态",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "设计多过渡共存",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "区分入站出站回写",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "验证运营与迁移依赖",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "523ef33062a76432e2e23bf158f533d8f6217e8578c5a831186a356dd61b61c6"
+    },
+    {
+      "method_id": "microservice-boundary-method",
+      "case_path": "skills/_shared/references/method-cases/microservice-boundary-method.md",
+      "case_sha256": "152c2758d6f47427e1105949623129c9003d1aa14ea2b3deb0d918fc88d36a09",
+      "method_sha256": "45cc619bae15fefb869e67bc9306f931f066f39aca600e82838b86e275c4e896",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "ms-1至3支持三边界候选和单体备选；候选写权、事件回传是设计选择，单库事务不独自证明所有权。",
+      "adverse_or_changed_input_review": "独立库存权威改变写权及补偿，补3倍峰值只是目标不证明达标。",
+      "limitations": "运维容量、恢复与追踪待证明；没有最优服务数或性能比较。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "比较边界",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "评价独立性和耦合",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "定义技术指南",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "记录服务价值与资源",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "152c2758d6f47427e1105949623129c9003d1aa14ea2b3deb0d918fc88d36a09"
+    },
+    {
+      "method_id": "architecture-project-scheduling",
+      "case_path": "skills/_shared/references/method-cases/architecture-project-scheduling.md",
+      "case_sha256": "d2aa4c592617983395f90dc29eeff7f0b4a662aef0b5c9e864de463fe8b749c2",
+      "method_sha256": "3f5f8ca1aa02cac0f74785f5b1f33091156da7a6584ee7a97b5d21d86b49cbbf",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "sch-1技术下界9工作日，sch-2互斥后12；先B或先C同12，不将资源序列冒充业务前置。",
+      "adverse_or_changed_input_review": "B压至2日为11而非9，增人并行才9；D未决只支持E草稿。",
+      "limitations": "工作日历、工期风险与资源请假未知，不给日历承诺。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "按成果分解",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "估算活动",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "安排资源和里程碑",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "在完整输入下分析关键路径",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "d2aa4c592617983395f90dc29eeff7f0b4a662aef0b5c9e864de463fe8b749c2"
+    },
+    {
+      "method_id": "sustainability-option-review",
+      "case_path": "skills/_shared/references/method-cases/sustainability-option-review.md",
+      "case_sha256": "40ea5b65fbebd882a4668e6f8b55d6258af9c5c7fe7e7b72e2d3e53f77c9d613",
+      "method_sha256": "6796d1ea6515fb8afc145bfa83e7296c017853da24fb072396f74569ed468c1d",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "运营kg/年与制造一次kg分列，-391/-160差额可复算；历史制造不因退役成为负排放。",
+      "adverse_or_changed_input_review": "明确3年同边界情景1407/950，交点1150/231；延寿性能未知仍阻断业务可行。",
+      "limitations": "供应商制造边界/置信度、成本与评估规则待确认，原图-390冲突保留。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "记录新增退役与净值",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "比较措施",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "保留权衡",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "记录债务和复评",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "40ea5b65fbebd882a4668e6f8b55d6258af9c5c7fe7e7b72e2d3e53f77c9d613"
+    },
+    {
+      "method_id": "reference-model-tailoring",
+      "case_path": "skills/_shared/references/method-cases/reference-model-tailoring.md",
+      "case_sha256": "2650793a1d3da17e91e3d7cd0e6c74db34985ddb22fc6aa6e7bdf6e447c56bfc",
+      "method_sha256": "3e3b4a3ea70ee701106a016c33b716d43ad26b910065f398822aac02afd6d7bc",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "ref-1/2将支付范围外依赖、国防职责外与安全待调查分开；本地功能不因参考域变成组织。",
+      "adverse_or_changed_input_review": "新增缴费与参考升级追加版本，安全调查可变采用或责任缺口，不自动不适用。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "识别适用结构",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "映射本地概念",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/reference-model-tailoring.json",
+          "supplement_sha256": "7d01a3bac1f969ec1108d660cfad72354a74f57a1981cbda08b51fd2c99bcfa1"
+        },
+        {
+          "position": 3,
+          "declared_step": "记录不适用与缺口",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "定义后续验证",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "45bdb39266c5889c3fc02e79bb7fde0825e9f1f3bd049d610a625d5f9b1d663f",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "缺具体reference_item ID和完整源目录，不证明完整映射。"
+    },
+    {
+      "method_id": "architecture-backlog-method",
+      "case_path": "skills/_shared/references/method-cases/architecture-backlog-method.md",
+      "case_sha256": "6e332e7637732fab2d25630c7ed7e386e446393359b7d9b38df205cb958079bc",
+      "method_sha256": "0f5f2c2dae0c4375cf3b489928a01b01dad1e3ce1a9f9d0069ac1c525d782115",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "BR-05排序来源明确，2+1+1=4只是容量约束；BL-02依赖BL-01，BL-04未选仍保留，规划快照不回写。",
+      "adverse_or_changed_input_review": "估算API变3后6>4，单移审计仍5>4，身份+审计3可行但选择须业务判断。",
+      "limitations": "BL-02的未完成结果属DORP，未批准下一冲刺。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "将每项业务需求归一为稳定ID，保留来源、价值、责任人与验收条件；未知不填零。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "依据利益相关者给定排序及依赖确定候选顺序；没有权重时不计算分数。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "区分业务变革范围与团队冲刺范围；以相同ID选择近期工作，记录目标与容量。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "核对前置工作及所选估算是否在声明容量内；未知估算不能给出容量通过。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "以演示证据更新状态；未完成项回流业务待办，保存历史且不自动承诺下一冲刺。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "6e332e7637732fab2d25630c7ed7e386e446393359b7d9b38df205cb958079bc"
+    },
+    {
+      "method_id": "dorp-record-method",
+      "case_path": "skills/_shared/references/method-cases/dorp-record-method.md",
+      "case_sha256": "5deb2c7f1047f9c93914fc34d6d2ac4a6ac182c40d4f5e372472e7d510e1819c",
+      "method_sha256": "ec447a9a0e31b8570d3c86fc6183b862fb7171eb6684833630c9f71825a7029c",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "BR-06/07目标需要完整契约，完成2项不等于达成目标；BL-02回流，新短信需求null估算。",
+      "adverse_or_changed_input_review": "11月9日补契约只新增历史，11月6日未达成不改写；行动有日期不等于批准。",
+      "limitations": "下一轮批准与新需求澄清仍无证据。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "先固定本次冲刺目标和评审时点，不因结果不好而改写目标。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "按Demo记录实际展示和未展示内容；按Outcome核对目标与成果。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "按Retrospective解释偏差与可改进做法，不将推测当根因事实。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "按Planning形成有责任人与依据的下一步建议；未完成项回到业务待办。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "新需求先登记澄清，不自动承诺下一冲刺；保留历史与后续补充。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "5deb2c7f1047f9c93914fc34d6d2ac4a6ac182c40d4f5e372472e7d510e1819c"
+    },
+    {
+      "method_id": "decision-delegation-register-method",
+      "case_path": "skills/_shared/references/method-cases/decision-delegation-register-method.md",
+      "case_sha256": "454cea52e58757f3f68a9cc720509ee0853d168f00cff7d843cd151d382f4df1",
+      "method_sha256": "d9bc800c001485587e7c68aa6b7ae28fba8e78cecf9fd3dad16cd293432cc818",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "BR-09至11是consult/agree/delegate的项目提议，各有范围与护栏，三项proposed；可逆性不自动生成授权名称。",
+      "adverse_or_changed_input_review": "外部消费者使DEC-01可逆性unknown并扩大参与，仍proposed；超护栏需重评而非自动agree。",
+      "limitations": "没有正式授权证明或变更后的完整回退证据。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "为具体决策划清范围、受影响方及护栏。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "记录reversible/irreversible/unknown及依据；未知不能默认为可逆。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "可选引用七授权名称tell/sell/consult/agree/advise/inquire/delegate，逐条用项目语言明确定谁决定、谁参与。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "不可逆或可逆性不明时明确更广群体及需补证据；不从数值等级自动推导批准。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "记录提案、批准证据与复评触发，授权状态与架构实现状态独立。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "454cea52e58757f3f68a9cc720509ee0853d168f00cff7d843cd151d382f4df1"
+    },
+    {
+      "method_id": "architecture-description-formality-review-method",
+      "case_path": "skills/_shared/references/method-cases/architecture-description-formality-review-method.md",
+      "case_sha256": "ee1e12bd9f697af7a28d7e30df06c3c108a72528ddabcc0f5ab9aa37612f4f42",
+      "method_sha256": "6c69516136f53eaebcf26d3e98f5a4195b1a1e61320891f584b030355fdb4853",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "BR-12至14对应三种决策，语法/版本控制不证明内容充分；BR-20两判断独立，不加权。",
+      "adverse_or_changed_input_review": "取消语义补齐仅变内容充分性，候选批准不变；访谈改上线决策需更深材料。",
+      "limitations": "DESC-01冲突分支、最低草图控制待补，未授发布许可。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "定义该描述要支持的决策与范围，不能泛称“架构是否完整”。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "逐关注点核对内容及证据，判断sufficient-for-stated-decision/insufficient/unknown。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "独立列当前与所需正式控制（如术语、记法、版本、审阅证据），判断适合、缺少或过度并给理由。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "识别复杂系统缺文档或未验证概念就强制全面建模的极端，按当前目的提出最小补充。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "演进状态、审批状态另列；不把approved/target当作正式度。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "ee1e12bd9f697af7a28d7e30df06c3c108a72528ddabcc0f5ab9aa37612f4f42"
+    },
+    {
+      "method_id": "technical-debt-register-method",
+      "case_path": "skills/_shared/references/method-cases/technical-debt-register-method.md",
+      "case_sha256": "97e784d7ce265961fa4f524d1d19ad764bae00784a202ec49a8b509d44b0db26",
+      "method_sha256": "578e9f101a2c9ba1123fee5b9b7a3df61ab9123e631253c17a07d1c02a76faeb",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "BR-15跨产品债与BR-16局部债分工，成本unknown；BR-20要求交付+验证+复核，排期不能关闭。",
+      "adverse_or_changed_input_review": "单TEST-03缺交付仍不开关；新增1次×2h×300可600/周，52周31200只是另声明情景。",
+      "limitations": "DEBT-01/02验证方案、估算与真实责任接受未取得。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "从问题记录识别债务及来源，区分技术局部问题与架构跨产品问题。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "描述影响、原因及不确定性，不凭债务比喻生成利率/金额。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "判断是否需EA协调；仅局部债可交产品团队，说明理由。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "比较偿还候选与资源/依赖，关联待办、标准、复用或变更记录。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "按声明的项目关闭规则收集修复、验证和复核证据，不能凭排期关闭。",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "97e784d7ce265961fa4f524d1d19ad764bae00784a202ec49a8b509d44b0db26"
+    },
+    {
+      "method_id": "mdm-operational-ten-questions-method",
+      "case_path": "skills/_shared/references/method-cases/mdm-operational-ten-questions-method.md",
+      "case_sha256": "91893f4217ac383e5c7e986bb314a23995b53ae820fefd3b78fe463a718a3ae6",
+      "method_sha256": "076f57981f5088e7ab6c11260a8bb35ec086c1d766c49b36dbe9e810c754eda4",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "十问实际2是/3部分/2否/3未知；所有者未定不证明无人治理，同意未知不写无流程。",
+      "adverse_or_changed_input_review": "任命仅将第3问否→是，第4问仍需治理证据，分布3/3/1/3。",
+      "limitations": "完整来源问题ID与问题是否逐字等价另须核；本轮不授成熟度。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "保持十问题ID与原问题含义",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "逐项取证，区分否定、未知、部分和不适用",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "将缺口映射行动、责任、影响；不得按yes比例冒充成熟度",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "91893f4217ac383e5c7e986bb314a23995b53ae820fefd3b78fe463a718a3ae6"
+    },
+    {
+      "method_id": "mdm-four-plateau-operations-method",
+      "case_path": "skills/_shared/references/method-cases/mdm-four-plateau-operations-method.md",
+      "case_sha256": "e64fbad4172bfdaceaeb12a9d492ab0dff81cef23c9def11d93c4cac62f263f4",
+      "method_sha256": "feb565126ce32d31a4328ac4369d258d1015b5378ed8b1cae6903ae56229fee9",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "三个本地候选态不冒充四种源平台态；读用途不免读授权，P2责任/授权/恢复/监控齐备前不运营。",
+      "adverse_or_changed_input_review": "只补两项仍不运营，错合并恢复需重指消费者并保留历史交易。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "识别当前主控和可用业务能力",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-four-plateau-operations-method.json",
+          "supplement_sha256": "9b2acce6806a4a4720c699715de3118e61efd4367d25c52ee22f7ac4ba803f2b"
+        },
+        {
+          "position": 2,
+          "declared_step": "分开分析黄金记录与运营主控",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "逐状态验证用例/质量/授权/恢复/支持条件",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-four-plateau-operations-method.json",
+          "supplement_sha256": "9b2acce6806a4a4720c699715de3118e61efd4367d25c52ee22f7ac4ba803f2b"
+        },
+        {
+          "position": 4,
+          "declared_step": "选择演进触发，不强制固定四期",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "3e4a8f7b4332a965cfeb1f47e28e3e59e9f6d42179eac7772528bcfb5c442bae",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "四个来源平台态逐一映射和真实恢复/监控缺失。"
+    },
+    {
+      "method_id": "mdm-match-merge-arbitration-method",
+      "case_path": "skills/_shared/references/method-cases/mdm-match-merge-arbitration-method.md",
+      "case_sha256": "7f0b9ce832b38f59db9ee20d5596ff9c77aa82ca4fa496980cc09776ccd9a023",
+      "method_sha256": "23ce66ea0b45fc7aba8701cfc72d5b35052ce8c21462859168d7c355f60872ce",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "mdm-m3同证件只是候选门；R17/R92不合并不证明不同自然人，R18/R54待核独立证据。",
+      "adverse_or_changed_input_review": "确认同人仅关闭核验缺口，撤销规则仍先补；撤销需重指向、更正、留痕。",
+      "limitations": "强标识核验与消费者恢复规则未取得，无匹配阈值。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "区分业务键、技术键与姓名属性",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "按给定规则提出候选，不直接自动合并",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "人工判定并保留来源/版本/证据",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "执行前验证可取消合并与历史语义",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "7f0b9ce832b38f59db9ee20d5596ff9c77aa82ca4fa496980cc09776ccd9a023"
+    },
+    {
+      "method_id": "ea-service-emergence-npd-method",
+      "case_path": "skills/_shared/references/method-cases/ea-service-emergence-npd-method.md",
+      "case_sha256": "ce7f523fa22ca8d0bbe0d733072c12763f4e3d1072976acad2053f9c23074ea7",
+      "method_sha256": "a7c302db151bbd72917f01b3c35a3ef06640eb80e361614498a87c34853249a6",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "ea-n1至4项目时序支持首次N、沿用P、深化D，不是完成状态；原图未核实逐格保留。",
+      "adverse_or_changed_input_review": "合规前移重定位N，后续P/D须各有延续/深化证据，不能自动全P或D。",
+      "limitations": "矩阵只有项目记录，原图逐格未核实。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "按服务梳理首次出现与后续范围",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "N只用于首次引入，P表示沿用，D要求明确新增深度",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "记录项目证据与原图证据两个状态，不混称相同",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "ce7f523fa22ca8d0bbe0d733072c12763f4e3d1072976acad2053f9c23074ea7"
+    },
+    {
+      "method_id": "ea-service-adm-evidence-map-method",
+      "case_path": "skills/_shared/references/method-cases/ea-service-adm-evidence-map-method.md",
+      "case_sha256": "0baf2f8b68a73d351f012ee466744fdc35f0020a88fb90eea520c693ff87bc7d",
+      "method_sha256": "57b844528aef68569f955e342dad278c044a632a222d66ea84cf305519aaf0b7",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "ea-a1/2是A/H使用记录，ea-a3仅G准备输入；B-F未记录不等于不需要。",
+      "adverse_or_changed_input_review": "B新使用另列输入输出，单格原图核实不授整表；合规输入不等于评审结论。",
+      "limitations": "源C-1逐格、完整输入与实际消费记录待补。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "先明确服务输出与消费者决策",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "由项目活动确定使用阶段",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "分别登记来源映射和项目映射",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "未知原图格不推断不适用或唯一阶段",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "0baf2f8b68a73d351f012ee466744fdc35f0020a88fb90eea520c693ff87bc7d"
+    },
+    {
+      "method_id": "msa-contract-consumer-evidence-method",
+      "case_path": "skills/_shared/references/method-cases/msa-contract-consumer-evidence-method.md",
+      "case_sha256": "f62ed1e9548f99699e05b7e8d4837e591a60e487f79b12f8945672ed985fb466",
+      "method_sha256": "eec98a59f6ca3ef3ebecef13c37a35327d94a6221facf3f5a9fb6ad385e997ad",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "msa-c2两1.0消费者，移动端拟用单列；新增枚举可能破坏穷举消费者，不因增加而安全。",
+      "adverse_or_changed_input_review": "测P95=180只支持该负载延迟，不支持月可用99.5%；承诺需协商。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "从业务功能界定服务范围和ABF",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "列契约/API/版本与消费者状态",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "检查NFR、凭据及地址可发现性",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/msa-contract-consumer-evidence-method.json",
+          "supplement_sha256": "26c0044e19c4aa4d661f2d9387d2d37c2bcb987c43f3d6f044a8a0e861e7942e"
+        },
+        {
+          "position": 4,
+          "declared_step": "分析新增消费者或字段改变的兼容与治理影响",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "4d4e581ab10c1fdcd549170d1d946484b835ad03a42889558a397c58b72fe4db",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "独立部署、地址发现、权限与消费者未知码处理未验证。"
+    },
+    {
+      "method_id": "msa-data-distribution-conditions-method",
+      "case_path": "skills/_shared/references/method-cases/msa-data-distribution-conditions-method.md",
+      "case_sha256": "23bfd7a5cd7b9ec4b17e1972da95f550480719dafb59389ab206d427e5ed4a82",
+      "method_sha256": "2c4b25aba0441f0fe0f48c0e5916b1de0b990476299f381c65edad702c1fce21",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "msa-d3按数据as-of而非导出/缓存时刻算24h；缓存不能越剩余有效期，历史版本不是高可用副本。",
+      "adverse_or_changed_input_review": "2→3版仅等大全量情景数据量+50%；单属性降级不自动整体降密级。",
+      "limitations": "导出失败补偿、人工时限与责任、反向接口权限未定义。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "识别数据责任与外部离线供数",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "按响应/可用要求选副本/缓存与分片",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "声明触发、陈旧性、安全与生命周期",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "核查数据流与运行独立性冲突",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "23bfd7a5cd7b9ec4b17e1972da95f550480719dafb59389ab206d427e5ed4a82"
+    },
+    {
+      "method_id": "msa-source-deployment-execution-method",
+      "case_path": "skills/_shared/references/method-cases/msa-source-deployment-execution-method.md",
+      "case_sha256": "610f0b6c02f53149649b3b3fa34b0e92e85ad1dd491d748cabf88a43856281c4",
+      "method_sha256": "80eae076aa3cec6e70031f7542d3b7827694edec1c2d63170d633689280c7d33",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "独立逻辑源、单服务部署包与A/B同码实例分开；实例不是服务，健康与数据有效并取。",
+      "adverse_or_changed_input_review": "日志加业务规则影响边界，不同版本仍未自动成不同服务；健康但数据未就绪不接流量。",
+      "limitations": "已修复无业务逻辑即安全外推；实际版本依赖、访问/脱敏与数据有效标准未验证。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "分开源、公共库、部署包、运行实例",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "验证单ABF与每源/包业务代码独立",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "构建与部署用不同有向关系",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "按需求/故障条件扩实例并保留同包追溯",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "610f0b6c02f53149649b3b3fa34b0e92e85ad1dd491d748cabf88a43856281c4"
+    },
+    {
+      "method_id": "bi-stage-operability-and-exit-method",
+      "case_path": "skills/_shared/references/method-cases/bi-stage-operability-and-exit-method.md",
+      "case_sha256": "2f361f0f515124cd6b5725088fc8d1c4b0c1347ee82d668e8eb4a1bab7efd395",
+      "method_sha256": "4829c2e8cc799b171acb36faaee9cb7bc9c5e06912110997e4d21e79a2eb38c4",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "bis-4审计未覆盖及月报未知阻断退役，消费者分批；S1稳定条件需定义不能按时长自过。",
+      "adverse_or_changed_input_review": "审计补证仍待月报；解释差异不等同对账一致，门槛变更另裁决。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "识别旧系统已满足需求与新价值",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "按可选过渡定义流向/数据语义和消费者",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "记录每态收益、缺口和可运营条件",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-stage-operability-and-exit-method.json",
+          "supplement_sha256": "d3e7d4bee06f7cec97091c9f04a539b924c3a5f9c3cdaa65f3b6405f61d7e9bd"
+        },
+        {
+          "position": 4,
+          "declared_step": "退出前逐项验证旧需求与恢复、治理、元数据",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-stage-operability-and-exit-method.json",
+          "supplement_sha256": "d3e7d4bee06f7cec97091c9f04a539b924c3a5f9c3cdaa65f3b6405f61d7e9bd"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "ee5fe24f9fdd21a255c3252b1e9ecd602c6b1624cb078a1b7892d75ebfe932bd",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "三态收益、运营标准与恢复治理元数据未齐，不能授可运营。"
+    },
+    {
+      "method_id": "bi-requirement-origin-boundary-method",
+      "case_path": "skills/_shared/references/method-cases/bi-requirement-origin-boundary-method.md",
+      "case_sha256": "d93cc50aad505494366debbf66f00502a64f37952b896e4a7af17fe47933d12d",
+      "method_sha256": "8cf0794ea9d688a9a6417bff99dd87cb75721ab51a97ad101ecb7dcc33821f00",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "bir-3译者16例与未取得官方表分开，R1项目需求不冒官方ID；取得表不等于逐条核对。",
+      "adverse_or_changed_input_review": "相似示例保留译者身份另增核实标准引用，不以文本一致自动篡改来源。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "记录来源身份再提炼需求",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "按功能解释系统，检查原子/唯一/可验证",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-requirement-origin-boundary-method.json",
+          "supplement_sha256": "c5eb0e6c9b1a140171881f2e239621bfc91bf68089ddfbb299a521347df9f9b4"
+        },
+        {
+          "position": 3,
+          "declared_step": "区分项目需求和本地示例与官方配套记录",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "未找到电子表格时只交付局部候选与缺口",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "2a72b4e7dd0d9195653cee60a85622c060d8af564e6eab200f7a9e3d4a7e52e0",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "缺原表与R1验收/原子唯一可验证检查结果。"
+    },
+    {
+      "method_id": "government-reference-catalog-overlay-method",
+      "case_path": "skills/_shared/references/method-cases/government-reference-catalog-overlay-method.md",
+      "case_sha256": "f17c01961ef53414049348971e2b8b4b06c920d87bcc490e747e61f76595c953",
+      "method_sha256": "0c5e01a8fe353620acdeb41b772c2bce32638236e89979ad5c1593111cdfdd81",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "财政投资与共享服务两养老末级同名但不同路径；9部门范围外不等同政府不存在，对账是project-defined。",
+      "adverse_or_changed_input_review": "组织合法合并也不删除投资到支付功能依赖；源表单格核实不证明本地适用。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "读取可携带11部门目录并按完整路径定位",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/government-reference-catalog-overlay-method.json",
+          "supplement_sha256": "9ee0e337876343031ce83117f92ecbd1e9909b0264571c81f8283b41168c563d"
+        },
+        {
+          "position": 2,
+          "declared_step": "从业务职责建立多对多映射，区分参考与本地ID",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "逐部门明确适用/排除/未知及理由",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/government-reference-catalog-overlay-method.json",
+          "supplement_sha256": "9ee0e337876343031ce83117f92ecbd1e9909b0264571c81f8283b41168c563d"
+        },
+        {
+          "position": 4,
+          "declared_step": "核对同名路径、变更影响和项目依赖",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "按来源目录确定两条路径",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 6,
+          "declared_step": "用显式reference_classifies关系建立三级分类",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/government-reference-catalog-overlay-method.json",
+          "supplement_sha256": "9ee0e337876343031ce83117f92ecbd1e9909b0264571c81f8283b41168c563d"
+        },
+        {
+          "position": 7,
+          "declared_step": "用节点属性表达本地覆盖并保持参考身份",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/government-reference-catalog-overlay-method.json",
+          "supplement_sha256": "9ee0e337876343031ce83117f92ecbd1e9909b0264571c81f8283b41168c563d"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "fd98cf4977158b4244d9fb5d56ed3a34da9c3a2754921dc25bafbbd314362ef3",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "其余9部门未逐项列理由，完整源路径/层级关系未在本案例展开。"
+    },
+    {
+      "method_id": "dbrm-mapping-suite-method",
+      "case_path": "skills/_shared/references/method-cases/dbrm-mapping-suite-method.md",
+      "case_sha256": "5f23f858530507f8e821319a9b95cd4053150aae0b523793135a26597560645a",
+      "method_sha256": "a51fbd96dd2228d674b104813d226e9af500af5271e31b1551ecd3e36d6c3f2e",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "DBRM四域与业务/数据/应用/技术两套视角保留；R03/04只能支持四域项目映射。",
+      "adverse_or_changed_input_review": "单要素不适用须理由，源表单格只改单格；能力骨架变更迁移保留旧对应。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。 五表原始/解释格保留本地来源性质；71本地行映射unknown并有需证任务，不等于有源文认证或本地映射业务批准。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "区分DBRM域与TOGAF架构域",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "逐要素映射业务观察，保留不确定性",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/dbrm-mapping-suite-method.json",
+          "supplement_sha256": "f33c2496b4cb16a7f7be2ac5653cd680974b4aadef8abb4cacbaff6f8bd899f9"
+        },
+        {
+          "position": 3,
+          "declared_step": "只将正文明确分类用于参考分类；不猜图3-1关系",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "记录未来安全/成熟度映射为缺来源",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "读取对应自包含源表，保留raw_cells",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/dbrm-mapping-suite-method.json",
+          "supplement_sha256": "f33c2496b4cb16a7f7be2ac5653cd680974b4aadef8abb4cacbaff6f8bd899f9"
+        },
+        {
+          "position": 6,
+          "declared_step": "按表独立维度解释组内延续，保留来源—/空缺",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/dbrm-mapping-suite-method.json",
+          "supplement_sha256": "f33c2496b4cb16a7f7be2ac5653cd680974b4aadef8abb4cacbaff6f8bd899f9"
+        },
+        {
+          "position": 7,
+          "declared_step": "建立本地映射及依据；未知不变不适用",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/dbrm-mapping-suite-method.json",
+          "supplement_sha256": "f33c2496b4cb16a7f7be2ac5653cd680974b4aadef8abb4cacbaff6f8bd899f9"
+        },
+        {
+          "position": 8,
+          "declared_step": "项目补充映射另标project-only，不反写来源",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/dbrm-mapping-suite-method.json",
+          "supplement_sha256": "f33c2496b4cb16a7f7be2ac5653cd680974b4aadef8abb4cacbaff6f8bd899f9"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "b84ea161b7e843cb0b45343249038ce5134ded7be5a15a79ab53afcad244640e",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "十要素与四源表raw_cells逐行映射未开展，不支持八步骤全部完成。"
+    },
+    {
+      "method_id": "digital-enablement-competency-mapping-method",
+      "case_path": "skills/_shared/references/method-cases/digital-enablement-competency-mapping-method.md",
+      "case_sha256": "f6403b64a7bbfea4e4368a57ca4907b7753571300c7e6234ba6413ac3999a610",
+      "method_sha256": "c70033a07cc0fbf4bdf2be507de000c5bb45c2f47c0479f7ad7998e848a80b27",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "R06/07十角色只有团队/团队之团队两语境，3具备/7部分只是限定产物观察，不证明全框架能力。",
+      "adverse_or_changed_input_review": "OPS演练仅支持该运维恢复项，换语境需新证据，不合成团队分。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "逐行读取五支柱十二胜任力及语境",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/digital-enablement-competency-mapping-method.json",
+          "supplement_sha256": "5fb3a6335fba55dbff3efbd1e22c900b1f507706b304df21a3860b7d8073f498"
+        },
+        {
+          "position": 2,
+          "declared_step": "从本地资料识别责任角色与观察证据",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "区分已观察、未验证与欠缺",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "用多角色协作和行动填补缺口，不把语境当成熟度级别",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "e5ba385353d09a6f2e57d5959b31c99adca47081398935629f0aafa8e55a4b42",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "五支柱十二胜任力完整逐行映射缺失；单产物存在不证明人员一般胜任力。"
+    },
+    {
+      "method_id": "operating-model-submodel-analysis-method",
+      "case_path": "skills/_shared/references/method-cases/operating-model-submodel-analysis-method.md",
+      "case_sha256": "1945f1291b471187b7d75a3a7e3aef9e53613da91b851d202eee0f5e1536ab97",
+      "method_sha256": "e457c01b881d0a0ab9de89c924596769b51c99d46e12f4d0c477c680ae58b3cf",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "R08第1周24-20=4h与姿态/服务/组织并列，张力不是选择矛盾，不造加权分。",
+      "adverse_or_changed_input_review": "26h只有需求仍24h时缺口归零，30h需求为10h，不把首周外推全年。",
+      "limitations": "排班时点、持续需求与缺口处置责任待补。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "由价值主张和客户细分提出战略姿态",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "定义服务交付、角色交互与所需资源",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "比较成本/时间/质量/灵活性/敏捷性而不造加权总分",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "核对资源缺口并调整范围或补充能力",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "1945f1291b471187b7d75a3a7e3aef9e53613da91b851d202eee0f5e1536ab97"
+    },
+    {
+      "method_id": "product-architecture-allocation-method",
+      "case_path": "skills/_shared/references/method-cases/product-architecture-allocation-method.md",
+      "case_sha256": "efa87fccb9480d3e6d17a50616f78c85322238390ffdf424a294146cb987f51d",
+      "method_sha256": "9b47aad6b8c4bbce0f5a9a4f83ab0e237b1d8b98ad4ee639d050103028b0e6bf",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "F-SUBMIT/STATUS业务后端与C-PORTAL入口分开，I方向/输入/返回明确，TC-API技术层另记。",
+      "adverse_or_changed_input_review": "组件合并不强制接口合并，故障隔离需实现证据；SLA承诺与项目实测分列。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "从体验与需求提炼功能",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "用明确allocates_function关系分配到组件",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/product-architecture-allocation-method.json",
+          "supplement_sha256": "0aec5bb843945a5e96bd27e35e608a9f6d27e5d36cbe1954681e1bd9b5d09c41"
+        },
+        {
+          "position": 3,
+          "declared_step": "声明接口发送/接收、数据与版本",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "关联运营能力与技术组件，分析功能改变的联合影响",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/product-architecture-allocation-method.json",
+          "supplement_sha256": "0aec5bb843945a5e96bd27e35e608a9f6d27e5d36cbe1954681e1bd9b5d09c41"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "c1c14817f3705f2417b86893766f278f4813a0cd09c41770040fed4903b2484b",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "运营能力关联和allocates_function实际模型关系未在文本输出逐项保存。"
+    },
+    {
+      "method_id": "msa-readiness-evidence-method",
+      "case_path": "skills/_shared/references/method-cases/msa-readiness-evidence-method.md",
+      "case_sha256": "6de1417c4757c22aec5faeb6e4f2f0ffa06e66a2cf0be17cae30024568e2b4ca",
+      "method_sha256": "fb779014181a784050176810fe86790c0f37fc04b8ff3f9cb7048f2befa0ac75",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "八项4是/2部分/2否，要求存在不等于达成，人工复核不天然无效；退役与恢复缺口分开。",
+      "adverse_or_changed_input_review": "仅任命可以闭角色缺口但不证明退役流程；单自动化补证使5是/1部分/2否，不全绿。",
+      "limitations": "实际生命周期流程、恢复、权限和OSIMM独立来源未取得。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "按单服务全过程检查归属、技能、自治、DevOps与试点学习",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "分别记录已知、部分和未知，不按条数计成熟度",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "将每个不足转为责任、行动和进入试点条件",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "OSIMM按独立来源调用，不用ACMM或项目表替代",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "6de1417c4757c22aec5faeb6e4f2f0ffa06e66a2cf0be17cae30024568e2b4ca"
+    },
+    {
+      "method_id": "msa-federated-governance-process-method",
+      "case_path": "skills/_shared/references/method-cases/msa-federated-governance-process-method.md",
+      "case_sha256": "75666b300d350f446c4c11ea97e84e5cc427c4d0f79d41d6f6a4b92fc3b8093d",
+      "method_sha256": "bb170f8e34a9ad5ab9f77dae7d007da6c712f3253ce745ce33093e6e54c77f02",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "msa-g3 EA委员会有标准豁免权，EX-1未裁决；四缓解只是拟议不替代批准，关系为项目映射。",
+      "adverse_or_changed_input_review": "附条件批准需逐条件满足，驳回不借缓解措施复活；单源边核实不批整组。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "界定企业护栏和MSA专属决定两条轨道",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/msa-federated-governance-process-method.json",
+          "supplement_sha256": "410333ace87932b78745d7ddaf24fc38d1d3cb4d39ef0deb4b3202637d7ca8e7"
+        },
+        {
+          "position": 2,
+          "declared_step": "区分五类角色职责与请求/决定权限",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/msa-federated-governance-process-method.json",
+          "supplement_sha256": "410333ace87932b78745d7ddaf24fc38d1d3cb4d39ef0deb4b3202637d7ca8e7"
+        },
+        {
+          "position": 3,
+          "declared_step": "核对每次发布控制和持续反馈",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/msa-federated-governance-process-method.json",
+          "supplement_sha256": "410333ace87932b78745d7ddaf24fc38d1d3cb4d39ef0deb4b3202637d7ca8e7"
+        },
+        {
+          "position": 4,
+          "declared_step": "偏离需显式申请并以委员会决定为准",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "支持/对齐/扩展/约束分别记录方向",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "b9b1e4b7920d827feee3f45b93a10982913bcf78a36f05bf986930d44fdef027",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "只有三主体切分，五角色全职责、两轨运行和持续反馈记录待补。"
+    },
+    {
+      "method_id": "msa-value-resource-evidence-method",
+      "case_path": "skills/_shared/references/method-cases/msa-value-resource-evidence-method.md",
+      "case_sha256": "4192a098355847360cc1e5688dadec0c4ea6293cdd44362aa162dabdff3e0753",
+      "method_sha256": "23034c3b5bbee2695d88341a92ee5efd8a93a4af045fad11c0f879e0228c44ff",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "11月记录与12月计划不混实测趋势；人日与人时分列，备件零分配不证明零实际投入。",
+      "adverse_or_changed_input_review": "补8h仅闭资源格，单价仅得成本，业务价值和ROI口径仍缺。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "区分已实现和计划服务",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "逐服务确认一个ABF与业务价值",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/msa-value-resource-evidence-method.json",
+          "supplement_sha256": "a49034bb7802781c93758b0f358ba707981101eaf1a78e142d9a209aba313aa4"
+        },
+        {
+          "position": 3,
+          "declared_step": "开发/运营及已分配/计划四格分开记录单位时段",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "关联工作包及命名过渡，检查运营计划缺口",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/msa-value-resource-evidence-method.json",
+          "supplement_sha256": "a49034bb7802781c93758b0f358ba707981101eaf1a78e142d9a209aba313aa4"
+        },
+        {
+          "position": 5,
+          "declared_step": "成本或ROI规则未提供则不计算",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "16bbbba5ea7501838e57af65c76886d9d851c19019890ea7d2671396187aee3a",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "服务业务价值、外部工作包/命名过渡的完整绑定及实际投入待验证。"
+    },
+    {
+      "method_id": "bi-usage-goal-measures-method",
+      "case_path": "skills/_shared/references/method-cases/bi-usage-goal-measures-method.md",
+      "case_sha256": "4f0f194bb242ef1b2088470a4dd76a24e89f0545c8de0584142367e9bcd6af8c",
+      "method_sha256": "947839c590c6016fb4dcd1385cc5437828f398773cd123bceb82c0e805e324d8",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "biu-4赞助人排序有文字依据无权重，计数0→1不算相对增长；负责人不替代生产使用/稳定证据。",
+      "adverse_or_changed_input_review": "补标签先可评估误差，准确比例需阈值；补权重还需评分/证据不能只给权重计算。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "从用户痛点提炼决策及业务对象",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "连接参考目标，但另设有来源的项目度量",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-usage-goal-measures-method.json",
+          "supplement_sha256": "3cc7b1abc02cc373c92bf307f6fa30320ba24deb7a1e775bd2f14693e20dada5"
+        },
+        {
+          "position": 3,
+          "declared_step": "让赞助人提供价值/复杂性排序规则并保留理由",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "定义从设计到持续维护的责任",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "检查测量结果和目标/方向不同",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-usage-goal-measures-method.json",
+          "supplement_sha256": "3cc7b1abc02cc373c92bf307f6fa30320ba24deb7a1e775bd2f14693e20dada5"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "828e8c541569edb888b56a941a40f4fea968fc4982e73ba820066663c968e407",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "U1分母、窗口、排序事实与实际测量缺，三类采用证据未齐。"
+    },
+    {
+      "method_id": "bi-business-function-coverage-method",
+      "case_path": "skills/_shared/references/method-cases/bi-business-function-coverage-method.md",
+      "case_sha256": "9d624fe91d94430e4519b0753227c4f3e86d8d986d4f7edfe3dc38c82e92b4c4",
+      "method_sha256": "27cde631b1f4a00c40bf1031b27f7e98f81853b0afc77efa4b434ec592b72a4e",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "U1/U2用途待办不等两条已见功能；54源行粒度混合，已见与计划未知均不猜精确分子。",
+      "adverse_or_changed_input_review": "8条访谈可能重叠或不足，最多8不是固定新增8；不适用必须职责依据。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "加载随技能携带的完整源表，保留参考分组/ID/出处",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-business-function-coverage-method.json",
+          "supplement_sha256": "4b27268b84ea2d9d20f47c76d2031ec3993e15e6d478c27c30d47cd9ec551379"
+        },
+        {
+          "position": 2,
+          "declared_step": "限定项目范围和时点，逐项寻找组织活动或实际应用功能证据",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-business-function-coverage-method.json",
+          "supplement_sha256": "4b27268b84ea2d9d20f47c76d2031ec3993e15e6d478c27c30d47cd9ec551379"
+        },
+        {
+          "position": 3,
+          "declared_step": "区分已见、计划、未知和有理由不适用",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-business-function-coverage-method.json",
+          "supplement_sha256": "4b27268b84ea2d9d20f47c76d2031ec3993e15e6d478c27c30d47cd9ec551379"
+        },
+        {
+          "position": 4,
+          "declared_step": "不得以宏观组或产品名称推断子项覆盖",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-business-function-coverage-method.json",
+          "supplement_sha256": "4b27268b84ea2d9d20f47c76d2031ec3993e15e6d478c27c30d47cd9ec551379"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case, new source-separated supplement and three generated complete-row tables",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "10269e176767b46aabe7802334442b64de2f0da69e097602a48fea57a0a9b537",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "完整54行源ID/原格、逐行判定与行动责任未保存。"
+    },
+    {
+      "method_id": "bi-application-function-coverage-method",
+      "case_path": "skills/_shared/references/method-cases/bi-application-function-coverage-method.md",
+      "case_sha256": "622e701c16f52b3ee44489946627f955302c916ca2045160ae302d8380bbf487",
+      "method_sha256": "03ab7d634bc210f93a65f32b9aaede1a7f8bbf7fe19319768c1fdda0c8968963",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "RUN-11只证明夜批一次运行，不推流式/交互式；59详细子项与9/10组不互继承。",
+      "adverse_or_changed_input_review": "P95=800ms需具体项目门槛，供应商清单只宣称；单行补证不批整组。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "加载随技能携带的完整源表，保留参考分组/ID/出处",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-application-function-coverage-method.json",
+          "supplement_sha256": "6af317d27c05c4f6f31ca80799edbafebb4a89ad370fffd7ea421881e65197e7"
+        },
+        {
+          "position": 2,
+          "declared_step": "限定项目范围和时点，逐项寻找组织活动或实际应用功能证据",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-application-function-coverage-method.json",
+          "supplement_sha256": "6af317d27c05c4f6f31ca80799edbafebb4a89ad370fffd7ea421881e65197e7"
+        },
+        {
+          "position": 3,
+          "declared_step": "区分已见、计划、未知和有理由不适用",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-application-function-coverage-method.json",
+          "supplement_sha256": "6af317d27c05c4f6f31ca80799edbafebb4a89ad370fffd7ea421881e65197e7"
+        },
+        {
+          "position": 4,
+          "declared_step": "不得以宏观组或产品名称推断子项覆盖",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-application-function-coverage-method.json",
+          "supplement_sha256": "6af317d27c05c4f6f31ca80799edbafebb4a89ad370fffd7ea421881e65197e7"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case, new source-separated supplement and three generated complete-row tables",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "122a374e55024d6f9219d3402a2e485c30ece73d6b999c0be18ba6fefb858908",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "完整59行源ID/逐行映射/计划状态与实际时效/供应商实践待核。"
+    },
+    {
+      "method_id": "mdm-business-function-coverage-method",
+      "case_path": "skills/_shared/references/method-cases/mdm-business-function-coverage-method.md",
+      "case_sha256": "8b9e05a2a5a1eb2123db604c6769da51273dc703c1e0a415c18775cf5a68a2b0",
+      "method_sha256": "5ca54008ea5ac3a0a814e44abb79f53295a241e2a90681bf31e52cd3af1955d2",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "愿任所有者不等任命，缺管家不应扩成所有治理均无法推进；暂按29未知不证明29条已登记。",
+      "adverse_or_changed_input_review": "指派管家只使相关行可评估，扩采购范围不直接已见。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "加载随技能携带的完整源表，保留参考分组/ID/出处",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-business-function-coverage-method.json",
+          "supplement_sha256": "ebddafa1cb72be4eb22a90821ad2a785f0423f3d88ac3bffd5d8abbb6a5ae8ad"
+        },
+        {
+          "position": 2,
+          "declared_step": "限定项目范围和时点，逐项寻找组织活动或实际应用功能证据",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-business-function-coverage-method.json",
+          "supplement_sha256": "ebddafa1cb72be4eb22a90821ad2a785f0423f3d88ac3bffd5d8abbb6a5ae8ad"
+        },
+        {
+          "position": 3,
+          "declared_step": "区分已见、计划、未知和有理由不适用",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-business-function-coverage-method.json",
+          "supplement_sha256": "ebddafa1cb72be4eb22a90821ad2a785f0423f3d88ac3bffd5d8abbb6a5ae8ad"
+        },
+        {
+          "position": 4,
+          "declared_step": "不得以宏观组或产品名称推断子项覆盖",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-business-function-coverage-method.json",
+          "supplement_sha256": "ebddafa1cb72be4eb22a90821ad2a785f0423f3d88ac3bffd5d8abbb6a5ae8ad"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case, new source-separated supplement and three generated complete-row tables",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "1334e7a2365f3bb92aa90cc5775bb88e520bc6a95eef9b412c8023ecaa3e1a47",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "完整29行源ID、具体受影响条目、四态逐行台账和补证责任缺失。"
+    },
+    {
+      "method_id": "mdm-application-function-coverage-method",
+      "case_path": "skills/_shared/references/method-cases/mdm-application-function-coverage-method.md",
+      "case_sha256": "7b4efec8d3a55b39ab4ab23f864c03e80eb06884dc22e1797339119dc73cabdd",
+      "method_sha256": "94389d746e07848c6d8324362d4f7a6de63683f40548b874ded6eba5b73c3078",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "mda-1/3无实现证据，38未知不是0%不满足；取消合并请求无计划标准，第三操作冲突保留。",
+      "adverse_or_changed_input_review": "裁决删除不证明删除能力，单行运行只改该行；恢复与传播需契约。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "加载随技能携带的完整源表，保留参考分组/ID/出处",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-application-function-coverage-method.json",
+          "supplement_sha256": "835a64dcf4e77e54e0d782925d0c8c2e265f2eb62961d40a01ceb0cd43a64471"
+        },
+        {
+          "position": 2,
+          "declared_step": "限定项目范围和时点，逐项寻找组织活动或实际应用功能证据",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-application-function-coverage-method.json",
+          "supplement_sha256": "835a64dcf4e77e54e0d782925d0c8c2e265f2eb62961d40a01ceb0cd43a64471"
+        },
+        {
+          "position": 3,
+          "declared_step": "区分已见、计划、未知和有理由不适用",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-application-function-coverage-method.json",
+          "supplement_sha256": "835a64dcf4e77e54e0d782925d0c8c2e265f2eb62961d40a01ceb0cd43a64471"
+        },
+        {
+          "position": 4,
+          "declared_step": "不得以宏观组或产品名称推断子项覆盖",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/mdm-application-function-coverage-method.json",
+          "supplement_sha256": "835a64dcf4e77e54e0d782925d0c8c2e265f2eb62961d40a01ceb0cd43a64471"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case, new source-separated supplement and three generated complete-row tables",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "14f18b34c5c7f7f4c7fadc9fd38c398100dc88e0566597efaf1d781cd13a5a2d",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "38行实际源ID及逐行记录缺失，第三操作来源裁决与实现待核。"
+    },
+    {
+      "method_id": "bi-value-chain-controls-method",
+      "case_path": "skills/_shared/references/method-cases/bi-value-chain-controls-method.md",
+      "case_sha256": "1ede9d87bcf11ccde6887fa017fbbce67e6b133ffa4bf9e6f766dfd5e48d3b6e",
+      "method_sha256": "944b079c992246cd547d9a3c7b6db78e981ce2f52b42a6baf90330c0a36c0ea3",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "bic-1原批不可变，技术异常隔离、业务候选与语义解释分层，人工复核才执行；观测时点不宣实时。",
+      "adverse_or_changed_input_review": "每4h更新不证明端到端≤4h，规则新版本不改原批，字段删除须跨层影响检查。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "从业务决策反推数据和语义",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "逐层区分原始、技术准备和业务信息转换",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "记录输入输出及有向派生关系",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-value-chain-controls-method.json",
+          "supplement_sha256": "7425f2cea9b14c8b1193f4a03bce8a79fc17c7ab05710503600998dded4b33e7"
+        },
+        {
+          "position": 4,
+          "declared_step": "检查质量、安全、元数据和运营责任贯穿全链",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-value-chain-controls-method.json",
+          "supplement_sha256": "7425f2cea9b14c8b1193f4a03bce8a79fc17c7ab05710503600998dded4b33e7"
+        },
+        {
+          "position": 5,
+          "declared_step": "不因价值链存在就认定数据正确/及时",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "a3487cfc5e655fa28696e4aa48024c461e8bda9004b04036e42580bf52f1fc53",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "完整字段清单、阈值、逐层实际派生关系与安全授权待验。"
+    },
+    {
+      "method_id": "bi-model-operating-monitoring-method",
+      "case_path": "skills/_shared/references/method-cases/bi-model-operating-monitoring-method.md",
+      "case_sha256": "deef9b969416c1020ba6e74ca65c21985e0cc885eb582898c1ef882b968a1895",
+      "method_sha256": "4a766c41bff2a05c2eccaddfa7d29b2d585c4e676dec7bf3cfc6fd6183a8d74d",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "bim-2分钟绝对差中位数不是准确率，bim-3无值无阈值不判达标；五监控类与影子边界分列。",
+      "adverse_or_changed_input_review": "补15min阈值仍缺观测，失败停建议，新版需测试/复核不能自动投产。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "由业务用途明确错误后果和运营责任",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "选有项目依据的准确性/数据/技术/安全/使用观测",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "给每指标单位、窗口、证据与阈值来源，未知保持未知",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-model-operating-monitoring-method.json",
+          "supplement_sha256": "2b17ffdbdaa6ddf6439c96f9237386e39918d7d8471f07189d2ea2ae6cf97dd2"
+        },
+        {
+          "position": 4,
+          "declared_step": "按触发设计停止、人工回退、评审和新版本测试",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "形成运行监控记录后再评审实际表现",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "not-executed-by-this-review",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/bi-model-operating-monitoring-method.json",
+          "supplement_sha256": "2b17ffdbdaa6ddf6439c96f9237386e39918d7d8471f07189d2ea2ae6cf97dd2"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "3e98439720cecd552060340b27784cb86f476da84d4a2bf5e87f96a740b09679",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "安全访问项、窗口样本、实际观测和停止恢复实际执行待验。"
+    },
+    {
+      "method_id": "agile-collaboration-selection-switch",
+      "case_path": "skills/_shared/references/method-cases/agile-collaboration-selection-switch.md",
+      "case_sha256": "6583557ca3de2fba3935045ab1547d5b2f569ab0d6b799b1659f2ff6b2d9b3f1",
+      "method_sha256": "f2ae4acfdf63e066bf36992eb588a9382031725f6ede4b0056166b9e40a7a460",
+      "reviewer_kind": "AI-implementation-agent",
+      "specific_basis": "R01至6支持解决方案协作候选，仅EA是不优选不是硬不可能；冲刺0无MVA、交接有时间差，2周项目规则。",
+      "adverse_or_changed_input_review": "仅DEV-A三能力不许可全队跨职能切换，保留旧模式，新增第4轮不依赖切换；旧历史不改。",
+      "limitations": "原案例版本的缺输入判断保留在original_case_limits_retained；新增教学材料补齐当前指定步骤的候选演练。未启动盲测Agent、未运行实际应用、未取得人的独立作者评审或业务接受。 两队能力为范围限定虚构资料，委员会授权、隐私与第四轮验收仍pending；旧候选历史不等于真实冲刺历史。",
+      "step_reviews": [
+        {
+          "position": 1,
+          "declared_step": "逐队识别业务/EA/方案能力、容量及证据",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 2,
+          "declared_step": "明确反馈时机、职责分布与授权治理边界",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 3,
+          "declared_step": "比较四模式，写采用/不采用理由，不打成熟度分",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 4,
+          "declared_step": "将目标、DORP、成果和交接建模，未知保留",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 5,
+          "declared_step": "切换面向未来，保留历史、继承待办/未决项、关闭不再适用交接",
+          "case_scope": "candidate-walkthrough-reviewed",
+          "basis_section": "转换与推理 / 输出与追溯 / 修改演练",
+          "runtime_execution": "not-executed-by-this-review"
+        },
+        {
+          "position": 6,
+          "declared_step": "复核能力授权和回退条件，生成两布局并评审",
+          "case_scope": "new-authored-candidate-supplement-reviewed",
+          "basis_section": "本轮新增的逐步骤教学补充及完整JSON输入/候选记录/反例",
+          "runtime_execution": "model-to-artifact-generation-only",
+          "supplement_path": "skills/_shared/references/method-case-materials/procedural-supplements/agile-collaboration-selection-switch.json",
+          "supplement_sha256": "2fcf5ffad6563ad29b49560c6acfe375e4893b9566d339ac8d7f29e044990fdc"
+        }
+      ],
+      "outcome": "bounded-candidate-review",
+      "actual_output_reviewed": "current-authored-Markdown-case, six scope-limited team capability inputs and two candidate plans in both actual SVG/PNG layouts",
+      "new_blind_agent_execution": "uncovered",
+      "professional_author_acceptance": "pending",
+      "business_acceptance": "not-accepted",
+      "pre_supplement_case_sha256": "2c1fd714daaee46edb5fdd9b4b42841f68651a5ba5871d9d27262a255004a062",
+      "new_supplement_review_basis": "逐步骤核查新增虚构输入、独立候选转换、未知/计划/范围边界及反例；来源身份字段与旧配置项目判断分离。",
+      "original_case_limits_retained": "四轮实际双布局输出、容量/隐私/授权和委员会复核没有本轮新执行证据。"
+    }
+  ],
+  "summary": {
+    "registered_qualitative_methods": 44,
+    "candidate_output_reviews": 44,
+    "declared_steps_reviewed": 201,
+    "partial_or_explicitly_missing_steps": 0,
+    "new_blind_agent_executions": 0,
+    "business_accepted": 0,
+    "new_authored_candidate_supplement_steps": 47,
+    "new_supplement_methods": 19,
+    "model_to_artifact_generation_runs": 16,
+    "complete_row_table_generation_runs": 12,
+    "candidate_agile_layout_rasterizations": 4
+  },
+  "assurance_layers": {
+    "AI_candidate_behavior_review": {
+      "status": "completed-with-execution-limits"
+    },
+    "professional_author_review": {
+      "status": "pending"
+    },
+    "standards_source_verification": {
+      "status": "incomplete"
+    },
+    "business_acceptance": {
+      "status": "not-accepted"
+    },
+    "model_to_artifact_generation": {
+      "status": "16-model-to-artifact-runs",
+      "complete_row_table_runs": 12,
+      "candidate_agile_svg_png_runs": 4,
+      "blind_method_execution": "not-produced",
+      "business_acceptance": "not-produced"
+    }
+  },
+  "inputs_sha256": {
+    "skills/_shared/references/method-cases/scenario-elicitation.md": "2885e81fd1fdcc3ee5bc0a5e498c7db3b430f0ae72cbfb21279dd6eda738b6e4",
+    "skills/_shared/references/method-cases/business-impact-method.md": "1af1d8f7dd41107c7568a8c32ded7f23c60feadc3cbb749cb100e0f802d41fc5",
+    "skills/_shared/references/method-cases/capability-decomposition-method.md": "7f46ef8d636dbfddf3fb480da1b982f695f33cc0eba01603a29a4be0976431bf",
+    "skills/_shared/references/method-cases/capability-instance-gap-method.md": "ef87fe00a1d36446010dee77b6fdb86a16bcf96a747f73e34be8b438fd8c1366",
+    "skills/_shared/references/method-cases/value-stream-definition-method.md": "b0865ae5e46851bbb6ad589ffe88c74afe98ac70ba1ed802d921b2a61f037ba4",
+    "skills/_shared/references/method-cases/metadata-requirement-method.md": "c5827bbb6fa61130aaf6feb094eecff04c9d6e60a5b65a7a682ea81c1786a134",
+    "skills/_shared/references/method-cases/metadata-integration-tradeoff.md": "7aa6a721ffaeb469a194532bd396cb0b09f9bbb8e1a78bf11d245594c5f8e260",
+    "skills/_shared/references/method-cases/mdm-identity-analysis.md": "a17944e5c2fe91473136331174fcc2a17d0da9641fe88aad115fb836d7487e43",
+    "skills/_shared/references/method-cases/bi-transition-method.md": "523ef33062a76432e2e23bf158f533d8f6217e8578c5a831186a356dd61b61c6",
+    "skills/_shared/references/method-cases/microservice-boundary-method.md": "152c2758d6f47427e1105949623129c9003d1aa14ea2b3deb0d918fc88d36a09",
+    "skills/_shared/references/method-cases/architecture-project-scheduling.md": "d2aa4c592617983395f90dc29eeff7f0b4a662aef0b5c9e864de463fe8b749c2",
+    "skills/_shared/references/method-cases/sustainability-option-review.md": "40ea5b65fbebd882a4668e6f8b55d6258af9c5c7fe7e7b72e2d3e53f77c9d613",
+    "skills/_shared/references/method-cases/reference-model-tailoring.md": "2650793a1d3da17e91e3d7cd0e6c74db34985ddb22fc6aa6e7bdf6e447c56bfc",
+    "skills/_shared/references/method-cases/architecture-backlog-method.md": "6e332e7637732fab2d25630c7ed7e386e446393359b7d9b38df205cb958079bc",
+    "skills/_shared/references/method-cases/dorp-record-method.md": "5deb2c7f1047f9c93914fc34d6d2ac4a6ac182c40d4f5e372472e7d510e1819c",
+    "skills/_shared/references/method-cases/decision-delegation-register-method.md": "454cea52e58757f3f68a9cc720509ee0853d168f00cff7d843cd151d382f4df1",
+    "skills/_shared/references/method-cases/architecture-description-formality-review-method.md": "ee1e12bd9f697af7a28d7e30df06c3c108a72528ddabcc0f5ab9aa37612f4f42",
+    "skills/_shared/references/method-cases/technical-debt-register-method.md": "97e784d7ce265961fa4f524d1d19ad764bae00784a202ec49a8b509d44b0db26",
+    "skills/_shared/references/method-cases/mdm-operational-ten-questions-method.md": "91893f4217ac383e5c7e986bb314a23995b53ae820fefd3b78fe463a718a3ae6",
+    "skills/_shared/references/method-cases/mdm-four-plateau-operations-method.md": "e64fbad4172bfdaceaeb12a9d492ab0dff81cef23c9def11d93c4cac62f263f4",
+    "skills/_shared/references/method-cases/mdm-match-merge-arbitration-method.md": "7f0b9ce832b38f59db9ee20d5596ff9c77aa82ca4fa496980cc09776ccd9a023",
+    "skills/_shared/references/method-cases/ea-service-emergence-npd-method.md": "ce7f523fa22ca8d0bbe0d733072c12763f4e3d1072976acad2053f9c23074ea7",
+    "skills/_shared/references/method-cases/ea-service-adm-evidence-map-method.md": "0baf2f8b68a73d351f012ee466744fdc35f0020a88fb90eea520c693ff87bc7d",
+    "skills/_shared/references/method-cases/msa-contract-consumer-evidence-method.md": "f62ed1e9548f99699e05b7e8d4837e591a60e487f79b12f8945672ed985fb466",
+    "skills/_shared/references/method-cases/msa-data-distribution-conditions-method.md": "23bfd7a5cd7b9ec4b17e1972da95f550480719dafb59389ab206d427e5ed4a82",
+    "skills/_shared/references/method-cases/msa-source-deployment-execution-method.md": "610f0b6c02f53149649b3b3fa34b0e92e85ad1dd491d748cabf88a43856281c4",
+    "skills/_shared/references/method-cases/bi-stage-operability-and-exit-method.md": "2f361f0f515124cd6b5725088fc8d1c4b0c1347ee82d668e8eb4a1bab7efd395",
+    "skills/_shared/references/method-cases/bi-requirement-origin-boundary-method.md": "d93cc50aad505494366debbf66f00502a64f37952b896e4a7af17fe47933d12d",
+    "skills/_shared/references/method-cases/government-reference-catalog-overlay-method.md": "f17c01961ef53414049348971e2b8b4b06c920d87bcc490e747e61f76595c953",
+    "skills/_shared/references/method-cases/dbrm-mapping-suite-method.md": "5f23f858530507f8e821319a9b95cd4053150aae0b523793135a26597560645a",
+    "skills/_shared/references/method-cases/digital-enablement-competency-mapping-method.md": "f6403b64a7bbfea4e4368a57ca4907b7753571300c7e6234ba6413ac3999a610",
+    "skills/_shared/references/method-cases/operating-model-submodel-analysis-method.md": "1945f1291b471187b7d75a3a7e3aef9e53613da91b851d202eee0f5e1536ab97",
+    "skills/_shared/references/method-cases/product-architecture-allocation-method.md": "efa87fccb9480d3e6d17a50616f78c85322238390ffdf424a294146cb987f51d",
+    "skills/_shared/references/method-cases/msa-readiness-evidence-method.md": "6de1417c4757c22aec5faeb6e4f2f0ffa06e66a2cf0be17cae30024568e2b4ca",
+    "skills/_shared/references/method-cases/msa-federated-governance-process-method.md": "75666b300d350f446c4c11ea97e84e5cc427c4d0f79d41d6f6a4b92fc3b8093d",
+    "skills/_shared/references/method-cases/msa-value-resource-evidence-method.md": "4192a098355847360cc1e5688dadec0c4ea6293cdd44362aa162dabdff3e0753",
+    "skills/_shared/references/method-cases/bi-usage-goal-measures-method.md": "4f0f194bb242ef1b2088470a4dd76a24e89f0545c8de0584142367e9bcd6af8c",
+    "skills/_shared/references/method-cases/bi-business-function-coverage-method.md": "9d624fe91d94430e4519b0753227c4f3e86d8d986d4f7edfe3dc38c82e92b4c4",
+    "skills/_shared/references/method-cases/bi-application-function-coverage-method.md": "622e701c16f52b3ee44489946627f955302c916ca2045160ae302d8380bbf487",
+    "skills/_shared/references/method-cases/mdm-business-function-coverage-method.md": "8b9e05a2a5a1eb2123db604c6769da51273dc703c1e0a415c18775cf5a68a2b0",
+    "skills/_shared/references/method-cases/mdm-application-function-coverage-method.md": "7b4efec8d3a55b39ab4ab23f864c03e80eb06884dc22e1797339119dc73cabdd",
+    "skills/_shared/references/method-cases/bi-value-chain-controls-method.md": "1ede9d87bcf11ccde6887fa017fbbce67e6b133ffa4bf9e6f766dfd5e48d3b6e",
+    "skills/_shared/references/method-cases/bi-model-operating-monitoring-method.md": "deef9b969416c1020ba6e74ca65c21985e0cc885eb582898c1ef882b968a1895",
+    "skills/_shared/references/method-cases/agile-collaboration-selection-switch.md": "6583557ca3de2fba3935045ab1547d5b2f569ab0d6b799b1659f2ff6b2d9b3f1",
+    "skills/_shared/references/method-case-materials/procedural-supplements/agile-collaboration-selection-switch.json": "2fcf5ffad6563ad29b49560c6acfe375e4893b9566d339ac8d7f29e044990fdc",
+    "skills/_shared/references/method-case-materials/procedural-supplements/digital-enablement-competency-mapping-method.json": "5fb3a6335fba55dbff3efbd1e22c900b1f507706b304df21a3860b7d8073f498",
+    "skills/_shared/references/method-case-materials/procedural-supplements/bi-model-operating-monitoring-method.json": "2b17ffdbdaa6ddf6439c96f9237386e39918d7d8471f07189d2ea2ae6cf97dd2",
+    "skills/_shared/references/method-case-materials/procedural-supplements/bi-value-chain-controls-method.json": "7425f2cea9b14c8b1193f4a03bce8a79fc17c7ab05710503600998dded4b33e7",
+    "skills/_shared/references/method-case-materials/procedural-supplements/dbrm-mapping-suite-method.json": "f33c2496b4cb16a7f7be2ac5653cd680974b4aadef8abb4cacbaff6f8bd899f9",
+    "skills/_shared/references/method-case-materials/procedural-supplements/product-architecture-allocation-method.json": "0aec5bb843945a5e96bd27e35e608a9f6d27e5d36cbe1954681e1bd9b5d09c41",
+    "skills/_shared/references/method-case-materials/procedural-supplements/bi-stage-operability-and-exit-method.json": "d3e7d4bee06f7cec97091c9f04a539b924c3a5f9c3cdaa65f3b6405f61d7e9bd",
+    "skills/_shared/references/method-case-materials/procedural-supplements/msa-value-resource-evidence-method.json": "a49034bb7802781c93758b0f358ba707981101eaf1a78e142d9a209aba313aa4",
+    "skills/_shared/references/method-case-materials/procedural-supplements/msa-contract-consumer-evidence-method.json": "26c0044e19c4aa4d661f2d9387d2d37c2bcb987c43f3d6f044a8a0e861e7942e",
+    "skills/_shared/references/method-case-materials/procedural-supplements/mdm-application-function-coverage-method.json": "835a64dcf4e77e54e0d782925d0c8c2e265f2eb62961d40a01ceb0cd43a64471",
+    "skills/_shared/references/method-case-materials/procedural-supplements/bi-requirement-origin-boundary-method.json": "c5eb0e6c9b1a140171881f2e239621bfc91bf68089ddfbb299a521347df9f9b4",
+    "skills/_shared/references/method-case-materials/procedural-supplements/bi-application-function-coverage-method.json": "6af317d27c05c4f6f31ca80799edbafebb4a89ad370fffd7ea421881e65197e7",
+    "skills/_shared/references/method-case-materials/procedural-supplements/mdm-four-plateau-operations-method.json": "9b2acce6806a4a4720c699715de3118e61efd4367d25c52ee22f7ac4ba803f2b",
+    "skills/_shared/references/method-case-materials/procedural-supplements/government-reference-catalog-overlay-method.json": "9ee0e337876343031ce83117f92ecbd1e9909b0264571c81f8283b41168c563d",
+    "skills/_shared/references/method-case-materials/procedural-supplements/bi-business-function-coverage-method.json": "4b27268b84ea2d9d20f47c76d2031ec3993e15e6d478c27c30d47cd9ec551379",
+    "skills/_shared/references/method-case-materials/procedural-supplements/reference-model-tailoring.json": "7d01a3bac1f969ec1108d660cfad72354a74f57a1981cbda08b51fd2c99bcfa1",
+    "skills/_shared/references/method-case-materials/procedural-supplements/mdm-business-function-coverage-method.json": "ebddafa1cb72be4eb22a90821ad2a785f0423f3d88ac3bffd5d8abbb6a5ae8ad",
+    "skills/_shared/references/method-case-materials/procedural-supplements/bi-usage-goal-measures-method.json": "3cc7b1abc02cc373c92bf307f6fa30320ba24deb7a1e775bd2f14693e20dada5",
+    "skills/_shared/references/method-case-materials/procedural-supplements/msa-federated-governance-process-method.json": "410333ace87932b78745d7ddaf24fc38d1d3cb4d39ef0deb4b3202637d7ca8e7"
+  },
+  "findings": [
+    {
+      "id": "PROC-01",
+      "status": "repaired",
+      "method_id": "scenario-elicitation",
+      "detail": "8 current steps formerly mapped to only 5 case steps; appended explicitly new synthetic materials and full seven-domain interview/clarification/document assembly."
+    },
+    {
+      "id": "PROC-02",
+      "status": "repaired",
+      "detail": "Six candidate cases had unwarranted work-size, automatic delegation, identity-to-governance, zero-allocation, or logger safety implications; wording corrected without claiming runtime implementation."
+    },
+    {
+      "id": "PROC-03",
+      "status": "supplemented-with-execution-limits",
+      "detail": "19 new fictional inputs supplement 47 current steps; 180 function rows, 71 DBRM raw rows, 11 department ledgers and 20 MDM conditions are saved. Twelve strict candidate table generations are separately logged. Native blind Agent, real application operation and human acceptance remain uncovered."
+    }
+  ],
+  "registry_binding": "canonical per-method record hashes; unrelated profile edits do not invalidate method binding",
+  "generated_output_evidence": [
+    {
+      "path": "/Users/mac/Desktop/AI-TOGAF/output/adm-goal-20261108/methods/procedural-generated/summary.json",
+      "sha256": "4f5db9d941d48a056075bcd1dec6898d025408549b8ef95a235419e83fe1fe4a",
+      "type": "12-complete-row-model-to-table-generator-runs",
+      "accepted": false
+    },
+    {
+      "path": "/Users/mac/Desktop/AI-TOGAF/output/adm-goal-20261108/methods/procedural-agile-generated-current/summary.json",
+      "sha256": "f80ff8d09f40ff9dae353b6ed0d89c14a58329dd812de4f0765c6b62f1bca3b9",
+      "type": "4-candidate-plan-layout-and-rasterization-runs",
+      "accepted": false
+    }
+  ]
+}

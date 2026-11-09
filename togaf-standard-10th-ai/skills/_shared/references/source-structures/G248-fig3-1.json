@@ -1,0 +1,1241 @@
+{
+  "schema_version": "2.0",
+  "id": "G248/fig3-1",
+  "title": "TOGAF 企业元模型 [C220]",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      190
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "第 3 章的基准图：在按变革画像挑选构建块之前，先给出“需要考虑哪些实体类型及其重要关系”。后续表 3-1 按画像把实体分组，图 2-2/2-3/6-1 都是这个元模型在具体场景中的子集。",
+    "reading_guide_zh": "从顶部橙色 General Entities 带读起：灰色面板内的 Principle、Constraint、Assumption、Requirement、Location、Gap、Work Package 与所有实体相关，右侧 Capability 由工作包交付。再读黄色 BUSINESS ARCHITECTURE：上方是动机链 Driver→Goal→Objective→Measure 与横贯的 Course of Action，下方是 Product/Organization Unit/Business Capability/Value Stream/Business Information/Function/Actor/Process/Role/Event 等业务实体。最后读下方三个信息系统域：粉色 Data、绿色 Application、蓝色 Technology，各自都有 Service→Logical→Physical 的实现链，并通过 Uses / Is served by 等关系跨域相连。每条连线读两侧成对的关系名，而不是看线的几何方向。",
+    "key_points_zh": [
+      "全图 36 个实体，按五个域分区：General 8 个（含 Capability）、Business 19 个、Data 3 个、Application 3 个、Technology 3 个。",
+      "General Entities 中除 Capability 外的 7 个实体位于“Associated with All Objects”灰色面板内，表示它们可关联到任意实体；Capability 在工作包右侧，由 Work Package 交付（Delivers / Is delivered by）。",
+      "动机链是 Driver Creates Goal、Goal Is made specific（by Objective）、Objective Realizes Goal、Objective Is tracked against Measure；Goal 又 Is realized by Course of Action，Driver Motivates Course of Action。",
+      "Course of Action 横贯业务域，向下 Influences Product、Organization Unit、Business Capability、Value Stream、Business Information、Function 等业务实体。",
+      "业务域内部有两条主要实现链：Capability Is realized by Function（Function Supports Capability）；Process Supports / Is realized by Business Service，并由 Actor、Role 执行，Process 与 Event 之间互相 Generates/Resolves。",
+      "三个信息系统域结构对称：Application Service→Logical Application Component→Physical Application Component，Technology Service→Logical Technology Component→Physical Technology Component，Data Entity→Logical Data Component→Physical Data Component；上层 Service 由下层组件实现，下层组件向上 Serves/Supplies。",
+      "跨域关系把三层串起来：应用组件 Uses Data Entity，应用组件 Is served by 技术组件，Logical Technology Component Provides platform for Application Service，Application Service Is implemented on Technology Service。",
+      "所有连线都没有箭头，方向由线两侧成对的关系名（主动/被动）表达；实体是类型而非实例，图不表示某个企业的具体架构。"
+    ],
+    "hierarchy_zh": "两层“容器”关系：最外层是五个架构域色带（General Entities、BUSINESS ARCHITECTURE、DATA ARCHITECTURE、APPLICATION ARCHITECTURE、TECHNOLOGY ARCHITECTURE）；General 带内又有一个“Associated with All Objects”灰色面板包住 7 个横切实体。实体本身平铺，不表达上下级；Service→Logical→Physical 的层级由关系名（Is realized by / Is realized through）表达，不是框的嵌套。",
+    "line_semantics_zh": "细实线连接两个实体，线两侧各写一个关系名，二者互为反向读法（如 Is produced by / Delivers、Is realized by / Realizes）；全图没有箭头，方向只能靠关系名的主动/被动语态判断。多条线在中央交汇，交叉处的小半圆是绘图软件的“跨线跳线”，不是关系符号。分区色带与面板边界表示归属，不表示关系。",
+    "misreadings_zh": [
+      "图中所有关系线都没有箭头；不要按线的走向猜方向，必须读线旁成对的关系名（主动语态一侧为起点）。",
+      "线交叉处的小弧线是“跳线”（line hop），不是聚合/组合菱形，也不表示任何关系语义。",
+      "“Associated with All Objects”是灰色面板的标题，表示面板内 7 个实体可关联到任意实体；Capability 虽在同一橙色带内，却在面板之外，不属于“与所有对象关联”的集合。",
+      "Business Service 是横跨黄色与下方三域边界的长条实体，不是三个域的容器；它通过 Realizes / Is realized by 等关系与数据、应用、流程相连。",
+      "不要把 Service→Logical→Physical 读成“包含”：三者是 realization 关系（Physical realizes Logical，Logical is realized by Physical），不是整体—部分。",
+      "中文稿当前引用的 figs/g248_metamodel.svg 只是 15 个实体的示意网格，关系和 21 个实体都缺失，不能据它理解本图。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "general_group",
+      "label_en": "General Entities",
+      "label_zh": "通用实体",
+      "type": "group",
+      "parent": null,
+      "position": "顶部橙色横带",
+      "description_zh": "通用实体分区。"
+    },
+    {
+      "id": "all_objects_group",
+      "label_en": "Associated with All Objects",
+      "label_zh": "与所有对象关联",
+      "type": "group",
+      "parent": "general_group",
+      "position": "General 带内灰色面板",
+      "description_zh": "包住 7 个横切实体；面板标题说明这些实体可与任意对象关联。"
+    },
+    {
+      "id": "business_group",
+      "label_en": "BUSINESS ARCHITECTURE",
+      "label_zh": "业务架构",
+      "type": "group",
+      "parent": null,
+      "position": "中部黄色大区",
+      "description_zh": "业务架构实体分区。"
+    },
+    {
+      "id": "data_group",
+      "label_en": "DATA ARCHITECTURE",
+      "label_zh": "数据架构",
+      "type": "group",
+      "parent": null,
+      "position": "底部左侧粉色区",
+      "description_zh": "数据架构实体分区。"
+    },
+    {
+      "id": "application_group",
+      "label_en": "APPLICATION ARCHITECTURE",
+      "label_zh": "应用架构",
+      "type": "group",
+      "parent": null,
+      "position": "底部中间绿色区",
+      "description_zh": "应用架构实体分区。"
+    },
+    {
+      "id": "technology_group",
+      "label_en": "TECHNOLOGY ARCHITECTURE",
+      "label_zh": "技术架构",
+      "type": "group",
+      "parent": null,
+      "position": "底部右侧蓝色区",
+      "description_zh": "技术架构实体分区。"
+    },
+    {
+      "id": "principle",
+      "label_en": "Principle",
+      "label_zh": "原则",
+      "type": "principle",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 1 框"
+    },
+    {
+      "id": "constraint",
+      "label_en": "Constraint",
+      "label_zh": "约束",
+      "type": "principle",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 2 框"
+    },
+    {
+      "id": "assumption",
+      "label_en": "Assumption",
+      "label_zh": "假设",
+      "type": "concept",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 3 框"
+    },
+    {
+      "id": "requirement",
+      "label_en": "Requirement",
+      "label_zh": "需求",
+      "type": "requirement",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 4 框"
+    },
+    {
+      "id": "location",
+      "label_en": "Location",
+      "label_zh": "位置",
+      "type": "location",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 5 框"
+    },
+    {
+      "id": "gap",
+      "label_en": "Gap",
+      "label_zh": "差距",
+      "type": "concept",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 6 框"
+    },
+    {
+      "id": "work_package",
+      "label_en": "Work Package",
+      "label_zh": "工作包",
+      "type": "process",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 7 框"
+    },
+    {
+      "id": "capability_general",
+      "label_en": "Capability",
+      "label_zh": "能力",
+      "type": "capability",
+      "parent": "general_group",
+      "position": "橙色带右端、灰色面板外",
+      "description_zh": "由工作包交付的通用能力；不在“与所有对象关联”面板内。"
+    },
+    {
+      "id": "driver",
+      "label_en": "Driver",
+      "label_zh": "驱动因素",
+      "type": "goal",
+      "parent": "business_group",
+      "position": "业务区左上"
+    },
+    {
+      "id": "goal",
+      "label_en": "Goal",
+      "label_zh": "目标",
+      "type": "goal",
+      "parent": "business_group",
+      "position": "业务区上部中左"
+    },
+    {
+      "id": "objective",
+      "label_en": "Objective",
+      "label_zh": "目的",
+      "type": "goal",
+      "parent": "business_group",
+      "position": "业务区上部中右"
+    },
+    {
+      "id": "measure",
+      "label_en": "Measure",
+      "label_zh": "度量",
+      "type": "metric",
+      "parent": "business_group",
+      "position": "业务区右上"
+    },
+    {
+      "id": "course_of_action",
+      "label_en": "Course of Action",
+      "label_zh": "行动方案",
+      "type": "concept",
+      "parent": "business_group",
+      "position": "业务区上部横条"
+    },
+    {
+      "id": "product",
+      "label_en": "Product",
+      "label_zh": "产品",
+      "type": "product",
+      "parent": "business_group",
+      "position": "业务区中左"
+    },
+    {
+      "id": "organization_unit",
+      "label_en": "Organization Unit",
+      "label_zh": "组织单元",
+      "type": "organization_unit",
+      "parent": "business_group",
+      "position": "业务区中左偏右"
+    },
+    {
+      "id": "business_capability",
+      "label_en": "Business Capability",
+      "label_zh": "业务能力",
+      "type": "capability",
+      "parent": "business_group",
+      "position": "业务区中部"
+    },
+    {
+      "id": "value_stream",
+      "label_en": "Value Stream",
+      "label_zh": "价值流",
+      "type": "value_stream",
+      "parent": "business_group",
+      "position": "业务区中右"
+    },
+    {
+      "id": "business_information",
+      "label_en": "Business Information",
+      "label_zh": "业务信息",
+      "type": "data",
+      "parent": "business_group",
+      "position": "业务区右上"
+    },
+    {
+      "id": "function",
+      "label_en": "Function",
+      "label_zh": "功能",
+      "type": "function",
+      "parent": "business_group",
+      "position": "业务区中左"
+    },
+    {
+      "id": "actor",
+      "label_en": "Actor",
+      "label_zh": "参与者",
+      "type": "actor",
+      "parent": "business_group",
+      "position": "业务区中部"
+    },
+    {
+      "id": "process",
+      "label_en": "Process",
+      "label_zh": "流程",
+      "type": "process",
+      "parent": "business_group",
+      "position": "业务区中右"
+    },
+    {
+      "id": "role",
+      "label_en": "Role",
+      "label_zh": "角色",
+      "type": "role",
+      "parent": "business_group",
+      "position": "业务区中下"
+    },
+    {
+      "id": "event",
+      "label_en": "Event",
+      "label_zh": "事件",
+      "type": "event",
+      "parent": "business_group",
+      "position": "业务区中下"
+    },
+    {
+      "id": "service_quality",
+      "label_en": "Service Quality",
+      "label_zh": "服务质量",
+      "type": "requirement",
+      "parent": "business_group",
+      "position": "业务区右下"
+    },
+    {
+      "id": "contract",
+      "label_en": "Contract",
+      "label_zh": "合同",
+      "type": "artifact",
+      "parent": "business_group",
+      "position": "业务区右下"
+    },
+    {
+      "id": "control",
+      "label_en": "Control",
+      "label_zh": "控制",
+      "type": "risk",
+      "parent": "business_group",
+      "position": "业务区右中",
+      "description_zh": "控制措施，确保流程正确运行。"
+    },
+    {
+      "id": "business_service",
+      "label_en": "Business Service",
+      "label_zh": "业务服务",
+      "type": "service",
+      "parent": "business_group",
+      "position": "业务区底部横条"
+    },
+    {
+      "id": "data_entity",
+      "label_en": "Data Entity",
+      "label_zh": "数据实体",
+      "type": "data",
+      "parent": "data_group",
+      "position": "数据区上部"
+    },
+    {
+      "id": "logical_data_component",
+      "label_en": "Logical Data Component",
+      "label_zh": "逻辑数据组件",
+      "type": "data",
+      "parent": "data_group",
+      "position": "数据区中部"
+    },
+    {
+      "id": "physical_data_component",
+      "label_en": "Physical Data Component",
+      "label_zh": "物理数据组件",
+      "type": "data",
+      "parent": "data_group",
+      "position": "数据区下部"
+    },
+    {
+      "id": "application_service",
+      "label_en": "Application Service",
+      "label_zh": "应用服务",
+      "type": "service",
+      "parent": "application_group",
+      "position": "应用区上部"
+    },
+    {
+      "id": "logical_application_component",
+      "label_en": "Logical Application Component",
+      "label_zh": "逻辑应用组件",
+      "type": "application",
+      "parent": "application_group",
+      "position": "应用区中部"
+    },
+    {
+      "id": "physical_application_component",
+      "label_en": "Physical Application Component",
+      "label_zh": "物理应用组件",
+      "type": "application",
+      "parent": "application_group",
+      "position": "应用区下部"
+    },
+    {
+      "id": "technology_service",
+      "label_en": "Technology Service",
+      "label_zh": "技术服务",
+      "type": "service",
+      "parent": "technology_group",
+      "position": "技术区上部"
+    },
+    {
+      "id": "logical_technology_component",
+      "label_en": "Logical Technology Component",
+      "label_zh": "逻辑技术组件",
+      "type": "technology",
+      "parent": "technology_group",
+      "position": "技术区中部"
+    },
+    {
+      "id": "physical_technology_component",
+      "label_en": "Physical Technology Component",
+      "label_zh": "物理技术组件",
+      "type": "technology",
+      "parent": "technology_group",
+      "position": "技术区下部"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_wp_capability",
+      "from": "work_package",
+      "to": "capability_general",
+      "type": "produces",
+      "label_en": "Delivers / Is delivered by",
+      "label_zh": "交付 / 由……交付",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "工作包交付能力；工作包在左，能力在右，反向读作能力由工作包交付。"
+    },
+    {
+      "id": "r_driver_goal",
+      "from": "driver",
+      "to": "goal",
+      "type": "produces",
+      "label_en": "Creates / Addresses",
+      "label_zh": "创建 / 应对",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "驱动因素创建目标；反向读作目标应对驱动因素。"
+    },
+    {
+      "id": "r_driver_coa",
+      "from": "driver",
+      "to": "course_of_action",
+      "type": "influence",
+      "label_en": "Motivates",
+      "label_zh": "激励",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "驱动因素激励行动方案；线从 Driver 左缘向下折到 Course of Action 左端。"
+    },
+    {
+      "id": "r_goal_objective",
+      "from": "goal",
+      "to": "objective",
+      "type": "association",
+      "label_en": "Is made specific / Realizes",
+      "label_zh": "被具体化 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "目标由目的加以具体化；反向读作目的实现目标。"
+    },
+    {
+      "id": "r_goal_coa",
+      "from": "goal",
+      "to": "course_of_action",
+      "type": "realization",
+      "label_en": "Is realized by / Realizes",
+      "label_zh": "由……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "目标由行动方案实现；反向读作行动方案实现目标。"
+    },
+    {
+      "id": "r_objective_measure",
+      "from": "objective",
+      "to": "measure",
+      "type": "association",
+      "label_en": "Is tracked against / Sets performance criteria for",
+      "label_zh": "对照……跟踪 / 为……设定绩效标准",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "目的对照度量来跟踪；反向读作度量为目的设定绩效标准。"
+    },
+    {
+      "id": "r_coa_product",
+      "from": "course_of_action",
+      "to": "product",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响产品。"
+    },
+    {
+      "id": "r_coa_orgunit",
+      "from": "course_of_action",
+      "to": "organization_unit",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响组织单元。"
+    },
+    {
+      "id": "r_coa_orgunit_motivates",
+      "from": "course_of_action",
+      "to": "organization_unit",
+      "type": "influence",
+      "label_en": "Motivates / Is motivated by",
+      "label_zh": "激励 / 受……激励",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案激励组织单元；反向读作组织单元受行动方案激励（第二条 CoA—组织单元连线，标签位于 Product 与 Organization Unit 之间）。"
+    },
+    {
+      "id": "r_coa_capability",
+      "from": "course_of_action",
+      "to": "business_capability",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响业务能力。"
+    },
+    {
+      "id": "r_coa_valuestream",
+      "from": "course_of_action",
+      "to": "value_stream",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响价值流。"
+    },
+    {
+      "id": "r_coa_businessinfo",
+      "from": "course_of_action",
+      "to": "business_information",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响业务信息。"
+    },
+    {
+      "id": "r_coa_function",
+      "from": "course_of_action",
+      "to": "function",
+      "type": "influence",
+      "label_en": "Influences / Is influenced by",
+      "label_zh": "影响 / 受……影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响功能；功能一侧标注“受……影响”。"
+    },
+    {
+      "id": "r_product_orgunit",
+      "from": "organization_unit",
+      "to": "product",
+      "type": "produces",
+      "label_en": "Is produced by / Delivers",
+      "label_zh": "由……生产 / 交付",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "产品由组织单元生产；反向读作组织单元交付产品。"
+    },
+    {
+      "id": "r_product_function",
+      "from": "function",
+      "to": "product",
+      "type": "produces",
+      "label_en": "Is produced by / Delivers",
+      "label_zh": "由……生产 / 交付",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "产品由功能生产；反向读作功能交付产品。"
+    },
+    {
+      "id": "r_orgunit_actor",
+      "from": "organization_unit",
+      "to": "actor",
+      "type": "composition",
+      "label_en": "Contains",
+      "label_zh": "包含",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "组织单元包含参与者。"
+    },
+    {
+      "id": "r_orgunit_function",
+      "from": "organization_unit",
+      "to": "function",
+      "type": "governs",
+      "label_en": "Owns and governs / Is owned by",
+      "label_zh": "拥有并治理 / 由……拥有",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "组织单元拥有并治理功能；功能一侧标注“由……拥有”。"
+    },
+    {
+      "id": "r_function_orgunit_owned",
+      "from": "function",
+      "to": "organization_unit",
+      "type": "dependency",
+      "label_en": "Is owned and governed by",
+      "label_zh": "由……拥有并治理",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能由组织单元拥有并治理（与 Owns and governs 为不同连线，标签位于 Function 下方）。"
+    },
+    {
+      "id": "r_orgunit_capability",
+      "from": "organization_unit",
+      "to": "business_capability",
+      "type": "serving",
+      "label_en": "Enables",
+      "label_zh": "使能",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "组织单元使能业务能力（端点按线的走向与语义推断）。"
+    },
+    {
+      "id": "r_orgunit_process",
+      "from": "organization_unit",
+      "to": "process",
+      "type": "association",
+      "label_en": "Participates in",
+      "label_zh": "参与",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "组织单元参与流程（端点按线的走向与语义推断）。"
+    },
+    {
+      "id": "r_capability_valuestream",
+      "from": "business_capability",
+      "to": "value_stream",
+      "type": "serving",
+      "label_en": "Enables / Is enabled by",
+      "label_zh": "使能 / 受……使能",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务能力使能价值流；反向读作价值流受业务能力使能。"
+    },
+    {
+      "id": "r_capability_process",
+      "from": "business_capability",
+      "to": "process",
+      "type": "association",
+      "label_en": "Is operationalized by / Operationalizes",
+      "label_zh": "由……运营化 / 运营化",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务能力由流程运营化；反向读作流程运营化业务能力（端点按语义推断）。"
+    },
+    {
+      "id": "r_valuestream_capability",
+      "from": "value_stream",
+      "to": "business_capability",
+      "type": "association",
+      "label_en": "Is operationalized by",
+      "label_zh": "由……运营化",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "价值流由业务能力运营化（第二条同名关系，端点按线束位置推断）。"
+    },
+    {
+      "id": "r_valuestream_process",
+      "from": "value_stream",
+      "to": "process",
+      "type": "association",
+      "label_en": "Is triggered by, Involves",
+      "label_zh": "由……触发、涉及",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "价值流由流程触发并涉及流程（端点按语义推断）。"
+    },
+    {
+      "id": "r_businessinfo_process",
+      "from": "process",
+      "to": "business_information",
+      "type": "access",
+      "label_en": "Uses / Is used by",
+      "label_zh": "使用 / 被……使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程使用业务信息；反向读作业务信息被流程使用。"
+    },
+    {
+      "id": "r_businessinfo_service",
+      "from": "business_information",
+      "to": "business_service",
+      "type": "produces",
+      "label_en": "Used to derive / Is derived from",
+      "label_zh": "用于派生 / 派生自",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务信息用于派生业务服务；反向读作业务服务派生自业务信息。"
+    },
+    {
+      "id": "r_process_service",
+      "from": "process",
+      "to": "business_service",
+      "type": "produces",
+      "label_en": "Delivers",
+      "label_zh": "交付",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程交付业务服务（端点按线的走向推断）。"
+    },
+    {
+      "id": "r_function_capability",
+      "from": "function",
+      "to": "business_capability",
+      "type": "serving",
+      "label_en": "Supports",
+      "label_zh": "支持",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能支持业务能力。"
+    },
+    {
+      "id": "r_capability_function",
+      "from": "business_capability",
+      "to": "function",
+      "type": "realization",
+      "label_en": "Is realized by",
+      "label_zh": "由……实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务能力由功能实现。"
+    },
+    {
+      "id": "r_function_actor",
+      "from": "function",
+      "to": "actor",
+      "type": "association",
+      "label_en": "Interacts with, Performs",
+      "label_zh": "与……交互、执行",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者与功能交互并执行功能（端点按语义推断）。"
+    },
+    {
+      "id": "r_function_service_interface",
+      "from": "function",
+      "to": "business_service",
+      "type": "serving",
+      "label_en": "Provides governed interface to access",
+      "label_zh": "提供受治理的访问接口",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能为访问业务服务提供受治理的接口。"
+    },
+    {
+      "id": "r_function_service_supply",
+      "from": "function",
+      "to": "business_service",
+      "type": "consumes",
+      "label_en": "Supplies or consumes / Is supplied or consumed by",
+      "label_zh": "供应或消费 / 被供应或消费",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能供应或消费业务服务（与上一条为不同连线）。"
+    },
+    {
+      "id": "r_function_coa",
+      "from": "function",
+      "to": "course_of_action",
+      "type": "dependency",
+      "label_en": "Is bounded by",
+      "label_zh": "受……约束",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能受行动方案约束。"
+    },
+    {
+      "id": "r_actor_orgunit",
+      "from": "actor",
+      "to": "organization_unit",
+      "type": "assignment",
+      "label_en": "Belongs to",
+      "label_zh": "隶属于",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者隶属于组织单元（按原图另有一条线与 Contains 分开）。"
+    },
+    {
+      "id": "r_actor_service",
+      "from": "actor",
+      "to": "business_service",
+      "type": "consumes",
+      "label_en": "Consumes",
+      "label_zh": "消费",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者消费业务服务。"
+    },
+    {
+      "id": "r_actor_process_task",
+      "from": "actor",
+      "to": "process",
+      "type": "assignment",
+      "label_en": "Performs a task in / Performs task in",
+      "label_zh": "在其中执行任务 / 在……中执行任务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者在流程中执行任务。"
+    },
+    {
+      "id": "r_actor_process_trigger",
+      "from": "actor",
+      "to": "process",
+      "type": "association",
+      "label_en": "Triggers, Participates in",
+      "label_zh": "触发、参与",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者触发并参与流程（与 Performs task in 为不同连线）。"
+    },
+    {
+      "id": "r_process_process",
+      "from": "process",
+      "to": "process",
+      "type": "composition",
+      "label_en": "Orchestrates, Decomposes",
+      "label_zh": "编排、分解",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程编排并分解流程（自关系）。"
+    },
+    {
+      "id": "r_role_process",
+      "from": "role",
+      "to": "process",
+      "type": "assignment",
+      "label_en": "Performs, Participates in",
+      "label_zh": "执行、参与",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "角色执行并参与流程。"
+    },
+    {
+      "id": "r_process_role",
+      "from": "process",
+      "to": "role",
+      "type": "assignment",
+      "label_en": "Is performed by, Involves",
+      "label_zh": "由……执行、涉及",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程由角色执行并涉及角色；与上一条互为反向。"
+    },
+    {
+      "id": "r_process_event",
+      "from": "process",
+      "to": "event",
+      "type": "produces",
+      "label_en": "Generates, Resolves",
+      "label_zh": "生成、解决",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程生成并解决事件。"
+    },
+    {
+      "id": "r_event_process",
+      "from": "event",
+      "to": "process",
+      "type": "association",
+      "label_en": "Is resolved by, Is generated by",
+      "label_zh": "由……解决、由……生成",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "事件由流程解决并生成；与上一条互为反向。"
+    },
+    {
+      "id": "r_process_service_support",
+      "from": "process",
+      "to": "business_service",
+      "type": "serving",
+      "label_en": "Supports, Is realized by",
+      "label_zh": "支持、由……实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程支持业务服务，业务服务由流程实现。"
+    },
+    {
+      "id": "r_control_process",
+      "from": "control",
+      "to": "process",
+      "type": "governs",
+      "label_en": "Ensures correct operation of",
+      "label_zh": "确保……正确运行",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "控制确保流程正确运行。"
+    },
+    {
+      "id": "r_process_control",
+      "from": "process",
+      "to": "control",
+      "type": "dependency",
+      "label_en": "Is guided by",
+      "label_zh": "受……指导",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程受控制指导；与上一条互为反向。"
+    },
+    {
+      "id": "r_quality_contract",
+      "from": "service_quality",
+      "to": "contract",
+      "type": "association",
+      "label_en": "Applies to / Meets",
+      "label_zh": "适用于 / 满足",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "服务质量适用于合同，合同满足服务质量。"
+    },
+    {
+      "id": "r_contract_service",
+      "from": "contract",
+      "to": "business_service",
+      "type": "governs",
+      "label_en": "Governs, measures / Is governed and measured by",
+      "label_zh": "治理、度量 / 受……治理与度量",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "合同治理并度量业务服务；反向读作业务服务受合同治理与度量。"
+    },
+    {
+      "id": "r_quality_service",
+      "from": "service_quality",
+      "to": "business_service",
+      "type": "association",
+      "label_en": "Applies to / Meets",
+      "label_zh": "适用于 / 满足",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "服务质量适用于业务服务，业务服务满足服务质量。"
+    },
+    {
+      "id": "r_service_actor",
+      "from": "business_service",
+      "to": "actor",
+      "type": "serving",
+      "label_en": "Is provided to",
+      "label_zh": "被提供给",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务服务被提供给参与者。"
+    },
+    {
+      "id": "r_data_service",
+      "from": "data_entity",
+      "to": "business_service",
+      "type": "realization",
+      "label_en": "Realizes",
+      "label_zh": "实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "按原图文字，数据实体实现业务服务（长线从数据实体向左上折到业务服务左端）。"
+    },
+    {
+      "id": "r_service_app",
+      "from": "business_service",
+      "to": "application_service",
+      "type": "consumes",
+      "label_en": "Uses / Automates some or all of",
+      "label_zh": "使用 / 自动化其中部分或全部",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务服务使用应用服务；反向读作应用服务自动化业务服务的部分或全部。"
+    },
+    {
+      "id": "r_data_ldc",
+      "from": "data_entity",
+      "to": "logical_data_component",
+      "type": "composition",
+      "label_en": "Resides within / Encapsulates",
+      "label_zh": "驻留于 / 封装",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据实体驻留于逻辑数据组件，逻辑数据组件封装数据实体。"
+    },
+    {
+      "id": "r_ldc_pdc",
+      "from": "logical_data_component",
+      "to": "physical_data_component",
+      "type": "realization",
+      "label_en": "Is realized by / Realizes",
+      "label_zh": "由……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑数据组件由物理数据组件实现。"
+    },
+    {
+      "id": "r_data_appservice",
+      "from": "data_entity",
+      "to": "application_service",
+      "type": "access",
+      "label_en": "Is accessed and updated through",
+      "label_zh": "通过……访问与更新",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据实体通过应用服务被访问和更新。"
+    },
+    {
+      "id": "r_data_lac",
+      "from": "data_entity",
+      "to": "logical_application_component",
+      "type": "access",
+      "label_en": "Used by / Uses",
+      "label_zh": "被……使用 / 使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据实体被逻辑应用组件使用；反向读作逻辑应用组件使用数据实体。"
+    },
+    {
+      "id": "r_data_pac",
+      "from": "data_entity",
+      "to": "physical_application_component",
+      "type": "access",
+      "label_en": "Used by / Uses",
+      "label_zh": "被……使用 / 使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据实体被物理应用组件使用；反向读作物理应用组件使用数据实体。"
+    },
+    {
+      "id": "r_appservice_lac",
+      "from": "application_service",
+      "to": "logical_application_component",
+      "type": "realization",
+      "label_en": "Is realized through / Implements",
+      "label_zh": "通过……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "应用服务通过逻辑应用组件实现；逻辑应用组件实现应用服务。"
+    },
+    {
+      "id": "r_lac_pac",
+      "from": "logical_application_component",
+      "to": "physical_application_component",
+      "type": "realization",
+      "label_en": "Is realized by / Realizes",
+      "label_zh": "由……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑应用组件由物理应用组件实现。"
+    },
+    {
+      "id": "r_appservice_techservice",
+      "from": "application_service",
+      "to": "technology_service",
+      "type": "serving",
+      "label_en": "Is served by / Serves",
+      "label_zh": "由……服务 / 服务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "应用服务由技术服务支撑；反向读作技术服务服务于应用服务。"
+    },
+    {
+      "id": "r_lac_ltc",
+      "from": "logical_application_component",
+      "to": "logical_technology_component",
+      "type": "serving",
+      "label_en": "Is served by / Serves",
+      "label_zh": "由……服务 / 服务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑应用组件由逻辑技术组件服务。"
+    },
+    {
+      "id": "r_pac_ptc",
+      "from": "physical_application_component",
+      "to": "physical_technology_component",
+      "type": "serving",
+      "label_en": "Is served by / Serves",
+      "label_zh": "由……服务 / 服务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "物理应用组件由物理技术组件服务。"
+    },
+    {
+      "id": "r_appservice_techservice_impl",
+      "from": "application_service",
+      "to": "technology_service",
+      "type": "dependency",
+      "label_en": "Is implemented on",
+      "label_zh": "实现在……之上",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "应用服务实现在技术服务之上；与 Is served by 为不同连线。"
+    },
+    {
+      "id": "r_ltc_techservice",
+      "from": "logical_technology_component",
+      "to": "technology_service",
+      "type": "serving",
+      "label_en": "Is supplied by / Supplies",
+      "label_zh": "由……供应 / 供应",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "技术服务由逻辑技术组件供应；反向读作逻辑技术组件供应技术服务。"
+    },
+    {
+      "id": "r_ltc_ptc",
+      "from": "logical_technology_component",
+      "to": "physical_technology_component",
+      "type": "realization",
+      "label_en": "Is realized by / Realizes",
+      "label_zh": "由……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑技术组件由物理技术组件实现。"
+    },
+    {
+      "id": "r_ltc_appservice",
+      "from": "logical_technology_component",
+      "to": "application_service",
+      "type": "serving",
+      "label_en": "Provides platform for",
+      "label_zh": "为……提供平台",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑技术组件为应用服务提供平台。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "橙色带 General Entities",
+      "meaning_zh": "通用实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "灰色面板 Associated with All Objects",
+      "meaning_zh": "可与任意对象关联的横切实体集合",
+      "explicit": true
+    },
+    {
+      "symbol": "黄色带 BUSINESS ARCHITECTURE",
+      "meaning_zh": "业务架构实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "粉色带 DATA ARCHITECTURE",
+      "meaning_zh": "数据架构实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "绿色带 APPLICATION ARCHITECTURE",
+      "meaning_zh": "应用架构实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "蓝色带 TECHNOLOGY ARCHITECTURE",
+      "meaning_zh": "技术架构实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "白底黑框矩形",
+      "meaning_zh": "一个元模型实体类型",
+      "explicit": false
+    },
+    {
+      "symbol": "细实线两侧成对的关系名",
+      "meaning_zh": "两个实体间的双向可读关系；无箭头，靠语态判方向",
+      "explicit": false
+    },
+    {
+      "symbol": "线交叉处的小半圆",
+      "meaning_zh": "绘图跳线，仅表示两线不相交，不是关系符号",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "原图共有 36 个实体、约 60 条连线且多处线束交叠，部分中央区域（Product／Organization Unit／Function／Actor／Process）的端点归属按关系名语义与线的走向推断，未能逐条做像素级追踪。",
+      "“Enables”“Participates in”“Is operationalized by”“Is triggered by, Involves”“Delivers（Process→Business Service）”等标签位于线束交汇处，端点存在多种可能，已在对应关系的 description_zh 中标注“按语义/走向推断”。",
+      "Course of Action 对业务实体的“Influences”共有 5 条同名线（Product、Organization Unit、Business Capability、Value Stream、Business Information）另加 Function 一条，按落点列分别归属。",
+      "全图无基数标注，因此所有关系的 cardinality 均未填写。",
+      "版权标记 © The Open Group 位于 General Entities 带右上角。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 19 页图 3-1 截图（220 dpi）与 3×3 放大分块",
+      "英文 PDF 第 19 页原图（600 dpi 重渲染，局部 2 倍放大）",
+      "原图内嵌位图（3784×3284）与 tesseract OCR 的全部标签坐标",
+      "英文 PDF 第 19 页正文",
+      "中文稿 G248e_构建块的选择方法.md 第 186–190、367–383 行"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G248/fig3-1",
+    "asset": "figs/g248_metamodel.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "19"
+  }
+}

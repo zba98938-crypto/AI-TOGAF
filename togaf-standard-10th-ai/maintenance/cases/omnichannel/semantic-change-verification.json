@@ -1,0 +1,191 @@
+{
+  "schema_version": "omnichannel-semantic-change-verification/1",
+  "generated_at": "2026-11-08T11:41:44.280506+08:00",
+  "review_kind": "case-specific-counterfactual-regression",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "current-case-gates",
+      "assertion_zh": "当前断连候选的恢复提供者、控制范围、物流交接和任务职责互相一致；真实证据仍未知。",
+      "status": "passed",
+      "actual": {
+        "explicit_gate_errors": [],
+        "business_approval": "not-granted"
+      }
+    },
+    {
+      "id": "provider-change-projection-and-stale-analysis",
+      "assertion_zh": "更改实际提供者关系会改变能力应用映射；过期分析被拒绝，同步只恢复绑定，不批准新设计。",
+      "status": "passed",
+      "actual": {
+        "relationship": "EX-RESERVE",
+        "before_provider": "APP-STOCK",
+        "after_provider": "APP-STORE",
+        "catalog_and_matrix": "changed-with-same-CAP-RESERVE-ID",
+        "stale_analysis": "rejected",
+        "synchronized_analysis": "binding-passed",
+        "business_disposition": "hypothetical-rerouting-requires-review-not-approved"
+      }
+    },
+    {
+      "id": "recovery-provider-conflict",
+      "assertion_zh": "恢复接口提供者改为门店，但契约中央接收者仍为APP-STOCK，应识别业务边界冲突，不能仅因模型结构有效接受。",
+      "status": "passed",
+      "actual": {
+        "rejected": true,
+        "business_errors": [
+          "recovery-provider-contract-mismatch"
+        ],
+        "structural_findings": [],
+        "business_approval": "not-granted",
+        "mutation_disposition": "in-memory-only"
+      }
+    },
+    {
+      "id": "missing-local-durability-control",
+      "assertion_zh": "删除门店持久化控制应暴露数据丢失范围缺口；中央恢复控制不能替代门店控制。",
+      "status": "passed",
+      "actual": {
+        "rejected": true,
+        "business_errors": [
+          "local-durability-control-scope-missing"
+        ],
+        "structural_findings": [],
+        "business_approval": "not-granted",
+        "mutation_disposition": "in-memory-only"
+      }
+    },
+    {
+      "id": "central-control-wrong-scope",
+      "assertion_zh": "将中央恢复控制范围改成门店记录应暴露中央接收和恢复对账未覆盖。",
+      "status": "passed",
+      "actual": {
+        "rejected": true,
+        "business_errors": [
+          "central-recovery-control-scope-missing"
+        ],
+        "structural_findings": [],
+        "business_approval": "not-granted",
+        "mutation_disposition": "in-memory-only"
+      }
+    },
+    {
+      "id": "responsibility-handoff-conflict",
+      "assertion_zh": "职责关系改交首席架构师但任务仍要求解决方案角色时，应识别任务—角色语义冲突，不能通过共享ID同步掩盖。",
+      "status": "passed",
+      "actual": {
+        "rejected": true,
+        "business_errors": [
+          "task-responsibility-mismatch:TASK-SOL"
+        ],
+        "structural_findings": [
+          {
+            "level": "error",
+            "code": "assignment-projection-selection",
+            "id": "role-assignment",
+            "message": "Main view must include each actual role-task and assignment-task/evidence relation exactly once"
+          }
+        ],
+        "business_approval": "not-granted",
+        "mutation_disposition": "in-memory-only"
+      }
+    },
+    {
+      "id": "logistics-handoff-semantic-change",
+      "assertion_zh": "更改既有交接关系使待确认订单直达物流，应违反原始材料“只使用已确认订单”的约束。",
+      "status": "passed",
+      "actual": {
+        "rejected": true,
+        "business_errors": [
+          "unconfirmed-order-to-logistics"
+        ],
+        "structural_findings": [],
+        "business_approval": "not-granted",
+        "mutation_disposition": "in-memory-only"
+      }
+    },
+    {
+      "id": "interface-policy-change-exposes-unchanged-dependents",
+      "assertion_zh": "拟改变受理/承诺含义时，明确关联的需求、风险、交付契约、工作包、角色、任务和发展仍需逐项复核，不能宣称已自动传播设计。",
+      "status": "passed",
+      "actual": {
+        "changed_semantic_field": "IF-RECOVERY.attributes.payload",
+        "pending_review_objects": [
+          {
+            "id": "REQ-OFFLINE",
+            "relationship_path": [
+              "RECOVERY-REQ"
+            ],
+            "disposition": "content-unchanged-needs-human-review"
+          },
+          {
+            "id": "RISK-STOCK",
+            "relationship_path": [
+              "RECOVERY-REQ",
+              "RISK-OFFLINE"
+            ],
+            "disposition": "content-unchanged-needs-human-review"
+          },
+          {
+            "id": "DELIVERY-NOTE",
+            "relationship_path": [
+              "RECOVERY-REQ",
+              "CHANGE-DECISIONS"
+            ],
+            "disposition": "content-unchanged-needs-human-review"
+          },
+          {
+            "id": "WP-OFFLINE",
+            "relationship_path": [
+              "RECOVERY-REQ",
+              "TRANS-OFFLINE-REQ",
+              "WP-TO-OFFLINE"
+            ],
+            "disposition": "content-unchanged-needs-human-review"
+          },
+          {
+            "id": "TASK-SOL",
+            "relationship_path": [
+              "RECOVERY-REQ",
+              "CHANGE-ROLE",
+              "CONFIG-TASK-SOL"
+            ],
+            "disposition": "content-unchanged-needs-human-review"
+          },
+          {
+            "id": "ROLE-SOL",
+            "relationship_path": [
+              "RECOVERY-REQ",
+              "CHANGE-ROLE"
+            ],
+            "disposition": "content-unchanged-needs-human-review"
+          },
+          {
+            "id": "DEV-A",
+            "relationship_path": [
+              "RECOVERY-REQ",
+              "CHANGE-DEVELOPMENT"
+            ],
+            "disposition": "content-unchanged-needs-human-review"
+          }
+        ],
+        "finding": "explicit-graph-candidates-found-business-effects-not-auto-resolved",
+        "limits": "Text change classification is authored for this counterfactual; graph reachability does not prove all actual business impact."
+      }
+    }
+  ],
+  "business_approval": "not-granted",
+  "input_sha256": {
+    "run.py": "c86d78aa5b55f0c83c69ed708a60b2e44cc5ec0faa850657eba1b78eb3c03c56",
+    "base_build.py": "e0f18602977cf3d1aef3588e3639729082a299458ed2cda43f3b510fc9ede0f7",
+    "raw-business-materials.md": "f7c505913f5b8a405bba45c0d6ccfd8097abc5c38e3ea7fa1862585175497f64",
+    "role-skill-inputs.json": "611b436b1c167cff818e1c4ce3a1a4d7f620c5d46c047836c4678c9b221ef8e0",
+    "generated/offline-change/model.json": "b80953dab31b0c1eddefeeea3429e89ca744d9124b657f5c41d95acf31cd67db"
+  },
+  "limits_zh": [
+    "反事实只在内存中运行，没有改变三份教学案例或真实业务事实。",
+    "这些接受门槛是本案例显式编码的业务条件，未推广到共享skills，也不声称能理解任意自然语言政策。",
+    "8项检查通过只证明所列变化与反例；接口业务政策变化的真实影响仍待业务决定与运行证据。",
+    "图可达仅生成候选；库存一致性/恢复目标、工作量/容量、人员能力和授权保持未知。"
+  ]
+}

@@ -1,0 +1,982 @@
+{
+  "schema_version": "1.0",
+  "id": "G234/fig3-1",
+  "status": "done",
+  "doc": {
+    "code": "G234",
+    "title_zh": "信息架构——元数据管理",
+    "title_en": "Information Architecture — Metadata Management",
+    "zh_md": "G234e_信息架构_元数据管理.md",
+    "en_pdf": "togaf-standard-10th/G234e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-1",
+    "title_en": "Metadata Management Capability – High-Level Functions",
+    "title_zh": "元数据管理能力——高层功能",
+    "section_en": "3.1 Metadata Management High-Level Reference Model",
+    "section_zh": "3.1 元数据管理高层参考模型",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        17
+      ],
+      "printed_page": 7,
+      "bboxes": [
+        [
+          61.1,
+          68.2,
+          550.9,
+          268.3
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        174
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g234_fig3-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "2f666637d358",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "只重绘了左半部分：原图右侧蓝色的 “Metadata Management Application Functions” 组及其 6 个应用功能（Acquisition、Governance、Reporting、Reference Data Management、Metadata Integration、Administration）全部缺失，仅用底部一句文字概述",
+        "原图的业务功能排版有分组含义：战略与治理各占整行、三个文档类功能并排、规则政策与数据问题并排、资产关联与存储库设计并排、沟通培训收尾；SVG 改成 4 列 5 行网格，并列与整行关系被打乱（如把“数据使用文档”与“规则与政策文档”排在同一行）",
+        "原图每个框都带 ArchiMate 功能记号（右上角折角箭头）并用黄色统一表示业务功能、蓝色统一表示应用功能；SVG 用五种颜色给业务功能上色，但没有任何图例说明颜色含义，反而制造了不存在的分类",
+        "SVG 自加两句原图没有的总结（“应用层功能：采集、治理、报表、参考数据管理、管理、元数据集成”“业务功能产出并维护文档；应用功能提供采集、校验、发布与集成的自动化支撑”），属于解析者推断而非图内容",
+        "标签被缩写：原图 “Strategy & Roadmaps Definition” 被写成 “Strategy & Roadmaps”，“Rule & Policy Documentation” 写成 “Rules & Policies”，“Data Issue Documentation” 写成 “Data Issues”，“Business Assets and Technical Assets Association” 写成 “Asset Association”，与原文不完全一致"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "hierarchy"
+    ],
+    "notation": "ArchiMate 分组框（grouping）：左右两个彩色大组分别容纳业务功能与应用功能，组内为无连线的功能框，框右上角带 ArchiMate 功能记号",
+    "concepts": [
+      "metadata_management",
+      "reference_model",
+      "business_architecture",
+      "application_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "把元数据管理能力拆成 10 项高层业务功能与 6 项高层应用功能，左右并列给出能力全景。",
+    "purpose_zh": "第 3.1 节的高层参考模型，为 3.2 节业务功能表、3.3 节应用功能表和第 5 章的详细参考模型提供顶层索引：先看能力由哪两块组成，再逐项下钻。",
+    "reading_guide_zh": "左黄组读业务功能：自上而下依次是战略与路线图定义、治理与度量、五个文档化功能、资产关联与存储库设计、沟通与培训。右蓝组读应用功能：采集在最上，其下并排治理与报表，再下是参考数据管理，右侧单列元数据集成，最下是管理。图中没有连线，包含关系由大组框表达，组内各项并列。",
+    "key_points_zh": [
+      "业务侧 10 项：战略与路线图定义、治理与度量、业务术语表文档、数据字典文档、数据使用文档、规则与政策文档、数据问题文档、业务资产与技术资产关联、元数据存储库设计、沟通与培训。",
+      "应用侧 6 项：采集、治理、报表、参考数据管理、元数据集成、管理。",
+      "两组回答不同问题：业务功能说明要产出哪些文档与治理动作，应用功能说明用哪些自动化能力支撑；两组并非一一对应。",
+      "业务组的纵向次序暗示推进逻辑：先定战略与治理，再做五类文档，随后做资产关联与存储库设计，最后沟通培训；但图中没有箭头，不能当成严格流程。",
+      "应用组把“元数据集成”单列在右侧通栏，表示它是与其他应用功能并列的一类能力，而不是跨组的连接线。",
+      "本图只到一级功能；每项功能的二级细化见图 5-1（业务）和图 5-2（应用），定义见表 3-1、表 3-2。"
+    ],
+    "hierarchy_zh": "顶层是“元数据管理能力”（图中未单独画框）→ 两个并列组（业务功能、应用功能）→ 组内一级功能项。业务组 10 项并列，应用组 6 项并列，组内没有子功能。",
+    "line_semantics_zh": "全图无连线。大组框表示归属（这些功能属于业务侧或应用侧），组内位置只表示并列与阅读次序，不表示调用或依赖。",
+    "misreadings_zh": [
+      "不要以为右侧应用功能是左侧业务功能的子集或实现；它们是两个不同层面的能力清单。",
+      "不要把“元数据集成”理解为连接左右两组的桥梁；它在原图中只是应用功能组里的一个独立框。",
+      "中文稿 SVG 只有业务功能，没有应用功能，不能据它判断本图范围；SVG 的五种颜色也没有任何图例依据。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p17",
+        "summary_zh": "第 3.1 节给出元数据管理高层参考模型图 3-1；第 3.2 节表 3-1 逐项定义 10 个高层业务功能。"
+      },
+      {
+        "source": "zh_md L174",
+        "summary_zh": "中文稿在此插入图 3-1，随后表 3-1 列出 10 项业务功能及其说明。"
+      },
+      {
+        "source": "zh_md L195",
+        "summary_zh": "第 3.3 节表 3-2 列出 6 项高层应用功能：采集、治理、报表、参考数据管理、管理、元数据集成。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "左右两栏：左侧黄色业务功能组（10 个框，按 1-1-3-2-2-1 行排布），右侧蓝色应用功能组（采集通栏、治理与报表并排、参考数据管理通栏、元数据集成右侧竖跨、管理通栏）。"
+  },
+  "legend": [
+    {
+      "symbol": "黄色大组框",
+      "meaning_zh": "Metadata Management Business Functions（业务功能组）",
+      "explicit": true
+    },
+    {
+      "symbol": "蓝色大组框",
+      "meaning_zh": "Metadata Management Application Functions（应用功能组）",
+      "explicit": true
+    },
+    {
+      "symbol": "框右上角折角箭头",
+      "meaning_zh": "ArchiMate 功能元素记号（业务功能/应用功能）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "grp_business_functions",
+      "label_en": "Metadata Management Business Functions",
+      "label_zh": "元数据管理业务功能",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左侧黄色大组",
+      "description_zh": "容纳 10 个高层业务功能。"
+    },
+    {
+      "id": "grp_application_functions",
+      "label_en": "Metadata Management Application Functions",
+      "label_zh": "元数据管理应用功能",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "右侧蓝色大组",
+      "description_zh": "容纳 6 个高层应用功能。"
+    },
+    {
+      "id": "bf_strategy",
+      "label_en": "Strategy & Roadmaps Definition",
+      "label_zh": "战略与路线图定义",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 1 行通栏"
+    },
+    {
+      "id": "bf_governance",
+      "label_en": "Governance & Measurement",
+      "label_zh": "治理与度量",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 2 行通栏"
+    },
+    {
+      "id": "bf_glossary",
+      "label_en": "Business Glossary Documentation",
+      "label_zh": "业务术语表文档",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 3 行左"
+    },
+    {
+      "id": "bf_dictionary",
+      "label_en": "Data Dictionary Documentation",
+      "label_zh": "数据字典文档",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 3 行中"
+    },
+    {
+      "id": "bf_usage",
+      "label_en": "Data Usage Documentation",
+      "label_zh": "数据使用文档",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 3 行右"
+    },
+    {
+      "id": "bf_rules",
+      "label_en": "Rule & Policy Documentation",
+      "label_zh": "规则与政策文档",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 4 行左"
+    },
+    {
+      "id": "bf_issues",
+      "label_en": "Data Issue Documentation",
+      "label_zh": "数据问题文档",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 4 行右"
+    },
+    {
+      "id": "bf_assets",
+      "label_en": "Business Assets and Technical Assets Association",
+      "label_zh": "业务资产与技术资产关联",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 5 行左"
+    },
+    {
+      "id": "bf_repository",
+      "label_en": "Metadata Repository Design",
+      "label_zh": "元数据存储库设计",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 5 行右"
+    },
+    {
+      "id": "bf_training",
+      "label_en": "Communication & Training",
+      "label_zh": "沟通与培训",
+      "type": "function",
+      "parent": "grp_business_functions",
+      "level": 2,
+      "position": "业务组第 6 行通栏"
+    },
+    {
+      "id": "af_acquisition",
+      "label_en": "Acquisition",
+      "label_zh": "采集",
+      "type": "function",
+      "parent": "grp_application_functions",
+      "level": 2,
+      "position": "应用组顶部通栏"
+    },
+    {
+      "id": "af_governance",
+      "label_en": "Governance",
+      "label_zh": "治理",
+      "type": "function",
+      "parent": "grp_application_functions",
+      "level": 2,
+      "position": "应用组左中"
+    },
+    {
+      "id": "af_reporting",
+      "label_en": "Reporting",
+      "label_zh": "报表",
+      "type": "function",
+      "parent": "grp_application_functions",
+      "level": 2,
+      "position": "应用组中中"
+    },
+    {
+      "id": "af_reference_data",
+      "label_en": "Reference Data Management",
+      "label_zh": "参考数据管理",
+      "type": "function",
+      "parent": "grp_application_functions",
+      "level": 2,
+      "position": "应用组中下通栏"
+    },
+    {
+      "id": "af_integration",
+      "label_en": "Metadata Integration",
+      "label_zh": "元数据集成",
+      "type": "function",
+      "parent": "grp_application_functions",
+      "level": 2,
+      "position": "应用组右侧竖跨"
+    },
+    {
+      "id": "af_administration",
+      "label_en": "Administration",
+      "label_zh": "管理",
+      "type": "function",
+      "parent": "grp_application_functions",
+      "level": 2,
+      "position": "应用组底部通栏"
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G234/fig2-1",
+      "relation": "uses_legend",
+      "note_zh": "本图的功能框使用图 2-1 定义的 ArchiMate 业务功能/应用功能记法"
+    },
+    {
+      "target": "G234/fig5-1",
+      "relation": "overview_of",
+      "note_zh": "图 5-1 把本图 10 项业务功能展开为二级功能与角色"
+    },
+    {
+      "target": "G234/fig5-2",
+      "relation": "overview_of",
+      "note_zh": "图 5-2 把本图 6 项应用功能展开为二级应用功能"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图把业务功能排成 1-1-3-2-2-1 行，但没有说明这种排版是否隐含流程顺序；本分析只按视觉分组解读，不把位置当成严格流程。",
+      "框右上角的折角箭头在原图中很小，按 ArchiMate 功能元素记号理解；无法从截图辨认更细的构造型文字。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 17 页原图截图（2x2 放大分块）",
+      "英文 PDF 第 17 页正文（表 3-1 前五项）",
+      "中文稿 G234e_信息架构_元数据管理.md 第 173–204 行（表 3-1、表 3-2）",
+      "figs/g234_fig3-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G234e.pdf",
+    "pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G234/fig3-1.json",
+    "interpretation_sha256": "7e8f0127e7743781e3c10588201996de36253a58d3a8e971be23f992a7ae0a0c",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 17,
+        "text": "Figure 3-1: Metadata Management Capability – High-Level Functions",
+        "bbox_pdf_points": [
+          48.24,
+          273.051,
+          369.405,
+          286.617
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 17,
+      "printed_page": 7,
+      "bbox_pdf_points": [
+        61.1,
+        68.2,
+        550.9,
+        268.3
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G234/fig3-1-p0017.png",
+      "image_sha256": "c0e17d2a94bedd04db32146c99af008c817b9dbe0d40cebd58ca41f90aa7483b",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "c0e17d2a94bedd04db32146c99af008c817b9dbe0d40cebd58ca41f90aa7483b",
+          "status": "extracted-unverified",
+          "text": "Metadata Management Business Functions\nMetadata Management Application Functions\nA\nStrategy & Roadmaps Definition\nA\nA\nAcquisition\nGovernance & Measurement\nA\nA\nMetadata\nBusiness Glossary\nData Dictionary !\nData Usage\nGovernance\nReporting\nDocumentation\nDocumentation\nDocumentation\nIntegration\ntule & Policy Documentation\nData Issue Documentation\nReference Data Management\nBusiness Assets and\nTechnical Assets Association\nMetadata Repository Design -\nAdministration\nCommunication & Training",
+          "words": [
+            {
+              "text": "Metadata",
+              "confidence": 95.07093,
+              "bbox_pixels_xywh": [
+                106,
+                9,
+                57,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.278931,
+              "bbox_pixels_xywh": [
+                168,
+                9,
+                81,
+                13
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.957451,
+              "bbox_pixels_xywh": [
+                253,
+                9,
+                59,
+                10
+              ]
+            },
+            {
+              "text": "Functions",
+              "confidence": 70.10836,
+              "bbox_pixels_xywh": [
+                317,
+                9,
+                63,
+                10
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 93.790466,
+              "bbox_pixels_xywh": [
+                592,
+                9,
+                58,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 94.53035,
+              "bbox_pixels_xywh": [
+                658,
+                0,
+                73,
+                29
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 96.516518,
+              "bbox_pixels_xywh": [
+                740,
+                0,
+                71,
+                29
+              ]
+            },
+            {
+              "text": "Functions",
+              "confidence": 95.23185,
+              "bbox_pixels_xywh": [
+                817,
+                9,
+                63,
+                10
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 85.744148,
+              "bbox_pixels_xywh": [
+                952,
+                5,
+                18,
+                19
+              ]
+            },
+            {
+              "text": "Strategy",
+              "confidence": 93.18808,
+              "bbox_pixels_xywh": [
+                141,
+                60,
+                53,
+                14
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 92.805763,
+              "bbox_pixels_xywh": [
+                198,
+                60,
+                9,
+                11
+              ]
+            },
+            {
+              "text": "Roadmaps",
+              "confidence": 94.981262,
+              "bbox_pixels_xywh": [
+                211,
+                60,
+                68,
+                14
+              ]
+            },
+            {
+              "text": "Definition",
+              "confidence": 84.126778,
+              "bbox_pixels_xywh": [
+                284,
+                60,
+                61,
+                11
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 82.615112,
+              "bbox_pixels_xywh": [
+                793,
+                51,
+                13,
+                15
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 77.744141,
+              "bbox_pixels_xywh": [
+                950,
+                52,
+                14,
+                15
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 93.399246,
+              "bbox_pixels_xywh": [
+                619,
+                78,
+                73,
+                13
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 93.260155,
+              "bbox_pixels_xywh": [
+                153,
+                106,
+                77,
+                10
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.231438,
+              "bbox_pixels_xywh": [
+                234,
+                106,
+                8,
+                10
+              ]
+            },
+            {
+              "text": "Measurement",
+              "confidence": 92.577095,
+              "bbox_pixels_xywh": [
+                247,
+                106,
+                87,
+                10
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 89.277245,
+              "bbox_pixels_xywh": [
+                633,
+                134,
+                14,
+                15
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 84.931656,
+              "bbox_pixels_xywh": [
+                791,
+                134,
+                14,
+                15
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 93.707687,
+              "bbox_pixels_xywh": [
+                865,
+                156,
+                59,
+                11
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 95.109406,
+              "bbox_pixels_xywh": [
+                23,
+                161,
+                59,
+                10
+              ]
+            },
+            {
+              "text": "Glossary",
+              "confidence": 90.656677,
+              "bbox_pixels_xywh": [
+                85,
+                161,
+                58,
+                13
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.196831,
+              "bbox_pixels_xywh": [
+                194,
+                161,
+                28,
+                10
+              ]
+            },
+            {
+              "text": "Dictionary",
+              "confidence": 93.092751,
+              "bbox_pixels_xywh": [
+                226,
+                161,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "!",
+              "confidence": 37.915977,
+              "bbox_pixels_xywh": [
+                299,
+                158,
+                2,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.881432,
+              "bbox_pixels_xywh": [
+                367,
+                161,
+                28,
+                10
+              ]
+            },
+            {
+              "text": "Usage",
+              "confidence": 94.316414,
+              "bbox_pixels_xywh": [
+                400,
+                161,
+                39,
+                13
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 95.015335,
+              "bbox_pixels_xywh": [
+                537,
+                162,
+                78,
+                11
+              ]
+            },
+            {
+              "text": "Reporting",
+              "confidence": 94.55175,
+              "bbox_pixels_xywh": [
+                701,
+                162,
+                64,
+                14
+              ]
+            },
+            {
+              "text": "Documentation",
+              "confidence": 89.6716,
+              "bbox_pixels_xywh": [
+                34,
+                178,
+                97,
+                9
+              ]
+            },
+            {
+              "text": "Documentation",
+              "confidence": 90.406868,
+              "bbox_pixels_xywh": [
+                194,
+                178,
+                97,
+                9
+              ]
+            },
+            {
+              "text": "Documentation",
+              "confidence": 91.741516,
+              "bbox_pixels_xywh": [
+                354,
+                178,
+                97,
+                9
+              ]
+            },
+            {
+              "text": "Integration",
+              "confidence": 83.834427,
+              "bbox_pixels_xywh": [
+                860,
+                173,
+                69,
+                13
+              ]
+            },
+            {
+              "text": "tule",
+              "confidence": 75.786316,
+              "bbox_pixels_xywh": [
+                40,
+                236,
+                18,
+                10
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.2061,
+              "bbox_pixels_xywh": [
+                62,
+                236,
+                9,
+                10
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 96.256607,
+              "bbox_pixels_xywh": [
+                75,
+                236,
+                38,
+                12
+              ]
+            },
+            {
+              "text": "Documentation",
+              "confidence": 92.523056,
+              "bbox_pixels_xywh": [
+                119,
+                236,
+                97,
+                10
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 80.982521,
+              "bbox_pixels_xywh": [
+                280,
+                236,
+                28,
+                10
+              ]
+            },
+            {
+              "text": "Issue",
+              "confidence": 80.982521,
+              "bbox_pixels_xywh": [
+                312,
+                236,
+                33,
+                10
+              ]
+            },
+            {
+              "text": "Documentation",
+              "confidence": 96.894539,
+              "bbox_pixels_xywh": [
+                350,
+                236,
+                96,
+                10
+              ]
+            },
+            {
+              "text": "Reference",
+              "confidence": 96.911606,
+              "bbox_pixels_xywh": [
+                565,
+                248,
+                64,
+                10
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.557236,
+              "bbox_pixels_xywh": [
+                632,
+                248,
+                29,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 92.612663,
+              "bbox_pixels_xywh": [
+                666,
+                248,
+                82,
+                13
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 89.85247,
+              "bbox_pixels_xywh": [
+                56,
+                294,
+                59,
+                10
+              ]
+            },
+            {
+              "text": "Assets",
+              "confidence": 92.345291,
+              "bbox_pixels_xywh": [
+                118,
+                294,
+                44,
+                10
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.965057,
+              "bbox_pixels_xywh": [
+                166,
+                294,
+                23,
+                10
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 96.433197,
+              "bbox_pixels_xywh": [
+                28,
+                311,
+                61,
+                9
+              ]
+            },
+            {
+              "text": "Assets",
+              "confidence": 96.873253,
+              "bbox_pixels_xywh": [
+                93,
+                311,
+                44,
+                9
+              ]
+            },
+            {
+              "text": "Association",
+              "confidence": 91.448685,
+              "bbox_pixels_xywh": [
+                141,
+                311,
+                76,
+                9
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 96.785393,
+              "bbox_pixels_xywh": [
+                273,
+                302,
+                58,
+                10
+              ]
+            },
+            {
+              "text": "Repository",
+              "confidence": 94.900429,
+              "bbox_pixels_xywh": [
+                335,
+                302,
+                70,
+                13
+              ]
+            },
+            {
+              "text": "Design",
+              "confidence": 79.307693,
+              "bbox_pixels_xywh": [
+                409,
+                302,
+                43,
+                13
+              ]
+            },
+            {
+              "text": "-",
+              "confidence": 0.206165,
+              "bbox_pixels_xywh": [
+                459,
+                294,
+                3,
+                6
+              ]
+            },
+            {
+              "text": "Administration",
+              "confidence": 84.347702,
+              "bbox_pixels_xywh": [
+                687,
+                336,
+                94,
+                11
+              ]
+            },
+            {
+              "text": "Communication",
+              "confidence": 85.287598,
+              "bbox_pixels_xywh": [
+                157,
+                359,
+                101,
+                10
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.253983,
+              "bbox_pixels_xywh": [
+                263,
+                359,
+                8,
+                10
+              ]
+            },
+            {
+              "text": "Training",
+              "confidence": 96.915512,
+              "bbox_pixels_xywh": [
+                275,
+                359,
+                53,
+                13
+              ]
+            }
+          ],
+          "mean_word_confidence": 88.75,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

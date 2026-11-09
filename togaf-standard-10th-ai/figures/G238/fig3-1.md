@@ -1,0 +1,450 @@
+# G238/fig3-1 · 步骤 1——现状架构
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G238/fig3-1.md) · [JSON](../../architecture/diagrams/G238/fig3-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G238e.pdf`；SHA-256：`87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444`。
+
+## 原图 · PDF 第 18 页
+
+![英文原图](../assets/G238/fig3-1-p0018.png)
+
+PDF 坐标：`[48.2, 154.2, 563.8, 505.7]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+See eee ences eee eee eee
+Cece cece
+Business Inte!
+ence & Analytics Data Platforms
+ausee
+cnn |
+Transactional
+Application
+Including
+Embedded
+BI & Analytic
+Capabilities
+Inbound Flow
+Outbound Flow
+As-ls Architecture
+To-Be Architecture
+od
+```
+
+## 概要（历史解释；局部修正见上）
+
+现状架构：事务型应用各自带库，部分向企业数据仓库供数，数仓再供数据集市与应用。
+
+## 目的（历史解释；局部修正见上）
+
+建立迁移路线图的基线：说明现状下企业数据仓库是历史数据的单一事实来源，同时暴露只有关系型历史数据、缺少原始数据存储与非关系分析等缺口（表 3-2），为步骤 2 引入新一代平台提供理由。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左向右读：左侧三个事务型应用各带一个或多个圆柱（本地数据库）；灰色虚线箭头（入站流）把它们的数据送入中央的 Enterprise Data Warehouse；数仓再用灰色实线箭头（出站流）向右侧 Data Mart #1、Data Mart #2、Application #1 供数，这三个消费方也各带 RDBMS。大虚线框“Business Intelligence & Analytics Data Platforms”只圈住数仓与右侧消费方，是平台范围而非一个组件。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 三个事务型应用（#1、#2、含内嵌 BI 与分析能力的应用）各自带 RDBMS；第三个还多一个 Other 存储，说明其数据不只是关系型。
+- 三个事务型应用都通过入站流把数据送入企业数据仓库；数仓因此成为单一事实来源与企业历史数据的参考库（正文 p18）。
+- 数仓通过出站流向两个数据集市和一个应用供数，三个消费方各自带 RDBMS，形成“交易系统→数仓→集市/应用”的两级结构。
+- 全图元素都是蓝色边框=现状架构；图例虽给出橙色的“目标架构”，但本图没有任何橙色元素，是纯基线视图。
+- 平台边界（大虚线框）不包含事务型应用：应用在边界外，只有数仓及其下游在平台范围内。
+- 图中不画现状的缺失能力（原始数据存储、非关系数据分析、分析结果集、库内分析、影子 BI 治理），这些只列在表 3-2 的 Missing Capabilities 中。
+
+## 层级（历史解释；局部修正见上）
+
+两层：平台范围容器（大虚线框）包含企业数据仓库与右侧的 Data Mart #1、Data Mart #2、Application #1；三个事务型应用位于容器之外。每个应用/集市旁的 RDBMS 圆柱不构成第三层，而是该元素的本地数据存储（用隐式访问关系表示）。图中没有组织或功能层级。
+
+## 线条含义（历史解释；局部修正见上）
+
+灰色虚线箭头=入站流（Inbound Flow，数据进入平台/数仓）；灰色实线箭头=出站流（Outbound Flow，平台向外供数）；箭头指向数据接收方。RDBMS 圆柱紧贴宿主框、不画连线，表示该应用/集市自带的关系型数据库。颜色编码：蓝色边框=现状架构，橙色边框=目标架构（本图未使用）。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把灰色虚线读成“可选”“计划中”或弱依赖：图例明确它是入站流（Inbound Flow），与实线只是方向/角色不同。
+- 不要把 RDBMS 圆柱当成独立系统：它紧贴某个应用或集市，表示该元素的本地关系型数据库。
+- 不要把大虚线框当成一个应用组件或网络边界；它是“BI & Analytics 数据平台”的范围标注。
+- 本图是现状（as-is），不是目标架构；目标架构见 3-4，中间还有步骤 2、3 两个过渡架构。
+- 图中三个事务型应用都画了 RDBMS，但正文只说“部分基于 RDBMS 的事务型应用向数仓供数”，不要把图示当成所有组织的普遍现状。
+
+## 元素
+
+```json
+[
+  {
+    "id": "platform_scope",
+    "label_en": "Business Intelligence & Analytics Data Platforms",
+    "label_zh": "商业智能与分析数据平台",
+    "type": "group",
+    "parent": null,
+    "level": 0,
+    "position": "中央大虚线框，覆盖数仓与右侧消费方",
+    "description_zh": "平台范围边界，不是可部署组件。"
+  },
+  {
+    "id": "txn_app_1",
+    "label_en": "Transactional Application #1",
+    "label_zh": "事务型应用 #1",
+    "type": "application",
+    "parent": null,
+    "level": 1,
+    "position": "左上",
+    "description_zh": "蓝色=现状；自带 RDBMS。"
+  },
+  {
+    "id": "txn_app_2",
+    "label_en": "Transactional Application #2",
+    "label_zh": "事务型应用 #2",
+    "type": "application",
+    "parent": null,
+    "level": 1,
+    "position": "左中",
+    "description_zh": "蓝色=现状；自带 RDBMS。"
+  },
+  {
+    "id": "txn_app_bi",
+    "label_en": "Transactional Application Including Embedded BI & Analytic Capabilities",
+    "label_zh": "含内嵌 BI 与分析能力的事务型应用",
+    "type": "application",
+    "parent": null,
+    "level": 1,
+    "position": "左下",
+    "description_zh": "蓝色=现状；自带 RDBMS 与 Other 两个存储。"
+  },
+  {
+    "id": "edw",
+    "label_en": "Enterprise Data Warehouse",
+    "label_zh": "企业数据仓库",
+    "type": "data",
+    "parent": "platform_scope",
+    "level": 1,
+    "position": "中央",
+    "description_zh": "灰底蓝框；单一事实来源与企业历史数据参考库。"
+  },
+  {
+    "id": "data_mart_1",
+    "label_en": "Data Mart #1",
+    "label_zh": "数据集市 #1",
+    "type": "data",
+    "parent": "platform_scope",
+    "level": 1,
+    "position": "右上",
+    "description_zh": "蓝框；由数仓供数，自带 RDBMS。"
+  },
+  {
+    "id": "data_mart_2",
+    "label_en": "Data Mart #2",
+    "label_zh": "数据集市 #2",
+    "type": "data",
+    "parent": "platform_scope",
+    "level": 1,
+    "position": "右中",
+    "description_zh": "蓝框；由数仓供数，自带 RDBMS。"
+  },
+  {
+    "id": "app_1",
+    "label_en": "Application #1",
+    "label_zh": "应用 #1",
+    "type": "application",
+    "parent": "platform_scope",
+    "level": 1,
+    "position": "右下",
+    "description_zh": "蓝框；由数仓供数，自带 RDBMS。"
+  },
+  {
+    "id": "db_txn_1",
+    "label_en": "RDBMS",
+    "label_zh": "关系型数据库（RDBMS）",
+    "type": "data",
+    "parent": null,
+    "level": 2,
+    "position": "事务型应用 #1 左侧",
+    "description_zh": "圆柱，紧贴宿主。"
+  },
+  {
+    "id": "db_txn_2",
+    "label_en": "RDBMS",
+    "label_zh": "关系型数据库（RDBMS）",
+    "type": "data",
+    "parent": null,
+    "level": 2,
+    "position": "事务型应用 #2 左侧"
+  },
+  {
+    "id": "db_txn_bi",
+    "label_en": "RDBMS",
+    "label_zh": "关系型数据库（RDBMS）",
+    "type": "data",
+    "parent": null,
+    "level": 2,
+    "position": "内嵌 BI 应用左侧上方"
+  },
+  {
+    "id": "db_other_bi",
+    "label_en": "Other",
+    "label_zh": "其他",
+    "type": "data",
+    "parent": null,
+    "level": 2,
+    "position": "内嵌 BI 应用左侧下方",
+    "description_zh": "非 RDBMS 的另一种数据存储。"
+  },
+  {
+    "id": "db_dm_1",
+    "label_en": "RDBMS",
+    "label_zh": "关系型数据库（RDBMS）",
+    "type": "data",
+    "parent": null,
+    "level": 2,
+    "position": "Data Mart #1 右侧"
+  },
+  {
+    "id": "db_dm_2",
+    "label_en": "RDBMS",
+    "label_zh": "关系型数据库（RDBMS）",
+    "type": "data",
+    "parent": null,
+    "level": 2,
+    "position": "Data Mart #2 右侧"
+  },
+  {
+    "id": "db_app_1",
+    "label_en": "RDBMS",
+    "label_zh": "关系型数据库（RDBMS）",
+    "type": "data",
+    "parent": null,
+    "level": 2,
+    "position": "Application #1 右侧"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "txn_app_1",
+    "to": "edw",
+    "type": "flow",
+    "label_en": "Inbound Flow",
+    "label_zh": "入站流",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "灰色虚线箭头，由应用指向数仓。"
+  },
+  {
+    "from": "txn_app_2",
+    "to": "edw",
+    "type": "flow",
+    "label_en": "Inbound Flow",
+    "label_zh": "入站流",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "灰色虚线箭头。"
+  },
+  {
+    "from": "txn_app_bi",
+    "to": "edw",
+    "type": "flow",
+    "label_en": "Inbound Flow",
+    "label_zh": "入站流",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "灰色虚线箭头，从内嵌 BI 应用指向数仓。"
+  },
+  {
+    "from": "edw",
+    "to": "data_mart_1",
+    "type": "flow",
+    "label_en": "Outbound Flow",
+    "label_zh": "出站流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "灰色实线箭头。"
+  },
+  {
+    "from": "edw",
+    "to": "data_mart_2",
+    "type": "flow",
+    "label_en": "Outbound Flow",
+    "label_zh": "出站流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "灰色实线箭头。"
+  },
+  {
+    "from": "edw",
+    "to": "app_1",
+    "type": "flow",
+    "label_en": "Outbound Flow",
+    "label_zh": "出站流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "灰色实线箭头。"
+  },
+  {
+    "from": "txn_app_1",
+    "to": "db_txn_1",
+    "type": "access",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "圆柱紧贴应用，表示该应用使用这个本地 RDBMS；原图未画线。"
+  },
+  {
+    "from": "txn_app_2",
+    "to": "db_txn_2",
+    "type": "access",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none"
+  },
+  {
+    "from": "txn_app_bi",
+    "to": "db_txn_bi",
+    "type": "access",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none"
+  },
+  {
+    "from": "txn_app_bi",
+    "to": "db_other_bi",
+    "type": "access",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "除 RDBMS 外还使用 Other 存储。"
+  },
+  {
+    "from": "data_mart_1",
+    "to": "db_dm_1",
+    "type": "access",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none"
+  },
+  {
+    "from": "data_mart_2",
+    "to": "db_dm_2",
+    "type": "access",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none"
+  },
+  {
+    "from": "app_1",
+    "to": "db_app_1",
+    "type": "access",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "灰色虚线 + 箭头",
+    "meaning_zh": "入站流 Inbound Flow（数据进入平台）",
+    "explicit": true
+  },
+  {
+    "symbol": "灰色实线 + 箭头",
+    "meaning_zh": "出站流 Outbound Flow（平台向外供数）",
+    "explicit": true
+  },
+  {
+    "symbol": "蓝色边框方框",
+    "meaning_zh": "现状架构 As-Is Architecture",
+    "explicit": true
+  },
+  {
+    "symbol": "橙色边框方框",
+    "meaning_zh": "目标架构 To-Be Architecture",
+    "explicit": true
+  },
+  {
+    "symbol": "圆柱",
+    "meaning_zh": "RDBMS 关系型数据库（紧贴宿主元素）",
+    "explicit": false
+  },
+  {
+    "symbol": "深蓝点线大框",
+    "meaning_zh": "BI & Analytics 数据平台的范围边界",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "左侧一列三个事务型应用（自上而下 #1、#2、含内嵌 BI 的应用），每个左侧贴一个 RDBMS 圆柱（第三个下方再叠一个 Other 圆柱）；中央一个灰色圆角矩形企业数据仓库；右侧一列三个消费方（Data Mart #1、Data Mart #2、Application #1），各带 RDBMS 圆柱。大虚线框从数仓左侧一直包到右侧消费方；左下角是四行图例。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G238/fig3-2",
+    "relation": "precedes",
+    "note_zh": "步骤 2 在本图基线上引入新一代平台，保留数仓并新增橙色目标的平台、数据集市与应用。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "RDBMS 圆柱与宿主框之间没有画线，本分析用隐式 access 关系表示归属；原图也可能只是排版上的贴近。",
+    "图例包含橙色“目标架构”，但本图没有橙色元素，无法从图内验证橙色的具体用法（见 3-2 至 3-4）。",
+    "三个事务型应用都画了 RDBMS，而正文只说“部分基于 RDBMS 的事务型应用向数仓供数”，图示是通用化的示例。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 18 页图 3-1 截图与 3×3 放大分块",
+    "英文 PDF 第 18–19 页步骤 1 正文与表 3-2",
+    "中文稿 G238e_信息架构_商业智能与分析.md 第 196–226 行",
+    "figs/zh/g238e_fig3-1_zh.png 与 figs/g238_fig3-1.svg",
+    "figs/g238e_fig3-1_en.png（相似度 0.99）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

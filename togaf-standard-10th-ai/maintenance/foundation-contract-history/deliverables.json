@@ -1,0 +1,971 @@
+{
+  "schema_version": "1.0",
+  "notice": "依据 G248 附录 B 的名称清单；以下结构是可执行的项目组装约定。",
+  "deliverables": [
+    {
+      "id": "architecture-building-blocks",
+      "name_zh": "架构构建块",
+      "name_en": "ABBs",
+      "owner": "togaf-gap-solutions",
+      "adm": "B C D E",
+      "entity_types": [
+        "abb",
+        "requirement",
+        "business_service"
+      ],
+      "artifact_ids": [
+        "requirements-catalog",
+        "solution-concept-diagram"
+      ],
+      "sections": [
+        {
+          "title": "职责与边界",
+          "instruction": "描述需要具备的能力、服务和边界"
+        },
+        {
+          "title": "功能与接口",
+          "instruction": "规定输入输出和接口语义"
+        },
+        {
+          "title": "质量与约束",
+          "instruction": "引用需求、原则和可验证质量条件"
+        },
+        {
+          "title": "复用与实现",
+          "instruction": "说明依赖、可复用范围和候选 SBB"
+        }
+      ],
+      "semantic_checks": [
+        "ABB 不等于产品选择",
+        "每项关键规定应可追溯到需求"
+      ],
+      "sources": [
+        "G248",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "architecture-contract",
+      "name_zh": "架构合同",
+      "name_en": "Architecture Contract",
+      "owner": "togaf-implementation-governance",
+      "adm": "G",
+      "entity_types": [
+        "contract",
+        "requirement",
+        "control",
+        "decision"
+      ],
+      "artifact_ids": [
+        "contract-measure-catalog",
+        "requirements-catalog"
+      ],
+      "sections": [
+        {
+          "title": "缔约方与范围",
+          "instruction": "明确业务、架构、实施各方及交付边界"
+        },
+        {
+          "title": "架构义务",
+          "instruction": "引用适用架构、需求及实现责任"
+        },
+        {
+          "title": "验收与证据",
+          "instruction": "定义合规检查、证据及时间"
+        },
+        {
+          "title": "偏离与变更",
+          "instruction": "规定例外、变更、升级和争议处理"
+        },
+        {
+          "title": "状态与签署",
+          "instruction": "记录草案、决策方和真实签署状态"
+        }
+      ],
+      "semantic_checks": [
+        "不伪造签署或法律效力",
+        "验收责任和证据可定位"
+      ],
+      "sources": [
+        "G248",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "architecture-definition-document",
+      "name_zh": "架构定义文档",
+      "name_en": "Architecture Definition Document",
+      "owner": "togaf-architecture-workbench",
+      "adm": "B C D E",
+      "entity_types": [
+        "capability",
+        "application",
+        "data_entity",
+        "technology"
+      ],
+      "artifact_ids": [
+        "business-capability-map",
+        "conceptual-data-diagram",
+        "application-communication-diagram",
+        "platform-decomposition-diagram"
+      ],
+      "sections": [
+        {
+          "title": "语境与关注点",
+          "instruction": "说明五维语境、范围和利益相关者"
+        },
+        {
+          "title": "基线架构",
+          "instruction": "引用有证据的现状视图"
+        },
+        {
+          "title": "目标架构",
+          "instruction": "说明跨域目标及权衡"
+        },
+        {
+          "title": "差距与过渡",
+          "instruction": "总结变化、依赖和过渡状态"
+        },
+        {
+          "title": "决策与未决项",
+          "instruction": "记录假设、冲突和需确认问题"
+        }
+      ],
+      "semantic_checks": [
+        "基线目标采用可比较范围",
+        "各域引用相同实体标识"
+      ],
+      "sources": [
+        "G248",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "architecture-requirements-specification",
+      "name_zh": "架构需求规格",
+      "name_en": "Architecture Requirements Specification",
+      "owner": "togaf-requirements",
+      "adm": "A B C D",
+      "entity_types": [
+        "requirement",
+        "constraint",
+        "control"
+      ],
+      "artifact_ids": [
+        "requirements-catalog",
+        "constraints-catalog"
+      ],
+      "sections": [
+        {
+          "title": "范围与来源",
+          "instruction": "记录需求覆盖范围和来源"
+        },
+        {
+          "title": "需求规格",
+          "instruction": "给出功能、质量及约束条件"
+        },
+        {
+          "title": "验收方法",
+          "instruction": "规定可执行的验证和接受条件"
+        },
+        {
+          "title": "追溯与变更",
+          "instruction": "关联架构、风险、实现与变更记录"
+        }
+      ],
+      "semantic_checks": [
+        "不得用方案名称替代需求结果",
+        "优先级与批准状态独立"
+      ],
+      "sources": [
+        "G248",
+        "G176",
+        "G186",
+        "G152"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "architecture-principles",
+      "name_zh": "架构原则",
+      "name_en": "Architecture Principles",
+      "owner": "togaf-ea-capability",
+      "adm": "Preliminary",
+      "entity_types": [
+        "principle"
+      ],
+      "artifact_ids": [
+        "principles-catalog"
+      ],
+      "sections": [
+        {
+          "title": "适用语境",
+          "instruction": "界定范围及原则治理责任"
+        },
+        {
+          "title": "原则条目",
+          "instruction": "包括名称、陈述、理由和影响"
+        },
+        {
+          "title": "冲突与例外",
+          "instruction": "说明适用优先级、例外及复审机制"
+        }
+      ],
+      "semantic_checks": [
+        "原则具有可操作影响",
+        "例外需明确裁决责任"
+      ],
+      "sources": [
+        "G248",
+        "G184"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "architecture-repository",
+      "name_zh": "架构存储库",
+      "name_en": "Architecture Repository",
+      "owner": "togaf-ea-capability",
+      "adm": "Preliminary H",
+      "entity_types": [
+        "repository_asset",
+        "viewpoint",
+        "standard",
+        "decision"
+      ],
+      "artifact_ids": [
+        "principles-catalog",
+        "technology-standards-catalog",
+        "requirements-catalog"
+      ],
+      "sections": [
+        {
+          "title": "结构与职责",
+          "instruction": "定义资产分类、维护方和访问规则"
+        },
+        {
+          "title": "资产索引",
+          "instruction": "提供可检索标识、版本、状态、路径和来源"
+        },
+        {
+          "title": "复用与引用",
+          "instruction": "明确模型、视图、构建块和交付物关系"
+        },
+        {
+          "title": "维护与治理",
+          "instruction": "定义更新、归档、基线和审查机制"
+        }
+      ],
+      "semantic_checks": [
+        "索引实际指向存在资产",
+        "不能只交空文件夹或概念说明"
+      ],
+      "sources": [
+        "G248",
+        "G184",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "architecture-roadmaps",
+      "name_zh": "架构路线图",
+      "name_en": "Architecture Roadmaps",
+      "owner": "togaf-migration-roadmap",
+      "adm": "E F H",
+      "entity_types": [
+        "work_package",
+        "milestone",
+        "transition",
+        "benefit"
+      ],
+      "artifact_ids": [
+        "application-migration-diagram",
+        "data-migration-diagram",
+        "benefits-diagram"
+      ],
+      "sections": [
+        {
+          "title": "变革目标",
+          "instruction": "说明业务成果和衡量方式"
+        },
+        {
+          "title": "工作包与依赖",
+          "instruction": "引用跨域差距及有向依赖"
+        },
+        {
+          "title": "过渡与里程碑",
+          "instruction": "定义可运营状态和进入退出条件"
+        },
+        {
+          "title": "排序与决策",
+          "instruction": "说明价值、风险、资源及批准情况"
+        }
+      ],
+      "semantic_checks": [
+        "依赖无未解释环",
+        "过渡状态有运营和回退考虑"
+      ],
+      "sources": [
+        "G248",
+        "G186",
+        "G233"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "architecture-vision",
+      "name_zh": "架构愿景",
+      "name_en": "Architecture Vision",
+      "owner": "togaf-vision-scenarios",
+      "adm": "A",
+      "entity_types": [
+        "stakeholder",
+        "goal",
+        "capability"
+      ],
+      "artifact_ids": [
+        "stakeholder-catalog",
+        "project-context-diagram",
+        "solution-concept-diagram",
+        "benefits-diagram"
+      ],
+      "sections": [
+        {
+          "title": "问题与价值",
+          "instruction": "说明问题、受益方及预期价值"
+        },
+        {
+          "title": "范围与边界",
+          "instruction": "明确五维语境和不在范围项"
+        },
+        {
+          "title": "高层方案",
+          "instruction": "引用能力与解决方案概念及选项"
+        },
+        {
+          "title": "可行性与风险",
+          "instruction": "总结能力、就绪度、约束和假设"
+        },
+        {
+          "title": "成功与下一步",
+          "instruction": "给出可验证成功条件和架构工作建议"
+        }
+      ],
+      "semantic_checks": [
+        "愿景不冒充完整目标设计",
+        "价值承诺有责任方和依据"
+      ],
+      "sources": [
+        "G248",
+        "G176",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "business-goals-objectives",
+      "name_zh": "业务目标与目的",
+      "name_en": "Business Goals and Objectives",
+      "owner": "togaf-strategy-capabilities",
+      "adm": "A B",
+      "entity_types": [
+        "goal",
+        "objective",
+        "measure"
+      ],
+      "artifact_ids": [
+        "driver-goal-objective-catalog",
+        "goal-objective-service-diagram"
+      ],
+      "sections": [
+        {
+          "title": "目标体系",
+          "instruction": "区分目标层次及业务范围"
+        },
+        {
+          "title": "可衡量目的",
+          "instruction": "定义指标、目标值、期限及责任"
+        },
+        {
+          "title": "架构贡献",
+          "instruction": "关联能力、服务和收益假设"
+        }
+      ],
+      "semantic_checks": [
+        "量化目标具备基线单位和期限",
+        "贡献关系不等于已实现因果"
+      ],
+      "sources": [
+        "G248",
+        "G176",
+        "G233"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "business-principles",
+      "name_zh": "业务原则",
+      "name_en": "Business Principles",
+      "owner": "togaf-ea-capability",
+      "adm": "Preliminary A",
+      "entity_types": [
+        "principle"
+      ],
+      "artifact_ids": [
+        "principles-catalog"
+      ],
+      "sections": [
+        {
+          "title": "业务语境",
+          "instruction": "明确业务价值及适用边界"
+        },
+        {
+          "title": "原则与影响",
+          "instruction": "说明业务决策原则、理由和组织影响"
+        },
+        {
+          "title": "执行与例外",
+          "instruction": "明确业务责任、冲突及复审"
+        }
+      ],
+      "semantic_checks": [
+        "业务原则不写成产品标准",
+        "区分业务政策与架构约束"
+      ],
+      "sources": [
+        "G248",
+        "G184",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "business-drivers",
+      "name_zh": "业务驱动因素",
+      "name_en": "Business Drivers",
+      "owner": "togaf-strategy-capabilities",
+      "adm": "A",
+      "entity_types": [
+        "driver",
+        "goal"
+      ],
+      "artifact_ids": [
+        "driver-goal-objective-catalog"
+      ],
+      "sections": [
+        {
+          "title": "驱动因素",
+          "instruction": "描述外部或内部变化及证据"
+        },
+        {
+          "title": "业务影响",
+          "instruction": "分析机会、威胁和时限"
+        },
+        {
+          "title": "目标响应",
+          "instruction": "关联目标与架构工作的必要性"
+        }
+      ],
+      "semantic_checks": [
+        "驱动不是期望结果",
+        "市场或法规陈述有来源日期"
+      ],
+      "sources": [
+        "G248",
+        "G176",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "capability-assessment",
+      "name_zh": "能力评估",
+      "name_en": "Capability Assessment",
+      "owner": "togaf-strategy-capabilities",
+      "adm": "A B E",
+      "entity_types": [
+        "capability",
+        "assessment"
+      ],
+      "artifact_ids": [
+        "business-capability-map",
+        "capability-organization-matrix"
+      ],
+      "sections": [
+        {
+          "title": "评估目的",
+          "instruction": "声明业务能力、EA 成熟度或采用就绪度的评估对象"
+        },
+        {
+          "title": "量尺与证据",
+          "instruction": "列出维度、评分解释、证据及置信度"
+        },
+        {
+          "title": "现状与目标",
+          "instruction": "比较同尺度差距并记录分歧"
+        },
+        {
+          "title": "改进行动",
+          "instruction": "给出优先级、责任和复评安排"
+        }
+      ],
+      "semantic_checks": [
+        "三类量尺不能混算",
+        "示例模型没有通用及格线"
+      ],
+      "sources": [
+        "G248",
+        "G211",
+        "G203",
+        "G212",
+        "G233"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "change-request",
+      "name_zh": "变更请求",
+      "name_en": "Change Request",
+      "owner": "togaf-change-value",
+      "adm": "G H",
+      "entity_types": [
+        "change_request",
+        "requirement",
+        "decision"
+      ],
+      "artifact_ids": [
+        "requirements-impact-assessment"
+      ],
+      "sections": [
+        {
+          "title": "变更事实",
+          "instruction": "记录提出方、日期、原因和变更内容"
+        },
+        {
+          "title": "影响与选项",
+          "instruction": "引用需求影响、成本、风险和替代"
+        },
+        {
+          "title": "处置与责任",
+          "instruction": "登记决策方、候选处置和真实审批状态"
+        },
+        {
+          "title": "执行与回溯",
+          "instruction": "说明执行条件、版本与验证结果"
+        }
+      ],
+      "semantic_checks": [
+        "请求不等于批准",
+        "影响结论可追溯"
+      ],
+      "sources": [
+        "G248",
+        "G186",
+        "G188"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "communications-plan",
+      "name_zh": "沟通计划",
+      "name_en": "Communications Plan",
+      "owner": "togaf-vision-scenarios",
+      "adm": "A G H",
+      "entity_types": [
+        "stakeholder",
+        "communication"
+      ],
+      "artifact_ids": [
+        "stakeholder-catalog"
+      ],
+      "sections": [
+        {
+          "title": "对象与关注点",
+          "instruction": "分组识别沟通受众及决策需要"
+        },
+        {
+          "title": "内容与渠道",
+          "instruction": "定义消息、视图、渠道及频率"
+        },
+        {
+          "title": "责任与反馈",
+          "instruction": "记录发送方、反馈和升级路径"
+        }
+      ],
+      "semantic_checks": [
+        "生成计划不授权实际发信",
+        "不同受众视图追溯同一模型"
+      ],
+      "sources": [
+        "G248",
+        "G176",
+        "G184",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "compliance-assessment",
+      "name_zh": "合规评估",
+      "name_en": "Compliance Assessment",
+      "owner": "togaf-implementation-governance",
+      "adm": "G",
+      "entity_types": [
+        "requirement",
+        "evidence",
+        "control",
+        "decision"
+      ],
+      "artifact_ids": [
+        "requirements-catalog",
+        "data-security-diagram"
+      ],
+      "sections": [
+        {
+          "title": "评估范围",
+          "instruction": "界定适用架构版本、要求和实施范围"
+        },
+        {
+          "title": "证据与结果",
+          "instruction": "逐项列出满足、偏离或证据不足"
+        },
+        {
+          "title": "风险与处置",
+          "instruction": "关联例外、补救、责任与期限"
+        },
+        {
+          "title": "评审结论",
+          "instruction": "记录评审者及实际批准状态"
+        }
+      ],
+      "semantic_checks": [
+        "无证据不能判定合规",
+        "自动检查不替代业务审批"
+      ],
+      "sources": [
+        "G248",
+        "G186",
+        "G152"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "implementation-migration-plan",
+      "name_zh": "实施与迁移计划",
+      "name_en": "Implementation and Migration Plan",
+      "owner": "togaf-migration-roadmap",
+      "adm": "F",
+      "entity_types": [
+        "work_package",
+        "milestone",
+        "transition",
+        "risk"
+      ],
+      "artifact_ids": [
+        "application-migration-diagram",
+        "data-migration-diagram"
+      ],
+      "sections": [
+        {
+          "title": "实施安排",
+          "instruction": "明确工作包交付、责任、资源和成本依据"
+        },
+        {
+          "title": "依赖与排期",
+          "instruction": "协调前置、并行和外部承诺"
+        },
+        {
+          "title": "迁移与运营",
+          "instruction": "规定数据、应用、平台切换和可运营过渡"
+        },
+        {
+          "title": "验收与回退",
+          "instruction": "定义准入、核对、退出和恢复条件"
+        }
+      ],
+      "semantic_checks": [
+        "估算保留假设与区间",
+        "不可只给时间轴而缺少切换条件"
+      ],
+      "sources": [
+        "G248",
+        "G186",
+        "G188",
+        "G233"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "organization-model",
+      "name_zh": "企业架构组织模型",
+      "name_en": "Organization Model (for EA)",
+      "owner": "togaf-ea-capability",
+      "adm": "Preliminary",
+      "entity_types": [
+        "organization",
+        "role",
+        "capability"
+      ],
+      "artifact_ids": [
+        "organization-map",
+        "role-catalog",
+        "actor-role-matrix"
+      ],
+      "sections": [
+        {
+          "title": "使命与服务",
+          "instruction": "说明 EA 能力目的及服务对象"
+        },
+        {
+          "title": "组织与职责",
+          "instruction": "定义团队、角色、决策权和协作"
+        },
+        {
+          "title": "技能与容量",
+          "instruction": "评估所需技能、资源及缺口"
+        },
+        {
+          "title": "治理与绩效",
+          "instruction": "定义治理接口、度量和改进"
+        }
+      ],
+      "semantic_checks": [
+        "架构组织模型不同于全企业组织地图",
+        "职责与决策权分别写明"
+      ],
+      "sources": [
+        "G248",
+        "G184",
+        "G198",
+        "G249"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "request-for-architecture-work",
+      "name_zh": "架构工作请求",
+      "name_en": "Request for Architecture Work",
+      "owner": "togaf-change-value",
+      "adm": "Preliminary H A",
+      "entity_types": [
+        "project",
+        "driver",
+        "stakeholder"
+      ],
+      "artifact_ids": [
+        "project-context-diagram",
+        "driver-goal-objective-catalog"
+      ],
+      "sections": [
+        {
+          "title": "请求与动机",
+          "instruction": "描述发起方、业务问题和触发"
+        },
+        {
+          "title": "范围与约束",
+          "instruction": "初步界定目标、边界、时间和依赖"
+        },
+        {
+          "title": "预期成果",
+          "instruction": "提出决策问题、价值和交付建议"
+        },
+        {
+          "title": "受理与优先级",
+          "instruction": "记录受理方、候选优先级和下一步"
+        }
+      ],
+      "semantic_checks": [
+        "工作请求不同于已承诺工作说明书",
+        "优先级有裁决方"
+      ],
+      "sources": [
+        "G248",
+        "G186",
+        "G188"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "requirements-impact-assessment",
+      "name_zh": "需求影响评估",
+      "name_en": "Requirements Impact Assessment",
+      "owner": "togaf-requirements",
+      "adm": "Requirements",
+      "entity_types": [
+        "requirement",
+        "change_request",
+        "risk",
+        "work_package"
+      ],
+      "artifact_ids": [
+        "requirements-impact-assessment"
+      ],
+      "sections": [
+        {
+          "title": "变更与依据",
+          "instruction": "记录需求版本差异和变更原因"
+        },
+        {
+          "title": "影响清单",
+          "instruction": "列出受影响模型、制品、交付物和实现"
+        },
+        {
+          "title": "成本风险与选项",
+          "instruction": "区分证据影响和推测影响"
+        },
+        {
+          "title": "建议与决策",
+          "instruction": "提供处置方案、责任和未决项"
+        }
+      ],
+      "semantic_checks": [
+        "与同名制品共享分析不重复建模",
+        "关系可达不等于确定影响"
+      ],
+      "sources": [
+        "G248",
+        "G186",
+        "G152"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "solution-building-blocks",
+      "name_zh": "解决方案构建块",
+      "name_en": "SBBs",
+      "owner": "togaf-gap-solutions",
+      "adm": "E G",
+      "entity_types": [
+        "sbb",
+        "abb",
+        "technology",
+        "application"
+      ],
+      "artifact_ids": [
+        "application-portfolio-catalog",
+        "technology-portfolio-catalog"
+      ],
+      "sections": [
+        {
+          "title": "实现边界",
+          "instruction": "定义实际组件、配置、版本和运行职责"
+        },
+        {
+          "title": "ABB 与需求映射",
+          "instruction": "说明实现哪些架构规定"
+        },
+        {
+          "title": "接口与依赖",
+          "instruction": "记录产品、环境、数据和外部契约"
+        },
+        {
+          "title": "验证与生命周期",
+          "instruction": "提供候选或实际验证、支持和退出安排"
+        }
+      ],
+      "semantic_checks": [
+        "候选产品不是已部署 SBB",
+        "一个 SBB 可实现多个 ABB"
+      ],
+      "sources": [
+        "G248",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "statement-of-work",
+      "name_zh": "架构工作说明书",
+      "name_en": "Statement of Work",
+      "owner": "togaf-vision-scenarios",
+      "adm": "A",
+      "entity_types": [
+        "project",
+        "stakeholder",
+        "work_package"
+      ],
+      "artifact_ids": [
+        "project-context-diagram",
+        "stakeholder-catalog"
+      ],
+      "sections": [
+        {
+          "title": "背景与目标",
+          "instruction": "说明架构工作目的及成功条件"
+        },
+        {
+          "title": "范围与交付",
+          "instruction": "明确制品、深度、边界和验收"
+        },
+        {
+          "title": "方法与计划",
+          "instruction": "安排活动、资源、迭代和依赖"
+        },
+        {
+          "title": "治理与变更",
+          "instruction": "定义评审、责任、约束和变更流程"
+        }
+      ],
+      "semantic_checks": [
+        "不虚构工期预算和签署",
+        "交付选择匹配决策需要"
+      ],
+      "sources": [
+        "G248",
+        "G188",
+        "G186"
+      ],
+      "definition_status": "project-operational-contract"
+    },
+    {
+      "id": "tailored-architecture-framework",
+      "name_zh": "裁剪后的架构框架",
+      "name_en": "Tailored Architecture Framework",
+      "owner": "togaf-ea-capability",
+      "adm": "Preliminary",
+      "entity_types": [
+        "viewpoint",
+        "principle",
+        "standard"
+      ],
+      "artifact_ids": [
+        "principles-catalog",
+        "requirements-catalog"
+      ],
+      "sections": [
+        {
+          "title": "裁剪语境",
+          "instruction": "描述企业目的、规模、成熟度与已有方法"
+        },
+        {
+          "title": "方法与治理",
+          "instruction": "定义 ADM 使用方式及其他框架接口"
+        },
+        {
+          "title": "内容与视点",
+          "instruction": "选择元模型、制品、视点及表示法"
+        },
+        {
+          "title": "工具与维护",
+          "instruction": "明确存储库、质量检查及改进责任"
+        }
+      ],
+      "semantic_checks": [
+        "裁剪须解释目的",
+        "ADM 不必强制串行或全量产出"
+      ],
+      "sources": [
+        "G248",
+        "G184",
+        "G186",
+        "G20F",
+        "G210"
+      ],
+      "definition_status": "project-operational-contract"
+    }
+  ]
+}

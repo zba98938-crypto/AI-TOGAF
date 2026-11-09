@@ -1,0 +1,748 @@
+{
+  "schema_version": "2.0",
+  "id": "G152/fig3-1",
+  "title": "业务风险领域与网络风险领域（业务栈）",
+  "content_role": "current-source-reviewed-reference-not-project-facts",
+  "notice": "当前原图复核语义的便携投影；保留方向、端点基数、无标签线与视觉包含的区别。来源示例不是项目事实，历史解释单独定位。",
+  "source_locator": {
+    "pdf_path": "togaf-standard-10th/G152e.pdf",
+    "pdf_sha256": "919c53bfa4259a4b3a9686762f37c0576a1cd2f8e77e74648826d9f9c84ed6e0",
+    "pdf_pages": [
+      22
+    ],
+    "images": [
+      {
+        "image_path": "figures/assets/G152/fig3-1-p0022.png",
+        "image_sha256": "30ddb652af11c9009e3c0b09f4969cdbd534f5c973f0e34e8e2c6ba3c7e318e1",
+        "pdf_page": 22,
+        "bbox_pdf_points": [
+          48.2,
+          36.0,
+          563.8,
+          345.3
+        ],
+        "region_source": "historical-bbox-checked-within-original-page"
+      }
+    ]
+  },
+  "current_source": {
+    "path": "togaf-standard-10th-ai/architecture/diagrams/G152/fig3-1.json",
+    "sha256": "28f853c05f1d8260eb3a302c358bfbacfe2b30d4f66479f3ed9de4645a9faf1f",
+    "semantic_status": "current-source-review-replacement"
+  },
+  "historical_source": {
+    "path": "togaf-standard-10th-ai/figures/G152/fig3-1.json",
+    "sha256": "a5814adc66a7c914be9d48f4ae4bf8cb1531bc12654da21ea82edbaf504bac31",
+    "role": "archived-interpretation-not-current-semantics"
+  },
+  "reading": {
+    "purpose_zh": "说明风险可出现在业务栈的任何层次，区分上部业务风险与下部网络风险管理范围。七个层次的纵向排列与五条实际箭头分别读取；服务管理及其内部两条竖带从能力层延伸至技术组件层。",
+    "reading_guide_zh": "先读七个业务栈层和右侧的业务/网络风险管理范围。紫色向下箭头从Business Capabilities开始，依次连到Business Processes、Business Services、Applications、ICT Infrastructure和Technical Components。价值链在顶部但与能力之间没有画线。左侧Service Management容器包含People与Support Services两条竖带，从能力层延伸至技术组件层。",
+    "key_points_zh": [
+      "七个栈层从业务价值链到技术组件；右侧大括号划分业务风险与网络风险的管理范围。",
+      "实际五条向下箭头起于Business Capabilities；Business Value Chains与其下一层没有画箭头。",
+      "Business Services→Applications跨管理范围边界，管理划分没有切断架构层间联系。",
+      "Service Management包含People与Support Services两条带，跨两种管理范围，未覆盖顶部价值链行。",
+      "图中风险管理范围是关注视角，不是部门或岗位的汇报关系。"
+    ],
+    "hierarchy_zh": "七个业务栈层按图内纵向位置排列，右侧括号分为前四层的业务风险管理范围和后三层的网络风险管理范围。左侧Service Management为外层容器，内含People与Support Services & Processes两条带；三者从能力层起跨两种风险管理范围，不覆盖顶部价值链行。范围分组和视觉包含不等于组织汇报关系。",
+    "line_semantics_zh": "五条紫色实心箭头：能力→流程→业务服务→应用→ICT基础设施→技术组件；箭头表达源图层间支撑/依赖，不是数据流。价值链至能力没有连线。大括号标范围，竖带相交范围不产生显式连线。",
+    "misreadings_zh": [
+      "不要把从上到下排列自动变成七层连续箭头；价值链至能力没有线。",
+      "不要将两个风险管理范围理解为两套完全独立的架构。",
+      "不要把竖带当成另几个流程步骤，或声称它们视觉上覆盖价值链行。"
+    ]
+  },
+  "elements": [
+    {
+      "label_en": "Business Stack",
+      "label_zh": "业务栈",
+      "type": "note",
+      "position": "图左上角大号灰字",
+      "description_zh": "图内标题，不是框；图题另见 Figure 3-1。",
+      "meaning_zh": "图内标题，不是框；图题另见 Figure 3-1。",
+      "notation_type": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "label_evidence": "ocr-label-match",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0,
+      "id": "business_stack",
+      "parent": null,
+      "visual_parent": null
+    },
+    {
+      "label_en": "Business Risk Management",
+      "label_zh": "业务风险管理",
+      "type": "group",
+      "position": "上半部大圆角框",
+      "description_zh": "右侧大括号覆盖 Business Value Chains 至 Business Services 四层。",
+      "meaning_zh": "右侧大括号覆盖 Business Value Chains 至 Business Services 四层。",
+      "notation_type": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "label_evidence": "not-found-in-machine-text",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G152/fig3-1#r0007"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1,
+      "id": "br_group",
+      "parent": null,
+      "visual_parent": null
+    },
+    {
+      "label_en": "Cyber Risk Management",
+      "label_zh": "网络风险管理",
+      "type": "group",
+      "position": "下半部大圆角框",
+      "description_zh": "右侧大括号覆盖 Applications 至 Technical Components 三层。",
+      "meaning_zh": "右侧大括号覆盖 Applications 至 Technical Components 三层。",
+      "notation_type": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "label_evidence": "not-found-in-machine-text",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G152/fig3-1#r0008"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1,
+      "id": "cr_group",
+      "parent": null,
+      "visual_parent": null
+    },
+    {
+      "label_en": "Service Management",
+      "label_zh": "服务管理",
+      "type": "group",
+      "position": "左侧纵向带，从能力层至技术组件层，跨两组但不覆盖价值链行",
+      "description_zh": "浅蓝外框包含人员带与支持服务/流程带，顶部与业务能力行对齐。",
+      "meaning_zh": "浅蓝外框包含人员带与支持服务/流程带，顶部与业务能力行对齐。",
+      "notation_type": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "label_evidence": "not-found-in-machine-text",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [
+        "G152/fig3-1#r0007",
+        "G152/fig3-1#r0008"
+      ],
+      "participating_relation_count": 2,
+      "id": "service_management",
+      "parent": null,
+      "visual_parent": null
+    },
+    {
+      "label_en": "People: Roles, Responsibilities, Knowledge, Skills, Competencies",
+      "label_zh": "人员：角色、职责、知识、技能、胜任力",
+      "type": "capability",
+      "position": "服务管理带内左侧",
+      "meaning_zh": "能力：人员：角色、职责、知识、技能、胜任力",
+      "notation_type": null,
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "label_evidence": "not-found-in-machine-text",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0,
+      "id": "people",
+      "parent": "service_management",
+      "visual_parent": "service_management"
+    },
+    {
+      "label_en": "Support Services & Processes",
+      "label_zh": "支持服务与流程",
+      "type": "capability",
+      "position": "服务管理带内右侧",
+      "meaning_zh": "能力：支持服务与流程",
+      "notation_type": null,
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "label_evidence": "not-found-in-machine-text",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0,
+      "id": "support_services",
+      "parent": "service_management",
+      "visual_parent": "service_management"
+    },
+    {
+      "label_en": "Business Value Chains",
+      "label_zh": "业务价值链",
+      "type": "value_stream",
+      "level": 1,
+      "order": 1,
+      "meaning_zh": "价值流：业务价值链",
+      "notation_type": null,
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "label_evidence": "ocr-label-match",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0,
+      "id": "value_chains",
+      "parent": "br_group",
+      "visual_parent": "br_group"
+    },
+    {
+      "label_en": "Business Capabilities",
+      "label_zh": "业务能力",
+      "type": "capability",
+      "level": 2,
+      "order": 2,
+      "meaning_zh": "能力：业务能力",
+      "notation_type": null,
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "label_evidence": "ocr-label-match",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [
+        "G152/fig3-1#r0002"
+      ],
+      "participating_relation_count": 1,
+      "id": "capabilities",
+      "parent": "br_group",
+      "visual_parent": "br_group"
+    },
+    {
+      "label_en": "Business Processes",
+      "label_zh": "业务流程",
+      "type": "process",
+      "level": 3,
+      "order": 3,
+      "meaning_zh": "流程：业务流程",
+      "notation_type": null,
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "label_evidence": "ocr-label-match",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G152/fig3-1#r0002"
+      ],
+      "outgoing_relations": [
+        "G152/fig3-1#r0003"
+      ],
+      "participating_relation_count": 2,
+      "id": "processes",
+      "parent": "br_group",
+      "visual_parent": "br_group"
+    },
+    {
+      "label_en": "Business Services",
+      "label_zh": "业务服务",
+      "type": "service",
+      "level": 4,
+      "order": 4,
+      "meaning_zh": "服务：业务服务",
+      "notation_type": null,
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "label_evidence": "ocr-label-match",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G152/fig3-1#r0003"
+      ],
+      "outgoing_relations": [
+        "G152/fig3-1#r0004"
+      ],
+      "participating_relation_count": 2,
+      "id": "business_services",
+      "parent": "br_group",
+      "visual_parent": "br_group"
+    },
+    {
+      "label_en": "Applications (Logical Information Services)",
+      "label_zh": "应用（逻辑信息服务）",
+      "type": "application",
+      "level": 5,
+      "order": 5,
+      "meaning_zh": "应用：应用（逻辑信息服务）",
+      "notation_type": null,
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "label_evidence": "not-found-in-machine-text",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G152/fig3-1#r0004"
+      ],
+      "outgoing_relations": [
+        "G152/fig3-1#r0005"
+      ],
+      "participating_relation_count": 2,
+      "id": "applications",
+      "parent": "cr_group",
+      "visual_parent": "cr_group"
+    },
+    {
+      "label_en": "ICT Infrastructure (Physical Networks/Platforms)",
+      "label_zh": "ICT 基础设施（物理网络/平台）",
+      "type": "technology",
+      "level": 6,
+      "order": 6,
+      "meaning_zh": "技术：ICT 基础设施（物理网络/平台）",
+      "notation_type": null,
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "label_evidence": "not-found-in-machine-text",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G152/fig3-1#r0005"
+      ],
+      "outgoing_relations": [
+        "G152/fig3-1#r0006"
+      ],
+      "participating_relation_count": 2,
+      "id": "ict_infrastructure",
+      "parent": "cr_group",
+      "visual_parent": "cr_group"
+    },
+    {
+      "label_en": "Technical Components (Standards, Products & Tools)",
+      "label_zh": "技术组件（标准、产品与工具）",
+      "type": "technology",
+      "level": 7,
+      "order": 7,
+      "meaning_zh": "技术：技术组件（标准、产品与工具）",
+      "notation_type": null,
+      "hierarchy_kind": "visual_grouping",
+      "depth": 1,
+      "label_evidence": "not-found-in-machine-text",
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G152/fig3-1#r0006"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1,
+      "id": "technical_components",
+      "parent": "cr_group",
+      "visual_parent": "cr_group"
+    }
+  ],
+  "relationships": [
+    {
+      "source_relation_id": "r2",
+      "predicate_zh": "依赖",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "依赖",
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "id": "r0002",
+      "from": "capabilities",
+      "to": "processes",
+      "type": "dependency",
+      "explicit": true,
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "capabilities",
+        "to": "processes",
+        "direction_is_semantic_not_pixel_geometry": true
+      }
+    },
+    {
+      "source_relation_id": "r3",
+      "predicate_zh": "依赖",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "依赖",
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "id": "r0003",
+      "from": "processes",
+      "to": "business_services",
+      "type": "dependency",
+      "explicit": true,
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "processes",
+        "to": "business_services",
+        "direction_is_semantic_not_pixel_geometry": true
+      }
+    },
+    {
+      "source_relation_id": "r4",
+      "predicate_zh": "依赖",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "跨过业务/网络风险管理分界线的唯一直连箭头。",
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "id": "r0004",
+      "from": "business_services",
+      "to": "applications",
+      "type": "dependency",
+      "explicit": true,
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "business_services",
+        "to": "applications",
+        "direction_is_semantic_not_pixel_geometry": true
+      }
+    },
+    {
+      "source_relation_id": "r5",
+      "predicate_zh": "依赖",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "依赖",
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "id": "r0005",
+      "from": "applications",
+      "to": "ict_infrastructure",
+      "type": "dependency",
+      "explicit": true,
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "applications",
+        "to": "ict_infrastructure",
+        "direction_is_semantic_not_pixel_geometry": true
+      }
+    },
+    {
+      "source_relation_id": "r6",
+      "predicate_zh": "依赖",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "依赖",
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "id": "r0006",
+      "from": "ict_infrastructure",
+      "to": "technical_components",
+      "type": "dependency",
+      "explicit": true,
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "solid",
+        "arrow": "forward",
+        "from": "ict_infrastructure",
+        "to": "technical_components",
+        "direction_is_semantic_not_pixel_geometry": true
+      }
+    },
+    {
+      "source_relation_id": "r7",
+      "predicate_zh": "关联",
+      "direction": "undirected",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "左侧竖带贯穿业务风险管理段，未画连线，由位置表达横切关系。",
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "id": "r0007",
+      "from": "service_management",
+      "to": "br_group",
+      "type": "association",
+      "explicit": false,
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "service_management",
+        "to": "br_group",
+        "direction_is_semantic_not_pixel_geometry": true
+      }
+    },
+    {
+      "source_relation_id": "r8",
+      "predicate_zh": "关联",
+      "direction": "undirected",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "同一竖带继续贯穿网络风险管理段。",
+      "semantic_basis": "historical-interpretation",
+      "status": "implicit-interpreted-relation",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "id": "r0008",
+      "from": "service_management",
+      "to": "cr_group",
+      "type": "association",
+      "explicit": false,
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "service_management",
+        "to": "cr_group",
+        "direction_is_semantic_not_pixel_geometry": true
+      }
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_stack",
+      "kind": "sequence",
+      "name_zh": "从业务能力至技术组件的五箭头支撑链",
+      "steps": [
+        "capabilities",
+        "processes",
+        "business_services",
+        "applications",
+        "ict_infrastructure",
+        "technical_components"
+      ],
+      "description_zh": "沿原图五条向下箭头读取，起于业务能力，终至技术组件。顶部价值链未连接到能力；其位置与正文价值驱动原则不构成第六条图示关系。"
+    }
+  ],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "浅蓝色圆角长条",
+      "meaning_zh": "业务栈的一个层次",
+      "explicit": false
+    },
+    {
+      "symbol": "紫色向下细箭头",
+      "meaning_zh": "五条层间支撑/依赖箭头，从能力层开始；不是数据流。价值链与能力之间没有箭头。",
+      "explicit": false
+    },
+    {
+      "symbol": "右侧大括号 + 文字",
+      "meaning_zh": "风险管理范围：Business Risk Management覆盖前四层，Cyber Risk Management覆盖后三层。",
+      "explicit": false
+    },
+    {
+      "symbol": "左侧服务管理外框及内部两条竖带",
+      "meaning_zh": "Service Management包含People与Support Services & Processes，竖带从能力层延伸至技术组件层。",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "source-content-audited-with-explicit-interpretation-boundary",
+    "uncertainties_zh": [
+      "原图未给正式关系图例；层间支撑/依赖为结合正文的解释，不是正式建模语言或数据流定义。"
+    ],
+    "analyzed_from": [
+      "英文PDF第22页原图及第21页正文"
+    ],
+    "date": "2026-11-08"
+  },
+  "conflicts": [],
+  "detailed_observation": {
+    "findings_zh": [
+      "源图七个栈层中，价值链与能力之间没有紫色连线；实际五条向下箭头从能力层开始。",
+      "Service Management外框包含People与Support Services两条带，竖带从能力层起，跨业务/网络管理区域但不覆盖价值链行。",
+      "13个标签/范围节点、5条实际向下箭头及2条无连线的跨域范围对应逐项复核。"
+    ],
+    "status": "source-content-audited"
+  },
+  "visual_structure_review": {
+    "source_pdf_sha256": "919c53bfa4259a4b3a9686762f37c0576a1cd2f8e77e74648826d9f9c84ed6e0",
+    "source_crop_sha256": [
+      "30ddb652af11c9009e3c0b09f4969cdbd534f5c973f0e34e8e2c6ba3c7e318e1"
+    ],
+    "scope": "All visible labels, individual shapes, connector endpoints and arrows, grouping, cardinalities where present, plus paired source context.",
+    "findings_zh": [
+      "源图七个栈层中，价值链与能力之间没有紫色连线；实际五条向下箭头从能力层开始。",
+      "Service Management外框包含People与Support Services两条带，竖带从能力层起，跨业务/网络管理区域但不覆盖价值链行。",
+      "13个标签/范围节点、5条实际向下箭头及2条无连线的跨域范围对应逐项复核。"
+    ],
+    "source_pdf_pages": [
+      22
+    ],
+    "edge_overrides": {
+      "0": {
+        "reason_zh": "Business Value Chains与Business Capabilities之间有白色间隔而没有箭头；旧解释补画了第六条向下关系。原文业务价值驱动风险评估不等于此处显式连线。",
+        "predicate": "unsupported_historical_relation",
+        "visual_explicit_connection": false,
+        "direction": "undirected",
+        "semantic_state": "rejected-unobserved",
+        "visual": {
+          "arrow": "none",
+          "line_style": "not-present"
+        }
+      }
+    },
+    "semantics_overrides": {
+      "reading_guide_zh": "先读七个业务栈层和右侧的业务/网络风险管理范围。紫色向下箭头从Business Capabilities开始，依次连到Business Processes、Business Services、Applications、ICT Infrastructure和Technical Components。价值链在顶部但与能力之间没有画线。左侧Service Management容器包含People与Support Services两条竖带，从能力层延伸至技术组件层。",
+      "key_points_zh": [
+        "七个栈层从业务价值链到技术组件；右侧大括号划分业务风险与网络风险的管理范围。",
+        "实际五条向下箭头起于Business Capabilities；Business Value Chains与其下一层没有画箭头。",
+        "Business Services→Applications跨管理范围边界，管理划分没有切断架构层间联系。",
+        "Service Management包含People与Support Services两条带，跨两种管理范围，未覆盖顶部价值链行。",
+        "图中风险管理范围是关注视角，不是部门或岗位的汇报关系。"
+      ],
+      "misreadings_zh": [
+        "不要把从上到下排列自动变成七层连续箭头；价值链至能力没有线。",
+        "不要将两个风险管理范围理解为两套完全独立的架构。",
+        "不要把竖带当成另几个流程步骤，或声称它们视觉上覆盖价值链行。"
+      ],
+      "purpose_zh": "说明风险可出现在业务栈的任何层次，区分上部业务风险与下部网络风险管理范围。七个层次的纵向排列与五条实际箭头分别读取；服务管理及其内部两条竖带从能力层延伸至技术组件层。",
+      "hierarchy_zh": "七个业务栈层按图内纵向位置排列，右侧括号分为前四层的业务风险管理范围和后三层的网络风险管理范围。左侧Service Management为外层容器，内含People与Support Services & Processes两条带；三者从能力层起跨两种风险管理范围，不覆盖顶部价值链行。范围分组和视觉包含不等于组织汇报关系。"
+    },
+    "line_semantics_zh": "五条紫色实心箭头：能力→流程→业务服务→应用→ICT基础设施→技术组件；箭头表达源图层间支撑/依赖，不是数据流。价值链至能力没有连线。大括号标范围，竖带相交范围不产生显式连线。",
+    "date": "2026-11-07",
+    "review_status": "source-content-audited",
+    "reviewed_components": [
+      "visible-labels",
+      "connector-topology",
+      "grouping",
+      "table-content-or-absence",
+      "nearby-source-text"
+    ],
+    "inspected_pdf_pages": [
+      21,
+      22
+    ],
+    "node_overrides": {
+      "service_management": {
+        "position": "左侧纵向带，从能力层至技术组件层，跨两组但不覆盖价值链行",
+        "description_zh": "浅蓝外框包含人员带与支持服务/流程带，顶部与业务能力行对齐。"
+      }
+    },
+    "semantics_mode": "replace",
+    "flows_override": [
+      {
+        "id": "f_stack",
+        "kind": "sequence",
+        "name_zh": "从业务能力至技术组件的五箭头支撑链",
+        "steps": [
+          "capabilities",
+          "processes",
+          "business_services",
+          "applications",
+          "ict_infrastructure",
+          "technical_components"
+        ],
+        "description_zh": "沿原图五条向下箭头读取，起于业务能力，终至技术组件。顶部价值链未连接到能力；其位置与正文价值驱动原则不构成第六条图示关系。"
+      }
+    ],
+    "legend_override": [
+      {
+        "symbol": "浅蓝色圆角长条",
+        "meaning_zh": "业务栈的一个层次",
+        "explicit": false
+      },
+      {
+        "symbol": "紫色向下细箭头",
+        "meaning_zh": "五条层间支撑/依赖箭头，从能力层开始；不是数据流。价值链与能力之间没有箭头。",
+        "explicit": false
+      },
+      {
+        "symbol": "右侧大括号 + 文字",
+        "meaning_zh": "风险管理范围：Business Risk Management覆盖前四层，Cyber Risk Management覆盖后三层。",
+        "explicit": false
+      },
+      {
+        "symbol": "左侧服务管理外框及内部两条竖带",
+        "meaning_zh": "Service Management包含People与Support Services & Processes，竖带从能力层延伸至技术组件层。",
+        "explicit": false
+      }
+    ],
+    "uncertainty_override": {
+      "confidence": "source-content-audited-with-explicit-interpretation-boundary",
+      "uncertainties_zh": [
+        "原图未给正式关系图例；层间支撑/依赖为结合正文的解释，不是正式建模语言或数据流定义。"
+      ],
+      "analyzed_from": [
+        "英文PDF第22页原图及第21页正文"
+      ],
+      "date": "2026-11-08"
+    },
+    "sync_review_20261108_zh": "再次打开已绑定PDF裁剪：确认五条向下箭头、顶部价值链无连线、竖带始于能力层；同步完整阅读说明、流程及图例，旧解释仅留历史字段。"
+  },
+  "generated_view_acceptance": "not-established-by-source-review"
+}

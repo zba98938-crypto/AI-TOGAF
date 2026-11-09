@@ -1,0 +1,270 @@
+{
+  "schema_version": "six-profile-business-materials/1",
+  "classification": "synthetic",
+  "real_approval": "not-granted",
+  "period": "2026-11-09 to 2026-12-04",
+  "scope": "Fictional omnichannel pilot. Inputs support candidate decisions, not real personnel, implementation or benefits.",
+  "role_inputs": {
+    "scope": "输入充分的虚构全渠道实验：已声明政策、行为及同期工作量",
+    "as_of": "2026-12-04",
+    "mandate": {
+      "id": "MANDATE-STOCK",
+      "scope": "全渠道订单履约改造的候选架构分析",
+      "decision_owner": "虚构经营责任人；仅用于实验的责任声明",
+      "evidence": [
+        "SIX-RAW"
+      ],
+      "authority_status": "fictional-analysis-mandate-not-real-approval"
+    },
+    "interpretations": [],
+    "scales": [],
+    "source_ids": [
+      "SIX-RAW"
+    ],
+    "roles": [
+      {
+        "id": "ROLE-SOL",
+        "name": "履约解决方案架构师",
+        "tier": "solution",
+        "scope": "库存预占与异步接口",
+        "evidence": [
+          "SIX-RAW"
+        ]
+      }
+    ],
+    "tasks": [
+      {
+        "id": "TASK-SOL",
+        "scope": "预占接口候选比较",
+        "decision": "依据声明的一致性与延迟目标比较线上同步及异步最终确认；离线仅受理待确认",
+        "outcome": "线上同步试点建议、离线待确认契约及异常验证清单",
+        "role_refs": [
+          "ROLE-SOL"
+        ],
+        "required_skill_ids": [
+          "G249:skill:application:integration-and-interoperability"
+        ],
+        "method_ids": [
+          "msa-contract-consumer-evidence-method"
+        ],
+        "artifact_ids": [
+          "application-communication-diagram"
+        ],
+        "evidence": [
+          "SIX-RAW"
+        ],
+        "workload_hours": 32,
+        "work_period": {
+          "start": "2026-11-09",
+          "end": "2026-12-04"
+        }
+      }
+    ],
+    "requirements": [
+      {
+        "id": "REQ-SKILL-SOL",
+        "task_ref": "TASK-SOL",
+        "role_ref": "ROLE-SOL",
+        "skill_id": "G249:skill:application:integration-and-interoperability",
+        "assessment_kind": "tailored_target",
+        "assessment_state": "adopted",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_criteria": [
+          "独立完成异常接口设计并经评审"
+        ],
+        "tailoring_reason": "同步/异步候选比较需要接口、失败和恢复细节支持有效决策，本次采用3级；困难条件仍需可验证专家支持，不等于任何情况下独立。",
+        "evidence": [
+          "SIX-RAW"
+        ],
+        "adoption_context": "虚构教学场景已采用的目标；不是实际组织批准，也不是自动执行权限"
+      }
+    ],
+    "assessments": [
+      {
+        "id": "BEH-SOL",
+        "person_ref": "PERSON-A",
+        "skill_id": "G249:skill:application:integration-and-interoperability",
+        "assessment_kind": "observed_assessment",
+        "assessment_state": "assessed",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "task_refs": [
+          "TASK-SOL"
+        ],
+        "observed_on": "2026-12-02",
+        "assessor": "FICTIONAL-PEER-REVIEW",
+        "evidence": [
+          "SIX-RAW"
+        ],
+        "behavioral_evidence": [
+          {
+            "criterion": "独立完成异常接口设计并经评审",
+            "demonstrated": true,
+            "evidence_kind": "reviewed-work-product",
+            "evidence": [
+              "SIX-RAW"
+            ]
+          }
+        ],
+        "note": "本任务行为已在虚构材料中给定；困难情形仍需专家，不表示通用认证。"
+      }
+    ],
+    "assignments": [
+      {
+        "id": "ASSIGN-A",
+        "person_ref": "PERSON-A",
+        "role_ref": "ROLE-SOL",
+        "task_refs": [
+          "TASK-SOL"
+        ],
+        "requirement_refs": [
+          "REQ-SKILL-SOL"
+        ],
+        "assessment_refs": [
+          "BEH-SOL"
+        ],
+        "mandate_ref": "MANDATE-STOCK",
+        "authority": "虚构候选配置；真实批准未授予",
+        "valid_from": "2026-11-09",
+        "valid_until": "2026-12-04",
+        "available_hours": 40,
+        "evidence": [
+          "SIX-RAW"
+        ]
+      }
+    ],
+    "development": []
+  },
+  "role_reuse_provenance": {
+    "path": "maintenance/cases/omnichannel/sufficient-role-skill-inputs.json",
+    "sha256": "86fa2f7d02d45c1dc8ce1a254b040ff4a8d40c563dc966cfb918de6dd703a459",
+    "selection": "One solution role/task/requirement/observation/assignment; fictional boundaries retained."
+  },
+  "planning": {
+    "factor": {
+      "id": "FACTOR-RECOVERY",
+      "category": "capacity",
+      "description": "Recovery backlog 1000 events; measured fixture processing 500 events/hour; recovery window 4 hours.",
+      "backlog_events": 1000,
+      "drain_events_per_hour": 500,
+      "recovery_window_hours": 4,
+      "owner": "Simulated platform operations owner"
+    },
+    "gap": {
+      "id": "GAP-KEY",
+      "description": "Local store keys cannot identify duplicate orders across channels.",
+      "solution_work_packages": [
+        "WP-KEY"
+      ],
+      "dependency_work_packages": [
+        "WP-POLICY"
+      ],
+      "dependency_basis": "Data governance must define event_id policy before cross-channel idempotency outcomes can be compared."
+    },
+    "work_packages": [
+      {
+        "id": "WP-KEY",
+        "name": "Shared event key pilot",
+        "owner": "Simulated application architect",
+        "scope": "Two stores use event_id and reconcile duplicate orders",
+        "start": "2026-11-09",
+        "end": "2026-11-20"
+      },
+      {
+        "id": "WP-POLICY",
+        "name": "Event key policy and data governance",
+        "owner": "Simulated data governance owner",
+        "scope": "Define uniqueness, originating store and retention",
+        "start": "2026-11-09",
+        "end": "2026-11-13"
+      }
+    ],
+    "increment": {
+      "work_package": "WP-KEY",
+      "transition": "TRANS-PILOT",
+      "description": "Two stores use central event_id for online orders and isolate duplicates. Offline acceptance is excluded.",
+      "acceptance": "Ten duplicate deliveries in 1000 synthetic events must be isolated; verify order keys and audit records. Actual test results remain absent."
+    },
+    "transition": {
+      "id": "TRANS-PILOT",
+      "name": "Two-store online pilot",
+      "service_id": "SERVICE-RESERVE",
+      "service_name": "Inventory reservation",
+      "sbb_id": "SBB-EVENT",
+      "sbb_name": "Event key adapter",
+      "service_taxonomy": "Fulfilment/order verification/inventory reservation",
+      "proposed_state": "introduced-in-pilot",
+      "scope": "Two stores, online orders only; central inventory confirmation remains mandatory."
+    },
+    "value_risk": {
+      "criteria_defined_on": "2026-11-01",
+      "options_disclosed_on": "2026-11-03",
+      "authority": "Simulated planning committee exercise rules; no actual approval",
+      "criteria": [
+        {
+          "id": "V-COVERAGE",
+          "dimension": "value",
+          "weight": 0.7,
+          "meaning": "Cross-channel problem coverage; 1 lowest, 5 highest"
+        },
+        {
+          "id": "V-SPEED",
+          "dimension": "value",
+          "weight": 0.3,
+          "meaning": "Speed within pilot window; 1 slowest, 5 fastest"
+        },
+        {
+          "id": "R-CHANGE",
+          "dimension": "risk",
+          "weight": 0.6,
+          "meaning": "Cutover complexity; 1 lowest, 5 highest"
+        },
+        {
+          "id": "R-RECOVERY",
+          "dimension": "risk",
+          "weight": 0.4,
+          "meaning": "Recovery risk; 1 lowest, 5 highest"
+        }
+      ],
+      "options": [
+        {
+          "id": "WP-KEY",
+          "scores": {
+            "V-COVERAGE": 5,
+            "V-SPEED": 2,
+            "R-CHANGE": 2,
+            "R-RECOVERY": 4
+          }
+        },
+        {
+          "id": "WP-POLICY",
+          "scores": {
+            "V-COVERAGE": 3,
+            "V-SPEED": 5,
+            "R-CHANGE": 4,
+            "R-RECOVERY": 4
+          }
+        }
+      ]
+    }
+  },
+  "variants": {
+    "missing": {
+      "assignment": "Available hours absent; capacity remains unresolved.",
+      "factor": "Drain rate absent; meeting the recovery window is unknown.",
+      "gap": "Dependency assessment absent; null must not become an empty list.",
+      "increment": "Increment description absent; a link alone is insufficient.",
+      "transition": "Service taxonomy absent; do not infer it from layout.",
+      "value_risk": "V-SPEED weight absent; no equal weighting or zero substitution."
+    },
+    "change": {
+      "assignment": "Task workload grows from 32 to 48 hours; availability stays 40 hours.",
+      "factor": "Backlog grows to 3000; rate stays 500. Recovery window still 4 hours.",
+      "gap": "Add security audit WP-AUDIT dependency while retaining WP-POLICY.",
+      "increment": "Add WP-OFFLINE to TRANS-OFFLINE; persist offline requests, confirm centrally later.",
+      "transition": "Expand from two to four stores; state expanded-pilot, capacity validation pending.",
+      "value_risk": "WP-KEY V-COVERAGE changes from 5 to 3; all prior weights and other scores stay fixed."
+    }
+  }
+}

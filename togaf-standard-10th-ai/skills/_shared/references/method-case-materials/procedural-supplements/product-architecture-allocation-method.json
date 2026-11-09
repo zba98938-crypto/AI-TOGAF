@@ -1,0 +1,86 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "product-architecture-allocation-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 2,
+      "declared_step": "用明确allocates_function关系分配到组件",
+      "new_fictional_input": "新虚构F-SUBMIT提交受理分给C-CASE，F-STATUS状态查询分给C-STATUS；C-PORTAL只交互入口，C-CASE/STATUS负责业务处理。",
+      "transformation": "为每功能建立function→component有向allocates_function关系，证据逐条指向新分配记录。",
+      "candidate_output": "REL-SUBMIT为F-SUBMIT→C-CASE，REL-STATUS为F-STATUS→C-STATUS；接口调用仍PORTAL→后端，关系不同。",
+      "adverse_variant_expected": "只按连线位置推功能归属，或用接口调用边顶替allocates_function，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 4,
+      "declared_step": "关联运营能力与技术组件，分析功能改变的联合影响",
+      "new_fictional_input": "新虚构运营能力为受理核验与状态告知，两后端使用TC-API运行；新增F-ASSIST由服务台C-DESK代理申请，代理授权待补。",
+      "transformation": "功能→组件→接口→运营能力/技术依赖分别追溯；新增代理功能改变人和授权链，原两功能关系不覆盖。",
+      "candidate_output": "F-ASSIST/C-DESK/I-ASSIST均candidate；授权unknown；原C-CASE/STATUS→TC-API依赖保留。",
+      "adverse_variant_expected": "把技术组件当业务功能，或以自助授权放行代理操作，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [],
+  "candidate_records": [
+    {
+      "function_id": "F-SUBMIT",
+      "component_id": "C-CASE",
+      "interface_id": "I-SUBMIT",
+      "operating_capability": "受理核验",
+      "technical_dependency": "TC-API",
+      "evidence": "SUP-ALLOC-1",
+      "approval_status": "candidate"
+    },
+    {
+      "function_id": "F-STATUS",
+      "component_id": "C-STATUS",
+      "interface_id": "I-STATUS",
+      "operating_capability": "状态告知",
+      "technical_dependency": "TC-API",
+      "evidence": "SUP-ALLOC-2",
+      "approval_status": "candidate"
+    },
+    {
+      "function_id": "F-ASSIST",
+      "component_id": "C-DESK",
+      "interface_id": "I-ASSIST",
+      "operating_capability": "代理受理",
+      "authorization": "unknown",
+      "evidence": "SUP-ALLOC-3",
+      "approval_status": "candidate"
+    }
+  ],
+  "candidate_relationships": [
+    {
+      "id": "REL-F-SUBMIT",
+      "source": "F-SUBMIT",
+      "target": "C-CASE",
+      "type": "allocates_function",
+      "evidence": "SUP-ALLOC-1",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "REL-F-STATUS",
+      "source": "F-STATUS",
+      "target": "C-STATUS",
+      "type": "allocates_function",
+      "evidence": "SUP-ALLOC-2",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "REL-F-ASSIST",
+      "source": "F-ASSIST",
+      "target": "C-DESK",
+      "type": "allocates_function",
+      "evidence": "SUP-ALLOC-3",
+      "approval_status": "candidate"
+    }
+  ]
+}

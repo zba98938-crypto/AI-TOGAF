@@ -1,0 +1,1015 @@
+{
+  "schema_version": "1.0",
+  "id": "G190/fig4-1",
+  "status": "done",
+  "doc": {
+    "code": "G190",
+    "title_zh": "信息映射",
+    "title_en": "Information Mapping",
+    "zh_md": "G190e_信息映射.md",
+    "en_pdf": "togaf-standard-10th/G190e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-1",
+    "title_en": "Business Capabilities and Information Concepts",
+    "title_zh": "业务能力与信息概念",
+    "section_en": "4. The Relationship to Business Capabilities, Value Streams, and Information Maps",
+    "section_zh": "4. 与业务能力、价值流及组织地图的关系",
+    "attribution": "Source: Business Architecture Guild® 2019",
+    "en_location": {
+      "pages": [
+        14
+      ],
+      "printed_page": 4,
+      "bboxes": [
+        [
+          86.9,
+          435.0,
+          525.1,
+          720.2
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        135
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g190_fig4-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "7818d60998f8",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "所有连线都没有箭头：SVG 未定义 marker，“使用/修改”的方向完全丢失；原图蓝线箭头指向能力、红线箭头指向信息概念",
+        "蓝线组合画错：原图 9 条“使用”（4 条水平 + 5 条斜线），SVG 画了 11 条，其中 5 条是原图没有的：投资管理—付款、金融工具管理—投资、金融工具管理—金融交易、支付管理—金融工具、支付管理—金融交易",
+        "同时漏掉 2 条原图有的水平“使用”线：投资→投资管理、金融工具→金融工具管理",
+        "标签数量与位置不符：原图每条蓝线旁都有 Uses（共 8 个可见文字标签），SVG 只在左侧放了 3 个“使用”；4 个“修改”与原图 4 条红线对应，但都无箭头",
+        "自拟图例“红线：能力修改信息；蓝线：能力使用信息”——原图没有图例，只在线上写 Modifies/Uses",
+        "翻译不一致：能力框用“支付管理”，信息概念框却用“付款”，同一英文 Payment 出现两种译法；概念框译为“金融交易/金融工具”可接受"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "network"
+    ],
+    "notation": "非正式的两列交叉映射图：左列业务能力框、右列信息概念框；红色实线箭头表示能力修改信息（能力→信息），蓝色实线箭头表示能力使用信息（信息→能力），线上标 Modifies/Uses",
+    "concepts": [
+      "information_map",
+      "information_concept",
+      "business_capability",
+      "cross_mapping",
+      "business_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "把 4 项投资类业务能力与 4 个信息概念交叉连线，用红/蓝箭头区分“能力修改信息”与“能力使用信息”。",
+    "purpose_zh": "第 4 章说明信息地图与业务能力地图联系最紧密：设计未来态架构时能力使用信息概念，能力也确立（修改）信息概念。本图用“投资”场景给出能力—信息交叉映射的一个子集，示范如何在不假定数据存储或系统的前提下描述业务制品。",
+    "reading_guide_zh": "先读左右两列标题（Capabilities / Information Concepts），再按行看红色水平箭头：每项能力修改与它同名的信息概念。然后看蓝色斜线：从右列信息概念出发、箭头落在左列能力上的，表示该能力使用这个信息概念。蓝色线会交叉，读线时以箭头落点（能力端）为准，不要按起点所在行猜。",
+    "key_points_zh": [
+      "4 项能力各自“修改”一个同名信息概念（红箭头水平向右），这是能力的产出/维护责任。",
+      "除同名概念外，能力还“使用”其他信息概念：投资管理使用投资、金融工具、金融交易三项，是使用最多的能力。",
+      "信息概念也被多项能力共享：投资信息被投资管理、支付管理、金融交易管理三项能力使用；付款信息被支付管理（同名）和金融交易管理使用。",
+      "金融工具管理只使用金融工具（加同名水平线），映射最单纯；金融交易管理使用金融交易、投资、付款三项。",
+      "红蓝两种箭头表达两种不同责任：修改=写/维护，使用=读/引用；同一对能力—概念可以只有其中一种。",
+      "图中刻意不出现数据仓储、业务系统等实现元素，说明这是业务架构层面的信息概念映射，不是数据模型。",
+      "正文指出这只是构建“投资”概念的映射子集，完整映射还应包含协议、合作伙伴等能力与信息概念。"
+    ],
+    "hierarchy_zh": "两列平级：左列 4 项业务能力、右列 4 个信息概念，各自没有上下级。两列标题只是列头（Capabilities / Information Concepts），不是父节点。能力与概念之间是交叉映射，不是分类层级。",
+    "line_semantics_zh": "红色实线箭头（4 条）= 能力修改信息，方向由能力指向信息概念；蓝色实线箭头（9 条）= 能力使用信息，方向由信息概念指向能力。两者都是直线、无虚线、无基数、无组合/泛化符号；蓝线在中间交叉但交叉点不表示任何关系。",
+    "misreadings_zh": [
+      "蓝线箭头指向能力，不能按“能力→信息”读成能力向信息提供数据；语义是“信息被能力使用”。",
+      "红线与蓝线不是“强/弱”或“正/负”的极性，而是两种不同关系（修改 vs 使用）。",
+      "同名能力与概念之间的水平线不是“等同”，而是“该能力修改该信息概念”。",
+      "蓝线交叉处没有节点，交叉不代表两条关系相交或互相影响。",
+      "中文重绘 SVG 无箭头、且把多条线接到错误的概念上（如投资管理—付款），不能据它推断能力—信息对应关系。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p14",
+        "summary_zh": "信息地图与业务能力地图联系最紧密：设计未来态业务架构及后续信息系统时，能力使用信息概念；能力通常也确立信息概念。投资管理的主要信息概念是投资，但也使用其他概念；图 4-1 只展示构建“投资”所涉及的一个子集，完整映射还包括协议、合作伙伴等。"
+      },
+      {
+        "source": "en_pdf p15",
+        "summary_zh": "图 4-1 中每项能力都直接要求并修改与其相关的信息概念；投资管理修改投资信息，并使用金融工具信息与标记交易执行的金融交易信息；支付管理使用投资信息；金融交易管理使用投资与付款信息。"
+      },
+      {
+        "source": "zh_md L131",
+        "summary_zh": "中文稿说明信息地图与业务能力地图联系最紧密，业务能力使用信息概念、也通常确立信息概念。"
+      },
+      {
+        "source": "zh_md L133",
+        "summary_zh": "中文稿给出投资管理的定义，并说明图 4-1 是能力—信息交叉映射的一个子集。"
+      },
+      {
+        "source": "zh_md L137",
+        "summary_zh": "中文稿逐条说明：投资管理修改投资、需要金融工具与金融交易信息；支付管理需要投资信息；金融交易管理需要投资与付款信息。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "左右两列：左列自上而下为投资管理、金融工具管理、支付管理、金融交易管理；右列对应为投资、金融工具、付款、金融交易。4 条红色水平箭头逐行连接同名项，9 条蓝色斜线在中间交叉形成网状。"
+  },
+  "legend": [
+    {
+      "symbol": "蓝色实线箭头 + Uses",
+      "meaning_zh": "信息概念被业务能力使用（箭头指向能力）",
+      "explicit": true
+    },
+    {
+      "symbol": "红色实线箭头 + Modifies",
+      "meaning_zh": "业务能力修改信息概念（箭头指向信息概念）",
+      "explicit": true
+    },
+    {
+      "symbol": "左列圆角框",
+      "meaning_zh": "业务能力",
+      "explicit": false
+    },
+    {
+      "symbol": "右列圆角框",
+      "meaning_zh": "信息概念",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "grp_capabilities",
+      "label_en": "Capabilities",
+      "label_zh": "业务能力",
+      "type": "group",
+      "level": 1,
+      "position": "左上列标题"
+    },
+    {
+      "id": "grp_information",
+      "label_en": "Information Concepts",
+      "label_zh": "信息概念",
+      "type": "group",
+      "level": 1,
+      "position": "右列标题"
+    },
+    {
+      "id": "cap_investment",
+      "label_en": "Investment Management",
+      "label_zh": "投资管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "cap_financial_instrument",
+      "label_en": "Financial Instrument Management",
+      "label_zh": "金融工具管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "cap_payment",
+      "label_en": "Payment Management",
+      "label_zh": "支付管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "cap_financial_transaction",
+      "label_en": "Financial Transaction Management",
+      "label_zh": "金融交易管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "info_investment",
+      "label_en": "Investment",
+      "label_zh": "投资",
+      "type": "data",
+      "parent": "grp_information",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "info_financial_instrument",
+      "label_en": "Financial Instrument",
+      "label_zh": "金融工具",
+      "type": "data",
+      "parent": "grp_information",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "info_payment",
+      "label_en": "Payment",
+      "label_zh": "付款",
+      "type": "data",
+      "parent": "grp_information",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "info_financial_transaction",
+      "label_en": "Financial Transaction",
+      "label_zh": "金融交易",
+      "type": "data",
+      "parent": "grp_information",
+      "level": 2,
+      "order": 4
+    }
+  ],
+  "relationships": [
+    {
+      "from": "cap_investment",
+      "to": "info_investment",
+      "type": "access",
+      "label_en": "Modifies",
+      "label_zh": "修改",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "红色水平箭头，能力修改同名信息概念。"
+    },
+    {
+      "from": "cap_financial_instrument",
+      "to": "info_financial_instrument",
+      "type": "access",
+      "label_en": "Modifies",
+      "label_zh": "修改",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_payment",
+      "to": "info_payment",
+      "type": "access",
+      "label_en": "Modifies",
+      "label_zh": "修改",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_financial_transaction",
+      "to": "info_financial_transaction",
+      "type": "access",
+      "label_en": "Modifies",
+      "label_zh": "修改",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "info_investment",
+      "to": "cap_investment",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "水平蓝线，信息被同名能力使用。"
+    },
+    {
+      "from": "info_financial_instrument",
+      "to": "cap_financial_instrument",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "info_payment",
+      "to": "cap_payment",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "info_financial_transaction",
+      "to": "cap_financial_transaction",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "info_financial_instrument",
+      "to": "cap_investment",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "斜线：投资管理使用金融工具信息。"
+    },
+    {
+      "from": "info_investment",
+      "to": "cap_payment",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "斜线：支付管理使用投资信息。"
+    },
+    {
+      "from": "info_investment",
+      "to": "cap_financial_transaction",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "斜线：金融交易管理使用投资信息。"
+    },
+    {
+      "from": "info_payment",
+      "to": "cap_financial_transaction",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "斜线：金融交易管理使用付款信息。"
+    },
+    {
+      "from": "info_financial_transaction",
+      "to": "cap_investment",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "斜线：投资管理使用金融交易信息。"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_crossmap",
+      "title_zh": "能力 × 信息概念交叉映射（按原图逐条线转录）",
+      "columns": [
+        "能力",
+        "信息概念",
+        "关系",
+        "线型"
+      ],
+      "rows": [
+        [
+          "投资管理 Investment Management",
+          "投资 Investment",
+          "修改 Modifies",
+          "红色实线箭头，能力→概念"
+        ],
+        [
+          "金融工具管理 Financial Instrument Management",
+          "金融工具 Financial Instrument",
+          "修改 Modifies",
+          "红色实线箭头，能力→概念"
+        ],
+        [
+          "支付管理 Payment Management",
+          "付款 Payment",
+          "修改 Modifies",
+          "红色实线箭头，能力→概念"
+        ],
+        [
+          "金融交易管理 Financial Transaction Management",
+          "金融交易 Financial Transaction",
+          "修改 Modifies",
+          "红色实线箭头，能力→概念"
+        ],
+        [
+          "投资管理 Investment Management",
+          "投资 Investment",
+          "使用 Uses",
+          "蓝色实线箭头，概念→能力"
+        ],
+        [
+          "金融工具管理 Financial Instrument Management",
+          "金融工具 Financial Instrument",
+          "使用 Uses",
+          "蓝色实线箭头，概念→能力"
+        ],
+        [
+          "支付管理 Payment Management",
+          "付款 Payment",
+          "使用 Uses",
+          "蓝色实线箭头，概念→能力"
+        ],
+        [
+          "金融交易管理 Financial Transaction Management",
+          "金融交易 Financial Transaction",
+          "使用 Uses",
+          "蓝色实线箭头，概念→能力"
+        ],
+        [
+          "投资管理 Investment Management",
+          "金融工具 Financial Instrument",
+          "使用 Uses",
+          "蓝色斜线"
+        ],
+        [
+          "支付管理 Payment Management",
+          "投资 Investment",
+          "使用 Uses",
+          "蓝色斜线"
+        ],
+        [
+          "金融交易管理 Financial Transaction Management",
+          "投资 Investment",
+          "使用 Uses",
+          "蓝色斜线"
+        ],
+        [
+          "金融交易管理 Financial Transaction Management",
+          "付款 Payment",
+          "使用 Uses",
+          "蓝色斜线"
+        ],
+        [
+          "投资管理 Investment Management",
+          "金融交易 Financial Transaction",
+          "使用 Uses",
+          "蓝色斜线"
+        ]
+      ],
+      "notes_zh": "每行对应原图中一条画出的线；蓝线共 9 条（4 条水平、5 条斜线），红线 4 条。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G190/fig2-1",
+      "relation": "complements",
+      "note_zh": "同为信息地图示例；图 2-1 只画概念间关系，本图把概念挂到业务能力上"
+    },
+    {
+      "target": "G190/figA-2",
+      "relation": "basis_for",
+      "note_zh": "图 A-2 用 ArchiMate 记法重画同一组“投资类能力—信息概念”的 Uses/Modifies 映射"
+    },
+    {
+      "target": "G190/fig5-1",
+      "relation": "related",
+      "note_zh": "第 5 章以本图为例说明信息地图不等于数据模型"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "蓝线共 9 条（按能力端和概念端的箭头/出线计数），但原图只有 8 个可见的 Uses 文字标签，靠近投资管理右上角的两条线似乎共用标签，无法确定哪一条没有独立标签。",
+      "斜线在中间大量交叉，个别线（如投资→支付管理与金融工具→投资管理）的标签归属靠端点与斜率推断，未见文字重复标注。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 14 页图 4-1 原图截图及 2x2 放大分块",
+      "对原图蓝色/红色像素按列扫描并做 Hough 直线拟合，确认 9 条蓝线与 4 条红线的端点",
+      "英文 PDF 第 14、15 页正文",
+      "中文稿 G190e_信息映射.md 第 131–139 行",
+      "figs/g190_fig4-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G190e.pdf",
+    "pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G190/fig4-1.json",
+    "interpretation_sha256": "ecd6755c4066b293534b26420f14b904d632b43e24d24d1a77e03ac7aaaba4e1",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 14,
+        "text": "Figure 4-1: Business Capabilities and Information Concepts",
+        "bbox_pdf_points": [
+          48.24,
+          724.942,
+          323.76,
+          738.508
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 14,
+      "printed_page": 4,
+      "bbox_pdf_points": [
+        86.9,
+        435.0,
+        525.1,
+        720.2
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G190/fig4-1-p0014.png",
+      "image_sha256": "1e246147a2eef9386ce6c3b766529d61046c62280aaff9cf3a4ecb47ca5a802a",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "1e246147a2eef9386ce6c3b766529d61046c62280aaff9cf3a4ecb47ca5a802a",
+          "status": "extracted-unverified",
+          "text": "Capabilities\nInformation Concepts\nC>),\nModifies\n(a >\nInvestment\nUses\nInvestment\nManagement\nUses\ney,\nFinancial\n—\nUses\nFinancial\nInstrument\nModifies\nInstrument\nManagement\nwe\n(nn )\nPayment\nUses\nModifies\nPayment\nManagement\nwe\nyse®\n_\nFinancial\nUse:\nFinancial\nTransaction\nModifies\n+|\nTransaction\nManagement\nSource: Business Architecture Guild® 2019",
+          "words": [
+            {
+              "text": "Capabilities",
+              "confidence": 95.288704,
+              "bbox_pixels_xywh": [
+                17,
+                14,
+                120,
+                23
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 96.461311,
+              "bbox_pixels_xywh": [
+                637,
+                15,
+                123,
+                18
+              ]
+            },
+            {
+              "text": "Concepts",
+              "confidence": 96.417252,
+              "bbox_pixels_xywh": [
+                766,
+                16,
+                95,
+                21
+              ]
+            },
+            {
+              "text": "C>),",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                10,
+                43,
+                231,
+                17
+              ]
+            },
+            {
+              "text": "Modifies",
+              "confidence": 91.557304,
+              "bbox_pixels_xywh": [
+                417,
+                45,
+                71,
+                14
+              ]
+            },
+            {
+              "text": "(a",
+              "confidence": 23.823055,
+              "bbox_pixels_xywh": [
+                632,
+                43,
+                231,
+                15
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 10.347519,
+              "bbox_pixels_xywh": [
+                840,
+                39,
+                26,
+                25
+              ]
+            },
+            {
+              "text": "Investment",
+              "confidence": 96.708794,
+              "bbox_pixels_xywh": [
+                67,
+                73,
+                118,
+                17
+              ]
+            },
+            {
+              "text": "Uses",
+              "confidence": 86.861877,
+              "bbox_pixels_xywh": [
+                400,
+                78,
+                37,
+                13
+              ]
+            },
+            {
+              "text": "Investment",
+              "confidence": 96.570419,
+              "bbox_pixels_xywh": [
+                689,
+                88,
+                117,
+                17
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 95.988052,
+              "bbox_pixels_xywh": [
+                56,
+                103,
+                140,
+                22
+              ]
+            },
+            {
+              "text": "Uses",
+              "confidence": 95.712563,
+              "bbox_pixels_xywh": [
+                409,
+                126,
+                37,
+                20
+              ]
+            },
+            {
+              "text": "ey,",
+              "confidence": 41.923756,
+              "bbox_pixels_xywh": [
+                295,
+                136,
+                24,
+                22
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 96.774879,
+              "bbox_pixels_xywh": [
+                80,
+                185,
+                90,
+                19
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 58.497829,
+              "bbox_pixels_xywh": [
+                242,
+                194,
+                21,
+                7
+              ]
+            },
+            {
+              "text": "Uses",
+              "confidence": 88.119316,
+              "bbox_pixels_xywh": [
+                362,
+                184,
+                37,
+                13
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 95.575439,
+              "bbox_pixels_xywh": [
+                702,
+                201,
+                91,
+                18
+              ]
+            },
+            {
+              "text": "Instrument",
+              "confidence": 96.431541,
+              "bbox_pixels_xywh": [
+                67,
+                217,
+                116,
+                17
+              ]
+            },
+            {
+              "text": "Modifies",
+              "confidence": 96.523521,
+              "bbox_pixels_xywh": [
+                498,
+                229,
+                70,
+                14
+              ]
+            },
+            {
+              "text": "Instrument",
+              "confidence": 96.021217,
+              "bbox_pixels_xywh": [
+                690,
+                232,
+                116,
+                17
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.593597,
+              "bbox_pixels_xywh": [
+                55,
+                247,
+                140,
+                22
+              ]
+            },
+            {
+              "text": "we",
+              "confidence": 44.057838,
+              "bbox_pixels_xywh": [
+                293,
+                289,
+                23,
+                21
+              ]
+            },
+            {
+              "text": "(nn",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                632,
+                299,
+                231,
+                15
+              ]
+            },
+            {
+              "text": ")",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                817,
+                290,
+                49,
+                34
+              ]
+            },
+            {
+              "text": "Payment",
+              "confidence": 96.779533,
+              "bbox_pixels_xywh": [
+                80,
+                328,
+                91,
+                22
+              ]
+            },
+            {
+              "text": "Uses",
+              "confidence": 78.43251,
+              "bbox_pixels_xywh": [
+                436,
+                336,
+                38,
+                13
+              ]
+            },
+            {
+              "text": "Modifies",
+              "confidence": 95.069923,
+              "bbox_pixels_xywh": [
+                419,
+                358,
+                71,
+                14
+              ]
+            },
+            {
+              "text": "Payment",
+              "confidence": 96.445686,
+              "bbox_pixels_xywh": [
+                702,
+                343,
+                91,
+                22
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.583443,
+              "bbox_pixels_xywh": [
+                55,
+                359,
+                140,
+                21
+              ]
+            },
+            {
+              "text": "we",
+              "confidence": 24.312763,
+              "bbox_pixels_xywh": [
+                293,
+                393,
+                23,
+                22
+              ]
+            },
+            {
+              "text": "yse®",
+              "confidence": 51.006931,
+              "bbox_pixels_xywh": [
+                366,
+                412,
+                38,
+                20
+              ]
+            },
+            {
+              "text": "_",
+              "confidence": 32.315521,
+              "bbox_pixels_xywh": [
+                628,
+                422,
+                3,
+                25
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 95.543098,
+              "bbox_pixels_xywh": [
+                79,
+                439,
+                91,
+                18
+              ]
+            },
+            {
+              "text": "Use:",
+              "confidence": 85.880081,
+              "bbox_pixels_xywh": [
+                396,
+                464,
+                30,
+                13
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 96.987854,
+              "bbox_pixels_xywh": [
+                702,
+                454,
+                90,
+                18
+              ]
+            },
+            {
+              "text": "Transaction",
+              "confidence": 96.715309,
+              "bbox_pixels_xywh": [
+                63,
+                470,
+                121,
+                18
+              ]
+            },
+            {
+              "text": "Modifies",
+              "confidence": 90.12413,
+              "bbox_pixels_xywh": [
+                381,
+                485,
+                71,
+                14
+              ]
+            },
+            {
+              "text": "+|",
+              "confidence": 75.055534,
+              "bbox_pixels_xywh": [
+                621,
+                498,
+                9,
+                8
+              ]
+            },
+            {
+              "text": "Transaction",
+              "confidence": 96.318748,
+              "bbox_pixels_xywh": [
+                685,
+                485,
+                121,
+                18
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.75032,
+              "bbox_pixels_xywh": [
+                54,
+                501,
+                141,
+                21
+              ]
+            },
+            {
+              "text": "Source:",
+              "confidence": 96.81604,
+              "bbox_pixels_xywh": [
+                16,
+                545,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 91.277794,
+              "bbox_pixels_xywh": [
+                72,
+                544,
+                59,
+                12
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 93.203178,
+              "bbox_pixels_xywh": [
+                135,
+                544,
+                87,
+                12
+              ]
+            },
+            {
+              "text": "Guild®",
+              "confidence": 92.241455,
+              "bbox_pixels_xywh": [
+                226,
+                544,
+                44,
+                12
+              ]
+            },
+            {
+              "text": "2019",
+              "confidence": 96.97686,
+              "bbox_pixels_xywh": [
+                276,
+                545,
+                34,
+                11
+              ]
+            }
+          ],
+          "mean_word_confidence": 77.14,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

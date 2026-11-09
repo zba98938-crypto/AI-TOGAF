@@ -1,0 +1,488 @@
+{
+  "schema_version": "1.0",
+  "id": "G184/fig6-1",
+  "status": "done",
+  "doc": {
+    "code": "G184",
+    "title_zh": "领导者指南：建立并演进 EA 能力",
+    "title_en": "The TOGAF Leader's Guide to Establishing and Evolving an EA Capability",
+    "zh_md": "G184e_领导者指南_建立并演进EA能力.md",
+    "en_pdf": "togaf-standard-10th/G184e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "6-1",
+    "title_en": "Potential Governance Tiers",
+    "title_zh": "可能的治理层级",
+    "section_en": "6.1.1 Key Characteristics",
+    "section_zh": "6.1.1 关键特征",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        61
+      ],
+      "printed_page": 47,
+      "bboxes": [
+        [
+          125.6,
+          36.0,
+          486.4,
+          387.1
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        499
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g184_fig6-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "3b49d1e1252a",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "结构不同：原图是 5 个由外向内嵌套的圆（公司治理 ⊃ EA 治理 ⊃ 业务架构治理 ⊃ 域架构治理 ⊃ 实施治理），外加一条横贯所有层的半透明横带“安全与风险治理”；SVG 改成一行 3 个并列方框，用线连起来，看起来像同级或先后关系，丢掉了“外层约束内层”的嵌套含义。",
+        "标签全部不符：SVG 的“企业级治理”“分段/组合级治理”“项目/解决方案级治理”都不是原图的层级；原图的 6 个标签（Corporate Governance、EA Governance、Business Architecture Governance、Domain Architecture Governance、Implementation Governance、Security and Risk Governance）一个都没有出现。",
+        "缺少横切的“安全与风险治理”，而正文说“横切或较高层级约束较低层级”，横切层是图的要点之一。",
+        "SVG 自拟了每层的说明（战略、原则、组合投资；跨企业冲突与例外；路线图、项目立项；跨项目依赖与协同；设计合规、例外申请；技术标准与架构契约），原图没有这些内容。",
+        "SVG 下半部是一段“治理要点”文字，摘自第 6.1.1、6.2 节正文，不属于原图；连接方框的三条横线还穿过框内文字。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "layered",
+      "hierarchy"
+    ],
+    "notation": "嵌套同心圆（底部相切）：每个圆是一个治理层级，外层为较高层级；一条半透明灰色横带横穿所有圆，表示横切的安全与风险治理；没有连线和图例",
+    "concepts": [
+      "architecture_governance",
+      "governance_model",
+      "implementation_governance",
+      "cross_cutting_concern",
+      "risk_management"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "五层嵌套的治理层级（公司→EA→业务架构→域架构→实施治理），安全与风险治理横跨各层。",
+    "purpose_zh": "第 6.1.1 节要求识别并定义适当的治理层级，明确治理什么、如何、何时，以及升级到哪一层寻求救济。本图给出可能的层级划分，提示企业很可能已为其中部分或全部层级定义了流程，EA 治理要放进这个层级体系里考虑。",
+    "reading_guide_zh": "由外向内读：最外圈“公司治理”，向内依次是“EA 治理”“业务架构治理”“域架构治理”，最内的浅蓝圆是“实施治理”。外层包住内层，表示较高层级约束较低层级。中部那条横穿所有圆的半透明灰带是“安全与风险治理”，它不是第六层，而是横切所有层级的治理关注。",
+    "key_points_zh": [
+      "五个治理层级由外向内嵌套：公司治理 ⊃ EA 治理 ⊃ 业务架构治理 ⊃ 域架构治理 ⊃ 实施治理。正文说较低层级偏战术，较高层级约束较低层级，所以外圈约束内圈。",
+      "安全与风险治理是横贯所有层级的横带，属于横切的治理关注；正文说横切层级与较高层级一样约束较低层级。",
+      "每个层级都要明确治理什么、如何治理、何时治理，以及向哪一层升级寻求救济；层级内没有救济机制，会失去有效控制和局部自治。",
+      "企业很可能已为图中部分或全部层级定义了流程；领导者要识别这些流程，而不是另起一套。",
+      "决策权：目标架构、救济与强制执行的决策权始终属于架构的利益相关者，即使最低层级也是如此；EA 治理委员会拥有流程，以及对目标架构工作完整性与置信度的建议权。常见失败模式是 EA 治理委员会自认为拥有这些决策权。",
+      "正文引用 ISO/IEC 38500 把治理定义为“指导并控制当前与未来状态的体系”，并说治理是人人承诺遵守的决策层级体系；本图就是这种层级体系的一个划分。"
+    ],
+    "hierarchy_zh": "五层视觉嵌套，即约束范围的层级：第 1 层公司治理（最外），第 2 层 EA 治理，第 3 层业务架构治理，第 4 层域架构治理，第 5 层实施治理（最内）。安全与风险治理不在嵌套链中，它横跨全部五层。",
+    "line_semantics_zh": "图中没有连线或箭头。圆的嵌套表示外层约束内层（记为 governs，隐含）；横带与各圆重叠表示安全与风险治理横切各层（同样记为 governs，隐含）。正文中的“向更高层级升级寻求救济”方向与之相反（内层 → 外层），图中没有画出。",
+    "misreadings_zh": [
+      "嵌套圆表示约束范围（外层约束内层），不是组织汇报线，也不是时间先后。",
+      "灰色横带不是第六个层级，而是横切所有层级的安全与风险治理。",
+      "圆的颜色由深到浅只用来区分层级，没有图例，不表示重要性或资源多少。",
+      "正文第 6.2 节说“即使在最低层级（技术架构治理）”，图中没有“技术架构治理”这一名称；图中最内层是“实施治理”，技术架构治理按理属于“域架构治理”一层（推断）。",
+      "中文稿引用的 figs/g184_fig6-1.svg 是另一种示意：3 个并列方框和自拟说明，缺少原图全部 6 个标签、嵌套结构和横切的安全与风险治理，不能据它理解本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p59",
+        "summary_zh": "第 6.1 节引用 ISO/IEC 38500，把治理定义为指导并控制当前与未来状态的体系；治理是有既定关系结构的决策过程。"
+      },
+      {
+        "source": "en_pdf p60",
+        "summary_zh": "治理是人人承诺遵守的决策层级体系；要识别并定义适当的治理层级，对齐治理什么、如何、何时及升级到哪一层寻求救济；层级内没有救济会失去有效控制与局部自治；较低层级偏战术，横切或较高层级约束较低层级；企业很可能已为图 6-1 中部分或全部层级定义了流程。"
+      },
+      {
+        "source": "en_pdf p61",
+        "summary_zh": "第 6.2 节：常见失败模式是 EA 治理委员会以为自己拥有目标架构、架构变更、救济与强制执行的决策权；这些决策权始终属于架构的利益相关者，即使在最低层级（技术架构治理）也如此；EA 治理委员会拥有流程和建议权。"
+      },
+      {
+        "source": "zh_md L495",
+        "summary_zh": "中文稿：识别并定义适当的治理层级，对齐“什么、如何、何时、由哪一层升级求助”；较低层级偏战术，横切或较高层级约束较低层级。"
+      },
+      {
+        "source": "zh_md L503",
+        "summary_zh": "中文稿第 6.2 节：目标架构、救济与强制执行的决策权始终归属架构的利益相关者，EA 治理委员会拥有流程与建议权。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "radial",
+    "description_zh": "五个圆底部相切、由大到小向内嵌套，标签写在各圆上部；一条半透明灰色横带位于约 60% 高度处，左右两端伸出最外圈。右下角有“© The Open Group”。"
+  },
+  "legend": [
+    {
+      "symbol": "嵌套的圆（深青 → 浅青 → 灰 → 浅蓝）",
+      "meaning_zh": "治理层级；外圈为较高层级，约束其内各圈",
+      "explicit": false
+    },
+    {
+      "symbol": "横穿所有圆的半透明灰色横带",
+      "meaning_zh": "横切所有层级的治理关注（安全与风险治理）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "corporate_gov",
+      "label_en": "Corporate Governance",
+      "label_zh": "公司治理",
+      "type": "concept",
+      "parent": null,
+      "level": 1,
+      "position": "最外圈（深青）"
+    },
+    {
+      "id": "ea_gov",
+      "label_en": "EA Governance",
+      "label_zh": "EA 治理",
+      "type": "concept",
+      "parent": "corporate_gov",
+      "level": 2,
+      "position": "第二圈"
+    },
+    {
+      "id": "ba_gov",
+      "label_en": "Business Architecture Governance",
+      "label_zh": "业务架构治理",
+      "type": "concept",
+      "parent": "ea_gov",
+      "level": 3,
+      "position": "第三圈"
+    },
+    {
+      "id": "domain_gov",
+      "label_en": "Domain Architecture Governance",
+      "label_zh": "域架构治理",
+      "type": "concept",
+      "parent": "ba_gov",
+      "level": 4,
+      "position": "第四圈（灰）"
+    },
+    {
+      "id": "impl_gov",
+      "label_en": "Implementation Governance",
+      "label_zh": "实施治理",
+      "type": "concept",
+      "parent": "domain_gov",
+      "level": 5,
+      "position": "最内圈（浅蓝）"
+    },
+    {
+      "id": "sec_risk_gov",
+      "label_en": "Security and Risk Governance",
+      "label_zh": "安全与风险治理",
+      "type": "concept",
+      "parent": null,
+      "position": "横穿所有圆的半透明横带",
+      "description_zh": "横切关注，跨越全部五个层级。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "corporate_gov",
+      "to": "ea_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "外圈包住内圈：较高层级约束较低层级"
+    },
+    {
+      "from": "ea_gov",
+      "to": "ba_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "ba_gov",
+      "to": "domain_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "domain_gov",
+      "to": "impl_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "corporate_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "横带横穿该层：横切层约束其跨越的层级"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "ea_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "ba_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "domain_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "sec_risk_gov",
+      "to": "impl_gov",
+      "type": "governs",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中没有连线；“外层约束内层”“横带横切各层”依据正文“横切或较高层级约束较低层级”推断。",
+      "正文第 6.2 节提到的“最低层级（技术架构治理）”在图中没有对应名称，与图中最内层“实施治理”不一致。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 61 页原图截图（220 dpi）",
+      "英文 PDF 第 59–61 页正文（第 6 章引言、6.1、6.1.1、6.2 节）",
+      "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 483–505 行",
+      "figs/g184_fig6-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G184e.pdf",
+    "pdf_sha256": "85fe5653767b184c3c8c9c1bef9f5738adbb2bf6661fb50ee95e72d16bc9f614",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G184/fig6-1.json",
+    "interpretation_sha256": "9813211fb8d6d9e48da7d37008edf047492fb53e8ee50e49bfcb26fa71deac7a",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 61,
+        "text": "Figure 6-1: Potential Governance Tiers",
+        "bbox_pdf_points": [
+          48.24,
+          391.855,
+          228.847,
+          405.421
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 61,
+      "printed_page": 47,
+      "bbox_pdf_points": [
+        125.6,
+        36.0,
+        486.4,
+        387.1
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G184/fig6-1-p0061.png",
+      "image_sha256": "1c2eaba2f41613e5f4036f1ca85100d72a40b282e90493ed248bac6971cf1efb",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "1c2eaba2f41613e5f4036f1ca85100d72a40b282e90493ed248bac6971cf1efb",
+          "status": "extracted-unverified",
+          "text": "Corporate\nGovernance\nEA\nGovernance\nBusiness\nArchitecture\nGovernance\nSecurity and Risk Governance\nImplementation\nGovernance\nJD",
+          "words": [
+            {
+              "text": "Corporate",
+              "confidence": 95.962845,
+              "bbox_pixels_xywh": [
+                308,
+                16,
+                104,
+                20
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 96.449844,
+              "bbox_pixels_xywh": [
+                297,
+                40,
+                127,
+                16
+              ]
+            },
+            {
+              "text": "EA",
+              "confidence": 96.190704,
+              "bbox_pixels_xywh": [
+                346,
+                96,
+                29,
+                16
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 96.374535,
+              "bbox_pixels_xywh": [
+                297,
+                120,
+                127,
+                17
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.608986,
+              "bbox_pixels_xywh": [
+                312,
+                178,
+                97,
+                17
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.655365,
+              "bbox_pixels_xywh": [
+                294,
+                203,
+                131,
+                16
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 96.856026,
+              "bbox_pixels_xywh": [
+                296,
+                227,
+                128,
+                16
+              ]
+            },
+            {
+              "text": "Security",
+              "confidence": 96.11821,
+              "bbox_pixels_xywh": [
+                135,
+                416,
+                120,
+                31
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 95.940453,
+              "bbox_pixels_xywh": [
+                265,
+                416,
+                53,
+                25
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 95.815712,
+              "bbox_pixels_xywh": [
+                332,
+                416,
+                63,
+                25
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 95.815712,
+              "bbox_pixels_xywh": [
+                406,
+                415,
+                180,
+                26
+              ]
+            },
+            {
+              "text": "Implementation",
+              "confidence": 94.68853,
+              "bbox_pixels_xywh": [
+                279,
+                513,
+                162,
+                21
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 96.490021,
+              "bbox_pixels_xywh": [
+                297,
+                537,
+                127,
+                17
+              ]
+            },
+            {
+              "text": "JD",
+              "confidence": 35.599575,
+              "bbox_pixels_xywh": [
+                463,
+                456,
+                226,
+                222
+              ]
+            }
+          ],
+          "mean_word_confidence": 91.83,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,22 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["ICT System"]
+  n1["Business Processes"]
+  n2["Applications and Data"]
+  n3["Technical Infrastructures"]
+  n4["3"]
+  n5["2"]
+  n6["1"]
+  n7["CO2"]
+  n8["未命名用户终端图示"]
+  n1 <-->|"关联"| n8
+  n2 <-->|"关联"| n3
+  n3 -->|"产生/交付"| n7
+  n8 <-->|"关联"| n2
+  n0 -.->|"分组"| n1
+  n0 -.->|"分组"| n2
+  n0 -.->|"分组"| n3
+  n1 -.->|"visual_containment_only"| n4
+  n2 -.->|"visual_containment_only"| n5
+  n3 -.->|"visual_containment_only"| n6
+  n0 -.->|"分组"| n8

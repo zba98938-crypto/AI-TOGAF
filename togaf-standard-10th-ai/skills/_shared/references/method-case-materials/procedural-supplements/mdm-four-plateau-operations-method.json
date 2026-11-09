@@ -1,0 +1,207 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "mdm-four-plateau-operations-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 1,
+      "declared_step": "识别当前主控和可用业务能力",
+      "new_fictional_input": "新虚构四态候选：P0各馆各自维护；P1只读黄金记录分析；P2主数据平台管理限定内核字段并向馆系统分发；P3在P2基础覆盖全馆约定完整读者身份/联络/同意内核；合同与借阅交易保持原主控。各态可共存，日期与成本未知。",
+      "transformation": "将四种来源平台态的使用方式与四个本地候选分别映射，区分分析黄金记录、内核运营写权和完整运营范围。",
+      "candidate_output": "保留P0/P1/P2/P3四身份；P1不主写，P2只写限定内核，P3扩至全馆约定完整内核而不改交易主控，均candidate。",
+      "adverse_variant_expected": "把P1分析成功写为P2主写已获准，或把四种形态硬配四期，应保留阻断。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 3,
+      "declared_step": "逐状态验证用例/质量/授权/恢复/支持条件",
+      "new_fictional_input": "新虚构逐态条件表：P0现有馆用例、源校验、馆内授权、备份和支持存在；P1跨馆分析、人工核验、只读授权、可重复重建、夜批支持均只是已设计；P2试点内核与P3全馆完整约定内核的用例定义在草案，质量测试、写授权、错合并恢复、积压监控全待验证。",
+      "transformation": "逐态五栏形成条件记录；有设计不等于已验证，不将P0源备份自动复制到P2错合并恢复。",
+      "candidate_output": "四态×五条件20条候选记录；P2/P3可运营为unknown，当前不接管馆系统写权。",
+      "adverse_variant_expected": "仅补P2授权而无恢复测试，P2/P3仍blocked；补P1读授权不授P2写授权。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [],
+  "candidate_records": [
+    {
+      "id": "P0",
+      "use_scope": "各馆旧用例",
+      "mastership": "源系统",
+      "scope_boundary": "读者身份/联络/目的限定同意内核；合同、报价及借阅交易不在内核",
+      "approval_status": "candidate",
+      "operability": "source-operation-in-fictional-material"
+    },
+    {
+      "id": "P1",
+      "use_scope": "跨馆只读分析",
+      "mastership": "源系统；MDM分析记录无运营写权",
+      "scope_boundary": "读者身份/联络/目的限定同意内核；合同、报价及借阅交易不在内核",
+      "approval_status": "candidate",
+      "operability": "unknown"
+    },
+    {
+      "id": "P2",
+      "use_scope": "两馆约定内核试点",
+      "mastership": "MDM主控限定内核字段",
+      "scope_boundary": "读者身份/联络/目的限定同意内核；合同、报价及借阅交易不在内核",
+      "approval_status": "candidate",
+      "operability": "unknown"
+    },
+    {
+      "id": "P3",
+      "use_scope": "全馆约定完整内核用例",
+      "mastership": "MDM主控约定完整内核，交易主控保持",
+      "scope_boundary": "读者身份/联络/目的限定同意内核；合同、报价及借阅交易不在内核",
+      "approval_status": "candidate",
+      "operability": "unknown"
+    }
+  ],
+  "operating_condition_records": [
+    {
+      "plateau_id": "P0",
+      "condition": "use_cases",
+      "input_detail": "各馆旧用例目录SUP-P0-USE",
+      "evidence_status": "authored-fictional-record",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P0",
+      "condition": "quality",
+      "input_detail": "源记录核验SUP-P0-QUALITY",
+      "evidence_status": "authored-fictional-record",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P0",
+      "condition": "authorization",
+      "input_detail": "馆内权限SUP-P0-AUTH",
+      "evidence_status": "authored-fictional-record",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P0",
+      "condition": "recovery",
+      "input_detail": "源备份SUP-P0-BACKUP；不证明错合并恢复",
+      "evidence_status": "authored-fictional-record",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P0",
+      "condition": "support_monitoring",
+      "input_detail": "现有源支持SUP-P0-SUPPORT",
+      "evidence_status": "authored-fictional-record",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P1",
+      "condition": "use_cases",
+      "input_detail": "跨馆分析用例草案",
+      "evidence_status": "designed-not-verified",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P1",
+      "condition": "quality",
+      "input_detail": "人工核验规则草案",
+      "evidence_status": "designed-not-verified",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P1",
+      "condition": "authorization",
+      "input_detail": "只读权限申请草案",
+      "evidence_status": "designed-not-verified",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P1",
+      "condition": "recovery",
+      "input_detail": "分析记录可重复重建草案",
+      "evidence_status": "designed-not-verified",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P1",
+      "condition": "support_monitoring",
+      "input_detail": "夜批值班设计",
+      "evidence_status": "designed-not-verified",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P2",
+      "condition": "use_cases",
+      "input_detail": "两馆内核用例草案",
+      "evidence_status": "designed-not-verified",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P2",
+      "condition": "quality",
+      "input_detail": "未取得质量测试",
+      "evidence_status": "unknown",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P2",
+      "condition": "authorization",
+      "input_detail": "未取得内核写授权",
+      "evidence_status": "unknown",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P2",
+      "condition": "recovery",
+      "input_detail": "未取得错合并恢复演练",
+      "evidence_status": "unknown",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P2",
+      "condition": "support_monitoring",
+      "input_detail": "未取得积压监控运行记录",
+      "evidence_status": "unknown",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P3",
+      "condition": "use_cases",
+      "input_detail": "全馆完整约定内核用例草案",
+      "evidence_status": "designed-not-verified",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P3",
+      "condition": "quality",
+      "input_detail": "未取得全范围质量观察",
+      "evidence_status": "unknown",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P3",
+      "condition": "authorization",
+      "input_detail": "未取得全范围写授权",
+      "evidence_status": "unknown",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P3",
+      "condition": "recovery",
+      "input_detail": "未取得全范围恢复演练",
+      "evidence_status": "unknown",
+      "approval_status": "candidate"
+    },
+    {
+      "plateau_id": "P3",
+      "condition": "support_monitoring",
+      "input_detail": "未取得全范围监控/支持记录",
+      "evidence_status": "unknown",
+      "approval_status": "candidate"
+    }
+  ]
+}

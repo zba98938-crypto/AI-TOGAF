@@ -1,0 +1,1533 @@
+{
+  "schema_version": "1.0",
+  "id": "G21B/fig4-2",
+  "status": "done",
+  "doc": {
+    "code": "G21B",
+    "title_zh": "信息架构——客户主数据管理",
+    "title_en": "Information Architecture — Customer Master Data (C-MDM)",
+    "zh_md": "G21Be_信息架构_客户主数据管理.md",
+    "en_pdf": "togaf-standard-10th/G21Be.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-2",
+    "title_en": "Reference C‑MDM Roadmap Steps",
+    "title_zh": "参考 C-MDM 路线图步骤",
+    "section_en": "4.4 Reference C-MDM Roadmap Steps (TOGAF ADM Phase F)",
+    "section_zh": "4.4 参考 C-MDM 路线图步骤（ADM 阶段 F）",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        33
+      ],
+      "printed_page": 23,
+      "bboxes": [
+        [
+          48.2,
+          133.2,
+          563.8,
+          465.8
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        408
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21be_fig4-2_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "af4e385f45bc",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.992（≥0.9 通常为同一图）",
+        "该 PNG 是英文 PDF 第 33 页原图的完整位图，四面板、图例与配色齐全；面板 3、4 内核圆柱内的“Customer ID”与“Kernel Customer Data”文字略有重叠，属原图分辨率/排版的轻微挤压，不影响判读。"
+      ]
+    },
+    {
+      "path": "figs/zh/g21be_fig4-2_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "eafe1b31626e",
+      "fidelity": "unchecked",
+      "issues_zh": [
+        "中文稿未引用该中文化 PNG（引用的是同名的 .svg 重绘），未核对。"
+      ]
+    },
+    {
+      "path": "figs/zh/g21be_fig4-2_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "47942b6d20d1",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "图例漏掉“Synchronous transaction Synchronization”一项（原图为双向箭头），只保留“自动化数据流”“通过用户界面的人工交互”与绿色说明，导致面板 3 中库↔内核的双向箭头失去图例解释。",
+        "面板 2 的绿色虚线画成从运营团队指向 Core Business Operational Data；原图是从右侧 C-MDM 中央团队出发，绕顶部一圈后向下指向运营团队图标。",
+        "“客户 ID”在面板 2、3、4 都画成绿色条；原图只有面板 2 把 Customer ID 标为绿色（该步骤新增），面板 3、4 为普通蓝色行。",
+        "图例自拟了“绿色顶环：只读快照”和“绿色：该步骤新增或变更的能力”两项；原图图例只有一句“Green indicates changes in each step”，“只读快照”是对面板 4 的推断而非原图说明。",
+        "“C-MDM 中央团队（数据管家、管理员等）”把原文“data owners, stewards, etc.”译成“数据管家、管理员等”，漏掉“数据所有者”，并多了原文没有的“管理员”。",
+        "四个面板之间的虚线分隔被改成卡片边框，版式语言与原图不同；面板 1 内核的 CRUD 徽标只画了 R，与原图一致。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "timeline",
+      "flow"
+    ],
+    "notation": "四联路线图（plateau）面板：每个面板顶部一个 3D 台阶块标出步骤号与名称，面板内是“运营团队—运营数据库—内核客户数据—分析库—中央团队”的数据流小图；绿色表示该步骤新增/变化的部分。",
+    "concepts": [
+      "master_data_management",
+      "architecture_roadmap",
+      "migration_planning",
+      "adm_phase_f",
+      "data_integration"
+    ],
+    "adm_phases": [
+      "adm_phase_f"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "用四个逐步演进的 plateau 展示 C-MDM 从“整合客户数据库”走到“全范围主数据真相点”的路线图。",
+    "purpose_zh": "为 ADM 阶段 F（迁移规划）提供参考路线：不是一步建成 C-MDM，而是按数据主控权与集成程度分四步演进；每一步用绿色标出相对上一步新增的能力，帮助规划者理解“先整合分析、再非侵入式真相点、再主数据真相点、最后覆盖全范围”的迁移逻辑。",
+    "reading_guide_zh": "从左到右读四个面板（步骤 1→4），这是时间顺序。每个面板内部从左上往下读：运营团队通过用户界面把数据写入“互动运营数据”和“核心业务运营数据”两个库；数据再流向中间的内核客户数据（C-MDM）；内核向下供分析库使用；右侧是 C-MDM 中央团队。绿色线/绿色块表示该步骤相比上一步新增或改变的能力；灰色线是上一步已存在、本步未变的能力。左侧竖排的 C/R/U/D 徽标表示该存储支持哪些创建/读取/更新/删除操作。",
+    "key_points_zh": [
+      "步骤 1“整合客户数据库”：三个运营源库的数据被抽取/整合到 C-MDM 初始版本，内核只有读能力（R），还没有真正的黄金记录；绿色标出“源→内核”“内核→分析”“内核/分析→中央团队”的首次建立。",
+      "步骤 2“非侵入式客户数据真相点”：内核升级为可创建/更新/删除（CRUD），并新增 Customer ID；C-MDM 把黄金记录反向传播给运营库（绿色上行箭头），但不同步；中央团队通过人工回路参与去重与纠错（绿色虚线）。",
+      "步骤 3“主数据真相点”：两个运营库的 CRUD 全部变绿，运营库与内核之间改为双向同步（绿色双向箭头），运营团队的人工录入改为直接写入内核（绿色虚线向下）；这是主控权从运营系统向 C-MDM 转移的关键一步。",
+      "步骤 4“全范围主数据真相点”：两个运营库出现绿色顶环，表示它们只保留只读快照/副本，主数据完全以 C-MDM 为准；其余连线恢复灰色，说明没有新的集成机制，只是覆盖范围扩大。",
+      "四步的差别不在“有没有集成”，而在“谁拥有主数据”：运营系统拥有（步骤 1–2）→ 共同同步（步骤 3）→ C-MDM 独有（步骤 4）。",
+      "中央团队（data owners、stewards 等）在步骤 2 起成为常设角色，通过人工交互处理去重、纠错与合并；这与表 4-6 的文字描述一致。",
+      "绿色只在“变化”处出现，不能把绿色线理解为“数据流方向”；方向由箭头决定。"
+    ],
+    "hierarchy_zh": "时间上四层（Step 1→4 的 plateau），每层内部是同一套元素：运营团队、两个运营数据库、内核客户数据（内含 Customer ID 行）、分析客户数据、C-MDM 中央团队。四层之间不是包含关系，而是同一架构在四个成熟度阶段的快照。",
+    "line_semantics_zh": "实线箭头=自动化数据流（同步或异步）；虚线箭头=通过用户界面的人工交互；双向箭头=同步事务（Synchronous transaction Synchronization）；绿色=该步骤新增或变化。C/R/U/D 是存储层支持的基本操作（Create/Read/Update/Delete），不是流程步骤。",
+    "misreadings_zh": [
+      "不要把四个面板当成四张彼此独立的架构图：它们是同一架构在四个 plateau 的快照，元素位置固定，便于比较变化。",
+      "绿色不是“好/通过”的状态色，只表示“本步骤相比上一步有变化”。",
+      "步骤 1 的内核只标 R 不代表它不能写入：它是由批量整合写入、对消费方只读的初始版本；CRUD 徽标描述的是该存储对外提供的基本操作。",
+      "中文重绘图把 Customer ID 在步骤 3、4 也标成绿色，并漏掉“同步事务”图例项，容易误读为这两步仍有 Customer ID 变更或双向同步；应以英文原图为准。",
+      "步骤 4 的绿色顶环表示运营库只保留只读副本，不是“数据库被替换”。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p33",
+        "summary_zh": "本节提出参考 C-MDM 路线图步骤，用于支撑架构旅程并组织 TOGAF ADM 阶段 F（迁移规划）；图 4-2 的步骤（plateau）在表 4-6 中说明。"
+      },
+      {
+        "source": "zh_md L406",
+        "summary_zh": "原文图 4-2 给出这些步骤（plateau，阶段）的示意，表 4-6 逐项说明。"
+      },
+      {
+        "source": "zh_md L416",
+        "summary_zh": "步骤 1：集中式客户数据存储，但尚无真正黄金记录；内核数据在不同运营系统更新，被整合到 C-MDM 初始版本。"
+      },
+      {
+        "source": "zh_md L417",
+        "summary_zh": "步骤 2：分析型 C-MDM，内核仍在运营系统更新，C-MDM 分配稳定客户 ID，黄金记录可传播但不同步。"
+      },
+      {
+        "source": "zh_md L418",
+        "summary_zh": "步骤 3：运营型 C-MDM，内核在 C-MDM 中更新，自动化流程传播变更。"
+      },
+      {
+        "source": "zh_md L419",
+        "summary_zh": "C-MDM 目标：运营型 C-MDM 覆盖整个信息系统，治理与数据管家制度化，覆盖全部业务线客户群体。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "四个等宽面板从左到右排列，面板间以细竖线分隔；每个面板顶部是 3D 台阶块（步骤号 + 名称），下方同一套元素布局；底部横跨四栏的是图例框。"
+  },
+  "legend": [
+    {
+      "symbol": "C / R / U / D 圆点",
+      "meaning_zh": "Create / Read / Update / Delete，主数据版本持久存储支持的基本操作（图例原文：Basic functions of persistent storage of master customer data version）",
+      "explicit": true
+    },
+    {
+      "symbol": "灰色人群图标",
+      "meaning_zh": "Operational teams（运营团队）",
+      "explicit": true
+    },
+    {
+      "symbol": "蓝色人群图标",
+      "meaning_zh": "C-MDM central team (data owners, stewards, etc.)（C-MDM 中央团队：数据所有者、数据管家等）",
+      "explicit": true
+    },
+    {
+      "symbol": "双向箭头",
+      "meaning_zh": "Synchronous transaction Synchronization（同步事务）",
+      "explicit": true
+    },
+    {
+      "symbol": "单箭头实线",
+      "meaning_zh": "Automated data flow (synchronous or not)（自动化数据流，同步或异步）",
+      "explicit": true
+    },
+    {
+      "symbol": "虚线箭头",
+      "meaning_zh": "Manual human interaction through a user interface（通过用户界面的人工交互）",
+      "explicit": true
+    },
+    {
+      "symbol": "绿色文字/线条/填充",
+      "meaning_zh": "Green indicates changes in each step（绿色表示该步骤发生的变化）",
+      "explicit": true
+    },
+    {
+      "symbol": "圆柱体",
+      "meaning_zh": "数据存储（operational data / kernel / analytics）",
+      "explicit": false
+    },
+    {
+      "symbol": "3D 台阶块",
+      "meaning_zh": "plateau（路线图步骤）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "step1",
+      "label_en": "1 Consolidated Customer Database",
+      "label_zh": "步骤 1：整合客户数据库",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "order": 1,
+      "position": "面板 1 顶部"
+    },
+    {
+      "id": "step2",
+      "label_en": "2 Non-Intrusive Customer Data Point of Truth",
+      "label_zh": "步骤 2：非侵入式客户数据真相点",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "order": 2,
+      "position": "面板 2 顶部"
+    },
+    {
+      "id": "step3",
+      "label_en": "3 Master Point of Truth",
+      "label_zh": "步骤 3：主数据真相点",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "order": 3,
+      "position": "面板 3 顶部"
+    },
+    {
+      "id": "step4",
+      "label_en": "Full Scope Master Point of Truth",
+      "label_zh": "步骤 4：全范围主数据真相点",
+      "type": "phase",
+      "parent": null,
+      "level": 1,
+      "order": 4,
+      "position": "面板 4 顶部（无步骤号）",
+      "description_zh": "对应表 4-6 的 C-MDM Target 行。"
+    },
+    {
+      "id": "op_team",
+      "label_en": "Operational teams",
+      "label_zh": "运营团队",
+      "type": "actor",
+      "parent": null,
+      "position": "每个面板上方与下方各一个人群图标",
+      "description_zh": "上方图标代表录入运营数据的团队，下方图标代表使用分析数据的团队；标签来自图例。"
+    },
+    {
+      "id": "eng_data",
+      "label_en": "Engagement Operational Data",
+      "label_zh": "互动运营数据",
+      "type": "data",
+      "parent": null,
+      "position": "每个面板左上圆柱"
+    },
+    {
+      "id": "core_data",
+      "label_en": "Core Business Operational Data",
+      "label_zh": "核心业务运营数据",
+      "type": "data",
+      "parent": null,
+      "position": "每个面板右上圆柱"
+    },
+    {
+      "id": "kernel",
+      "label_en": "Kernel Customer Data",
+      "label_zh": "内核客户数据",
+      "type": "data",
+      "parent": null,
+      "position": "每个面板中部圆柱",
+      "description_zh": "面板 1 为绿色；面板 2–4 为蓝色。"
+    },
+    {
+      "id": "customer_id",
+      "label_en": "Customer ID",
+      "label_zh": "客户 ID",
+      "type": "data",
+      "parent": "kernel",
+      "level": 2,
+      "position": "内核圆柱内的浅绿色横条（面板 2 起出现）",
+      "description_zh": "面板 2 中该横条为绿色（新增）；原图面板 3、4 未再用绿色标出。"
+    },
+    {
+      "id": "analytics",
+      "label_en": "Analytics Customer Data",
+      "label_zh": "分析客户数据",
+      "type": "data",
+      "parent": null,
+      "position": "每个面板下方圆柱"
+    },
+    {
+      "id": "central_team",
+      "label_en": "C-MDM central team (data owners, stewards, etc.)",
+      "label_zh": "C-MDM 中央团队（数据所有者、数据管家等）",
+      "type": "organization_unit",
+      "parent": null,
+      "position": "每个面板右侧人群图标",
+      "description_zh": "面板 1 为绿色（2 人），面板 2–4 为蓝色（3 人）。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "p1_1",
+      "from": "op_team",
+      "to": "eng_data",
+      "type": "flow",
+      "label_en": "Manual human interaction through a user interface",
+      "label_zh": "通过用户界面的人工交互",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 1，灰色虚线。"
+    },
+    {
+      "id": "p1_2",
+      "from": "op_team",
+      "to": "core_data",
+      "type": "flow",
+      "label_en": "Manual human interaction through a user interface",
+      "label_zh": "通过用户界面的人工交互",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 1，灰色虚线。"
+    },
+    {
+      "id": "p1_3",
+      "from": "eng_data",
+      "to": "kernel",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 1，绿色（本步骤新建）。"
+    },
+    {
+      "id": "p1_4",
+      "from": "core_data",
+      "to": "kernel",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 1，绿色。"
+    },
+    {
+      "id": "p1_5",
+      "from": "kernel",
+      "to": "analytics",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 1，绿色。"
+    },
+    {
+      "id": "p1_6",
+      "from": "kernel",
+      "to": "central_team",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 1，绿色。"
+    },
+    {
+      "id": "p1_7",
+      "from": "analytics",
+      "to": "central_team",
+      "type": "flow",
+      "label_en": "Manual human interaction through a user interface",
+      "label_zh": "通过用户界面的人工交互",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 1，绿色虚线。"
+    },
+    {
+      "id": "p1_8",
+      "from": "analytics",
+      "to": "op_team",
+      "type": "flow",
+      "label_en": "Manual human interaction through a user interface",
+      "label_zh": "通过用户界面的人工交互",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 1，向下指向底部运营团队图标。"
+    },
+    {
+      "id": "p2_1",
+      "from": "op_team",
+      "to": "eng_data",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 2，灰色虚线。"
+    },
+    {
+      "id": "p2_2",
+      "from": "op_team",
+      "to": "core_data",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 2，灰色虚线。"
+    },
+    {
+      "id": "p2_3",
+      "from": "eng_data",
+      "to": "kernel",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 2，灰色。"
+    },
+    {
+      "id": "p2_4",
+      "from": "core_data",
+      "to": "kernel",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 2，灰色。"
+    },
+    {
+      "id": "p2_5",
+      "from": "kernel",
+      "to": "eng_data",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 2，绿色：黄金记录向上传播到互动运营库（不同步）。"
+    },
+    {
+      "id": "p2_6",
+      "from": "kernel",
+      "to": "core_data",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 2，绿色：黄金记录向上传播到核心业务运营库（不同步）。"
+    },
+    {
+      "id": "p2_7",
+      "from": "kernel",
+      "to": "central_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 2，灰色虚线。"
+    },
+    {
+      "id": "p2_8",
+      "from": "central_team",
+      "to": "kernel",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 2，绿色虚线：中央团队的人工纠正回写内核。"
+    },
+    {
+      "id": "p2_9",
+      "from": "central_team",
+      "to": "op_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 2，绿色虚线绕右侧与顶部一圈后向下指向运营团队（新增的人工推送/沟通路径）。"
+    },
+    {
+      "id": "p2_10",
+      "from": "analytics",
+      "to": "central_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 2，灰色虚线。"
+    },
+    {
+      "id": "p2_11",
+      "from": "kernel",
+      "to": "analytics",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 2，灰色。"
+    },
+    {
+      "id": "p2_12",
+      "from": "analytics",
+      "to": "op_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 2，灰色虚线，指向底部运营团队。"
+    },
+    {
+      "id": "p3_1",
+      "from": "op_team",
+      "to": "eng_data",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 3，灰色虚线。"
+    },
+    {
+      "id": "p3_2",
+      "from": "op_team",
+      "to": "core_data",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 3，灰色虚线。"
+    },
+    {
+      "id": "p3_3",
+      "from": "eng_data",
+      "to": "kernel",
+      "type": "flow",
+      "label_en": "Synchronous transaction Synchronization",
+      "label_zh": "同步事务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "description_zh": "面板 3，绿色双向箭头：互动运营库与内核双向同步。"
+    },
+    {
+      "id": "p3_4",
+      "from": "core_data",
+      "to": "kernel",
+      "type": "flow",
+      "label_en": "Synchronous transaction Synchronization",
+      "label_zh": "同步事务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "description_zh": "面板 3，绿色双向箭头：核心业务运营库与内核双向同步。"
+    },
+    {
+      "id": "p3_5",
+      "from": "op_team",
+      "to": "kernel",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 3，绿色虚线：运营团队直接向内核录入。"
+    },
+    {
+      "id": "p3_6",
+      "from": "central_team",
+      "to": "op_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 3，灰色虚线回路，从右侧绕顶部指向运营团队。"
+    },
+    {
+      "id": "p3_7",
+      "from": "kernel",
+      "to": "central_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 3，灰色虚线。"
+    },
+    {
+      "id": "p3_8",
+      "from": "central_team",
+      "to": "kernel",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 3，灰色虚线。"
+    },
+    {
+      "id": "p3_9",
+      "from": "analytics",
+      "to": "central_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 3，灰色虚线。"
+    },
+    {
+      "id": "p3_10",
+      "from": "kernel",
+      "to": "analytics",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 3，灰色。"
+    },
+    {
+      "id": "p3_11",
+      "from": "analytics",
+      "to": "op_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 3，灰色虚线。"
+    },
+    {
+      "id": "p4_1",
+      "from": "op_team",
+      "to": "eng_data",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色虚线。"
+    },
+    {
+      "id": "p4_2",
+      "from": "op_team",
+      "to": "core_data",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色虚线。"
+    },
+    {
+      "id": "p4_3",
+      "from": "op_team",
+      "to": "kernel",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色虚线，直接写入内核。"
+    },
+    {
+      "id": "p4_4",
+      "from": "eng_data",
+      "to": "kernel",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色（只读副本回传）。"
+    },
+    {
+      "id": "p4_5",
+      "from": "core_data",
+      "to": "kernel",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色。"
+    },
+    {
+      "id": "p4_6",
+      "from": "kernel",
+      "to": "central_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色虚线。"
+    },
+    {
+      "id": "p4_7",
+      "from": "central_team",
+      "to": "kernel",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色虚线。"
+    },
+    {
+      "id": "p4_8",
+      "from": "central_team",
+      "to": "op_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色虚线回路。"
+    },
+    {
+      "id": "p4_9",
+      "from": "analytics",
+      "to": "central_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色虚线。"
+    },
+    {
+      "id": "p4_10",
+      "from": "kernel",
+      "to": "analytics",
+      "type": "flow",
+      "label_en": "Automated data flow",
+      "label_zh": "自动化数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色。"
+    },
+    {
+      "id": "p4_11",
+      "from": "analytics",
+      "to": "op_team",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "面板 4，灰色虚线。"
+    }
+  ],
+  "flows": [
+    {
+      "id": "roadmap",
+      "kind": "sequence",
+      "name_zh": "C-MDM 路线图四步",
+      "steps": [
+        "step1",
+        "step2",
+        "step3",
+        "step4"
+      ],
+      "description_zh": "四个 plateau 按从左到右的时间顺序演进。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_crud_by_panel",
+      "title_zh": "四个 plateau 的 CRUD 能力与绿色强调点（按原图逐面板转录）",
+      "columns": [
+        "步骤（plateau）",
+        "内核客户数据 CRUD",
+        "互动运营数据 CRUD",
+        "核心业务运营数据 CRUD",
+        "分析客户数据 CRUD",
+        "本步骤绿色标注的变化"
+      ],
+      "rows": [
+        [
+          "1 Consolidated Customer Database 整合客户数据库",
+          "R（仅读）",
+          "C R U D",
+          "C R U D",
+          "R（仅读）",
+          "内核圆柱整体为绿色；两个运营库→内核、内核→分析库、内核→中央团队、分析库→中央团队为绿色（首次建立整合链路）"
+        ],
+        [
+          "2 Non-Intrusive Customer Data Point of Truth 非侵入式客户数据真相点",
+          "C R U D（C/U/D 绿、R 灰）",
+          "C R U D",
+          "C R U D",
+          "R（仅读）",
+          "Customer ID 横条为绿色；内核→两个运营库的反向传播为绿色；中央团队→内核的回写、中央团队绕顶部→运营团队的人工路径为绿色"
+        ],
+        [
+          "3 Master Point of Truth 主数据真相点",
+          "C R U D",
+          "C R U D（全绿）",
+          "C R U D（全绿）",
+          "R（仅读）",
+          "两个运营库的 CRUD 全部变绿；两个运营库↔内核的双向同步为绿色；运营团队→内核的直接录入为绿色"
+        ],
+        [
+          "4 Full Scope Master Point of Truth 全范围主数据真相点",
+          "C R U D",
+          "C R U D",
+          "C R U D",
+          "R（仅读）",
+          "两个运营库顶部的绿色圆环（只读快照/副本）；其余连线为灰色"
+        ]
+      ],
+      "cell_legend": [
+        "CRUD = Create/Read/Update/Delete（图例：主数据版本持久存储的基本操作）",
+        "绿字=该步骤新增或变化",
+        "绿环=运营库顶部只读快照标记"
+      ],
+      "notes_zh": "“步骤 4”在原图顶部没有编号，只用名称 Full Scope Master Point of Truth；表 4-6 把该行称为 C-MDM Target。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G21B/tab4-6",
+      "relation": "overview_of",
+      "note_zh": "图 4-2 给出四个 plateau 的图示，表 4-6 逐行说明每个 plateau 的描述、用例、数据质量与进入下一步的触发条件，并嵌入同样的步骤小图。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图未说明面板 1 内核与分析库只标 R 的准确含义；本分析按“该存储对外只读”描述。",
+      "中央团队与内核之间在面板 2–4 各画了两条方向相反的虚线，其中一条始终是灰色、另一条在面板 2 为绿色；原图无箭头图例说明其业务含义，本分析只按“人工交互”记录。",
+      "步骤 4 顶部无编号，本分析按顺序记为步骤 4（与表 4-6 的 C-MDM Target 对应）。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 33 页原图截图及 3×3 放大分块、四个面板 2 倍放大图",
+      "英文 PDF 第 33 页正文",
+      "中文稿 G21Be_信息架构_客户主数据管理.md 第 406–419 行（含表 4-6 全文）",
+      "figs/zh/g21be_fig4-2_zh.svg 源码与渲染图"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Be.pdf",
+    "pdf_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21B/fig4-2.json",
+    "interpretation_sha256": "a47d7528ffc24e04752d835b34976dbfa6f6eb1bf885aad6ec8d4337bcefc724",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 33,
+        "text": "Figure 4-2: Reference C‑MDM Roadmap Steps",
+        "bbox_pdf_points": [
+          48.24,
+          470.529,
+          259.78,
+          484.095
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 33,
+      "printed_page": 23,
+      "bbox_pdf_points": [
+        48.2,
+        133.2,
+        563.8,
+        465.8
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21B/fig4-2-p0033.png",
+      "image_sha256": "6da5abb3a55c936019816983ed0885a30d3e5f7caefeb2a80f44be728d55d232",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "6da5abb3a55c936019816983ed0885a30d3e5f7caefeb2a80f44be728d55d232",
+          "status": "extracted-unverified",
+          "text": "2p\n3f$\nconmancuiowcune\nif\nNeninausive Curtarer\nPoint Tah\n~f\nMaster Port of Tu\n[racnenennanennnny\nBy\naaa a\nperatona\n==\nygement\n\\@,\neee\njagement |\nocment =| = soa\nNoo”\n>it\ns-\nAnatytics\n‘Customer\neeeed\n(Custo me\nAnatytics\n‘Customer\nAnatytis\n‘Customer\nLegend\no ttt ~~\" ==S=T\nMER ct een\neranges\neen\nmtchantare of pentane sta\ncomer tar\nswe a)\nnone\n---->\neach step",
+          "words": [
+            {
+              "text": "2p",
+              "confidence": 49.246132,
+              "bbox_pixels_xywh": [
+                365,
+                30,
+                27,
+                21
+              ]
+            },
+            {
+              "text": "3f$",
+              "confidence": 13.215666,
+              "bbox_pixels_xywh": [
+                630,
+                19,
+                27,
+                19
+              ]
+            },
+            {
+              "text": "conmancuiowcune",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                39,
+                55,
+                172,
+                27
+              ]
+            },
+            {
+              "text": "if",
+              "confidence": 81.153839,
+              "bbox_pixels_xywh": [
+                112,
+                38,
+                27,
+                21
+              ]
+            },
+            {
+              "text": "Neninausive",
+              "confidence": 18.664122,
+              "bbox_pixels_xywh": [
+                297,
+                48,
+                63,
+                28
+              ]
+            },
+            {
+              "text": "Curtarer",
+              "confidence": 16.32266,
+              "bbox_pixels_xywh": [
+                364,
+                48,
+                45,
+                28
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 63.119263,
+              "bbox_pixels_xywh": [
+                333,
+                59,
+                26,
+                28
+              ]
+            },
+            {
+              "text": "Tah",
+              "confidence": 64.422752,
+              "bbox_pixels_xywh": [
+                368,
+                59,
+                31,
+                28
+              ]
+            },
+            {
+              "text": "~f",
+              "confidence": 61.401314,
+              "bbox_pixels_xywh": [
+                409,
+                44,
+                55,
+                38
+              ]
+            },
+            {
+              "text": "Master",
+              "confidence": 63.55373,
+              "bbox_pixels_xywh": [
+                583,
+                59,
+                46,
+                8
+              ]
+            },
+            {
+              "text": "Port",
+              "confidence": 45.105797,
+              "bbox_pixels_xywh": [
+                618,
+                48,
+                20,
+                28
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 45.105797,
+              "bbox_pixels_xywh": [
+                641,
+                48,
+                8,
+                28
+              ]
+            },
+            {
+              "text": "Tu",
+              "confidence": 36.947731,
+              "bbox_pixels_xywh": [
+                653,
+                59,
+                16,
+                8
+              ]
+            },
+            {
+              "text": "[racnenennanennnny",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                353,
+                103,
+                144,
+                9
+              ]
+            },
+            {
+              "text": "By",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                883,
+                103,
+                139,
+                5
+              ]
+            },
+            {
+              "text": "aaa",
+              "confidence": 48.42984,
+              "bbox_pixels_xywh": [
+                777,
+                170,
+                88,
+                34
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 51.451191,
+              "bbox_pixels_xywh": [
+                924,
+                175,
+                67,
+                19
+              ]
+            },
+            {
+              "text": "peratona",
+              "confidence": 27.291851,
+              "bbox_pixels_xywh": [
+                270,
+                233,
+                63,
+                22
+              ]
+            },
+            {
+              "text": "==",
+              "confidence": 44.727959,
+              "bbox_pixels_xywh": [
+                384,
+                219,
+                72,
+                23
+              ]
+            },
+            {
+              "text": "ygement",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                560,
+                219,
+                42,
+                9
+              ]
+            },
+            {
+              "text": "\\@,",
+              "confidence": 56.142059,
+              "bbox_pixels_xywh": [
+                617,
+                202,
+                24,
+                18
+              ]
+            },
+            {
+              "text": "eee",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                667,
+                219,
+                54,
+                22
+              ]
+            },
+            {
+              "text": "jagement",
+              "confidence": 51.24765,
+              "bbox_pixels_xywh": [
+                810,
+                209,
+                54,
+                28
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 38.367733,
+              "bbox_pixels_xywh": [
+                885,
+                208,
+                8,
+                44
+              ]
+            },
+            {
+              "text": "ocment",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                39,
+                201,
+                55,
+                44
+              ]
+            },
+            {
+              "text": "=|",
+              "confidence": 27.358795,
+              "bbox_pixels_xywh": [
+                45,
+                171,
+                65,
+                117
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 5.155678,
+              "bbox_pixels_xywh": [
+                148,
+                175,
+                57,
+                109
+              ]
+            },
+            {
+              "text": "soa",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                175,
+                220,
+                38,
+                21
+              ]
+            },
+            {
+              "text": "Noo”",
+              "confidence": 38.096359,
+              "bbox_pixels_xywh": [
+                839,
+                264,
+                86,
+                19
+              ]
+            },
+            {
+              "text": ">it",
+              "confidence": 49.182762,
+              "bbox_pixels_xywh": [
+                167,
+                305,
+                45,
+                28
+              ]
+            },
+            {
+              "text": "s-",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                297,
+                187,
+                253,
+                192
+              ]
+            },
+            {
+              "text": "Anatytics",
+              "confidence": 17.253866,
+              "bbox_pixels_xywh": [
+                83,
+                400,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "‘Customer",
+              "confidence": 75.947342,
+              "bbox_pixels_xywh": [
+                83,
+                414,
+                53,
+                8
+              ]
+            },
+            {
+              "text": "eeeed",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                171,
+                401,
+                29,
+                7
+              ]
+            },
+            {
+              "text": "(Custo",
+              "confidence": 35.184559,
+              "bbox_pixels_xywh": [
+                324,
+                403,
+                33,
+                28
+              ]
+            },
+            {
+              "text": "me",
+              "confidence": 85.906113,
+              "bbox_pixels_xywh": [
+                361,
+                403,
+                17,
+                28
+              ]
+            },
+            {
+              "text": "Anatytics",
+              "confidence": 0.199804,
+              "bbox_pixels_xywh": [
+                592,
+                400,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "‘Customer",
+              "confidence": 68.619362,
+              "bbox_pixels_xywh": [
+                592,
+                414,
+                53,
+                8
+              ]
+            },
+            {
+              "text": "Anatytis",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                852,
+                400,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "‘Customer",
+              "confidence": 76.518723,
+              "bbox_pixels_xywh": [
+                852,
+                414,
+                53,
+                8
+              ]
+            },
+            {
+              "text": "Legend",
+              "confidence": 94.519829,
+              "bbox_pixels_xywh": [
+                434,
+                555,
+                46,
+                14
+              ]
+            },
+            {
+              "text": "o",
+              "confidence": 61.131577,
+              "bbox_pixels_xywh": [
+                602,
+                580,
+                31,
+                35
+              ]
+            },
+            {
+              "text": "ttt",
+              "confidence": 64.47802,
+              "bbox_pixels_xywh": [
+                684,
+                580,
+                39,
+                25
+              ]
+            },
+            {
+              "text": "~~\"",
+              "confidence": 17.601347,
+              "bbox_pixels_xywh": [
+                759,
+                574,
+                46,
+                45
+              ]
+            },
+            {
+              "text": "==S=T",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                815,
+                574,
+                76,
+                45
+              ]
+            },
+            {
+              "text": "MER",
+              "confidence": 39.487576,
+              "bbox_pixels_xywh": [
+                669,
+                602,
+                21,
+                28
+              ]
+            },
+            {
+              "text": "ct",
+              "confidence": 34.625618,
+              "bbox_pixels_xywh": [
+                695,
+                615,
+                47,
+                6
+              ]
+            },
+            {
+              "text": "een",
+              "confidence": 49.863583,
+              "bbox_pixels_xywh": [
+                727,
+                602,
+                19,
+                28
+              ]
+            },
+            {
+              "text": "eranges",
+              "confidence": 13.613052,
+              "bbox_pixels_xywh": [
+                939,
+                611,
+                40,
+                9
+              ]
+            },
+            {
+              "text": "een",
+              "confidence": 44.217182,
+              "bbox_pixels_xywh": [
+                950,
+                587,
+                28,
+                7
+              ]
+            },
+            {
+              "text": "mtchantare",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                435,
+                623,
+                56,
+                7
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 28.877802,
+              "bbox_pixels_xywh": [
+                496,
+                611,
+                5,
+                28
+              ]
+            },
+            {
+              "text": "pentane",
+              "confidence": 13.591623,
+              "bbox_pixels_xywh": [
+                505,
+                611,
+                34,
+                28
+              ]
+            },
+            {
+              "text": "sta",
+              "confidence": 35.846413,
+              "bbox_pixels_xywh": [
+                545,
+                611,
+                22,
+                28
+              ]
+            },
+            {
+              "text": "comer",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                578,
+                618,
+                42,
+                28
+              ]
+            },
+            {
+              "text": "tar",
+              "confidence": 19.304543,
+              "bbox_pixels_xywh": [
+                629,
+                618,
+                23,
+                28
+              ]
+            },
+            {
+              "text": "swe",
+              "confidence": 31.936661,
+              "bbox_pixels_xywh": [
+                676,
+                638,
+                50,
+                6
+              ]
+            },
+            {
+              "text": "a)",
+              "confidence": 31.191235,
+              "bbox_pixels_xywh": [
+                716,
+                625,
+                15,
+                28
+              ]
+            },
+            {
+              "text": "none",
+              "confidence": 7.118797,
+              "bbox_pixels_xywh": [
+                681,
+                625,
+                45,
+                6
+              ]
+            },
+            {
+              "text": "---->",
+              "confidence": 75.901672,
+              "bbox_pixels_xywh": [
+                758,
+                628,
+                40,
+                7
+              ]
+            },
+            {
+              "text": "each",
+              "confidence": 56.569462,
+              "bbox_pixels_xywh": [
+                939,
+                613,
+                24,
+                28
+              ]
+            },
+            {
+              "text": "step",
+              "confidence": 69.23925,
+              "bbox_pixels_xywh": [
+                969,
+                613,
+                22,
+                28
+              ]
+            }
+          ],
+          "mean_word_confidence": 34.59,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

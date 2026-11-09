@@ -1,0 +1,99 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["ADM (A)"]
+  n1["Establish the Project"]
+  n2["Identify Business Goals &amp; Business Drivers"]
+  n3["Review Architecture Principles inc. Business Principles"]
+  n4["Define Scope"]
+  n5["Define Constraints"]
+  n6["Identify Stakeholders &amp; Concerns, Bus Reqs &amp; Arch Vision"]
+  n7["Define Statement of Architecture Work and Secure Approval"]
+  n8["PRINCE2 (Starting Up the Project)"]
+  n9["Appoint Project Executives and Project Manager"]
+  n10["Design a Project Management Team"]
+  n11["Prepare Outline Business Case"]
+  n12["Prepare Project Approach and Assemble Project Brief"]
+  n13["Plan the Initiation Stage"]
+  n14["Stage Plan (Initiation)"]
+  n15["PRINCE2 (Initiation)"]
+  n16["Prepare Management Strategy"]
+  n17["Project Controls"]
+  n18["Create Project Plan"]
+  n19["Refine the Business Case"]
+  n20["Assemble the Project Initiation Document"]
+  n21["Prepare the: Risk Mgmt Strategy / Configuration Mgmt Strategy / Quality Mgmt Strategy / Communication Mgmt Strategy"]
+  n22["Handover"]
+  n23["ADM Phases B to F"]
+  n24["控制阶段（8 项活动清单）"]
+  n25["Authorize a Project Work Package"]
+  n26["Review Project Work Package Status"]
+  n27["Receive Completed Project Work Package"]
+  n28["Review a Stage Status"]
+  n29["Report Highlights"]
+  n30["Capture and Examine Issues and Risks"]
+  n31["Escalate Issues and Risks"]
+  n32["Take Corrective Action"]
+  n33["PRINCE2 (Managing the Stage Boundary)"]
+  n34["Plan the Next Stage"]
+  n35["Update Project Plans"]
+  n36["Update Business Case"]
+  n37["Report Stage End"]
+  n38["Produce Exception Plan"]
+  n39["PRINCE2 (Closing the Project)"]
+  n40["Prepare Closure"]
+  n41["Product Handover"]
+  n42["Evaluate the Project"]
+  n43["Recommend Closure"]
+  n44["Detailed Guidance"]
+  n45["3.1 Start Up Architecture Project"]
+  n46["3.2 Architecture Project Planning"]
+  n47["3.3 Planning a Stage"]
+  n48["3.4 Monitor / Manage / Control a Stage"]
+  n49["3.5 Ending a Stage"]
+  n50["3.6 Architecture Project Closing"]
+  n51["Directing the Project"]
+  n52["Controlling the Stage"]
+  n53["Risk Mgmt Strategy"]
+  n54["Configuration Mgmt Strategy"]
+  n55["Quality Mgmt Strategy"]
+  n56["Communication Mgmt Strategy"]
+  n57["详细指导旁向下虚线箭头"]
+  n58["详细指导旁返回虚线箭头"]
+  n59["Legend"]
+  n60["Phase According to Detailed Guidance"]
+  n61["Process Grouping Box"]
+  n62["Process Name"]
+  n63["Process Deliverable"]
+  n64["Process Flow Dependency"]
+  n65["Input Dependency"]
+  n66["Product Delivery"]
+  n67["Simplified Process Group"]
+  n68["TOGAF ADM Phases B to F"]
+  n2 -->|"先于"| n3
+  n3 -->|"先于"| n4
+  n4 -->|"先于"| n5
+  n5 -->|"先于"| n6
+  n1 -->|"先于"| n9
+  n9 -->|"先于"| n10
+  n10 -->|"先于"| n11
+  n11 -->|"先于"| n12
+  n12 -->|"先于"| n13
+  n13 -->|"产生/交付"| n14
+  n13 -->|"触发"| n2
+  n8 -->|"先于"| n15
+  n17 -->|"先于"| n18
+  n18 -->|"先于"| n19
+  n19 -->|"先于"| n20
+  n16 -->|"产生/交付"| n21
+  n20 -->|"产生/交付"| n22
+  n4 -->|"input_to"| n18
+  n6 -->|"input_to"| n17
+  n6 -->|"先于"| n18
+  n7 -->|"先于"| n20
+  n15 -->|"先于"| n33
+  n34 -->|"先于"| n23
+  n23 -->|"先于"| n37
+  n33 -->|"先于"| n39
+  n47 -.->|"先于"| n48
+  n48 -.->|"先于"| n49
+  n49 -.->|"先于"| n50

@@ -1,0 +1,16 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Decision-making Process"]
+  n1["Process Decision-making"]
+  n2["Process Governance"]
+  n3["Decision"]
+  n4["Advice &amp; Constraints"]
+  n5["Reporting"]
+  n6["Architecture Support"]
+  n4 -->|"流动"| n1
+  n5 -->|"流动"| n2
+  n3 -->|"治理/监督"| n6
+  n1 -.->|"产生/交付"| n3
+  n2 -.->|"治理/监督"| n3
+  n0 -.->|"classifies"| n1
+  n0 -.->|"classifies"| n2

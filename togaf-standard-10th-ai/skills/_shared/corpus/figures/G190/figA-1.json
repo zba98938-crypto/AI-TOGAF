@@ -1,0 +1,650 @@
+{
+  "schema_version": "1.0",
+  "id": "G190/figA-1",
+  "status": "done",
+  "doc": {
+    "code": "G190",
+    "title_zh": "信息映射",
+    "title_en": "Information Mapping",
+    "zh_md": "G190e_信息映射.md",
+    "en_pdf": "togaf-standard-10th/G190e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "A-1",
+    "title_en": "Information Map using the ArchiMate Language",
+    "title_zh": "使用 ArchiMate 语言的信息地图",
+    "section_en": "A.1. ArchiMate Language Example",
+    "section_zh": "A.1 ArchiMate 语言示例",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        22
+      ],
+      "printed_page": 12,
+      "bboxes": [
+        [
+          86.9,
+          475.8,
+          525.1,
+          718.6
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        247
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g190_figA-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "43d666652ece",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "内容完全不同：原图是保险业务对象模型（Customer、Insurance File、Insurance Request、Insurance Policy、Claim 及四种保单子类，共 9 个业务对象），SVG 只有“客户/账户/交易”三个业务对象加一个“含义/客户认知”，与原图毫无对应",
+        "原图的 10 条关系（1 条聚合、3 条组合、4 条泛化、2 条关联）全部丢失，SVG 改画成“组合/组合/关联/关于”4 条线，且“关于”用虚线，原图没有虚线",
+        "原图没有“含义（meaning）”元素，SVG 自拟了该元素，属于把正文另一段的概念塞进本图",
+        "原图的 ArchiMate 业务对象符号（黄色矩形+顶部标签带）被改成普通浅黄圆角框，记法不准确",
+        "SVG 末尾加了一句解释性说明文字，原图无此文字"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "archimate",
+      "hierarchy"
+    ],
+    "notation": "ArchiMate 业务对象（黄色矩形，左上角带标签带）＋ UML 风格的结构关系符号：空心菱形=聚合、实心菱形=组合、空心三角=泛化、无符号实线=关联",
+    "concepts": [
+      "information_map",
+      "information_concept",
+      "archimate",
+      "business_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "用 ArchiMate 业务对象及其聚合、组合、泛化、关联关系，把保险业务的信息结构画成一张形式化的信息地图。",
+    "purpose_zh": "附录 A.1 要证明 ArchiMate 的正式语义能让信息地图“更深入地揭示信息景观的结构”。本图用保险场景示范：同一批业务对象之间可以区分聚合、组合、泛化和普通关联，比第 2 章的简单概念图表达力更强，但仍不涉及属性与基数。",
+    "reading_guide_zh": "从顶部 Customer 往下读：先看菱形判断整体—部分（空心=聚合、实心=组合，菱形永远在“整体”一端），再看底部的空心三角判断泛化（三角指向父类）。左右两条没有符号的线是普通关联。图中没有箭头和基数，不要按数据模型的主外键去读。",
+    "key_points_zh": [
+      "Customer 与 Insurance File 之间是空心菱形聚合：客户拥有保险档案，档案可以独立于客户存在。",
+      "Insurance File 与 Insurance Request、Insurance Policy、Claim 之间是实心菱形组合：保险档案由申请、保单、理赔三类记录构成，部分随整体存亡。",
+      "Insurance Policy 是父类型，四种具体保单（Travel、Homeowner's、Auto、Legal expense Insurance Policy）通过空心三角泛化到它。",
+      "Insurance Request 与 Insurance Policy、Insurance Policy 与 Claim 之间只有无标签的普通关联线，表示业务上相关但不构成整体—部分或分类。",
+      "全图只有业务对象，没有属性、主键和基数——正文明确 ArchiMate 是比 UML 更简化的模型，省略方法、属性和关系基数。",
+      "业务对象代表有形实体（如保单记录），而信息概念本身是无形的；本图用前者承载后者，是 ArchiMate 表达信息地图的基本手法。"
+    ],
+    "hierarchy_zh": "四层：Customer（L1）→ Insurance File（L2）→ Insurance Request / Insurance Policy / Claim（L3）→ 四种具体保单（L4）。层级由聚合、组合、泛化三种结构关系表达；Insurance Request 与 Policy、Policy 与 Claim 之间的关联不产生层级。",
+    "line_semantics_zh": "空心菱形（Customer 端）= 聚合，菱形在整体端；实心菱形（Insurance File 端）= 组合，菱形在整体端；空心三角（Insurance Policy 端）= 泛化，四条线从子类汇到父类；无符号实线 = 普通关联（Request—Policy、Policy—Claim）。全部为实线、无箭头、无基数、无关系名。",
+    "misreadings_zh": [
+      "菱形在整体一端：Customer ◇— Insurance File 读作“客户聚合保险档案”，不是“保险档案聚合客户”。",
+      "空心菱形是聚合、实心菱形是组合，两者不能混读；只有组合才表示部分随整体存亡。",
+      "底部的空心三角是泛化（子类→父类），不是“包含”或“指向”；四种保单是 Insurance Policy 的子类型，不是其组成部分。",
+      "图顶部的黄色窄条是被裁切的元素残片（标签不可见），不是标题栏或图例。",
+      "中文重绘 SVG 画的是客户/账户/交易与“含义”，与原图无关，不能代替本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "信息概念应视为只与人相关的无形概念，业务对象代表有形实体；二者有“使显性化”和“关于”两种关系；ArchiMate 规范指出业务对象可表示业务视角的信息资产，且通常建模对象类型而非实例；图 A-1 用业务对象元素给出信息地图。"
+      },
+      {
+        "source": "zh_md L240",
+        "summary_zh": "中文稿说明信息概念是无形的、业务对象是有形实体，并列出“使显性化”与“关于”两种关系。"
+      },
+      {
+        "source": "zh_md L245",
+        "summary_zh": "中文稿引用 ArchiMate 规范 8.4.1 节：业务对象可表示信息资产，ArchiMate 聚焦类型而非实例。"
+      },
+      {
+        "source": "zh_md L247",
+        "summary_zh": "中文稿在此处引用图 A-1（figs/g190_figA-1.svg）。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "纵向四层：Customer 居顶，Insurance File 居中，Insurance Request（左）、Insurance Policy（中）、Claim（右）横排其下，四种具体保单再横排于最底层；Insurance Policy 位于中轴，泛化三角在其下方。"
+  },
+  "legend": [
+    {
+      "symbol": "黄色矩形（顶部带标签条）",
+      "meaning_zh": "ArchiMate 业务对象（business object）",
+      "explicit": false
+    },
+    {
+      "symbol": "空心菱形",
+      "meaning_zh": "聚合（aggregation），菱形在整体端",
+      "explicit": false
+    },
+    {
+      "symbol": "实心菱形",
+      "meaning_zh": "组合（composition），菱形在整体端",
+      "explicit": false
+    },
+    {
+      "symbol": "空心三角形",
+      "meaning_zh": "泛化（generalization），三角指向父类型",
+      "explicit": false
+    },
+    {
+      "symbol": "无符号实线",
+      "meaning_zh": "普通关联（association）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "bo_customer",
+      "label_en": "Customer",
+      "label_zh": "客户",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "level": 1,
+      "position": "顶部居中"
+    },
+    {
+      "id": "bo_insurance_file",
+      "label_en": "Insurance File",
+      "label_zh": "保险档案",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "level": 2,
+      "position": "第二层居中"
+    },
+    {
+      "id": "bo_insurance_request",
+      "label_en": "Insurance Request",
+      "label_zh": "保险申请",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "level": 3,
+      "order": 1,
+      "position": "第三层左"
+    },
+    {
+      "id": "bo_insurance_policy",
+      "label_en": "Insurance Policy",
+      "label_zh": "保单",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "level": 3,
+      "order": 2,
+      "position": "第三层中"
+    },
+    {
+      "id": "bo_claim",
+      "label_en": "Claim",
+      "label_zh": "理赔",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "level": 3,
+      "order": 3,
+      "position": "第三层右"
+    },
+    {
+      "id": "bo_travel_policy",
+      "label_en": "Travel Insurance Policy",
+      "label_zh": "旅行险保单",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "level": 4,
+      "order": 1,
+      "position": "底层左一"
+    },
+    {
+      "id": "bo_homeowner_policy",
+      "label_en": "Homeowner's Insurance Policy",
+      "label_zh": "家财险保单",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "level": 4,
+      "order": 2,
+      "position": "底层左二"
+    },
+    {
+      "id": "bo_auto_policy",
+      "label_en": "Auto Insurance Policy",
+      "label_zh": "车险保单",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "level": 4,
+      "order": 3,
+      "position": "底层右二"
+    },
+    {
+      "id": "bo_legal_expense_policy",
+      "label_en": "Legal expense Insurance Policy",
+      "label_zh": "法律费用险保单",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "level": 4,
+      "order": 4,
+      "position": "底层右一"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "bo_customer",
+      "to": "bo_insurance_file",
+      "type": "aggregation",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "空心菱形在 Customer 端，客户聚合保险档案。"
+    },
+    {
+      "from": "bo_insurance_file",
+      "to": "bo_insurance_request",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "实心菱形在 Insurance File 端，经折线连到保险申请。"
+    },
+    {
+      "from": "bo_insurance_file",
+      "to": "bo_claim",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "实心菱形在 Insurance File 端，经右侧折线连到理赔。"
+    },
+    {
+      "from": "bo_insurance_file",
+      "to": "bo_insurance_policy",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "实心菱形在 Insurance File 底边，竖直连到保单。"
+    },
+    {
+      "from": "bo_insurance_request",
+      "to": "bo_insurance_policy",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "第三层两框之间的水平无符号实线。"
+    },
+    {
+      "from": "bo_insurance_policy",
+      "to": "bo_claim",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "保单与理赔之间的水平无符号实线。"
+    },
+    {
+      "from": "bo_travel_policy",
+      "to": "bo_insurance_policy",
+      "type": "specialization",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "空心三角指向父类保单，线从左一子类汇入。"
+    },
+    {
+      "from": "bo_homeowner_policy",
+      "to": "bo_insurance_policy",
+      "type": "specialization",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "空心三角指向父类保单，线从左二子类汇入。"
+    },
+    {
+      "from": "bo_auto_policy",
+      "to": "bo_insurance_policy",
+      "type": "specialization",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "空心三角指向父类保单，线从右二子类汇入。"
+    },
+    {
+      "from": "bo_legal_expense_policy",
+      "to": "bo_insurance_policy",
+      "type": "specialization",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "空心三角指向父类保单，线从右一子类汇入。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G190/figA-2",
+      "relation": "complements",
+      "note_zh": "同一节的两个 ArchiMate 示例：本图展示业务对象间的结构关系，图 A-2 展示信息概念与业务能力的交叉映射"
+    },
+    {
+      "target": "G190/figA-3",
+      "relation": "complements",
+      "note_zh": "附录中另一种形式化记法（UML 类图）的信息地图；两图用不同业务例子，但都强调比第 2 章更正式的语义"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "图顶 Customer 上方还有一条被页面裁切的黄色矩形残片，只能看到底部一条边，标签不可见，无法判断它是什么元素（正文也未提及），故未列入 elements。",
+      "Insurance File 的中文译名“保险档案”为解析者拟定，中文稿未给出该图术语表。",
+      "ArchiMate 中聚合/组合的菱形方向按 UML 惯例（菱形在整体端）判读；原图未加文字说明。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 22 页图 A-1 原图截图及 3x 局部放大（Customer–Insurance File、Insurance File 两侧组合、泛化三角）",
+      "英文 PDF 第 22 页整页与正文",
+      "中文稿 G190e_信息映射.md 第 240–247 行",
+      "figs/g190_figA-1.svg 源码及渲染图"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G190e.pdf",
+    "pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G190/figA-1.json",
+    "interpretation_sha256": "eec2ab549bc2292946543af80b236f70d49e8fecbdaa567d21150a69746903ee",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 22,
+        "text": "Figure A-1: Information Map using the ArchiMate Language",
+        "bbox_pdf_points": [
+          48.24,
+          723.282,
+          329.326,
+          736.848
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 22,
+      "printed_page": 12,
+      "bbox_pdf_points": [
+        86.9,
+        475.8,
+        525.1,
+        718.6
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G190/figA-1-p0022.png",
+      "image_sha256": "34e001a94e39f033d74b28d8a5df7a54beb076b2f283992dbd1b792971bfdeb1",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "34e001a94e39f033d74b28d8a5df7a54beb076b2f283992dbd1b792971bfdeb1",
+          "status": "extracted-unverified",
+          "text": "Customer\ng\nInsurance File\nt\nInsurance\nClaim\nInsurance Policy\nRequest\nTravel\nHomeowner's\nAuto\nLegal expense\nInsurance Policy\nInsurance Policy\nInsurance Policy\nInsurance Policy",
+          "words": [
+            {
+              "text": "Customer",
+              "confidence": 96.659485,
+              "bbox_pixels_xywh": [
+                386,
+                25,
+                76,
+                14
+              ]
+            },
+            {
+              "text": "g",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                415,
+                80,
+                17,
+                45
+              ]
+            },
+            {
+              "text": "Insurance",
+              "confidence": 96.413147,
+              "bbox_pixels_xywh": [
+                369,
+                151,
+                77,
+                13
+              ]
+            },
+            {
+              "text": "File",
+              "confidence": 96.635956,
+              "bbox_pixels_xywh": [
+                452,
+                150,
+                26,
+                14
+              ]
+            },
+            {
+              "text": "t",
+              "confidence": 64.862175,
+              "bbox_pixels_xywh": [
+                415,
+                203,
+                17,
+                48
+              ]
+            },
+            {
+              "text": "Insurance",
+              "confidence": 96.123169,
+              "bbox_pixels_xywh": [
+                135,
+                276,
+                77,
+                13
+              ]
+            },
+            {
+              "text": "Claim",
+              "confidence": 96.109428,
+              "bbox_pixels_xywh": [
+                652,
+                276,
+                43,
+                13
+              ]
+            },
+            {
+              "text": "Insurance",
+              "confidence": 95.958641,
+              "bbox_pixels_xywh": [
+                360,
+                276,
+                76,
+                13
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 96.789253,
+              "bbox_pixels_xywh": [
+                443,
+                276,
+                45,
+                17
+              ]
+            },
+            {
+              "text": "Request",
+              "confidence": 96.325043,
+              "bbox_pixels_xywh": [
+                141,
+                297,
+                65,
+                17
+              ]
+            },
+            {
+              "text": "Travel",
+              "confidence": 96.52285,
+              "bbox_pixels_xywh": [
+                69,
+                432,
+                47,
+                13
+              ]
+            },
+            {
+              "text": "Homeowner's",
+              "confidence": 96.140511,
+              "bbox_pixels_xywh": [
+                277,
+                432,
+                106,
+                13
+              ]
+            },
+            {
+              "text": "Auto",
+              "confidence": 96.552589,
+              "bbox_pixels_xywh": [
+                530,
+                432,
+                36,
+                13
+              ]
+            },
+            {
+              "text": "Legal",
+              "confidence": 96.993652,
+              "bbox_pixels_xywh": [
+                725,
+                432,
+                40,
+                17
+              ]
+            },
+            {
+              "text": "expense",
+              "confidence": 96.98278,
+              "bbox_pixels_xywh": [
+                771,
+                436,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "Insurance",
+              "confidence": 96.426849,
+              "bbox_pixels_xywh": [
+                31,
+                454,
+                77,
+                13
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 96.948654,
+              "bbox_pixels_xywh": [
+                114,
+                453,
+                46,
+                17
+              ]
+            },
+            {
+              "text": "Insurance",
+              "confidence": 96.609528,
+              "bbox_pixels_xywh": [
+                266,
+                454,
+                76,
+                13
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 96.851669,
+              "bbox_pixels_xywh": [
+                349,
+                453,
+                45,
+                17
+              ]
+            },
+            {
+              "text": "Insurance",
+              "confidence": 96.632576,
+              "bbox_pixels_xywh": [
+                484,
+                454,
+                77,
+                13
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 96.991631,
+              "bbox_pixels_xywh": [
+                568,
+                453,
+                45,
+                17
+              ]
+            },
+            {
+              "text": "Insurance",
+              "confidence": 96.593124,
+              "bbox_pixels_xywh": [
+                719,
+                454,
+                76,
+                13
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 96.986794,
+              "bbox_pixels_xywh": [
+                803,
+                453,
+                44,
+                17
+              ]
+            }
+          ],
+          "mean_word_confidence": 91.0,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

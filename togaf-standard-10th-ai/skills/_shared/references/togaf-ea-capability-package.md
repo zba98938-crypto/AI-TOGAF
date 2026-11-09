@@ -1,0 +1,82 @@
+# togaf-ea-capability 按需能力包
+
+先根据实际决策问题选取规范，不强制生成全部清单。
+
+## 工作产品
+
+- [架构成熟度模型](capabilities/architecture-maturity-model.md)
+- [架构成熟度评分卡](capabilities/architecture-maturity-scorecard.md)
+- [数字技术采用定位](capabilities/digital-adoption-position.md)
+- [数字技术就绪度问卷](capabilities/digital-readiness-questionnaire.md)
+- [数字技术就绪度评估](capabilities/digital-readiness-assessment.md)
+- [就绪度因素后果分析](capabilities/readiness-consequence-analysis.md)
+- [采用因素递进路线](capabilities/adoption-factor-progression.md)
+- [企业架构服务目录](capabilities/ea-service-catalog.md)
+- [EA 与企业价值地图](capabilities/ea-value-map.md)
+- [EA 团队容量计划](capabilities/ea-team-capacity-plan.md)
+- [企业框架接触与承诺目录](capabilities/enterprise-framework-alignment-catalog.md)
+- [业务周期与工作产品时点](capabilities/business-cycle-product-alignment.md)
+- [价值实现评估](capabilities/value-realization-assessment.md)
+- [项目经验记录与教训报告](capabilities/project-learning-record.md)
+- [数字可持续性能力评估](capabilities/sustainability-capability-assessment.md)
+- [EA观点文件与影响经营登记](capabilities/ea-point-of-view-register.md)
+- [架构存储库结构](capabilities/architecture-repository-structure.md)
+- [架构全景投影](capabilities/architecture-landscape-projection.md)
+- [存储库状态与视图树](capabilities/repository-state-view-tree.md)
+- [存储库并行候选容器](capabilities/repository-parallel-candidates.md)
+- [能力与项目连续谱](capabilities/capability-project-continuum.md)
+- [组合利益相关者×关注点矩阵](capabilities/portfolio-stakeholder-concern-matrix.md)
+- [存储库版本比较 Target → Baseline](capabilities/repository-target-baseline-comparison.md)
+- [DTRA因素与ADM阶段对齐](capabilities/dtra-adm-phase-alignment.md)
+
+
+## 视图
+
+- [架构成熟度模型](profiles/architecture-maturity-model-default.md)
+- [架构成熟度评分卡](profiles/architecture-maturity-scorecard-default.md)
+- [数字技术采用定位](profiles/digital-adoption-position-default.md)
+- [数字技术就绪度问卷](profiles/digital-readiness-questionnaire-default.md)
+- [数字技术就绪度评估](profiles/digital-readiness-assessment-default.md)
+- [就绪度因素后果分析](profiles/readiness-consequence-analysis-default.md)
+- [采用因素分层与就绪类型](profiles/adoption-factor-progression-default.md)
+- [企业架构服务目录](profiles/ea-service-catalog-default.md)
+- [EA 与企业价值地图](profiles/ea-value-map-default.md)
+- [EA 团队容量计划](profiles/ea-team-capacity-plan-default.md)
+- [ABCD 采用定位象限](profiles/dtra-adoption-quadrant.md)
+- [因素与主要后果矩阵](profiles/dtra-factor-consequence.md)
+- [采用因素分层与就绪类型](profiles/dtra-factor-progression.md)
+- [ACMM 要素级别矩阵](profiles/acmm-elements-levels.md)
+- [ACMM 证据评分卡](profiles/acmm-scorecard.md)
+- [原则目录（兼容默认）](profiles/compat-principles-catalog.md)
+- [企业框架接触与承诺目录](profiles/enterprise-framework-alignment-catalog-default.md)
+- [业务周期与工作产品时点](profiles/business-cycle-product-alignment-default.md)
+- [T1价值实现评估](profiles/value-realization-assessment-default.md)
+- [持续经验记录](profiles/project-learning-record-log.md)
+- [项目最终经验教训](profiles/project-learning-record-report.md)
+- [EA服务N／P／D语境矩阵](profiles/ea-service-emergence-npd.md)
+- [EA服务与ADM证据映射](profiles/ea-service-adm-evidence-map.md)
+- [数字可持续能力六维评估](profiles/sustainability-capability-assessment-default.md)
+- [EA观点文件与影响经营登记](profiles/ea-point-of-view-register-default.md)
+- [架构存储库结构](profiles/architecture-repository-structure.md)
+- [架构全景投影](profiles/architecture-landscape-projection.md)
+- [EA服务与ADM证据映射／图形](profiles/ea-service-adm-matrix.md)
+- [存储库状态与视图树](profiles/repository-state-view-tree.md)
+- [存储库并行候选容器](profiles/repository-parallel-candidates.md)
+- [存储库版本比较 Target → Baseline](profiles/repository-target-baseline-comparison.md)
+- [存储库版本比较 Baseline → Target](profiles/repository-baseline-target-comparison.md)
+- [能力与项目连续谱](profiles/capability-project-continuum.md)
+- [组合利益相关者×关注点矩阵](profiles/portfolio-stakeholder-concern-matrix.md)
+- [EA服务×ADM来源参考矩阵](profiles/ea-service-adm-reference-matrix.md)
+- [EA服务×ADM来源参考矩阵](profiles/ea-service-adm-reference-table.md)
+- [DTRA因素与ADM阶段对齐](profiles/dtra-adm-phase-alignment-default.md)
+
+
+## 分析方法
+
+- [ACMM 成熟度评价](analysis-methods/acmm-maturity-assessment.md)
+- [DTRA 就绪度评价与后果](analysis-methods/dtra-readiness-method.md)
+- [EA服务N／P／D语境矩阵分析](analysis-methods/ea-service-emergence-npd-method.md)
+- [EA服务与ADM证据映射分析](analysis-methods/ea-service-adm-evidence-map-method.md)
+- [EA观点文件与影响经营登记审查](analysis-methods/ea-point-of-view-review.md)
+- [DTRA与ADM阶段对齐审查](analysis-methods/dtra-adm-phase-alignment-review.md)
+

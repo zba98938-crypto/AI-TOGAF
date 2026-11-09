@@ -1,0 +1,991 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "mdm-business-function-coverage-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 1,
+      "declared_step": "加载随技能携带的完整源表，保留参考分组/ID/出处",
+      "new_fictional_input": "新虚构练习加载G21B表5-3全部29业务功能，每行保留reference_id、分组、定义和来源定位。",
+      "transformation": "复制完整源行建立独立评估条目，不能用“治理”一个宏观项覆盖29。",
+      "candidate_output": "29行唯一source ID和assessment条目。",
+      "adverse_variant_expected": "漏行或重名合并导致少于29，应拒绝清单完整性。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 2,
+      "declared_step": "限定项目范围和时点，逐项寻找组织活动或实际应用功能证据",
+      "new_fictional_input": "新虚构2026年11月两馆限定自有记录；任命材料已明确所有者/管家职责、范围、任期和接受记录，只证明本范围治理角色，不证明其余功能。",
+      "transformation": "新证据映射“定义并吸纳数据所有者/管家”具体行；原愿任材料仍保留旧版本。",
+      "candidate_output": "G21B-T5-3-02=evidenced-in-example，其余28=unknown；旧任命意愿不倒改历史。",
+      "adverse_variant_expected": "单愿任或仅一个角色名即判完整治理，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 3,
+      "declared_step": "区分已见、计划、未知和有理由不适用",
+      "new_fictional_input": "新虚构项目四态规则：有匹配职责和实际活动产物才已见，有完整执行安排才计划，其他未知；外部采购范围外仍另记scope。",
+      "transformation": "29行互斥状态，外部采购不得无机构职责理由记不适用。",
+      "candidate_output": "计数1/0/28/0，外采一行scope=out-of-project-scope、coverage=unknown。",
+      "adverse_variant_expected": "将外部采购未知改机构不适用，或清单完整即成熟度通过，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 5,
+      "declared_step": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+      "new_fictional_input": "新虚构先补与读者关联、同意及质量有关行，由所有者/管家/安全分别提活动和证据；其他未知行需访谈负责团队。",
+      "transformation": "每源行按具体功能定义写需证任务、提议责任、复评事件；不把已任命当所有任务closed。",
+      "candidate_output": "28行unknown有候选行动与责任分工，缺真实批准仍candidate。",
+      "adverse_variant_expected": "把任命一次作为29行运行证据或丢弃未知行，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [
+    {
+      "path": "../../../capabilities.json",
+      "profile_id": "mdm-business-function-coverage",
+      "reference_rows_sha256": "c1958c643827db0ed8ac57d46cc6a94dcc3dfbde2136a7a38021b81a706773c4",
+      "purpose": "reference row identities/definitions only; original profile business judgments are not copied as new evidence"
+    }
+  ],
+  "candidate_records": [
+    {
+      "reference_id": "G21B-T5-3-01",
+      "reference_name": "定义 C-MDM 目标与路线图",
+      "reference_group": "A. C-MDM 能力管理与治理",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L570",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义 C-MDM 目标与路线图”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-02",
+      "reference_name": "定义并吸纳数据所有者与数据管家",
+      "reference_group": "A. C-MDM 能力管理与治理",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L571",
+      "coverage_status": "evidenced-in-example",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "{\"scope\": \"两馆自有读者身份/联络/目的限定同意内核\", \"owner\": \"LIB-OWNER\", \"steward\": \"LIB-STEWARD\", \"term\": \"2026-11试点\", \"owner_duties\": [\"批准内核口径与用途\", \"裁决质量优先次序\"], \"steward_duties\": [\"维护来源映射\", \"记录质量问题并协调更正\"], \"fictional_acceptance_records\": [\"LIB-OWNER-SUP接受本范围职责\", \"LIB-STEWARD-SUP接受本范围职责与每周2小时可用容量\"], \"BAU_activity\": \"2026-11-07在材料中登记MDM-SUP-Q1并指派管家跟进\", \"limit\": \"本轮独立虚构任命/吸纳，不证明其余28功能或真实批准\"}",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并吸纳数据所有者与数据管家”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [
+        "SUP-G21B-T5-3-02"
+      ],
+      "implementation_ref": "SUP-G21B-T5-3-02"
+    },
+    {
+      "reference_id": "G21B-T5-3-03",
+      "reference_name": "定义并运行数据治理原则",
+      "reference_group": "A. C-MDM 能力管理与治理",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L572",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并运行数据治理原则”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-04",
+      "reference_name": "协调决策与优先级",
+      "reference_group": "A. C-MDM 能力管理与治理",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L573",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“协调决策与优先级”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-05",
+      "reference_name": "定义团队服务并运营 SLA",
+      "reference_group": "A. C-MDM 能力管理与治理",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L574",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义团队服务并运营 SLA”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-06",
+      "reference_name": "设计客户数据模型",
+      "reference_group": "B. C-MDM 设计",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L580",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计客户数据模型”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-07",
+      "reference_name": "设计 C-MDM 架构原则并确保数据方案一致性",
+      "reference_group": "B. C-MDM 设计",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L581",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计 C-MDM 架构原则并确保数据方案一致性”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-08",
+      "reference_name": "支持客户数据管理实施",
+      "reference_group": "B. C-MDM 设计",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L582",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“支持客户数据管理实施”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-09",
+      "reference_name": "形式化客户主数据校验工作流、质量与业务规则",
+      "reference_group": "B. C-MDM 设计",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L583",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“形式化客户主数据校验工作流、质量与业务规则”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-10",
+      "reference_name": "帮助业务调整流程以确保数据质量",
+      "reference_group": "B. C-MDM 设计",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L584",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“帮助业务调整流程以确保数据质量”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-11",
+      "reference_name": "定义并运行数据访问模型",
+      "reference_group": "B. C-MDM 设计",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L585",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并运行数据访问模型”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-12",
+      "reference_name": "定义、维护并共享客户数据文档",
+      "reference_group": "B. C-MDM 设计",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L586",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义、维护并共享客户数据文档”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-13",
+      "reference_name": "定义、遵循并监控数据保留规则",
+      "reference_group": "B. C-MDM 设计",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L587",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义、遵循并监控数据保留规则”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-14",
+      "reference_name": "接收并管理客户数据相关请求（GDPR 等）",
+      "reference_group": "C. C-MDM 运营",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L593",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“接收并管理客户数据相关请求（GDPR 等）”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-15",
+      "reference_name": "评估并管理客户主数据质量问题",
+      "reference_group": "C. C-MDM 运营",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L594",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“评估并管理客户主数据质量问题”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-16",
+      "reference_name": "纠正数据问题",
+      "reference_group": "C. C-MDM 运营",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L595",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“纠正数据问题”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-17",
+      "reference_name": "校验客户合并",
+      "reference_group": "C. C-MDM 运营",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L596",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“校验客户合并”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-18",
+      "reference_name": "确保运营业务流程获得适当的 C-MDM 数据与服务",
+      "reference_group": "C. C-MDM 运营",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L597",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“确保运营业务流程获得适当的 C-MDM 数据与服务”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-19",
+      "reference_name": "支持数据生产方应用的新集成",
+      "reference_group": "D. C-MDM 范围与用途扩展（Extension of C-MDM Scope and Usages）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L603",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“支持数据生产方应用的新集成”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-20",
+      "reference_name": "支持数据消费方应用的新集成",
+      "reference_group": "D. C-MDM 范围与用途扩展（Extension of C-MDM Scope and Usages）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L604",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“支持数据消费方应用的新集成”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-21",
+      "reference_name": "支持新的外部数据源集成",
+      "reference_group": "D. C-MDM 范围与用途扩展（Extension of C-MDM Scope and Usages）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L605",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“支持新的外部数据源集成”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-22",
+      "reference_name": "沟通 C-MDM 价值与当前用途",
+      "reference_group": "E. 沟通（Communication）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L611",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“沟通 C-MDM 价值与当前用途”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-23",
+      "reference_name": "沟通客户数据团队服务目录",
+      "reference_group": "E. 沟通（Communication）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L612",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“沟通客户数据团队服务目录”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-24",
+      "reference_name": "沟通客户数据质量",
+      "reference_group": "E. 沟通（Communication）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L613",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“沟通客户数据质量”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-25",
+      "reference_name": "构建并交付客户数据质量与演进的报告",
+      "reference_group": "F. 数据质量与业务价值度量（Data Quality and Business Value Measurement）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L619",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“构建并交付客户数据质量与演进的报告”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-26",
+      "reference_name": "报告 C-MDM 业务价值",
+      "reference_group": "F. 数据质量与业务价值度量（Data Quality and Business Value Measurement）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L620",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“报告 C-MDM 业务价值”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-27",
+      "reference_name": "分析数据市场并识别机会",
+      "reference_group": "G. 外部客户数据获取（External Customer Data Acquisition）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L626",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“分析数据市场并识别机会”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-28",
+      "reference_name": "建立数据伙伴关系",
+      "reference_group": "G. 外部客户数据获取（External Customer Data Acquisition）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L627",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“建立数据伙伴关系”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G21B-T5-3-29",
+      "reference_name": "采购外部客户数据",
+      "reference_group": "G. 外部客户数据获取（External Customer Data Acquisition）",
+      "reference_level": "child-in-source-group",
+      "source_locator": "G21B 表5-3 L628",
+      "coverage_status": "unknown",
+      "project_scope": "2026年11月两馆自有读者约定内核；本轮独立虚构补充",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“采购外部客户数据”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown",
+      "scope_status": "out-of-project-scope-without-institution-applicability-judgment"
+    }
+  ],
+  "registered_reference_profile": "mdm-business-function-coverage",
+  "reference_rows": [
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-01",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-01",
+        "reference_kind": "business_function",
+        "reference_name": "定义 C-MDM 目标与路线图",
+        "reference_definition": "定义 C-MDM 能力的转型步骤，明确各步骤目标及实现计划。",
+        "reference_group": "A. C-MDM 能力管理与治理",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L570",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-02",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-02",
+        "reference_kind": "business_function",
+        "reference_name": "定义并吸纳数据所有者与数据管家",
+        "reference_definition": "在常态化运营（BAU）中识别并吸纳业务数据所有者，聚焦内核客户数据。",
+        "reference_group": "A. C-MDM 能力管理与治理",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L571",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-03",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-03",
+        "reference_kind": "business_function",
+        "reference_name": "定义并运行数据治理原则",
+        "reference_definition": "定义客户主数据的数据治理原则，并建立组织与机构（如委员会）运行这些原则。",
+        "reference_group": "A. C-MDM 能力管理与治理",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L572",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-04",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-04",
+        "reference_kind": "business_function",
+        "reference_name": "协调决策与优先级",
+        "reference_definition": "建立并运转数据治理委员会，确保 C-MDM 路线图在实体内有效实施，保证客户数据决策一致，并评审关键仲裁。",
+        "reference_group": "A. C-MDM 能力管理与治理",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L573",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-05",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-05",
+        "reference_kind": "business_function",
+        "reference_name": "定义团队服务并运营 SLA",
+        "reference_definition": "定义 C-MDM 团队服务目录、潜在用户与服务接口（工单工具、电话、集中邮箱等），为每项服务定义并遵守 SLA。",
+        "reference_group": "A. C-MDM 能力管理与治理",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L574",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-06",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-06",
+        "reference_kind": "business_function",
+        "reference_name": "设计客户数据模型",
+        "reference_definition": "设计并记录客户主数据模型（信息模型、数据库模型、属性定义与类型等）。",
+        "reference_group": "B. C-MDM 设计",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L580",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-07",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-07",
+        "reference_kind": "business_function",
+        "reference_name": "设计 C-MDM 架构原则并确保数据方案一致性",
+        "reference_definition": "定义客户主数据需求（存储、传输、发布、转换、归档、元数据、质量、主/参考数据管理等）并符合合规标准；定义数据架构框架；参与 IT 路线图与投资评估；确保关键数据符合合规与安全标准。",
+        "reference_group": "B. C-MDM 设计",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L581",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-08",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-08",
+        "reference_kind": "business_function",
+        "reference_name": "支持客户数据管理实施",
+        "reference_definition": "提供资源，确保 C-MDM 系统与团队持续满足要求；按路线图分步实施。",
+        "reference_group": "B. C-MDM 设计",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L582",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-09",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-09",
+        "reference_kind": "business_function",
+        "reference_name": "形式化客户主数据校验工作流、质量与业务规则",
+        "reference_definition": "形式化业务规则与数据管家工作流，保证既有数据质量提升，并确保新数据更新流程设计合理。",
+        "reference_group": "B. C-MDM 设计",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L583",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-10",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-10",
+        "reference_kind": "business_function",
+        "reference_name": "帮助业务调整流程以确保数据质量",
+        "reference_definition": "在纳入新数据范围或新用例时，帮助业务调整受影响流程；变革管理投入不可低估。",
+        "reference_group": "B. C-MDM 设计",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L584",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-11",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-11",
+        "reference_kind": "business_function",
+        "reference_name": "定义并运行数据访问模型",
+        "reference_definition": "按安全、隐私/合规与价值分类定义数据访问画像，并通过 C-MDM 运行这些访问模型。",
+        "reference_group": "B. C-MDM 设计",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L585",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-12",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-12",
+        "reference_kind": "business_function",
+        "reference_name": "定义、维护并共享客户数据文档",
+        "reference_definition": "在共享存储库中维护与主数据对象相关的规则；维护数据字典与术语表；资本化并共享信息与数据模型；记录消费点、采集点与数据流；记录数据管家流程（谁在何时、如何对客户数据负责）。",
+        "reference_group": "B. C-MDM 设计",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L586",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-13",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-13",
+        "reference_kind": "business_function",
+        "reference_name": "定义、遵循并监控数据保留规则",
+        "reference_definition": "保留规则是数据生命周期的一部分，明确各类数据的保留期限（因隐私删除或因税务保留）。",
+        "reference_group": "B. C-MDM 设计",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L587",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-14",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-14",
+        "reference_kind": "business_function",
+        "reference_name": "接收并管理客户数据相关请求（GDPR 等）",
+        "reference_definition": "接收所服务业务方提出的请求（如经纪人/代理提出的数据更正请求、客户关于其数据的请求、运营服务上报的质量问题），并将其路由给正确的人员/数据管家。",
+        "reference_group": "C. C-MDM 运营",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L593",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-15",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-15",
+        "reference_kind": "business_function",
+        "reference_name": "评估并管理客户主数据质量问题",
+        "reference_definition": "检测并管理数据质量问题，属于 MDM 运营的一部分（区别于质量度量）。",
+        "reference_group": "C. C-MDM 运营",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L594",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-16",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-16",
+        "reference_kind": "business_function",
+        "reference_name": "纠正数据问题",
+        "reference_definition": "恢复真相并据此更新数据。",
+        "reference_group": "C. C-MDM 运营",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L595",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-17",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-17",
+        "reference_kind": "business_function",
+        "reference_name": "校验客户合并",
+        "reference_definition": "人工仲裁两个客户的合并：核验这两个客户，使其成为同一个人并最终合并。",
+        "reference_group": "C. C-MDM 运营",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L596",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-18",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-18",
+        "reference_kind": "business_function",
+        "reference_name": "确保运营业务流程获得适当的 C-MDM 数据与服务",
+        "reference_definition": "确保运营业务用户（消费者或生产者）拥有适当的界面，以最优方式支撑其流程；了解业务需求与痛点。",
+        "reference_group": "C. C-MDM 运营",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L597",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-19",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-19",
+        "reference_kind": "business_function",
+        "reference_name": "支持数据生产方应用的新集成",
+        "reference_definition": "该活动属于常态化运营（BAU）。对数据生产方应用新集成的支持方式管理良好，以新客户群体可持续扩展 C-MDM 范围的流程已得到掌控。",
+        "reference_group": "D. C-MDM 范围与用途扩展（Extension of C-MDM Scope and Usages）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L603",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-20",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-20",
+        "reference_kind": "business_function",
+        "reference_name": "支持数据消费方应用的新集成",
+        "reference_definition": "该活动属于常态化运营（BAU）。对数据消费方应用新集成的支持方式管理良好；新的数据消费有清晰定义的用例作为语境。",
+        "reference_group": "D. C-MDM 范围与用途扩展（Extension of C-MDM Scope and Usages）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L604",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-21",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-21",
+        "reference_kind": "business_function",
+        "reference_name": "支持新的外部数据源集成",
+        "reference_definition": "该活动属于常态化运营（BAU）。在 C-MDM 生态中集成新外部数据源的方式管理良好。",
+        "reference_group": "D. C-MDM 范围与用途扩展（Extension of C-MDM Scope and Usages）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L605",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-22",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-22",
+        "reference_kind": "business_function",
+        "reference_name": "沟通 C-MDM 价值与当前用途",
+        "reference_definition": "就用 KPI 沟通 C-MDM 能力的价值（降低成本/复杂度、带来的定性/定量收益、客户数据使用者的满意度评分等）。",
+        "reference_group": "E. 沟通（Communication）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L611",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-23",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-23",
+        "reference_kind": "business_function",
+        "reference_name": "沟通客户数据团队服务目录",
+        "reference_definition": "向这些服务的潜在内部用户沟通客户数据团队的服务目录。",
+        "reference_group": "E. 沟通（Communication）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L612",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-24",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-24",
+        "reference_kind": "business_function",
+        "reference_name": "沟通客户数据质量",
+        "reference_definition": "向运营或高层利益相关者沟通质量仪表盘。",
+        "reference_group": "E. 沟通（Communication）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L613",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-25",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-25",
+        "reference_kind": "business_function",
+        "reference_name": "构建并交付客户数据质量与演进的报告",
+        "reference_definition": "与高管、业务方、业务数据所有者及数据管家共同设计质量仪表盘，并按他们的要求实现质量仪表盘。",
+        "reference_group": "F. 数据质量与业务价值度量（Data Quality and Business Value Measurement）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L619",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-26",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-26",
+        "reference_kind": "business_function",
+        "reference_name": "报告 C-MDM 业务价值",
+        "reference_definition": "与业务方（包括 IT 团队）共同识别并实施相关的 KPI。",
+        "reference_group": "F. 数据质量与业务价值度量（Data Quality and Business Value Measurement）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L620",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-27",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-27",
+        "reference_kind": "business_function",
+        "reference_name": "分析数据市场并识别机会",
+        "reference_definition": "分析围绕提供参与方/联系人数据的市场（潜在伙伴或数据供应商）；管理并转化这些机会，以发展改进客户数据质量的新方式。",
+        "reference_group": "G. 外部客户数据获取（External Customer Data Acquisition）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L626",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-28",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-28",
+        "reference_kind": "business_function",
+        "reference_name": "建立数据伙伴关系",
+        "reference_definition": "建立伙伴关系，或将现有伙伴关系扩展到某种数据交换，以借助这些外部数据源改进数据质量；随时间在运营层面管理数据伙伴关系。",
+        "reference_group": "G. 外部客户数据获取（External Customer Data Acquisition）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L627",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "MDMC-B-G21B-T5-3-29",
+      "reference_attributes": {
+        "reference_id": "G21B-T5-3-29",
+        "reference_kind": "business_function",
+        "reference_name": "采购外部客户数据",
+        "reference_definition": "统一管理联系人/参与方数据的采购，并把此外部数据集成到客户数据管理流程中。",
+        "reference_group": "G. 外部客户数据获取（External Customer Data Acquisition）",
+        "reference_level": "child-in-source-group",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G21B 表5-3 L628",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    }
+  ],
+  "fictional_input_records": [
+    {
+      "id": "SUP-G21B-T5-3-02",
+      "kind": "authored-role-onboarding-record",
+      "contents": {
+        "scope": "两馆自有读者身份/联络/目的限定同意内核",
+        "owner": "LIB-OWNER",
+        "steward": "LIB-STEWARD",
+        "term": "2026-11试点",
+        "owner_duties": [
+          "批准内核口径与用途",
+          "裁决质量优先次序"
+        ],
+        "steward_duties": [
+          "维护来源映射",
+          "记录质量问题并协调更正"
+        ],
+        "fictional_acceptance_records": [
+          "LIB-OWNER-SUP接受本范围职责",
+          "LIB-STEWARD-SUP接受本范围职责与每周2小时可用容量"
+        ],
+        "BAU_activity": "2026-11-07在材料中登记MDM-SUP-Q1并指派管家跟进",
+        "limit": "本轮独立虚构任命/吸纳，不证明其余28功能或真实批准"
+      }
+    }
+  ]
+}

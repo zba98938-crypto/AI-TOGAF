@@ -1,0 +1,21 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Organizational Units"]
+  n1["Business Capabilities"]
+  n2["Human Resources"]
+  n3["Real Estate"]
+  n4["Information Technology"]
+  n5["Sales and Marketing"]
+  n6["Project Management"]
+  n7["Learning Management"]
+  n6 -.-|"映射"| n3
+  n6 -.-|"映射"| n4
+  n7 -.-|"映射"| n2
+  n7 -.-|"映射"| n4
+  n7 -.-|"映射"| n5
+  n0 -.->|"分组"| n2
+  n0 -.->|"分组"| n3
+  n0 -.->|"分组"| n4
+  n0 -.->|"分组"| n5
+  n1 -.->|"分组"| n6
+  n1 -.->|"分组"| n7

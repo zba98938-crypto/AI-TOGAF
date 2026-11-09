@@ -1,0 +1,68 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Consolidation"]
+  n1["源系统（紫色圆柱）"]
+  n2["源系统（橙色圆柱）"]
+  n3["源系统（灰色圆柱）"]
+  n4["MDM"]
+  n5["Customer Data Acquisition Patterns"]
+  n6["Customer Data Distribution Patterns"]
+  n7["C-MDM System (Point of Truth)"]
+  n8["Direct Point of Truth Acquisition UI"]
+  n9["Point of Truth Service (no local storage, near-real time)"]
+  n10["Point of Truth Synchronization Service (local storage, near-real time)"]
+  n11["Batch Acquisition (local storage, batch)"]
+  n12["Direct Point of Truth Access UI (search and read)"]
+  n13["Point of Truth &quot;Search and Read&quot; Service (no local storage, near-real time)"]
+  n14["Point of Truth &quot;On Update Event&quot; Consumption (local storage, near-real time)"]
+  n15["Batch Consumption (local storage, batch)"]
+  n16["Point of Acquisition App"]
+  n17["Point of Consumption App"]
+  n18["Point of Acquisition App"]
+  n19["Point of Acquisition App"]
+  n20["本地客户数据存储图标"]
+  n21["Point of Acquisition App"]
+  n22["本地客户数据存储图标"]
+  n23["Point of Consumption App"]
+  n24["Point of Consumption App"]
+  n25["本地客户数据存储图标"]
+  n26["Point of Consumption App"]
+  n27["本地客户数据存储图标"]
+  n28["客户数据已采集标记"]
+  n29["客户数据已采集标记"]
+  n30["客户数据已采集标记"]
+  n31["客户数据已采集标记"]
+  n32["客户数据已分发标记"]
+  n33["客户数据已分发标记"]
+  n34["客户数据已分发标记"]
+  n35["客户数据已分发标记"]
+  n0 -.->|"分组"| n1
+  n0 -.->|"分组"| n2
+  n0 -.->|"分组"| n3
+  n0 -.->|"分组"| n4
+  n5 -.->|"分组"| n8
+  n5 -.->|"分组"| n9
+  n5 -.->|"分组"| n10
+  n5 -.->|"分组"| n11
+  n6 -.->|"分组"| n12
+  n6 -.->|"分组"| n13
+  n6 -.->|"分组"| n14
+  n6 -.->|"分组"| n15
+  n9 -.->|"visual_containment_only"| n18
+  n10 -.->|"visual_containment_only"| n19
+  n19 -.->|"application_encapsulation"| n20
+  n11 -.->|"visual_containment_only"| n21
+  n21 -.->|"application_encapsulation"| n22
+  n13 -.->|"visual_containment_only"| n23
+  n14 -.->|"visual_containment_only"| n24
+  n24 -.->|"application_encapsulation"| n25
+  n15 -.->|"visual_containment_only"| n26
+  n26 -.->|"application_encapsulation"| n27
+  n7 -.->|"application_encapsulation"| n28
+  n18 -.->|"application_encapsulation"| n29
+  n19 -.->|"application_encapsulation"| n30
+  n21 -.->|"application_encapsulation"| n31
+  n7 -.->|"application_encapsulation"| n32
+  n23 -.->|"application_encapsulation"| n33
+  n24 -.->|"application_encapsulation"| n34
+  n26 -.->|"application_encapsulation"| n35

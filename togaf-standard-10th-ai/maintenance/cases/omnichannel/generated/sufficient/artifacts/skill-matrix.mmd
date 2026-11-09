@@ -1,0 +1,36 @@
+flowchart LR
+  %% Specialized notation is in the SVG; this source is the complete labelled relation projection.
+  %% entity-id: SKILL-1
+  n0["Strategic Planning"]
+  %% entity-id: SKILL-2
+  n1["Generic Integration and Interoperability"]
+  %% entity-id: SKILL-3
+  n2["Operational Data"]
+  %% entity-id: SKILL-4
+  n3["Integration and Interoperability"]
+  %% entity-id: ROLE-CHIEF
+  n4["首席架构师"]
+  %% entity-id: ROLE-EA
+  n5["企业架构师"]
+  %% entity-id: ROLE-SEG
+  n6["库存分段架构师"]
+  %% entity-id: ROLE-SOL
+  n7["履约解决方案架构师"]
+  %% relationship-id: REQ-SKILL-CH
+  n0 -->|"项目裁剪目标"| n4
+  %% relationship-id: REQ-SKILL-EA
+  n1 -->|"项目裁剪目标"| n5
+  %% relationship-id: REF-REQ-SKILL-EA
+  n1 -->|"原文参考目标"| n5
+  %% relationship-id: REQ-SKILL-SEG
+  n2 -->|"项目裁剪目标"| n6
+  %% relationship-id: REQ-SKILL-SOL
+  n3 -->|"项目裁剪目标"| n7
+  %% relationship-id: BEH-CH
+  n0 -->|"人员观察证据"| n4
+  %% relationship-id: BEH-EA
+  n1 -->|"人员观察证据"| n5
+  %% relationship-id: BEH-SEG
+  n2 -->|"人员观察证据"| n6
+  %% relationship-id: BEH-SOL
+  n3 -->|"人员观察证据"| n7

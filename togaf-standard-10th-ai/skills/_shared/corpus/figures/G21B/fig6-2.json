@@ -1,0 +1,2075 @@
+{
+  "schema_version": "1.0",
+  "id": "G21B/fig6-2",
+  "status": "done",
+  "doc": {
+    "code": "G21B",
+    "title_zh": "信息架构——客户主数据管理",
+    "title_en": "Information Architecture — Customer Master Data (C-MDM)",
+    "zh_md": "G21Be_信息架构_客户主数据管理.md",
+    "en_pdf": "togaf-standard-10th/G21Be.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "6-2",
+    "title_en": "C-MDM Data Exchange Types Overview",
+    "title_zh": "C-MDM 数据交换类型概览",
+    "section_en": "6.1.2 Related Integration Patterns",
+    "section_zh": "6.1.2 相关集成模式",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        50
+      ],
+      "printed_page": 40,
+      "bboxes": [
+        [
+          61.1,
+          36.0,
+          550.9,
+          372.1
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        771
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21b_fig6-2.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "c63e155c978d",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "原图是 4 列 × 2 行（采集模式 / 分发模式）的交换模式矩阵，中央横贯 C-MDM System (Point of Truth) 蓝带，每个模式有自己的应用框与存储/数据图标；SVG 改成“采集点 PoA → C-MDM 系统 → 消费点 PoC”一条线性链。",
+        "SVG 完全漏掉 8 种模式中的 6 种：Point of Truth Service、Point of Truth Synchronization Service、Batch Acquisition、Point of Truth “Search and Read” Service、Point of Truth “On Update Event” Consumption、Batch Consumption；也没有 Direct UI 与批量/近实时的区分。",
+        "漏掉左侧两条紫色竖栏（Customer Data Acquisition Patterns / Customer Data Distribution Patterns）、Point of Acquisition/Consumption App 框、本地存储圆柱、已采集（青色球）/已分发（橙色球）图标与整个图例。",
+        "SVG 增加了原图没有的说明文字（整合式用批量获取+批量消费、协作式用主源/副本同步、集中式 MDM 为唯一真相系统，以及“避免绕过质量与合规控制”），把正文观点写进了图里。",
+        "SVG 的“采集（批量/实时/接口）/分发（同步/批量/服务）”只是概括，不能代替原图的 8 种模式。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "matrix",
+      "flow"
+    ],
+    "notation": "4×2 交换模式矩阵：列为四种采集/分发方式（直接 UI、真相点服务、真相点同步服务、批量），行为采集模式（上）与分发模式（下），中央横带为 C-MDM System (Point of Truth)；圆角框表示 App，圆柱表示本地存储，彩色球表示数据，箭头表示数据流。",
+    "concepts": [
+      "data_integration",
+      "master_data_management",
+      "application_architecture",
+      "metadata_management"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "把 C-MDM 的采集与分发各分成 4 种交换模式，用同一张 4×2 矩阵对比是否有本地存储、是否近实时、是否批量。",
+    "purpose_zh": "第 6.1.2 节说明：不同集成风格需要不同的交换模式。本图给出客户数据采集点（PoA）到 C-MDM、C-MDM 到消费点（PoC）的模式全集，并按“有无本地存储、实时性、批量/服务”三个维度排成矩阵，供架构师按用途选择。",
+    "reading_guide_zh": "先看中间蓝色横带 C-MDM System (Point of Truth)，它是所有模式的中心。上半部分（Customer Data Acquisition Patterns）读采集：从左到右四种方式——直接 UI（无 App、直接在 C-MDM 界面录入）、真相点服务（App 无本地存储、近实时）、真相点同步服务（App 有本地存储、近实时）、批量获取（App 有本地存储、批量）。下半部分（Distribution Patterns）同样四种：直接访问 UI、搜索与读取服务、更新事件消费、批量消费。每个格子顶部的小标题给出该模式的关键约束（no local storage / local storage, near-real time / local storage, batch），箭头方向表示数据流入或流出 C-MDM。",
+    "key_points_zh": [
+      "采集 4 种：Direct Point of Truth Acquisition UI、Point of Truth Service、Point of Truth Synchronization Service、Batch Acquisition。",
+      "分发 4 种：Direct Point of Truth Access UI (search and read)、Point of Truth “Search and Read” Service、Point of Truth “On Update Event” Consumption、Batch Consumption。",
+      "三种“服务型”模式（第 2、3 列）的区别在本地存储与实时性：第 2 列无本地存储、近实时；第 3 列有本地存储、近实时（同步服务/更新事件消费）。",
+      "批量模式（第 4 列）有本地存储、按批处理，适合分析型整合，不适合与客户的运营交互。",
+      "直接 UI 模式（第 1 列）没有独立的采集/消费 App 框：用户直接在 C-MDM 界面上操作或查询，因此 C-MDM 带内只有一个青色/橙色数据球。",
+      "每个 App 框旁的圆柱表示本地存储；青色球=已采集客户数据，橙色球=已分发客户数据，箭头=客户数据流（见图例）。",
+      "本图只给模式全集，不指定哪种风格用哪些模式；具体映射见图 6-3（整合式）、图 6-4（协作式）、图 6-5（集中式）。"
+    ],
+    "hierarchy_zh": "两层：第 1 层是采集模式与分发模式两个大类（左侧紫色竖栏）；第 2 层是各自 4 种具体模式（4 列）。中央的 C-MDM System 是所有模式共同的中心，不属于某一列。",
+    "line_semantics_zh": "箭头只表示数据流方向：采集模式下箭头由 Point of Acquisition App 指向 C-MDM 带；分发模式下箭头由 C-MDM 带指向 Point of Consumption App。箭头旁的虚线框把每种模式圈成一个格子，虚线不表示流向。圆柱（存储）与彩色球（数据）是静态图标，不构成连线。",
+    "misreadings_zh": [
+      "不要把 4 列读成四个步骤或成熟度等级：它们是可选的交换模式，按用途选用。",
+      "“no local storage”指 PoA/PoC 应用不落地保存客户数据，不是 C-MDM 不存储。",
+      "第 1 列的 Direct UI 没有箭头，不代表没有数据流：用户直接在 C-MDM 界面读写，所以只画数据球。",
+      "青色球与橙色球不是状态好坏：青色=已采集，橙色=已分发。",
+      "中文稿引用的 SVG 把 8 种模式压缩成一条 PoA→MDM→PoC 链，不能据它选择集成模式。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p50",
+        "summary_zh": "图 6-2 给出 C-MDM 数据交换类型概览；这些模式可在 C-MDM 架构路线图的各阶段逐步实施。整合式使用 Batch Acquisition 与 Batch Consumption（见图 6-3），支持分析型客户数据整合，但不支持与客户的运营交互。"
+      },
+      {
+        "source": "zh_md L762",
+        "summary_zh": "为支持不同集成风格，需要为每种风格启用不同的集成模式；示例展示 PoA 与 C-MDM、C-MDM 与 PoC 两段交换。"
+      },
+      {
+        "source": "zh_md L767",
+        "summary_zh": "采用何种模式取决于其支持的用途或业务流程，不同运营应用可能不同。"
+      },
+      {
+        "source": "zh_md L769",
+        "summary_zh": "这些模式的范围是维护或消费 C-MDM 中客户的最新更新信息；应用也可消费旧版本或保留自己的真相版本。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "grid",
+    "description_zh": "4 列 × 2 行：上半为采集模式（4 个虚线格，格子下方或上方标模式名），下半为分发模式（4 个虚线格）；中央横贯蓝色 C-MDM System (Point of Truth) 带；左侧两条紫色竖栏标注 Acquisition/Distribution Patterns；底部右侧为图例。"
+  },
+  "legend": [
+    {
+      "symbol": "青色球 Customer Data Acquired",
+      "meaning_zh": "已采集的客户数据",
+      "explicit": true
+    },
+    {
+      "symbol": "橙色球 Customer Data Distributed",
+      "meaning_zh": "已分发的客户数据",
+      "explicit": true
+    },
+    {
+      "symbol": "青色圆柱 Customer Data Storage",
+      "meaning_zh": "客户数据存储（本地存储）",
+      "explicit": true
+    },
+    {
+      "symbol": "箭头 Customer Data Flow",
+      "meaning_zh": "客户数据流",
+      "explicit": true
+    },
+    {
+      "symbol": "虚线框",
+      "meaning_zh": "一个交换模式的范围",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "g_acq_patterns",
+      "label_en": "Customer Data Acquisition Patterns",
+      "label_zh": "客户数据采集模式",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左侧上部紫色竖栏 + 上半行"
+    },
+    {
+      "id": "g_dist_patterns",
+      "label_en": "Customer Data Distribution Patterns",
+      "label_zh": "客户数据分发模式",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左侧下部紫色竖栏 + 下半行"
+    },
+    {
+      "id": "c_mdm",
+      "label_en": "C-MDM System (Point of Truth)",
+      "label_zh": "C-MDM 系统（真相点）",
+      "type": "application",
+      "parent": null,
+      "level": 1,
+      "position": "中央横带"
+    },
+    {
+      "id": "a1",
+      "label_en": "Direct Point of Truth Acquisition UI",
+      "label_zh": "直接真相点采集界面",
+      "type": "service",
+      "parent": "g_acq_patterns",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "a2",
+      "label_en": "Point of Truth Service (no local storage, near-real time)",
+      "label_zh": "真相点服务（无本地存储，近实时）",
+      "type": "service",
+      "parent": "g_acq_patterns",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "a3",
+      "label_en": "Point of Truth Synchronization Service (local storage, near-real time)",
+      "label_zh": "真相点同步服务（本地存储，近实时）",
+      "type": "service",
+      "parent": "g_acq_patterns",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "a4",
+      "label_en": "Batch Acquisition (local storage, batch)",
+      "label_zh": "批量获取（本地存储，批处理）",
+      "type": "service",
+      "parent": "g_acq_patterns",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "d1",
+      "label_en": "Direct Point of Truth Access UI (search and read)",
+      "label_zh": "直接真相点访问界面（搜索与读取）",
+      "type": "service",
+      "parent": "g_dist_patterns",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "d2",
+      "label_en": "Point of Truth \"Search and Read\" Service (no local storage, near-real time)",
+      "label_zh": "真相点“搜索与读取”服务（无本地存储，近实时）",
+      "type": "service",
+      "parent": "g_dist_patterns",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "d3",
+      "label_en": "Point of Truth \"On Update Event\" Consumption (local storage, near-real time)",
+      "label_zh": "真相点“更新事件”消费（本地存储，近实时）",
+      "type": "service",
+      "parent": "g_dist_patterns",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "d4",
+      "label_en": "Batch Consumption (local storage, batch)",
+      "label_zh": "批量消费（本地存储，批处理）",
+      "type": "service",
+      "parent": "g_dist_patterns",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "poa_app",
+      "label_en": "Point of Acquisition App",
+      "label_zh": "采集点应用",
+      "type": "application",
+      "parent": null,
+      "position": "采集模式第 2–4 列的圆角框",
+      "description_zh": "三列各出现一次；第 3、4 列旁有本地存储圆柱。"
+    },
+    {
+      "id": "poc_app",
+      "label_en": "Point of Consumption App",
+      "label_zh": "消费点应用",
+      "type": "application",
+      "parent": null,
+      "position": "分发模式第 2–4 列的圆角框",
+      "description_zh": "三列各出现一次；第 3、4 列旁有本地存储圆柱。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r1",
+      "from": "poa_app",
+      "to": "c_mdm",
+      "type": "flow",
+      "label_en": "Customer Data Flow",
+      "label_zh": "客户数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "采集模式第 2 列（Point of Truth Service），箭头向下进入 C-MDM 带。"
+    },
+    {
+      "id": "r2",
+      "from": "poa_app",
+      "to": "c_mdm",
+      "type": "flow",
+      "label_en": "Customer Data Flow",
+      "label_zh": "客户数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "采集模式第 3 列（Synchronization Service）。"
+    },
+    {
+      "id": "r3",
+      "from": "poa_app",
+      "to": "c_mdm",
+      "type": "flow",
+      "label_en": "Customer Data Flow",
+      "label_zh": "客户数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "采集模式第 4 列（Batch Acquisition）。"
+    },
+    {
+      "id": "r4",
+      "from": "c_mdm",
+      "to": "poc_app",
+      "type": "flow",
+      "label_en": "Customer Data Flow",
+      "label_zh": "客户数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "分发模式第 2 列（Search and Read Service），箭头从 C-MDM 带向下。"
+    },
+    {
+      "id": "r5",
+      "from": "c_mdm",
+      "to": "poc_app",
+      "type": "flow",
+      "label_en": "Customer Data Flow",
+      "label_zh": "客户数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "分发模式第 3 列（On Update Event Consumption）。"
+    },
+    {
+      "id": "r6",
+      "from": "c_mdm",
+      "to": "poc_app",
+      "type": "flow",
+      "label_en": "Customer Data Flow",
+      "label_zh": "客户数据流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "分发模式第 4 列（Batch Consumption）。"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_patterns",
+      "title_zh": "8 种数据交换模式及约束（按原图逐格转录）",
+      "columns": [
+        "方向",
+        "模式",
+        "本地存储",
+        "实时性",
+        "模式类型"
+      ],
+      "rows": [
+        [
+          "采集 Acquisition",
+          "Direct Point of Truth Acquisition UI",
+          "无独立 App 框",
+          "直接操作",
+          "直接 UI"
+        ],
+        [
+          "采集 Acquisition",
+          "Point of Truth Service",
+          "无本地存储",
+          "近实时",
+          "服务"
+        ],
+        [
+          "采集 Acquisition",
+          "Point of Truth Synchronization Service",
+          "本地存储",
+          "近实时",
+          "同步服务"
+        ],
+        [
+          "采集 Acquisition",
+          "Batch Acquisition",
+          "本地存储",
+          "批量",
+          "批量"
+        ],
+        [
+          "分发 Distribution",
+          "Direct Point of Truth Access UI (search and read)",
+          "无独立 App 框",
+          "直接查询",
+          "直接 UI"
+        ],
+        [
+          "分发 Distribution",
+          "Point of Truth \"Search and Read\" Service",
+          "无本地存储",
+          "近实时",
+          "服务"
+        ],
+        [
+          "分发 Distribution",
+          "Point of Truth \"On Update Event\" Consumption",
+          "本地存储",
+          "近实时",
+          "事件消费"
+        ],
+        [
+          "分发 Distribution",
+          "Batch Consumption",
+          "本地存储",
+          "批量",
+          "批量"
+        ]
+      ],
+      "cell_legend": [
+        "无本地存储/本地存储：PoA/PoC 应用是否落地保存客户数据",
+        "近实时/批量：交换的时间特性"
+      ],
+      "notes_zh": "第 1 列（Direct UI）没有 Point of Acquisition/Consumption App 框，因此“本地存储”列记为无独立 App 框。"
+    }
+  ],
+  "related_figures": [],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "第 1 列 Direct UI 的箭头在原图中不可见（只有 C-MDM 带内的数据球），本分析未为它编造箭头。",
+      "原图未说明“Point of Truth Service”与“Synchronization Service”的实现差异（如 API 调用 vs 消息订阅），只能按“本地存储/近实时”两个维度描述。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 50 页原图截图",
+      "英文 PDF 第 50 页正文",
+      "中文稿 G21Be_信息架构_客户主数据管理.md 第 762–777 行",
+      "figs/g21b_fig6-2.svg 源码与渲染图"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Be.pdf",
+    "pdf_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21B/fig6-2.json",
+    "interpretation_sha256": "4a080ba48001621584cdae6b5212da0fdf1c91f5b1539cdcf2c9df96ddb72bd4",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 50,
+        "text": "Figure 6-2: C-MDM Data Exchange Types Overview",
+        "bbox_pdf_points": [
+          48.24,
+          376.797,
+          286.303,
+          390.363
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 50,
+      "printed_page": 40,
+      "bbox_pdf_points": [
+        61.1,
+        36.0,
+        550.9,
+        372.1
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21B/fig6-2-p0050.png",
+      "image_sha256": "798100a6db8fd30f7e414f755c41a85e56675052d528a1b1e8fea71684e87efe",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "798100a6db8fd30f7e414f755c41a85e56675052d528a1b1e8fea71684e87efe",
+          "status": "extracted-unverified",
+          "text": "7\n\n2\t1\t3\t0\t0\t0\t748\t6\t7\t6\t-1\t\n3\t1\t3\t1\t0\t0\t748\t6\t7\t6\t-1\t\n4\t1\t3\t1\t1\t0\t748\t6\t7\t6\t-1\t\n5\t1\t3\t1\t1\t1\t748\t6\t7\t6\t42.011395\tve\n2\t1\t4\t0\t0\t0\t92\t15\t171\t14\t-1\t\n3\t1\t4\t1\t0\t0\t92\t15\t171\t14\t-1\t\n4\t1\t4\t1\t1\t0\t92\t15\t171\t14\t-1\t\n5\t1\t4\t1\t1\t1\t92\t15\t50\t14\t96.613274\tDirect\n5\t1\t4\t1\t1\t2\t148\t15\t44\t14\t96.613274\tPoint\n5\t1\t4\t1\t1\t3\t197\t15\t17\t14\t96.879280\tof\n5\t1\t4\t1\t1\t4\t219\t15\t44\t14\t96.825027\tTruth\n2\t1\t5\t0\t0\t0\t307\t15\t185\t14\t-1\t\n3\t1\t5\t1\t0\t0\t307\t15\t185\t14\t-1\t\n4\t1\t5\t1\t1\t0\t307\t15\t185\t14\t-1\t\n5\t1\t5\t1\t1\t1\t307\t15\t43\t14\t96.921555\tPoint\n5\t1\t5\t1\t1\t2\t356\t15\t17\t14\t96.596176\tof\n5\t1\t5\t1\t1\t3\t378\t15\t43\t14\t96.450333\tTruth\n5\t1\t5\t1\t1\t4\t428\t15\t64\t14\t96.446754\tService\n2\t1\t6\t0\t0\t0\t510\t26\t2\t4\t-1\t\n3\t1\t6\t1\t0\t0\t510\t26\t2\t4\t-1\t\n4\t1\t6\t1\t1\t0\t510\t26\t2\t4\t-1\t\n5\t1\t6\t1\t1\t1\t510\t26\t2\t4\t62.539307\tH\n2\t1\t7\t0\t0\t0\t577\t15\t115\t14\t-1\t\n3\t1\t7\t1\t0\t0\t577\t15\t115\t14\t-1\t\n4\t1\t7\t1\t1\t0\t577\t15\t115\t14\t-1\t\n5\t1\t7\t1\t1\t1\t577\t15\t43\t14\t96.911781\tPoint\n5\t1\t7\t1\t1\t2\t626\t15\t17\t14\t96.945930\tof\n5\t1\t7\t1\t1\t3\t648\t15\t44\t14\t96.824860\tTruth\n2\t1\t8\t0\t0\t0\t748\t23\t7\t6\t-1\t\n3\t1\t8\t1\t0\t0\t748\t23\t7\t6\t-1\t\n4\t1\t8\t1\t1\t0\t748\t23\t7\t6\t-1\t\n5\t1\t8\t1\t1\t1\t748\t23\t7\t6\t0.000000\t\nBatch Acquisition\nAcquisition UI\nu\nHH\n(no local storage,\n|! Synchronization Service |!\n(local storage, batch)\nHH\nnear-real time)\nut\nut\n(local storage,\n\n2\t1\t22\t0\t0\t0\t510\t83\t9\t7\t-1\t\n3\t1\t22\t1\t0\t0\t510\t83\t9\t7\t-1\t\n4\t1\t22\t1\t1\t0\t510\t83\t9\t7\t-1\t\n5\t1\t22\t1\t1\t1\t510\t83\t9\t7\t1.769352\tut\n2\t1\t23\t0\t0\t0\t748\t82\t7\t6\t-1\t\n3\t1\t23\t1\t0\t0\t748\t82\t7\t6\t-1\t\n4\t1\t23\t1\t1\t0\t748\t82\t7\t6\t-1\t\n5\t1\t23\t1\t1\t1\t748\t82\t7\t6\t0.000000\t\n\n2\t1\t25\t0\t0\t0\t276\t87\t8\t9\t-1\t\n3\t1\t25\t1\t0\t0\t276\t87\t8\t9\t-1\t\n4\t1\t25\t1\t1\t0\t276\t87\t8\t9\t-1\t\n5\t1\t25\t1\t1\t1\t276\t87\t8\t9\t8.485794\tiH\n2\t1\t26\t0\t0\t0\t510\t100\t9\t6\t-1\t\n3\t1\t26\t1\t0\t0\t510\t100\t9\t6\t-1\t\n4\t1\t26\t1\t1\t0\t510\t100\t9\t6\t-1\t\n5\t1\t26\t1\t1\t1\t510\t100\t9\t6\t0.000000\t\n\n2\t1\t28\t0\t0\t0\t577\t79\t114\t17\t-1\t\n3\t1\t28\t1\t0\t0\t577\t79\t114\t17\t-1\t\n4\t1\t28\t1\t1\t0\t577\t79\t114\t17\t-1\t\n5\t1\t28\t1\t1\t1\t577\t79\t69\t14\t92.426140\tnear-real\n5\t1\t28\t1\t1\t2\t652\t79\t39\t17\t96.432541\ttime)\n2\t1\t29\t0\t0\t0\t748\t99\t7\t6\t-1\t\n3\t1\t29\t1\t0\t0\t748\t99\t7\t6\t-1\t\n4\t1\t29\t1\t1\t0\t748\t99\t7\t6\t-1\t\n5\t1\t29\t1\t1\t1\t748\t99\t7\t6\t0.000000\t\n\n2\t1\t31\t0\t0\t0\t276\t117\t8\t9\t-1\t\n3\t1\t31\t1\t0\t0\t276\t117\t8\t9\t-1\t\n4\t1\t31\t1\t1\t0\t276\t117\t8\t9\t-1\t\n5\t1\t31\t1\t1\t1\t276\t117\t8\t9\t32.069252\ti\n2\t1\t32\t0\t0\t0\t276\t104\t8\t9\t-1\t\n3\t1\t32\t1\t0\t0\t276\t104\t8\t9\t-1\t\n4\t1\t32\t1\t1\t0\t276\t104\t8\t9\t-1\t\n5\t1\t32\t1\t1\t1\t276\t104\t8\t9\t23.154907\tHy\n2\t1\t33\t0\t0\t0\t344\t111\t59\t14\t-1\t\n3\t1\t33\t1\t0\t0\t344\t111\t59\t14\t-1\t\n4\t1\t33\t1\t1\t0\t344\t111\t59\t14\t-1\t\n5\t1\t33\t1\t1\t1\t344\t111\t38\t14\t96.911163\tPoint\n5\t1\t33\t1\t1\t2\t388\t111\t15\t14\t97.013947\tof\n2\t1\t34\t0\t0\t0\t510\t117\t9\t6\t-1\t\n3\t1\t34\t1\t0\t0\t510\t117\t9\t6\t-1\t\n4\t1\t34\t1\t1\t0\t510\t117\t9\t6\t-1\t\n5\t1\t34\t1\t1\t1\t510\t117\t9\t6\t12.990341\tut\n2\t1\t35\t0\t0\t0\t510\t108\t9\t7\t-1\t\n3\t1\t35\t1\t0\t0\t510\t108\t9\t7\t-1\t\n4\t1\t35\t1\t1\t0\t510\t108\t9\t7\t-1\t\n5\t1\t35\t1\t1\t1\t510\t108\t9\t7\t15.414696\tut\n2\t1\t36\t0\t0\t0\t748\t116\t7\t6\t-1\t\n3\t1\t36\t1\t0\t0\t748\t116\t7\t6\t-1\t\n4\t1\t36\t1\t1\t0\t748\t116\t7\t6\t-1\t\n5\t1\t36\t1\t1\t1\t748\t116\t7\t6\t0.000000\ti\n\n2\t1\t38\t0\t0\t0\t510\t134\t9\t6\t-1\t\n3\t1\t38\t1\t0\t0\t510\t134\t9\t6\t-1\t\n4\t1\t38\t1\t1\t0\t510\t134\t9\t6\t-1\t\n5\t1\t38\t1\t1\t1\t510\t134\t9\t6\t16.596518\ti\n2\t1\t39\t0\t0\t0\t510\t125\t9\t7\t-1\t\n3\t1\t39\t1\t0\t0\t510\t125\t9\t7\t-1\t\n4\t1\t39\t1\t1\t0\t510\t125\t9\t7\t-1\t\n5\t1\t39\t1\t1\t1\t510\t125\t9\t7\t5.592785\tut\n2\t1\t40\t0\t0\t0\t583\t102\t104\t28\t-1\t\n3\t1\t40\t1\t0\t0\t583\t102\t104\t28\t-1\t\n4\t1\t40\t1\t1\t0\t583\t102\t104\t28\t-1\t\n5\t1\t40\t1\t1\t1\t583\t111\t59\t14\t66.505760\tPointor\n5\t1\t40\t1\t1\t2\t662\t102\t25\t28\t69.557892\t@\n2\t1\t41\t0\t0\t0\t748\t133\t7\t6\t-1\t\n3\t1\t41\t1\t0\t0\t748\t133\t7\t6\t-1\t\n4\t1\t41\t1\t1\t0\t748\t133\t7\t6\t-1\t\n5\t1\t41\t1\t1\t1\t748\t133\t7\t6\t0.000000\ti\n2\t1\t42\t0\t0\t0\t748\t125\t7\t5\t-1\t\n3\t1\t42\t1\t0\t0\t748\t125\t7\t5\t-1\t\n4\t1\t42\t1\t1\t0\t748\t125\t7\t5\t-1\t\n5\t1\t42\t1\t1\t1\t748\t125\t7\t5\t0.000000\t\nPointof GB\nAcquisition App\nut\nAcquisition App\n\n2\t1\t48\t0\t0\t0\t795\t133\t120\t17\t-1\t\n3\t1\t48\t1\t0\t0\t795\t133\t120\t17\t-1\t\n4\t1\t48\t1\t1\t0\t795\t133\t120\t17\t-1\t\n5\t1\t48\t1\t1\t1\t795\t133\t85\t17\t96.630119\tAcquisition\n5\t1\t48\t1\t1\t2\t884\t133\t31\t17\t96.630119\tApp\n2\t1\t49\t0\t0\t0\t276\t163\t8\t9\t-1\t\n3\t1\t49\t1\t0\t0\t276\t163\t8\t9\t-1\t\n4\t1\t49\t1\t1\t0\t276\t163\t8\t9\t-1\t\n5\t1\t49\t1\t1\t1\t276\t163\t8\t9\t6.584206\tHH\n2\t1\t50\t0\t0\t0\t510\t167\t9\t7\t-1\t\n3\t1\t50\t1\t0\t0\t510\t167\t9\t7\t-1\t\n4\t1\t50\t1\t1\t0\t510\t167\t9\t7\t-1\t\n5\t1\t50\t1\t1\t1\t510\t167\t9\t7\t0.000000\tut\n2\t1\t51\t0\t0\t0\t510\t159\t9\t7\t-1\t\n3\t1\t51\t1\t0\t0\t510\t159\t9\t7\t-1\t\n4\t1\t51\t1\t1\t0\t510\t159\t9\t7\t-1\t\n5\t1\t51\t1\t1\t1\t510\t159\t9\t7\t15.167875\tut\n2\t1\t52\t0\t0\t0\t748\t167\t7\t5\t-1\t\n3\t1\t52\t1\t0\t0\t748\t167\t7\t5\t-1\t\n4\t1\t52\t1\t1\t0\t748\t167\t7\t5\t-1\t\n5\t1\t52\t1\t1\t1\t748\t167\t7\t5\t1.742115\t\n\n2\t1\t54\t0\t0\t0\t276\t176\t8\t9\t-1\t\n3\t1\t54\t1\t0\t0\t276\t176\t8\t9\t-1\t\n4\t1\t54\t1\t1\t0\t276\t176\t8\t9\t-1\t\n5\t1\t54\t1\t1\t1\t276\t176\t8\t9\t12.747784\tHH\n2\t1\t55\t0\t0\t0\t510\t176\t9\t7\t-1\t\n3\t1\t55\t1\t0\t0\t510\t176\t9\t7\t-1\t\n4\t1\t55\t1\t1\t0\t510\t176\t9\t7\t-1\t\n5\t1\t55\t1\t1\t1\t510\t176\t9\t7\t11.994696\ta\n2\t1\t56\t0\t0\t0\t748\t175\t7\t6\t-1\t\n3\t1\t56\t1\t0\t0\t748\t175\t7\t6\t-1\t\n4\t1\t56\t1\t1\t0\t748\t175\t7\t6\t-1\t\n5\t1\t56\t1\t1\t1\t748\t175\t7\t6\t21.778549\ti\n2\t1\t57\t0\t0\t0\t277\t193\t7\t9\t-1\t\n3\t1\t57\t1\t0\t0\t277\t193\t7\t9\t-1\t\n4\t1\t57\t1\t1\t0\t277\t193\t7\t9\t-1\t\n5\t1\t57\t1\t1\t1\t277\t193\t7\t9\t7.687807\tvy\n2\t1\t58\t0\t0\t0\t510\t201\t9\t7\t-1\t\n3\t1\t58\t1\t0\t0\t510\t201\t9\t7\t-1\t\n4\t1\t58\t1\t1\t0\t510\t201\t9\t7\t-1\t\n5\t1\t58\t1\t1\t1\t510\t201\t9\t7\t37.976288\tut\n2\t1\t59\t0\t0\t0\t510\t193\t9\t6\t-1\t\n3\t1\t59\t1\t0\t0\t510\t193\t9\t6\t-1\t\n4\t1\t59\t1\t1\t0\t510\t193\t9\t6\t-1\t\n5\t1\t59\t1\t1\t1\t510\t193\t9\t6\t42.163734\tTr\n2\t1\t60\t0\t0\t0\t748\t201\t7\t5\t-1\t\n3\t1\t60\t1\t0\t0\t748\t201\t7\t5\t-1\t\n4\t1\t60\t1\t1\t0\t748\t201\t7\t5\t-1\t\n5\t1\t60\t1\t1\t1\t748\t201\t7\t5\t0.000000\t\ntr\n\n2\t1\t63\t0\t0\t0\t510\t218\t9\t7\t-1\t\n3\t1\t63\t1\t0\t0\t510\t218\t9\t7\t-1\t\n4\t1\t63\t1\t1\t0\t510\t218\t9\t7\t-1\t\n5\t1\t63\t1\t1\t1\t510\t218\t9\t7\t28.137751\tut\n2\t1\t64\t0\t0\t0\t510\t210\t9\t6\t-1\t\n3\t1\t64\t1\t0\t0\t510\t210\t9\t6\t-1\t\n4\t1\t64\t1\t1\t0\t510\t210\t9\t6\t-1\t\n5\t1\t64\t1\t1\t1\t510\t210\t9\t6\t77.631470\ttt\n2\t1\t65\t0\t0\t0\t748\t226\t7\t5\t-1\t\n3\t1\t65\t1\t0\t0\t748\t226\t7\t5\t-1\t\n4\t1\t65\t1\t1\t0\t748\t226\t7\t5\t-1\t\n5\t1\t65\t1\t1\t1\t748\t226\t7\t5\t0.000000\t\n\n2\t1\t67\t0\t0\t0\t748\t209\t7\t6\t-1\t\n3\t1\t67\t1\t0\t0\t748\t209\t7\t6\t-1\t\n4\t1\t67\t1\t1\t0\t748\t209\t7\t6\t-1\t\n5\t1\t67\t1\t1\t1\t748\t209\t7\t6\t0.000000\ti\n2\t1\t68\t0\t0\t0\t277\t231\t7\t9\t-1\t\n3\t1\t68\t1\t0\t0\t277\t231\t7\t9\t-1\t\n4\t1\t68\t1\t1\t0\t277\t231\t7\t9\t-1\t\n5\t1\t68\t1\t1\t1\t277\t231\t7\t9\t33.923679\t\ntt\nHt\n\n2\t1\t72\t0\t0\t0\t76\t252\t413\t6\t-1\t\n3\t1\t72\t1\t0\t0\t76\t252\t413\t6\t-1\t\n4\t1\t72\t1\t1\t0\t76\t252\t413\t6\t-1\t\n5\t1\t72\t1\t1\t1\t76\t252\t58\t5\t0.000000\tL...---\n5\t1\t72\t1\t1\t2\t156\t256\t122\t1\t25.513416\too\n5\t1\t72\t1\t1\t3\t283\t252\t3\t5\t0.000000\t(oe--e\n5\t1\t72\t1\t1\t4\t332\t256\t38\t1\t0.000000\teee\n5\t1\t72\t1\t1\t5\t374\t256\t39\t1\t6.570024\teee\n5\t1\t72\t1\t1\t6\t416\t256\t39\t1\t27.294697\teee\n5\t1\t72\t1\t1\t7\t459\t256\t30\t1\t27.294697\teee\n2\t1\t73\t0\t0\t0\t546\t251\t431\t7\t-1\t\n3\t1\t73\t1\t0\t0\t546\t251\t431\t7\t-1\t\n4\t1\t73\t1\t1\t0\t546\t251\t431\t7\t-1\t\n5\t1\t73\t1\t1\t1\t546\t256\t47\t2\t16.445503\teee\n5\t1\t73\t1\t1\t2\t630\t256\t115\t2\t16.445503\teee\n5\t1\t73\t1\t1\t3\t748\t251\t170\t6\t13.211193\ta\n5\t1\t73\t1\t1\t4\t930\t256\t47\t2\t0.000000\tPs\n2\t1\t74\t0\t0\t0\t104\t305\t174\t2\t-1\t\n3\t1\t74\t1\t0\t0\t104\t305\t174\t2\t-1\t\n4\t1\t74\t1\t1\t0\t104\t305\t174\t2\t-1\t\n5\t1\t74\t1\t1\t1\t104\t305\t30\t2\t11.889610\t_\n2\t1\t75\t0\t0\t0\t277\t307\t7\t8\t-1\t\n3\t1\t75\t1\t0\t0\t277\t307\t7\t8\t-1\t\n4\t1\t75\t1\t1\t0\t277\t307\t7\t8\t-1\t\n5\t1\t75\t1\t1\t1\t277\t307\t7\t8\t6.805792\tt\n2\t1\t76\t0\t0\t0\t286\t306\t224\t1\t-1\t\n3\t1\t76\t1\t0\t0\t286\t306\t224\t1\t-1\t\n4\t1\t76\t1\t1\t0\t286\t306\t224\t1\t-1\t\n5\t1\t76\t1\t1\t1\t286\t306\t224\t1\t21.053757\tee\n2\t1\t77\t0\t0\t0\t512\t307\t8\t6\t-1\t\n3\t1\t77\t1\t0\t0\t512\t307\t8\t6\t-1\t\n4\t1\t77\t1\t1\t0\t512\t307\t8\t6\t-1\t\n5\t1\t77\t1\t1\t1\t512\t307\t8\t6\t19.773579\t+\n2\t1\t78\t0\t0\t0\t521\t304\t224\t2\t-1\t\n3\t1\t78\t1\t0\t0\t521\t304\t224\t2\t-1\t\n4\t1\t78\t1\t1\t0\t521\t304\t224\t2\t-1\t\n5\t1\t78\t1\t1\t1\t521\t304\t72\t2\t14.516306\t7\n5\t1\t78\t1\t1\t2\t687\t304\t58\t2\t28.422470\tae\n2\t1\t79\t0\t0\t0\t747\t307\t7\t5\t-1\t\n3\t1\t79\t1\t0\t0\t747\t307\t7\t5\t-1\t\n4\t1\t79\t1\t1\t0\t747\t307\t7\t5\t-1\t\n5\t1\t79\t1\t1\t1\t747\t307\t7\t5\t47.915977\t+\n2\t1\t80\t0\t0\t0\t756\t305\t224\t2\t-1\t\n3\t1\t80\t1\t0\t0\t756\t305\t224\t2\t-1\t\n4\t1\t80\t1\t1\t0\t756\t305\t224\t2\t-1\t\n5\t1\t80\t1\t1\t1\t908\t305\t71\t2\t41.892563\tex\n2\t1\t81\t0\t0\t0\t277\t324\t7\t8\t-1\t\n3\t1\t81\t1\t0\t0\t277\t324\t7\t8\t-1\t\n4\t1\t81\t1\t1\t0\t277\t324\t7\t8\t-1\t\n5\t1\t81\t1\t1\t1\t277\t324\t7\t8\t34.135399\tHi\n2\t1\t82\t0\t0\t0\t277\t316\t7\t8\t-1\t\n3\t1\t82\t1\t0\t0\t277\t316\t7\t8\t-1\t\n4\t1\t82\t1\t1\t0\t277\t316\t7\t8\t-1\t\n5\t1\t82\t1\t1\t1\t277\t316\t7\t8\t15.435772\tiH\n2\t1\t83\t0\t0\t0\t512\t324\t8\t6\t-1\t\n3\t1\t83\t1\t0\t0\t512\t324\t8\t6\t-1\t\n4\t1\t83\t1\t1\t0\t512\t324\t8\t6\t-1\t\n5\t1\t83\t1\t1\t1\t512\t324\t8\t6\t9.225721\tHH\n2\t1\t84\t0\t0\t0\t512\t315\t8\t6\t-1\t\n3\t1\t84\t1\t0\t0\t512\t315\t8\t6\t-1\t\n4\t1\t84\t1\t1\t0\t512\t315\t8\t6\t-1\t\n5\t1\t84\t1\t1\t1\t512\t315\t8\t6\t18.010979\tHH\n2\t1\t85\t0\t0\t0\t747\t324\t7\t5\t-1\t\n3\t1\t85\t1\t0\t0\t747\t324\t7\t5\t-1\t\n4\t1\t85\t1\t1\t0\t747\t324\t7\t5\t-1\t\n5\t1\t85\t1\t1\t1\t747\t324\t7\t5\t0.000000\tu\n2\t1\t86\t0\t0\t0\t747\t315\t7\t5\t-1\t\n3\t1\t86\t1\t0\t0\t747\t315\t7\t5\t-1\t\n4\t1\t86\t1\t1\t0\t747\t315\t7\t5\t-1\t\n5\t1\t86\t1\t1\t1\t747\t315\t7\t5\t15.920792\tHi\n2\t1\t87\t0\t0\t0\t277\t341\t7\t8\t-1\t\n3\t1\t87\t1\t0\t0\t277\t341\t7\t8\t-1\t\n4\t1\t87\t1\t1\t0\t277\t341\t7\t8\t-1\t\n5\t1\t87\t1\t1\t1\t277\t341\t7\t8\t27.122107\tHi\n2\t1\t88\t0\t0\t0\t277\t333\t7\t7\t-1\t\n3\t1\t88\t1\t0\t0\t277\t333\t7\t7\t-1\t\n4\t1\t88\t1\t1\t0\t277\t333\t7\t7\t-1\t\n5\t1\t88\t1\t1\t1\t277\t333\t7\t7\t40.043568\tHH\n2\t1\t89\t0\t0\t0\t512\t341\t8\t6\t-1\t\n3\t1\t89\t1\t0\t0\t512\t341\t8\t6\t-1\t\n4\t1\t89\t1\t1\t0\t512\t341\t8\t6\t-1\t\n5\t1\t89\t1\t1\t1\t512\t341\t8\t6\t27.529617\tHH\n2\t1\t90\t0\t0\t0\t512\t332\t8\t6\t-1\t\n3\t1\t90\t1\t0\t0\t512\t332\t8\t6\t-1\t\n4\t1\t90\t1\t1\t0\t512\t332\t8\t6\t-1\t\n5\t1\t90\t1\t1\t1\t512\t332\t8\t6\t34.973465\tHH\n2\t1\t91\t0\t0\t0\t747\t340\t7\t6\t-1\t\n3\t1\t91\t1\t0\t0\t747\t340\t7\t6\t-1\t\n4\t1\t91\t1\t1\t0\t747\t340\t7\t6\t-1\t\n5\t1\t91\t1\t1\t1\t747\t340\t7\t6\t0.000000\t\nHH\nHi\nHi\nu\nnh\n\n2\t1\t98\t0\t0\t0\t512\t375\t8\t5\t-1\t\n3\t1\t98\t1\t0\t0\t512\t375\t8\t5\t-1\t\n4\t1\t98\t1\t1\t0\t512\t375\t8\t5\t-1\t\n5\t1\t98\t1\t1\t1\t512\t375\t8\t5\t0.000000\t\n7m\nif\n\n2\t1\t102\t0\t0\t0\t512\t392\t8\t5\t-1\t\n3\t1\t102\t1\t0\t0\t512\t392\t8\t5\t-1\t\n4\t1\t102\t1\t1\t0\t512\t392\t8\t5\t-1\t\n5\t1\t102\t1\t1\t1\t512\t392\t8\t5\t14.081087\tit\n2\t1\t103\t0\t0\t0\t512\t383\t8\t6\t-1\t\n3\t1\t103\t1\t0\t0\t512\t383\t8\t6\t-1\t\n4\t1\t103\t1\t1\t0\t512\t383\t8\t6\t-1\t\n5\t1\t103\t1\t1\t1\t512\t383\t8\t6\t9.402828\tHH\n2\t1\t104\t0\t0\t0\t747\t391\t7\t6\t-1\t\n3\t1\t104\t1\t0\t0\t747\t391\t7\t6\t-1\t\n4\t1\t104\t1\t1\t0\t747\t391\t7\t6\t-1\t\n5\t1\t104\t1\t1\t1\t747\t391\t7\t6\t0.000000\t\n\n2\t1\t106\t0\t0\t0\t344\t395\t59\t14\t-1\t\n3\t1\t106\t1\t0\t0\t344\t395\t59\t14\t-1\t\n4\t1\t106\t1\t1\t0\t344\t395\t59\t14\t-1\t\n5\t1\t106\t1\t1\t1\t344\t395\t38\t14\t96.908775\tPoint\n5\t1\t106\t1\t1\t2\t388\t395\t15\t14\t94.885368\tof\n2\t1\t107\t0\t0\t0\t512\t408\t8\t6\t-1\t\n3\t1\t107\t1\t0\t0\t512\t408\t8\t6\t-1\t\n4\t1\t107\t1\t1\t0\t512\t408\t8\t6\t-1\t\n5\t1\t107\t1\t1\t1\t512\t408\t8\t6\t30.401802\tHH\n2\t1\t108\t0\t0\t0\t512\t400\t8\t6\t-1\t\n3\t1\t108\t1\t0\t0\t512\t400\t8\t6\t-1\t\n4\t1\t108\t1\t1\t0\t512\t400\t8\t6\t-1\t\n5\t1\t108\t1\t1\t1\t512\t400\t8\t6\t4.795742\tHH\n2\t1\t109\t0\t0\t0\t583\t395\t56\t14\t-1\t\n3\t1\t109\t1\t0\t0\t583\t395\t56\t14\t-1\t\n4\t1\t109\t1\t1\t0\t583\t395\t56\t14\t-1\t\n5\t1\t109\t1\t1\t1\t583\t395\t56\t14\t90.273155\tPointof\n2\t1\t110\t0\t0\t0\t747\t408\t7\t6\t-1\t\n3\t1\t110\t1\t0\t0\t747\t408\t7\t6\t-1\t\n4\t1\t110\t1\t1\t0\t747\t408\t7\t6\t-1\t\n5\t1\t110\t1\t1\t1\t747\t408\t7\t6\t29.471140\ti\n2\t1\t111\t0\t0\t0\t747\t400\t7\t5\t-1\t\n3\t1\t111\t1\t0\t0\t747\t400\t7\t5\t-1\t\n4\t1\t111\t1\t1\t0\t747\t400\t7\t5\t-1\t\n5\t1\t111\t1\t1\t1\t747\t400\t7\t5\t9.837685\t\n@ poinor @\nConsumptionApp\nHH\nHH\nConsumptionApp\n\n2\t1\t118\t0\t0\t0\t747\t416\t7\t6\t-1\t\n3\t1\t118\t1\t0\t0\t747\t416\t7\t6\t-1\t\n4\t1\t118\t1\t1\t0\t747\t416\t7\t6\t-1\t\n5\t1\t118\t1\t1\t1\t747\t416\t7\t6\t0.000000\t\nConsumptionApp\nHH\nHH\niH\niH\ntt\niH\nPoint ofTruth “On\ni\nF\noo\niH\nn\ni\niH\nPoint of Truth “Search |!\ntt\nUpdate Event”\ntt\ntt\nDirect Point of Truth\niH\nand Read”Service\ntt\nuh\nConsumption\ni\nH\nAccessUI\nu\n(no local storage,\nHH\n(local storage,\niH\ni\nBatch Consumption\n(search and read)\nnear-real time)\nHH\nnt\nnear-real time)\ni\nHf\n(local storage, batch)\nfe\nincnenannen\none eeeneeeeee\nWe eenee een cb penn nndden bbs ql\nLoeb boanplee\nLegend\n@ customer Data Acquired\n® costomer data storage\n@cisiomer data Distributed =P Customer Data Flow",
+          "words": [
+            {
+              "text": "7",
+              "confidence": 26.89414,
+              "bbox_pixels_xywh": [
+                757,
+                5,
+                5,
+                2
+              ]
+            },
+            {
+              "text": "\n2\t1\t3\t0\t0\t0\t748\t6\t7\t6\t-1\t\n3\t1\t3\t1\t0\t0\t748\t6\t7\t6\t-1\t\n4\t1\t3\t1\t1\t0\t748\t6\t7\t6\t-1\t\n5\t1\t3\t1\t1\t1\t748\t6\t7\t6\t42.011395\tve\n2\t1\t4\t0\t0\t0\t92\t15\t171\t14\t-1\t\n3\t1\t4\t1\t0\t0\t92\t15\t171\t14\t-1\t\n4\t1\t4\t1\t1\t0\t92\t15\t171\t14\t-1\t\n5\t1\t4\t1\t1\t1\t92\t15\t50\t14\t96.613274\tDirect\n5\t1\t4\t1\t1\t2\t148\t15\t44\t14\t96.613274\tPoint\n5\t1\t4\t1\t1\t3\t197\t15\t17\t14\t96.879280\tof\n5\t1\t4\t1\t1\t4\t219\t15\t44\t14\t96.825027\tTruth\n2\t1\t5\t0\t0\t0\t307\t15\t185\t14\t-1\t\n3\t1\t5\t1\t0\t0\t307\t15\t185\t14\t-1\t\n4\t1\t5\t1\t1\t0\t307\t15\t185\t14\t-1\t\n5\t1\t5\t1\t1\t1\t307\t15\t43\t14\t96.921555\tPoint\n5\t1\t5\t1\t1\t2\t356\t15\t17\t14\t96.596176\tof\n5\t1\t5\t1\t1\t3\t378\t15\t43\t14\t96.450333\tTruth\n5\t1\t5\t1\t1\t4\t428\t15\t64\t14\t96.446754\tService\n2\t1\t6\t0\t0\t0\t510\t26\t2\t4\t-1\t\n3\t1\t6\t1\t0\t0\t510\t26\t2\t4\t-1\t\n4\t1\t6\t1\t1\t0\t510\t26\t2\t4\t-1\t\n5\t1\t6\t1\t1\t1\t510\t26\t2\t4\t62.539307\tH\n2\t1\t7\t0\t0\t0\t577\t15\t115\t14\t-1\t\n3\t1\t7\t1\t0\t0\t577\t15\t115\t14\t-1\t\n4\t1\t7\t1\t1\t0\t577\t15\t115\t14\t-1\t\n5\t1\t7\t1\t1\t1\t577\t15\t43\t14\t96.911781\tPoint\n5\t1\t7\t1\t1\t2\t626\t15\t17\t14\t96.945930\tof\n5\t1\t7\t1\t1\t3\t648\t15\t44\t14\t96.824860\tTruth\n2\t1\t8\t0\t0\t0\t748\t23\t7\t6\t-1\t\n3\t1\t8\t1\t0\t0\t748\t23\t7\t6\t-1\t\n4\t1\t8\t1\t1\t0\t748\t23\t7\t6\t-1\t\n5\t1\t8\t1\t1\t1\t748\t23\t7\t6\t0.000000\t",
+              "confidence": 54.720425,
+              "bbox_pixels_xywh": [
+                748,
+                15,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "Batch",
+              "confidence": 96.594055,
+              "bbox_pixels_xywh": [
+                795,
+                15,
+                48,
+                14
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 96.521347,
+              "bbox_pixels_xywh": [
+                850,
+                15,
+                96,
+                17
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 96.62558,
+              "bbox_pixels_xywh": [
+                118,
+                37,
+                96,
+                17
+              ]
+            },
+            {
+              "text": "UI",
+              "confidence": 84.491257,
+              "bbox_pixels_xywh": [
+                221,
+                37,
+                16,
+                14
+              ]
+            },
+            {
+              "text": "u",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                276,
+                45,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "HH",
+              "confidence": 35.595631,
+              "bbox_pixels_xywh": [
+                276,
+                37,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "(no",
+              "confidence": 96.797691,
+              "bbox_pixels_xywh": [
+                332,
+                37,
+                24,
+                17
+              ]
+            },
+            {
+              "text": "local",
+              "confidence": 96.717964,
+              "bbox_pixels_xywh": [
+                363,
+                37,
+                35,
+                14
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 96.813194,
+              "bbox_pixels_xywh": [
+                405,
+                38,
+                62,
+                16
+              ]
+            },
+            {
+              "text": "|!",
+              "confidence": 51.866196,
+              "bbox_pixels_xywh": [
+                510,
+                32,
+                9,
+                22
+              ]
+            },
+            {
+              "text": "Synchronization",
+              "confidence": 95.514099,
+              "bbox_pixels_xywh": [
+                532,
+                36,
+                139,
+                18
+              ]
+            },
+            {
+              "text": "Service",
+              "confidence": 96.797974,
+              "bbox_pixels_xywh": [
+                677,
+                36,
+                64,
+                15
+              ]
+            },
+            {
+              "text": "|!",
+              "confidence": 62.098984,
+              "bbox_pixels_xywh": [
+                748,
+                40,
+                7,
+                14
+              ]
+            },
+            {
+              "text": "(local",
+              "confidence": 96.653313,
+              "bbox_pixels_xywh": [
+                788,
+                37,
+                41,
+                17
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 96.805466,
+              "bbox_pixels_xywh": [
+                836,
+                38,
+                62,
+                16
+              ]
+            },
+            {
+              "text": "batch)",
+              "confidence": 96.466988,
+              "bbox_pixels_xywh": [
+                905,
+                37,
+                48,
+                17
+              ]
+            },
+            {
+              "text": "HH",
+              "confidence": 35.379745,
+              "bbox_pixels_xywh": [
+                276,
+                66,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "near-real",
+              "confidence": 92.144104,
+              "bbox_pixels_xywh": [
+                340,
+                57,
+                69,
+                14
+              ]
+            },
+            {
+              "text": "time)",
+              "confidence": 96.887566,
+              "bbox_pixels_xywh": [
+                415,
+                57,
+                39,
+                17
+              ]
+            },
+            {
+              "text": "ut",
+              "confidence": 19.731264,
+              "bbox_pixels_xywh": [
+                510,
+                66,
+                9,
+                7
+              ]
+            },
+            {
+              "text": "ut",
+              "confidence": 26.782536,
+              "bbox_pixels_xywh": [
+                510,
+                58,
+                9,
+                6
+              ]
+            },
+            {
+              "text": "(local",
+              "confidence": 95.492546,
+              "bbox_pixels_xywh": [
+                581,
+                57,
+                41,
+                17
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 95.492546,
+              "bbox_pixels_xywh": [
+                628,
+                58,
+                63,
+                17
+              ]
+            },
+            {
+              "text": "\n2\t1\t22\t0\t0\t0\t510\t83\t9\t7\t-1\t\n3\t1\t22\t1\t0\t0\t510\t83\t9\t7\t-1\t\n4\t1\t22\t1\t1\t0\t510\t83\t9\t7\t-1\t\n5\t1\t22\t1\t1\t1\t510\t83\t9\t7\t1.769352\tut\n2\t1\t23\t0\t0\t0\t748\t82\t7\t6\t-1\t\n3\t1\t23\t1\t0\t0\t748\t82\t7\t6\t-1\t\n4\t1\t23\t1\t1\t0\t748\t82\t7\t6\t-1\t\n5\t1\t23\t1\t1\t1\t748\t82\t7\t6\t0.000000\t",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                748,
+                66,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "\n2\t1\t25\t0\t0\t0\t276\t87\t8\t9\t-1\t\n3\t1\t25\t1\t0\t0\t276\t87\t8\t9\t-1\t\n4\t1\t25\t1\t1\t0\t276\t87\t8\t9\t-1\t\n5\t1\t25\t1\t1\t1\t276\t87\t8\t9\t8.485794\tiH\n2\t1\t26\t0\t0\t0\t510\t100\t9\t6\t-1\t\n3\t1\t26\t1\t0\t0\t510\t100\t9\t6\t-1\t\n4\t1\t26\t1\t1\t0\t510\t100\t9\t6\t-1\t\n5\t1\t26\t1\t1\t1\t510\t100\t9\t6\t0.000000\t",
+              "confidence": 10.961952,
+              "bbox_pixels_xywh": [
+                748,
+                74,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "\n2\t1\t28\t0\t0\t0\t577\t79\t114\t17\t-1\t\n3\t1\t28\t1\t0\t0\t577\t79\t114\t17\t-1\t\n4\t1\t28\t1\t1\t0\t577\t79\t114\t17\t-1\t\n5\t1\t28\t1\t1\t1\t577\t79\t69\t14\t92.426140\tnear-real\n5\t1\t28\t1\t1\t2\t652\t79\t39\t17\t96.432541\ttime)\n2\t1\t29\t0\t0\t0\t748\t99\t7\t6\t-1\t\n3\t1\t29\t1\t0\t0\t748\t99\t7\t6\t-1\t\n4\t1\t29\t1\t1\t0\t748\t99\t7\t6\t-1\t\n5\t1\t29\t1\t1\t1\t748\t99\t7\t6\t0.000000\t",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                510,
+                91,
+                9,
+                7
+              ]
+            },
+            {
+              "text": "\n2\t1\t31\t0\t0\t0\t276\t117\t8\t9\t-1\t\n3\t1\t31\t1\t0\t0\t276\t117\t8\t9\t-1\t\n4\t1\t31\t1\t1\t0\t276\t117\t8\t9\t-1\t\n5\t1\t31\t1\t1\t1\t276\t117\t8\t9\t32.069252\ti\n2\t1\t32\t0\t0\t0\t276\t104\t8\t9\t-1\t\n3\t1\t32\t1\t0\t0\t276\t104\t8\t9\t-1\t\n4\t1\t32\t1\t1\t0\t276\t104\t8\t9\t-1\t\n5\t1\t32\t1\t1\t1\t276\t104\t8\t9\t23.154907\tHy\n2\t1\t33\t0\t0\t0\t344\t111\t59\t14\t-1\t\n3\t1\t33\t1\t0\t0\t344\t111\t59\t14\t-1\t\n4\t1\t33\t1\t1\t0\t344\t111\t59\t14\t-1\t\n5\t1\t33\t1\t1\t1\t344\t111\t38\t14\t96.911163\tPoint\n5\t1\t33\t1\t1\t2\t388\t111\t15\t14\t97.013947\tof\n2\t1\t34\t0\t0\t0\t510\t117\t9\t6\t-1\t\n3\t1\t34\t1\t0\t0\t510\t117\t9\t6\t-1\t\n4\t1\t34\t1\t1\t0\t510\t117\t9\t6\t-1\t\n5\t1\t34\t1\t1\t1\t510\t117\t9\t6\t12.990341\tut\n2\t1\t35\t0\t0\t0\t510\t108\t9\t7\t-1\t\n3\t1\t35\t1\t0\t0\t510\t108\t9\t7\t-1\t\n4\t1\t35\t1\t1\t0\t510\t108\t9\t7\t-1\t\n5\t1\t35\t1\t1\t1\t510\t108\t9\t7\t15.414696\tut\n2\t1\t36\t0\t0\t0\t748\t116\t7\t6\t-1\t\n3\t1\t36\t1\t0\t0\t748\t116\t7\t6\t-1\t\n4\t1\t36\t1\t1\t0\t748\t116\t7\t6\t-1\t\n5\t1\t36\t1\t1\t1\t748\t116\t7\t6\t0.000000\ti",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                748,
+                91,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "\n2\t1\t38\t0\t0\t0\t510\t134\t9\t6\t-1\t\n3\t1\t38\t1\t0\t0\t510\t134\t9\t6\t-1\t\n4\t1\t38\t1\t1\t0\t510\t134\t9\t6\t-1\t\n5\t1\t38\t1\t1\t1\t510\t134\t9\t6\t16.596518\ti\n2\t1\t39\t0\t0\t0\t510\t125\t9\t7\t-1\t\n3\t1\t39\t1\t0\t0\t510\t125\t9\t7\t-1\t\n4\t1\t39\t1\t1\t0\t510\t125\t9\t7\t-1\t\n5\t1\t39\t1\t1\t1\t510\t125\t9\t7\t5.592785\tut\n2\t1\t40\t0\t0\t0\t583\t102\t104\t28\t-1\t\n3\t1\t40\t1\t0\t0\t583\t102\t104\t28\t-1\t\n4\t1\t40\t1\t1\t0\t583\t102\t104\t28\t-1\t\n5\t1\t40\t1\t1\t1\t583\t111\t59\t14\t66.505760\tPointor\n5\t1\t40\t1\t1\t2\t662\t102\t25\t28\t69.557892\t@\n2\t1\t41\t0\t0\t0\t748\t133\t7\t6\t-1\t\n3\t1\t41\t1\t0\t0\t748\t133\t7\t6\t-1\t\n4\t1\t41\t1\t1\t0\t748\t133\t7\t6\t-1\t\n5\t1\t41\t1\t1\t1\t748\t133\t7\t6\t0.000000\ti\n2\t1\t42\t0\t0\t0\t748\t125\t7\t5\t-1\t\n3\t1\t42\t1\t0\t0\t748\t125\t7\t5\t-1\t\n4\t1\t42\t1\t1\t0\t748\t125\t7\t5\t-1\t\n5\t1\t42\t1\t1\t1\t748\t125\t7\t5\t0.000000\t",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                748,
+                108,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "Pointof",
+              "confidence": 92.247208,
+              "bbox_pixels_xywh": [
+                826,
+                107,
+                56,
+                28
+              ]
+            },
+            {
+              "text": "GB",
+              "confidence": 26.665621,
+              "bbox_pixels_xywh": [
+                904,
+                98,
+                29,
+                37
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 82.207428,
+              "bbox_pixels_xywh": [
+                312,
+                133,
+                86,
+                17
+              ]
+            },
+            {
+              "text": "App",
+              "confidence": 89.984863,
+              "bbox_pixels_xywh": [
+                402,
+                133,
+                31,
+                17
+              ]
+            },
+            {
+              "text": "ut",
+              "confidence": 24.557838,
+              "bbox_pixels_xywh": [
+                510,
+                142,
+                9,
+                7
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 84.032494,
+              "bbox_pixels_xywh": [
+                552,
+                133,
+                85,
+                17
+              ]
+            },
+            {
+              "text": "App",
+              "confidence": 95.53997,
+              "bbox_pixels_xywh": [
+                641,
+                133,
+                31,
+                17
+              ]
+            },
+            {
+              "text": "\n2\t1\t48\t0\t0\t0\t795\t133\t120\t17\t-1\t\n3\t1\t48\t1\t0\t0\t795\t133\t120\t17\t-1\t\n4\t1\t48\t1\t1\t0\t795\t133\t120\t17\t-1\t\n5\t1\t48\t1\t1\t1\t795\t133\t85\t17\t96.630119\tAcquisition\n5\t1\t48\t1\t1\t2\t884\t133\t31\t17\t96.630119\tApp\n2\t1\t49\t0\t0\t0\t276\t163\t8\t9\t-1\t\n3\t1\t49\t1\t0\t0\t276\t163\t8\t9\t-1\t\n4\t1\t49\t1\t1\t0\t276\t163\t8\t9\t-1\t\n5\t1\t49\t1\t1\t1\t276\t163\t8\t9\t6.584206\tHH\n2\t1\t50\t0\t0\t0\t510\t167\t9\t7\t-1\t\n3\t1\t50\t1\t0\t0\t510\t167\t9\t7\t-1\t\n4\t1\t50\t1\t1\t0\t510\t167\t9\t7\t-1\t\n5\t1\t50\t1\t1\t1\t510\t167\t9\t7\t0.000000\tut\n2\t1\t51\t0\t0\t0\t510\t159\t9\t7\t-1\t\n3\t1\t51\t1\t0\t0\t510\t159\t9\t7\t-1\t\n4\t1\t51\t1\t1\t0\t510\t159\t9\t7\t-1\t\n5\t1\t51\t1\t1\t1\t510\t159\t9\t7\t15.167875\tut\n2\t1\t52\t0\t0\t0\t748\t167\t7\t5\t-1\t\n3\t1\t52\t1\t0\t0\t748\t167\t7\t5\t-1\t\n4\t1\t52\t1\t1\t0\t748\t167\t7\t5\t-1\t\n5\t1\t52\t1\t1\t1\t748\t167\t7\t5\t1.742115\t",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                748,
+                142,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "\n2\t1\t54\t0\t0\t0\t276\t176\t8\t9\t-1\t\n3\t1\t54\t1\t0\t0\t276\t176\t8\t9\t-1\t\n4\t1\t54\t1\t1\t0\t276\t176\t8\t9\t-1\t\n5\t1\t54\t1\t1\t1\t276\t176\t8\t9\t12.747784\tHH\n2\t1\t55\t0\t0\t0\t510\t176\t9\t7\t-1\t\n3\t1\t55\t1\t0\t0\t510\t176\t9\t7\t-1\t\n4\t1\t55\t1\t1\t0\t510\t176\t9\t7\t-1\t\n5\t1\t55\t1\t1\t1\t510\t176\t9\t7\t11.994696\ta\n2\t1\t56\t0\t0\t0\t748\t175\t7\t6\t-1\t\n3\t1\t56\t1\t0\t0\t748\t175\t7\t6\t-1\t\n4\t1\t56\t1\t1\t0\t748\t175\t7\t6\t-1\t\n5\t1\t56\t1\t1\t1\t748\t175\t7\t6\t21.778549\ti\n2\t1\t57\t0\t0\t0\t277\t193\t7\t9\t-1\t\n3\t1\t57\t1\t0\t0\t277\t193\t7\t9\t-1\t\n4\t1\t57\t1\t1\t0\t277\t193\t7\t9\t-1\t\n5\t1\t57\t1\t1\t1\t277\t193\t7\t9\t7.687807\tvy\n2\t1\t58\t0\t0\t0\t510\t201\t9\t7\t-1\t\n3\t1\t58\t1\t0\t0\t510\t201\t9\t7\t-1\t\n4\t1\t58\t1\t1\t0\t510\t201\t9\t7\t-1\t\n5\t1\t58\t1\t1\t1\t510\t201\t9\t7\t37.976288\tut\n2\t1\t59\t0\t0\t0\t510\t193\t9\t6\t-1\t\n3\t1\t59\t1\t0\t0\t510\t193\t9\t6\t-1\t\n4\t1\t59\t1\t1\t0\t510\t193\t9\t6\t-1\t\n5\t1\t59\t1\t1\t1\t510\t193\t9\t6\t42.163734\tTr\n2\t1\t60\t0\t0\t0\t748\t201\t7\t5\t-1\t\n3\t1\t60\t1\t0\t0\t748\t201\t7\t5\t-1\t\n4\t1\t60\t1\t1\t0\t748\t201\t7\t5\t-1\t\n5\t1\t60\t1\t1\t1\t748\t201\t7\t5\t0.000000\t",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                748,
+                159,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "tr",
+              "confidence": 29.197334,
+              "bbox_pixels_xywh": [
+                748,
+                192,
+                7,
+                6
+              ]
+            },
+            {
+              "text": "\n2\t1\t63\t0\t0\t0\t510\t218\t9\t7\t-1\t\n3\t1\t63\t1\t0\t0\t510\t218\t9\t7\t-1\t\n4\t1\t63\t1\t1\t0\t510\t218\t9\t7\t-1\t\n5\t1\t63\t1\t1\t1\t510\t218\t9\t7\t28.137751\tut\n2\t1\t64\t0\t0\t0\t510\t210\t9\t6\t-1\t\n3\t1\t64\t1\t0\t0\t510\t210\t9\t6\t-1\t\n4\t1\t64\t1\t1\t0\t510\t210\t9\t6\t-1\t\n5\t1\t64\t1\t1\t1\t510\t210\t9\t6\t77.631470\ttt\n2\t1\t65\t0\t0\t0\t748\t226\t7\t5\t-1\t\n3\t1\t65\t1\t0\t0\t748\t226\t7\t5\t-1\t\n4\t1\t65\t1\t1\t0\t748\t226\t7\t5\t-1\t\n5\t1\t65\t1\t1\t1\t748\t226\t7\t5\t0.000000\t",
+              "confidence": 39.625965,
+              "bbox_pixels_xywh": [
+                277,
+                210,
+                7,
+                9
+              ]
+            },
+            {
+              "text": "\n2\t1\t67\t0\t0\t0\t748\t209\t7\t6\t-1\t\n3\t1\t67\t1\t0\t0\t748\t209\t7\t6\t-1\t\n4\t1\t67\t1\t1\t0\t748\t209\t7\t6\t-1\t\n5\t1\t67\t1\t1\t1\t748\t209\t7\t6\t0.000000\ti\n2\t1\t68\t0\t0\t0\t277\t231\t7\t9\t-1\t\n3\t1\t68\t1\t0\t0\t277\t231\t7\t9\t-1\t\n4\t1\t68\t1\t1\t0\t277\t231\t7\t9\t-1\t\n5\t1\t68\t1\t1\t1\t277\t231\t7\t9\t33.923679\t",
+              "confidence": 16.884775,
+              "bbox_pixels_xywh": [
+                748,
+                218,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "tt",
+              "confidence": 78.79026,
+              "bbox_pixels_xywh": [
+                510,
+                227,
+                9,
+                6
+              ]
+            },
+            {
+              "text": "Ht",
+              "confidence": 15.361128,
+              "bbox_pixels_xywh": [
+                748,
+                243,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "\n2\t1\t72\t0\t0\t0\t76\t252\t413\t6\t-1\t\n3\t1\t72\t1\t0\t0\t76\t252\t413\t6\t-1\t\n4\t1\t72\t1\t1\t0\t76\t252\t413\t6\t-1\t\n5\t1\t72\t1\t1\t1\t76\t252\t58\t5\t0.000000\tL...---\n5\t1\t72\t1\t1\t2\t156\t256\t122\t1\t25.513416\too\n5\t1\t72\t1\t1\t3\t283\t252\t3\t5\t0.000000\t(oe--e\n5\t1\t72\t1\t1\t4\t332\t256\t38\t1\t0.000000\teee\n5\t1\t72\t1\t1\t5\t374\t256\t39\t1\t6.570024\teee\n5\t1\t72\t1\t1\t6\t416\t256\t39\t1\t27.294697\teee\n5\t1\t72\t1\t1\t7\t459\t256\t30\t1\t27.294697\teee\n2\t1\t73\t0\t0\t0\t546\t251\t431\t7\t-1\t\n3\t1\t73\t1\t0\t0\t546\t251\t431\t7\t-1\t\n4\t1\t73\t1\t1\t0\t546\t251\t431\t7\t-1\t\n5\t1\t73\t1\t1\t1\t546\t256\t47\t2\t16.445503\teee\n5\t1\t73\t1\t1\t2\t630\t256\t115\t2\t16.445503\teee\n5\t1\t73\t1\t1\t3\t748\t251\t170\t6\t13.211193\ta\n5\t1\t73\t1\t1\t4\t930\t256\t47\t2\t0.000000\tPs\n2\t1\t74\t0\t0\t0\t104\t305\t174\t2\t-1\t\n3\t1\t74\t1\t0\t0\t104\t305\t174\t2\t-1\t\n4\t1\t74\t1\t1\t0\t104\t305\t174\t2\t-1\t\n5\t1\t74\t1\t1\t1\t104\t305\t30\t2\t11.889610\t_\n2\t1\t75\t0\t0\t0\t277\t307\t7\t8\t-1\t\n3\t1\t75\t1\t0\t0\t277\t307\t7\t8\t-1\t\n4\t1\t75\t1\t1\t0\t277\t307\t7\t8\t-1\t\n5\t1\t75\t1\t1\t1\t277\t307\t7\t8\t6.805792\tt\n2\t1\t76\t0\t0\t0\t286\t306\t224\t1\t-1\t\n3\t1\t76\t1\t0\t0\t286\t306\t224\t1\t-1\t\n4\t1\t76\t1\t1\t0\t286\t306\t224\t1\t-1\t\n5\t1\t76\t1\t1\t1\t286\t306\t224\t1\t21.053757\tee\n2\t1\t77\t0\t0\t0\t512\t307\t8\t6\t-1\t\n3\t1\t77\t1\t0\t0\t512\t307\t8\t6\t-1\t\n4\t1\t77\t1\t1\t0\t512\t307\t8\t6\t-1\t\n5\t1\t77\t1\t1\t1\t512\t307\t8\t6\t19.773579\t+\n2\t1\t78\t0\t0\t0\t521\t304\t224\t2\t-1\t\n3\t1\t78\t1\t0\t0\t521\t304\t224\t2\t-1\t\n4\t1\t78\t1\t1\t0\t521\t304\t224\t2\t-1\t\n5\t1\t78\t1\t1\t1\t521\t304\t72\t2\t14.516306\t7\n5\t1\t78\t1\t1\t2\t687\t304\t58\t2\t28.422470\tae\n2\t1\t79\t0\t0\t0\t747\t307\t7\t5\t-1\t\n3\t1\t79\t1\t0\t0\t747\t307\t7\t5\t-1\t\n4\t1\t79\t1\t1\t0\t747\t307\t7\t5\t-1\t\n5\t1\t79\t1\t1\t1\t747\t307\t7\t5\t47.915977\t+\n2\t1\t80\t0\t0\t0\t756\t305\t224\t2\t-1\t\n3\t1\t80\t1\t0\t0\t756\t305\t224\t2\t-1\t\n4\t1\t80\t1\t1\t0\t756\t305\t224\t2\t-1\t\n5\t1\t80\t1\t1\t1\t908\t305\t71\t2\t41.892563\tex\n2\t1\t81\t0\t0\t0\t277\t324\t7\t8\t-1\t\n3\t1\t81\t1\t0\t0\t277\t324\t7\t8\t-1\t\n4\t1\t81\t1\t1\t0\t277\t324\t7\t8\t-1\t\n5\t1\t81\t1\t1\t1\t277\t324\t7\t8\t34.135399\tHi\n2\t1\t82\t0\t0\t0\t277\t316\t7\t8\t-1\t\n3\t1\t82\t1\t0\t0\t277\t316\t7\t8\t-1\t\n4\t1\t82\t1\t1\t0\t277\t316\t7\t8\t-1\t\n5\t1\t82\t1\t1\t1\t277\t316\t7\t8\t15.435772\tiH\n2\t1\t83\t0\t0\t0\t512\t324\t8\t6\t-1\t\n3\t1\t83\t1\t0\t0\t512\t324\t8\t6\t-1\t\n4\t1\t83\t1\t1\t0\t512\t324\t8\t6\t-1\t\n5\t1\t83\t1\t1\t1\t512\t324\t8\t6\t9.225721\tHH\n2\t1\t84\t0\t0\t0\t512\t315\t8\t6\t-1\t\n3\t1\t84\t1\t0\t0\t512\t315\t8\t6\t-1\t\n4\t1\t84\t1\t1\t0\t512\t315\t8\t6\t-1\t\n5\t1\t84\t1\t1\t1\t512\t315\t8\t6\t18.010979\tHH\n2\t1\t85\t0\t0\t0\t747\t324\t7\t5\t-1\t\n3\t1\t85\t1\t0\t0\t747\t324\t7\t5\t-1\t\n4\t1\t85\t1\t1\t0\t747\t324\t7\t5\t-1\t\n5\t1\t85\t1\t1\t1\t747\t324\t7\t5\t0.000000\tu\n2\t1\t86\t0\t0\t0\t747\t315\t7\t5\t-1\t\n3\t1\t86\t1\t0\t0\t747\t315\t7\t5\t-1\t\n4\t1\t86\t1\t1\t0\t747\t315\t7\t5\t-1\t\n5\t1\t86\t1\t1\t1\t747\t315\t7\t5\t15.920792\tHi\n2\t1\t87\t0\t0\t0\t277\t341\t7\t8\t-1\t\n3\t1\t87\t1\t0\t0\t277\t341\t7\t8\t-1\t\n4\t1\t87\t1\t1\t0\t277\t341\t7\t8\t-1\t\n5\t1\t87\t1\t1\t1\t277\t341\t7\t8\t27.122107\tHi\n2\t1\t88\t0\t0\t0\t277\t333\t7\t7\t-1\t\n3\t1\t88\t1\t0\t0\t277\t333\t7\t7\t-1\t\n4\t1\t88\t1\t1\t0\t277\t333\t7\t7\t-1\t\n5\t1\t88\t1\t1\t1\t277\t333\t7\t7\t40.043568\tHH\n2\t1\t89\t0\t0\t0\t512\t341\t8\t6\t-1\t\n3\t1\t89\t1\t0\t0\t512\t341\t8\t6\t-1\t\n4\t1\t89\t1\t1\t0\t512\t341\t8\t6\t-1\t\n5\t1\t89\t1\t1\t1\t512\t341\t8\t6\t27.529617\tHH\n2\t1\t90\t0\t0\t0\t512\t332\t8\t6\t-1\t\n3\t1\t90\t1\t0\t0\t512\t332\t8\t6\t-1\t\n4\t1\t90\t1\t1\t0\t512\t332\t8\t6\t-1\t\n5\t1\t90\t1\t1\t1\t512\t332\t8\t6\t34.973465\tHH\n2\t1\t91\t0\t0\t0\t747\t340\t7\t6\t-1\t\n3\t1\t91\t1\t0\t0\t747\t340\t7\t6\t-1\t\n4\t1\t91\t1\t1\t0\t747\t340\t7\t6\t-1\t\n5\t1\t91\t1\t1\t1\t747\t340\t7\t6\t0.000000\t",
+              "confidence": 14.556017,
+              "bbox_pixels_xywh": [
+                748,
+                235,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "HH",
+              "confidence": 41.534531,
+              "bbox_pixels_xywh": [
+                747,
+                332,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "Hi",
+              "confidence": 22.852659,
+              "bbox_pixels_xywh": [
+                277,
+                349,
+                7,
+                8
+              ]
+            },
+            {
+              "text": "Hi",
+              "confidence": 17.756844,
+              "bbox_pixels_xywh": [
+                512,
+                349,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "u",
+              "confidence": 4.340496,
+              "bbox_pixels_xywh": [
+                747,
+                349,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "nh",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                276,
+                375,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "\n2\t1\t98\t0\t0\t0\t512\t375\t8\t5\t-1\t\n3\t1\t98\t1\t0\t0\t512\t375\t8\t5\t-1\t\n4\t1\t98\t1\t1\t0\t512\t375\t8\t5\t-1\t\n5\t1\t98\t1\t1\t1\t512\t375\t8\t5\t0.000000\t",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                276,
+                366,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "7m",
+              "confidence": 24.268917,
+              "bbox_pixels_xywh": [
+                512,
+                366,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "if",
+              "confidence": 28.528763,
+              "bbox_pixels_xywh": [
+                747,
+                374,
+                7,
+                6
+              ]
+            },
+            {
+              "text": "\n2\t1\t102\t0\t0\t0\t512\t392\t8\t5\t-1\t\n3\t1\t102\t1\t0\t0\t512\t392\t8\t5\t-1\t\n4\t1\t102\t1\t1\t0\t512\t392\t8\t5\t-1\t\n5\t1\t102\t1\t1\t1\t512\t392\t8\t5\t14.081087\tit\n2\t1\t103\t0\t0\t0\t512\t383\t8\t6\t-1\t\n3\t1\t103\t1\t0\t0\t512\t383\t8\t6\t-1\t\n4\t1\t103\t1\t1\t0\t512\t383\t8\t6\t-1\t\n5\t1\t103\t1\t1\t1\t512\t383\t8\t6\t9.402828\tHH\n2\t1\t104\t0\t0\t0\t747\t391\t7\t6\t-1\t\n3\t1\t104\t1\t0\t0\t747\t391\t7\t6\t-1\t\n4\t1\t104\t1\t1\t0\t747\t391\t7\t6\t-1\t\n5\t1\t104\t1\t1\t1\t747\t391\t7\t6\t0.000000\t",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                747,
+                366,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "\n2\t1\t106\t0\t0\t0\t344\t395\t59\t14\t-1\t\n3\t1\t106\t1\t0\t0\t344\t395\t59\t14\t-1\t\n4\t1\t106\t1\t1\t0\t344\t395\t59\t14\t-1\t\n5\t1\t106\t1\t1\t1\t344\t395\t38\t14\t96.908775\tPoint\n5\t1\t106\t1\t1\t2\t388\t395\t15\t14\t94.885368\tof\n2\t1\t107\t0\t0\t0\t512\t408\t8\t6\t-1\t\n3\t1\t107\t1\t0\t0\t512\t408\t8\t6\t-1\t\n4\t1\t107\t1\t1\t0\t512\t408\t8\t6\t-1\t\n5\t1\t107\t1\t1\t1\t512\t408\t8\t6\t30.401802\tHH\n2\t1\t108\t0\t0\t0\t512\t400\t8\t6\t-1\t\n3\t1\t108\t1\t0\t0\t512\t400\t8\t6\t-1\t\n4\t1\t108\t1\t1\t0\t512\t400\t8\t6\t-1\t\n5\t1\t108\t1\t1\t1\t512\t400\t8\t6\t4.795742\tHH\n2\t1\t109\t0\t0\t0\t583\t395\t56\t14\t-1\t\n3\t1\t109\t1\t0\t0\t583\t395\t56\t14\t-1\t\n4\t1\t109\t1\t1\t0\t583\t395\t56\t14\t-1\t\n5\t1\t109\t1\t1\t1\t583\t395\t56\t14\t90.273155\tPointof\n2\t1\t110\t0\t0\t0\t747\t408\t7\t6\t-1\t\n3\t1\t110\t1\t0\t0\t747\t408\t7\t6\t-1\t\n4\t1\t110\t1\t1\t0\t747\t408\t7\t6\t-1\t\n5\t1\t110\t1\t1\t1\t747\t408\t7\t6\t29.471140\ti\n2\t1\t111\t0\t0\t0\t747\t400\t7\t5\t-1\t\n3\t1\t111\t1\t0\t0\t747\t400\t7\t5\t-1\t\n4\t1\t111\t1\t1\t0\t747\t400\t7\t5\t-1\t\n5\t1\t111\t1\t1\t1\t747\t400\t7\t5\t9.837685\t",
+              "confidence": 0.561104,
+              "bbox_pixels_xywh": [
+                747,
+                383,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "@",
+              "confidence": 91.517349,
+              "bbox_pixels_xywh": [
+                774,
+                387,
+                27,
+                27
+              ]
+            },
+            {
+              "text": "poinor",
+              "confidence": 59.139801,
+              "bbox_pixels_xywh": [
+                826,
+                395,
+                56,
+                14
+              ]
+            },
+            {
+              "text": "@",
+              "confidence": 60.474407,
+              "bbox_pixels_xywh": [
+                908,
+                386,
+                25,
+                29
+              ]
+            },
+            {
+              "text": "ConsumptionApp",
+              "confidence": 91.688316,
+              "bbox_pixels_xywh": [
+                303,
+                417,
+                138,
+                17
+              ]
+            },
+            {
+              "text": "HH",
+              "confidence": 18.572388,
+              "bbox_pixels_xywh": [
+                512,
+                425,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "HH",
+              "confidence": 29.512157,
+              "bbox_pixels_xywh": [
+                512,
+                417,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "ConsumptionApp",
+              "confidence": 91.442055,
+              "bbox_pixels_xywh": [
+                542,
+                417,
+                138,
+                17
+              ]
+            },
+            {
+              "text": "\n2\t1\t118\t0\t0\t0\t747\t416\t7\t6\t-1\t\n3\t1\t118\t1\t0\t0\t747\t416\t7\t6\t-1\t\n4\t1\t118\t1\t1\t0\t747\t416\t7\t6\t-1\t\n5\t1\t118\t1\t1\t1\t747\t416\t7\t6\t0.000000\t",
+              "confidence": 7.179909,
+              "bbox_pixels_xywh": [
+                747,
+                425,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "ConsumptionApp",
+              "confidence": 91.191971,
+              "bbox_pixels_xywh": [
+                785,
+                417,
+                138,
+                17
+              ]
+            },
+            {
+              "text": "HH",
+              "confidence": 19.002419,
+              "bbox_pixels_xywh": [
+                512,
+                442,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "HH",
+              "confidence": 31.331383,
+              "bbox_pixels_xywh": [
+                512,
+                434,
+                8,
+                5
+              ]
+            },
+            {
+              "text": "iH",
+              "confidence": 8.364697,
+              "bbox_pixels_xywh": [
+                276,
+                459,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "iH",
+              "confidence": 14.594822,
+              "bbox_pixels_xywh": [
+                276,
+                451,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "tt",
+              "confidence": 33.053009,
+              "bbox_pixels_xywh": [
+                512,
+                459,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "iH",
+              "confidence": 21.898502,
+              "bbox_pixels_xywh": [
+                512,
+                451,
+                8,
+                5
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 93.282883,
+              "bbox_pixels_xywh": [
+                558,
+                448,
+                43,
+                15
+              ]
+            },
+            {
+              "text": "ofTruth",
+              "confidence": 89.86615,
+              "bbox_pixels_xywh": [
+                607,
+                448,
+                62,
+                15
+              ]
+            },
+            {
+              "text": "“On",
+              "confidence": 96.272865,
+              "bbox_pixels_xywh": [
+                676,
+                448,
+                32,
+                15
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 33.055149,
+              "bbox_pixels_xywh": [
+                747,
+                459,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "F",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                747,
+                442,
+                7,
+                14
+              ]
+            },
+            {
+              "text": "oo",
+              "confidence": 39.67955,
+              "bbox_pixels_xywh": [
+                25,
+                461,
+                33,
+                9
+              ]
+            },
+            {
+              "text": "iH",
+              "confidence": 9.547462,
+              "bbox_pixels_xywh": [
+                276,
+                476,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "n",
+              "confidence": 9.434395,
+              "bbox_pixels_xywh": [
+                746,
+                467,
+                8,
+                5
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 37.433678,
+              "bbox_pixels_xywh": [
+                747,
+                476,
+                7,
+                6
+              ]
+            },
+            {
+              "text": "iH",
+              "confidence": 7.638559,
+              "bbox_pixels_xywh": [
+                276,
+                493,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 96.925537,
+              "bbox_pixels_xywh": [
+                304,
+                470,
+                44,
+                14
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.855484,
+              "bbox_pixels_xywh": [
+                353,
+                470,
+                17,
+                14
+              ]
+            },
+            {
+              "text": "Truth",
+              "confidence": 96.469093,
+              "bbox_pixels_xywh": [
+                375,
+                470,
+                44,
+                14
+              ]
+            },
+            {
+              "text": "“Search",
+              "confidence": 88.309052,
+              "bbox_pixels_xywh": [
+                426,
+                470,
+                68,
+                14
+              ]
+            },
+            {
+              "text": "|!",
+              "confidence": 73.40184,
+              "bbox_pixels_xywh": [
+                512,
+                468,
+                8,
+                22
+              ]
+            },
+            {
+              "text": "tt",
+              "confidence": 29.207144,
+              "bbox_pixels_xywh": [
+                512,
+                493,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "Update",
+              "confidence": 96.694687,
+              "bbox_pixels_xywh": [
+                574,
+                470,
+                59,
+                18
+              ]
+            },
+            {
+              "text": "Event”",
+              "confidence": 95.224129,
+              "bbox_pixels_xywh": [
+                640,
+                470,
+                55,
+                14
+              ]
+            },
+            {
+              "text": "tt",
+              "confidence": 58.532101,
+              "bbox_pixels_xywh": [
+                746,
+                492,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "tt",
+              "confidence": 31.283916,
+              "bbox_pixels_xywh": [
+                747,
+                484,
+                7,
+                6
+              ]
+            },
+            {
+              "text": "Direct",
+              "confidence": 96.971748,
+              "bbox_pixels_xywh": [
+                91,
+                491,
+                50,
+                14
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 96.893311,
+              "bbox_pixels_xywh": [
+                148,
+                491,
+                43,
+                14
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.996315,
+              "bbox_pixels_xywh": [
+                197,
+                491,
+                17,
+                14
+              ]
+            },
+            {
+              "text": "Truth",
+              "confidence": 96.906998,
+              "bbox_pixels_xywh": [
+                219,
+                491,
+                44,
+                14
+              ]
+            },
+            {
+              "text": "iH",
+              "confidence": 7.06214,
+              "bbox_pixels_xywh": [
+                276,
+                510,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 93.139709,
+              "bbox_pixels_xywh": [
+                320,
+                491,
+                31,
+                14
+              ]
+            },
+            {
+              "text": "Read”Service",
+              "confidence": 82.560982,
+              "bbox_pixels_xywh": [
+                358,
+                491,
+                118,
+                14
+              ]
+            },
+            {
+              "text": "tt",
+              "confidence": 60.356041,
+              "bbox_pixels_xywh": [
+                512,
+                510,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "uh",
+              "confidence": 37.892883,
+              "bbox_pixels_xywh": [
+                512,
+                501,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "Consumption",
+              "confidence": 96.601295,
+              "bbox_pixels_xywh": [
+                577,
+                490,
+                115,
+                18
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 17.627954,
+              "bbox_pixels_xywh": [
+                746,
+                501,
+                8,
+                5
+              ]
+            },
+            {
+              "text": "H",
+              "confidence": 68.559021,
+              "bbox_pixels_xywh": [
+                753,
+                510,
+                1,
+                5
+              ]
+            },
+            {
+              "text": "AccessUI",
+              "confidence": 60.049137,
+              "bbox_pixels_xywh": [
+                135,
+                513,
+                82,
+                14
+              ]
+            },
+            {
+              "text": "u",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                276,
+                518,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "(no",
+              "confidence": 87.879738,
+              "bbox_pixels_xywh": [
+                332,
+                512,
+                24,
+                17
+              ]
+            },
+            {
+              "text": "local",
+              "confidence": 87.879738,
+              "bbox_pixels_xywh": [
+                361,
+                512,
+                35,
+                14
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 96.825874,
+              "bbox_pixels_xywh": [
+                402,
+                513,
+                63,
+                16
+              ]
+            },
+            {
+              "text": "HH",
+              "confidence": 47.283035,
+              "bbox_pixels_xywh": [
+                512,
+                518,
+                8,
+                14
+              ]
+            },
+            {
+              "text": "(local",
+              "confidence": 95.856232,
+              "bbox_pixels_xywh": [
+                581,
+                512,
+                41,
+                18
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 96.441322,
+              "bbox_pixels_xywh": [
+                626,
+                514,
+                61,
+                16
+              ]
+            },
+            {
+              "text": "iH",
+              "confidence": 36.799492,
+              "bbox_pixels_xywh": [
+                746,
+                518,
+                8,
+                5
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 23.898216,
+              "bbox_pixels_xywh": [
+                747,
+                526,
+                2,
+                5
+              ]
+            },
+            {
+              "text": "Batch",
+              "confidence": 96.809486,
+              "bbox_pixels_xywh": [
+                785,
+                512,
+                48,
+                14
+              ]
+            },
+            {
+              "text": "Consumption",
+              "confidence": 96.626999,
+              "bbox_pixels_xywh": [
+                840,
+                512,
+                115,
+                18
+              ]
+            },
+            {
+              "text": "(search",
+              "confidence": 94.770981,
+              "bbox_pixels_xywh": [
+                108,
+                533,
+                58,
+                17
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 94.770981,
+              "bbox_pixels_xywh": [
+                170,
+                533,
+                29,
+                14
+              ]
+            },
+            {
+              "text": "read)",
+              "confidence": 96.727455,
+              "bbox_pixels_xywh": [
+                205,
+                533,
+                40,
+                17
+              ]
+            },
+            {
+              "text": "near-real",
+              "confidence": 91.622345,
+              "bbox_pixels_xywh": [
+                341,
+                534,
+                69,
+                14
+              ]
+            },
+            {
+              "text": "time)",
+              "confidence": 96.847221,
+              "bbox_pixels_xywh": [
+                416,
+                534,
+                38,
+                17
+              ]
+            },
+            {
+              "text": "HH",
+              "confidence": 37.28828,
+              "bbox_pixels_xywh": [
+                512,
+                544,
+                8,
+                5
+              ]
+            },
+            {
+              "text": "nt",
+              "confidence": 30.761513,
+              "bbox_pixels_xywh": [
+                512,
+                535,
+                8,
+                6
+              ]
+            },
+            {
+              "text": "near-real",
+              "confidence": 92.35067,
+              "bbox_pixels_xywh": [
+                577,
+                534,
+                69,
+                14
+              ]
+            },
+            {
+              "text": "time)",
+              "confidence": 96.856514,
+              "bbox_pixels_xywh": [
+                652,
+                534,
+                37,
+                17
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 44.08213,
+              "bbox_pixels_xywh": [
+                747,
+                543,
+                7,
+                6
+              ]
+            },
+            {
+              "text": "Hf",
+              "confidence": 35.392067,
+              "bbox_pixels_xywh": [
+                747,
+                535,
+                7,
+                5
+              ]
+            },
+            {
+              "text": "(local",
+              "confidence": 94.204071,
+              "bbox_pixels_xywh": [
+                788,
+                534,
+                41,
+                17
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 94.204071,
+              "bbox_pixels_xywh": [
+                833,
+                535,
+                61,
+                16
+              ]
+            },
+            {
+              "text": "batch)",
+              "confidence": 96.274178,
+              "bbox_pixels_xywh": [
+                902,
+                534,
+                47,
+                17
+              ]
+            },
+            {
+              "text": "fe",
+              "confidence": 22.896999,
+              "bbox_pixels_xywh": [
+                75,
+                552,
+                10,
+                6
+              ]
+            },
+            {
+              "text": "incnenannen",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                105,
+                556,
+                148,
+                2
+              ]
+            },
+            {
+              "text": "one",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                309,
+                556,
+                38,
+                2
+              ]
+            },
+            {
+              "text": "eeeneeeeee",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                351,
+                556,
+                157,
+                2
+              ]
+            },
+            {
+              "text": "We",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                511,
+                552,
+                14,
+                6
+              ]
+            },
+            {
+              "text": "eenee",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                537,
+                556,
+                38,
+                2
+              ]
+            },
+            {
+              "text": "een",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                579,
+                556,
+                22,
+                2
+              ]
+            },
+            {
+              "text": "cb",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                612,
+                556,
+                12,
+                2
+              ]
+            },
+            {
+              "text": "penn",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                629,
+                556,
+                31,
+                2
+              ]
+            },
+            {
+              "text": "nndden",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                663,
+                556,
+                47,
+                2
+              ]
+            },
+            {
+              "text": "bbs",
+              "confidence": 25.203438,
+              "bbox_pixels_xywh": [
+                719,
+                556,
+                25,
+                2
+              ]
+            },
+            {
+              "text": "ql",
+              "confidence": 14.20435,
+              "bbox_pixels_xywh": [
+                747,
+                552,
+                1,
+                5
+              ]
+            },
+            {
+              "text": "Loeb",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                756,
+                556,
+                30,
+                2
+              ]
+            },
+            {
+              "text": "boanplee",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                789,
+                556,
+                73,
+                2
+              ]
+            },
+            {
+              "text": "Legend",
+              "confidence": 96.556229,
+              "bbox_pixels_xywh": [
+                600,
+                593,
+                49,
+                14
+              ]
+            },
+            {
+              "text": "@",
+              "confidence": 85.308472,
+              "bbox_pixels_xywh": [
+                597,
+                615,
+                25,
+                25
+              ]
+            },
+            {
+              "text": "customer",
+              "confidence": 67.111176,
+              "bbox_pixels_xywh": [
+                625,
+                622,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 66.025551,
+              "bbox_pixels_xywh": [
+                686,
+                622,
+                27,
+                11
+              ]
+            },
+            {
+              "text": "Acquired",
+              "confidence": 36.038963,
+              "bbox_pixels_xywh": [
+                718,
+                622,
+                51,
+                13
+              ]
+            },
+            {
+              "text": "®",
+              "confidence": 70.178299,
+              "bbox_pixels_xywh": [
+                803,
+                614,
+                25,
+                28
+              ]
+            },
+            {
+              "text": "costomer",
+              "confidence": 12.231102,
+              "bbox_pixels_xywh": [
+                836,
+                622,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 94.158096,
+              "bbox_pixels_xywh": [
+                898,
+                622,
+                26,
+                11
+              ]
+            },
+            {
+              "text": "storage",
+              "confidence": 93.499367,
+              "bbox_pixels_xywh": [
+                929,
+                622,
+                45,
+                13
+              ]
+            },
+            {
+              "text": "@cisiomer",
+              "confidence": 41.762104,
+              "bbox_pixels_xywh": [
+                597,
+                648,
+                85,
+                25
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 77.60054,
+              "bbox_pixels_xywh": [
+                686,
+                656,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "Distributed",
+              "confidence": 56.140739,
+              "bbox_pixels_xywh": [
+                718,
+                656,
+                62,
+                10
+              ]
+            },
+            {
+              "text": "=P",
+              "confidence": 25.687176,
+              "bbox_pixels_xywh": [
+                802,
+                654,
+                29,
+                14
+              ]
+            },
+            {
+              "text": "Customer",
+              "confidence": 95.700096,
+              "bbox_pixels_xywh": [
+                836,
+                656,
+                57,
+                10
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.376793,
+              "bbox_pixels_xywh": [
+                898,
+                656,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "Flow",
+              "confidence": 96.575607,
+              "bbox_pixels_xywh": [
+                929,
+                656,
+                27,
+                10
+              ]
+            }
+          ],
+          "mean_word_confidence": 53.64,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

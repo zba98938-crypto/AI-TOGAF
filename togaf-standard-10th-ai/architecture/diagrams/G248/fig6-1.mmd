@@ -1,0 +1,47 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Enterprise"]
+  n1["Segment"]
+  n2["Capability"]
+  n3["Service"]
+  n4["Business Domain"]
+  n5["IS/IT Domain"]
+  n6["Data Domain"]
+  n7["Application Domain"]
+  n8["Technology Domain"]
+  n9["System"]
+  n10["Building Block"]
+  n11["XX"]
+  n12["XX"]
+  n13[".."]
+  n14["Enterprise Architects"]
+  n15["Segment Architects"]
+  n16["Capability (specialist) designers and builders"]
+  n17["Solution Architects"]
+  n18["The TOGAF Standard identifies one overall business domain that may be broken down further; e.g., business function/process portfolios depending on what a business actually does; e.g., finance, manufacturing, legal, HR, customer management, service, and support."]
+  n19["The TOGAF Standard identifies three starting information system domains which may be broken down further; e.g., (technology) into software, servers, user devices, execution environments, networks, buildings, and mechanical devices."]
+  n0 -->|"包含组成"| n1
+  n1 -->|"支撑/服务"| n0
+  n1 -->|"聚合"| n2
+  n2 -->|"参与/分配"| n1
+  n2 -->|"支撑/服务"| n3
+  n3 -->|"消费"| n2
+  n4 -->|"消费"| n5
+  n5 -->|"支撑/服务"| n4
+  n4 -->|"part_of"| n1
+  n5 -->|"part_of"| n1
+  n11 -->|"part_of"| n4
+  n12 -->|"part_of"| n4
+  n13 -->|"part_of"| n4
+  n6 -->|"part_of"| n5
+  n7 -->|"part_of"| n5
+  n8 -->|"part_of"| n5
+  n10 -->|"实现"| n2
+  n10 -->|"实现"| n2
+  n9 -->|"执行"| n3
+  n9 -.->|"contains"| n10
+  n14 -.->|"治理/监督"| n1
+  n15 -.->|"治理/监督"| n2
+  n16 -.->|"creates_and_changes"| n2
+  n17 -.->|"organizes"| n2
+  n9 -.->|"visual_containment_only"| n10

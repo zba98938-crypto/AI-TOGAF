@@ -1,0 +1,1789 @@
+{
+  "schema_version": "1.0",
+  "id": "G20F/fig5-4",
+  "status": "done",
+  "doc": {
+    "code": "G20F",
+    "title_zh": "赋能企业敏捷性",
+    "title_en": "Enabling Enterprise Agility",
+    "zh_md": "G20Fe_赋能企业敏捷性.md",
+    "en_pdf": "togaf-standard-10th/G20Fe.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "5-4",
+    "title_en": "Agile Architecture and Product Development",
+    "title_zh": "架构支撑产品与冲刺待办列表定义",
+    "section_en": "5.3.2. Define Target",
+    "section_zh": "5.3.2 定义目标",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        44
+      ],
+      "printed_page": 32,
+      "bboxes": [
+        [
+          48.2,
+          138.9,
+          563.8,
+          423.9
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        625
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g20fe_fig5-4_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "30c5fcb686f0",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.985（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g20fe_fig5-4_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "3a9bbf5fb0e0",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "中英混排且文字互相重叠：左框内中文“产品/方案知识”“相互依赖”被插进英文“Input to Conform the”行，出现两行文字叠印；“需求”与“Definition”也叠在一起。",
+        "多段关键文字未翻译：Bugs Correction (Technical Debt)、Initial Strategic、Further Priorities-Based Product、Daily Scrum、Two Weeks、Potentially Shippable Product、Maintenance、Reconciled with 仍为英文。",
+        "左侧清单被拆得七零八落（“特性/需求/增强”竖排堆叠，“产品待办列表”“冲刺待办定义”错位），条目与符号“-”不再对齐。",
+        "橙色框“有意架构 / Reconciled with / 涌现架构”只译了一半；右下“运营 / Maintenance / 管理”混排。",
+        "版式（各区块位置、箭头走向）尚保留，但文字层已不可用于阅读。"
+      ]
+    },
+    {
+      "path": "figs/zh/g20fe_fig5-4_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "4cbc4375d23c",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "主体结构与原图一致：左侧冲刺交付清单、中部产品/冲刺待办与“初始战略规划/架构愿景/初始建模/需求定义”、右上“有意架构与涌现架构相协调”、两周迭代环与每日 Scrum、冲刺箭头→潜在可交付产品→运营/维护/管理、新需求反馈曲线、左下发布路线图。",
+        "发布堆叠只画了 3 层（发布 1/2/n），原图是 4–5 层并带向下淡出效果，“Less Important Features”对应的底层被压缩。",
+        "反馈回路被简化成一条：从运营一侧绕过新需求框，直接指到“产品待办列表”右侧；原图有一条向上弯入冲刺待办的支线，SVG 未画出。",
+        "原图“Potentially Shippable Product”配有轮船图标，SVG 用简化的船形线条近似，可接受。",
+        "“Two Weeks”译为“两周”、“Daily Scrum”译为“每日 Scrum”，可接受。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "infographic",
+      "flow"
+    ],
+    "notation": "混合信息图：青色圆角清单框、条纹状待办条、环形迭代箭头、粗箭头时间线、橙色说明框、立体堆叠的发布层级，无统一建模记法",
+    "concepts": [
+      "agile",
+      "agile_sprint",
+      "product_development",
+      "architecture_roadmap",
+      "requirements"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "架构在冲刺中交付什么、如何把产品待办切成冲刺待办，以及交付后新需求如何回流。",
+    "purpose_zh": "说明架构工作在敏捷交付中的位置：架构迭代（冲刺）本身要交付特性、需求、增强、技术债修复等；架构规格为产品待办与冲刺待办提供输入与约束（有意架构），并接受运营反馈与新需求，形成持续治理闭环。",
+    "reading_guide_zh": "从左上青色框读“一个冲刺（架构迭代）应交付什么”，共 8 项。再到中部：上方是 High Priority Items 与 Envision/Roadmap 两句，左侧“Initial Strategic Planning / Architecture Vision / Initial Modeling / Requirements Definition”是架构侧输入；中间两条条纹柱分别是 Product Backlog 与 Sprint Backlog，一个深色弯箭头把产品待办顶部（高优先级）拉进冲刺待办。右侧是冲刺循环（Two Weeks，附 Daily Scrum），粗箭头 Sprint → Potentially Shippable Product → Delivery → Operation Maintenance Management。底部左是发布堆叠（Release 1/2/n 与三段价值说明），底部中是“New Requirements Change Management Continuous Governance”，一条长曲线从右侧运营区向左回流，并向上弯入 Sprint Backlog。右上橙框是总原则：有意架构与涌现架构相协调。",
+    "key_points_zh": [
+      "架构迭代（冲刺）不只是写文档：应交付特性、需求、增强、缺陷修复（技术债）、产品/解决方案知识、相互依赖、对产品待办的输入、对用户故事定义（冲刺待办）的支持。",
+      "架构通过“对产品待办的输入”和“对冲刺待办的支持”两种方式进入敏捷交付，而不是另起一套流程。",
+      "产品待办是分层的：顶部为高优先级条目（深色），一个弯箭头只把顶部若干条拉入冲刺待办；冲刺待办里同样用深色块表示本轮选中的条目。",
+      "右上“Intentional Architecture Reconciled with Emergent Architecture”是全图的原则：有意的、事先规划的架构必须与团队在实践中涌现的架构相协调。",
+      "交付节奏：两周一个冲刺、每日 Scrum；冲刺产出潜在可交付产品，经 Delivery 进入 Operation Maintenance Management。",
+      "发布按价值分层：高业务价值的关键特性在 Release 1，其次进入“进一步基于优先级的产品路线图”，最不重要的附加/可选特性排在 Release 2…n。",
+      "闭环：运营与维护产生的新需求经“变革管理/持续治理”回流，一部分进入冲刺待办、一部分回到发布路线图，因此架构与待办会持续演进。"
+    ],
+    "hierarchy_zh": "版式分四大块：左上“冲刺交付清单”框（8 项并列）、中部待办与迭代（Product Backlog → Sprint Backlog → 冲刺循环）、右侧交付与运维链、底部发布路线图与回流。元素之间没有嵌套层级，只有流程先后与反馈。",
+    "line_semantics_zh": "深色细弯箭头：从产品待办顶部指向冲刺待办，表示按优先级抽取本轮条目。蓝色环形箭头 + “Two Weeks”：冲刺的时间盒循环；小环“Daily Scrum”：每日站会。蓝色粗长箭头（标 Sprint）：冲刺推进方向，末端指向 Potentially Shippable Product。向下细箭头：交付后进入运营/维护/管理。青色长曲线（向左，末端分叉）：新需求回流，一支向上进冲刺待办、一支向左回到路线图。左侧四条短箭头：把 Release 1/2/n 标签指向发布堆叠的对应层。花括号：把堆叠层分组成高价值/其次/可选三段。",
+    "misreadings_zh": [
+      "不要以为架构只产出文档：左上清单明确把“对产品待办的输入”“对冲刺待办的支持”列为架构迭代的交付物。",
+      "不要把产品待办整列都当成下一冲刺的内容：弯箭头只从顶部取高优先级条目。",
+      "不要漏掉右上橙框：它是本图的原则句（有意架构与涌现架构相协调），不是装饰。",
+      "不要把回流曲线读成单向：它同时回到冲刺待办与发布路线图，说明变更管理贯穿两者。",
+      "中文稿引用的 figs/zh/g20fe_fig5-4_zh.svg 基本可用但少画了回流到冲刺待办的支线；同目录下的 g20fe_fig5-4_zh.png 文字严重重叠，不可使用。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p44",
+        "summary_zh": "目标阶段要把问题空间转成更详细的架构规格（业务/数据/应用/技术构建块），该规格是产品待办定义的输入；架构中的特性有助于确定产品待办优先级并识别相互依赖，从而便于定义冲刺待办；有意架构作为能力架构规格的一部分交付，旨在提供支持实施的护栏；变更管理处理新需求与特性，支持产品待办的细化与排序，以便分配到不同发布。"
+      },
+      {
+        "source": "zh_md L609",
+        "summary_zh": "中文稿：架构中描绘的特性将有助于确定产品待办列表的优先级，并识别相互依赖关系，从而便于定义冲刺待办列表。"
+      },
+      {
+        "source": "zh_md L623",
+        "summary_zh": "有意架构规定一组有目的、有计划的架构策略与举措，为团队间设计与实施同步提供指导；在图 5-4 中作为能力架构规格的一部分交付，提供支持实施的护栏。"
+      },
+      {
+        "source": "zh_md L629",
+        "summary_zh": "战略架构的输出为产品待办提供输入，产品待办在分段架构中进一步细化；在能力架构层定义冲刺待办与有意架构；变更管理处理新需求与特性并支持产品待办细化与排序。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "左上大青色圆角框（清单）；中部两列条纹待办柱与文字说明；右上橙色原则框；右侧冲刺循环与交付链；底部左侧立体发布堆叠与花括号说明，底部中间橙色“新需求/变革管理/持续治理”框，一条长曲线把这些底部元素与中部的待办连起来。"
+  },
+  "legend": [
+    {
+      "symbol": "青色圆角大框",
+      "meaning_zh": "一个冲刺（架构迭代）应交付的内容清单",
+      "explicit": false
+    },
+    {
+      "symbol": "条纹横线柱",
+      "meaning_zh": "待办列表（Product Backlog / Sprint Backlog）",
+      "explicit": false
+    },
+    {
+      "symbol": "深色填充条目",
+      "meaning_zh": "高优先级、已选入下一层的条目",
+      "explicit": false
+    },
+    {
+      "symbol": "蓝色环形箭头",
+      "meaning_zh": "冲刺时间盒循环（Two Weeks）/ 每日站会（Daily Scrum）",
+      "explicit": false
+    },
+    {
+      "symbol": "青色长曲线箭头",
+      "meaning_zh": "新需求回流（进冲刺待办 / 回发布路线图）",
+      "explicit": false
+    },
+    {
+      "symbol": "立体堆叠层 + 花括号",
+      "meaning_zh": "按价值与优先级分层的发布内容（Release 1/2/n）",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色矩形框",
+      "meaning_zh": "原则/说明框（有意架构与涌现架构相协调；新需求变革管理持续治理）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "fig_title",
+      "label_en": "Architecture Supports Product and Sprint Backlog Definition",
+      "label_zh": "架构支撑产品与冲刺待办列表定义",
+      "type": "note",
+      "parent": null,
+      "position": "图顶部标题"
+    },
+    {
+      "id": "box_sprint_deliver",
+      "label_en": "A Sprint – Architecture Iteration Should Deliver:",
+      "label_zh": "一个冲刺——架构迭代应交付：",
+      "type": "group",
+      "parent": null,
+      "position": "左上青色大框"
+    },
+    {
+      "id": "d_features",
+      "label_en": "Features",
+      "label_zh": "特性",
+      "type": "artifact",
+      "parent": "box_sprint_deliver",
+      "order": 1
+    },
+    {
+      "id": "d_requirements",
+      "label_en": "Requirements",
+      "label_zh": "需求",
+      "type": "artifact",
+      "parent": "box_sprint_deliver",
+      "order": 2
+    },
+    {
+      "id": "d_enhancements",
+      "label_en": "Enhancements",
+      "label_zh": "增强",
+      "type": "artifact",
+      "parent": "box_sprint_deliver",
+      "order": 3
+    },
+    {
+      "id": "d_bugs",
+      "label_en": "Bugs Correction (Technical Debt)",
+      "label_zh": "缺陷修复（技术债务）",
+      "type": "artifact",
+      "parent": "box_sprint_deliver",
+      "order": 4
+    },
+    {
+      "id": "d_knowledge",
+      "label_en": "Product/Solution Knowledge",
+      "label_zh": "产品/解决方案知识",
+      "type": "artifact",
+      "parent": "box_sprint_deliver",
+      "order": 5
+    },
+    {
+      "id": "d_interdependencies",
+      "label_en": "Interdependencies",
+      "label_zh": "相互依赖",
+      "type": "artifact",
+      "parent": "box_sprint_deliver",
+      "order": 6
+    },
+    {
+      "id": "d_input_backlog",
+      "label_en": "Input to Conform the Product Backlog",
+      "label_zh": "对产品待办列表的输入",
+      "type": "artifact",
+      "parent": "box_sprint_deliver",
+      "order": 7
+    },
+    {
+      "id": "d_user_stories",
+      "label_en": "Support for the User Stories Definition (Sprint Backlog)",
+      "label_zh": "对用户故事定义（冲刺待办列表）的支持",
+      "type": "artifact",
+      "parent": "box_sprint_deliver",
+      "order": 8
+    },
+    {
+      "id": "high_priority",
+      "label_en": "High Priority Items",
+      "label_zh": "高优先级事项",
+      "type": "note",
+      "parent": null,
+      "position": "中部上方"
+    },
+    {
+      "id": "envision",
+      "label_en": "Envision – Strategic Planning",
+      "label_zh": "构想——战略规划",
+      "type": "note",
+      "parent": null,
+      "position": "高优先级事项下方第一行"
+    },
+    {
+      "id": "roadmap_intent",
+      "label_en": "Roadmap – Intentional Architecture",
+      "label_zh": "路线图——有意架构",
+      "type": "note",
+      "parent": null,
+      "position": "高优先级事项下方第二行"
+    },
+    {
+      "id": "initial_planning",
+      "label_en": "Initial Strategic Planning",
+      "label_zh": "初始战略规划",
+      "type": "process",
+      "parent": null,
+      "position": "待办柱左侧文字（第 1 行）"
+    },
+    {
+      "id": "arch_vision",
+      "label_en": "Architecture Vision",
+      "label_zh": "架构愿景",
+      "type": "artifact",
+      "parent": null,
+      "position": "待办柱左侧文字（第 2 行）"
+    },
+    {
+      "id": "initial_modeling",
+      "label_en": "Initial Modeling",
+      "label_zh": "初始建模",
+      "type": "process",
+      "parent": null,
+      "position": "待办柱左侧文字（第 3 行）"
+    },
+    {
+      "id": "requirements_def",
+      "label_en": "Requirements Definition",
+      "label_zh": "需求定义",
+      "type": "process",
+      "parent": null,
+      "position": "待办柱左侧文字（第 4 行）"
+    },
+    {
+      "id": "product_backlog",
+      "label_en": "Product Backlog",
+      "label_zh": "产品待办列表",
+      "type": "artifact",
+      "parent": null,
+      "position": "中部左侧条纹柱（9 段，顶部一段深色）"
+    },
+    {
+      "id": "sprint_backlog",
+      "label_en": "Sprint Backlog",
+      "label_zh": "冲刺待办列表",
+      "type": "artifact",
+      "parent": null,
+      "position": "中部右侧条纹柱（4 段，全为深色）"
+    },
+    {
+      "id": "intentional_box",
+      "label_en": "Intentional Architecture Reconciled with Emergent Architecture",
+      "label_zh": "有意架构与涌现架构相协调",
+      "type": "note",
+      "parent": null,
+      "position": "右上橙色框"
+    },
+    {
+      "id": "sprint_loop",
+      "label_en": "Two Weeks",
+      "label_zh": "两周",
+      "type": "time",
+      "parent": null,
+      "position": "右侧大环形箭头中心"
+    },
+    {
+      "id": "daily_scrum",
+      "label_en": "Daily Scrum",
+      "label_zh": "每日 Scrum",
+      "type": "event",
+      "parent": null,
+      "position": "大环右上方小环形箭头"
+    },
+    {
+      "id": "sprint_arrow",
+      "label_en": "Sprint",
+      "label_zh": "冲刺",
+      "type": "process",
+      "parent": null,
+      "position": "右侧粗长水平箭头"
+    },
+    {
+      "id": "delivery",
+      "label_en": "Delivery",
+      "label_zh": "交付",
+      "type": "note",
+      "parent": null,
+      "position": "冲刺箭头下方"
+    },
+    {
+      "id": "psp",
+      "label_en": "Potentially Shippable Product",
+      "label_zh": "潜在可交付产品",
+      "type": "product",
+      "parent": null,
+      "position": "右侧，配轮船图标"
+    },
+    {
+      "id": "operation",
+      "label_en": "Operation Maintenance Management",
+      "label_zh": "运营/维护/管理",
+      "type": "process",
+      "parent": null,
+      "position": "右下"
+    },
+    {
+      "id": "new_req",
+      "label_en": "New Requirements Change Management Continuous Governance",
+      "label_zh": "新需求 / 变革管理 / 持续治理",
+      "type": "process",
+      "parent": null,
+      "position": "底部中央橙色框"
+    },
+    {
+      "id": "release_stack",
+      "label_en": null,
+      "label_zh": "发布堆叠（立体层）",
+      "type": "group",
+      "parent": null,
+      "position": "左下"
+    },
+    {
+      "id": "layer_1",
+      "label_en": null,
+      "label_zh": "第一层（橙色，最高价值）",
+      "type": "artifact",
+      "parent": "release_stack",
+      "order": 1
+    },
+    {
+      "id": "layer_2",
+      "label_en": null,
+      "label_zh": "第二层（蓝色）",
+      "type": "artifact",
+      "parent": "release_stack",
+      "order": 2
+    },
+    {
+      "id": "layer_3",
+      "label_en": null,
+      "label_zh": "第三层（深灰）",
+      "type": "artifact",
+      "parent": "release_stack",
+      "order": 3
+    },
+    {
+      "id": "layer_4",
+      "label_en": null,
+      "label_zh": "第四层（浅色淡出）",
+      "type": "artifact",
+      "parent": "release_stack",
+      "order": 4
+    },
+    {
+      "id": "release_1",
+      "label_en": "Release 1",
+      "label_zh": "发布 1",
+      "type": "artifact",
+      "parent": null,
+      "position": "堆叠左侧标注 1"
+    },
+    {
+      "id": "release_2",
+      "label_en": "Release 2",
+      "label_zh": "发布 2",
+      "type": "artifact",
+      "parent": null,
+      "position": "堆叠左侧标注 2"
+    },
+    {
+      "id": "release_n",
+      "label_en": "Release n",
+      "label_zh": "发布 n",
+      "type": "artifact",
+      "parent": null,
+      "position": "堆叠左侧标注 3"
+    },
+    {
+      "id": "arrow_unlabeled",
+      "label_en": null,
+      "label_zh": "无标签箭头（指向第一层）",
+      "type": "other",
+      "parent": null,
+      "position": "堆叠最左侧最上方箭头"
+    },
+    {
+      "id": "brace_high",
+      "label_en": "High Business Value Key Features",
+      "label_zh": "高业务价值关键特性",
+      "type": "note",
+      "parent": null,
+      "position": "花括号第 1 段"
+    },
+    {
+      "id": "brace_roadmap",
+      "label_en": "Further Priorities-Based Product Roadmap",
+      "label_zh": "进一步基于优先级的产品路线图",
+      "type": "note",
+      "parent": null,
+      "position": "花括号第 2 段"
+    },
+    {
+      "id": "brace_optional",
+      "label_en": "Less Important Features – Additional, Optional",
+      "label_zh": "次要特性——附加、可选",
+      "type": "note",
+      "parent": null,
+      "position": "花括号第 3 段"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "product_backlog",
+      "to": "sprint_backlog",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "深色弯箭头：把产品待办顶部的高优先级条目拉入冲刺待办"
+    },
+    {
+      "from": "high_priority",
+      "to": "product_backlog",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "文字位于待办柱正上方，指示待办顶部的深色段为高优先级"
+    },
+    {
+      "from": "sprint_arrow",
+      "to": "psp",
+      "type": "flow",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "蓝色粗长箭头，冲刺指向潜在可交付产品"
+    },
+    {
+      "from": "psp",
+      "to": "operation",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "向下细箭头：交付后进入运营/维护/管理"
+    },
+    {
+      "from": "sprint_loop",
+      "to": "sprint_arrow",
+      "type": "iteration",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "环形箭头绕“两周”一圈，表示冲刺的时间盒循环"
+    },
+    {
+      "from": "daily_scrum",
+      "to": "sprint_loop",
+      "type": "iteration",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "小环形箭头，表示冲刺内每日站会的循环"
+    },
+    {
+      "from": "operation",
+      "to": "new_req",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "青色长曲线自运营/维护一侧向左引出，经过新需求/变革管理框"
+    },
+    {
+      "from": "new_req",
+      "to": "sprint_backlog",
+      "type": "iteration",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "曲线的一支向上弯入冲刺待办列表底部"
+    },
+    {
+      "from": "new_req",
+      "to": "brace_roadmap",
+      "type": "iteration",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "曲线的另一支以左向箭头结束，回到发布路线图一侧（端点未接触具体元素）"
+    },
+    {
+      "from": "release_1",
+      "to": "layer_2",
+      "type": "assignment",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "短箭头指向堆叠第二层（标签位于箭头上方，层与标签的对应按行高判断）"
+    },
+    {
+      "from": "release_2",
+      "to": "layer_3",
+      "type": "assignment",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "release_n",
+      "to": "layer_4",
+      "type": "assignment",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "arrow_unlabeled",
+      "to": "layer_1",
+      "type": "assignment",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "最上方箭头无文字，指向橙色顶层"
+    },
+    {
+      "from": "brace_high",
+      "to": "layer_1",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "花括号第 1 段括住顶层"
+    },
+    {
+      "from": "brace_roadmap",
+      "to": "layer_2",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "brace_optional",
+      "to": "layer_3",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "花括号第 3 段覆盖下方两层（附加、可选）"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_sprint",
+      "kind": "sequence",
+      "name_zh": "产品待办→冲刺待办→冲刺→可交付产品→运营",
+      "steps": [
+        "product_backlog",
+        "sprint_backlog",
+        "sprint_arrow",
+        "psp",
+        "operation"
+      ]
+    },
+    {
+      "id": "f_feedback",
+      "kind": "loop",
+      "name_zh": "新需求回流",
+      "steps": [
+        "operation",
+        "new_req",
+        "sprint_backlog",
+        "sprint_arrow",
+        "psp",
+        "operation"
+      ],
+      "loop_type": "reinforcing",
+      "description_zh": "运营中发现的新需求经变革管理回到待办，形成持续演进闭环。"
+    }
+  ],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G20F/fig5-2",
+      "relation": "related",
+      "note_zh": "图 5-2 说明五类架构活动并行推进；本图具体展示“部署目标”阶段之后待办与冲刺如何运转。"
+    },
+    {
+      "target": "G20F/fig4-4",
+      "relation": "complements",
+      "note_zh": "图 4-4 从层级角度给出三层待办，本图从单条产品/冲刺待办的角度展示架构输入与回流。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "四层发布堆叠与 Release 1/2/n 三个标签的对应关系存在歧义：标签位于箭头上方，按行高判断为“无标签箭头→橙色顶层，Release 1→蓝层，Release 2→深灰层，Release n→浅色层”，但也可读成标签标注其上方箭头。",
+      "回流曲线在图中穿过“新需求/变革管理/持续治理”框附近，未与框线相接；把它归因于该框是依据位置与正文的判断。",
+      "产品待办为 9 段、冲刺待办为 4 段，按条纹计数，仅示意优先级切分。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 44 页原图截图（figctx GT crop + 400dpi 与 600dpi 局部）",
+      "英文 PDF 第 43–44 页 5.3.1–5.3.3 正文",
+      "中文稿 G20Fe_赋能企业敏捷性.md 第 600–631 行",
+      "figs/g20fe_fig5-4_en.png、figs/zh/g20fe_fig5-4_zh.png 与 figs/zh/g20fe_fig5-4_zh.svg"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G20Fe.pdf",
+    "pdf_sha256": "a8fe6569c7d6045ce4ac8d5320c09a3abdc556a0fc1cbcd584bd76a75f3f84be",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G20F/fig5-4.json",
+    "interpretation_sha256": "80ffa3a11ee2636d6aa8df729465ae0cdef7a681ab7e5521ecae682d6d1f28a3",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 44,
+        "text": "Figure 5-4: Agile Architecture and Product Development",
+        "bbox_pdf_points": [
+          48.24,
+          428.635,
+          309.794,
+          442.201
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 44,
+      "printed_page": 32,
+      "bbox_pdf_points": [
+        48.2,
+        138.9,
+        563.8,
+        423.9
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G20F/fig5-4-p0044.png",
+      "image_sha256": "d6a88f280b40f0a5b215a659aee07423aa8fd42301e44c8ef8eadcdf994d8aa9",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "d6a88f280b40f0a5b215a659aee07423aa8fd42301e44c8ef8eadcdf994d8aa9",
+          "status": "extracted-unverified",
+          "text": "Architecture Supports Product and Sprint Backlog Definition\nA Sprint — Architecture Iteration\nHigh Priority Items\nShould Deliver:\nEnvision — Strategic Planning\nFeatures\nRoadmap — Intentional Architecture\nRequirements\nEnhancements\nDaily\nBugs Correction (Technical\nDebt)\nInitial Strategic\nScrum\nPlanning\nProduct/Solution Knowledge\nArchitecture Vision\nInterdependencies\nTwo\nInput to Conform the\nInitial Modeling\nRequirements\nWeeks\nAcc,\nProduct Backlog\nDefinition\nSupport for the User Stories\nDefinition (Sprint Backlog)\nPotentially\nProduct\nSprint\nShippable\nBacklog\nBacklog\nSprint\nProduct\nDelivery\n——,\nHigh Business Value\nRelease 1\nKey Features\ni\nFurther Priorities-\nRelease 2\nBased Product\nOperation\nRoadmap\nMaintenance\nRelease n\n—~ 4\nLess Important\nManagement\nan\nFeatures — Additional,\n4\nOptional",
+          "words": [
+            {
+              "text": "Architecture",
+              "confidence": 96.156647,
+              "bbox_pixels_xywh": [
+                11,
+                4,
+                125,
+                17
+              ]
+            },
+            {
+              "text": "Supports",
+              "confidence": 96.767303,
+              "bbox_pixels_xywh": [
+                144,
+                4,
+                93,
+                22
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 96.107529,
+              "bbox_pixels_xywh": [
+                247,
+                4,
+                79,
+                17
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.635269,
+              "bbox_pixels_xywh": [
+                334,
+                4,
+                37,
+                17
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 96.803146,
+              "bbox_pixels_xywh": [
+                380,
+                4,
+                61,
+                22
+              ]
+            },
+            {
+              "text": "Backlog",
+              "confidence": 96.67083,
+              "bbox_pixels_xywh": [
+                449,
+                4,
+                82,
+                22
+              ]
+            },
+            {
+              "text": "Definition",
+              "confidence": 96.283989,
+              "bbox_pixels_xywh": [
+                540,
+                4,
+                96,
+                17
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 71.680428,
+              "bbox_pixels_xywh": [
+                27,
+                60,
+                10,
+                11
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 71.680428,
+              "bbox_pixels_xywh": [
+                42,
+                60,
+                44,
+                14
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 50.145172,
+              "bbox_pixels_xywh": [
+                91,
+                66,
+                8,
+                2
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.921928,
+              "bbox_pixels_xywh": [
+                104,
+                60,
+                89,
+                11
+              ]
+            },
+            {
+              "text": "Iteration",
+              "confidence": 94.489182,
+              "bbox_pixels_xywh": [
+                200,
+                60,
+                59,
+                11
+              ]
+            },
+            {
+              "text": "High",
+              "confidence": 96.037857,
+              "bbox_pixels_xywh": [
+                427,
+                60,
+                30,
+                15
+              ]
+            },
+            {
+              "text": "Priority",
+              "confidence": 96.817963,
+              "bbox_pixels_xywh": [
+                463,
+                60,
+                47,
+                15
+              ]
+            },
+            {
+              "text": "Items",
+              "confidence": 76.516495,
+              "bbox_pixels_xywh": [
+                516,
+                60,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "Should",
+              "confidence": 96.519836,
+              "bbox_pixels_xywh": [
+                27,
+                79,
+                51,
+                11
+              ]
+            },
+            {
+              "text": "Deliver:",
+              "confidence": 95.327782,
+              "bbox_pixels_xywh": [
+                85,
+                79,
+                53,
+                11
+              ]
+            },
+            {
+              "text": "Envision",
+              "confidence": 92.046005,
+              "bbox_pixels_xywh": [
+                389,
+                98,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 69.164856,
+              "bbox_pixels_xywh": [
+                451,
+                104,
+                9,
+                1
+              ]
+            },
+            {
+              "text": "Strategic",
+              "confidence": 96.83313,
+              "bbox_pixels_xywh": [
+                465,
+                97,
+                60,
+                15
+              ]
+            },
+            {
+              "text": "Planning",
+              "confidence": 92.230583,
+              "bbox_pixels_xywh": [
+                531,
+                98,
+                58,
+                14
+              ]
+            },
+            {
+              "text": "Features",
+              "confidence": 86.692307,
+              "bbox_pixels_xywh": [
+                61,
+                116,
+                62,
+                11
+              ]
+            },
+            {
+              "text": "Roadmap",
+              "confidence": 93.118843,
+              "bbox_pixels_xywh": [
+                369,
+                116,
+                66,
+                15
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 43.499012,
+              "bbox_pixels_xywh": [
+                440,
+                123,
+                8,
+                1
+              ]
+            },
+            {
+              "text": "Intentional",
+              "confidence": 95.557755,
+              "bbox_pixels_xywh": [
+                454,
+                116,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.853493,
+              "bbox_pixels_xywh": [
+                528,
+                116,
+                81,
+                12
+              ]
+            },
+            {
+              "text": "Requirements",
+              "confidence": 94.213989,
+              "bbox_pixels_xywh": [
+                61,
+                135,
+                101,
+                14
+              ]
+            },
+            {
+              "text": "Enhancements",
+              "confidence": 96.93206,
+              "bbox_pixels_xywh": [
+                61,
+                153,
+                108,
+                12
+              ]
+            },
+            {
+              "text": "Daily",
+              "confidence": 96.738266,
+              "bbox_pixels_xywh": [
+                790,
+                160,
+                38,
+                17
+              ]
+            },
+            {
+              "text": "Bugs",
+              "confidence": 96.639648,
+              "bbox_pixels_xywh": [
+                61,
+                172,
+                37,
+                14
+              ]
+            },
+            {
+              "text": "Correction",
+              "confidence": 93.140572,
+              "bbox_pixels_xywh": [
+                104,
+                172,
+                76,
+                11
+              ]
+            },
+            {
+              "text": "(Technical",
+              "confidence": 96.809006,
+              "bbox_pixels_xywh": [
+                187,
+                172,
+                72,
+                14
+              ]
+            },
+            {
+              "text": "Debt)",
+              "confidence": 96.717087,
+              "bbox_pixels_xywh": [
+                61,
+                191,
+                37,
+                14
+              ]
+            },
+            {
+              "text": "Initial",
+              "confidence": 95.670479,
+              "bbox_pixels_xywh": [
+                326,
+                180,
+                34,
+                12
+              ]
+            },
+            {
+              "text": "Strategic",
+              "confidence": 96.064201,
+              "bbox_pixels_xywh": [
+                366,
+                180,
+                60,
+                15
+              ]
+            },
+            {
+              "text": "Scrum",
+              "confidence": 96.528473,
+              "bbox_pixels_xywh": [
+                784,
+                181,
+                50,
+                13
+              ]
+            },
+            {
+              "text": "Planning",
+              "confidence": 96.681686,
+              "bbox_pixels_xywh": [
+                347,
+                199,
+                58,
+                15
+              ]
+            },
+            {
+              "text": "Product/Solution",
+              "confidence": 91.428093,
+              "bbox_pixels_xywh": [
+                61,
+                209,
+                122,
+                12
+              ]
+            },
+            {
+              "text": "Knowledge",
+              "confidence": 96.723351,
+              "bbox_pixels_xywh": [
+                190,
+                210,
+                80,
+                14
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.463745,
+              "bbox_pixels_xywh": [
+                311,
+                218,
+                82,
+                11
+              ]
+            },
+            {
+              "text": "Vision",
+              "confidence": 96.610069,
+              "bbox_pixels_xywh": [
+                398,
+                218,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "Interdependencies",
+              "confidence": 71.963051,
+              "bbox_pixels_xywh": [
+                61,
+                228,
+                134,
+                14
+              ]
+            },
+            {
+              "text": "Two",
+              "confidence": 96.196098,
+              "bbox_pixels_xywh": [
+                731,
+                231,
+                31,
+                13
+              ]
+            },
+            {
+              "text": "Input",
+              "confidence": 96.664185,
+              "bbox_pixels_xywh": [
+                61,
+                247,
+                36,
+                14
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 96.964111,
+              "bbox_pixels_xywh": [
+                102,
+                248,
+                14,
+                10
+              ]
+            },
+            {
+              "text": "Conform",
+              "confidence": 96.68261,
+              "bbox_pixels_xywh": [
+                122,
+                247,
+                62,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 97.003304,
+              "bbox_pixels_xywh": [
+                191,
+                247,
+                21,
+                11
+              ]
+            },
+            {
+              "text": "Initial",
+              "confidence": 89.774651,
+              "bbox_pixels_xywh": [
+                326,
+                236,
+                33,
+                12
+              ]
+            },
+            {
+              "text": "Modeling",
+              "confidence": 96.794846,
+              "bbox_pixels_xywh": [
+                366,
+                236,
+                60,
+                15
+              ]
+            },
+            {
+              "text": "Requirements",
+              "confidence": 96.720192,
+              "bbox_pixels_xywh": [
+                329,
+                255,
+                94,
+                14
+              ]
+            },
+            {
+              "text": "Weeks",
+              "confidence": 96.66993,
+              "bbox_pixels_xywh": [
+                720,
+                252,
+                54,
+                13
+              ]
+            },
+            {
+              "text": "Acc,",
+              "confidence": 24.423094,
+              "bbox_pixels_xywh": [
+                902,
+                222,
+                125,
+                50
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 95.508774,
+              "bbox_pixels_xywh": [
+                61,
+                266,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "Backlog",
+              "confidence": 95.864708,
+              "bbox_pixels_xywh": [
+                124,
+                266,
+                58,
+                14
+              ]
+            },
+            {
+              "text": "Definition",
+              "confidence": 92.148926,
+              "bbox_pixels_xywh": [
+                345,
+                274,
+                62,
+                11
+              ]
+            },
+            {
+              "text": "Support",
+              "confidence": 96.675446,
+              "bbox_pixels_xywh": [
+                61,
+                284,
+                58,
+                14
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 96.880859,
+              "bbox_pixels_xywh": [
+                124,
+                284,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.65287,
+              "bbox_pixels_xywh": [
+                149,
+                284,
+                22,
+                11
+              ]
+            },
+            {
+              "text": "User",
+              "confidence": 92.58741,
+              "bbox_pixels_xywh": [
+                177,
+                284,
+                33,
+                11
+              ]
+            },
+            {
+              "text": "Stories",
+              "confidence": 66.680443,
+              "bbox_pixels_xywh": [
+                216,
+                284,
+                51,
+                11
+              ]
+            },
+            {
+              "text": "Definition",
+              "confidence": 96.601768,
+              "bbox_pixels_xywh": [
+                61,
+                303,
+                69,
+                11
+              ]
+            },
+            {
+              "text": "(Sprint",
+              "confidence": 96.690788,
+              "bbox_pixels_xywh": [
+                137,
+                303,
+                48,
+                14
+              ]
+            },
+            {
+              "text": "Backlog)",
+              "confidence": 96.817871,
+              "bbox_pixels_xywh": [
+                191,
+                303,
+                63,
+                14
+              ]
+            },
+            {
+              "text": "Potentially",
+              "confidence": 85.621048,
+              "bbox_pixels_xywh": [
+                929,
+                295,
+                70,
+                15
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 96.299698,
+              "bbox_pixels_xywh": [
+                475,
+                314,
+                51,
+                12
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 96.712669,
+              "bbox_pixels_xywh": [
+                566,
+                314,
+                40,
+                14
+              ]
+            },
+            {
+              "text": "Shippable",
+              "confidence": 90.023918,
+              "bbox_pixels_xywh": [
+                930,
+                314,
+                67,
+                14
+              ]
+            },
+            {
+              "text": "Backlog",
+              "confidence": 96.37355,
+              "bbox_pixels_xywh": [
+                474,
+                333,
+                53,
+                14
+              ]
+            },
+            {
+              "text": "Backlog",
+              "confidence": 96.884377,
+              "bbox_pixels_xywh": [
+                559,
+                332,
+                54,
+                15
+              ]
+            },
+            {
+              "text": "Sprint",
+              "confidence": 95.82502,
+              "bbox_pixels_xywh": [
+                717,
+                325,
+                51,
+                17
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 96.922775,
+              "bbox_pixels_xywh": [
+                938,
+                333,
+                52,
+                11
+              ]
+            },
+            {
+              "text": "Delivery",
+              "confidence": 96.923393,
+              "bbox_pixels_xywh": [
+                836,
+                350,
+                62,
+                17
+              ]
+            },
+            {
+              "text": "——,",
+              "confidence": 44.47403,
+              "bbox_pixels_xywh": [
+                59,
+                406,
+                70,
+                6
+              ]
+            },
+            {
+              "text": "High",
+              "confidence": 93.729034,
+              "bbox_pixels_xywh": [
+                264,
+                408,
+                29,
+                14
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 93.729034,
+              "bbox_pixels_xywh": [
+                299,
+                408,
+                59,
+                11
+              ]
+            },
+            {
+              "text": "Value",
+              "confidence": 96.918518,
+              "bbox_pixels_xywh": [
+                362,
+                408,
+                36,
+                11
+              ]
+            },
+            {
+              "text": "Release",
+              "confidence": 95.901306,
+              "bbox_pixels_xywh": [
+                49,
+                431,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 95.141602,
+              "bbox_pixels_xywh": [
+                111,
+                431,
+                4,
+                11
+              ]
+            },
+            {
+              "text": "Key",
+              "confidence": 96.638611,
+              "bbox_pixels_xywh": [
+                264,
+                426,
+                25,
+                14
+              ]
+            },
+            {
+              "text": "Features",
+              "confidence": 96.879845,
+              "bbox_pixels_xywh": [
+                294,
+                426,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 63.335934,
+              "bbox_pixels_xywh": [
+                235,
+                403,
+                19,
+                48
+              ]
+            },
+            {
+              "text": "Further",
+              "confidence": 93.24617,
+              "bbox_pixels_xywh": [
+                262,
+                461,
+                47,
+                11
+              ]
+            },
+            {
+              "text": "Priorities-",
+              "confidence": 76.869286,
+              "bbox_pixels_xywh": [
+                314,
+                461,
+                62,
+                11
+              ]
+            },
+            {
+              "text": "Release",
+              "confidence": 96.82518,
+              "bbox_pixels_xywh": [
+                49,
+                473,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "2",
+              "confidence": 96.42646,
+              "bbox_pixels_xywh": [
+                109,
+                473,
+                8,
+                12
+              ]
+            },
+            {
+              "text": "Based",
+              "confidence": 95.282982,
+              "bbox_pixels_xywh": [
+                262,
+                479,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 96.69445,
+              "bbox_pixels_xywh": [
+                308,
+                479,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "Operation",
+              "confidence": 95.286728,
+              "bbox_pixels_xywh": [
+                930,
+                479,
+                77,
+                16
+              ]
+            },
+            {
+              "text": "Roadmap",
+              "confidence": 96.698029,
+              "bbox_pixels_xywh": [
+                262,
+                497,
+                63,
+                14
+              ]
+            },
+            {
+              "text": "Maintenance",
+              "confidence": 96.618805,
+              "bbox_pixels_xywh": [
+                916,
+                500,
+                101,
+                13
+              ]
+            },
+            {
+              "text": "Release",
+              "confidence": 92.862106,
+              "bbox_pixels_xywh": [
+                49,
+                516,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "n",
+              "confidence": 88.553841,
+              "bbox_pixels_xywh": [
+                110,
+                519,
+                6,
+                8
+              ]
+            },
+            {
+              "text": "—~",
+              "confidence": 74.120964,
+              "bbox_pixels_xywh": [
+                55,
+                465,
+                125,
+                65
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 42.116699,
+              "bbox_pixels_xywh": [
+                201,
+                465,
+                22,
+                65
+              ]
+            },
+            {
+              "text": "Less",
+              "confidence": 96.744133,
+              "bbox_pixels_xywh": [
+                262,
+                520,
+                30,
+                11
+              ]
+            },
+            {
+              "text": "Important",
+              "confidence": 91.408714,
+              "bbox_pixels_xywh": [
+                297,
+                520,
+                62,
+                13
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.593491,
+              "bbox_pixels_xywh": [
+                918,
+                521,
+                102,
+                17
+              ]
+            },
+            {
+              "text": "an",
+              "confidence": 14.485188,
+              "bbox_pixels_xywh": [
+                59,
+                545,
+                71,
+                1
+              ]
+            },
+            {
+              "text": "Features",
+              "confidence": 83.575027,
+              "bbox_pixels_xywh": [
+                262,
+                537,
+                57,
+                12
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 75.881302,
+              "bbox_pixels_xywh": [
+                323,
+                544,
+                8,
+                1
+              ]
+            },
+            {
+              "text": "Additional,",
+              "confidence": 88.845001,
+              "bbox_pixels_xywh": [
+                335,
+                538,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 51.556793,
+              "bbox_pixels_xywh": [
+                131,
+                459,
+                123,
+                100
+              ]
+            },
+            {
+              "text": "Optional",
+              "confidence": 96.221405,
+              "bbox_pixels_xywh": [
+                261,
+                555,
+                55,
+                14
+              ]
+            }
+          ],
+          "mean_word_confidence": 89.06,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "schema_version": "2.0",
+  "id": "G184/fig10-2",
+  "title": "执行流程集成",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      1090
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "说明 EA 能力与“执行流程”之间的固定交互模型：一端把前瞻性的建议、方向与约束送入规划流程，另一端把执行变更的报告送入流程治理；无论执行流程属于组合/项目群、项目执行、运营变更还是运营，这个模型都不变。",
+    "reading_guide_zh": "先看顶部蓝色横幅“Execution Process”，它标明整张图讨论的是执行流程领域。其下三个框是执行流程的组成：左侧规划流程、右侧流程治理、中间小框“Execution”代表实际执行活动。底部宽条“Architecture Support”代表 EA 提供的架构支持；叠在它上面的“Advice, Direction, and Constraints”和“Reporting”是架构支持产生的两类输出。沿两条向上箭头读：左侧输出进入规划流程，右侧输出进入流程治理；中间向下箭头表示执行活动调用/触发架构支持。",
+    "key_points_zh": [
+      "EA 能力对执行流程的介入分为两条通道：向规划流程提供建议、方向与约束（事前），向流程治理提供报告（事后/过程）。",
+      "“Advice, Direction, and Constraints”和“Reporting”是架构支持的两个输出框，不是与架构支持并列的独立流程。",
+      "中间小框“Execution”向下指向“Architecture Support”，表示实际执行发生时需要调用架构支持；这是图中唯一的向下箭头。",
+      "规划流程与流程治理之间没有箭头，二者是执行流程中并列的两个治理/规划环节，不存在先后顺序。",
+      "正文强调该交互模型不随执行流程类型（组合/项目群管理、项目执行、运营变更、运营）而改变，改变的是交互的具体内容和时机。",
+      "图只表达交互通道，不表达组织归属、时间顺序或交付物细节；具体建议/报告内容在 10.1.3–10.1.9 分节展开。"
+    ],
+    "hierarchy_zh": "顶部蓝色“Execution Process”是领域标题，统辖其下三个执行流程组成：Planning Process、Execution、Process Governance。底部“Architecture Support”是 EA 支持层，其上方叠放两个输出：Advice, Direction, and Constraints 与 Reporting。两层之间是交互关系，不是上下级组织关系。",
+    "line_semantics_zh": "三条粗黑实线箭头：Advice, Direction, and Constraints → Planning Process（向上，输入规划）；Reporting → Process Governance（向上，输入治理）；Execution → Architecture Support（向下，执行调用架构支持）。图中没有其他连线；输出框与架构支持带的重叠表示前者由后者产生（隐含关系）。",
+    "misreadings_zh": [
+      "不要把 Planning Process 与 Process Governance 读成先后步骤：两者之间没有箭头，是并列的两个环节。",
+      "“Advice, Direction, and Constraints”并不直接指向小框“Execution”，而是向上进入 Planning Process。",
+      "底部“Architecture Support”不是执行结束后的一个阶段，而是持续存在、被执行的各个环节调用的 EA 支持职能。",
+      "蓝色“Execution Process”是领域标题，不是把三个子流程包在里面的外框；图中没有包含边框。",
+      "“Reporting”的方向是 EA 向流程治理报告，不是执行方向 EA 汇报。",
+      "中文图把 Reporting 译成“报表”，不要据此把它理解成一张静态报表；它是报告机制/报告内容。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "execution_process",
+      "label_en": "Execution Process",
+      "label_zh": "执行流程",
+      "type": "process",
+      "parent": null,
+      "level": 0,
+      "position": "顶部蓝色横幅",
+      "description_zh": "标示整张图的领域，不是可执行的具体流程步骤。"
+    },
+    {
+      "id": "planning_process",
+      "label_en": "Planning Process",
+      "label_zh": "规划流程",
+      "type": "process",
+      "parent": "execution_process",
+      "level": 1,
+      "position": "第二层左侧"
+    },
+    {
+      "id": "execution",
+      "label_en": "Execution",
+      "label_zh": "执行",
+      "type": "process",
+      "parent": "execution_process",
+      "level": 1,
+      "position": "第二层中部，嵌在规划流程与流程治理之间"
+    },
+    {
+      "id": "process_governance",
+      "label_en": "Process Governance",
+      "label_zh": "流程治理",
+      "type": "process",
+      "parent": "execution_process",
+      "level": 1,
+      "position": "第二层右侧"
+    },
+    {
+      "id": "architecture_support",
+      "label_en": "Architecture Support",
+      "label_zh": "架构支持",
+      "type": "process",
+      "parent": null,
+      "level": 0,
+      "position": "底部横贯宽条",
+      "description_zh": "EA 能力面向执行流程的支持职能；两个输出框叠放在其上方。"
+    },
+    {
+      "id": "advice_direction_constraints",
+      "label_en": "Advice, Direction, and Constraints",
+      "label_zh": "建议、指导与约束",
+      "type": "artifact",
+      "parent": "architecture_support",
+      "level": 1,
+      "position": "左下方，叠放在架构支持带左端上方",
+      "description_zh": "EA 输出包：建议（实施指导/不合规建议）、方向（差距与工作包）、约束（架构需求规格说明）。"
+    },
+    {
+      "id": "reporting",
+      "label_en": "Reporting",
+      "label_zh": "报表",
+      "type": "artifact",
+      "parent": "architecture_support",
+      "level": 1,
+      "position": "右下方，叠放在架构支持带右端上方",
+      "description_zh": "就执行流程在目标架构范围内所做变更提交的报告。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "advice_direction_constraints",
+      "to": "planning_process",
+      "type": "serving",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "左侧粗黑箭头向上，EA 的建议/方向/约束输入规划流程。"
+    },
+    {
+      "from": "reporting",
+      "to": "process_governance",
+      "type": "serving",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "右侧粗黑箭头向上，EA 的报告输入流程治理。"
+    },
+    {
+      "from": "execution",
+      "to": "architecture_support",
+      "type": "triggering",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "中间粗黑箭头向下，实际执行活动调用/触发架构支持。"
+    },
+    {
+      "from": "architecture_support",
+      "to": "advice_direction_constraints",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "输出框叠放在架构支持带上，表示由架构支持产生。"
+    },
+    {
+      "from": "architecture_support",
+      "to": "reporting",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "输出框叠放在架构支持带上，表示由架构支持产生。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "蓝色横幅",
+      "meaning_zh": "执行流程领域标题",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色方框",
+      "meaning_zh": "执行流程的组成环节或 EA 架构支持的输出",
+      "explicit": false
+    },
+    {
+      "symbol": "粗黑实线箭头",
+      "meaning_zh": "交互/调用方向（向上为 EA 输出进入执行流程，向下为执行调用架构支持）",
+      "explicit": false
+    },
+    {
+      "symbol": "叠放在“架构支持”带上的输出框",
+      "meaning_zh": "由架构支持产生的输出",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "小框“Execution”与外层标题“Execution Process”同名，图中未说明其确切范围；解析按“实际执行活动”理解。",
+      "“Execution → Architecture Support”箭头只表明调用方向，未区分请求、咨询还是介入治理。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 97 页原图截图与 2×2 放大分块",
+      "英文 PDF 第 96 页正文（10.1.2 节）",
+      "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 1081–1099 行",
+      "figs/zh/g184e_fig10-2_zh.png 与 figs/g184e_fig10-2_en.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G184/fig10-2",
+    "asset": "figs/g184e_fig10-2_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "02"
+  }
+}

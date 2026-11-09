@@ -1,0 +1,272 @@
+# G186/fig8-1 · 能力与项目连续谱
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G186/fig8-1.md) · [JSON](../../architecture/diagrams/G186/fig8-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G186e.pdf`；SHA-256：`ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a`。
+
+## 原图 · PDF 第 90 页
+
+![英文原图](../assets/G186/fig8-1-p0090.png)
+
+PDF 坐标：`[48.2, 482.4, 563.8, 610.4]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+10
+Sustain
+Sustain
+Improve
+Improve
+(At par with others)
+(Same level of
+(Create new
+(Create new
+advantage over others)
+competitive advantage)
+revenue streams)
+```
+
+## 概要（历史解释；局部修正见上）
+
+用一条 0–10 的连续谱表示能力与项目从“维持持平”到“创造新收入流”的四个演进阶段。
+
+## 目的（历史解释；局部修正见上）
+
+说明支持组合的架构不是在阶段 F 一次性收尾，而是在能力与项目的连续谱上持续演进：先维持现有优势，再创造新差异化与新市场。正文借此指出组合工作要从阶段 H 开始，并把在途项目和既有目标架构纳入考虑。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+先看横贯全图的蓝色条：它是一条连续谱，不是四个分开的项目。条上方 0 与 10 是尺度端点，连同两端共十一个等距短竖线，没有单位。条下方四段文字从左到右读：Sustain（与对手持平）→ Sustain（维持同等优势）→ Improve（创造新竞争优势）→ Improve（创造新收入流）。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 连续谱分四段：与市场其他参与者持平、维持对对手的同等优势、创造新的竞争优势、创造新市场与收入流。
+- 前两段归为 Sustain（维持），后两段归为 Improve（改进）；两者是同一连续谱的前后半段，不是互斥类别。
+- 四段是能力与项目交付的递进，不是四个独立项目，也不是四个 ADM 阶段。
+- 正文强调：一旦获得新能力或能力差异化，就必须持续维持这一增量优势，因此 Sustain 不是一次性的收尾。
+- 组合级架构必须考虑现有的隐式或显式目标架构，以及在建项目带来的影响；这项工作实际上从阶段 H 启动。
+- 0–10 的刻度等距但没有标单位或时间，不能据此推算工期、年限或成熟度分值。
+
+## 层级（历史解释；局部修正见上）
+
+只有一层：一条连续谱条加四个并列的阶段标签；0 与 10 是尺度端点，不是层级，也不从属于某一阶段。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有连线或箭头。四个阶段的先后只由从左到右的水平位置表达（推断关系）；条上的短竖线只是刻度，不表示依赖或里程碑。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把 0–10 当作成熟度评分或日历时间轴，原图没有给出任何单位。
+- 不要以为四个阶段等长；图没有画分段边界，标签只是沿条排列。
+- 蓝色条不是甘特条，四个标签也不是四个项目或四次 ADM 迭代。
+- 不要把 Sustain 理解为“项目结束后才做”的阶段；获得新能力后就要持续维持优势。
+
+## 元素
+
+```json
+[
+  {
+    "id": "continuum",
+    "label_en": "Capability and Project Continuum",
+    "label_zh": "能力与项目连续谱",
+    "type": "concept",
+    "parent": null,
+    "level": 0,
+    "description_zh": "即图中横贯的蓝色条；标题来自图题，条本身没有文字。"
+  },
+  {
+    "id": "scale_zero",
+    "label_en": "0",
+    "label_zh": "0（尺度起点）",
+    "type": "note",
+    "parent": "continuum",
+    "level": 1,
+    "position": "条左端上方",
+    "description_zh": "刻度起点，无单位。"
+  },
+  {
+    "id": "scale_ten",
+    "label_en": "10",
+    "label_zh": "10（尺度终点）",
+    "type": "note",
+    "parent": "continuum",
+    "level": 1,
+    "position": "条右端上方",
+    "description_zh": "刻度终点，无单位。"
+  },
+  {
+    "id": "phase_sustain_parity",
+    "label_en": "Sustain (At par with others)",
+    "label_zh": "维持（与其他参与者持平）",
+    "type": "phase",
+    "parent": "continuum",
+    "level": 1,
+    "order": 1,
+    "position": "条下方左段"
+  },
+  {
+    "id": "phase_sustain_advantage",
+    "label_en": "Sustain (Same level of advantage over others)",
+    "label_zh": "维持（保持对他人的同等优势）",
+    "type": "phase",
+    "parent": "continuum",
+    "level": 1,
+    "order": 2,
+    "position": "条下方第二段"
+  },
+  {
+    "id": "phase_improve_competitive",
+    "label_en": "Improve (Create new competitive advantage)",
+    "label_zh": "改进（创造新的竞争优势）",
+    "type": "phase",
+    "parent": "continuum",
+    "level": 1,
+    "order": 3,
+    "position": "条下方第三段"
+  },
+  {
+    "id": "phase_improve_revenue",
+    "label_en": "Improve (Create new revenue streams)",
+    "label_zh": "改进（创造新的收入流）",
+    "type": "phase",
+    "parent": "continuum",
+    "level": 1,
+    "order": 4,
+    "position": "条下方右段"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "phase_sustain_parity",
+    "to": "phase_sustain_advantage",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "两段在连续谱上从左到右相邻。"
+  },
+  {
+    "from": "phase_sustain_advantage",
+    "to": "phase_improve_competitive",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "由维持转向改进。"
+  },
+  {
+    "from": "phase_improve_competitive",
+    "to": "phase_improve_revenue",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "在创造新竞争优势之后进一步创造新收入流。"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_continuum",
+    "kind": "sequence",
+    "name_zh": "能力与项目连续谱的四段演进",
+    "steps": [
+      "phase_sustain_parity",
+      "phase_sustain_advantage",
+      "phase_improve_competitive",
+      "phase_improve_revenue"
+    ],
+    "description_zh": "从左到右的阅读顺序；不是强制的项目阶段门。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "蓝色实心横条",
+    "meaning_zh": "能力与项目的连续谱，从左到右表示从维持到创造的演进",
+    "explicit": false
+  },
+  {
+    "symbol": "条上等距短竖线",
+    "meaning_zh": "连续谱刻度，仅表示相对位置，无单位",
+    "explicit": false
+  },
+  {
+    "symbol": "条下方四段文字",
+    "meaning_zh": "连续谱的四个阶段：两个 Sustain、两个 Improve",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "一条蓝色水平条横贯全图，条上方左端标 0、右端标 10，中间等距竖线；条下方四段两行文字标签从左到右排列。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G186/fig4-1",
+    "relation": "related",
+    "note_zh": "图 4-1 同样把业务周期与四种架构目的对应起来；本图则把组合目的放到能力/项目的 Sustain–Improve 连续谱上。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "0–10 没有单位；条的四个阶段之间没有画分界线，标签的水平位置只能表示顺序，不能精确读出各段长度。",
+    "图中没有箭头，四段的先后顺序依据正文的列表和从左到右的排列推断。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 90 页图 8-1 截图（2x2 放大块）",
+    "英文 PDF 第 90 页正文与第 91 页表 8-1 前后文",
+    "中文稿 G186e_实践者方法_按TOGAF_ADM开发企业架构.md 第 1243–1284 行"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

@@ -1,0 +1,41 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["METADATA"]
+  n1["Metadata Management"]
+  n2["元数据管理者（3 人，无标签）"]
+  n3["DATA"]
+  n4["Data Profiling"]
+  n5["Structured"]
+  n6["RDBMS, metadata store"]
+  n7["Semi-Structured"]
+  n8["Parquet, Avro, etc."]
+  n9["Unstructured"]
+  n10["PDF, DOCX, JPG, AVI, etc."]
+  n11["Structured data can be easily collected from database dictionaries, technical metadata stores, data integration repositories, etc. Note: Data schema collection does not require access to data."]
+  n12["Semi-structured files come with a structure but do not guarantee schema stability over time as each file may have its own structure."]
+  n13["Unstructured data – we cannot manage what we don&#x27;t know: a minimum of structure (shapes in an image; email address from a document, etc.) must be extracted from the unstructured data before analysis and governance. Such exercise requires scanning the data content which may be very intensive data processing if there are millions of files to scan."]
+  n14["元数据使用者图标1"]
+  n15["元数据使用者图标2"]
+  n16["元数据使用者图标3"]
+  n4 -->|"访问"| n5
+  n4 -->|"访问"| n7
+  n4 -->|"访问"| n9
+  n7 -->|"流动"| n5
+  n9 -->|"流动"| n7
+  n4 -->|"流动"| n1
+  n5 -->|"流动"| n1
+  n11 ---|"关联"| n5
+  n12 ---|"关联"| n7
+  n13 ---|"关联"| n9
+  n0 -.->|"分组"| n1
+  n0 -.->|"分组"| n2
+  n3 -.->|"分组"| n4
+  n3 -.->|"分组"| n5
+  n5 -.->|"visual_containment_only"| n6
+  n3 -.->|"分组"| n7
+  n7 -.->|"visual_containment_only"| n8
+  n3 -.->|"分组"| n9
+  n9 -.->|"visual_containment_only"| n10
+  n2 -.->|"分组"| n14
+  n2 -.->|"分组"| n15
+  n2 -.->|"分组"| n16

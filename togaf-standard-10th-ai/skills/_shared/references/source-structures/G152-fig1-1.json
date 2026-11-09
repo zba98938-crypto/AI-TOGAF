@@ -1,0 +1,879 @@
+{
+  "schema_version": "2.0",
+  "id": "G152/fig1-1",
+  "title": "核心安全与风险概念及其在 TOGAF ADM 中的位置",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      79
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "作为全指南的总览图（正文称“Figure 1-1 summarizes this Guide”）：左边是企业架构的 ADM，右边是企业安全架构，中间一列是 ISM/ERM 的核心概念；用蓝色连线把每个概念组挂到产生或使用它的 ADM 阶段，从而说明安全与风险概念如何嵌入 TOGAF 方法，而不是另起一套平行流程。",
+    "reading_guide_zh": "先看左侧 ADM 轮盘确定阶段，再看中央概念列：概念按阶段自上而下分组，每组左侧用蓝色弧线连到对应阶段。概念名下有下划线的是 ISM/ERM 引入的新增概念（正文说明）。最后看右侧：企业安全架构内部列出身份与访问管理等安全服务，并由 Information Security Management 与 Enterprise Risk Management 两个环形箭头表示持续过程。蓝色弧线没有箭头，只表示“该阶段与该组概念相关”，不表示单向数据流。",
+    "key_points_zh": [
+      "中央概念列是全图的主轴：21 个概念按 ADM 阶段分为 7 组，从预备/愿景的业务驱动与风险偏好，到 B 阶段的安全政策架构与风险登记册，再到 C、D、E、G 阶段的服务、标准、缓解计划与审计培训。",
+      "带下划线的概念是 ISM/ERM 对 TOGAF 框架的新增内容（正文明确说明）；本图中带下划线的是 Risk Appetite、Key Risk Areas / Business Impact、Security Policy Architecture、Trust Framework、Risk Assessment、Business Risk Model / Risk Register、两个 Register、Security Services Catalog、Security Classification、Data Quality、Business Attribute Profile、Control Objectives / Security Objectives、Security Audit、Security Training & Awareness。",
+      "概念组用灰色细框或黑色粗框标出；黑框组（B 阶段的安全政策/风险组、Security Standards、Risk Mitigation Plan）在原图中被强调，但图内没有图例说明黑框含义。",
+      "阶段 H（架构变更管理）没有任何概念组或蓝色连线；这与正文“阶段 H 不产出有形安全交付物”一致，是本图一个容易被忽略的细节。",
+      "Requirements Management 位于轮盘中心，并通过蓝色连线指向“业务属性画像 / 控制目标·安全目标”组，表明需求管理是安全需求与目标的汇聚点。",
+      "右侧企业安全架构内，安全服务清单（Identity & Access Mgmt.、Continuity Management、Security Intelligence、Security Monitoring、Compliance Management、etc.）通过浅蓝楔形指向中央的 Security Services Catalog，说明前者是后者的展开示例。",
+      "ISM 与 ERM 被画成两个首尾相接的环形箭头，表示它们是与 ADM 并行的持续管理过程；正文强调本指南的目标正是把 ISM 与 ERM 两个过程整合进 ADM。",
+      "蓝色连线只表示阶段与概念组的关联，没有箭头方向；不要把它读成“阶段产出概念”或“概念流入阶段”的单向流。"
+    ],
+    "hierarchy_zh": "三层。第 1 层是两个大区域：左 Enterprise Architecture、右 Enterprise Security Architecture；第 2 层是区域内的结构：左侧 ADM 的 10 个阶段节点（含中心的 Requirements Management），中央 7 个概念组，右侧 ESA 内的安全运营子区（安全服务清单 + ISM 环）与 ERM 子区（ERM 环）；第 3 层是概念组内的 21 个概念框、服务清单内的 5 个服务框。ADM 阶段与概念组之间是关联（连线），不是上下级。",
+    "line_semantics_zh": "ADM 轮盘内的灰色细线是标准 ADM 的阶段顺序与 Requirements Management 辐射线，无箭头。中央的蓝色粗弧线把阶段连到概念组，也无箭头，表示“相关/使用或产出”，方向需按正文判断。右侧黑色环形箭头表示 ISM、ERM 的循环过程；浅蓝楔形是 Security Services Catalog 到服务清单的展开指引。概念组外框的灰/黑区别只表达强调，不表达流程。",
+    "misreadings_zh": [
+      "下划线不是超链接或普通强调，而是“ISM/ERM 新增到 TOGAF 的概念”这一编码（正文说明）；反过来，未加下划线的概念也不等于与安全无关。",
+      "中央概念列不是时间序列，纵向顺序只是按 ADM 阶段分组；同组内上下相邻的框没有先后关系。",
+      "蓝色弧线没有箭头，不能读成单向数据流；例如 A 阶段连到“风险偏好”组，表示 A 阶段使用这些概念，而不是概念流向 A。",
+      "阶段 H 没有连线不是漏画：正文明确 H 阶段不产出有形安全交付物。",
+      "图右侧的环形箭头不是 ADM 阶段，而是 ISM 与 ERM 两个持续过程。",
+      "中文稿当前引用的 figs/g152_fig1-1.svg 是自拟的三栏要点表，阶段与概念的对应关系与原图多处不符，不能据它理解本图。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "ea_region",
+      "label_en": "Enterprise Architecture",
+      "label_zh": "企业架构（区域）",
+      "type": "group",
+      "parent": null,
+      "position": "左半区",
+      "description_zh": "包含 ADM 轮盘与一位企业架构师图标。"
+    },
+    {
+      "id": "esa_region",
+      "label_en": "Enterprise Security Architecture",
+      "label_zh": "企业安全架构（区域）",
+      "type": "group",
+      "parent": null,
+      "position": "右半区",
+      "description_zh": "大圆角区域，内含两个嵌套子区。"
+    },
+    {
+      "id": "esa_ops",
+      "label_en": null,
+      "label_zh": "安全运营子区（无标题）",
+      "type": "group",
+      "parent": "esa_region",
+      "position": "ESA 内左侧",
+      "description_zh": "含安全架构师图标、安全服务清单与 ISM 环。"
+    },
+    {
+      "id": "esa_erm",
+      "label_en": null,
+      "label_zh": "企业风险管理子区（无标题）",
+      "type": "group",
+      "parent": "esa_region",
+      "position": "ESA 内右侧",
+      "description_zh": "含风险管理人员图标与 ERM 环。"
+    },
+    {
+      "id": "g1_core",
+      "label_en": null,
+      "label_zh": "核心概念组（预备/愿景，灰框）",
+      "type": "group",
+      "parent": null,
+      "position": "概念列最上",
+      "description_zh": "5 个概念框：业务驱动/目标、安全原则、风险偏好、关键风险领域/业务影响、安全资源计划。"
+    },
+    {
+      "id": "g2_policy",
+      "label_en": null,
+      "label_zh": "安全政策与风险概念组（黑框）",
+      "type": "group",
+      "parent": null,
+      "position": "概念列第二组",
+      "description_zh": "7 个概念框，从安全策略架构到适用控制框架登记册。"
+    },
+    {
+      "id": "g3_services",
+      "label_en": null,
+      "label_zh": "安全服务与分类概念组（灰框）",
+      "type": "group",
+      "parent": null,
+      "position": "概念列第三组",
+      "description_zh": "3 个概念框：安全服务目录、安全分类、数据质量。"
+    },
+    {
+      "id": "g5_requirements",
+      "label_en": null,
+      "label_zh": "需求与目标概念组（灰框）",
+      "type": "group",
+      "parent": null,
+      "position": "概念列第五组",
+      "description_zh": "2 个概念框：业务属性画像、控制目标/安全目标。"
+    },
+    {
+      "id": "g7_audit",
+      "label_en": null,
+      "label_zh": "审计与培训概念组（灰框）",
+      "type": "group",
+      "parent": null,
+      "position": "概念列最下",
+      "description_zh": "2 个概念框：安全审计、安全培训与意识。"
+    },
+    {
+      "id": "svc_list",
+      "label_en": null,
+      "label_zh": "安全服务清单（浅蓝列，无标题）",
+      "type": "group",
+      "parent": "esa_ops",
+      "position": "ESA 中部",
+      "description_zh": "纵向排列 5 个服务框，左缘有浅蓝楔形指向 Security Services Catalog。"
+    },
+    {
+      "id": "preliminary",
+      "label_en": "Preliminary",
+      "label_zh": "预备阶段",
+      "type": "phase",
+      "parent": "ea_region",
+      "position": "ADM 轮盘顶部",
+      "order": 0
+    },
+    {
+      "id": "phase_a",
+      "label_en": "A. Architecture Vision",
+      "label_zh": "A. 架构愿景",
+      "type": "phase",
+      "parent": "ea_region",
+      "order": 1,
+      "position": "轮盘顶部偏右"
+    },
+    {
+      "id": "phase_b",
+      "label_en": "B. Business Architecture",
+      "label_zh": "B. 业务架构",
+      "type": "phase",
+      "parent": "ea_region",
+      "order": 2,
+      "position": "轮盘右上"
+    },
+    {
+      "id": "phase_c",
+      "label_en": "C. Information Systems Architectures",
+      "label_zh": "C. 信息系统架构",
+      "type": "phase",
+      "parent": "ea_region",
+      "order": 3,
+      "position": "轮盘右侧"
+    },
+    {
+      "id": "phase_d",
+      "label_en": "D. Technology Architecture",
+      "label_zh": "D. 技术架构",
+      "type": "phase",
+      "parent": "ea_region",
+      "order": 4,
+      "position": "轮盘右下"
+    },
+    {
+      "id": "phase_e",
+      "label_en": "E. Opportunities and Solutions",
+      "label_zh": "E. 机会与解决方案",
+      "type": "phase",
+      "parent": "ea_region",
+      "order": 5,
+      "position": "轮盘底部"
+    },
+    {
+      "id": "phase_f",
+      "label_en": "F. Migration Planning",
+      "label_zh": "F. 迁移规划",
+      "type": "phase",
+      "parent": "ea_region",
+      "order": 6,
+      "position": "轮盘左下"
+    },
+    {
+      "id": "phase_g",
+      "label_en": "G. Implementation Governance",
+      "label_zh": "G. 实施治理",
+      "type": "phase",
+      "parent": "ea_region",
+      "order": 7,
+      "position": "轮盘左侧"
+    },
+    {
+      "id": "phase_h",
+      "label_en": "H. Architecture Change Management",
+      "label_zh": "H. 架构变更管理",
+      "type": "phase",
+      "parent": "ea_region",
+      "order": 8,
+      "position": "轮盘左上"
+    },
+    {
+      "id": "requirements_management",
+      "label_en": "Requirements Management",
+      "label_zh": "需求管理",
+      "type": "phase",
+      "parent": "ea_region",
+      "position": "轮盘中心（橙色大圆）",
+      "description_zh": "位于 ADM 环中心，通过灰色辐射线与 A–H 各阶段相连。"
+    },
+    {
+      "id": "business_drivers",
+      "label_en": "Business Drivers / Business Objectives",
+      "label_zh": "业务驱动/业务目标",
+      "type": "goal",
+      "parent": "g1_core",
+      "attributes": {
+        "underlined": false
+      }
+    },
+    {
+      "id": "security_principles",
+      "label_en": "Security Principles",
+      "label_zh": "安全原则",
+      "type": "principle",
+      "parent": "g1_core",
+      "attributes": {
+        "underlined": false
+      }
+    },
+    {
+      "id": "risk_appetite",
+      "label_en": "Risk Appetite",
+      "label_zh": "风险偏好",
+      "type": "principle",
+      "parent": "g1_core",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "key_risk_areas",
+      "label_en": "Key Risk Areas / Business Impact",
+      "label_zh": "关键风险领域/业务影响",
+      "type": "risk",
+      "parent": "g1_core",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "security_resource_plan",
+      "label_en": "Security Resource Plan",
+      "label_zh": "安全资源计划",
+      "type": "artifact",
+      "parent": "g1_core",
+      "attributes": {
+        "underlined": false
+      }
+    },
+    {
+      "id": "security_policy_architecture",
+      "label_en": "Security Policy Architecture",
+      "label_zh": "安全策略架构",
+      "type": "artifact",
+      "parent": "g2_policy",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "security_domain_model",
+      "label_en": "Security Domain Model",
+      "label_zh": "安全域模型",
+      "type": "artifact",
+      "parent": "g2_policy",
+      "attributes": {
+        "underlined": false
+      }
+    },
+    {
+      "id": "trust_framework",
+      "label_en": "Trust Framework",
+      "label_zh": "信任框架",
+      "type": "artifact",
+      "parent": "g2_policy",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "risk_assessment",
+      "label_en": "Risk Assessment",
+      "label_zh": "风险评估",
+      "type": "process",
+      "parent": "g2_policy",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "business_risk_model",
+      "label_en": "Business Risk Model / Risk Register",
+      "label_zh": "业务风险模型/风险登记册",
+      "type": "artifact",
+      "parent": "g2_policy",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "law_register",
+      "label_en": "Applicable Law & Regulation Register",
+      "label_zh": "适用法律法规登记册",
+      "type": "artifact",
+      "parent": "g2_policy",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "control_framework_register",
+      "label_en": "Applicable Control Framework Register",
+      "label_zh": "适用控制框架登记册",
+      "type": "artifact",
+      "parent": "g2_policy",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "security_services_catalog",
+      "label_en": "Security Services Catalog",
+      "label_zh": "安全服务目录",
+      "type": "artifact",
+      "parent": "g3_services",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "security_classification",
+      "label_en": "Security Classification",
+      "label_zh": "安全分类",
+      "type": "artifact",
+      "parent": "g3_services",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "data_quality",
+      "label_en": "Data Quality",
+      "label_zh": "数据质量",
+      "type": "artifact",
+      "parent": "g3_services",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "security_standards",
+      "label_en": "Security Standards",
+      "label_zh": "安全标准",
+      "type": "principle",
+      "parent": null,
+      "position": "概念列第四行（黑框单框）",
+      "attributes": {
+        "underlined": false
+      }
+    },
+    {
+      "id": "business_attribute_profile",
+      "label_en": "Business Attribute Profile",
+      "label_zh": "业务属性画像",
+      "type": "artifact",
+      "parent": "g5_requirements",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "control_objectives",
+      "label_en": "Control Objectives / Security Objectives",
+      "label_zh": "控制目标/安全目标",
+      "type": "goal",
+      "parent": "g5_requirements",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "risk_mitigation_plan",
+      "label_en": "Risk Mitigation Plan",
+      "label_zh": "风险缓解计划",
+      "type": "artifact",
+      "parent": null,
+      "position": "概念列第六行（黑框单框）",
+      "attributes": {
+        "underlined": false
+      }
+    },
+    {
+      "id": "security_audit",
+      "label_en": "Security Audit",
+      "label_zh": "安全审计",
+      "type": "process",
+      "parent": "g7_audit",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "security_training",
+      "label_en": "Security Training & Awareness",
+      "label_zh": "安全培训与意识",
+      "type": "process",
+      "parent": "g7_audit",
+      "attributes": {
+        "underlined": true
+      }
+    },
+    {
+      "id": "svc_iam",
+      "label_en": "Identity & Access Mgmt.",
+      "label_zh": "身份与访问管理",
+      "type": "service",
+      "parent": "svc_list"
+    },
+    {
+      "id": "svc_continuity",
+      "label_en": "Continuity Management",
+      "label_zh": "连续性管理",
+      "type": "service",
+      "parent": "svc_list"
+    },
+    {
+      "id": "svc_intelligence",
+      "label_en": "Security Intelligence",
+      "label_zh": "安全情报",
+      "type": "service",
+      "parent": "svc_list"
+    },
+    {
+      "id": "svc_monitoring",
+      "label_en": "Security Monitoring",
+      "label_zh": "安全监控",
+      "type": "service",
+      "parent": "svc_list"
+    },
+    {
+      "id": "svc_compliance",
+      "label_en": "Compliance Management",
+      "label_zh": "合规管理",
+      "type": "service",
+      "parent": "svc_list"
+    },
+    {
+      "id": "svc_etc",
+      "label_en": "etc.",
+      "label_zh": "等（其余服务）",
+      "type": "note",
+      "parent": "svc_list",
+      "description_zh": "表示安全服务清单未穷举。"
+    },
+    {
+      "id": "ism_cycle",
+      "label_en": "Information Security Management",
+      "label_zh": "信息安全管理（ISM）",
+      "type": "process",
+      "parent": "esa_ops",
+      "position": "ESA 内下部",
+      "description_zh": "文字被黑色环形箭头包围，表示持续循环过程。"
+    },
+    {
+      "id": "erm_cycle",
+      "label_en": "Enterprise Risk Management",
+      "label_zh": "企业风险管理（ERM）",
+      "type": "process",
+      "parent": "esa_erm",
+      "position": "ESA 内右下",
+      "description_zh": "文字被黑色环形箭头包围，表示持续循环过程。"
+    },
+    {
+      "id": "ea_architect",
+      "label_en": null,
+      "label_zh": "企业架构师（图标）",
+      "type": "actor",
+      "parent": "ea_region",
+      "position": "ADM 左上",
+      "description_zh": "无文字标签的人物图标，旁边是建筑图纸与尺规。"
+    },
+    {
+      "id": "security_architect",
+      "label_en": null,
+      "label_zh": "安全架构师（图标）",
+      "type": "actor",
+      "parent": "esa_ops",
+      "position": "服务清单左上",
+      "description_zh": "无文字标签的人物图标，旁边是带锁的显示器。"
+    },
+    {
+      "id": "risk_manager",
+      "label_en": null,
+      "label_zh": "风险管理人员（图标）",
+      "type": "actor",
+      "parent": "esa_erm",
+      "position": "ERM 环上方",
+      "description_zh": "无文字标签的人物图标，旁边是图表与饼图。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "adm_pa",
+      "from": "preliminary",
+      "to": "phase_a",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "ADM 轮盘中的灰色连线，无箭头。"
+    },
+    {
+      "id": "adm_ab",
+      "from": "phase_a",
+      "to": "phase_b",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "adm_bc",
+      "from": "phase_b",
+      "to": "phase_c",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "adm_cd",
+      "from": "phase_c",
+      "to": "phase_d",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "adm_de",
+      "from": "phase_d",
+      "to": "phase_e",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "adm_ef",
+      "from": "phase_e",
+      "to": "phase_f",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "adm_fg",
+      "from": "phase_f",
+      "to": "phase_g",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "adm_gh",
+      "from": "phase_g",
+      "to": "phase_h",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "adm_ha",
+      "from": "phase_h",
+      "to": "phase_a",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "轮盘闭合，H 与 A 相连。"
+    },
+    {
+      "id": "rm_a",
+      "from": "phase_a",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "rm_b",
+      "from": "phase_b",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "rm_c",
+      "from": "phase_c",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "rm_d",
+      "from": "phase_d",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "rm_e",
+      "from": "phase_e",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "rm_f",
+      "from": "phase_f",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "rm_g",
+      "from": "phase_g",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "rm_h",
+      "from": "phase_h",
+      "to": "requirements_management",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "id": "c_prelim_g1",
+      "from": "preliminary",
+      "to": "g1_core",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "蓝色粗弧线，无箭头，进入概念列顶部。"
+    },
+    {
+      "id": "c_a_g1",
+      "from": "phase_a",
+      "to": "g1_core",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "蓝色弧线进入“Risk Appetite”一行。"
+    },
+    {
+      "id": "c_b_g2",
+      "from": "phase_b",
+      "to": "g2_policy",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "蓝色弧线进入“Security Domain Model”一行。"
+    },
+    {
+      "id": "c_c_g3",
+      "from": "phase_c",
+      "to": "g3_services",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "蓝色弧线进入“Security Services Catalog”一行。"
+    },
+    {
+      "id": "c_d_std",
+      "from": "phase_d",
+      "to": "security_standards",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "蓝色弧线直接连到 Security Standards 黑框。"
+    },
+    {
+      "id": "c_e_g5",
+      "from": "phase_e",
+      "to": "g5_requirements",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "蓝色弧线进入 Business Attribute Profile 组；该曲线在 ADM 圆盘后方穿过，起点判读见 uncertainties。"
+    },
+    {
+      "id": "c_e_mit",
+      "from": "phase_e",
+      "to": "risk_mitigation_plan",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "蓝色弧线连到 Risk Mitigation Plan 黑框。"
+    },
+    {
+      "id": "c_g_g7",
+      "from": "phase_g",
+      "to": "g7_audit",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "蓝色弧线进入安全审计/培训组。"
+    },
+    {
+      "id": "c_rm_g5",
+      "from": "requirements_management",
+      "to": "g5_requirements",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "从中心圆右下方绕出的蓝色弧线，终点为业务属性画像组。"
+    },
+    {
+      "id": "c_catalog_list",
+      "from": "security_services_catalog",
+      "to": "svc_list",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "浅蓝色楔形自概念框指向右侧服务清单，表示服务目录的示例展开。"
+    },
+    {
+      "id": "c_list_ism",
+      "from": "svc_list",
+      "to": "ism_cycle",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "服务清单位于 ISM 环上方，未画连线；由位置推断这些服务由 ISM 管理。"
+    },
+    {
+      "id": "c_ism_erm",
+      "from": "ism_cycle",
+      "to": "erm_cycle",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "两个循环并列于 ESA 内，未画连线；正文强调 ISM 与 ERM 的整合。"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_adm_cycle",
+      "kind": "cycle",
+      "name_zh": "TOGAF ADM 阶段循环",
+      "steps": [
+        "preliminary",
+        "phase_a",
+        "phase_b",
+        "phase_c",
+        "phase_d",
+        "phase_e",
+        "phase_f",
+        "phase_g",
+        "phase_h"
+      ],
+      "description_zh": "按轮盘连线顺序；H 之后回到 A（图中 H–A 相连），Requirements Management 位于中心并连到每个阶段。"
+    }
+  ],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "概念名下的下划线",
+      "meaning_zh": "该概念是 ISM/ERM 引入 TOGAF 框架的新增内容（正文明确说明，图内无图例框）",
+      "explicit": false
+    },
+    {
+      "symbol": "黄色圆形",
+      "meaning_zh": "TOGAF ADM 阶段（Preliminary、A–H）及中心的 Requirements Management",
+      "explicit": false
+    },
+    {
+      "symbol": "蓝色粗弧线（无箭头）",
+      "meaning_zh": "ADM 阶段与中央概念组之间的关联/使用关系",
+      "explicit": false
+    },
+    {
+      "symbol": "灰色细圆角外框与黑色粗圆角外框",
+      "meaning_zh": "概念组的边框；黑框用于强调该组（B 阶段安全政策/风险组、Security Standards、Risk Mitigation Plan），原图无文字图例说明",
+      "explicit": false
+    },
+    {
+      "symbol": "浅蓝色楔形（指向左侧的三角形）",
+      "meaning_zh": "Security Services Catalog 到右侧安全服务清单（Identity & Access Mgmt. 等）的展开指引",
+      "explicit": false
+    },
+    {
+      "symbol": "黑色首尾相接的环形箭头",
+      "meaning_zh": "持续循环的管理过程：Information Security Management、Enterprise Risk Management",
+      "explicit": false
+    },
+    {
+      "symbol": "小型人物/显示器/图表图标",
+      "meaning_zh": "企业架构师、安全架构师、风险管理人员三个角色示意，无文字标签",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "中央概念列下半部（E/F/G/需求管理）的蓝色曲线在 ADM 圆盘后方相互穿插，部分起点被圆盘遮挡；c_e_g5、c_e_mit、c_rm_g5 的起点分配依据终点行位与正文阶段内容推断，不排除互换。",
+      "原图用灰色细框与黑色粗框区分概念组，但没有任何图例说明黑框含义；本分析只记录为“强调”，未赋予确定语义。",
+      "下划线清单按 600 dpi 放大逐一核对，个别短词（如 Security Audit、Security Training & Awareness）的下划线在原图中很短，存在判读误差。",
+      "图 1-1 没有图例；“蓝色弧线表示阶段与概念相关”由版式与正文推断。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 14 页原图截图（220 dpi）及 2x2 放大分块",
+      "英文 PDF 第 14 页 600 dpi 重渲染及局部放大（ADM 连接区、概念列、图例区）",
+      "英文 PDF 第 13、14 页正文",
+      "中文稿 G152e_将风险与安全融入TOGAF企业架构.md 第 77–79、179、316 行",
+      "figs/g152_fig1-1.svg 源码（文本内容与结构）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G152/fig1-1",
+    "asset": "figs/g152_fig1-1.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "01"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": "capability-addenda/1",
+  "id": "field-contracts-15",
+  "status": "registered-not-accepted",
+  "owner": "togaf-architecture-workbench",
+  "notice": "项目操作契约；复用现有指南摘要，不表示TOGAF官方语义验收。旧检查显式保留为专业review；机器断言仅限绑定的真实执行器。",
+  "patches": [
+    {
+      "group": "work_products",
+      "id": "options-decision-matrix",
+      "set": {
+        "check_specs": [
+          {
+            "id": "checks-1",
+            "text": "成本原值不能直接当越高越好的评分，权重必须显式",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "checks-2",
+            "text": "G20F交付风格与SBCE子规范不使用一次性加权评分，按其独立方法执行。",
+            "mode": "review",
+            "source": "checks"
+          },
+          {
+            "id": "semantic_checks-1",
+            "text": "成本原值不能直接当越高越好的评分，权重必须显式",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-2",
+            "text": "必需属性具有明确值或被登记为阻断缺口",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-3",
+            "text": "来源与项目事实、参考内容、假设保持可区分",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "semantic_checks-4",
+            "text": "结论回应本规范的决策问题并可追溯",
+            "mode": "review",
+            "source": "semantic_checks"
+          },
+          {
+            "id": "typed-required-fields",
+            "text": "必填值存在；已登记类型、枚举与范围约束成立（不验证专业正确性）",
+            "mode": "machine",
+            "source": "field-contract",
+            "executor": "field-values",
+            "code": "field-contract-value",
+            "applies_to": {
+              "entity_types": [
+                "guide:delivery_feature_review",
+                "guide:delivery_style_decision",
+                "guide:sbce_iteration",
+                "guide:sbce_constraint",
+                "option"
+              ]
+            }
+          },
+          {
+            "id": "sbce-contract",
+            "text": "按轮次保留方案身份、淘汰/重开证据及显式所选集合兼容约束；未建模耦合仍需人工评审",
+            "mode": "machine",
+            "source": "domain-contract",
+            "executor": "sbce-contract",
+            "code": "sbce-contract-violation",
+            "applies_to": {
+              "entity_types": [
+                "guide:sbce_iteration",
+                "guide:sbce_constraint"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "ea-point-of-view-register",
+      "set": {
+        "entity_attribute_semantics": {
+          "guide:ea-point-of-view": {
+            "analysis_result": {
+              "meaning": "确定性审查结果与带ID缺口",
+              "value_rule": "确定性审查结果与带ID缺口；由本方法明确输入重算，输出存在不等于治理批准",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "object",
+                "minProperties": 1
+              },
+              "source_refs": [
+                "G184 §12.2–12.4；本地L1351–1373"
+              ]
+            },
+            "raw_material_refs": {
+              "meaning": "完整原始业务材料ID列表",
+              "value_rule": "完整原始业务材料ID列表；须能检索随包原料，不以分析结果循环充当业务事实",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "source_refs": [
+                "G184 §12.2–12.4；本地L1351–1373"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "project-management-strategy",
+      "set": {
+        "entity_attribute_semantics": {
+          "guide:project-management-strategy": {
+            "analysis_result": {
+              "meaning": "确定性审查结果与带ID缺口",
+              "value_rule": "确定性审查结果与带ID缺口；由本方法明确输入重算，输出存在不等于治理批准",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "object",
+                "minProperties": 1
+              },
+              "source_refs": [
+                "G188 §3.1.8 L541–631",
+                "G188 §4.2.1 L1524–1531"
+              ]
+            },
+            "raw_material_refs": {
+              "meaning": "完整原始业务材料ID列表",
+              "value_rule": "完整原始业务材料ID列表；须能检索随包原料，不以分析结果循环充当业务事实",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "source_refs": [
+                "G188 §3.1.8 L541–631",
+                "G188 §4.2.1 L1524–1531"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "project-status-highlight-report",
+      "set": {
+        "entity_attribute_semantics": {
+          "guide:project-highlight-report": {
+            "analysis_result": {
+              "meaning": "确定性审查结果与带ID缺口",
+              "value_rule": "确定性审查结果与带ID缺口；由本方法明确输入重算，输出存在不等于治理批准",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "object",
+                "minProperties": 1
+              },
+              "source_refs": [
+                "G188 §3.4.2–3.4.8 L1112–1205"
+              ]
+            },
+            "raw_material_refs": {
+              "meaning": "完整原始业务材料ID列表",
+              "value_rule": "完整原始业务材料ID列表；须能检索随包原料，不以分析结果循环充当业务事实",
+              "definition_origin": "project-operational-convention",
+              "value_schema": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "source_refs": [
+                "G188 §3.4.2–3.4.8 L1112–1205"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

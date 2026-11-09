@@ -1,0 +1,28 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Business Intelligence &amp; Analytics Data Platforms"]
+  n1["Transactional Application #1"]
+  n2["Transactional Application #2"]
+  n3["Transactional Application Including Embedded BI &amp; Analytic Capabilities"]
+  n4["Enterprise Data Warehouse"]
+  n5["Data Mart #1"]
+  n6["Data Mart #2"]
+  n7["Application #1"]
+  n8["RDBMS"]
+  n9["RDBMS"]
+  n10["RDBMS"]
+  n11["Other"]
+  n12["RDBMS"]
+  n13["RDBMS"]
+  n14["RDBMS"]
+  n0 -.->|"分组"| n4
+  n0 -.->|"分组"| n5
+  n0 -.->|"分组"| n6
+  n0 -.->|"分组"| n7
+  n1 -.->|"application_encapsulation"| n8
+  n2 -.->|"application_encapsulation"| n9
+  n3 -.->|"application_encapsulation"| n10
+  n3 -.->|"application_encapsulation"| n11
+  n5 -.->|"visual_containment_only"| n12
+  n6 -.->|"visual_containment_only"| n13
+  n7 -.->|"application_encapsulation"| n14

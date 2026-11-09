@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:togaf-skills:evidence-reference:1",
+  "title": "Root-relative, content-bound evidence reference",
+  "type": "object",
+  "required": ["path", "sha256"],
+  "properties": {
+    "path": {"type": "string", "minLength": 1, "pattern": "^[^~/:\\\\?#][^:\\\\?#]*$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "record_id": {"type": "string", "minLength": 1},
+    "selector": {"type": "string"},
+    "basis": {"type": "string"}
+  },
+  "description": "Schema only checks shape. The reader must also reject traversal/symlink escape and verify transitive typed references and scope. A digest is not semantic acceptance."
+}

@@ -1,0 +1,227 @@
+{
+  "schema_version": "1.0",
+  "status": "production-package-implemented-pending-central-integration",
+  "portability": "Only relative references; source summaries bundled, original PDFs not required at runtime.",
+  "rule_origin_policy": "来源定义、项目操作约定与虚构案例数值逐条区分。未提供的指标权重、目标、容差和合格线不能推断为TOGAF要求。",
+  "id": "environment-lifecycle-accounting",
+  "artifact_id": "environmental-is-assessment",
+  "profile_id": "annual-environmental-accounting",
+  "owner": "togaf-change-value",
+  "sources": [
+    {
+      "guide": "G242",
+      "sections": [
+        "3.6",
+        "3.6.1",
+        "3.6.2",
+        "3.6.3",
+        "6"
+      ],
+      "english_pdf_pages": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        98,
+        99
+      ],
+      "evidence": "../reviews/full-text-reading/G242/summary.json"
+    },
+    {
+      "guide": "G242",
+      "figure": "3-14",
+      "evidence": "../reviews/source-audit-corrections.json",
+      "meaning": "列对齐、选项及原图算术冲突独立保留"
+    }
+  ],
+  "decision_use": "在明确组织与生命周期边界下获得年度碳足迹、透明近似和可比较变化，为减排而非抵消净额作决策。",
+  "stakeholders": [
+    "业务功能负责人",
+    "ICT运营",
+    "采购",
+    "CSR",
+    "碳核算负责人",
+    "供应商"
+  ],
+  "adm_phases": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "Requirements Management"
+  ],
+  "required_inputs": [
+    {
+      "id": "accounting_boundary",
+      "origin": "source-plus-project-contract",
+      "meaning": "组织、服务、地理、期间、生命周期和功能单位"
+    },
+    {
+      "id": "asset_service_inventory",
+      "origin": "source",
+      "meaning": "自营、云、分包、网络、员工设备、客户终端及归属"
+    },
+    {
+      "id": "activity_data",
+      "origin": "source",
+      "meaning": "用电、设备与服务使用，含单位时间来源"
+    },
+    {
+      "id": "factor_catalog",
+      "origin": "source",
+      "meaning": "制造、运行和能源结构原始单位数据及来源"
+    },
+    {
+      "id": "allocation_rule",
+      "origin": "source-plus-project-contract",
+      "meaning": "供应商或共用资产分配及防重依据"
+    },
+    {
+      "id": "cloud_service_records",
+      "origin": "source",
+      "meaning": "第6章19字段最小共享记录（适用时）"
+    },
+    {
+      "id": "offsets",
+      "origin": "source",
+      "meaning": "与毛排放分开记录"
+    },
+    {
+      "id": "comparison_contract",
+      "origin": "project-operational",
+      "meaning": "历年同范围、同口径及变化说明"
+    }
+  ],
+  "missing_input_policy": "未知量不作零。可用有明确来源的数量级估计，但须列出精度和边界限制；缺关键数据可输出已知小计，禁止称完整总量。",
+  "semantics": {
+    "model_container": "model.extension_data['togaf-addenda:g242-accounting']",
+    "scope_perspective": "记录provider_scope与organization_scope；采购云服务的提供方Scope2/3不能直接当客户组织同名Scope。",
+    "annual_cadence": "annual与comparison_horizon_years是独立字段；连续2–3年不等于每2–3年才测一次。",
+    "scope2_bases": "location-based与market-based分别呈现；不是可相加的两项。",
+    "scope3_subset": "设备相关Scope3是总Scope3子集，不得二次相加。",
+    "allocation": "同一排放源/活动期/分配份额不得重复归入总量。",
+    "aggregation": "在相同组织边界、时期、单位且互斥的排放分类下可做总量；禁止跨边界盲加，不能以一概不汇总替代年度评估。",
+    "monthly_vs_annual": "原表Period年/月与多项full-year描述存在含混；使用value_basis明确当期、年累计或年化，禁止自动乘12。",
+    "offsets": "单独展示，毛排放变化不扣抵消。",
+    "calculation_origin": "activity × factor和本案例归属/分摊属于声明项目计算，营收比例近似在G242§3.6.1有来源。",
+    "production_container": "analyses[].inputs and typed entities[].attributes; legacy namespace remains audit history"
+  },
+  "analysis_steps": [
+    "锁定测量范围与功能单位并检查清单覆盖",
+    "取原始用量、制造因子和云报告",
+    "检查期间、单位、生命周期、报告口径与组织归属",
+    "选择并声明Scope2口径和分配规则",
+    "逐记录计算并检测重复/子集",
+    "按相同边界互斥分类汇总毛排放，抵消另列",
+    "对齐年度并解释差额、未知量和规则变化",
+    "传达业务职能影响及可验证减排杠杆"
+  ],
+  "output_structure": [
+    "年度已知排放和完整性",
+    "Scope分类与生命周期分解",
+    "供应商口径与客户归属对照",
+    "因子及分配证据",
+    "独立抵消行",
+    "年度变化和未决项"
+  ],
+  "cloud_required_fields": [
+    "provider_name",
+    "provider_evaluated_service",
+    "concerned_organization_entities",
+    "period",
+    "electricity_consumption_kwh",
+    "renewable_electricity_purchased_kwh",
+    "scope2_market_based_kgco2e",
+    "scope2_location_based_kgco2e",
+    "pue",
+    "scope2_calculation_comments",
+    "total_scope3_kgco2e",
+    "digital_equipment_scope3_kgco2e",
+    "scope3_calculation_comments",
+    "carbon_credits_offsets_kgco2e",
+    "digital_waste_kg",
+    "recycled_digital_waste_kg",
+    "water_consumption",
+    "stored_data_gb_including_replication",
+    "network_traffic_gb"
+  ],
+  "notation": "分列核算矩阵/年度评估；单位、Scope口径、毛排放和抵消及数据缺口必须可见。",
+  "quality_checks": [
+    {
+      "id": "ENV-001",
+      "rule": "单位、期间、组织边界和来源齐全"
+    },
+    {
+      "id": "ENV-002",
+      "rule": "市场法/地区法不可相加"
+    },
+    {
+      "id": "ENV-003",
+      "rule": "总Scope3与设备子集不可相加"
+    },
+    {
+      "id": "ENV-004",
+      "rule": "毛排放不扣抵消"
+    },
+    {
+      "id": "ENV-005",
+      "rule": "选择统一组织视角并防重复归属"
+    },
+    {
+      "id": "ENV-006",
+      "rule": "月与年口径不明即阻断自动汇总"
+    },
+    {
+      "id": "ENV-007",
+      "rule": "印刷数与复算数分存，不能自动解释为舍入"
+    },
+    {
+      "id": "ENV-008",
+      "rule": "数据缺失时只能称小计或估计，不能称完整实测"
+    }
+  ],
+  "misreadings": [
+    "Scope2转移到Scope3并不自动等于减排",
+    "供应商金额比例只是临时近似",
+    "公开书目页和出版时法规不是当前定义与合规证明",
+    "净零电力宣传不能代替全生命周期毛足迹",
+    "第6章是提议模型，非已发布独立标准"
+  ],
+  "example": "../examples/addenda/environment-lifecycle-accounting/case.json",
+  "method_reference": "../references/capability-addenda/environment-lifecycle-accounting.md",
+  "render_obligations": [
+    "year",
+    "boundary",
+    "scope_perspective",
+    "scope2_basis",
+    "lifecycle_stage",
+    "value",
+    "unit",
+    "allocation",
+    "evidence",
+    "offsets_separate",
+    "completeness"
+  ],
+  "acceptance": {
+    "definition": "english-pdf-checked",
+    "model": "example-v2-validation-passed",
+    "analysis": "production-calculator-tests-passed",
+    "generation": "standard-generator-isolated-package-executed",
+    "modification": "production-baseline-and-modified-executed",
+    "review": "production-negative-and-boundary-tests-passed",
+    "visual": "table-fields-audited-visual-readability-pending"
+  },
+  "execution_evidence": "../examples/addenda/environment-lifecycle-accounting/execution-review.json",
+  "production_package": "evidence-work-products.json",
+  "production_usage": "../references/capability-addenda/production-use.md",
+  "production_example": "../examples/addenda/environment-lifecycle-accounting/production-baseline-model.json"
+}

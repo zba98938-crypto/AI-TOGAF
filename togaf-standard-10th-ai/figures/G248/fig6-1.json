@@ -1,0 +1,2569 @@
+{
+  "schema_version": "1.0",
+  "id": "G248/fig6-1",
+  "status": "done",
+  "doc": {
+    "code": "G248",
+    "title_zh": "构建块的选择方法",
+    "title_en": "An Approach to Selecting Building Blocks",
+    "zh_md": "G248e_构建块的选择方法.md",
+    "en_pdf": "togaf-standard-10th/G248e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "6-1",
+    "title_en": "An ERD showing the Relationships between Architecture Levels, Roles, and Domains",
+    "title_zh": "架构层级、角色与域关系的实体关系图",
+    "section_en": "6. Establishing the Context",
+    "section_zh": "6. 建立语境",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        29
+      ],
+      "printed_page": 17,
+      "bboxes": [
+        [
+          48.2,
+          126.9,
+          563.8,
+          393.1
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        355
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g248_fig6-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "536cbce79801",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "原图是 ERD：企业—分段—能力—服务四级实体、业务域/IS/IT 域及数据/应用/技术三域、系统与构建块，全部用带基数（1..*、0..*）的关系线连接；SVG 改成“层级 + 角色 + 交付物”的四列方框表，没有一条 ERD 关系线。",
+        "原图的 11 个实体（Enterprise、Segment、Capability、Service、Business Domain、IS/IT Domain、Data/Application/Technology Domain、System、Building Block）在 SVG 中全部缺失，只剩“战略架构/分段架构/能力架构/实现”四个层级名。",
+        "SVG 新增了原图没有的第二行交付物（企业范围路线图、组合/项目群路线图、组件/解决方案规格、构建/部署/运营），这些是中文稿正文的概括，不是图的内容。",
+        "SVG 丢掉了原图顶部四段角色说明的完整措辞（如 Enterprise Architects evolve and govern aspects across and between segments…），只保留角色名。",
+        "SVG 丢掉了原图底部两段域分解说明（业务域可再分为 XX/XX/..；IS/IT 域分为 Data/Application/Technology 三域）以及所有基数。",
+        "SVG 用四色区分四个层级，原图只有 “Business/Data/Application/Technology Domain” 四个词用彩色强调，且没有图例。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "er_model",
+      "hierarchy"
+    ],
+    "notation": "ERD + 注释：白底黑框矩形为实体，细实线连接并在线上写带 > / < 方向词的关系名，线两端标基数；上方四段文字注释角色，下方两段文字注释域的分解",
+    "concepts": [
+      "architecture_levels",
+      "architecture_domains",
+      "architecture_roles",
+      "segment_solution_architecture",
+      "business_capability",
+      "building_block"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "用 ERD 串起企业—分段—能力—服务四级、架构师角色与业务/IS-IT 域及其分解。",
+    "purpose_zh": "第 6 章“建立语境”要说明架构层级、角色与域如何互动：四级实体给出从企业到服务的层级链，四个角色注释说明谁在哪一级工作，域部分说明业务域如何利用 IS/IT 域的能力、又如何继续分解到数据/应用/技术域与构建块。",
+    "reading_guide_zh": "先读顶部四段角色文字，按列对应下方的 Enterprise、Segment、Capability、Service。再读中间主链：Enterprise —has→ Segment —offers→ Capability —enables→ Service，每条线下方还有反向读法（< enables、< organized by、< utilizes）。然后读下半部：Business Domain 与 IS/IT Domain 之间的能力供需、两者向上归入 Segment 的箭头、以及各自的向下分解（XX/XX/.. 与 Data/Application/Technology Domain）。最后读右侧 Capability 与 Building Block、Service 与 System 的实现/执行关系。",
+    "key_points_zh": [
+      "顶层是四级链：Enterprise（1..*）—has→（1..*）Segment（1..*）—offers→（1..*）Capability（1..*）—enables→（1..*）Service；三条线都标了 1..*，并各有反向读法。",
+      "反向读法表明层级间的支撑关系：Segment < enables Enterprise（分段使能企业）、Capability < organized by Segment（能力由分段组织）、Service < utilizes Capability（服务利用能力）。",
+      "四个角色与层级对应：企业架构师跨分段治理、分段架构师治理分段内能力、能力（专家）设计与构建者创建/变更构建块中的能力、解决方案架构师把能力组织为交付服务的方案。",
+      "Business Domain（1..*）utilizes capabilities from（0..*）IS/IT Domain；反向是 IS/IT Domain < provides capabilities to Business Domain，即业务域消费、IS/IT 域提供能力。",
+      "Business Domain 与 IS/IT Domain 都通过无标签箭头向上归入 Segment，说明一个分段由业务域与信息系统域共同构成。",
+      "域可继续分解：Business Domain 下是 XX、XX、..（占位示例）；IS/IT Domain 下固定为 Data Domain、Application Domain、Technology Domain 三个域。",
+      "Capability 由 1..* Building Block 实现（implemented by > / < implements，两端 1..*）。",
+      "Service 由 1..* System 执行（performed by ∨，两端 1..*）；System 内嵌套 Building Block，并标 1..* 与 ∨/∧，表示系统由构建块组成。"
+    ],
+    "hierarchy_zh": "三层结构：最上是四段角色注释（企业架构师、分段架构师、能力设计与构建者、解决方案架构师）；中间是四级实体链 Enterprise → Segment → Capability → Service；下方是域的分解树——Segment 统辖 Business Domain 与 IS/IT Domain，Business Domain 再分为 XX/XX/..，IS/IT Domain 再分为 Data/Application/Technology Domain；右侧 System 以嵌套方式包含 Building Block。",
+    "line_semantics_zh": "实线连接实体，线上用 “has >”“< enables” 这类带 > / < 的文字表示阅读方向（> 向右、< 向左），两端数字为基数；带文字的关系线本身没有箭头，方向只能看文字符号。域分解与归入分段的线是没有文字的细实线，箭头指向“整体”一端（Segment 或上级域）。System 与 Building Block 之间用嵌套框加 ∨ / 1..* / ∧ 表示组成。全图为纯黑白线框加四处彩色强调词。",
+    "misreadings_zh": [
+      "“< enables”应读作 Segment 使能 Enterprise（箭头向左），不要读成 Enterprise 使能 Segment。",
+      "“Business Domain utilizes capabilities from IS/IT Domain”表示业务域从 IS/IT 域获取能力，不是 IS/IT 域从业务域获取能力；反向的“< provides capabilities to”才是 IS/IT 域向业务域提供能力。",
+      "两个“XX”和一个“..”是占位示例框，不是名为 XX 的实体；底注说明业务域可以继续分解为业务功能/流程组合等。",
+      "Building Block 画在 System 框内，但它同时通过 implemented by / implements 与 Capability 相连；不要把它只理解为 System 的内部零件。",
+      "IS/IT 端的 0..* 表示一个业务域可以利用零个或多个 IS/IT 域，不要读成至少一个。",
+      "四个彩色词（Business、Data、Application、Technology）只是强调，不是图例分类；中文稿当前引用的 SVG 把整张 ERD 换成了层级/角色/交付物表，不能据它理解本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p29",
+        "summary_zh": "架构角色整合专家并与之合作，把全部专家活动绑定在一起，使最终执行的解决方案与服务最好地满足其语境与概念；图 6-1 展示架构层级、角色与域如何交互。"
+      },
+      {
+        "source": "zh_md L337",
+        "summary_zh": "企业/分段/解决方案架构师（ESS 架构师）评估变革目标与目的，识别一组平衡且集成的能力、构建块与解决方案。"
+      },
+      {
+        "source": "zh_md L341",
+        "summary_zh": "中文稿列出三个架构粒度层级：战略架构、分段架构、能力架构，并说明各自支持的方向设定与路线图开发。"
+      },
+      {
+        "source": "zh_md L347",
+        "summary_zh": "企业架构师倾向在战略层工作，分段架构师在组合/项目群层工作，解决方案架构师在能力与解决方案/组件实施层工作。"
+      },
+      {
+        "source": "zh_md L353",
+        "summary_zh": "构建块、组件、子系统与系统方面的专家在架构约束内工作，架构角色整合专家活动；图 6-1 展示层级、角色与域如何交互。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "顶部一行四段角色说明；中部横向主链 Enterprise → Segment → Capability → Service；其下偏左是 Business Domain 与 IS/IT Domain 的横向关系，再下一行是 Business Domain 的三个子框（XX、XX、..）和 IS/IT Domain 的三个子域（Data/Application/Technology Domain）；最右是 Service 下方的 System 框，System 内嵌套 Building Block；底部两段说明文字分别位于业务域与信息系统域下方。"
+  },
+  "legend": [
+    {
+      "symbol": "白底黑框矩形",
+      "meaning_zh": "一个实体（层级、域、系统或构建块）",
+      "explicit": false
+    },
+    {
+      "symbol": "线上 “has >”“< enables” 等带 > / < 的文字",
+      "meaning_zh": "关系名及其阅读方向：> 向右、< 向左；线上没有箭头，方向只看这两个符号",
+      "explicit": false
+    },
+    {
+      "symbol": "线两端的 1..*、0..*",
+      "meaning_zh": "该端基数（一个以上 / 零个以上）",
+      "explicit": false
+    },
+    {
+      "symbol": "无文字的细实线箭头",
+      "meaning_zh": "分解/归入：箭头指向整体（Segment 或上级域）",
+      "explicit": false
+    },
+    {
+      "symbol": "System 框内嵌套 Building Block + ∨ / 1..* / ∧",
+      "meaning_zh": "系统由 1..* 个构建块组成",
+      "explicit": false
+    },
+    {
+      "symbol": "彩色词 Business / Data / Application / Technology",
+      "meaning_zh": "对域名的强调，无分类含义",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "enterprise",
+      "label_en": "Enterprise",
+      "label_zh": "企业",
+      "type": "architecture",
+      "parent": null,
+      "level": 1,
+      "position": "主链最左",
+      "description_zh": "企业级架构层级。"
+    },
+    {
+      "id": "segment",
+      "label_en": "Segment",
+      "label_zh": "分段",
+      "type": "architecture",
+      "parent": null,
+      "level": 2,
+      "position": "主链第二",
+      "description_zh": "分段级架构层级，向上使能企业、向下组织能力并统辖业务域与 IS/IT 域。"
+    },
+    {
+      "id": "capability",
+      "label_en": "Capability",
+      "label_zh": "能力",
+      "type": "capability",
+      "parent": null,
+      "level": 3,
+      "position": "主链第三",
+      "description_zh": "能力级，由构建块实现。"
+    },
+    {
+      "id": "service",
+      "label_en": "Service",
+      "label_zh": "服务",
+      "type": "service",
+      "parent": null,
+      "level": 4,
+      "position": "主链最右",
+      "description_zh": "对外交付的服务，由系统执行。"
+    },
+    {
+      "id": "business_domain",
+      "label_en": "Business Domain",
+      "label_zh": "业务域",
+      "type": "architecture",
+      "parent": null,
+      "position": "中排左",
+      "description_zh": "业务架构域，可继续分解为业务功能/流程组合等；图中“Business”为彩色强调。"
+    },
+    {
+      "id": "is_it_domain",
+      "label_en": "IS/IT Domain",
+      "label_zh": "信息系统/IT 域",
+      "type": "architecture",
+      "parent": null,
+      "position": "中排右",
+      "description_zh": "信息系统域，向上为业务域提供能力。"
+    },
+    {
+      "id": "data_domain",
+      "label_en": "Data Domain",
+      "label_zh": "数据域",
+      "type": "architecture",
+      "position": "下排左",
+      "description_zh": "IS/IT 域的三个起始域之一；“Data”为粉色强调。"
+    },
+    {
+      "id": "application_domain",
+      "label_en": "Application Domain",
+      "label_zh": "应用域",
+      "type": "architecture",
+      "position": "下排中",
+      "description_zh": "IS/IT 域的三个起始域之一；“Application”为绿色强调。"
+    },
+    {
+      "id": "technology_domain",
+      "label_en": "Technology Domain",
+      "label_zh": "技术域",
+      "type": "architecture",
+      "position": "下排右",
+      "description_zh": "IS/IT 域的三个起始域之一；“Technology”为蓝色强调。"
+    },
+    {
+      "id": "system",
+      "label_en": "System",
+      "label_zh": "系统",
+      "type": "application",
+      "parent": null,
+      "position": "右侧中部",
+      "description_zh": "执行服务的系统，框内嵌套构建块。"
+    },
+    {
+      "id": "building_block",
+      "label_en": "Building Block",
+      "label_zh": "构建块",
+      "type": "building_block",
+      "parent": "system",
+      "position": "System 框内",
+      "description_zh": "实现能力的构建块，同时是系统的组成部分。"
+    },
+    {
+      "id": "xx_left",
+      "label_en": "XX",
+      "label_zh": "XX（占位子域一）",
+      "type": "other",
+      "position": "业务域下方左框",
+      "description_zh": "占位示例，代表业务域可继续分解出的子域。"
+    },
+    {
+      "id": "xx_center",
+      "label_en": "XX",
+      "label_zh": "XX（占位子域二）",
+      "type": "other",
+      "position": "业务域下方中框",
+      "description_zh": "占位示例，代表业务域可继续分解出的子域。"
+    },
+    {
+      "id": "ellipsis",
+      "label_en": "..",
+      "label_zh": "..（省略）",
+      "type": "other",
+      "position": "业务域下方右框",
+      "description_zh": "表示还可以有更多子域。"
+    },
+    {
+      "id": "role_enterprise_architects",
+      "label_en": "Enterprise Architects",
+      "label_zh": "企业架构师",
+      "type": "role",
+      "parent": null,
+      "position": "顶部第一段",
+      "description_zh": "原文：Enterprise Architects evolve and govern aspects across and between segments to achieve goals and objectives. 中文：演进并治理跨分段及分段之间的事务，以实现目标与目的。"
+    },
+    {
+      "id": "role_segment_architects",
+      "label_en": "Segment Architects",
+      "label_zh": "分段架构师",
+      "type": "role",
+      "parent": null,
+      "position": "顶部第二段",
+      "description_zh": "原文：Segment Architects evolve and govern capabilities within segments to achieve goals and objectives. 中文：演进并治理分段内的能力，以实现目标与目的。"
+    },
+    {
+      "id": "role_capability_designers",
+      "label_en": "Capability (specialist) designers and builders",
+      "label_zh": "能力（专家）设计与构建者",
+      "type": "role",
+      "parent": null,
+      "position": "顶部第三段",
+      "description_zh": "原文：Capability (specialist) designers and builders create and change capability in building blocks to satisfy requirements. 中文：在构建块中创建和变更能力，以满足需求。"
+    },
+    {
+      "id": "role_solution_architects",
+      "label_en": "Solution Architects",
+      "label_zh": "解决方案架构师",
+      "type": "role",
+      "parent": null,
+      "position": "顶部第四段",
+      "description_zh": "原文：Solution Architects organize capabilities into new or changed solutions delivering services to meet requirements. 中文：把能力组织为新的或变更后的解决方案，交付服务以满足需求。"
+    },
+    {
+      "id": "note_business_domain",
+      "label_en": "The TOGAF Standard identifies one overall business domain that may be broken down further; e.g., business function/process portfolios depending on what a business actually does; e.g., finance, manufacturing, legal, HR, customer management, service, and support.",
+      "label_zh": "TOGAF 标准识别一个总体业务域，可进一步分解；例如按企业实际业务划分为业务功能/流程组合，如财务、制造、法务、人力资源、客户管理、服务与支持。",
+      "type": "note",
+      "parent": null,
+      "position": "业务域下方说明",
+      "description_zh": "解释 XX/XX/.. 占位框的含义。"
+    },
+    {
+      "id": "note_is_it_domains",
+      "label_en": "The TOGAF Standard identifies three starting information system domains which may be broken down further; e.g., (technology) into software, servers, user devices, execution environments, networks, buildings, and mechanical devices.",
+      "label_zh": "TOGAF 标准识别三个起始信息系统域，它们可进一步分解；例如（技术域）可分解为软件、服务器、用户设备、执行环境、网络、建筑与机械设备。",
+      "type": "note",
+      "parent": null,
+      "position": "信息系统域下方说明",
+      "description_zh": "解释 Data/Application/Technology 三个起始域。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_has",
+      "from": "enterprise",
+      "to": "segment",
+      "type": "composition",
+      "label_en": "has >",
+      "label_zh": "拥有 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "企业拥有一个或多个分段；箭头向右。"
+    },
+    {
+      "id": "r_enables_enterprise",
+      "from": "segment",
+      "to": "enterprise",
+      "type": "serving",
+      "label_en": "< enables",
+      "label_zh": "< 使能",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 has 同一条连线：分段使能企业；箭头向左，两端 1..*。"
+    },
+    {
+      "id": "r_offers",
+      "from": "segment",
+      "to": "capability",
+      "type": "aggregation",
+      "label_en": "offers >",
+      "label_zh": "提供 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "分段提供一个或多个能力；箭头向右。"
+    },
+    {
+      "id": "r_organized_by",
+      "from": "capability",
+      "to": "segment",
+      "type": "assignment",
+      "label_en": "< organized by",
+      "label_zh": "< 由……组织",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 offers 同一条连线：能力由分段组织；箭头向左，两端 1..*。"
+    },
+    {
+      "id": "r_enables_service",
+      "from": "capability",
+      "to": "service",
+      "type": "serving",
+      "label_en": "enables >",
+      "label_zh": "使能 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "能力使能服务；箭头向右，两端 1..*。"
+    },
+    {
+      "id": "r_utilizes",
+      "from": "service",
+      "to": "capability",
+      "type": "consumes",
+      "label_en": "< utilizes",
+      "label_zh": "< 利用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 enables 同一条连线：服务利用能力；箭头向左，两端 1..*。"
+    },
+    {
+      "id": "r_utilizes_from",
+      "from": "business_domain",
+      "to": "is_it_domain",
+      "type": "consumes",
+      "label_en": "utilizes capabilities from >",
+      "label_zh": "从……利用能力 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:0..*",
+      "description_zh": "业务域从 IS/IT 域利用能力；Business Domain 端 1..*、IS/IT Domain 端 0..*。"
+    },
+    {
+      "id": "r_provides_capabilities",
+      "from": "is_it_domain",
+      "to": "business_domain",
+      "type": "serving",
+      "label_en": "< provides capabilities to",
+      "label_zh": "< 向……提供能力",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "0..*:1..*",
+      "description_zh": "与 utilizes capabilities from 同一条连线：IS/IT 域向业务域提供能力；箭头向左。"
+    },
+    {
+      "id": "r_bd_in_segment",
+      "from": "segment",
+      "to": "business_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "无文字细实线：业务域向上归入分段（箭头指 Segment），表示分段由业务域构成；Segment 端无基数。"
+    },
+    {
+      "id": "r_it_in_segment",
+      "from": "segment",
+      "to": "is_it_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "无文字细实线：IS/IT 域向上归入分段（箭头指 Segment）；两个域的上行线在分段下方汇合。"
+    },
+    {
+      "id": "r_bd_xx_left",
+      "from": "business_domain",
+      "to": "xx_left",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "业务域分解出占位子域 XX；箭头指向 Business Domain（整体）。"
+    },
+    {
+      "id": "r_bd_xx_center",
+      "from": "business_domain",
+      "to": "xx_center",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "业务域分解出第二个占位子域 XX；箭头指向 Business Domain。"
+    },
+    {
+      "id": "r_bd_ellipsis",
+      "from": "business_domain",
+      "to": "ellipsis",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "业务域还可继续分解出更多子域（..）；箭头指向 Business Domain。"
+    },
+    {
+      "id": "r_it_data",
+      "from": "is_it_domain",
+      "to": "data_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "IS/IT 域包含数据域；箭头指向 IS/IT Domain。"
+    },
+    {
+      "id": "r_it_app",
+      "from": "is_it_domain",
+      "to": "application_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "IS/IT 域包含应用域；箭头指向 IS/IT Domain。"
+    },
+    {
+      "id": "r_it_tech",
+      "from": "is_it_domain",
+      "to": "technology_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "IS/IT 域包含技术域；箭头指向 IS/IT Domain。"
+    },
+    {
+      "id": "r_implemented_by",
+      "from": "capability",
+      "to": "building_block",
+      "type": "realization",
+      "label_en": "implemented by >",
+      "label_zh": "由……实现 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "能力由构建块实现；箭头向右，两端 1..*。"
+    },
+    {
+      "id": "r_implements",
+      "from": "building_block",
+      "to": "capability",
+      "type": "realization",
+      "label_en": "< implements",
+      "label_zh": "< 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 implemented by 同一条连线：构建块实现能力；箭头向左。"
+    },
+    {
+      "id": "r_performed_by",
+      "from": "service",
+      "to": "system",
+      "type": "serving",
+      "label_en": "performed by ∨",
+      "label_zh": "由……执行 ∨",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "服务由系统执行；箭头向下，两端 1..*。"
+    },
+    {
+      "id": "r_system_bb",
+      "from": "system",
+      "to": "building_block",
+      "type": "composition",
+      "label_en": "∨ 1..* ∧",
+      "label_zh": "∨ 1..* ∧",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "cardinality": "1..*",
+      "description_zh": "System 框内嵌套 Building Block，两者之间标 1..* 与 ∨/∧ 两个方向符号，表示系统由 1..* 个构建块组成（基数只在 System 端标出）。"
+    },
+    {
+      "id": "r_role_enterprise",
+      "from": "role_enterprise_architects",
+      "to": "enterprise",
+      "type": "governs",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "按版式推断：企业架构师注释位于企业/分段之上，治理企业级与跨分段事务。"
+    },
+    {
+      "id": "r_role_segment",
+      "from": "role_segment_architects",
+      "to": "segment",
+      "type": "governs",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "按版式推断：分段架构师注释位于 Segment 之上，治理分段内能力。"
+    },
+    {
+      "id": "r_role_capability",
+      "from": "role_capability_designers",
+      "to": "capability",
+      "type": "assignment",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "按版式推断：能力设计与构建者注释位于 Capability 之上，在构建块中创建/变更能力。"
+    },
+    {
+      "id": "r_role_solution",
+      "from": "role_solution_architects",
+      "to": "service",
+      "type": "assignment",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "按版式推断：解决方案架构师注释位于 Service 之上，把能力组织为交付服务的方案。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G248/fig3-1",
+      "relation": "complements",
+      "note_zh": "图 3-1 给出企业元模型的实体与关系全集，图 6-1 专门展开架构层级、角色与域这一侧面，二者互补。"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "System 与 Building Block 之间的符号是 ∨、1..*、∧ 三个字符，未说明是双向箭头还是逻辑符号；按“系统由 1..* 构建块组成”记录为 composition、双箭头，基数只在 System 端标出。",
+      "Business Domain 与 IS/IT Domain 向上归入 Segment 的两条线没有文字与基数，按版式判为组成/归入关系（箭头指向 Segment）。",
+      "顶部四个角色注释与下方实体的对应关系由横向位置推断（图中没有连线），标为 implicit。",
+      "Business Domain/IS-IT Domain 的“1..*”“0..*”分别标在线两端，按左端 Business Domain、右端 IS/IT Domain 归属。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 29 页图 6-1 截图（220 dpi）及 2×2 放大分块",
+      "英文 PDF 第 29 页正文",
+      "中文稿 G248e_构建块的选择方法.md 第 336–355 行",
+      "figs/g248_fig6-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G248e.pdf",
+    "pdf_sha256": "810df20478f65d8dfd969089f9c682ec268d0e3a9126e062bda5191c9017e19c",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G248/fig6-1.json",
+    "interpretation_sha256": "3ae8439b8a5abcbc06b01d0bc43ee5b455759a30fc3bc9dcf74a284509ec469e",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 29,
+        "text": "Figure 6-1: An ERD showing the Relationships between Architecture Levels, Roles, and Domains",
+        "bbox_pdf_points": [
+          48.24,
+          397.851,
+          489.923,
+          411.417
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 29,
+      "printed_page": 17,
+      "bbox_pdf_points": [
+        48.2,
+        126.9,
+        563.8,
+        393.1
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G248/fig6-1-p0029.png",
+      "image_sha256": "33b77482562f93edf45b12243b05047a95216dfcdfe8815f7e0435a9fb6d789d",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "33b77482562f93edf45b12243b05047a95216dfcdfe8815f7e0435a9fb6d789d",
+          "status": "extracted-unverified",
+          "text": "Enterprise Architects evolve and\nSegment Architects evolve and\nCapability (specialist) designers and\nSolution Architects\ngovern aspects across and between\ngovern capabilities within segments\nbuilders create and change capability in\norganize capabilities into new or changed\nsegments to achieve goals and\nto achieve goals and objectives.\nbuilding blocks to satisfy requirements.\nsolutions delivering services to meet\nobjectives.\nrequirements.\n1\nhas>\nrs\nors\noffers >\nrs\nI.\nenables >\nLe\nService\nEnterprise\n‘Segment\nCapability\n<enables\n< organized by\n“utilizes\nL\ni\nperformed by ¥\nor\n‘System\nv\nLe\na\nak\nBusiness Domain\nLe\nutilizes capabilites from >\noe\nIs/T\nImplemented by >\nBuilding Block\nDomain\n< implements\n<rovides capabilities to\nxx xx ~\nDots Domain\n‘Application\nTechnology\nDomain\nDomain\n‘The TOGAF Standard identifies one overall business domain\nThe TOGAF Standard identifies three starting information\nthat may be broken down further; e.\n, business\nsystem domains which may be broken down further; e-,,\nfunction/process portfolios depending on what a business\n(technology) into software, servers, user devices, execution\nSroup\nactually does; e.g,, finance, manufacturing, legal, HR,\nenvironments, networks, buildings, and mechanical devices.\ncustomer management, service, and support.",
+          "words": [
+            {
+              "text": "Enterprise",
+              "confidence": 96.792618,
+              "bbox_pixels_xywh": [
+                27,
+                8,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Architects",
+              "confidence": 95.856773,
+              "bbox_pixels_xywh": [
+                87,
+                8,
+                56,
+                10
+              ]
+            },
+            {
+              "text": "evolve",
+              "confidence": 96.385551,
+              "bbox_pixels_xywh": [
+                146,
+                8,
+                35,
+                10
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.866844,
+              "bbox_pixels_xywh": [
+                185,
+                8,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "Segment",
+              "confidence": 71.382812,
+              "bbox_pixels_xywh": [
+                288,
+                9,
+                49,
+                11
+              ]
+            },
+            {
+              "text": "Architects",
+              "confidence": 95.719963,
+              "bbox_pixels_xywh": [
+                340,
+                8,
+                56,
+                10
+              ]
+            },
+            {
+              "text": "evolve",
+              "confidence": 92.660522,
+              "bbox_pixels_xywh": [
+                400,
+                8,
+                35,
+                10
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 92.660522,
+              "bbox_pixels_xywh": [
+                439,
+                8,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 96.062485,
+              "bbox_pixels_xywh": [
+                544,
+                8,
+                53,
+                12
+              ]
+            },
+            {
+              "text": "(specialist)",
+              "confidence": 96.142967,
+              "bbox_pixels_xywh": [
+                601,
+                7,
+                58,
+                12
+              ]
+            },
+            {
+              "text": "designers",
+              "confidence": 93.57476,
+              "bbox_pixels_xywh": [
+                663,
+                8,
+                52,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.840454,
+              "bbox_pixels_xywh": [
+                719,
+                8,
+                19,
+                9
+              ]
+            },
+            {
+              "text": "Solution",
+              "confidence": 96.582924,
+              "bbox_pixels_xywh": [
+                843,
+                9,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "Architects",
+              "confidence": 92.614479,
+              "bbox_pixels_xywh": [
+                893,
+                9,
+                56,
+                9
+              ]
+            },
+            {
+              "text": "govern",
+              "confidence": 88.514526,
+              "bbox_pixels_xywh": [
+                18,
+                28,
+                37,
+                9
+              ]
+            },
+            {
+              "text": "aspects",
+              "confidence": 96.780525,
+              "bbox_pixels_xywh": [
+                59,
+                26,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "across",
+              "confidence": 96.368271,
+              "bbox_pixels_xywh": [
+                104,
+                28,
+                34,
+                7
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 95.90107,
+              "bbox_pixels_xywh": [
+                142,
+                25,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "between",
+              "confidence": 92.726959,
+              "bbox_pixels_xywh": [
+                166,
+                25,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "govern",
+              "confidence": 90.942459,
+              "bbox_pixels_xywh": [
+                275,
+                28,
+                37,
+                9
+              ]
+            },
+            {
+              "text": "capabilities",
+              "confidence": 96.325493,
+              "bbox_pixels_xywh": [
+                316,
+                25,
+                62,
+                12
+              ]
+            },
+            {
+              "text": "within",
+              "confidence": 96.824371,
+              "bbox_pixels_xywh": [
+                381,
+                25,
+                34,
+                10
+              ]
+            },
+            {
+              "text": "segments",
+              "confidence": 96.62561,
+              "bbox_pixels_xywh": [
+                419,
+                26,
+                52,
+                11
+              ]
+            },
+            {
+              "text": "builders",
+              "confidence": 95.119507,
+              "bbox_pixels_xywh": [
+                533,
+                25,
+                43,
+                9
+              ]
+            },
+            {
+              "text": "create",
+              "confidence": 96.609398,
+              "bbox_pixels_xywh": [
+                580,
+                26,
+                34,
+                8
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.609398,
+              "bbox_pixels_xywh": [
+                618,
+                24,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "change",
+              "confidence": 96.350876,
+              "bbox_pixels_xywh": [
+                641,
+                24,
+                39,
+                13
+              ]
+            },
+            {
+              "text": "capability",
+              "confidence": 48.353367,
+              "bbox_pixels_xywh": [
+                684,
+                25,
+                52,
+                12
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 96.817795,
+              "bbox_pixels_xywh": [
+                741,
+                25,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "organize",
+              "confidence": 83.108574,
+              "bbox_pixels_xywh": [
+                783,
+                28,
+                45,
+                10
+              ]
+            },
+            {
+              "text": "capabilities",
+              "confidence": 94.665413,
+              "bbox_pixels_xywh": [
+                832,
+                26,
+                61,
+                12
+              ]
+            },
+            {
+              "text": "into",
+              "confidence": 93.175987,
+              "bbox_pixels_xywh": [
+                898,
+                27,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "new",
+              "confidence": 96.238602,
+              "bbox_pixels_xywh": [
+                923,
+                28,
+                22,
+                7
+              ]
+            },
+            {
+              "text": "or",
+              "confidence": 96.45681,
+              "bbox_pixels_xywh": [
+                949,
+                28,
+                12,
+                7
+              ]
+            },
+            {
+              "text": "changed",
+              "confidence": 96.45681,
+              "bbox_pixels_xywh": [
+                964,
+                26,
+                46,
+                12
+              ]
+            },
+            {
+              "text": "segments",
+              "confidence": 59.148045,
+              "bbox_pixels_xywh": [
+                32,
+                42,
+                52,
+                11
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 96.941231,
+              "bbox_pixels_xywh": [
+                88,
+                42,
+                11,
+                9
+              ]
+            },
+            {
+              "text": "achieve",
+              "confidence": 96.920403,
+              "bbox_pixels_xywh": [
+                103,
+                41,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "goals",
+              "confidence": 96.789192,
+              "bbox_pixels_xywh": [
+                148,
+                41,
+                28,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 94.165009,
+              "bbox_pixels_xywh": [
+                179,
+                41,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 86.017342,
+              "bbox_pixels_xywh": [
+                286,
+                42,
+                11,
+                9
+              ]
+            },
+            {
+              "text": "achieve",
+              "confidence": 96.259155,
+              "bbox_pixels_xywh": [
+                301,
+                41,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "goals",
+              "confidence": 96.560844,
+              "bbox_pixels_xywh": [
+                346,
+                41,
+                28,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.483795,
+              "bbox_pixels_xywh": [
+                378,
+                41,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "objectives.",
+              "confidence": 95.449615,
+              "bbox_pixels_xywh": [
+                402,
+                41,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "building",
+              "confidence": 94.723076,
+              "bbox_pixels_xywh": [
+                534,
+                40,
+                43,
+                12
+              ]
+            },
+            {
+              "text": "blocks",
+              "confidence": 96.683075,
+              "bbox_pixels_xywh": [
+                581,
+                40,
+                34,
+                10
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 97.009674,
+              "bbox_pixels_xywh": [
+                619,
+                42,
+                10,
+                8
+              ]
+            },
+            {
+              "text": "satisfy",
+              "confidence": 96.63002,
+              "bbox_pixels_xywh": [
+                634,
+                40,
+                34,
+                12
+              ]
+            },
+            {
+              "text": "requirements.",
+              "confidence": 93.183006,
+              "bbox_pixels_xywh": [
+                672,
+                42,
+                76,
+                10
+              ]
+            },
+            {
+              "text": "solutions",
+              "confidence": 94.517319,
+              "bbox_pixels_xywh": [
+                796,
+                42,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "delivering",
+              "confidence": 95.099686,
+              "bbox_pixels_xywh": [
+                849,
+                41,
+                54,
+                13
+              ]
+            },
+            {
+              "text": "services",
+              "confidence": 96.935432,
+              "bbox_pixels_xywh": [
+                907,
+                42,
+                43,
+                9
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 90.719772,
+              "bbox_pixels_xywh": [
+                954,
+                43,
+                11,
+                8
+              ]
+            },
+            {
+              "text": "meet",
+              "confidence": 90.719772,
+              "bbox_pixels_xywh": [
+                969,
+                43,
+                28,
+                8
+              ]
+            },
+            {
+              "text": "objectives.",
+              "confidence": 95.212685,
+              "bbox_pixels_xywh": [
+                86,
+                57,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "requirements.",
+              "confidence": 89.966995,
+              "bbox_pixels_xywh": [
+                858,
+                58,
+                73,
+                11
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 72.010315,
+              "bbox_pixels_xywh": [
+                175,
+                124,
+                4,
+                8
+              ]
+            },
+            {
+              "text": "has>",
+              "confidence": 89.538414,
+              "bbox_pixels_xywh": [
+                226,
+                124,
+                23,
+                8
+              ]
+            },
+            {
+              "text": "rs",
+              "confidence": 11.863632,
+              "bbox_pixels_xywh": [
+                278,
+                124,
+                16,
+                8
+              ]
+            },
+            {
+              "text": "ors",
+              "confidence": 14.621725,
+              "bbox_pixels_xywh": [
+                450,
+                124,
+                16,
+                8
+              ]
+            },
+            {
+              "text": "offers",
+              "confidence": 44.570038,
+              "bbox_pixels_xywh": [
+                489,
+                124,
+                26,
+                8
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 44.570038,
+              "bbox_pixels_xywh": [
+                518,
+                126,
+                5,
+                5
+              ]
+            },
+            {
+              "text": "rs",
+              "confidence": 16.594715,
+              "bbox_pixels_xywh": [
+                551,
+                124,
+                16,
+                8
+              ]
+            },
+            {
+              "text": "I.",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                711,
+                124,
+                4,
+                8
+              ]
+            },
+            {
+              "text": "enables",
+              "confidence": 17.358408,
+              "bbox_pixels_xywh": [
+                749,
+                124,
+                35,
+                8
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 95.166534,
+              "bbox_pixels_xywh": [
+                787,
+                126,
+                5,
+                5
+              ]
+            },
+            {
+              "text": "Le",
+              "confidence": 44.574223,
+              "bbox_pixels_xywh": [
+                822,
+                124,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "Service",
+              "confidence": 94.395317,
+              "bbox_pixels_xywh": [
+                895,
+                127,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 96.622162,
+              "bbox_pixels_xywh": [
+                88,
+                128,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "‘Segment",
+              "confidence": 74.527252,
+              "bbox_pixels_xywh": [
+                352,
+                128,
+                48,
+                12
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 94.068619,
+              "bbox_pixels_xywh": [
+                625,
+                128,
+                54,
+                12
+              ]
+            },
+            {
+              "text": "<enables",
+              "confidence": 38.606949,
+              "bbox_pixels_xywh": [
+                211,
+                150,
+                43,
+                8
+              ]
+            },
+            {
+              "text": "<",
+              "confidence": 56.246208,
+              "bbox_pixels_xywh": [
+                466,
+                152,
+                5,
+                6
+              ]
+            },
+            {
+              "text": "organized",
+              "confidence": 56.246208,
+              "bbox_pixels_xywh": [
+                474,
+                150,
+                45,
+                10
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 87.33007,
+              "bbox_pixels_xywh": [
+                522,
+                150,
+                11,
+                10
+              ]
+            },
+            {
+              "text": "“utilizes",
+              "confidence": 39.039837,
+              "bbox_pixels_xywh": [
+                745,
+                150,
+                40,
+                8
+              ]
+            },
+            {
+              "text": "L",
+              "confidence": 42.500038,
+              "bbox_pixels_xywh": [
+                660,
+                173,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 8.058205,
+              "bbox_pixels_xywh": [
+                919,
+                169,
+                16,
+                7
+              ]
+            },
+            {
+              "text": "performed",
+              "confidence": 96.447472,
+              "bbox_pixels_xywh": [
+                801,
+                179,
+                48,
+                10
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 93.303093,
+              "bbox_pixels_xywh": [
+                853,
+                179,
+                10,
+                9
+              ]
+            },
+            {
+              "text": "¥",
+              "confidence": 76.29657,
+              "bbox_pixels_xywh": [
+                869,
+                179,
+                5,
+                5
+              ]
+            },
+            {
+              "text": "or",
+              "confidence": 29.158836,
+              "bbox_pixels_xywh": [
+                919,
+                194,
+                15,
+                9
+              ]
+            },
+            {
+              "text": "‘System",
+              "confidence": 67.498314,
+              "bbox_pixels_xywh": [
+                848,
+                217,
+                39,
+                12
+              ]
+            },
+            {
+              "text": "v",
+              "confidence": 30.062962,
+              "bbox_pixels_xywh": [
+                891,
+                232,
+                6,
+                6
+              ]
+            },
+            {
+              "text": "Le",
+              "confidence": 32.700127,
+              "bbox_pixels_xywh": [
+                863,
+                242,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 64.185944,
+              "bbox_pixels_xywh": [
+                891,
+                249,
+                6,
+                6
+              ]
+            },
+            {
+              "text": "ak",
+              "confidence": 55.619797,
+              "bbox_pixels_xywh": [
+                793,
+                271,
+                16,
+                9
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 73.831032,
+              "bbox_pixels_xywh": [
+                140,
+                273,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "Domain",
+              "confidence": 90.810715,
+              "bbox_pixels_xywh": [
+                192,
+                273,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "Le",
+              "confidence": 29.178495,
+              "bbox_pixels_xywh": [
+                251,
+                276,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "utilizes",
+              "confidence": 56.875824,
+              "bbox_pixels_xywh": [
+                297,
+                277,
+                31,
+                8
+              ]
+            },
+            {
+              "text": "capabilites",
+              "confidence": 61.17992,
+              "bbox_pixels_xywh": [
+                331,
+                277,
+                51,
+                10
+              ]
+            },
+            {
+              "text": "from",
+              "confidence": 61.17992,
+              "bbox_pixels_xywh": [
+                385,
+                277,
+                30,
+                8
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 94.523048,
+              "bbox_pixels_xywh": [
+                411,
+                267,
+                8,
+                28
+              ]
+            },
+            {
+              "text": "oe",
+              "confidence": 61.016655,
+              "bbox_pixels_xywh": [
+                471,
+                277,
+                16,
+                8
+              ]
+            },
+            {
+              "text": "Is/T",
+              "confidence": 13.623867,
+              "bbox_pixels_xywh": [
+                550,
+                272,
+                24,
+                12
+              ]
+            },
+            {
+              "text": "Implemented",
+              "confidence": 79.379997,
+              "bbox_pixels_xywh": [
+                664,
+                273,
+                60,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 93.14357,
+              "bbox_pixels_xywh": [
+                728,
+                273,
+                10,
+                10
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 93.14357,
+              "bbox_pixels_xywh": [
+                742,
+                275,
+                5,
+                5
+              ]
+            },
+            {
+              "text": "Building",
+              "confidence": 95.494179,
+              "bbox_pixels_xywh": [
+                867,
+                273,
+                44,
+                12
+              ]
+            },
+            {
+              "text": "Block",
+              "confidence": 96.717621,
+              "bbox_pixels_xywh": [
+                915,
+                273,
+                28,
+                10
+              ]
+            },
+            {
+              "text": "Domain",
+              "confidence": 93.165901,
+              "bbox_pixels_xywh": [
+                541,
+                290,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "<",
+              "confidence": 27.135948,
+              "bbox_pixels_xywh": [
+                666,
+                305,
+                5,
+                5
+              ]
+            },
+            {
+              "text": "implements",
+              "confidence": 27.135948,
+              "bbox_pixels_xywh": [
+                675,
+                303,
+                54,
+                9
+              ]
+            },
+            {
+              "text": "<rovides",
+              "confidence": 70.246414,
+              "bbox_pixels_xywh": [
+                300,
+                310,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "capabilities",
+              "confidence": 33.55867,
+              "bbox_pixels_xywh": [
+                350,
+                310,
+                51,
+                9
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 72.620064,
+              "bbox_pixels_xywh": [
+                405,
+                311,
+                8,
+                7
+              ]
+            },
+            {
+              "text": "xx",
+              "confidence": 81.704704,
+              "bbox_pixels_xywh": [
+                57,
+                393,
+                13,
+                9
+              ]
+            },
+            {
+              "text": "xx",
+              "confidence": 85.709442,
+              "bbox_pixels_xywh": [
+                175,
+                382,
+                18,
+                30
+              ]
+            },
+            {
+              "text": "~",
+              "confidence": 0.644989,
+              "bbox_pixels_xywh": [
+                306,
+                400,
+                5,
+                2
+              ]
+            },
+            {
+              "text": "Dots",
+              "confidence": 53.779892,
+              "bbox_pixels_xywh": [
+                404,
+                394,
+                24,
+                8
+              ]
+            },
+            {
+              "text": "Domain",
+              "confidence": 91.174377,
+              "bbox_pixels_xywh": [
+                433,
+                393,
+                42,
+                9
+              ]
+            },
+            {
+              "text": "‘Application",
+              "confidence": 89.510025,
+              "bbox_pixels_xywh": [
+                529,
+                392,
+                64,
+                12
+              ]
+            },
+            {
+              "text": "Technology",
+              "confidence": 81.62175,
+              "bbox_pixels_xywh": [
+                652,
+                392,
+                64,
+                12
+              ]
+            },
+            {
+              "text": "Domain",
+              "confidence": 91.743172,
+              "bbox_pixels_xywh": [
+                541,
+                410,
+                41,
+                9
+              ]
+            },
+            {
+              "text": "Domain",
+              "confidence": 96.180008,
+              "bbox_pixels_xywh": [
+                663,
+                410,
+                42,
+                9
+              ]
+            },
+            {
+              "text": "‘The",
+              "confidence": 91.023956,
+              "bbox_pixels_xywh": [
+                22,
+                446,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "TOGAF",
+              "confidence": 92.903,
+              "bbox_pixels_xywh": [
+                46,
+                447,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "Standard",
+              "confidence": 96.300545,
+              "bbox_pixels_xywh": [
+                87,
+                446,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "identifies",
+              "confidence": 96.385979,
+              "bbox_pixels_xywh": [
+                140,
+                446,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "one",
+              "confidence": 96.805557,
+              "bbox_pixels_xywh": [
+                194,
+                449,
+                20,
+                7
+              ]
+            },
+            {
+              "text": "overall",
+              "confidence": 96.798141,
+              "bbox_pixels_xywh": [
+                218,
+                446,
+                36,
+                10
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 92.62352,
+              "bbox_pixels_xywh": [
+                259,
+                446,
+                46,
+                10
+              ]
+            },
+            {
+              "text": "domain",
+              "confidence": 91.937958,
+              "bbox_pixels_xywh": [
+                309,
+                446,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "The",
+              "confidence": 93.22728,
+              "bbox_pixels_xywh": [
+                405,
+                449,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "TOGAF",
+              "confidence": 92.847328,
+              "bbox_pixels_xywh": [
+                428,
+                450,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "Standard",
+              "confidence": 96.741478,
+              "bbox_pixels_xywh": [
+                470,
+                449,
+                48,
+                10
+              ]
+            },
+            {
+              "text": "identifies",
+              "confidence": 93.526466,
+              "bbox_pixels_xywh": [
+                523,
+                449,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "three",
+              "confidence": 96.877953,
+              "bbox_pixels_xywh": [
+                576,
+                449,
+                29,
+                10
+              ]
+            },
+            {
+              "text": "starting",
+              "confidence": 95.374977,
+              "bbox_pixels_xywh": [
+                609,
+                450,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "information",
+              "confidence": 95.374977,
+              "bbox_pixels_xywh": [
+                654,
+                449,
+                64,
+                10
+              ]
+            },
+            {
+              "text": "that",
+              "confidence": 92.283287,
+              "bbox_pixels_xywh": [
+                54,
+                463,
+                22,
+                10
+              ]
+            },
+            {
+              "text": "may",
+              "confidence": 92.283287,
+              "bbox_pixels_xywh": [
+                81,
+                466,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 96.563126,
+              "bbox_pixels_xywh": [
+                107,
+                463,
+                12,
+                10
+              ]
+            },
+            {
+              "text": "broken",
+              "confidence": 96.839531,
+              "bbox_pixels_xywh": [
+                124,
+                463,
+                37,
+                10
+              ]
+            },
+            {
+              "text": "down",
+              "confidence": 95.065208,
+              "bbox_pixels_xywh": [
+                165,
+                463,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "further;",
+              "confidence": 93.297745,
+              "bbox_pixels_xywh": [
+                199,
+                463,
+                41,
+                12
+              ]
+            },
+            {
+              "text": "e.",
+              "confidence": 42.324448,
+              "bbox_pixels_xywh": [
+                245,
+                466,
+                9,
+                7
+              ]
+            },
+            {
+              "text": ",",
+              "confidence": 65.107864,
+              "bbox_pixels_xywh": [
+                265,
+                471,
+                2,
+                4
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 85.685997,
+              "bbox_pixels_xywh": [
+                272,
+                463,
+                46,
+                10
+              ]
+            },
+            {
+              "text": "system",
+              "confidence": 92.286285,
+              "bbox_pixels_xywh": [
+                404,
+                467,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "domains",
+              "confidence": 96.900703,
+              "bbox_pixels_xywh": [
+                445,
+                466,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "which",
+              "confidence": 96.87851,
+              "bbox_pixels_xywh": [
+                496,
+                466,
+                31,
+                10
+              ]
+            },
+            {
+              "text": "may",
+              "confidence": 90.020203,
+              "bbox_pixels_xywh": [
+                532,
+                469,
+                23,
+                9
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 96.198021,
+              "bbox_pixels_xywh": [
+                558,
+                466,
+                13,
+                10
+              ]
+            },
+            {
+              "text": "broken",
+              "confidence": 96.198021,
+              "bbox_pixels_xywh": [
+                575,
+                466,
+                37,
+                10
+              ]
+            },
+            {
+              "text": "down",
+              "confidence": 96.68615,
+              "bbox_pixels_xywh": [
+                617,
+                466,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "further;",
+              "confidence": 93.275078,
+              "bbox_pixels_xywh": [
+                651,
+                466,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "e-,,",
+              "confidence": 37.25312,
+              "bbox_pixels_xywh": [
+                696,
+                469,
+                20,
+                9
+              ]
+            },
+            {
+              "text": "function/process",
+              "confidence": 92.904488,
+              "bbox_pixels_xywh": [
+                27,
+                479,
+                92,
+                12
+              ]
+            },
+            {
+              "text": "portfolios",
+              "confidence": 96.666626,
+              "bbox_pixels_xywh": [
+                124,
+                479,
+                52,
+                12
+              ]
+            },
+            {
+              "text": "depending",
+              "confidence": 96.87487,
+              "bbox_pixels_xywh": [
+                180,
+                479,
+                58,
+                12
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 96.839119,
+              "bbox_pixels_xywh": [
+                241,
+                482,
+                14,
+                7
+              ]
+            },
+            {
+              "text": "what",
+              "confidence": 96.651924,
+              "bbox_pixels_xywh": [
+                259,
+                479,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 88.182411,
+              "bbox_pixels_xywh": [
+                290,
+                482,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 84.882736,
+              "bbox_pixels_xywh": [
+                299,
+                479,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "(technology)",
+              "confidence": 82.792786,
+              "bbox_pixels_xywh": [
+                399,
+                482,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "into",
+              "confidence": 96.754204,
+              "bbox_pixels_xywh": [
+                471,
+                482,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "software,",
+              "confidence": 87.520576,
+              "bbox_pixels_xywh": [
+                496,
+                482,
+                51,
+                11
+              ]
+            },
+            {
+              "text": "servers,",
+              "confidence": 96.678345,
+              "bbox_pixels_xywh": [
+                551,
+                485,
+                42,
+                8
+              ]
+            },
+            {
+              "text": "user",
+              "confidence": 88.846184,
+              "bbox_pixels_xywh": [
+                598,
+                474,
+                21,
+                28
+              ]
+            },
+            {
+              "text": "devices,",
+              "confidence": 92.716843,
+              "bbox_pixels_xywh": [
+                625,
+                474,
+                42,
+                28
+              ]
+            },
+            {
+              "text": "execution",
+              "confidence": 89.820572,
+              "bbox_pixels_xywh": [
+                671,
+                483,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "Sroup",
+              "confidence": 57.939087,
+              "bbox_pixels_xywh": [
+                940,
+                491,
+                20,
+                6
+              ]
+            },
+            {
+              "text": "actually",
+              "confidence": 95.862289,
+              "bbox_pixels_xywh": [
+                41,
+                495,
+                42,
+                12
+              ]
+            },
+            {
+              "text": "does;",
+              "confidence": 93.302376,
+              "bbox_pixels_xywh": [
+                87,
+                495,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "e.g,,",
+              "confidence": 54.346561,
+              "bbox_pixels_xywh": [
+                120,
+                498,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "finance,",
+              "confidence": 85.588188,
+              "bbox_pixels_xywh": [
+                146,
+                495,
+                43,
+                11
+              ]
+            },
+            {
+              "text": "manufacturing,",
+              "confidence": 96.542694,
+              "bbox_pixels_xywh": [
+                194,
+                495,
+                83,
+                12
+              ]
+            },
+            {
+              "text": "legal,",
+              "confidence": 95.583687,
+              "bbox_pixels_xywh": [
+                281,
+                495,
+                28,
+                12
+              ]
+            },
+            {
+              "text": "HR,",
+              "confidence": 96.292625,
+              "bbox_pixels_xywh": [
+                313,
+                496,
+                18,
+                10
+              ]
+            },
+            {
+              "text": "environments,",
+              "confidence": 92.751106,
+              "bbox_pixels_xywh": [
+                397,
+                499,
+                78,
+                10
+              ]
+            },
+            {
+              "text": "networks,",
+              "confidence": 95.828865,
+              "bbox_pixels_xywh": [
+                480,
+                498,
+                53,
+                11
+              ]
+            },
+            {
+              "text": "buildings,",
+              "confidence": 91.081017,
+              "bbox_pixels_xywh": [
+                538,
+                498,
+                51,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 89.484177,
+              "bbox_pixels_xywh": [
+                593,
+                498,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "mechanical",
+              "confidence": 89.484177,
+              "bbox_pixels_xywh": [
+                617,
+                498,
+                62,
+                10
+              ]
+            },
+            {
+              "text": "devices.",
+              "confidence": 94.731651,
+              "bbox_pixels_xywh": [
+                683,
+                498,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "customer",
+              "confidence": 95.157013,
+              "bbox_pixels_xywh": [
+                62,
+                514,
+                51,
+                8
+              ]
+            },
+            {
+              "text": "management,",
+              "confidence": 75.853607,
+              "bbox_pixels_xywh": [
+                117,
+                513,
+                75,
+                11
+              ]
+            },
+            {
+              "text": "service,",
+              "confidence": 75.853607,
+              "bbox_pixels_xywh": [
+                196,
+                515,
+                41,
+                8
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.50428,
+              "bbox_pixels_xywh": [
+                242,
+                512,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "support.",
+              "confidence": 90.906113,
+              "bbox_pixels_xywh": [
+                265,
+                513,
+                46,
+                11
+              ]
+            }
+          ],
+          "mean_word_confidence": 81.43,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

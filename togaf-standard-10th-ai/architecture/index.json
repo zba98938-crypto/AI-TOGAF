@@ -1,0 +1,556 @@
+{
+  "schema_version": "togaf-architecture-analysis/1.0",
+  "path_base": "corpus-root",
+  "content_role": "authored-source-grounded-architecture-analysis",
+  "maintenance_source": "tools/togaf_corpus/architecture-analysis-data.json",
+  "maintenance_sha256": "e13c6e5e34a20f7093548ad68049baff12d1b59800ec64075547e5fd52afafdf",
+  "semantic_policy": {
+    "status": "authored-source-grounded-navigation-model-not-the-normative-TOGAF-metamodel",
+    "evidence_policy_zh": "每条概念与关系引用已绑定PDF指纹、实体页码和原文短引的分析发现；定义为语料上下文释义，不冒充逐字规范定义。",
+    "cardinality_policy_zh": "仅在来源明确说明时记录基数。null表示未在所引证据中规定，不表示不存在、零或无限。",
+    "hierarchy_policy_zh": "严格区分组成、类型特化、分类、实现、架构约束、信息流和组织汇报；图形嵌套、位置、颜色及线条样式本身不足以新增人员汇报关系。",
+    "recommendation_policy_zh": "指南应用输入、输出、步骤、判断标准为基于证据编写的项目建议，需按本项目上下文裁剪，不表示原文强制要求。",
+    "source_scope_zh": "覆盖本文件夹26份TOGAF Series Guide。此层不声称包含本地未提供的TOGAF基础内容、配套外部电子表格或外部引用全文。"
+  },
+  "counts": {
+    "guides": 26,
+    "source_findings": 197,
+    "concepts": 94,
+    "relationships": 97,
+    "relationship_types": {
+      "classification": 4,
+      "constraint": 3,
+      "depends_on": 9,
+      "enables": 10,
+      "flow": 4,
+      "governance": 7,
+      "instantiates": 1,
+      "mapping": 39,
+      "part_of": 4,
+      "realization": 5,
+      "specialization": 11
+    },
+    "explicit_cardinality_relations": 3,
+    "hr_reporting_relations": 0
+  },
+  "verification": {
+    "source_pdf_hashes_verified": 26,
+    "source_pdf_bytes_verified": 98354551,
+    "source_quote_checks": 197,
+    "distinct_evidence_pages": 148,
+    "all_quotes_found_directly_in_source_pdfs": true,
+    "semantic_review_status": "authored-paraphrases-and-synthesis-with-source-anchors",
+    "notice_zh": "逐条验证原文短引存在及来源指纹；这不等于独立专家已复核全部中文释义，也不表示每页均已形成语义断言。",
+    "graph_endpoints_resolved": true,
+    "strict_part_of_acyclic": true,
+    "specialization_acyclic": true,
+    "all_guides_have_evidence": true,
+    "all_concepts_and_relations_have_evidence": true
+  },
+  "guides": [
+    {
+      "id": "G152",
+      "title_zh": "将风险与安全融入TOGAF企业架构",
+      "title_en": "TOGAF® Series Guide: Integrating Risk and Security within a TOGAF® Enterprise Architecture",
+      "architecture_question_zh": "怎样把业务风险、安全和隐私需求贯穿四个架构域及架构变更生命周期？",
+      "source": {
+        "path": "togaf-standard-10th/G152e.pdf",
+        "sha256": "919c53bfa4259a4b3a9686762f37c0576a1cd2f8e77e74648826d9f9c84ed6e0",
+        "bytes": 5680475,
+        "page_count": 45,
+        "format": "pdf"
+      },
+      "finding_count": 7,
+      "concept_count": 6,
+      "relationship_count": 5,
+      "figure_count": 7,
+      "json_path": "architecture/guides/G152.json",
+      "markdown_path": "architecture/guides/G152.md"
+    },
+    {
+      "id": "G176",
+      "title_zh": "业务场景",
+      "title_en": "TOGAF® Series Guide: Business Scenarios",
+      "architecture_question_zh": "怎样用业务场景把问题、参与者交互和业务结果转成可信架构需求？",
+      "source": {
+        "path": "togaf-standard-10th/G176e.pdf",
+        "sha256": "48c76fbfd164020fcbc0a4f2ec12ee849a2af83424a332883f9a8e0260bf4961",
+        "bytes": 1786769,
+        "page_count": 53,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 4,
+      "relationship_count": 3,
+      "figure_count": 4,
+      "json_path": "architecture/guides/G176.json",
+      "markdown_path": "architecture/guides/G176.md"
+    },
+    {
+      "id": "G178",
+      "title_zh": "价值流",
+      "title_en": "TOGAF® Series Guide: Value Streams",
+      "architecture_question_zh": "怎样从利益相关者价值反推价值流阶段、能力支撑和业务过程？",
+      "source": {
+        "path": "togaf-standard-10th/G178e.pdf",
+        "sha256": "517130a041a8d956b2868dc39d570b84e2d80c64709e4c1368f9747388a3a026",
+        "bytes": 2189991,
+        "page_count": 28,
+        "format": "pdf"
+      },
+      "finding_count": 7,
+      "concept_count": 4,
+      "relationship_count": 4,
+      "figure_count": 9,
+      "json_path": "architecture/guides/G178.json",
+      "markdown_path": "architecture/guides/G178.md"
+    },
+    {
+      "id": "G184",
+      "title_zh": "领导者指南_建立并演进EA能力",
+      "title_en": "TOGAF® Series Guide: The TOGAF Leader's Guide to Establishing and Evolving an EA Capability",
+      "architecture_question_zh": "怎样建立并演进能支持决策、治理变更的企业架构能力？",
+      "source": {
+        "path": "togaf-standard-10th/G184e.pdf",
+        "sha256": "85fe5653767b184c3c8c9c1bef9f5738adbb2bf6661fb50ee95e72d16bc9f614",
+        "bytes": 7166577,
+        "page_count": 138,
+        "format": "pdf"
+      },
+      "finding_count": 7,
+      "concept_count": 8,
+      "relationship_count": 6,
+      "figure_count": 24,
+      "json_path": "architecture/guides/G184.json",
+      "markdown_path": "architecture/guides/G184.md"
+    },
+    {
+      "id": "G186",
+      "title_zh": "实践者方法_按TOGAF_ADM开发企业架构",
+      "title_en": "TOGAF® Series Guide: A Practitioners' Approach to Developing Enterprise Architecture Following the TOGAF® ADM",
+      "architecture_question_zh": "怎样按架构目的开发、协调和使用架构，形成可治理的变更？",
+      "source": {
+        "path": "togaf-standard-10th/G186e.pdf",
+        "sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+        "bytes": 11503921,
+        "page_count": 161,
+        "format": "pdf"
+      },
+      "finding_count": 9,
+      "concept_count": 15,
+      "relationship_count": 9,
+      "figure_count": 21,
+      "json_path": "architecture/guides/G186.json",
+      "markdown_path": "architecture/guides/G186.md"
+    },
+    {
+      "id": "G188",
+      "title_zh": "架构项目管理",
+      "title_en": "TOGAF® Series Guide: Architecture Project Management",
+      "architecture_question_zh": "怎样把架构定义工作组织成可计划、可验收和可移交的项目？",
+      "source": {
+        "path": "togaf-standard-10th/G188e.pdf",
+        "sha256": "6e654af12a0bc034c7548d425a01123331ac9129c478a0bb957db89dd353dd29",
+        "bytes": 5968532,
+        "page_count": 94,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 4,
+      "relationship_count": 2,
+      "figure_count": 11,
+      "json_path": "architecture/guides/G188.json",
+      "markdown_path": "architecture/guides/G188.md"
+    },
+    {
+      "id": "G18A",
+      "title_zh": "业务模型",
+      "title_en": "TOGAF® Series Guide: Business Models",
+      "architecture_question_zh": "怎样把业务模型价值逻辑落实成业务架构及变更范围？",
+      "source": {
+        "path": "togaf-standard-10th/G18Ae.pdf",
+        "sha256": "ed764e6eaeaad0cfccc67841223c76429684b31f188e6e90fbaf17cd44bc1fe4",
+        "bytes": 4921217,
+        "page_count": 30,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 2,
+      "relationship_count": 6,
+      "figure_count": 8,
+      "json_path": "architecture/guides/G18A.json",
+      "markdown_path": "architecture/guides/G18A.md"
+    },
+    {
+      "id": "G190",
+      "title_zh": "信息映射",
+      "title_en": "TOGAF® Series Guide: Information Mapping",
+      "architecture_question_zh": "怎样以业务信息概念及关系连接业务架构与数据架构？",
+      "source": {
+        "path": "togaf-standard-10th/G190e.pdf",
+        "sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+        "bytes": 2013687,
+        "page_count": 27,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 4,
+      "relationship_count": 6,
+      "figure_count": 8,
+      "json_path": "architecture/guides/G190.json",
+      "markdown_path": "architecture/guides/G190.md"
+    },
+    {
+      "id": "G198",
+      "title_zh": "架构技能框架",
+      "title_en": "TOGAF® Series Guide: Architecture Skills Framework",
+      "architecture_question_zh": "怎样以角色、技能类别和知识深度诊断架构团队的能力缺口？",
+      "source": {
+        "path": "togaf-standard-10th/G198e.pdf",
+        "sha256": "d5c636f7a991605dccfd7e81374261426af82c12cf918b128d3bd7ed4b3edb65",
+        "bytes": 2756245,
+        "page_count": 27,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 5,
+      "relationship_count": 6,
+      "figure_count": 2,
+      "json_path": "architecture/guides/G198.json",
+      "markdown_path": "architecture/guides/G198.md"
+    },
+    {
+      "id": "G203",
+      "title_zh": "架构成熟度模型",
+      "title_en": "TOGAF® Series Guide: Architecture Maturity Models",
+      "architecture_question_zh": "怎样评估架构实践成熟度并选择有针对性的改进路径？",
+      "source": {
+        "path": "togaf-standard-10th/G203e.pdf",
+        "sha256": "645ccffa0157d1ed1b0d9aff4d24967078dd668c54634752b2479ad8fa9c9d1c",
+        "bytes": 549948,
+        "page_count": 22,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 1,
+      "relationship_count": 1,
+      "figure_count": 0,
+      "json_path": "architecture/guides/G203.json",
+      "markdown_path": "architecture/guides/G203.md"
+    },
+    {
+      "id": "G206",
+      "title_zh": "组织映射",
+      "title_en": "TOGAF® Series Guide: Organization Mapping",
+      "architecture_question_zh": "怎样建模组织生态、责任单元、实际协作与信息/价值流？",
+      "source": {
+        "path": "togaf-standard-10th/G206e.pdf",
+        "sha256": "5de1a634ef389e88b16b11454fdf96350ab33664468a0df2a6aed513e2270c35",
+        "bytes": 1148610,
+        "page_count": 25,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 3,
+      "relationship_count": 3,
+      "figure_count": 5,
+      "json_path": "architecture/guides/G206.json",
+      "markdown_path": "architecture/guides/G206.md"
+    },
+    {
+      "id": "G20F",
+      "title_zh": "赋能企业敏捷性",
+      "title_en": "TOGAF® Series Guide: Enabling Enterprise Agility",
+      "architecture_question_zh": "怎样通过架构粒度、过渡状态与产品协作支持企业敏捷？",
+      "source": {
+        "path": "togaf-standard-10th/G20Fe.pdf",
+        "sha256": "a8fe6569c7d6045ce4ac8d5320c09a3abdc556a0fc1cbcd584bd76a75f3f84be",
+        "bytes": 4928709,
+        "page_count": 48,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 10,
+      "relationship_count": 10,
+      "figure_count": 11,
+      "json_path": "architecture/guides/G20F.json",
+      "markdown_path": "architecture/guides/G20F.md"
+    },
+    {
+      "id": "G210",
+      "title_zh": "以敏捷冲刺应用TOGAF_ADM",
+      "title_en": "TOGAF® Series Guide: Applying the TOGAF ADM using Agile Sprints",
+      "architecture_question_zh": "怎样把架构迭代、业务发展和敏捷方案团队的冲刺连起来？",
+      "source": {
+        "path": "togaf-standard-10th/G210e.pdf",
+        "sha256": "289803b369a49bc7f49c0d587b7f4af87899eebea8d834a6f52cbb2c3a657a58",
+        "bytes": 1453677,
+        "page_count": 41,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 2,
+      "relationship_count": 1,
+      "figure_count": 5,
+      "json_path": "architecture/guides/G210.json",
+      "markdown_path": "architecture/guides/G210.md"
+    },
+    {
+      "id": "G211",
+      "title_zh": "业务能力",
+      "title_en": "TOGAF® Series Guide: Business Capabilities, Version 2",
+      "architecture_question_zh": "怎样建立稳定的能力分类、分解结构，并用跨域关系指导投资？",
+      "source": {
+        "path": "togaf-standard-10th/G211e.pdf",
+        "sha256": "93fa7ac115956d34c0ad2161c46a5fd01cbc972d5f85a0f19f2f5b9d8c0a2b34",
+        "bytes": 1070614,
+        "page_count": 29,
+        "format": "pdf"
+      },
+      "finding_count": 7,
+      "concept_count": 4,
+      "relationship_count": 6,
+      "figure_count": 6,
+      "json_path": "architecture/guides/G211.json",
+      "markdown_path": "architecture/guides/G211.md"
+    },
+    {
+      "id": "G212",
+      "title_zh": "数字技术采用就绪度评估",
+      "title_en": "TOGAF® Series Guide: Digital Technology Adoption: A Guide to Readiness Assessment and Roadmap Development",
+      "architecture_question_zh": "怎样用就绪因素和采用方式选择数字技术的架构推进路径？",
+      "source": {
+        "path": "togaf-standard-10th/G212e.pdf",
+        "sha256": "1c6871264e1ca327066eec5783ec273014ce1615b13e0ef236e79b017ad4ac7b",
+        "bytes": 3529405,
+        "page_count": 57,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 2,
+      "relationship_count": 1,
+      "figure_count": 8,
+      "json_path": "architecture/guides/G212.json",
+      "markdown_path": "architecture/guides/G212.md"
+    },
+    {
+      "id": "G217",
+      "title_zh": "在数字企业中使用TOGAF标准",
+      "title_en": "TOGAF® Series Guide: Using the TOGAF Standard in the Digital Enterprise",
+      "architecture_question_zh": "怎样按数字企业成长上下文选择合适的EA服务和治理力度？",
+      "source": {
+        "path": "togaf-standard-10th/G217e.pdf",
+        "sha256": "ad38b0c9563a3558532e7ffd7f4e84e0ab82d29fc86f53bc08d583b604738488",
+        "bytes": 2956729,
+        "page_count": 90,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 2,
+      "relationship_count": 2,
+      "figure_count": 5,
+      "json_path": "architecture/guides/G217.json",
+      "markdown_path": "architecture/guides/G217.md"
+    },
+    {
+      "id": "G21B",
+      "title_zh": "信息架构_客户主数据管理",
+      "title_en": "TOGAF® Series Guide: Information Architecture: Customer Master Data Management (C-MDM)",
+      "architecture_question_zh": "怎样把客户主数据治理、集成和业务价值作为整体能力设计？",
+      "source": {
+        "path": "togaf-standard-10th/G21Be.pdf",
+        "sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+        "bytes": 4573061,
+        "page_count": 58,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 2,
+      "relationship_count": 1,
+      "figure_count": 16,
+      "json_path": "architecture/guides/G21B.json",
+      "markdown_path": "architecture/guides/G21B.md"
+    },
+    {
+      "id": "G21D",
+      "title_zh": "政府参考模型",
+      "title_en": "TOGAF® Series Guide: Government Reference Model",
+      "architecture_question_zh": "怎样使用政府参考分类建立公共部门业务架构及变更影响分析？",
+      "source": {
+        "path": "togaf-standard-10th/G21De.pdf",
+        "sha256": "220ead5fef846c52417b9b7a915ff4a64f327680b384c369840926b85958786a",
+        "bytes": 3769607,
+        "page_count": 76,
+        "format": "pdf"
+      },
+      "finding_count": 6,
+      "concept_count": 1,
+      "relationship_count": 1,
+      "figure_count": 17,
+      "json_path": "architecture/guides/G21D.json",
+      "markdown_path": "architecture/guides/G21D.md"
+    },
+    {
+      "id": "G21H",
+      "title_zh": "TOGAF数字业务参考模型",
+      "title_en": "TOGAF® Series Guide: TOGAF® Digital Business Reference Model (DBRM)",
+      "architecture_question_zh": "怎样把数字业务战略、结构、运营与数字使能放入同一架构上下文？",
+      "source": {
+        "path": "togaf-standard-10th/G21He.pdf",
+        "sha256": "40881f73b66ae8cfabc279aba8fe3767182ac3e865823054d0aca58f6292a470",
+        "bytes": 2225026,
+        "page_count": 52,
+        "format": "pdf"
+      },
+      "finding_count": 7,
+      "concept_count": 7,
+      "relationship_count": 11,
+      "figure_count": 5,
+      "json_path": "architecture/guides/G21H.json",
+      "markdown_path": "architecture/guides/G21H.md"
+    },
+    {
+      "id": "G21I",
+      "title_zh": "微服务架构",
+      "title_en": "TOGAF® Series Guide: Microservices Architecture (MSA)",
+      "architecture_question_zh": "怎样从业务功能边界设计独立微服务，并协调团队、数据与治理？",
+      "source": {
+        "path": "togaf-standard-10th/G21Ie.pdf",
+        "sha256": "279f6c06124f49a147a168591965805115b2fc976eea2664e41e491ac5d163bf",
+        "bytes": 1938589,
+        "page_count": 53,
+        "format": "pdf"
+      },
+      "finding_count": 8,
+      "concept_count": 9,
+      "relationship_count": 9,
+      "figure_count": 8,
+      "json_path": "architecture/guides/G21I.json",
+      "markdown_path": "architecture/guides/G21I.md"
+    },
+    {
+      "id": "G233",
+      "title_zh": "业务能力规划",
+      "title_en": "TOGAF® Series Guide: Business Capability Planning",
+      "architecture_question_zh": "怎样把抽象能力实例化到价值流并分析优化、合并、新建和退役？",
+      "source": {
+        "path": "togaf-standard-10th/G233e.pdf",
+        "sha256": "d5c62f9edb2465d10e59f0a1c9c23fb5d8a0b14e506cf7739a09886fbee07754",
+        "bytes": 2879396,
+        "page_count": 59,
+        "format": "pdf"
+      },
+      "finding_count": 7,
+      "concept_count": 2,
+      "relationship_count": 5,
+      "figure_count": 13,
+      "json_path": "architecture/guides/G233.json",
+      "markdown_path": "architecture/guides/G233.md"
+    },
+    {
+      "id": "G234",
+      "title_zh": "信息架构_元数据管理",
+      "title_en": "TOGAF® Series Guide: Information Architecture: Metadata Management",
+      "architecture_question_zh": "怎样把元数据需求、责任和验证流程落实到可运行的数据治理能力？",
+      "source": {
+        "path": "togaf-standard-10th/G234e.pdf",
+        "sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+        "bytes": 3017563,
+        "page_count": 45,
+        "format": "pdf"
+      },
+      "finding_count": 7,
+      "concept_count": 6,
+      "relationship_count": 6,
+      "figure_count": 14,
+      "json_path": "architecture/guides/G234.json",
+      "markdown_path": "architecture/guides/G234.md"
+    },
+    {
+      "id": "G238",
+      "title_zh": "信息架构_商业智能与分析",
+      "title_en": "TOGAF® Series Guide: Information Architecture: Business Intelligence & Analytics",
+      "architecture_question_zh": "怎样从决策用例、数据流和治理要求设计BI与分析能力及演进？",
+      "source": {
+        "path": "togaf-standard-10th/G238e.pdf",
+        "sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+        "bytes": 4626395,
+        "page_count": 44,
+        "format": "pdf"
+      },
+      "finding_count": 8,
+      "concept_count": 2,
+      "relationship_count": 1,
+      "figure_count": 9,
+      "json_path": "architecture/guides/G238.json",
+      "markdown_path": "architecture/guides/G238.md"
+    },
+    {
+      "id": "G242",
+      "title_zh": "环境可持续的信息系统",
+      "title_en": "TOGAF® Series Guide: Environmentally Sustainable Information Systems",
+      "architecture_question_zh": "怎样把生命周期环境影响纳入架构决策、数据和治理？",
+      "source": {
+        "path": "togaf-standard-10th/G242e.pdf",
+        "sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+        "bytes": 12340255,
+        "page_count": 105,
+        "format": "pdf"
+      },
+      "finding_count": 7,
+      "concept_count": 2,
+      "relationship_count": 3,
+      "figure_count": 20,
+      "json_path": "architecture/guides/G242.json",
+      "markdown_path": "architecture/guides/G242.md"
+    },
+    {
+      "id": "G248",
+      "title_zh": "构建块的选择方法",
+      "title_en": "TOGAF® Series Guide: An Approach to Selecting Building Blocks",
+      "architecture_question_zh": "怎样根据变更画像选择构建块、视点、制品及交付物并验证价值？",
+      "source": {
+        "path": "togaf-standard-10th/G248e.pdf",
+        "sha256": "810df20478f65d8dfd969089f9c682ec268d0e3a9126e062bda5191c9017e19c",
+        "bytes": 1871990,
+        "page_count": 47,
+        "format": "pdf"
+      },
+      "finding_count": 7,
+      "concept_count": 8,
+      "relationship_count": 6,
+      "figure_count": 5,
+      "json_path": "architecture/guides/G248.json",
+      "markdown_path": "architecture/guides/G248.md"
+    },
+    {
+      "id": "G249",
+      "title_zh": "架构角色与技能",
+      "title_en": "TOGAF® Series Guide: Architecture Roles and Skills",
+      "architecture_question_zh": "如何从明确mandate和实际架构工作，建立可裁剪的角色、任务技能要求、证据评估、正式认可及发展闭环，并支持架构决策与制品交付？",
+      "source": {
+        "path": "togaf-standard-10th/G249e.pdf",
+        "sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "bytes": 1487563,
+        "page_count": 33,
+        "format": "pdf"
+      },
+      "finding_count": 31,
+      "concept_count": 12,
+      "relationship_count": 9,
+      "figure_count": 2,
+      "json_path": "architecture/guides/G249.json",
+      "markdown_path": "architecture/guides/G249.md"
+    }
+  ],
+  "outputs": {
+    "guides_json": "architecture/guides/index.json",
+    "guides_markdown": "architecture/guides/index.md",
+    "concepts_json": "architecture/concepts.json",
+    "concepts_markdown": "architecture/concepts.md",
+    "relationships_json": "architecture/relationships.json",
+    "relationships_markdown": "architecture/relationships.md",
+    "evidence_json": "architecture/evidence.json",
+    "evidence_markdown": "architecture/evidence.md"
+  }
+}

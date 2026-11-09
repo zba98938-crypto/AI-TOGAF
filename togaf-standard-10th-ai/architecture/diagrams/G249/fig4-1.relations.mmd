@@ -1,0 +1,33 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Strategy (goals and objectives)"]
+  n1["Chief Architect"]
+  n2["Enterprise Architect"]
+  n3["Segment Architect"]
+  n4["Solution Architect"]
+  n5["Business Domain"]
+  n6["Data, Application, Technology Domain"]
+  n7["Business Specialists"]
+  n8["Data, Application, Technology Specialists"]
+  n9["Business Users and Stakeholders"]
+  n10["IS/IT Users and Stakeholders"]
+  n11["业务与数据/应用/技术领域共同范围"]
+  n12["交付汇合点（蓝色椭圆）"]
+  n13["Executing and evolving services and systems delivering operational excellence and strategic alignment"]
+  n0 -->|"影响"| n1
+  n1 -->|"治理/监督"| n2
+  n2 -->|"治理/监督"| n3
+  n3 -->|"治理/监督"| n7
+  n3 -->|"治理/监督"| n8
+  n3 -->|"治理/监督"| n4
+  n7 <-->|"interacts_with"| n9
+  n8 <-->|"interacts_with"| n10
+  n9 -->|"依赖"| n4
+  n4 -->|"支撑/服务"| n9
+  n10 -->|"提供潜在方案与约束"| n4
+  n4 -->|"提供规格并治理交付"| n10
+  n4 -->|"contributes_to"| n12
+  n7 -->|"交付"| n12
+  n8 -->|"交付"| n12
+  n12 -->|"交付"| n13
+  n1 -->|"关联"| n13

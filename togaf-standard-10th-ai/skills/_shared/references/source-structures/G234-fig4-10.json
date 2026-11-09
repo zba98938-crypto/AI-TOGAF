@@ -1,0 +1,318 @@
+{
+  "schema_version": "2.0",
+  "id": "G234/fig4-10",
+  "title": "技术元数据推断",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      467
+    ],
+    "label_table_lines": [
+      471,
+      485
+    ]
+  },
+  "reading": {
+    "purpose_zh": "说明技术元数据的两种获得方式之一——事后推断：当数据模式与运营元数据不是“按设计”定义时，需要剖析数据内容、抽取最低限度结构，才能纳入元数据管理与治理。",
+    "reading_guide_zh": "左侧虚线框分上下两带：上带 METADATA 只有 Metadata Management 框与三名管理者；下带 DATA 是灰色梯形数据域，左侧竖胶囊 Data Profiling，右侧自上而下 Structured、Semi-Structured、Unstructured 三类存储。蓝色箭头从数据域指向元数据管理，灰色箭头表示剖析读取与层间结构推断。右侧三段说明分别用细线指向对应的数据层。",
+    "key_points_zh": [
+      "结构化数据（RDBMS、元数据存储）可从数据库字典、技术元数据存储、数据集成存储库直接收集，收集模式本身不需要访问数据。",
+      "半结构化文件（Parquet、Avro 等）自带结构，但不能保证模式随时间稳定，每个文件可能有自己的结构。",
+      "非结构化数据（PDF、DOCX、JPG、AVI 等）必须先抽取最低限度结构（图像中的形状、文档中的电子邮件地址等），才能分析与治理；这需要扫描数据内容，海量文件时计算量很大。",
+      "Data Profiling 是可复用的横向能力，同时读取三类数据；它本身不是元数据存储库。",
+      "只有两条蓝色箭头跨越 METADATA/DATA 分界：一条来自 Data Profiling，一条来自结构化存储，说明元数据上行的两个入口。",
+      "正文指出技术元数据可“按设计”获得，也可事后借助元数据推断、机器学习等技术提取；本图对应后者。"
+    ],
+    "hierarchy_zh": "两层：METADATA（元数据管理 + 管理者）在上，DATA（数据剖析 + 三类数据）在下；DATA 内三类数据自上而下为 Structured、Semi-Structured、Unstructured，Data Profiling 位于左侧纵向贯穿。",
+    "line_semantics_zh": "蓝色向上箭头 = 元数据采集/上行；灰色横向线 = 数据剖析读取该类数据（无箭头）；灰色向上箭头 = 由下层数据向上推断结构；细灰引线 = 说明文字指向对应数据层，不是流程。",
+    "misreadings_zh": [
+      "不要把 Data Profiling 当成元数据存储库或 ETL 工具；它是读取数据、产出技术元数据的剖析组件。",
+      "不要以为三类数据各自都有一条蓝色箭头直连元数据管理；图中只有 Data Profiling 与结构化存储两条。",
+      "不要把层间的灰色向上箭头读成数据流向上层；它表示结构推断的方向。",
+      "右侧三个方框是说明注释，不是图例，也不代表三个处理步骤。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "band_metadata",
+      "label_en": "METADATA",
+      "label_zh": "元数据",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左侧虚线框上半",
+      "description_zh": "元数据层带。"
+    },
+    {
+      "id": "metadata_management",
+      "label_en": "Metadata Management",
+      "label_zh": "元数据管理",
+      "type": "application",
+      "parent": "band_metadata",
+      "level": 2,
+      "position": "上带中央"
+    },
+    {
+      "id": "metadata_managers",
+      "label_zh": "元数据管理者（3 人，无标签）",
+      "type": "actor",
+      "parent": "band_metadata",
+      "level": 2,
+      "position": "元数据管理框上方",
+      "description_zh": "原图为三个青色人物图标，无文字标签。"
+    },
+    {
+      "id": "band_data",
+      "label_en": "DATA",
+      "label_zh": "数据",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左侧虚线框下半",
+      "description_zh": "数据层带，内含灰色梯形数据域。"
+    },
+    {
+      "id": "data_profiling",
+      "label_en": "Data Profiling",
+      "label_zh": "数据剖析",
+      "type": "function",
+      "parent": "band_data",
+      "level": 2,
+      "position": "数据域左侧竖胶囊"
+    },
+    {
+      "id": "structured",
+      "label_en": "Structured",
+      "label_zh": "结构化数据",
+      "type": "data",
+      "parent": "band_data",
+      "level": 2,
+      "position": "数据域上层"
+    },
+    {
+      "id": "structured_detail",
+      "label_en": "RDBMS, metadata store",
+      "label_zh": "关系数据库管理系统、元数据存储",
+      "type": "note",
+      "parent": "structured",
+      "level": 3,
+      "position": "Structured 下方斜体"
+    },
+    {
+      "id": "semi_structured",
+      "label_en": "Semi-Structured",
+      "label_zh": "半结构化数据",
+      "type": "data",
+      "parent": "band_data",
+      "level": 2,
+      "position": "数据域中层"
+    },
+    {
+      "id": "semi_detail",
+      "label_en": "Parquet, Avro, etc.",
+      "label_zh": "Parquet、Avro 等",
+      "type": "note",
+      "parent": "semi_structured",
+      "level": 3,
+      "position": "Semi-Structured 下方斜体"
+    },
+    {
+      "id": "unstructured",
+      "label_en": "Unstructured",
+      "label_zh": "非结构化数据",
+      "type": "data",
+      "parent": "band_data",
+      "level": 2,
+      "position": "数据域下层"
+    },
+    {
+      "id": "unstructured_detail",
+      "label_en": "PDF, DOCX, JPG, AVI, etc.",
+      "label_zh": "PDF、DOCX、JPG、AVI 等",
+      "type": "note",
+      "parent": "unstructured",
+      "level": 3,
+      "position": "Unstructured 下方斜体"
+    },
+    {
+      "id": "note_structured",
+      "label_en": "Structured data can be easily collected from database dictionaries, technical metadata stores, data integration repositories, etc. Note: Data schema collection does not require access to data.",
+      "label_zh": "结构化数据可容易地从数据库字典、技术元数据存储、数据集成存储库等收集。注意：收集数据模式不需要访问数据。",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "右侧第一说明框"
+    },
+    {
+      "id": "note_semi",
+      "label_en": "Semi-structured files come with a structure but do not guarantee schema stability over time as each file may have its own structure.",
+      "label_zh": "半结构化文件带有结构，但不能保证模式随时间稳定，因为每个文件可能有自己的结构。",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "右侧第二说明框"
+    },
+    {
+      "id": "note_unstructured",
+      "label_en": "Unstructured data – we cannot manage what we don't know: a minimum of structure (shapes in an image; email address from a document, etc.) must be extracted from the unstructured data before analysis and governance. Such exercise requires scanning the data content which may be very intensive data processing if there are millions of files to scan.",
+      "label_zh": "非结构化数据——我们无法管理自己不知道的内容：在分析与治理前，必须从非结构化数据中抽取最低限度的结构（图像中的形状、文档中的电子邮件地址等）。这项工作需要扫描数据内容，如果要扫描数百万个文件，可能是非常密集的数据处理。",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "右侧第三说明框"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "data_profiling",
+      "to": "structured",
+      "type": "access",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据剖析到结构化存储的横向细线，无箭头。"
+    },
+    {
+      "from": "data_profiling",
+      "to": "semi_structured",
+      "type": "access",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "data_profiling",
+      "to": "unstructured",
+      "type": "access",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "semi_structured",
+      "to": "structured",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "灰色向上箭头：由半结构化数据向上推断/补全结构。"
+    },
+    {
+      "from": "unstructured",
+      "to": "semi_structured",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "灰色向上箭头：由非结构化数据抽取最低结构后向上层归并。"
+    },
+    {
+      "from": "data_profiling",
+      "to": "metadata_management",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "蓝色箭头：剖析结果作为元数据上行。"
+    },
+    {
+      "from": "structured",
+      "to": "metadata_management",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "蓝色箭头：结构化存储的技术元数据上行。"
+    },
+    {
+      "from": "note_structured",
+      "to": "structured",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "说明框的引线指向 Structured 层。"
+    },
+    {
+      "from": "note_semi",
+      "to": "semi_structured",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "note_unstructured",
+      "to": "unstructured",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "上下两条青色细线",
+      "meaning_zh": "METADATA 与 DATA 的分界",
+      "explicit": false
+    },
+    {
+      "symbol": "青色向上箭头",
+      "meaning_zh": "元数据采集/上行",
+      "explicit": false
+    },
+    {
+      "symbol": "灰色横向线（无箭头）",
+      "meaning_zh": "数据剖析读取该类数据",
+      "explicit": false
+    },
+    {
+      "symbol": "灰色向上箭头",
+      "meaning_zh": "由下层数据向上推断结构",
+      "explicit": false
+    },
+    {
+      "symbol": "右侧说明框 + 细引线",
+      "meaning_zh": "对该类数据采集方式的注释",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "层间两条灰色向上箭头的具体语义（结构推断还是数据抽取）原文未逐箭头说明，按“由下层向上抽取结构”理解。",
+      "元数据管理框上方的三个人物图标没有标签，按元数据管理者/用户处理。",
+      "右侧说明框文字很多，本分析按原图三段完整转录；中文 SVG 为压缩改写。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 29 页原图截图（2x2 与 3x3 放大分块）",
+      "英文 PDF 第 29 页正文",
+      "中文稿 G234e_信息架构_元数据管理.md 第 465–491 行",
+      "figs/g234e_fig4-10_en.png、figs/zh/g234e_fig4-10_zh.png、figs/zh/g234e_fig4-10_zh.svg"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": {
+    "figure_id": "G234/fig4-10",
+    "review_date": "2026-11-01",
+    "review_kind": "MD-body + actual image + JSON",
+    "status": "reviewed",
+    "note_zh": "元数据推断区分数据结构类型、模式访问和内容扫描，不推出全量访问要求。",
+    "source_md": "G234e_信息架构_元数据管理.md",
+    "assets_opened": [
+      "figs/g234e_fig4-10_en.png"
+    ],
+    "limit": "仅证明所列观察；未据此声明全图所有字段或全部来源图已逐项复核。"
+  },
+  "visual_structure_review": {
+    "id": "G234/fig4-10",
+    "asset": "figs/g234e_fig4-10_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "15"
+  }
+}

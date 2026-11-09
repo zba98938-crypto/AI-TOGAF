@@ -1,0 +1,906 @@
+{
+  "schema_version": "2.0",
+  "id": "G186/fig5-7",
+  "title": "开发支持战略的架构的示例项目计划",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      853
+    ],
+    "label_table_lines": [
+      857,
+      878
+    ]
+  },
+  "reading": {
+    "purpose_zh": "示范第 5.2.4 节：开发支持战略的架构是穿越 ADM 的一次配置化旅程，路线是理解语境→开展评估与分析→确定达成目标状态的方法→最终确定架构愿景/目标状态；本图给出任务级计划样板，说明要迭代哪些阶段、先后如何。",
+    "reading_guide_zh": "左侧自上而下读任务清单：粗体行是主线或阶段，缩进行是任务。右侧条形自左向右表示时间：深色粗横线是阶段汇总条，蓝色条是任务条，细黑箭头表示任务间的完成—开始依赖。先读四条主线：Understand Context → Define Approach to Target State → Finalize Architecture Vision/Target State → Complete Architecture Project；再读每条主线内的阶段顺序（H→A→B/C/D→A→E→G→F）。",
+    "key_points_zh": [
+      "计划共 71 行任务，四条主线是：Understand Context、Define Approach to Target State、Finalize Architecture Vision/Target State、Complete Architecture Project。",
+      "第一条主线先走部分战略层阶段 H（审查现有路线图、理解/推断差距、架构工作请求），再走阶段 A，并把阶段 A 分成“企业能力专属”和“EA 能力专属”两个语境。",
+      "第二条主线用阶段 B、C、D 为每个差距定义规格与工作包；原图在第 33、38 行重复标注 Phase C，没有出现 Phase D 小标题。",
+      "B/C/D 完成后又出现第二次部分战略层阶段 A（制定愿景/定义、修订 EA 治理与参与模型），随后是 E、G，最后才进入 F（完成路线图、定义治理模型）。",
+      "阶段顺序不是 H→A→B→C→D→E→F→G 的教科书顺序，而是按目的配置、可迭代的旅程；同一字母的阶段会在不同时点重复出现。",
+      "条形为相对周尺度，原图只在少数条端标 MM-DD 日期，没有完整日历轴；不能据此推算实际工期。",
+      "第 47–49 行被一条横贯细虚线穿过，疑为删除线或审阅标记；第 49 行文字被列宽截断。"
+    ],
+    "hierarchy_zh": "三层：主线分组（Understand Context、Define Approach to Target State、Finalize Architecture Vision/Target State）→ 阶段分组（Phase H/A/B/C/D/E/F/G）→ 子分组（企业能力专属、EA 能力专属、Phase B/C）→ 任务。Complete Architecture Project 是底部里程碑。",
+    "line_semantics_zh": "深色粗横线是阶段/主线汇总条，两端有短竖线；蓝色条是任务条，条端小箭头表示任务完成并触发后续任务；细黑线加箭头是完成—开始依赖；竖向括号标出一段任务的共同起止。左侧彩色窄带按阶段分组着色，没有图例。本分析只把主线/阶段之间的依赖记入 relationships；同一阶段内任务之间的细箭头未逐条枚举。",
+    "misreadings_zh": [
+      "不要把这 71 行当成一次性瀑布：阶段 A 出现两次，E、G 在 F 之前，说明计划是配置化、可迭代的。",
+      "第 38 行的“Phase C”是原图重复，不是 D 阶段；不要自行改成 Phase D。",
+      "不要根据条形的相对长度推算日历工期；图中没有完整日期轴，只有少量 MM-DD 标记。",
+      "蓝色任务条不是阶段汇总条；粗体行才是阶段/分组。",
+      "中文重绘 SVG 省略了任务依赖箭头与日期标记，不能把它当作完整进度网络。",
+      "第 47–49 行的虚线含义不明，不要据此断定这些任务一定被删除。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "prj_start",
+      "label_en": "Start Architecture Project",
+      "label_zh": "启动架构项目",
+      "type": "event",
+      "parent": null,
+      "level": 0,
+      "order": 1
+    },
+    {
+      "id": "understand_context",
+      "label_en": "Understand Context",
+      "label_zh": "理解语境",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "phase_h",
+      "label_en": "Partial Strategic Level Phase H",
+      "label_zh": "部分战略层阶段 H",
+      "type": "phase",
+      "parent": "understand_context",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "phase_a_context",
+      "label_en": "Partial Strategic Level Phase A",
+      "label_zh": "部分战略层阶段 A",
+      "type": "phase",
+      "parent": "understand_context",
+      "level": 2,
+      "order": 9
+    },
+    {
+      "id": "ent_capability_context",
+      "label_en": "Specific for the Enterprise Capability:",
+      "label_zh": "企业能力专属",
+      "type": "group",
+      "parent": "phase_a_context",
+      "level": 3,
+      "order": 10
+    },
+    {
+      "id": "ea_capability_context",
+      "label_en": "Specific for the EA Capability:",
+      "label_zh": "EA 能力专属",
+      "type": "group",
+      "parent": "phase_a_context",
+      "level": 3,
+      "order": 18
+    },
+    {
+      "id": "define_target_approach",
+      "label_en": "Define Approach to Target State",
+      "label_zh": "确定达成目标状态的方法",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 25
+    },
+    {
+      "id": "phases_bcd",
+      "label_en": "Partial Strategy Level Phases B, C, and D",
+      "label_zh": "部分战略层阶段 B、C、D",
+      "type": "phase",
+      "parent": "define_target_approach",
+      "level": 2,
+      "order": 26,
+      "description_zh": "原图写作 Partial Strategy Level Phases B, C, and D；中文稿标签表写作 Partial Strategic Level Phases B, C, and D（多一个 -ic）。"
+    },
+    {
+      "id": "phase_b",
+      "label_en": "Phase B",
+      "label_zh": "阶段 B",
+      "type": "group",
+      "parent": "phases_bcd",
+      "level": 3,
+      "order": 28,
+      "description_zh": "中文稿标签表以“Phase B / Phase C / Phase D”一行概括三个阶段，但原图没有 Phase D 小标题：第 38 行再次标注 Phase C。"
+    },
+    {
+      "id": "phase_c",
+      "label_en": "Phase C",
+      "label_zh": "阶段 C",
+      "type": "group",
+      "parent": "phases_bcd",
+      "level": 3,
+      "order": 33
+    },
+    {
+      "id": "phase_c_repeat",
+      "label_en": "Phase C",
+      "label_zh": "阶段 C（原图重复）",
+      "type": "group",
+      "parent": "phases_bcd",
+      "level": 3,
+      "order": 38,
+      "description_zh": "原图第 38 行再次标注 Phase C，未写成 Phase D；本分析按原样保留，不擅自改为 D。"
+    },
+    {
+      "id": "phase_a_second",
+      "label_en": "Partial Strategy Level Phase A",
+      "label_zh": "部分战略层阶段 A（第二次）",
+      "type": "phase",
+      "parent": "define_target_approach",
+      "level": 2,
+      "order": 45
+    },
+    {
+      "id": "ea_capability_context_2",
+      "label_en": "Specific for the EA Capability:",
+      "label_zh": "EA 能力专属",
+      "type": "group",
+      "parent": "phase_a_second",
+      "level": 3,
+      "order": 50
+    },
+    {
+      "id": "phase_e",
+      "label_en": "Partial Strategy Level Phase E",
+      "label_zh": "部分战略层阶段 E",
+      "type": "phase",
+      "parent": "define_target_approach",
+      "level": 2,
+      "order": 54,
+      "description_zh": "原图写作 Partial Strategy Level Phase E；中文稿标签表写作 Partial Strategic Level Phase E（多一个 -ic）。"
+    },
+    {
+      "id": "phase_g",
+      "label_en": "Partial Strategic Level Phase G",
+      "label_zh": "部分战略层阶段 G",
+      "type": "phase",
+      "parent": "define_target_approach",
+      "level": 2,
+      "order": 59
+    },
+    {
+      "id": "finalize_vision",
+      "label_en": "Finalize Architecture Vision/Target State",
+      "label_zh": "最终确定架构愿景/目标状态",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 64
+    },
+    {
+      "id": "phase_f",
+      "label_en": "Partial Strategic Level Phase F",
+      "label_zh": "部分战略层阶段 F",
+      "type": "phase",
+      "parent": "finalize_vision",
+      "level": 2,
+      "order": 65
+    },
+    {
+      "id": "prj_complete",
+      "label_en": "Complete Architecture Project",
+      "label_zh": "完成架构项目",
+      "type": "event",
+      "parent": null,
+      "level": 0,
+      "order": 71
+    }
+  ],
+  "relationships": [
+    {
+      "from": "prj_start",
+      "to": "understand_context",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "项目启动后进入理解语境主线。"
+    },
+    {
+      "from": "understand_context",
+      "to": "define_target_approach",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "理解语境完成后确定达成目标状态的方法。"
+    },
+    {
+      "from": "define_target_approach",
+      "to": "finalize_vision",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "确定方法后最终确定架构愿景/目标状态。"
+    },
+    {
+      "from": "finalize_vision",
+      "to": "prj_complete",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "完成阶段 F 后结束架构项目。"
+    },
+    {
+      "from": "phase_h",
+      "to": "phase_a_context",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "阶段 H 完成后进入阶段 A。"
+    },
+    {
+      "from": "phase_a_context",
+      "to": "phases_bcd",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "阶段 A 完成后进入 B/C/D。"
+    },
+    {
+      "from": "phases_bcd",
+      "to": "phase_a_second",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "B/C/D 完成后回到第二次阶段 A。"
+    },
+    {
+      "from": "phase_a_second",
+      "to": "phase_e",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第二次阶段 A 后进入阶段 E。"
+    },
+    {
+      "from": "phase_e",
+      "to": "phase_g",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "阶段 E 后进入阶段 G。"
+    },
+    {
+      "from": "phase_g",
+      "to": "phase_f",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "阶段 G 后进入阶段 F。"
+    },
+    {
+      "from": "phase_f",
+      "to": "prj_complete",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "阶段 F 完成后结束项目。"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_main",
+      "kind": "sequence",
+      "name_zh": "四条计划主线",
+      "steps": [
+        "prj_start",
+        "understand_context",
+        "define_target_approach",
+        "finalize_vision",
+        "prj_complete"
+      ]
+    },
+    {
+      "id": "f_phases",
+      "kind": "sequence",
+      "name_zh": "阶段顺序",
+      "steps": [
+        "phase_h",
+        "phase_a_context",
+        "phases_bcd",
+        "phase_a_second",
+        "phase_e",
+        "phase_g",
+        "phase_f"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_tasks",
+      "title_zh": "图 5-7 全部 71 行任务逐行转录",
+      "columns": [
+        "#",
+        "Task (English, as printed)",
+        "Row type / 行类型",
+        "Parent group (English)",
+        "Note / 备注"
+      ],
+      "rows": [
+        [
+          "1",
+          "Start Architecture Project",
+          "项目里程碑",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "Understand Context",
+          "主线分组",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "Partial Strategic Level Phase H",
+          "阶段分组",
+          "Understand Context",
+          ""
+        ],
+        [
+          "4",
+          "Start Enterprise Context",
+          "任务",
+          "Partial Strategic Level Phase H",
+          ""
+        ],
+        [
+          "5",
+          "Review any existing Roadmap",
+          "任务",
+          "Partial Strategic Level Phase H",
+          ""
+        ],
+        [
+          "6",
+          "Understand/infer gaps",
+          "任务",
+          "Partial Strategic Level Phase H",
+          ""
+        ],
+        [
+          "7",
+          "(Background) Request for Architecture Work",
+          "任务",
+          "Partial Strategic Level Phase H",
+          ""
+        ],
+        [
+          "8",
+          "Complete Enterprise Context",
+          "任务",
+          "Partial Strategic Level Phase H",
+          ""
+        ],
+        [
+          "9",
+          "Partial Strategic Level Phase A",
+          "阶段分组",
+          "Understand Context",
+          ""
+        ],
+        [
+          "10",
+          "Specific for the Enterprise Capability:",
+          "子分组",
+          "Partial Strategic Level Phase A",
+          ""
+        ],
+        [
+          "11",
+          "Start Enterprise Capability",
+          "任务",
+          "Specific for the Enterprise Capability:",
+          ""
+        ],
+        [
+          "12",
+          "Goals, objectives, initiatives, competitive, and tactic analysis",
+          "任务",
+          "Specific for the Enterprise Capability:",
+          ""
+        ],
+        [
+          "13",
+          "Reaffirm planning horizon",
+          "任务",
+          "Specific for the Enterprise Capability:",
+          ""
+        ],
+        [
+          "14",
+          "Operating model",
+          "任务",
+          "Specific for the Enterprise Capability:",
+          ""
+        ],
+        [
+          "15",
+          "Existing governance and risk management model",
+          "任务",
+          "Specific for the Enterprise Capability:",
+          ""
+        ],
+        [
+          "16",
+          "Stakeholder and concern identification",
+          "任务",
+          "Specific for the Enterprise Capability:",
+          ""
+        ],
+        [
+          "17",
+          "Complete Enterprise Capability",
+          "任务",
+          "Specific for the Enterprise Capability:",
+          ""
+        ],
+        [
+          "18",
+          "Specific for the EA Capability:",
+          "子分组",
+          "Partial Strategic Level Phase A",
+          ""
+        ],
+        [
+          "19",
+          "Start Enterprise Capability",
+          "任务",
+          "Specific for the EA Capability:",
+          ""
+        ],
+        [
+          "20",
+          "EA Capability model",
+          "任务",
+          "Specific for the EA Capability:",
+          ""
+        ],
+        [
+          "21",
+          "Customized EA process model",
+          "任务",
+          "Specific for the EA Capability:",
+          ""
+        ],
+        [
+          "22",
+          "Content model & (industry) reference architectures",
+          "任务",
+          "Specific for the EA Capability:",
+          ""
+        ],
+        [
+          "23",
+          "Approach to covering EA Landscape",
+          "任务",
+          "Specific for the EA Capability:",
+          ""
+        ],
+        [
+          "24",
+          "Complete Enterprise Capability",
+          "任务",
+          "Specific for the EA Capability:",
+          ""
+        ],
+        [
+          "25",
+          "Define Approach to Target State",
+          "主线分组",
+          "",
+          ""
+        ],
+        [
+          "26",
+          "Partial Strategy Level Phases B, C, and D",
+          "阶段分组",
+          "Define Approach to Target State",
+          ""
+        ],
+        [
+          "27",
+          "Start Partial Strategic Phases B, C, and D",
+          "任务",
+          "Partial Strategy Level Phases B, C, and D",
+          ""
+        ],
+        [
+          "28",
+          "Phase B",
+          "子分组",
+          "Partial Strategy Level Phases B, C, and D",
+          ""
+        ],
+        [
+          "29",
+          "Define specification and work packages for each gap",
+          "任务",
+          "Phase B",
+          ""
+        ],
+        [
+          "30",
+          "Identify capabilities to improve",
+          "任务",
+          "Phase B",
+          ""
+        ],
+        [
+          "31",
+          "Create candidate organization model",
+          "任务",
+          "Phase B",
+          ""
+        ],
+        [
+          "32",
+          "Create candidate operating model",
+          "任务",
+          "Phase B",
+          ""
+        ],
+        [
+          "33",
+          "Phase C",
+          "子分组",
+          "Partial Strategy Level Phases B, C, and D",
+          ""
+        ],
+        [
+          "34",
+          "Define specification and work packages for each gap",
+          "任务",
+          "Phase C",
+          ""
+        ],
+        [
+          "35",
+          "Identify capabilities to improve",
+          "任务",
+          "Phase C",
+          ""
+        ],
+        [
+          "36",
+          "Create candidate organization model",
+          "任务",
+          "Phase C",
+          ""
+        ],
+        [
+          "37",
+          "Create candidate operating model",
+          "任务",
+          "Phase C",
+          ""
+        ],
+        [
+          "38",
+          "Phase C",
+          "子分组",
+          "Partial Strategy Level Phases B, C, and D",
+          "原图重复标注 Phase C（第 33、38 行同名）。"
+        ],
+        [
+          "39",
+          "Define specification and work packages for each gap",
+          "任务",
+          "Phase C",
+          ""
+        ],
+        [
+          "40",
+          "Identify capabilities to improve",
+          "任务",
+          "Phase C",
+          ""
+        ],
+        [
+          "41",
+          "Create candidate organization model",
+          "任务",
+          "Phase C",
+          ""
+        ],
+        [
+          "42",
+          "Create candidate operating model",
+          "任务",
+          "Phase C",
+          ""
+        ],
+        [
+          "43",
+          "Populate requirements management (or EA Repository)",
+          "任务",
+          "Phase C",
+          ""
+        ],
+        [
+          "44",
+          "Complete Partial Strategic Phases B, C, and D",
+          "任务",
+          "Partial Strategy Level Phases B, C, and D",
+          ""
+        ],
+        [
+          "45",
+          "Partial Strategy Level Phase A",
+          "阶段分组",
+          "Define Approach to Target State",
+          ""
+        ],
+        [
+          "46",
+          "Start Partial Strategy Level Phase A",
+          "任务",
+          "Partial Strategy Level Phase A",
+          ""
+        ],
+        [
+          "47",
+          "Develop Architecture Vision",
+          "任务",
+          "Partial Strategy Level Phase A",
+          "原图此三行被一条横贯的细虚线穿过（疑为删除线/审阅标记），含义不明。"
+        ],
+        [
+          "48",
+          "Develop Architecture Definition",
+          "任务",
+          "Partial Strategy Level Phase A",
+          "原图此三行被一条横贯的细虚线穿过（疑为删除线/审阅标记），含义不明。"
+        ],
+        [
+          "49",
+          "Reaffirm vision, definition, work package, operating model, and organization model",
+          "任务",
+          "Partial Strategy Level Phase A",
+          "原图此三行被一条横贯的细虚线穿过；行末文字被列宽截断为“…and orga”，本分析补全为 organization model。"
+        ],
+        [
+          "50",
+          "Specific for the EA Capability:",
+          "子分组",
+          "Partial Strategy Level Phase A",
+          ""
+        ],
+        [
+          "51",
+          "Revise EA governance model",
+          "任务",
+          "Specific for the EA Capability:",
+          ""
+        ],
+        [
+          "52",
+          "Revise EA engagement Model",
+          "任务",
+          "Specific for the EA Capability:",
+          ""
+        ],
+        [
+          "53",
+          "Complete Partial Strategy Level Phase A",
+          "任务",
+          "Partial Strategy Level Phase A",
+          ""
+        ],
+        [
+          "54",
+          "Partial Strategy Level Phase E",
+          "阶段分组",
+          "Define Approach to Target State",
+          ""
+        ],
+        [
+          "55",
+          "Start Partial Phase E",
+          "任务",
+          "Partial Strategy Level Phase E",
+          ""
+        ],
+        [
+          "56",
+          "Assess impact of differentiating processes",
+          "任务",
+          "Partial Strategy Level Phase E",
+          ""
+        ],
+        [
+          "57",
+          "Identify options to close gaps",
+          "任务",
+          "Partial Strategy Level Phase E",
+          ""
+        ],
+        [
+          "58",
+          "Complete Partial Phase E",
+          "任务",
+          "Partial Strategy Level Phase E",
+          ""
+        ],
+        [
+          "59",
+          "Partial Strategic Level Phase G",
+          "阶段分组",
+          "Define Approach to Target State",
+          ""
+        ],
+        [
+          "60",
+          "Start Partial Phase G",
+          "任务",
+          "Partial Strategic Level Phase G",
+          ""
+        ],
+        [
+          "61",
+          "Risk and compliance review",
+          "任务",
+          "Partial Strategic Level Phase G",
+          ""
+        ],
+        [
+          "62",
+          "Finalize stakeholder matrix",
+          "任务",
+          "Partial Strategic Level Phase G",
+          ""
+        ],
+        [
+          "63",
+          "Complete Partial Phase G",
+          "任务",
+          "Partial Strategic Level Phase G",
+          ""
+        ],
+        [
+          "64",
+          "Finalize Architecture Vision/Target State",
+          "主线分组",
+          "",
+          ""
+        ],
+        [
+          "65",
+          "Partial Strategic Level Phase F",
+          "阶段分组",
+          "Finalize Architecture Vision/Target State",
+          ""
+        ],
+        [
+          "66",
+          "Start Partial Strategic Level Phase F",
+          "任务",
+          "Partial Strategic Level Phase F",
+          ""
+        ],
+        [
+          "67",
+          "Complete roadmap",
+          "任务",
+          "Partial Strategic Level Phase F",
+          ""
+        ],
+        [
+          "68",
+          "Define governance model",
+          "任务",
+          "Partial Strategic Level Phase F",
+          ""
+        ],
+        [
+          "69",
+          "Complete architecture definition and specification",
+          "任务",
+          "Partial Strategic Level Phase F",
+          ""
+        ],
+        [
+          "70",
+          "Complete Partial Strategic Level Phase F",
+          "任务",
+          "Partial Strategic Level Phase F",
+          ""
+        ],
+        [
+          "71",
+          "Complete Architecture Project",
+          "项目里程碑",
+          "",
+          ""
+        ]
+      ],
+      "notes_zh": "任务名保留英文原样；中文分组名见 elements 的 label_zh。行类型由粗体/缩进判断；条形为相对周尺度，原图仅有少量 MM-DD 日期标记，未逐条转录。"
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "深色粗横线（两端短竖线）",
+      "meaning_zh": "阶段或主线的汇总条，表示该组任务的总体起止",
+      "explicit": false
+    },
+    {
+      "symbol": "浅蓝色矩形条",
+      "meaning_zh": "单个任务的工期条",
+      "explicit": false
+    },
+    {
+      "symbol": "细黑线 + 箭头",
+      "meaning_zh": "任务之间的完成—开始依赖",
+      "explicit": false
+    },
+    {
+      "symbol": "竖向括号（两端箭头）",
+      "meaning_zh": "标出一组任务或一个阶段的共同时间跨度",
+      "explicit": false
+    },
+    {
+      "symbol": "左侧彩色窄带",
+      "meaning_zh": "按阶段分组着色，帮助区分 H/A/B/C/D/E/F/G 与 EA 能力段",
+      "explicit": false
+    },
+    {
+      "symbol": "粗体行 + 缩进",
+      "meaning_zh": "粗体为阶段/分组，缩进为任务",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "原图条形为相对周尺度，未给出完整日期轴；只能读出少量 MM-DD 标记，无法逐条还原起止日期。",
+      "原图任务之间的细黑依赖箭头很多，本分析只记录阶段级/主线级依赖，未逐条枚举任务级箭头。",
+      "第 47–49 行横贯的细虚线含义不明（删除线/审阅标记/分隔线均有可能）。",
+      "第 49 行文字被列宽截断，末尾“organization model”为据文意补全。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 65 页图 5-7 截图（整图与 2x2 放大块）",
+      "英文 PDF 第 64 页 5.2.4 节正文",
+      "中文稿 G186e_实践者方法_按TOGAF_ADM开发企业架构.md 第 842–878 行",
+      "figs/zh/g186e_fig5-7_zh.svg 与 figs/zh/g186e_fig5-7_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G186/fig5-7",
+    "asset": "figs/g186e_fig5-7_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "05"
+  }
+}

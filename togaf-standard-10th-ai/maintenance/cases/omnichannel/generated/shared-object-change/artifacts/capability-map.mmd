@@ -1,0 +1,16 @@
+flowchart LR
+  %% Specialized notation is in the SVG; this source is the complete labelled relation projection.
+  %% entity-id: CAP-FULFIL
+  n0["全渠道履约"]
+  %% entity-id: CAP-ORDER
+  n1["订单承诺"]
+  %% entity-id: CAP-RESERVE
+  n2["库存预占（共享对象变更验证）"]
+  %% entity-id: CAP-LOGISTICS
+  n3["物流履约"]
+  %% relationship-id: CAP-PART-CAP-ORDER
+  n0 -->|"能力分解"| n1
+  %% relationship-id: CAP-PART-CAP-RESERVE
+  n0 -->|"能力分解"| n2
+  %% relationship-id: CAP-PART-CAP-LOGISTICS
+  n0 -->|"能力分解"| n3

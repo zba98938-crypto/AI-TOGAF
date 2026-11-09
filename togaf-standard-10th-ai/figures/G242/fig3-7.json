@@ -1,0 +1,1582 @@
+{
+  "schema_version": "1.0",
+  "id": "G242/fig3-7",
+  "status": "done",
+  "doc": {
+    "code": "G242",
+    "title_zh": "环境可持续的信息系统",
+    "title_en": "Environmentally Sustainable Information Systems",
+    "zh_md": "G242e_环境可持续的信息系统.md",
+    "en_pdf": "togaf-standard-10th/G242e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-7",
+    "title_en": "The Four Typologies of Constraints to Apply to be Sustainable",
+    "title_zh": "为实现可持续而应施加的四类约束",
+    "section_en": "3.5.2 A Dual Use-Based and Infrastructure-Based Architecture Approach to Drive Transformation",
+    "section_zh": "3.5.2 以“用途 + 基础设施”双视角驱动转型",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        51
+      ],
+      "printed_page": 33,
+      "bboxes": [
+        [
+          61.1,
+          36.0,
+          550.9,
+          326.3
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        821
+      ],
+      "label_table_lines": [
+        825,
+        839
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g242_fig3-7_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "9623cfdc7edc",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.996（≥0.9 通常为同一图）",
+        "与英文 PDF 原图一致（自动缩略图相似度 0.996）",
+        "中文稿正文未引用此 PNG"
+      ]
+    },
+    {
+      "path": "figs/zh/g242_fig3-7_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "ebfc946f77ab",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "四个约束标题已译，但四段说明文字仍为英文原文，未中文化",
+        "左侧“对应用与开发的约束”的蓝色箭头几乎被擦除，只剩两小段短横线，方向不可辨",
+        "右侧灰色箭头仅剩两短段，方向仍可看出向左；上下两支箭头保留",
+        "Iteration 1/2/3 未译；整体结构与其余内容基本保留"
+      ]
+    },
+    {
+      "path": "G242e_环境可持续的信息系统.md#L825-L839",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "0becd75298af",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "四类约束、Quota/Streaming/Mobile network/High volume storage/Virtual machine volume、Iteration 1/2/3 的对照均正确",
+        "未列四段完整说明句，但已列条目无误"
+      ]
+    },
+    {
+      "path": "figs/zh/g242_fig3-7_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "048a92e15084",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "四个约束标题与说明、Iteration 1/2/3、中心云/球/数据库/终端/网络设备图示均译为中文或保留，整体布局忠实",
+        "原图每侧是 3 支叠放的小箭头（表示逐步施加约束），重绘图每侧只画 1 支箭头，弱化了“逐步加严”的视觉暗示",
+        "重绘图把“Constraints on Applications & Developments”的说明压缩为“优化能耗；借助开源库避免软件过时；限制高影响库/框架的使用，优先选择低能耗库/框架”，保留 open library 与低能耗选择，语义完整",
+        "Iteration 引线在原图为三条细线分别指向三层虚线框，重绘图保留三条引线，但文字排在右侧同一列，顺序仍为 3/2/1"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "infographic",
+      "layered"
+    ],
+    "notation": "径向约束图：中心为 ICT 设备插画，外围三层虚线圆角框（Iteration 1 内→3 外），四个方向的约束标题与说明各以多支小箭头指向中心；右下三条引线标注三层迭代框",
+    "concepts": [
+      "sustainability",
+      "requirements",
+      "technology_architecture",
+      "governance_model"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "对用途、应用与开发、数据、基础设施四类对象逐步施加约束，分三轮迭代收紧，迫使 ICT 系统走向可持续。",
+    "purpose_zh": "把“设置约束”落到可执行的四种对象上，并用三层迭代框强调约束是逐步加严而非一次到位。它告诉架构师：可持续性约束不是抽象口号，可以具体到配额、库/框架选择、数据量上限、设备采购标准与服务器/虚拟机数量。",
+    "reading_guide_zh": "先看中心：云、网络球、数据库、显示器、网络设备组成的 ICT 系统插画。四周是四类约束：上方“对用途的约束”、左侧“对应用与开发的约束”、右侧“对数据的约束”、下方“对基础设施/设备的约束”，每类都配数支小箭头指向中心。外围三层虚线框由内到外是 Iteration 1、2、3，右下三条细引线分别指向三层框，表示每轮迭代增加一层约束。",
+    "key_points_zh": [
+      "四类约束分别作用于用途、应用与开发、数据、基础设施/设备，覆盖从需求到硬件的完整链条。",
+      "用途约束用配额或专属用户组限制高消耗功能，例如流媒体、移动网络、大容量存储。",
+      "应用与开发约束包括优化能耗、借助开源库避免软件过时、限制高影响库/框架、优先低能耗库/框架。",
+      "数据约束是在企业、业务线、应用、用户等不同层级设置数据量配额。",
+      "基础设施约束是在采购时纳入环境标准，并限制服务器数量与虚拟机数量。",
+      "三层迭代框表示约束逐步加严：Iteration 1 最内、Iteration 3 最外，每轮新增一层限制。",
+      "四类约束不是四选一，而是同时施加；箭头都指向中心，表示约束作用于同一 ICT 系统。"
+    ],
+    "hierarchy_zh": "三层同心：Iteration 3 虚线框最外，包住 Iteration 2，再包住 Iteration 1，Iteration 1 内是 ICT 设备插画。四类约束位于同心框之外的上/左/右/下四个方位，彼此平级，不属于任何一层迭代框。",
+    "line_semantics_zh": "四个方向的短箭头都指向中心，表示约束施加于系统；每侧由多支叠放小箭头组成，暗示约束逐轮加码（重绘 SVG 简化为单支）。右下三条细引线不带箭头，只把 Iteration 标签连到对应虚线框，表示层级归属。",
+    "misreadings_zh": [
+      "三层虚线框不是成熟度等级或架构层，而是约束逐步加严的三轮迭代；Iteration 1 在最内层。",
+      "四类约束没有先后顺序，不能按上→左→右→下当作实施步骤。",
+      "箭头指向中心表示“约束作用于系统”，不是数据或能量流。",
+      "图中的“quota（配额）”是管理上限，不是已用量或技术容量。",
+      "中文稿当前引用的 figs/zh/g242_fig3-7_zh.svg 每侧只画一支箭头，容易让人忽略“逐步加严”；仓库中的 zh PNG 更是把左侧蓝色箭头几乎擦掉。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p51",
+        "summary_zh": "系统必须逐步受到约束；架构设置的约束须涵盖多种形式：对用途、对数据、对应用与开发、对基础设施的约束，并分别给出配额、地理范围、库/框架限制、设备采购与服务器/虚拟机数量等例子。"
+      },
+      {
+        "source": "zh_md L821",
+        "summary_zh": "中文稿给出图 3-7 的图题与位置（为实现可持续而应施加的四类约束）。"
+      },
+      {
+        "source": "zh_md L825",
+        "summary_zh": "中文稿图内标签对照列出四类约束与 Quota、Streaming、Mobile network、High volume storage、Virtual machine volume、Iteration 1/2/3。"
+      },
+      {
+        "source": "zh_md L840",
+        "summary_zh": "系统必须逐步受到约束；架构设置的约束须涵盖用途、数据、应用与开发、基础设施等多种形式。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "radial",
+    "description_zh": "中心为 ICT 设备插画，外围三层同心虚线圆角框；上方、左侧、右侧、下方各一组约束标题 + 说明 + 指向中心的短箭头；右下角三行 Iteration 3/2/1 以细引线连到三层框。"
+  },
+  "legend": [
+    {
+      "symbol": "三层同心虚线框",
+      "meaning_zh": "约束逐轮加严的三次迭代（内→外为 Iteration 1→3）",
+      "explicit": false
+    },
+    {
+      "symbol": "指向中心的短箭头（绿/蓝/灰/橙）",
+      "meaning_zh": "该方向的约束施加于中心 ICT 系统",
+      "explicit": false
+    },
+    {
+      "symbol": "多支叠放箭头",
+      "meaning_zh": "约束逐轮叠加、逐步收紧",
+      "explicit": false
+    },
+    {
+      "symbol": "无箭头细引线",
+      "meaning_zh": "Iteration 标签与对应虚线框的归属连线",
+      "explicit": false
+    },
+    {
+      "symbol": "设备周围的 + 号",
+      "meaning_zh": "装饰性标记，未编码额外含义",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "central_system",
+      "label_en": null,
+      "label_zh": "中心 ICT 设备插画（云、网络球、数据库、显示器、网络设备）",
+      "type": "technology",
+      "parent": "iter_1",
+      "position": "图形中心",
+      "description_zh": "被约束的 ICT 系统示意，无文字标签。"
+    },
+    {
+      "id": "iter_1",
+      "label_en": "Iteration 1",
+      "label_zh": "迭代 1",
+      "type": "group",
+      "parent": "iter_2",
+      "level": 3,
+      "position": "最内层虚线框",
+      "description_zh": "第一轮约束边界。"
+    },
+    {
+      "id": "iter_2",
+      "label_en": "Iteration 2",
+      "label_zh": "迭代 2",
+      "type": "group",
+      "parent": "iter_3",
+      "level": 2,
+      "position": "中间层虚线框",
+      "description_zh": "第二轮约束边界。"
+    },
+    {
+      "id": "iter_3",
+      "label_en": "Iteration 3",
+      "label_zh": "迭代 3",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "最外层虚线框",
+      "description_zh": "第三轮约束边界。"
+    },
+    {
+      "id": "iter_label_1",
+      "label_en": "Iteration 1",
+      "label_zh": "迭代 1",
+      "type": "note",
+      "parent": null,
+      "position": "右下第三行，引线指向最内层框",
+      "description_zh": "层级标注文字。"
+    },
+    {
+      "id": "iter_label_2",
+      "label_en": "Iteration 2",
+      "label_zh": "迭代 2",
+      "type": "note",
+      "parent": null,
+      "position": "右下第二行，引线指向中间层框",
+      "description_zh": "层级标注文字。"
+    },
+    {
+      "id": "iter_label_3",
+      "label_en": "Iteration 3",
+      "label_zh": "迭代 3",
+      "type": "note",
+      "parent": null,
+      "position": "右下第一行，引线指向最外层框",
+      "description_zh": "层级标注文字。"
+    },
+    {
+      "id": "uses",
+      "label_en": "Constraints on Uses",
+      "label_zh": "对用途的约束",
+      "type": "principle",
+      "parent": null,
+      "position": "上方",
+      "description_zh": "四类约束之一。"
+    },
+    {
+      "id": "uses_desc",
+      "label_en": "Limit access with quota or dedicated group of users to high-consuming functions like, for example, streaming, mobile network, high volume storage, etc.",
+      "label_zh": "以配额或专属用户组限制高消耗功能，例如流媒体、移动网络、大容量存储等",
+      "type": "note",
+      "parent": "uses",
+      "position": "上方标题下"
+    },
+    {
+      "id": "apps",
+      "label_en": "Constraints on Applications & Developments",
+      "label_zh": "对应用与开发的约束",
+      "type": "principle",
+      "parent": null,
+      "position": "左侧",
+      "description_zh": "四类约束之一。"
+    },
+    {
+      "id": "apps_desc",
+      "label_en": "Optimize energy consumption, rely on open library to limit software obsolescence, restrain the use of library/framework with high impact, choose low energy library/framework.",
+      "label_zh": "优化能耗；借助开源库限制软件过时；限制高影响库/框架的使用；优先选择低能耗库/框架",
+      "type": "note",
+      "parent": "apps",
+      "position": "左侧标题下"
+    },
+    {
+      "id": "data",
+      "label_en": "Constraints on Data",
+      "label_zh": "对数据的约束",
+      "type": "principle",
+      "parent": null,
+      "position": "右侧",
+      "description_zh": "四类约束之一。"
+    },
+    {
+      "id": "data_desc",
+      "label_en": "Quota on data volumes at different level enterprise, business line, application, users, etc.",
+      "label_zh": "在企业、业务线、应用、用户等不同层级设置数据量配额",
+      "type": "note",
+      "parent": "data",
+      "position": "右侧标题下"
+    },
+    {
+      "id": "infra",
+      "label_en": "Constraints on Infrastructure",
+      "label_zh": "对基础设施/设备的约束",
+      "type": "principle",
+      "parent": null,
+      "position": "下方",
+      "description_zh": "四类约束之一。"
+    },
+    {
+      "id": "infra_desc",
+      "label_en": "Take into account environmental criteria on type of equipment purchased, restrain number of servers, number of virtual machine volume.",
+      "label_zh": "采购设备时纳入环境标准；限制服务器数量与虚拟机数量",
+      "type": "note",
+      "parent": "infra",
+      "position": "下方标题下"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "uses",
+      "to": "central_system",
+      "type": "governs",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "label_en": "Constraints on Uses",
+      "label_zh": "对用途的约束",
+      "description_zh": "顶部三支绿色小箭头向下指向中心。"
+    },
+    {
+      "from": "apps",
+      "to": "central_system",
+      "type": "governs",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "label_en": "Constraints on Applications & Developments",
+      "label_zh": "对应用与开发的约束",
+      "description_zh": "左侧三支蓝色小箭头向右指向中心。"
+    },
+    {
+      "from": "data",
+      "to": "central_system",
+      "type": "governs",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "label_en": "Constraints on Data",
+      "label_zh": "对数据的约束",
+      "description_zh": "右侧三支灰色小箭头向左指向中心。"
+    },
+    {
+      "from": "infra",
+      "to": "central_system",
+      "type": "governs",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "label_en": "Constraints on Infrastructure",
+      "label_zh": "对基础设施/设备的约束",
+      "description_zh": "底部三支橙色小箭头向上指向中心。"
+    },
+    {
+      "from": "iter_label_1",
+      "to": "iter_1",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "细引线，表示标签归属最内层框。"
+    },
+    {
+      "from": "iter_label_2",
+      "to": "iter_2",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "细引线，表示标签归属中间层框。"
+    },
+    {
+      "from": "iter_label_3",
+      "to": "iter_3",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "细引线，表示标签归属最外层框。"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_iterations",
+      "kind": "sequence",
+      "name_zh": "约束逐步加严的三轮迭代",
+      "steps": [
+        "iter_1",
+        "iter_2",
+        "iter_3"
+      ],
+      "description_zh": "由内到外，每轮在既有约束上再加一层。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_constraints",
+      "title_zh": "四类约束及示例（按原图转录）",
+      "columns": [
+        "约束类型",
+        "作用对象",
+        "示例"
+      ],
+      "rows": [
+        [
+          "Constraints on Uses（对用途的约束）",
+          "业务用途/功能",
+          "以配额或专属用户组限制高消耗功能：流媒体、移动网络、大容量存储等"
+        ],
+        [
+          "Constraints on Applications & Developments（对应用与开发的约束）",
+          "应用与开发",
+          "优化能耗；借助开源库限制软件过时；限制高影响库/框架；优先低能耗库/框架"
+        ],
+        [
+          "Constraints on Data（对数据的约束）",
+          "数据量",
+          "在企业、业务线、应用、用户等层级设置数据量配额"
+        ],
+        [
+          "Constraints on Infrastructure（对基础设施/设备的约束）",
+          "设备与基础设施",
+          "采购纳入环境标准；限制服务器数量与虚拟机数量"
+        ]
+      ],
+      "notes_zh": "原图四段说明为连续英文句，表中按语义拆分为示例列。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G242/fig3-6",
+      "relation": "follows",
+      "note_zh": "图 3-6 给出非功能需求的变化方向，本图给出落实这些变化的四类约束"
+    },
+    {
+      "target": "G242/fig3-5",
+      "relation": "follows",
+      "note_zh": "图 3-5 识别数字放弃/优化模式，本图把这些模式制度化为约束"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "每侧小箭头的数量（3 支）在 PDF 分辨率下可辨，但重绘 SVG/PNG 只保留 1 支；以英文原因为准。",
+      "Iteration 三层框与四类约束的对应关系（是否每轮新增一类约束）图中未明说，只表达“逐步加严”。",
+      "中心设备周围的 + 号含义不明，按装饰处理。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 51 页原图截图（1518×806）",
+      "英文 PDF 第 51 页正文",
+      "中文稿 G242e_环境可持续的信息系统.md 第 815–839 行",
+      "figs/zh/g242_fig3-7_zh.svg 源码",
+      "figs/zh/g242_fig3-7_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G242e.pdf",
+    "pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G242/fig3-7.json",
+    "interpretation_sha256": "875dd0d390e22c486fb50951c0ab015b888aa8c424d959d22a1119bcc2cd9425",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 51,
+        "text": "Figure 3-7: The Four Typologies of Constraints to Apply to be Sustainable",
+        "bbox_pdf_points": [
+          48.24,
+          331.025,
+          387.489,
+          344.591
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 51,
+      "printed_page": 33,
+      "bbox_pdf_points": [
+        61.1,
+        36.0,
+        550.9,
+        326.3
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G242/fig3-7-p0051.png",
+      "image_sha256": "ac8aa1eda23ccca215ab52b55102a03f3daa53c3a01e0d501166c63a9f10b9da",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "ac8aa1eda23ccca215ab52b55102a03f3daa53c3a01e0d501166c63a9f10b9da",
+          "status": "extracted-unverified",
+          "text": "Constraints on Uses\nLimit access with quota or dedicated group of\nusers to high-consuming functions like, for\nexample, streaming, mobile network, high\nvolume storage, etc.\n|\n$\nConstraints on Applications &\nDevelopments\nConstraints on Data\nOptimize energy consumption,\nee\nQuota on data volumes at\nrely on open library to limit\ndifferent level enterprise, business\nsoftware obsolescence, restrain\nline, application, users, etc.\nthe use of library/framework with\nhigh impact, choose low energy\nlibrary/framework.\n( eg\nt\nIteration 3\nt\nIteration 2\nt\nIteration 1\nConstraints on Infrastructure\nTake into account environmental criteria\non type of equipment purchased,\nrestrain number of servers, number of\nvirtual machine volume.",
+          "words": [
+            {
+              "text": "Constraints",
+              "confidence": 93.855103,
+              "bbox_pixels_xywh": [
+                413,
+                6,
+                85,
+                12
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 96.409866,
+              "bbox_pixels_xywh": [
+                504,
+                9,
+                17,
+                9
+              ]
+            },
+            {
+              "text": "Uses",
+              "confidence": 96.333679,
+              "bbox_pixels_xywh": [
+                527,
+                6,
+                35,
+                12
+              ]
+            },
+            {
+              "text": "Limit",
+              "confidence": 96.763916,
+              "bbox_pixels_xywh": [
+                334,
+                25,
+                31,
+                11
+              ]
+            },
+            {
+              "text": "access",
+              "confidence": 85.355576,
+              "bbox_pixels_xywh": [
+                370,
+                28,
+                47,
+                8
+              ]
+            },
+            {
+              "text": "with",
+              "confidence": 96.741539,
+              "bbox_pixels_xywh": [
+                422,
+                25,
+                27,
+                11
+              ]
+            },
+            {
+              "text": "quota",
+              "confidence": 96.87149,
+              "bbox_pixels_xywh": [
+                454,
+                26,
+                38,
+                13
+              ]
+            },
+            {
+              "text": "or",
+              "confidence": 95.745667,
+              "bbox_pixels_xywh": [
+                497,
+                28,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "dedicated",
+              "confidence": 95.745667,
+              "bbox_pixels_xywh": [
+                515,
+                25,
+                66,
+                11
+              ]
+            },
+            {
+              "text": "group",
+              "confidence": 96.575134,
+              "bbox_pixels_xywh": [
+                587,
+                28,
+                38,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 87.17234,
+              "bbox_pixels_xywh": [
+                630,
+                25,
+                14,
+                11
+              ]
+            },
+            {
+              "text": "users",
+              "confidence": 94.9011,
+              "bbox_pixels_xywh": [
+                344,
+                46,
+                37,
+                9
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 93.244102,
+              "bbox_pixels_xywh": [
+                386,
+                44,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "high-consuming",
+              "confidence": 83.131828,
+              "bbox_pixels_xywh": [
+                404,
+                43,
+                107,
+                15
+              ]
+            },
+            {
+              "text": "functions",
+              "confidence": 94.195999,
+              "bbox_pixels_xywh": [
+                516,
+                43,
+                62,
+                12
+              ]
+            },
+            {
+              "text": "like,",
+              "confidence": 91.369957,
+              "bbox_pixels_xywh": [
+                583,
+                43,
+                26,
+                14
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 96.944176,
+              "bbox_pixels_xywh": [
+                614,
+                43,
+                19,
+                12
+              ]
+            },
+            {
+              "text": "example,",
+              "confidence": 94.712685,
+              "bbox_pixels_xywh": [
+                346,
+                62,
+                61,
+                14
+              ]
+            },
+            {
+              "text": "streaming,",
+              "confidence": 93.761215,
+              "bbox_pixels_xywh": [
+                413,
+                62,
+                70,
+                15
+              ]
+            },
+            {
+              "text": "mobile",
+              "confidence": 96.918045,
+              "bbox_pixels_xywh": [
+                490,
+                62,
+                44,
+                12
+              ]
+            },
+            {
+              "text": "network,",
+              "confidence": 96.859818,
+              "bbox_pixels_xywh": [
+                539,
+                62,
+                57,
+                13
+              ]
+            },
+            {
+              "text": "high",
+              "confidence": 95.160347,
+              "bbox_pixels_xywh": [
+                602,
+                62,
+                28,
+                15
+              ]
+            },
+            {
+              "text": "volume",
+              "confidence": 96.879189,
+              "bbox_pixels_xywh": [
+                419,
+                81,
+                49,
+                11
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 91.089569,
+              "bbox_pixels_xywh": [
+                473,
+                81,
+                54,
+                14
+              ]
+            },
+            {
+              "text": "etc.",
+              "confidence": 91.089569,
+              "bbox_pixels_xywh": [
+                533,
+                81,
+                23,
+                11
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 69.376534,
+              "bbox_pixels_xywh": [
+                485,
+                105,
+                6,
+                21
+              ]
+            },
+            {
+              "text": "$",
+              "confidence": 2.679014,
+              "bbox_pixels_xywh": [
+                485,
+                128,
+                6,
+                15
+              ]
+            },
+            {
+              "text": "Constraints",
+              "confidence": 96.936249,
+              "bbox_pixels_xywh": [
+                13,
+                240,
+                84,
+                12
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 91.56881,
+              "bbox_pixels_xywh": [
+                103,
+                243,
+                17,
+                9
+              ]
+            },
+            {
+              "text": "Applications",
+              "confidence": 92.648369,
+              "bbox_pixels_xywh": [
+                125,
+                240,
+                92,
+                15
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 91.037384,
+              "bbox_pixels_xywh": [
+                222,
+                240,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "Developments",
+              "confidence": 92.568268,
+              "bbox_pixels_xywh": [
+                71,
+                259,
+                103,
+                14
+              ]
+            },
+            {
+              "text": "Constraints",
+              "confidence": 96.259987,
+              "bbox_pixels_xywh": [
+                782,
+                263,
+                84,
+                11
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 95.592804,
+              "bbox_pixels_xywh": [
+                872,
+                266,
+                17,
+                8
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.592804,
+              "bbox_pixels_xywh": [
+                895,
+                263,
+                32,
+                11
+              ]
+            },
+            {
+              "text": "Optimize",
+              "confidence": 96.33606,
+              "bbox_pixels_xywh": [
+                19,
+                277,
+                59,
+                15
+              ]
+            },
+            {
+              "text": "energy",
+              "confidence": 96.970963,
+              "bbox_pixels_xywh": [
+                84,
+                280,
+                46,
+                12
+              ]
+            },
+            {
+              "text": "consumption,",
+              "confidence": 96.741112,
+              "bbox_pixels_xywh": [
+                135,
+                278,
+                91,
+                14
+              ]
+            },
+            {
+              "text": "ee",
+              "confidence": 42.48455,
+              "bbox_pixels_xywh": [
+                664,
+                288,
+                65,
+                6
+              ]
+            },
+            {
+              "text": "Quota",
+              "confidence": 93.85276,
+              "bbox_pixels_xywh": [
+                766,
+                282,
+                41,
+                12
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 96.72052,
+              "bbox_pixels_xywh": [
+                813,
+                285,
+                16,
+                8
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 92.879715,
+              "bbox_pixels_xywh": [
+                834,
+                282,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "volumes",
+              "confidence": 95.688148,
+              "bbox_pixels_xywh": [
+                868,
+                282,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "at",
+              "confidence": 95.688148,
+              "bbox_pixels_xywh": [
+                930,
+                282,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "rely",
+              "confidence": 96.404442,
+              "bbox_pixels_xywh": [
+                33,
+                296,
+                24,
+                15
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 92.64753,
+              "bbox_pixels_xywh": [
+                62,
+                299,
+                16,
+                9
+              ]
+            },
+            {
+              "text": "open",
+              "confidence": 92.64753,
+              "bbox_pixels_xywh": [
+                83,
+                299,
+                33,
+                12
+              ]
+            },
+            {
+              "text": "library",
+              "confidence": 94.417435,
+              "bbox_pixels_xywh": [
+                122,
+                296,
+                41,
+                15
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 88.949821,
+              "bbox_pixels_xywh": [
+                168,
+                297,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "limit",
+              "confidence": 88.949821,
+              "bbox_pixels_xywh": [
+                186,
+                296,
+                27,
+                12
+              ]
+            },
+            {
+              "text": "different",
+              "confidence": 91.236755,
+              "bbox_pixels_xywh": [
+                738,
+                300,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "level",
+              "confidence": 92.876526,
+              "bbox_pixels_xywh": [
+                798,
+                300,
+                30,
+                12
+              ]
+            },
+            {
+              "text": "enterprise,",
+              "confidence": 96.94973,
+              "bbox_pixels_xywh": [
+                834,
+                300,
+                71,
+                15
+              ]
+            },
+            {
+              "text": "business",
+              "confidence": 96.94973,
+              "bbox_pixels_xywh": [
+                911,
+                300,
+                60,
+                12
+              ]
+            },
+            {
+              "text": "software",
+              "confidence": 95.978119,
+              "bbox_pixels_xywh": [
+                14,
+                315,
+                58,
+                11
+              ]
+            },
+            {
+              "text": "obsolescence,",
+              "confidence": 95.533066,
+              "bbox_pixels_xywh": [
+                77,
+                315,
+                97,
+                13
+              ]
+            },
+            {
+              "text": "restrain",
+              "confidence": 95.696892,
+              "bbox_pixels_xywh": [
+                180,
+                315,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "line,",
+              "confidence": 95.502213,
+              "bbox_pixels_xywh": [
+                762,
+                319,
+                26,
+                13
+              ]
+            },
+            {
+              "text": "application,",
+              "confidence": 84.155273,
+              "bbox_pixels_xywh": [
+                794,
+                319,
+                77,
+                14
+              ]
+            },
+            {
+              "text": "users,",
+              "confidence": 96.988602,
+              "bbox_pixels_xywh": [
+                877,
+                322,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "etc.",
+              "confidence": 92.882744,
+              "bbox_pixels_xywh": [
+                923,
+                320,
+                23,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 90.365746,
+              "bbox_pixels_xywh": [
+                11,
+                333,
+                21,
+                12
+              ]
+            },
+            {
+              "text": "use",
+              "confidence": 96.849457,
+              "bbox_pixels_xywh": [
+                38,
+                336,
+                23,
+                9
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 93.305618,
+              "bbox_pixels_xywh": [
+                66,
+                333,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "library/framework",
+              "confidence": 90.230392,
+              "bbox_pixels_xywh": [
+                84,
+                333,
+                117,
+                15
+              ]
+            },
+            {
+              "text": "with",
+              "confidence": 92.526726,
+              "bbox_pixels_xywh": [
+                206,
+                333,
+                27,
+                12
+              ]
+            },
+            {
+              "text": "high",
+              "confidence": 94.761314,
+              "bbox_pixels_xywh": [
+                15,
+                352,
+                28,
+                15
+              ]
+            },
+            {
+              "text": "impact,",
+              "confidence": 96.808083,
+              "bbox_pixels_xywh": [
+                48,
+                352,
+                48,
+                14
+              ]
+            },
+            {
+              "text": "choose",
+              "confidence": 95.566483,
+              "bbox_pixels_xywh": [
+                102,
+                352,
+                49,
+                12
+              ]
+            },
+            {
+              "text": "low",
+              "confidence": 94.937614,
+              "bbox_pixels_xywh": [
+                157,
+                352,
+                22,
+                12
+              ]
+            },
+            {
+              "text": "energy",
+              "confidence": 96.870621,
+              "bbox_pixels_xywh": [
+                184,
+                355,
+                46,
+                12
+              ]
+            },
+            {
+              "text": "library/framework.",
+              "confidence": 87.692848,
+              "bbox_pixels_xywh": [
+                62,
+                370,
+                121,
+                15
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 51.135807,
+              "bbox_pixels_xywh": [
+                273,
+                290,
+                39,
+                6
+              ]
+            },
+            {
+              "text": "eg",
+              "confidence": 11.275682,
+              "bbox_pixels_xywh": [
+                384,
+                147,
+                213,
+                228
+              ]
+            },
+            {
+              "text": "t",
+              "confidence": 77.500778,
+              "bbox_pixels_xywh": [
+                486,
+                415,
+                6,
+                22
+              ]
+            },
+            {
+              "text": "Iteration",
+              "confidence": 94.193604,
+              "bbox_pixels_xywh": [
+                785,
+                423,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "3",
+              "confidence": 96.665642,
+              "bbox_pixels_xywh": [
+                844,
+                424,
+                7,
+                10
+              ]
+            },
+            {
+              "text": "t",
+              "confidence": 91.429634,
+              "bbox_pixels_xywh": [
+                486,
+                439,
+                6,
+                15
+              ]
+            },
+            {
+              "text": "Iteration",
+              "confidence": 92.942627,
+              "bbox_pixels_xywh": [
+                785,
+                443,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "2",
+              "confidence": 96.505157,
+              "bbox_pixels_xywh": [
+                845,
+                445,
+                6,
+                10
+              ]
+            },
+            {
+              "text": "t",
+              "confidence": 92.310974,
+              "bbox_pixels_xywh": [
+                486,
+                458,
+                6,
+                18
+              ]
+            },
+            {
+              "text": "Iteration",
+              "confidence": 90.774475,
+              "bbox_pixels_xywh": [
+                785,
+                464,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 90.774475,
+              "bbox_pixels_xywh": [
+                847,
+                464,
+                5,
+                11
+              ]
+            },
+            {
+              "text": "Constraints",
+              "confidence": 96.671967,
+              "bbox_pixels_xywh": [
+                384,
+                485,
+                85,
+                11
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 96.721024,
+              "bbox_pixels_xywh": [
+                474,
+                488,
+                17,
+                8
+              ]
+            },
+            {
+              "text": "Infrastructure",
+              "confidence": 96.605072,
+              "bbox_pixels_xywh": [
+                498,
+                485,
+                99,
+                11
+              ]
+            },
+            {
+              "text": "Take",
+              "confidence": 96.440392,
+              "bbox_pixels_xywh": [
+                355,
+                503,
+                31,
+                12
+              ]
+            },
+            {
+              "text": "into",
+              "confidence": 96.499489,
+              "bbox_pixels_xywh": [
+                392,
+                503,
+                24,
+                12
+              ]
+            },
+            {
+              "text": "account",
+              "confidence": 96.695366,
+              "bbox_pixels_xywh": [
+                421,
+                504,
+                53,
+                11
+              ]
+            },
+            {
+              "text": "environmental",
+              "confidence": 96.695366,
+              "bbox_pixels_xywh": [
+                479,
+                503,
+                96,
+                12
+              ]
+            },
+            {
+              "text": "criteria",
+              "confidence": 96.896362,
+              "bbox_pixels_xywh": [
+                581,
+                503,
+                45,
+                12
+              ]
+            },
+            {
+              "text": "on",
+              "confidence": 83.505089,
+              "bbox_pixels_xywh": [
+                378,
+                525,
+                16,
+                8
+              ]
+            },
+            {
+              "text": "type",
+              "confidence": 96.624573,
+              "bbox_pixels_xywh": [
+                400,
+                522,
+                28,
+                14
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.624573,
+              "bbox_pixels_xywh": [
+                433,
+                522,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "equipment",
+              "confidence": 96.889053,
+              "bbox_pixels_xywh": [
+                450,
+                522,
+                72,
+                14
+              ]
+            },
+            {
+              "text": "purchased,",
+              "confidence": 95.621437,
+              "bbox_pixels_xywh": [
+                527,
+                522,
+                75,
+                14
+              ]
+            },
+            {
+              "text": "restrain",
+              "confidence": 92.532112,
+              "bbox_pixels_xywh": [
+                362,
+                540,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "number",
+              "confidence": 96.272026,
+              "bbox_pixels_xywh": [
+                418,
+                540,
+                52,
+                12
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 95.293114,
+              "bbox_pixels_xywh": [
+                474,
+                540,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "servers,",
+              "confidence": 95.84288,
+              "bbox_pixels_xywh": [
+                491,
+                543,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "number",
+              "confidence": 96.159187,
+              "bbox_pixels_xywh": [
+                551,
+                540,
+                52,
+                12
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 87.981819,
+              "bbox_pixels_xywh": [
+                607,
+                540,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "virtual",
+              "confidence": 96.606094,
+              "bbox_pixels_xywh": [
+                409,
+                559,
+                40,
+                12
+              ]
+            },
+            {
+              "text": "machine",
+              "confidence": 96.794205,
+              "bbox_pixels_xywh": [
+                455,
+                559,
+                58,
+                12
+              ]
+            },
+            {
+              "text": "volume.",
+              "confidence": 95.405022,
+              "bbox_pixels_xywh": [
+                518,
+                559,
+                53,
+                12
+              ]
+            }
+          ],
+          "mean_word_confidence": 91.23,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

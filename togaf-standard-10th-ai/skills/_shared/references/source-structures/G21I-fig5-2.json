@@ -1,0 +1,220 @@
+{
+  "schema_version": "2.0",
+  "id": "G21I/fig5-2",
+  "title": "MSA 治理参考模型",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      308
+    ],
+    "label_table_lines": [
+      312,
+      322
+    ]
+  },
+  "reading": {
+    "purpose_zh": "第 5.3 节用本图给出 MSA 治理参考模型：它与 SOA 治理参考模型大体相同，只是范围限于 MSA 流程。外圈箭头强调治理是过程而不是项目，各阶段构成持续改进循环：度量进展，需要时纠偏并更新流程。",
+    "reading_guide_zh": "从右上方的“指导原则”扇区开始，沿外圈箭头顺时针读：指导原则 → 治理流程 → 受治理的 MSA 流程 → 制品 → 角色与职责 → 技术，再回到指导原则。外圈上的 6 个箭头头部都位于扇区分界处，方向一致为顺时针。",
+    "key_points_zh": [
+      "模型有 6 个组成部分：指导原则、治理流程、受治理的 MSA 流程、制品、角色与职责、技术。",
+      "原文说明 MSA 治理参考模型与 SOA 治理参考模型大体相同，区别只在于它限于 MSA 流程；图中“受治理的 MSA 流程”一格体现了这一点。",
+      "“治理流程”与“受治理的 MSA 流程”是两回事：前者是实施治理的流程，后者是被治理的对象（MSA 的流程），二者在环上相邻。",
+      "外圈顺时针箭头把 6 个部分连成闭环：治理模型应被视为过程而不是项目，各阶段循环进行，度量进展并在需要时纠偏和更新流程。",
+      "原文没有逐一解释 6 个部分的含义，也没有给出相邻部分之间具体的输入/输出。"
+    ],
+    "hierarchy_zh": "一层：MSA 治理参考模型（图中没有单独的框，由整个圆表示）包含 6 个并列的组成部分，扇区等大，彼此没有上下级。",
+    "line_semantics_zh": "外圈粗灰线带 6 个箭头头部，均为顺时针，各位于一条分隔线与外圈的交点，表示循环方向；关系清单把每段外圈记为相邻扇区之间的先后关系。三条细灰直径只用于分隔扇区，不表示对角扇区之间有关系。",
+    "misreadings_zh": [
+      "直径不是连线：被同一条直径穿过的对角扇区之间没有关系。",
+      "6 个部分在环上首尾相接，没有起点和终点；从“指导原则”读起只是阅读习惯，不表示它最重要。",
+      "原图中空心大字“Evaluation Copy”是英文 PDF 的水印，不是图的内容。",
+      "中文稿引用的中文化 PNG 中“角色与职责”字号特别大并遮住一段外圈，“受治理的微服务架构流程”字号极小，容易让人以为各部分权重不同；原图 6 个标签字号一致。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "gov_model",
+      "label_en": "MSA Governance Reference Model",
+      "label_zh": "MSA 治理参考模型",
+      "type": "framework",
+      "parent": null,
+      "level": 0,
+      "description_zh": "图中没有单独的框，由整个圆表示；名称来自图题。"
+    },
+    {
+      "id": "s_principles",
+      "label_en": "Guiding Principles",
+      "label_zh": "指导原则",
+      "type": "principle",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 1,
+      "position": "右上扇区"
+    },
+    {
+      "id": "s_governing",
+      "label_en": "Governing Processes",
+      "label_zh": "治理流程",
+      "type": "process",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 2,
+      "position": "右中扇区"
+    },
+    {
+      "id": "s_governed",
+      "label_en": "Governed MSA Processes",
+      "label_zh": "受治理的微服务架构流程",
+      "type": "process",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 3,
+      "position": "右下扇区",
+      "description_zh": "被治理的对象，即 MSA 的流程；SOA 治理参考模型中对应的是受治理的 SOA 流程（背景知识）。"
+    },
+    {
+      "id": "s_artifacts",
+      "label_en": "Artifacts",
+      "label_zh": "制品",
+      "type": "artifact",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 4,
+      "position": "左下扇区"
+    },
+    {
+      "id": "s_roles",
+      "label_en": "Roles and Responsibilities",
+      "label_zh": "角色与职责",
+      "type": "role",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 5,
+      "position": "左中扇区"
+    },
+    {
+      "id": "s_technology",
+      "label_en": "Technology",
+      "label_zh": "技术",
+      "type": "technology",
+      "parent": "gov_model",
+      "level": 1,
+      "order": 6,
+      "position": "左上扇区"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "s_principles",
+      "to": "s_governing",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（右上分界处）"
+    },
+    {
+      "from": "s_governing",
+      "to": "s_governed",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（右下分界处）"
+    },
+    {
+      "from": "s_governed",
+      "to": "s_artifacts",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（底部分界处）"
+    },
+    {
+      "from": "s_artifacts",
+      "to": "s_roles",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（左下分界处）"
+    },
+    {
+      "from": "s_roles",
+      "to": "s_technology",
+      "type": "sequence",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（左上分界处）"
+    },
+    {
+      "from": "s_technology",
+      "to": "s_principles",
+      "type": "iteration",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "外圈顺时针箭头（顶部分界处），闭合循环"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_gov_loop",
+      "kind": "cycle",
+      "name_zh": "MSA 治理持续改进循环",
+      "steps": [
+        "s_principles",
+        "s_governing",
+        "s_governed",
+        "s_artifacts",
+        "s_roles",
+        "s_technology"
+      ],
+      "description_zh": "外圈顺时针；原文称各阶段构成持续改进循环，度量进展并在需要时纠偏、更新流程。"
+    }
+  ],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "扇区 + 蓝色粗体标签",
+      "meaning_zh": "治理参考模型的一个组成部分",
+      "explicit": false
+    },
+    {
+      "symbol": "外圈粗灰线上的箭头（顺时针）",
+      "meaning_zh": "持续改进循环的方向",
+      "explicit": false
+    },
+    {
+      "symbol": "细灰直径",
+      "meaning_zh": "扇区分隔线，无关系含义",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原文没有解释 6 个组成部分各自的含义，也没有说明相邻部分之间传递什么；关系清单只按外圈箭头记录先后。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 26 页原图截图（220 dpi）",
+      "英文 PDF 第 25–26 页正文",
+      "中文稿 G21Ie_微服务架构.md 第 306–323 行（含图内标签对照表 L312–L321）",
+      "figs/zh/g21ie_fig5-2_zh.png",
+      "figs/g21ie_fig5-2_en.png（自动相似度 0.954）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G21I/fig5-2",
+    "asset": "figs/g21ie_fig5-2_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "14"
+  }
+}

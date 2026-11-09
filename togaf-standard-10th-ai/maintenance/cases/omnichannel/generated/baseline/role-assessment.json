@@ -1,0 +1,299 @@
+{
+  "id": "g249-assessment",
+  "method_id": "architecture-role-skill-assessment",
+  "result": {
+    "schema_version": "g249-reasoning/1",
+    "rule_origin": "project-operational-contract-derived-from-G249",
+    "task_routes": [
+      {
+        "id": "TASK-CH",
+        "routes": [
+          {
+            "skill_id": "G249:skill:business:strategic-planning",
+            "requirement_refs": [
+              "REQ-SKILL-CH"
+            ],
+            "suggested_method_ids": [
+              "architecture-backlog-trace-review",
+              "work-package-prioritization"
+            ],
+            "suggested_artifact_ids": [
+              "strategy-capability-matrix",
+              "architecture-backlog"
+            ],
+            "definition_status": "source-name-with-project-task-example",
+            "mapping_origin": "project-derived-routing"
+          }
+        ],
+        "state": "task-demands-recorded"
+      },
+      {
+        "id": "TASK-EA",
+        "routes": [
+          {
+            "skill_id": "G249:skill:architecture:generic-integration-and-interoperability",
+            "requirement_refs": [
+              "REQ-SKILL-EA"
+            ],
+            "suggested_method_ids": [
+              "domain-architecture-alignment-review",
+              "metadata-integration-tradeoff"
+            ],
+            "suggested_artifact_ids": [
+              "interoperability-assessment",
+              "domain-architecture-alignment"
+            ],
+            "definition_status": "source-name-with-project-task-example",
+            "mapping_origin": "project-derived-routing"
+          }
+        ],
+        "state": "task-demands-recorded"
+      },
+      {
+        "id": "TASK-SEG",
+        "routes": [
+          {
+            "skill_id": "G249:skill:data:operational-data",
+            "requirement_refs": [
+              "REQ-SKILL-SEG"
+            ],
+            "suggested_method_ids": [
+              "msa-data-distribution-conditions-method",
+              "metadata-requirement-method"
+            ],
+            "suggested_artifact_ids": [
+              "data-lifecycle-diagram",
+              "data-usage-documentation"
+            ],
+            "definition_status": "source-name-with-project-task-example",
+            "mapping_origin": "project-derived-routing"
+          }
+        ],
+        "state": "task-demands-recorded"
+      },
+      {
+        "id": "TASK-SOL",
+        "routes": [
+          {
+            "skill_id": "G249:skill:application:integration-and-interoperability",
+            "requirement_refs": [
+              "REQ-SKILL-SOL"
+            ],
+            "suggested_method_ids": [
+              "msa-contract-consumer-evidence-method",
+              "metadata-integration-tradeoff"
+            ],
+            "suggested_artifact_ids": [
+              "interface-catalog",
+              "interoperability-assessment"
+            ],
+            "definition_status": "source-name-with-project-task-example",
+            "mapping_origin": "project-derived-routing"
+          },
+          {
+            "skill_id": "G249:skill:application:optimistic-pessimistic-patterns",
+            "requirement_refs": [],
+            "suggested_method_ids": [
+              "option-weighted-decision"
+            ],
+            "suggested_artifact_ids": [
+              "options-decision-matrix"
+            ],
+            "definition_status": "source-name-unresolved",
+            "mapping_origin": "project-derived-routing"
+          }
+        ],
+        "state": "needs-input"
+      }
+    ],
+    "role_reviews": [
+      {
+        "id": "ROLE-CHIEF",
+        "state": "role-scope-recorded"
+      },
+      {
+        "id": "ROLE-EA",
+        "state": "role-scope-recorded"
+      },
+      {
+        "id": "ROLE-SEG",
+        "state": "role-scope-recorded"
+      },
+      {
+        "id": "ROLE-SOL",
+        "state": "role-scope-recorded"
+      }
+    ],
+    "requirement_reviews": [
+      {
+        "id": "REQ-SKILL-CH",
+        "task_ref": "TASK-CH",
+        "role_ref": "ROLE-CHIEF",
+        "skill_id": "G249:skill:business:strategic-planning",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_criteria": [
+          "把战略约束转成可复议决定"
+        ],
+        "state": "adopted-requirement-recorded"
+      },
+      {
+        "id": "REQ-SKILL-EA",
+        "task_ref": "TASK-EA",
+        "role_ref": "ROLE-EA",
+        "skill_id": "G249:skill:architecture:generic-integration-and-interoperability",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_criteria": [
+          "解释跨分段接口语义及风险"
+        ],
+        "state": "adopted-requirement-recorded"
+      },
+      {
+        "id": "REQ-SKILL-SEG",
+        "task_ref": "TASK-SEG",
+        "role_ref": "ROLE-SEG",
+        "skill_id": "G249:skill:data:operational-data",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_criteria": [
+          "核对运行数据的一致性与恢复证据"
+        ],
+        "state": "adopted-requirement-recorded"
+      },
+      {
+        "id": "REQ-SKILL-SOL",
+        "task_ref": "TASK-SOL",
+        "role_ref": "ROLE-SOL",
+        "skill_id": "G249:skill:application:integration-and-interoperability",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_criteria": [
+          "独立完成异常接口设计并经评审"
+        ],
+        "state": "adopted-requirement-recorded"
+      }
+    ],
+    "assessment_reviews": [
+      {
+        "id": "OBS-A",
+        "skill_id": "G249:skill:application:integration-and-interoperability",
+        "person_ref": "PERSON-A",
+        "demonstrated_criteria": [],
+        "state": "needs-evidence"
+      },
+      {
+        "id": "OBS-EXPERT",
+        "skill_id": "G249:skill:application:integration-and-interoperability",
+        "person_ref": "PERSON-EXPERT",
+        "demonstrated_criteria": [
+          "独立完成异常接口设计并经评审"
+        ],
+        "state": "needs-evidence"
+      }
+    ],
+    "assignment_reviews": [
+      {
+        "id": "ASSIGN-A",
+        "state": "needs-evidence",
+        "requirements": [
+          {
+            "requirement_ref": "REQ-SKILL-SOL",
+            "state": "unproven",
+            "missing_behavioral_criteria": [
+              "独立完成异常接口设计并经评审"
+            ]
+          }
+        ],
+        "capacity_state": "unresolved",
+        "period_state": "covered-for-declared-task-periods",
+        "approval": "not-granted",
+        "support": {
+          "provider": "PERSON-EXPERT",
+          "mode": "共同评审异常场景及接口契约，不替代甲的能力证据",
+          "requirement_refs": [
+            "REQ-SKILL-SOL"
+          ],
+          "assessment_refs": [
+            "OBS-EXPERT"
+          ],
+          "available_hours": 8,
+          "evidence": [
+            "CASE-EXPERT"
+          ]
+        },
+        "support_reviews": [
+          {
+            "requirement_ref": "REQ-SKILL-SOL",
+            "state": "expert-evidence-unproven"
+          }
+        ]
+      }
+    ],
+    "development_reviews": [
+      {
+        "id": "DEV-A",
+        "state": "development-planned",
+        "rating_change": "not-inferred"
+      }
+    ],
+    "gaps": [
+      {
+        "id": "TASK-SOL:G249:skill:application:optimistic-pessimistic-patterns",
+        "reason": "source-definition-unresolved",
+        "action": "保留原名；补专业定义及项目采用证据，不自动解释为并发控制等特定技术。"
+      },
+      {
+        "id": "TASK-SOL:G249:skill:application:optimistic-pessimistic-patterns:target",
+        "reason": "missing-task-skill-requirement",
+        "action": "从本任务结果推导角色要求并记录裁剪依据。"
+      },
+      {
+        "id": "OBS-A:assessment",
+        "reason": "competence-not-currently-evidenced",
+        "action": "保留未评估、证据不足或历史状态；不赋最低级也不自动升级。"
+      },
+      {
+        "id": "OBS-EXPERT:assessment",
+        "reason": "competence-not-currently-evidenced",
+        "action": "保留未评估、证据不足或历史状态；不赋最低级也不自动升级。"
+      },
+      {
+        "id": "ASSIGN-A:REQ-SKILL-SOL",
+        "reason": "assignment-competence-unproven",
+        "action": "补完整、当前、同量表且适用本任务的能力证据。"
+      },
+      {
+        "id": "ASSIGN-A:capacity",
+        "reason": "capacity-unresolved",
+        "action": "补同一分配期间的可用小时与任务工作量，未知不等于不足或足够。"
+      },
+      {
+        "id": "ASSIGN-A:support:REQ-SKILL-SOL",
+        "reason": "support-competence-unproven",
+        "action": "补本任务适用的专家能力证据；专家头衔不是行为证据。"
+      },
+      {
+        "id": "ASSIGN-A:support",
+        "reason": "support-requires-owner-review",
+        "action": "核查专家/导师能力、容量、协作方式和责任；支持方案不自动提高被支持人员等级。"
+      },
+      {
+        "id": "TASK-CH:ROLE-CHIEF:assignment",
+        "reason": "task-role-unassigned",
+        "action": "角色需求已有记录，具体人员、有效期和配置方案仍待明确。"
+      },
+      {
+        "id": "TASK-EA:ROLE-EA:assignment",
+        "reason": "task-role-unassigned",
+        "action": "角色需求已有记录，具体人员、有效期和配置方案仍待明确。"
+      },
+      {
+        "id": "TASK-SEG:ROLE-SEG:assignment",
+        "reason": "task-role-unassigned",
+        "action": "角色需求已有记录，具体人员、有效期和配置方案仍待明确。"
+      }
+    ],
+    "notice": "只核验已声明的任务、规则、证据与追溯；不代评行为真假，不自动认证、批准分配或实施晋升，不将序数相减/平均。"
+  }
+}

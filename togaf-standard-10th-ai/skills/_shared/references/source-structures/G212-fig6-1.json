@@ -1,0 +1,945 @@
+{
+  "schema_version": "2.0",
+  "id": "G212/fig6-1",
+  "title": "将因素映射到 TOGAF ADM",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      614
+    ],
+    "label_table_lines": [
+      618,
+      651
+    ]
+  },
+  "reading": {
+    "purpose_zh": "第 6 章说明 DTRA 如何与 TOGAF ADM 对齐：评估应在架构愿景阶段启动，以了解组织现状；此后 ADM 每个阶段分析现状与目标态时都要考虑相关因素。本图给出“哪些因素与哪个阶段相关”的总览，表 6-1 再逐阶段说明架构含义。",
+    "reading_guide_zh": "先看 ADM 轮：顶部的预备阶段连到 A，A–H 八个阶段围成一圈，中心的需求管理用辐条连到每个阶段。再看背景色区：左上浅紫色竖条“战略与动机”覆盖预备阶段、A、中心的需求管理和 H 的大部分；左下浅粉色扇环“实施与迁移”覆盖 E、F、G；右侧三条横带自上而下为业务层、应用与数据层、技术层，分别与 B、C、D 对齐。每块色区内的彩色方框就是该区阶段要考虑的因素；框色表示因素类别（绿=基础、蓝=影响、橙=持续，图上没有图例，与表 4-1 的分类一致）。",
+    "key_points_zh": [
+      "预备阶段与阶段 A 所在的“战略与动机”区只放了两个基础因素：愿景、赞助与方向。原文强调 DTRA 应在架构愿景阶段启动，阶段 A 包括识别利益相关者并开展就绪度评估。",
+      "阶段 B（业务层）有 5 个因素，与 C、D 两层并列最多，三类都有：业务理由、范围与规模、文化（基础），业务模式适应性（影响），资金与资源（持续）。",
+      "阶段 C（应用与数据层）放了价值实现、政策与法规（持续）和治理与合规、技能与胜任力、生态系统（影响）；阶段 D（技术层）放了 IT 能力（基础）、技术成熟度（影响），并再次出现治理与合规、技能与胜任力、生态系统。表 6-1 的脚注说明 C 侧重组织在数据与应用方面的能力，D 侧重技术能力。",
+      "阶段 E、F、G 所在的“实施与迁移”区只放了一个基础因素：实施方法。表 6-1 特别提醒，阶段 G 的“治理”指实施方法是否恰当，不要与 C、D 两层的“治理与合规”因素混淆。",
+      "15 个因素全部出现（基础 7、影响 5、持续 3）：治理与合规、技能与胜任力、生态系统各出现两次（C、D 两层），其余各出现一次，共 18 个框。",
+      "需求管理在中心，用辐条连到所有阶段，但旁边没有因素框；表 6-1 说需求管理要贯穿全部 ADM 阶段持续运行，需求变更经影响评估后在下一周期的相关阶段实施。",
+      "阶段 H 位于两块左侧区域的交界处，图中没有专门对应 H 的因素；原文另外建议在 ADM 周期结束时或下一周期的愿景阶段重新评估，了解组织所处位置与下一步行动。"
+    ],
+    "hierarchy_zh": "两层叠放：上层是 ADM 轮（预备阶段 + A–H + 中心需求管理）；下层是背景色区：左侧“战略与动机”“实施与迁移”两块区域，右侧业务层、应用与数据层、技术层三条横带。因素框嵌在各色区内（elements 的 parent 即所在色区），同一色区内的因素是并列关系，排列次序没有含义。",
+    "line_semantics_zh": "图中只有 ADM 轮上的细实线，都没有箭头：8 段弧线连接相邻阶段（A–B–…–H–A，按 TOGAF ADM 惯例记为先后顺序），8 条辐条把中心的需求管理连到 A–H，1 条竖线把预备阶段连到 A。因素与阶段之间没有连线，映射完全由“因素框与阶段圆处在同一块色区”表达，关系清单中标为推断（maps_to，implicit）。",
+    "misreadings_zh": [
+      "阶段 G“实施治理”与因素“治理与合规”是两回事：前者指实施方法是否恰当（表 6-1 的注），后者是放在 C、D 两层的影响因素。",
+      "因素框的上下左右次序不表示优先级；在 C、D 两层各出现一次的同名因素是同一个因素。",
+      "环上没有箭头；阶段顺序按 TOGAF ADM 惯例读出，本图本身只表达阶段与因素的对应。",
+      "中文稿第 6.1 节（译者归纳）把“实施方法”列在阶段 B，把“资金与资源”“价值实现”列在阶段 F，与本图不符：图中实施方法在“实施与迁移”区（E/F/G），资金与资源在业务层（B），价值实现在应用与数据层（C）。",
+      "中文稿引用的中文化 PNG 中，两块左侧区域的标题几乎不可读，多个橙色/蓝色因素框的底色被白色或青绿补丁盖住，容易误判因素类别；标签对照表也漏了“实施方法”。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "reg_strategy",
+      "label_en": "Strategy & Motivation",
+      "label_zh": "战略与动机",
+      "type": "group",
+      "position": "左上浅紫色竖条"
+    },
+    {
+      "id": "reg_impl",
+      "label_en": "Implementation & Migration",
+      "label_zh": "实施与迁移",
+      "type": "group",
+      "position": "左下浅粉色扇环"
+    },
+    {
+      "id": "lay_business",
+      "label_en": "Business Layer",
+      "label_zh": "业务层",
+      "type": "group",
+      "position": "右侧上带（浅黄）"
+    },
+    {
+      "id": "lay_appdata",
+      "label_en": "Application and Data Layer",
+      "label_zh": "应用与数据层",
+      "type": "group",
+      "position": "右侧中带（浅蓝）"
+    },
+    {
+      "id": "lay_tech",
+      "label_en": "Technology Layer",
+      "label_zh": "技术层",
+      "type": "group",
+      "position": "右侧下带（浅绿）"
+    },
+    {
+      "id": "ph_prelim",
+      "label_en": "Preliminary",
+      "label_zh": "预备阶段",
+      "type": "phase",
+      "parent": "reg_strategy",
+      "order": 0,
+      "position": "顶部"
+    },
+    {
+      "id": "ph_a",
+      "label_en": "A. Architecture Vision",
+      "label_zh": "A. 架构愿景",
+      "type": "phase",
+      "parent": "reg_strategy",
+      "order": 1
+    },
+    {
+      "id": "ph_b",
+      "label_en": "B. Business Architecture",
+      "label_zh": "B. 业务架构",
+      "type": "phase",
+      "parent": "lay_business",
+      "order": 2
+    },
+    {
+      "id": "ph_c",
+      "label_en": "C. Information Systems Architectures",
+      "label_zh": "C. 信息系统架构",
+      "type": "phase",
+      "parent": "lay_appdata",
+      "order": 3
+    },
+    {
+      "id": "ph_d",
+      "label_en": "D. Technology Architecture",
+      "label_zh": "D. 技术架构",
+      "type": "phase",
+      "parent": "lay_tech",
+      "order": 4
+    },
+    {
+      "id": "ph_e",
+      "label_en": "E. Opportunities and Solutions",
+      "label_zh": "E. 机会与解决方案",
+      "type": "phase",
+      "parent": "reg_impl",
+      "order": 5
+    },
+    {
+      "id": "ph_f",
+      "label_en": "F. Migration Planning",
+      "label_zh": "F. 迁移规划",
+      "type": "phase",
+      "parent": "reg_impl",
+      "order": 6
+    },
+    {
+      "id": "ph_g",
+      "label_en": "G. Implementation Governance",
+      "label_zh": "G. 实施治理",
+      "type": "phase",
+      "parent": "reg_impl",
+      "order": 7
+    },
+    {
+      "id": "ph_h",
+      "label_en": "H. Architecture Change Management",
+      "label_zh": "H. 架构变更管理",
+      "type": "phase",
+      "parent": "reg_strategy",
+      "order": 8,
+      "description_zh": "圆的大部分在浅紫区内，左下缘伸入浅粉区，位于两区交界。"
+    },
+    {
+      "id": "ph_rm",
+      "label_en": "Requirements Management",
+      "label_zh": "需求管理",
+      "type": "phase",
+      "parent": "reg_strategy",
+      "position": "圆心，浅紫区内",
+      "description_zh": "中心枢纽，辐条连到 A–H；旁边没有因素框。"
+    },
+    {
+      "id": "f_vision",
+      "label_en": "Vision",
+      "label_zh": "愿景",
+      "type": "concept",
+      "parent": "reg_strategy",
+      "attributes": {
+        "factor_category": "基础因素"
+      }
+    },
+    {
+      "id": "f_sponsorship",
+      "label_en": "Sponsorship & Direction",
+      "label_zh": "赞助与方向",
+      "type": "concept",
+      "parent": "reg_strategy",
+      "attributes": {
+        "factor_category": "基础因素"
+      }
+    },
+    {
+      "id": "f_impl_approach",
+      "label_en": "Implementation Approach",
+      "label_zh": "实施方法",
+      "type": "concept",
+      "parent": "reg_impl",
+      "position": "F、E 下方",
+      "attributes": {
+        "factor_category": "基础因素"
+      }
+    },
+    {
+      "id": "f_rationale",
+      "label_en": "Business Rationale",
+      "label_zh": "业务理由",
+      "type": "concept",
+      "parent": "lay_business",
+      "attributes": {
+        "factor_category": "基础因素"
+      }
+    },
+    {
+      "id": "f_scope",
+      "label_en": "Scope & Scale",
+      "label_zh": "范围与规模",
+      "type": "concept",
+      "parent": "lay_business",
+      "attributes": {
+        "factor_category": "基础因素"
+      }
+    },
+    {
+      "id": "f_bm_adapt",
+      "label_en": "Business Model Adaptability",
+      "label_zh": "业务模式适应性",
+      "type": "concept",
+      "parent": "lay_business",
+      "attributes": {
+        "factor_category": "影响因素"
+      }
+    },
+    {
+      "id": "f_culture",
+      "label_en": "Culture",
+      "label_zh": "文化",
+      "type": "concept",
+      "parent": "lay_business",
+      "attributes": {
+        "factor_category": "基础因素"
+      }
+    },
+    {
+      "id": "f_funding",
+      "label_en": "Funding & Resources",
+      "label_zh": "资金与资源",
+      "type": "concept",
+      "parent": "lay_business",
+      "attributes": {
+        "factor_category": "持续因素"
+      }
+    },
+    {
+      "id": "f_value",
+      "label_en": "Value Realization",
+      "label_zh": "价值实现",
+      "type": "concept",
+      "parent": "lay_appdata",
+      "attributes": {
+        "factor_category": "持续因素"
+      }
+    },
+    {
+      "id": "f_policy",
+      "label_en": "Policy & Regulations",
+      "label_zh": "政策与法规",
+      "type": "concept",
+      "parent": "lay_appdata",
+      "attributes": {
+        "factor_category": "持续因素"
+      }
+    },
+    {
+      "id": "f_gov_ad",
+      "label_en": "Governance & Compliance",
+      "label_zh": "治理与合规",
+      "type": "concept",
+      "parent": "lay_appdata",
+      "description_zh": "与技术层的 f_gov_t 是同一个因素。",
+      "attributes": {
+        "factor_category": "影响因素"
+      }
+    },
+    {
+      "id": "f_skills_ad",
+      "label_en": "Skills & Competence",
+      "label_zh": "技能与胜任力",
+      "type": "concept",
+      "parent": "lay_appdata",
+      "description_zh": "与技术层的 f_skills_t 是同一个因素。",
+      "attributes": {
+        "factor_category": "影响因素"
+      }
+    },
+    {
+      "id": "f_eco_ad",
+      "label_en": "Ecosystem",
+      "label_zh": "生态系统",
+      "type": "concept",
+      "parent": "lay_appdata",
+      "description_zh": "与技术层的 f_eco_t 是同一个因素。",
+      "attributes": {
+        "factor_category": "影响因素"
+      }
+    },
+    {
+      "id": "f_itcap",
+      "label_en": "IT Capability",
+      "label_zh": "IT 能力",
+      "type": "concept",
+      "parent": "lay_tech",
+      "attributes": {
+        "factor_category": "基础因素"
+      }
+    },
+    {
+      "id": "f_techmat",
+      "label_en": "Technology Maturity",
+      "label_zh": "技术成熟度",
+      "type": "concept",
+      "parent": "lay_tech",
+      "attributes": {
+        "factor_category": "影响因素"
+      }
+    },
+    {
+      "id": "f_gov_t",
+      "label_en": "Governance & Compliance",
+      "label_zh": "治理与合规",
+      "type": "concept",
+      "parent": "lay_tech",
+      "attributes": {
+        "factor_category": "影响因素"
+      }
+    },
+    {
+      "id": "f_skills_t",
+      "label_en": "Skills & Competence",
+      "label_zh": "技能与胜任力",
+      "type": "concept",
+      "parent": "lay_tech",
+      "attributes": {
+        "factor_category": "影响因素"
+      }
+    },
+    {
+      "id": "f_eco_t",
+      "label_en": "Ecosystem",
+      "label_zh": "生态系统",
+      "type": "concept",
+      "parent": "lay_tech",
+      "attributes": {
+        "factor_category": "影响因素"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from": "ph_prelim",
+      "to": "ph_a",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "竖线；预备阶段在环外，接入 A"
+    },
+    {
+      "from": "ph_a",
+      "to": "ph_b",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "环上弧线；无箭头，按 ADM 惯例顺时针读"
+    },
+    {
+      "from": "ph_b",
+      "to": "ph_c",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_c",
+      "to": "ph_d",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_d",
+      "to": "ph_e",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_e",
+      "to": "ph_f",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_f",
+      "to": "ph_g",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_g",
+      "to": "ph_h",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_h",
+      "to": "ph_a",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "闭合成环"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_a",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "辐条；需求管理贯穿所有阶段"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_b",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_c",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_d",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_e",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_f",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_g",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "ph_rm",
+      "to": "ph_h",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "f_vision",
+      "to": "ph_prelim",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "同在战略与动机区"
+    },
+    {
+      "from": "f_vision",
+      "to": "ph_a",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "同在战略与动机区；原文要求 DTRA 在阶段 A 启动"
+    },
+    {
+      "from": "f_sponsorship",
+      "to": "ph_prelim",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_sponsorship",
+      "to": "ph_a",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_impl_approach",
+      "to": "ph_e",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "同在实施与迁移区"
+    },
+    {
+      "from": "f_impl_approach",
+      "to": "ph_f",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_impl_approach",
+      "to": "ph_g",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "表 6-1：阶段 G 的治理指实施方法是否恰当"
+    },
+    {
+      "from": "f_rationale",
+      "to": "ph_b",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "业务层横带与 B 对齐"
+    },
+    {
+      "from": "f_scope",
+      "to": "ph_b",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_bm_adapt",
+      "to": "ph_b",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_culture",
+      "to": "ph_b",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_funding",
+      "to": "ph_b",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_value",
+      "to": "ph_c",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "应用与数据层横带与 C 对齐"
+    },
+    {
+      "from": "f_policy",
+      "to": "ph_c",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_gov_ad",
+      "to": "ph_c",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_skills_ad",
+      "to": "ph_c",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_eco_ad",
+      "to": "ph_c",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_itcap",
+      "to": "ph_d",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "技术层横带与 D 对齐"
+    },
+    {
+      "from": "f_techmat",
+      "to": "ph_d",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_gov_t",
+      "to": "ph_d",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_skills_t",
+      "to": "ph_d",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "f_eco_t",
+      "to": "ph_d",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_adm_cycle",
+      "kind": "cycle",
+      "name_zh": "ADM 周期",
+      "steps": [
+        "ph_a",
+        "ph_b",
+        "ph_c",
+        "ph_d",
+        "ph_e",
+        "ph_f",
+        "ph_g",
+        "ph_h"
+      ],
+      "description_zh": "环上无箭头，按 TOGAF ADM 惯例顺时针；预备阶段在环外接入 A，需求管理在中心连到各阶段。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_factor_to_phase",
+      "title_zh": "因素 → ADM 阶段（按原图逐框转录，15 个因素 / 18 个框）",
+      "columns": [
+        "因素",
+        "类别（框色）",
+        "所在色区",
+        "对应 ADM 阶段"
+      ],
+      "rows": [
+        [
+          "愿景 Vision",
+          "基础（绿）",
+          "战略与动机",
+          "预备阶段、A. 架构愿景"
+        ],
+        [
+          "赞助与方向 Sponsorship & Direction",
+          "基础（绿）",
+          "战略与动机",
+          "预备阶段、A. 架构愿景"
+        ],
+        [
+          "实施方法 Implementation Approach",
+          "基础（绿）",
+          "实施与迁移",
+          "E. 机会与解决方案、F. 迁移规划、G. 实施治理"
+        ],
+        [
+          "业务理由 Business Rationale",
+          "基础（绿）",
+          "业务层",
+          "B. 业务架构"
+        ],
+        [
+          "范围与规模 Scope & Scale",
+          "基础（绿）",
+          "业务层",
+          "B. 业务架构"
+        ],
+        [
+          "文化 Culture",
+          "基础（绿）",
+          "业务层",
+          "B. 业务架构"
+        ],
+        [
+          "IT 能力 IT Capability",
+          "基础（绿）",
+          "技术层",
+          "D. 技术架构"
+        ],
+        [
+          "业务模式适应性 Business Model Adaptability",
+          "影响（蓝）",
+          "业务层",
+          "B. 业务架构"
+        ],
+        [
+          "治理与合规 Governance & Compliance",
+          "影响（蓝）",
+          "应用与数据层；技术层",
+          "C. 信息系统架构；D. 技术架构"
+        ],
+        [
+          "技能与胜任力 Skills & Competence",
+          "影响（蓝）",
+          "应用与数据层；技术层",
+          "C. 信息系统架构；D. 技术架构"
+        ],
+        [
+          "生态系统 Ecosystem",
+          "影响（蓝）",
+          "应用与数据层；技术层",
+          "C. 信息系统架构；D. 技术架构"
+        ],
+        [
+          "技术成熟度 Technology Maturity",
+          "影响（蓝）",
+          "技术层",
+          "D. 技术架构"
+        ],
+        [
+          "资金与资源 Funding & Resources",
+          "持续（橙）",
+          "业务层",
+          "B. 业务架构"
+        ],
+        [
+          "价值实现 Value Realization",
+          "持续（橙）",
+          "应用与数据层",
+          "C. 信息系统架构"
+        ],
+        [
+          "政策与法规 Policy & Regulations",
+          "持续（橙）",
+          "应用与数据层",
+          "C. 信息系统架构"
+        ]
+      ],
+      "cell_legend": [
+        "绿 = 基础因素",
+        "蓝 = 影响因素",
+        "橙 = 持续因素"
+      ],
+      "notes_zh": "“对应 ADM 阶段”由因素框与阶段圆处在同一色区推断：业务层、应用与数据层、技术层三条横带分别与 B、C、D 对齐；战略与动机区内的阶段圆是预备阶段和 A（另有中心的需求管理和 H 的大部分）；实施与迁移区内是 E、F、G。H 与需求管理旁没有因素框，表中未把战略与动机区的因素映射给它们。"
+    },
+    {
+      "id": "t_phase_to_factor",
+      "title_zh": "ADM 阶段 → 因素（按阶段汇总，附表 6-1 要点）",
+      "columns": [
+        "ADM 阶段",
+        "所在色区",
+        "图中对应的因素",
+        "表 6-1 要点（转述）"
+      ],
+      "rows": [
+        [
+          "预备阶段 Preliminary",
+          "战略与动机",
+          "愿景；赞助与方向",
+          "理解企业能力、架构框架与治理框架，定义架构原则，确定聚焦数字技术的架构能力"
+        ],
+        [
+          "A. 架构愿景",
+          "战略与动机",
+          "愿景；赞助与方向",
+          "捕获高层愿景，识别利益相关者，开展就绪度评估，据此选择架构路径"
+        ],
+        [
+          "B. 业务架构",
+          "业务层",
+          "业务理由；范围与规模；文化；业务模式适应性；资金与资源",
+          "开发目标业务架构，做详细能力评估与业务驱动/目标分析"
+        ],
+        [
+          "C. 信息系统架构",
+          "应用与数据层",
+          "价值实现；政策与法规；治理与合规；技能与胜任力；生态系统",
+          "开发目标数据与应用架构；因素侧重组织在数据与应用方面的能力"
+        ],
+        [
+          "D. 技术架构",
+          "技术层",
+          "IT 能力；技术成熟度；治理与合规；技能与胜任力；生态系统",
+          "分析技术架构差距并与数字采用对齐；因素侧重组织的技术能力"
+        ],
+        [
+          "E. 机会与解决方案",
+          "实施与迁移",
+          "实施方法",
+          "从整体上判断数字技术采用现状，用关键因素上的差距推导中间态与目标态"
+        ],
+        [
+          "F. 迁移规划",
+          "实施与迁移",
+          "实施方法",
+          "实施与迁移规划要与企业的方法和数字转型愿景一致"
+        ],
+        [
+          "G. 实施治理",
+          "实施与迁移",
+          "实施方法",
+          "通过合规与评审确保遵循实施计划；此处治理指实施方法是否恰当"
+        ],
+        [
+          "H. 架构变更管理",
+          "两区交界（大部分在战略与动机区）",
+          "（无专门因素框）",
+          "随成熟度与全景演进维护架构变更周期"
+        ],
+        [
+          "需求管理 Requirements Management",
+          "中心（战略与动机区内）",
+          "（无因素框；辐条连到 A–H）",
+          "贯穿所有阶段；需求变更经影响评估后在下一周期的相关阶段实施"
+        ]
+      ]
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "黄色圆",
+      "meaning_zh": "ADM 阶段（预备阶段、A–H）",
+      "explicit": false
+    },
+    {
+      "symbol": "中心较大的橙色圆",
+      "meaning_zh": "需求管理",
+      "explicit": false
+    },
+    {
+      "symbol": "圆之间的灰色细实线（无箭头）",
+      "meaning_zh": "ADM 轮上的相邻阶段连接，以及需求管理到各阶段的连接",
+      "explicit": false
+    },
+    {
+      "symbol": "浅紫色竖条（竖排标题 Strategy & Motivation）",
+      "meaning_zh": "战略与动机区，覆盖预备阶段、A、需求管理和 H 的大部分",
+      "explicit": false
+    },
+    {
+      "symbol": "浅粉色扇环（竖排标题 Implementation & Migration）",
+      "meaning_zh": "实施与迁移区，覆盖 E、F、G",
+      "explicit": false
+    },
+    {
+      "symbol": "浅黄 / 浅蓝 / 浅绿横带",
+      "meaning_zh": "业务层 / 应用与数据层 / 技术层，分别与阶段 B / C / D 对齐",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色因素框",
+      "meaning_zh": "基础因素（与表 4-1 分类一致，图上无图例）",
+      "explicit": false
+    },
+    {
+      "symbol": "蓝色因素框",
+      "meaning_zh": "影响因素",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色因素框",
+      "meaning_zh": "持续因素",
+      "explicit": false
+    },
+    {
+      "symbol": "因素框所在的色区",
+      "meaning_zh": "该因素与该色区内的 ADM 阶段相关",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "因素框与 B/C/D 三条横带的归属由框所在色带明确表达（已用 600 dpi 复核）；唯一推断是战略与动机区的范围覆盖预备阶段、A、需求管理和 H，而图中因素框只排在预备阶段/A 附近，表中据此只映射到预备阶段和 A。",
+      "因素框颜色与类别的对应来自表 4-1 的分类（逐一吻合），图上没有图例。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 45 页原图截图（220 dpi）及左下放大分块",
+      "英文 PDF 第 45 页 600 dpi 放大分块（复核因素框与色带位置）",
+      "对原图截图做像素采样，判断各阶段圆所在的背景色区",
+      "英文 PDF 第 45–47 页正文与表 6-1",
+      "中文稿 G212e_数字技术采用就绪度评估.md 第 252–268 行（表 4-1）、610–684 行（含图内标签对照表 L618–L650、表 6-1、第 6.1 节）",
+      "figs/zh/g212e_fig6-1_zh.png",
+      "figs/g212e_fig6-1_en.png（自动相似度 0.992）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G212/fig6-1",
+    "asset": "figs/g212e_fig6-1_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "10"
+  }
+}

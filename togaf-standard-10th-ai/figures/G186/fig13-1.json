@@ -1,0 +1,1322 @@
+{
+  "schema_version": "1.0",
+  "id": "G186/fig13-1",
+  "status": "done",
+  "doc": {
+    "code": "G186",
+    "title_zh": "实践者方法：按 TOGAF ADM 开发企业架构",
+    "title_en": "A Practitioners' Approach to Developing EA Following the TOGAF ADM",
+    "zh_md": "G186e_实践者方法_按TOGAF_ADM开发企业架构.md",
+    "en_pdf": "togaf-standard-10th/G186e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "13-1",
+    "title_en": "Using Repository for Managing Roadmaps – Identify Change",
+    "title_zh": "使用存储库管理路线图——识别变更",
+    "section_en": "13.2 Comparing Architectures",
+    "section_zh": "13.2 比较架构",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        132
+      ],
+      "printed_page": 118,
+      "bboxes": [
+        [
+          138.5,
+          436.6,
+          473.5,
+          706.6
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        1795
+      ],
+      "label_table_lines": [
+        1799,
+        1831
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g186e_fig13-1_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "cbf68e329291",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.987（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g186e_fig13-1_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "008aa0036e20",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "“Business Service”未翻译，仍为英文，且被滚动区截断；中文稿声称“图内文字已中文化”，与实际不符。",
+        "“NA Construction Process”被译成“NA建筑流程”，应为“NA 建造流程”（中文稿标签表本身也写作建造）。",
+        "树层级被压平：“战略”“业务域”“能力”三者几乎排在同一缩进，看不出 Business Domain 包含 Capability 的两级关系。",
+        "高亮颜色错位：“车队管理”被涂成蓝色，但原图未高亮；“客户亲近”原图为蓝色属性不同，中文 PNG 反而没有蓝色高亮。",
+        "黄色“子项不同”高亮块与“业务域”“能力”文字错位，部分黄块落在标题下方空白处。",
+        "文件夹图标与展开/折叠图标错位、缺失，树形视觉结构被破坏。",
+        "“APQC逻辑流程”语序与原标签表“逻辑流程 - APQC”不一致；图例文字有裁切。"
+      ]
+    },
+    {
+      "path": "G186e_实践者方法_按TOGAF_ADM开发企业架构.md#L1799-L1831",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "8710bd94ff63",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "把“From: Target, To: Baseline”译为“从：目标，到：现状”，Baseline 应为“基线”，否则会与现状架构混淆。",
+        "标签表未列“Business Service”，而原图结果树底部有该行（虽被截断）。",
+        "“Customer Intimacy”译为“客户亲近”，与附录 B 的“客户亲密度”不一致。",
+        "其余业务域、能力、差异摘要与图例条目的英文与译名基本一致。"
+      ]
+    },
+    {
+      "path": "figs/zh/g186e_fig13-1_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "63b3de875908",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "新增了原图没有的浅灰标题栏“比较架构 / EA 存储库工具 · 结果对话框”，以及底部说明文字；这些不是原图标签。",
+        "把“Business Function”“Business Service”两行涂成蓝色（属性不同），但英文原图这两行没有蓝色高亮；属于误加的差异标记。",
+        "“Baseline”统一译成“现状”，与中文稿第 560、1084、1307 行使用的“基线”术语不一致，baseline 与 current state 被混为一谈。",
+        "原图中 Business Service 被结果区下边缘截断，SVG 完整显示，失去“列表被滚动区截断”的视觉提示。",
+        "“Customer Intimacy”译为“客户亲近”，附录 B 使用“客户亲密度”，术语不统一。",
+        "树的缩进、展开图标、颜色图例和六个蓝色能力基本与原图一致，比较方向 Target→Baseline 也保留。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "screenshot",
+      "hierarchy"
+    ],
+    "notation": "EA 存储库工具的结果对话框截图：可展开的树形结果列表 + 文字底色高亮差异 + 差异摘要框 + 四色图例 + 确定按钮",
+    "concepts": [
+      "architecture_repository",
+      "baseline_target_gap",
+      "architecture_landscape"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "EA 存储库比较目标与基线两个架构状态，用树形结果和颜色标出发生变化的组件及其差异类型。",
+    "purpose_zh": "示范第 13.2 节：以与实施无关的参考模型为基础，用存储库工具识别架构组件属性或组件目录的变更，从而在联邦式团队间协调并沟通架构变更的影响。",
+    "reading_guide_zh": "先读顶部“From: Target, To: Baseline”，确认比较是从目标架构到基线架构。再看结果树：Business Domain 展开后是 Capability，Capability 下展开九个二级能力。文字底色是差异类型：黄色表示子项不同，蓝色表示属性不同。最后看 Differences Summary（此处只有 Property Values Different）和右下角 Legend；绿色=新增、红色=删除、黄色=子项不同、蓝色=属性不同。",
+    "key_points_zh": [
+      "比较方向是 Target→Baseline（目标→基线），不是常见的基线→目标；读差异前必须先确认 From/To，否则会把变更方向读反。",
+      "Business Domain 与 Capability 两级显示黄色（子项不同），表示其下级组成发生变化，而不是这两个节点自身属性变化。",
+      "Capability 下九个二级能力中，Project Controls、Integrated Operations Outputs、Consistent Estimation & Bidding、Contract Management、EOD Reporting / Book Closure、Customer Intimacy 六项为蓝色（属性不同）。",
+      "Financial Management、Skills Development、Fleet Management 三项未高亮，表示在本比较中属性与子项均未变化。",
+      "Business Term、Logical Process - APQC、NA Construction Process、Organization、BIE 等分支处于折叠状态；折叠不等于没有变更。",
+      "差异摘要只写“Property Values Different”，与树上的蓝色属性差异对应；本次比较没有列出新增或删除项。",
+      "图例四种颜色是差异类型的唯一依据，颜色深浅不代表严重程度或优先级。"
+    ],
+    "hierarchy_zh": "结果树四层：比较根（From/To）→ 顶层目录（Strategy、Business Domain、Business Term、Logical Process - APQC、NA Construction Process、Organization、BIE）→ Capability → 九个二级能力；BIE 下另有 Business Function、Business Service 两个子项。包含关系由缩进、+/- 展开图标和细连接线表示。",
+    "line_semantics_zh": "图中没有箭头。树的包含关系由缩进、+/- 图标和浅灰连接线表达；“差异”由文字底色表达（黄色子项不同、蓝色属性不同），不是连线。右侧滚动条只表示结果列表还有未显示内容。",
+    "misreadings_zh": [
+      "黄色不是“重要”，蓝色不是“已选中”；它们是两种不同的差异类型。",
+      "不要把六个蓝色能力理解为全部变更；折叠分支中可能还有未显示的变更。",
+      "不要把 Target→Baseline 读成 Baseline→Target；图 13-1 与图 13-2 的方向正好相反。",
+      "中文 SVG 把 Business Function、Business Service 也涂成蓝色，英文原图没有高亮，不能据此认为这两项属性发生变化。",
+      "中文 PNG 的高亮错位（车队管理被涂蓝、客户亲近未涂蓝），不能作为判断差异的依据。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p132",
+        "summary_zh": "把所有架构建立在与实施无关的参考模型上，就能容易识别对特定架构的修改带来的影响；EA 存储库工具可支持识别变更，无论变更针对组件属性还是组件目录；在联邦团队中，此类工具与公共参考模型可协调并沟通变更影响。"
+      },
+      {
+        "source": "zh_md L1794",
+        "summary_zh": "中文稿复述同一段：存储库工具支持识别变更是属性变化还是组件目录修改；在联邦式团队中可协调沟通影响，路线图内应保持分析模式一致。"
+      },
+      {
+        "source": "zh_md L1796",
+        "summary_zh": "中文稿在此插入图 13-1，并在 L1799–L1831 给出图内标签对照。"
+      },
+      {
+        "source": "zh_md L1805",
+        "summary_zh": "标签表把 From: Target, To: Baseline 译为“从：目标，到：现状”。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "一个带米色边框的工具窗口：顶部 Results:，中部是可滚动结果树，下方左侧 Differences Summary 框、右侧 Legend 框，右下角 OK 按钮。树自上而下排列，缩进表示层级。"
+  },
+  "legend": [
+    {
+      "symbol": "绿色方块",
+      "meaning_zh": "Added：新增项",
+      "explicit": true
+    },
+    {
+      "symbol": "红色方块",
+      "meaning_zh": "Deleted：删除项",
+      "explicit": true
+    },
+    {
+      "symbol": "浅蓝色方块",
+      "meaning_zh": "Different Attributes：属性不同",
+      "explicit": true
+    },
+    {
+      "symbol": "黄色方块",
+      "meaning_zh": "Different Children：子项不同",
+      "explicit": true
+    },
+    {
+      "symbol": "文字后的黄色底色",
+      "meaning_zh": "该节点的子项集合与对比架构不同",
+      "explicit": false
+    },
+    {
+      "symbol": "文字后的浅蓝色底色",
+      "meaning_zh": "该节点的属性值与对比架构不同",
+      "explicit": false
+    },
+    {
+      "symbol": "节点前的 +/- 方框",
+      "meaning_zh": "展开/折叠该分支；减号表示已展开",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "dlg",
+      "label_en": null,
+      "label_zh": "比较结果对话框",
+      "type": "application",
+      "parent": null,
+      "level": 0,
+      "description_zh": "工具截图窗口，带米色外框。"
+    },
+    {
+      "id": "results_label",
+      "label_en": "Results:",
+      "label_zh": "结果：",
+      "type": "note",
+      "parent": "dlg",
+      "level": 1,
+      "position": "窗口顶部"
+    },
+    {
+      "id": "result_tree",
+      "label_en": null,
+      "label_zh": "结果树",
+      "type": "group",
+      "parent": "dlg",
+      "level": 1,
+      "description_zh": "带滚动条的可展开结果列表。"
+    },
+    {
+      "id": "root_compare",
+      "label_en": "From: Target, To: Baseline",
+      "label_zh": "从：目标，到：基线",
+      "type": "artifact",
+      "parent": "result_tree",
+      "level": 2,
+      "description_zh": "比较根节点；原图文字“Baseline”应译为基线而非现状。"
+    },
+    {
+      "id": "strategy",
+      "label_en": "Strategy",
+      "label_zh": "战略",
+      "type": "group",
+      "parent": "result_tree",
+      "level": 3,
+      "position": "折叠分支"
+    },
+    {
+      "id": "business_domain",
+      "label_en": "Business Domain",
+      "label_zh": "业务域",
+      "type": "group",
+      "parent": "result_tree",
+      "level": 3,
+      "attributes": {
+        "diff": "different_children"
+      }
+    },
+    {
+      "id": "capability",
+      "label_en": "Capability",
+      "label_zh": "能力",
+      "type": "capability",
+      "parent": "business_domain",
+      "level": 4,
+      "attributes": {
+        "diff": "different_children"
+      }
+    },
+    {
+      "id": "cap_project_controls",
+      "label_en": "Project Controls",
+      "label_zh": "项目控制",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "cap_financial_mgmt",
+      "label_en": "Financial Management",
+      "label_zh": "财务管理",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "unchanged"
+      }
+    },
+    {
+      "id": "cap_integrated_ops",
+      "label_en": "Integrated Operations Outputs",
+      "label_zh": "集成运营输出",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "cap_estimation_bidding",
+      "label_en": "Consistent Estimation & Bidding",
+      "label_zh": "一致估算与投标",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "cap_contract_mgmt",
+      "label_en": "Contract Management",
+      "label_zh": "合同管理",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "cap_skills_dev",
+      "label_en": "Skills Development",
+      "label_zh": "技能发展",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "unchanged"
+      }
+    },
+    {
+      "id": "cap_eod_reporting",
+      "label_en": "EOD Reporting / Book Closure",
+      "label_zh": "日终报告/账务关闭",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "cap_fleet_mgmt",
+      "label_en": "Fleet Management",
+      "label_zh": "车队管理",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "unchanged"
+      }
+    },
+    {
+      "id": "cap_customer_intimacy",
+      "label_en": "Customer Intimacy",
+      "label_zh": "客户亲密度",
+      "type": "capability",
+      "parent": "capability",
+      "level": 5,
+      "attributes": {
+        "diff": "different_attributes"
+      }
+    },
+    {
+      "id": "business_term",
+      "label_en": "Business Term",
+      "label_zh": "业务术语",
+      "type": "data",
+      "parent": "result_tree",
+      "level": 3,
+      "position": "折叠分支"
+    },
+    {
+      "id": "logical_process_apqc",
+      "label_en": "Logical Process - APQC",
+      "label_zh": "逻辑流程 - APQC",
+      "type": "process",
+      "parent": "result_tree",
+      "level": 3,
+      "position": "折叠分支"
+    },
+    {
+      "id": "na_construction_process",
+      "label_en": "NA Construction Process",
+      "label_zh": "NA 建造流程",
+      "type": "process",
+      "parent": "result_tree",
+      "level": 3,
+      "position": "折叠分支"
+    },
+    {
+      "id": "organization",
+      "label_en": "Organization",
+      "label_zh": "组织",
+      "type": "organization_unit",
+      "parent": "result_tree",
+      "level": 3,
+      "position": "折叠分支"
+    },
+    {
+      "id": "bie",
+      "label_en": "BIE",
+      "label_zh": "BIE",
+      "type": "data",
+      "parent": "result_tree",
+      "level": 3,
+      "description_zh": "原图未展开该缩写；其下展开 Business Function 与 Business Service。"
+    },
+    {
+      "id": "business_function",
+      "label_en": "Business Function",
+      "label_zh": "业务职能",
+      "type": "function",
+      "parent": "bie",
+      "level": 4
+    },
+    {
+      "id": "business_service",
+      "label_en": "Business Service",
+      "label_zh": "业务服务",
+      "type": "service",
+      "parent": "bie",
+      "level": 4,
+      "description_zh": "原图中被结果区下边缘截断，只露出上半行。"
+    },
+    {
+      "id": "differences_summary",
+      "label_en": "Differences Summary:",
+      "label_zh": "差异摘要：",
+      "type": "note",
+      "parent": "dlg",
+      "level": 1,
+      "position": "左下"
+    },
+    {
+      "id": "property_values_different",
+      "label_en": "Property Values Different",
+      "label_zh": "属性值不同",
+      "type": "note",
+      "parent": "differences_summary",
+      "level": 2
+    },
+    {
+      "id": "legend_box",
+      "label_en": "Legend:",
+      "label_zh": "图例：",
+      "type": "note",
+      "parent": "dlg",
+      "level": 1,
+      "position": "右下"
+    },
+    {
+      "id": "legend_added",
+      "label_en": "Added:",
+      "label_zh": "新增：",
+      "type": "note",
+      "parent": "legend_box",
+      "level": 2
+    },
+    {
+      "id": "legend_deleted",
+      "label_en": "Deleted:",
+      "label_zh": "删除：",
+      "type": "note",
+      "parent": "legend_box",
+      "level": 2
+    },
+    {
+      "id": "legend_diff_attributes",
+      "label_en": "Different Attributes:",
+      "label_zh": "属性不同：",
+      "type": "note",
+      "parent": "legend_box",
+      "level": 2
+    },
+    {
+      "id": "legend_diff_children",
+      "label_en": "Different Children:",
+      "label_zh": "子项不同：",
+      "type": "note",
+      "parent": "legend_box",
+      "level": 2
+    },
+    {
+      "id": "ok_button",
+      "label_en": "OK",
+      "label_zh": "确定",
+      "type": "note",
+      "parent": "dlg",
+      "level": 1,
+      "position": "右下角"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "root_compare",
+      "to": "strategy",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "结果树缩进/连接线表示根节点包含顶层目录。"
+    },
+    {
+      "from": "root_compare",
+      "to": "business_domain",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "business_term",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "logical_process_apqc",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "na_construction_process",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "organization",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "root_compare",
+      "to": "bie",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "business_domain",
+      "to": "capability",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "Business Domain 下展开 Capability。"
+    },
+    {
+      "from": "capability",
+      "to": "cap_project_controls",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_financial_mgmt",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_integrated_ops",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_estimation_bidding",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_contract_mgmt",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_skills_dev",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_eod_reporting",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_fleet_mgmt",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "capability",
+      "to": "cap_customer_intimacy",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "bie",
+      "to": "business_function",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "bie",
+      "to": "business_service",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_capability_diff",
+      "title_zh": "Capability 下九个二级能力的差异状态",
+      "columns": [
+        "二级能力（英文）",
+        "二级能力（中文）",
+        "高亮颜色",
+        "差异类型"
+      ],
+      "rows": [
+        [
+          "Project Controls",
+          "项目控制",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ],
+        [
+          "Financial Management",
+          "财务管理",
+          "无",
+          "未高亮（本比较中未见变化）"
+        ],
+        [
+          "Integrated Operations Outputs",
+          "集成运营输出",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ],
+        [
+          "Consistent Estimation & Bidding",
+          "一致估算与投标",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ],
+        [
+          "Contract Management",
+          "合同管理",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ],
+        [
+          "Skills Development",
+          "技能发展",
+          "无",
+          "未高亮（本比较中未见变化）"
+        ],
+        [
+          "EOD Reporting / Book Closure",
+          "日终报告/账务关闭",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ],
+        [
+          "Fleet Management",
+          "车队管理",
+          "无",
+          "未高亮（本比较中未见变化）"
+        ],
+        [
+          "Customer Intimacy",
+          "客户亲密度",
+          "浅蓝",
+          "Different Attributes（属性不同）"
+        ]
+      ],
+      "notes_zh": "Business Domain 与 Capability 两个父节点为黄色（Different Children）。差异摘要只列 Property Values Different。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G186/fig13-2",
+      "relation": "variant_of",
+      "note_zh": "图 13-2 使用同一结果树与图例，但比较方向为 Baseline→Target，并展开“Show In Explorer”上下文菜单。"
+    },
+    {
+      "target": "G186/fig5-2",
+      "relation": "related",
+      "note_zh": "图 5-2 是 EA 存储库示例截图，本图是同一类存储库工具的比较结果对话框。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图是位图截图，部分文字（尤其 Business Service 行）被结果区下边缘截断，无法确认其完整标签与是否有高亮。",
+      "“BIE”缩写在原图中未展开，含义未在图中说明；本分析按原样记录，未臆测全称。",
+      "差异摘要框只有一行“Property Values Different”，无法判断是否还有更多摘要被滚动条隐藏。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 132 页图 13-1 截图（整图与 2x2 放大块）",
+      "英文 PDF 第 132 页正文",
+      "中文稿 G186e_实践者方法_按TOGAF_ADM开发企业架构.md 第 1789–1833 行",
+      "figs/zh/g186e_fig13-1_zh.png 与 figs/zh/g186e_fig13-1_zh.svg"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G186e.pdf",
+    "pdf_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G186/fig13-1.json",
+    "interpretation_sha256": "7fa4a0eec61584014a769fd54b412139f40e7343e4ee27f4c5769ea12bdb0f01",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 132,
+        "text": "Figure 13-1: Using Repository for Managing Roadmaps – Identify Change",
+        "bbox_pdf_points": [
+          48.24,
+          711.295,
+          387.55,
+          724.861
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 132,
+      "printed_page": 118,
+      "bbox_pdf_points": [
+        138.5,
+        436.6,
+        473.5,
+        706.6
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G186/fig13-1-p0132.png",
+      "image_sha256": "7b33379d66afae98ce6972f9aaec524e502f539511e16847985ec0f49aca6990",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "7b33379d66afae98ce6972f9aaec524e502f539511e16847985ec0f49aca6990",
+          "status": "extracted-unverified",
+          "text": "Results:\n|S _ From: Target, To: Baseline\noo\nom\na\n& Finacial\nOD Repring/ Books\n~ Gaston ny\nGita Business Term\n{a Logical Process - APQC\n«8a NA Construction Process\n{2 Organization\nIE\n‘& Business Function\nDifferences Summary:\nProperty Values Different\nAdded: [Il] itterent attributes: [7]\nDeleted: [MJ Diterent chtdren: [7]",
+          "words": [
+            {
+              "text": "Results:",
+              "confidence": 94.811966,
+              "bbox_pixels_xywh": [
+                30,
+                14,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "|S",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                32,
+                36,
+                10,
+                11
+              ]
+            },
+            {
+              "text": "_",
+              "confidence": 59.804329,
+              "bbox_pixels_xywh": [
+                49,
+                28,
+                7,
+                28
+              ]
+            },
+            {
+              "text": "From:",
+              "confidence": 95.70063,
+              "bbox_pixels_xywh": [
+                60,
+                28,
+                34,
+                28
+              ]
+            },
+            {
+              "text": "Target,",
+              "confidence": 95.800232,
+              "bbox_pixels_xywh": [
+                97,
+                35,
+                110,
+                13
+              ]
+            },
+            {
+              "text": "To:",
+              "confidence": 96.367905,
+              "bbox_pixels_xywh": [
+                140,
+                28,
+                17,
+                28
+              ]
+            },
+            {
+              "text": "Baseline",
+              "confidence": 93.176079,
+              "bbox_pixels_xywh": [
+                163,
+                35,
+                44,
+                13
+              ]
+            },
+            {
+              "text": "oo",
+              "confidence": 55.427662,
+              "bbox_pixels_xywh": [
+                47,
+                53,
+                25,
+                11
+              ]
+            },
+            {
+              "text": "om",
+              "confidence": 69.272278,
+              "bbox_pixels_xywh": [
+                47,
+                70,
+                25,
+                11
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 63.671253,
+              "bbox_pixels_xywh": [
+                62,
+                91,
+                10,
+                8
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 58.607841,
+              "bbox_pixels_xywh": [
+                90,
+                121,
+                12,
+                10
+              ]
+            },
+            {
+              "text": "Finacial",
+              "confidence": 44.633488,
+              "bbox_pixels_xywh": [
+                107,
+                121,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "OD",
+              "confidence": 66.626343,
+              "bbox_pixels_xywh": [
+                101,
+                185,
+                31,
+                46
+              ]
+            },
+            {
+              "text": "Repring/",
+              "confidence": 24.841051,
+              "bbox_pixels_xywh": [
+                139,
+                185,
+                58,
+                46
+              ]
+            },
+            {
+              "text": "Books",
+              "confidence": 14.975834,
+              "bbox_pixels_xywh": [
+                204,
+                185,
+                78,
+                46
+              ]
+            },
+            {
+              "text": "~",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                86,
+                220,
+                9,
+                50
+              ]
+            },
+            {
+              "text": "Gaston",
+              "confidence": 26.591234,
+              "bbox_pixels_xywh": [
+                106,
+                220,
+                47,
+                50
+              ]
+            },
+            {
+              "text": "ny",
+              "confidence": 26.591234,
+              "bbox_pixels_xywh": [
+                173,
+                220,
+                43,
+                50
+              ]
+            },
+            {
+              "text": "Gita",
+              "confidence": 35.964737,
+              "bbox_pixels_xywh": [
+                58,
+                250,
+                28,
+                28
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 93.667213,
+              "bbox_pixels_xywh": [
+                92,
+                258,
+                81,
+                12
+              ]
+            },
+            {
+              "text": "Term",
+              "confidence": 93.036713,
+              "bbox_pixels_xywh": [
+                146,
+                250,
+                31,
+                28
+              ]
+            },
+            {
+              "text": "{a",
+              "confidence": 48.479843,
+              "bbox_pixels_xywh": [
+                62,
+                276,
+                25,
+                12
+              ]
+            },
+            {
+              "text": "Logical",
+              "confidence": 90.177383,
+              "bbox_pixels_xywh": [
+                91,
+                265,
+                40,
+                31
+              ]
+            },
+            {
+              "text": "Process",
+              "confidence": 86.219276,
+              "bbox_pixels_xywh": [
+                138,
+                265,
+                39,
+                31
+              ]
+            },
+            {
+              "text": "-",
+              "confidence": 86.219276,
+              "bbox_pixels_xywh": [
+                182,
+                281,
+                3,
+                2
+              ]
+            },
+            {
+              "text": "APQC",
+              "confidence": 59.686249,
+              "bbox_pixels_xywh": [
+                194,
+                265,
+                32,
+                31
+              ]
+            },
+            {
+              "text": "«8a",
+              "confidence": 4.47093,
+              "bbox_pixels_xywh": [
+                62,
+                293,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "NA",
+              "confidence": 95.821114,
+              "bbox_pixels_xywh": [
+                95,
+                285,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Construction",
+              "confidence": 93.029442,
+              "bbox_pixels_xywh": [
+                114,
+                285,
+                66,
+                28
+              ]
+            },
+            {
+              "text": "Process",
+              "confidence": 89.165863,
+              "bbox_pixels_xywh": [
+                186,
+                285,
+                47,
+                28
+              ]
+            },
+            {
+              "text": "{2",
+              "confidence": 14.831095,
+              "bbox_pixels_xywh": [
+                58,
+                300,
+                14,
+                31
+              ]
+            },
+            {
+              "text": "Organization",
+              "confidence": 94.699043,
+              "bbox_pixels_xywh": [
+                75,
+                310,
+                87,
+                14
+              ]
+            },
+            {
+              "text": "IE",
+              "confidence": 39.442513,
+              "bbox_pixels_xywh": [
+                101,
+                327,
+                11,
+                10
+              ]
+            },
+            {
+              "text": "‘&",
+              "confidence": 22.411242,
+              "bbox_pixels_xywh": [
+                71,
+                336,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 95.53389,
+              "bbox_pixels_xywh": [
+                92,
+                336,
+                49,
+                28
+              ]
+            },
+            {
+              "text": "Function",
+              "confidence": 95.085449,
+              "bbox_pixels_xywh": [
+                148,
+                336,
+                49,
+                28
+              ]
+            },
+            {
+              "text": "Differences",
+              "confidence": 95.912529,
+              "bbox_pixels_xywh": [
+                26,
+                369,
+                83,
+                29
+              ]
+            },
+            {
+              "text": "Summary:",
+              "confidence": 96.648781,
+              "bbox_pixels_xywh": [
+                115,
+                369,
+                64,
+                29
+              ]
+            },
+            {
+              "text": "Property",
+              "confidence": 92.994133,
+              "bbox_pixels_xywh": [
+                30,
+                398,
+                139,
+                14
+              ]
+            },
+            {
+              "text": "Values",
+              "confidence": 96.85952,
+              "bbox_pixels_xywh": [
+                82,
+                389,
+                33,
+                28
+              ]
+            },
+            {
+              "text": "Different",
+              "confidence": 85.285049,
+              "bbox_pixels_xywh": [
+                119,
+                398,
+                50,
+                14
+              ]
+            },
+            {
+              "text": "Added:",
+              "confidence": 82.202705,
+              "bbox_pixels_xywh": [
+                397,
+                405,
+                71,
+                20
+              ]
+            },
+            {
+              "text": "[Il]",
+              "confidence": 29.89143,
+              "bbox_pixels_xywh": [
+                448,
+                401,
+                28,
+                30
+              ]
+            },
+            {
+              "text": "itterent",
+              "confidence": 47.513405,
+              "bbox_pixels_xywh": [
+                490,
+                401,
+                46,
+                30
+              ]
+            },
+            {
+              "text": "attributes:",
+              "confidence": 83.919441,
+              "bbox_pixels_xywh": [
+                543,
+                401,
+                58,
+                30
+              ]
+            },
+            {
+              "text": "[7]",
+              "confidence": 39.05714,
+              "bbox_pixels_xywh": [
+                605,
+                401,
+                23,
+                30
+              ]
+            },
+            {
+              "text": "Deleted:",
+              "confidence": 55.028183,
+              "bbox_pixels_xywh": [
+                387,
+                429,
+                54,
+                32
+              ]
+            },
+            {
+              "text": "[MJ",
+              "confidence": 47.080975,
+              "bbox_pixels_xywh": [
+                448,
+                429,
+                33,
+                32
+              ]
+            },
+            {
+              "text": "Diterent",
+              "confidence": 48.347229,
+              "bbox_pixels_xywh": [
+                496,
+                429,
+                49,
+                32
+              ]
+            },
+            {
+              "text": "chtdren:",
+              "confidence": 41.923225,
+              "bbox_pixels_xywh": [
+                549,
+                429,
+                49,
+                32
+              ]
+            },
+            {
+              "text": "[7]",
+              "confidence": 41.22081,
+              "bbox_pixels_xywh": [
+                608,
+                429,
+                19,
+                32
+              ]
+            }
+          ],
+          "mean_word_confidence": 62.92,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

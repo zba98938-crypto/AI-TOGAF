@@ -1,0 +1,1102 @@
+{
+  "schema_version": "independent-business-case-review/1",
+  "reviewer_kind": "independent-AI-source-and-design-review",
+  "business_approval": "not-granted",
+  "person_certification": "not-granted",
+  "deployment_authorization": "not-granted",
+  "overall_status": "generated-review-completed-with-material-artifact-and-evidence-gaps",
+  "scope_zh": "先审阅三份只读原教学材料并做内存核对，再复核togaf-standard-10th-ai内本地修订副本和已生成的三组模型/制品。此次只追加独立报告，没有重新生成制品或修改skills目录；schema/表达覆盖通过不作为业务内容充分性验收。",
+  "source_snapshots": [
+    {
+      "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+      "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+    },
+    {
+      "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+      "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+    },
+    {
+      "path": "skills/_shared/examples/g249-omnichannel/build.py",
+      "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+    }
+  ],
+  "checks": [
+    {
+      "id": "C01",
+      "topic": "缺一致性输入时不能定优",
+      "status": "source-design-consistent",
+      "observation_zh": "两候选均保留；纯同步仅被判为不能独自覆盖断连受理，未被全局退役；异步不被宣称避免超卖。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 13,
+          "quote": "不得据材料自动宣称 B 能避免超卖、A 总是不可用或某方案最优。",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 112,
+          "quote": "A同步预占与B异步处理均为候选。一致性要求不足，不能排名。",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "topic": "新增断连约束传播",
+      "status": "source-design-consistent-with-limits",
+      "observation_zh": "版本2新增恢复接口、门店与中央记录、离线需求、过渡和工作包；更新风险、解决方案任务目标、发展行动及复评，保留原人员观察。通用图影响的边界见F06。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 17,
+          "quote": "设计评审要求新增断连存储与恢复同步接口分析",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 175,
+          "quote": "task['scope']='预占、断连受理及恢复同步候选比较'",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 179,
+          "quote": "requirement['behavioral_criteria'].append('评审断连、重连、幂等重放和库存冲突的恢复设计')",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 186,
+          "quote": "development['reassessment']['criteria']=copy.deepcopy(requirement['behavioral_criteria'])",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "topic": "物流只接受确认订单",
+      "status": "source-design-consistent",
+      "observation_zh": "物流交接唯一状态迁移起点为ORDER-CONFIRMED；无待确认订单直接进入物流边。未提供物流系统时没有臆造物流应用，交接契约明确为缺口。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 11,
+          "quote": "物流履约使用已确认订单。",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 105,
+          "quote": "edge('ORDER-TO-FULFIL','transitions_to','ORDER-CONFIRMED','ORDER-FULFIL','确认后才允许交付物流')",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 154,
+          "quote": "dict(id='GAP-LOGISTICS-HANDOFF'",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "topic": "任务缺技能定义与目标",
+      "status": "correctly-retained-gap",
+      "observation_zh": "TASK-SOL所需optimistic-pessimistic-patterns没有采用目标；当前分析明确source-definition-unresolved与missing-task-skill-requirement，不自动猜成并发控制，不宣布任务技能完备。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 138,
+          "quote": "\"G249:skill:application:optimistic-pessimistic-patterns\"",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "topic": "个人证据及容量未知",
+      "status": "correctly-retained-gap",
+      "observation_zh": "甲proficiency=null而非自动降为2；所有任务workload_hours=null，40小时及8小时专家支持不能证明够用。实际分析保持needs-evidence、capacity unresolved和approval not-granted；另外期间缺口见F04。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 248,
+          "quote": "没有2级所需行为证据，不能自动记2级。",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 80,
+          "quote": "\"workload_hours\": null",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 309,
+          "quote": "\"available_hours\": 8",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "topic": "共享ID与退役",
+      "status": "source-design-consistent",
+      "observation_zh": "两个内存模型保留28个原实体ID，新增6个，没有退役任何实体。源材料未要求删除在线同步能力，保留IF-RESERVE用于在线场景合理；不凭新离线约束退役旧应用。",
+      "shared_entity_count": 28,
+      "added_entity_ids": [
+        "CENTRAL-ORDER-RECORD",
+        "IF-RECOVERY",
+        "LOCAL-ORDER-RECORD",
+        "REQ-OFFLINE",
+        "TRANS-OFFLINE",
+        "WP-OFFLINE"
+      ],
+      "retired_entity_ids": [],
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 19,
+          "quote": "它仍可能用于在线场景。",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 23,
+          "quote": "能力、应用及接口在不同视图沿用同一对象。",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "topic": "过渡是运营状态且需进入条件",
+      "status": "source-design-consistent",
+      "observation_zh": "TRANS-ONLINE和TRANS-OFFLINE提供运营、数据一致性、依赖、控制和回退条件；WP为准备/演练工作。日期为候选计划，不等于进入批准；多个运营条件仍未知，不能标为已可运营。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 23,
+          "quote": "进入条件是接口验证、业务接受标准与回退安排就绪，不以计划日期代替可运营条件。",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 119,
+          "quote": "implementation_strategy='受控试点；先明确接受条件和异常责任，再验证接口并决定是否进入候选运营状态'",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "topic": "技能发展不自动升级",
+      "status": "source-design-consistent",
+      "observation_zh": "版本2保留历史观察并增加任务要求变更记录，更新实践与复评；输出rating_change=not-inferred。支持专家对新增离线行为也不自动视为满足。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 183,
+          "quote": "'rationale':'新增离线恢复目标，保留旧评价并更新实践/复评计划；没有新增能力评级'",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "F01",
+      "priority": "P1",
+      "kind": "independent-evidence-gap",
+      "status": "open-in-original-input",
+      "title_zh": "专家4级只有同一条3级任务行为，未独立证实等级",
+      "observation_zh": "OBS-EXPERT直接给4级，唯一行为与REQ-SKILL-SOL的3级条件相同；无相应更高层行为/组织认可内容。基线运行给evidence-contract-complete和expert-evidence-recorded，只说明声明结构完整；本独立审阅不能将它视为4级或专家支持资格已经证实。",
+      "impact_zh": "若把该记录用于认定指导/补足人员能力，会高估可用支持；目前assignment仍未批准，尚未造成自动配置批准。",
+      "recommendation_zh": "保留原4级为历史声明，将当前观察设为证据不足或补真实相应证据；不因不能证实4级自动降3。专家能力、组织认可和可用容量分别记录。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 25,
+          "quote": "技能目标、实际行为证据、组织认可与可用容量分别记录",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 251,
+          "quote": "\"id\": \"OBS-EXPERT\"",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 256,
+          "quote": "\"proficiency\": 4",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 241,
+          "quote": "\"criterion\": \"独立完成异常接口设计并经评审\"",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        }
+      ],
+      "generated_resolution": {
+        "status": "corrected-to-unknown-evidence-gap-remains",
+        "observation_zh": "本地修订将当前专家等级保留为null/evidence_insufficient，原4级仅作未证实的历史声明；生成分析为expert-evidence-unproven。未自动降为3级，也未认证专家支持能力。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/skill-matrix.md",
+            "line": 36,
+            "quote": "| OBS-EXPERT |",
+            "sha256": "c556ec91260b17ed6bdf3a72ea32afce0bbb6abd906af291e8d652f2951ebe68"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.md",
+            "line": 251,
+            "quote": "\"state\": \"expert-evidence-unproven\"",
+            "sha256": "5e9c2dd854132e9125d88bef402b08a4d47c4d7ed8c6739fb6c1a9ad59ccafb6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F02",
+      "priority": "P2",
+      "kind": "source-scope-drift",
+      "status": "open-in-original-input",
+      "title_zh": "企业架构师元数据遗漏物流分段",
+      "observation_zh": "原始委托为订单、库存、物流；ROLE-EA.scope及TASK-EA.decision变为订单、库存、门店。构建器决策议程又写订单/库存/物流，形成不同视图责任口径不一致。",
+      "impact_zh": "物流确认交接与跨分段风险的协调责任可能只留在说明正文，而不进入角色任务定义。",
+      "recommendation_zh": "恢复订单/库存/物流主责任范围，门店作为受影响渠道一并列明；沿用同一个ROLE-EA及TASK-EA。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 7,
+          "quote": "企业架构师协调订单、库存、物流三分段",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 34,
+          "quote": "\"scope\": \"跨订单、库存和门店能力\"",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 85,
+          "quote": "\"decision\": \"确定订单、库存与门店之间的责任和约束\"",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        }
+      ],
+      "generated_resolution": {
+        "status": "corrected-in-local-copy",
+        "observation_zh": "ROLE-EA与TASK-EA已恢复订单、库存、物流分段责任，门店另列为渠道及运营参与者；生成的角色协作和技能矩阵保持同一ROLE-EA。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json",
+            "line": 35,
+            "quote": "跨订单、库存、物流分段；门店作为渠道与运营参与者",
+            "sha256": "611b436b1c167cff818e1c4ce3a1a4d7f620c5d46c047836c4678c9b221ef8e0"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/skill-matrix.md",
+            "line": 18,
+            "quote": "| ROLE-EA |",
+            "sha256": "c556ec91260b17ed6bdf3a72ea32afce0bbb6abd906af291e8d652f2951ebe68"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F03",
+      "priority": "P2",
+      "kind": "authority-source-gap",
+      "status": "open-in-original-input",
+      "title_zh": "架构委员会被添加为决策主体但委托无此授权",
+      "observation_zh": "MANDATE-STOCK将decision_owner写作架构委员会与库存业务负责人并引CASE-MANDATE；原文只说经营负责人委托分析，没有指定架构委员会或授予该组织审批权。",
+      "impact_zh": "候选治理建议可能被读成现有真实授权，形成证据来源错配。",
+      "recommendation_zh": "标记拟议治理责任待经营负责人确认，或补明确虚构授权材料；不以AI审阅代替确认。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 7,
+          "quote": "经营负责人委托架构团队分析跨分段影响并提交候选方案",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 15,
+          "quote": "\"decision_owner\": \"架构委员会与库存业务负责人\"",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        }
+      ],
+      "generated_resolution": {
+        "status": "authority-gap-explicitly-retained",
+        "observation_zh": "本地委托记录已写明经营负责人只委托分析，具体决定人、库存风险接受者和审批机制待确认；未凭架构委员会名称补造权限。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json",
+            "line": 15,
+            "quote": "经营负责人委托分析；具体决定人、库存风险接受者及审批机制待确认",
+            "sha256": "611b436b1c167cff818e1c4ce3a1a4d7f620c5d46c047836c4678c9b221ef8e0"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.json",
+            "line": 381,
+            "quote": "analysis-only-final-decision-owner-unconfirmed",
+            "sha256": "da1baca615bf26c8804f4c7b23fe5401d1edb9a28bb5c56631049d7e1904a721"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F04",
+      "priority": "P1",
+      "kind": "assignment-period-and-capacity-gap",
+      "status": "open-in-original-design",
+      "title_zh": "人员有效期未覆盖离线试点后半段",
+      "observation_zh": "ASSIGN-A有效期到2026-11-30，离线工作包/过渡计划到2026-12-04。工作量未知，40小时以及专家8小时不能说明整个期间覆盖。当前分析正确保留容量未知，但没有具体指出12月1日至4日覆盖未定。",
+      "impact_zh": "只按as_of核对有效性，会漏掉试点后半段人员与异常处理覆盖。",
+      "recommendation_zh": "在候选计划列为期间覆盖缺口，确认工作量、实际排期、续任/交接及专家容量；不能为通过检查直接延长有效期或补造估算。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 294,
+          "quote": "\"valid_until\": \"2026-11-30\"",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 295,
+          "quote": "\"available_hours\": 40",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 81,
+          "quote": "entity('WP-OFFLINE', 'work_package', '断连与恢复演练', owner='方案团队', start='2026-11-21', end='2026-12-04'",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        }
+      ],
+      "generated_resolution": {
+        "status": "explicit-gap-remains-open",
+        "observation_zh": "GAP-ASSIGNMENT-PERIOD已进入所有相关生成制品。ASSIGN-A和DEV-A仍到11月30日，离线工作包到12月4日；这并不证明培训必须持续至交付最后一天，但尚无证据证明12月1日至4日的续任、交接、复评或替代覆盖。不得为消除日期差异而自动延长。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/development-plan.json",
+            "line": 112,
+            "quote": "\"end\": \"2026-11-30\"",
+            "sha256": "95c499d77d0d132fdaf6670b50930dce295e10c9612d4c3f9d54f09e3a0a1a8a"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/transition-roadmap.json",
+            "line": 100,
+            "quote": "\"end\": \"2026-12-04\"",
+            "sha256": "1e6c8e92cebd80bd80acf72ee13f019effd2eb953fddadec869faf536d9efac7"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/delivery-notebook.json",
+            "line": 352,
+            "quote": "\"id\": \"GAP-ASSIGNMENT-PERIOD\"",
+            "sha256": "4a711f9b9f7c5284127ad0659a95029369e80e3f989759af93a636649ad47e2b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F05",
+      "priority": "P2",
+      "kind": "risk-control-scope-gap",
+      "status": "open-in-original-design",
+      "title_zh": "门店持久化控制被单一中央库存控制范围吞并",
+      "observation_zh": "断连版风险控制包括持久队列、检查点、冲突检测与人工补偿，但DELIVERY-NOTE的唯一CTRL-STOCK全部applies_to=APP-STOCK；APP-STORE和LOCAL-ORDER-RECORD的本地持久成功/掉电丢失风险没有对应控制范围。",
+      "impact_zh": "风险控制表可能误导为中央库存控制已覆盖本地断连数据丢失，即使详细恢复契约保留了未知。",
+      "recommendation_zh": "拆分门店持久记录控制与中央接收去重/对账控制；分别引用应用、记录边界、未决责任和验证场景，不虚构已通过。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/raw-business-materials.md",
+          "line": 25,
+          "quote": "风险至少包括库存冲突、重复执行、断连数据丢失与恢复后长时间未对账",
+          "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 124,
+          "quote": "controls=[dict(id='CTRL-STOCK',risk_id='RISK-STOCK',statement=next(e for e in es if e['id']=='RISK-STOCK')['attributes']['control'],applies_to='APP-STOCK')]",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        }
+      ],
+      "generated_resolution": {
+        "status": "scope-corrected-verification-still-pending",
+        "observation_zh": "本地持久化与中央接收/重放已分为CTRL-LOCAL-DURABILITY、CTRL-CENTRAL-REPLAY，分别指向门店记录与中央恢复边界；控制仍为candidate，责任和故障验证仍未完成。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/delivery-notebook.json",
+            "line": 107,
+            "quote": "\"id\": \"CTRL-LOCAL-DURABILITY\"",
+            "sha256": "4a711f9b9f7c5284127ad0659a95029369e80e3f989759af93a636649ad47e2b"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/delivery-notebook.json",
+            "line": 115,
+            "quote": "\"id\": \"CTRL-CENTRAL-REPLAY\"",
+            "sha256": "4a711f9b9f7c5284127ad0659a95029369e80e3f989759af93a636649ad47e2b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F06",
+      "priority": "P2",
+      "kind": "generic-change-propagation-limit",
+      "status": "open-capability-boundary",
+      "title_zh": "角色技能传播来自案例分支，图影响尚未覆盖",
+      "observation_zh": "REQ-OFFLINE的图可达结果有22个领域对象，不含DEV-A、DELIVERY-NOTE、任务技能目标或角色配置上下文；这些虽在本案例被显式分支更新，但影响引擎未给出相应依赖路径。",
+      "impact_zh": "本案例正确输出不能证明任意需求变化都能自动传递到技能目标和复评。",
+      "recommendation_zh": "补typed依赖或增加独立的任务/目标/发展引用影响分析；继续将图可达标为候选而非已证实全部影响。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 172,
+          "quote": "if model['project']['version']=='2':",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/build.py",
+          "line": 302,
+          "quote": "delta=impact(changed_model,['REQ-OFFLINE'],max_depth=len(changed_model['entities']))",
+          "sha256": "aec828c09d0f11ec3055d062ddf01bf619a39ce41ae12f2902f4d9011d60aca1"
+        }
+      ],
+      "generated_resolution": {
+        "status": "case-dependencies-added-general-capability-unproven",
+        "observation_zh": "新增CHANGE-DECISIONS、CHANGE-ROLE、CHANGE-DEVELOPMENT后，图影响有32个候选，包括4角色、技能、DEV-A和DELIVERY-NOTE，全部待逐项确认。它证明本案例显式依赖可被遍历，尚不证明任意自然语言需求能自动发现或更新任务/技能/复评。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/change-impact.json",
+            "line": 50,
+            "quote": "\"id\": \"DEV-A\"",
+            "sha256": "e0dca04bb4ed8b663543266288d4b7ca29b39bcc95300e650c505c5cc84fd366"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/change-impact.json",
+            "line": 286,
+            "quote": "\"id\": \"ROLE-CHIEF\"",
+            "sha256": "e0dca04bb4ed8b663543266288d4b7ca29b39bcc95300e650c505c5cc84fd366"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/change-impact.json",
+            "line": 32,
+            "quote": "\"id\": \"DELIVERY-NOTE\"",
+            "sha256": "e0dca04bb4ed8b663543266288d4b7ca29b39bcc95300e650c505c5cc84fd366"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F07",
+      "priority": "P2",
+      "kind": "role-target-derivation-improvement",
+      "status": "open-evidence-improvement",
+      "title_zh": "四个角色均采用3级，裁剪依据仍过于通用",
+      "observation_zh": "每条目标说明均为虚构主管采用3级，只有一条工作行为；已经正确区分原表参考与项目目标，但尚未解释任务复杂性、独立完成程度、所需复核和为何该级足够。",
+      "impact_zh": "可复用到真实项目时，容易退化为将等级字段填满而不是从工作要求推导目标。",
+      "recommendation_zh": "为每项任务补可观察的完成标准、预期独立性/支持条件和项目采用理由；如无决定保持拟议目标，不能让AI独立认可。",
+      "evidence": [
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 166,
+          "quote": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        },
+        {
+          "path": "skills/_shared/examples/g249-omnichannel/role-skill-inputs.json",
+          "line": 163,
+          "quote": "\"behavioral_criteria\": [",
+          "sha256": "2cec827030ba9a58a1f4bea0b4c0215355102065d755a43e830c79c41cf7f815"
+        }
+      ],
+      "generated_resolution": {
+        "status": "tailoring-improved-project-adoption-not-business-approval",
+        "observation_zh": "四个3级目标已分别补投入取舍、跨分段互操作、库存运行数据、接口与恢复细节的采用理由，并说明困难情形仍需支持。adopted仅表示虚构教学场景中的目标状态；真实组织认可、行为证据与可用容量均未证实。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/skill-matrix.md",
+            "line": 30,
+            "quote": "| REQ-SKILL-CH |",
+            "sha256": "c556ec91260b17ed6bdf3a72ea32afce0bbb6abd906af291e8d652f2951ebe68"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/skill-matrix.md",
+            "line": 31,
+            "quote": "| REQ-SKILL-EA |",
+            "sha256": "c556ec91260b17ed6bdf3a72ea32afce0bbb6abd906af291e8d652f2951ebe68"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/skill-matrix.md",
+            "line": 33,
+            "quote": "| REQ-SKILL-SEG |",
+            "sha256": "c556ec91260b17ed6bdf3a72ea32afce0bbb6abd906af291e8d652f2951ebe68"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/skill-matrix.md",
+            "line": 34,
+            "quote": "| REQ-SKILL-SOL |",
+            "sha256": "c556ec91260b17ed6bdf3a72ea32afce0bbb6abd906af291e8d652f2951ebe68"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F08",
+      "priority": "P1",
+      "kind": "artifact-semantic-completeness-gap",
+      "status": "open-in-generated-artifact",
+      "title_zh": "角色分配主视图遗漏角色、任务与配置主体，空表仍获零覆盖错误",
+      "observation_zh": "三组role-assignment视图均只选择G249-ASSESSMENT-CONTEXT、0关系。Markdown主表仅列头，无ROLE-CHIEF/EA/SEG/SOL记录；任务、目标、ASSIGN-A、能力证据、容量和有效期被封装在assessment_inputs或computed_analyses。原因链可定位到本地构建器只选择context_id，Markdown目录又按允许的实体类型过滤，而覆盖器仅检查选入对象的表达情况。coverage只将上下文对象登记为represented，errors/warnings和unrepresented均为空，review_status仍为generated-awaiting-review，并非业务通过。",
+      "impact_zh": "目录不能直接回答谁负责什么、需具备什么证据、配置何时有效；选错主体仍可获得形式覆盖通过，不能据此宣称已生成可用的角色配置制品。",
+      "recommendation_zh": "为角色配置建立明确表达契约：主目录必须呈现4角色与任务关系，并提供任务要求、当前证据、ASSIGN-A容量/期限、支持与未批准状态的可读记录。语义覆盖应针对视图目的要求的主体检查，而非仅检查当前entity_ids。完整JSON/companion可作补充，不能替代主表达。修复后重跑生成与独立内容复核。",
+      "evidence": [
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.json",
+          "line": 40,
+          "quote": "\"entity_ids\": [\n      \"G249-ASSESSMENT-CONTEXT\"\n    ]",
+          "sha256": "da1baca615bf26c8804f4c7b23fe5401d1edb9a28bb5c56631049d7e1904a721"
+        },
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.json",
+          "line": 43,
+          "quote": "\"relationship_ids\": []",
+          "sha256": "da1baca615bf26c8804f4c7b23fe5401d1edb9a28bb5c56631049d7e1904a721"
+        },
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.md",
+          "line": 11,
+          "quote": "| ID | 类型 | 名称 | tier |",
+          "sha256": "5e9c2dd854132e9125d88bef402b08a4d47c4d7ed8c6739fb6c1a9ad59ccafb6"
+        },
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.coverage.json",
+          "line": 6,
+          "quote": "\"represented_entity_ids\": [\n    \"G249-ASSESSMENT-CONTEXT\"\n  ]",
+          "sha256": "9c4bd365dbb6c2ee6dd4023a426df0bfca75298b3894ee7ced8f182290cefb9f"
+        },
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.coverage.json",
+          "line": 10,
+          "quote": "\"unrepresented_entity_ids\": []",
+          "sha256": "9c4bd365dbb6c2ee6dd4023a426df0bfca75298b3894ee7ced8f182290cefb9f"
+        },
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/base_build.py",
+          "line": 275,
+          "quote": "v=view('role-assignment','architecture-role-catalog','architecture-work-assignment-review','任务、角色、能力证据与配置条件',[context_id])",
+          "sha256": "9c73196aee6d42c4d732563674f95d80976158ba508a34bb1abdec47a1e9a512"
+        },
+        {
+          "path": "skills/_shared/scripts/generate.py",
+          "line": 63,
+          "quote": "for e in es if e['type'] in a['entity_types']",
+          "sha256": "d9c9c3c4cd3073f763a43a06df1da53eb87c8d4075715a8feed2dc56c6167b7e"
+        },
+        {
+          "path": "skills/_shared/scripts/profile_render.py",
+          "line": 297,
+          "quote": "report['unrepresented_entity_ids']=sorted(set(e['id'] for e in entities)-set(report['represented_entity_ids']))",
+          "sha256": "3e4f071c6fe7f32578f3b3e504ae1a547b27b0e3d7690dd3e96d229544d36c37"
+        }
+      ]
+    },
+    {
+      "id": "F09",
+      "priority": "P2",
+      "kind": "shared-object-change-evidence-boundary",
+      "status": "projection-consistent-semantic-impact-unreviewed",
+      "title_zh": "共享对象变更验证只证明引用同步，未证明业务影响已分析",
+      "observation_zh": "shared-object-change沿用CAP-RESERVE，只变名称和定义；实体、分析输入及上下文副本同步，目录/能力应用矩阵/路线图均引用同一ID。接口契约、风险、工作包、接受标准和批准仍维持原状态；该分支未运行图形渲染。",
+      "impact_zh": "名称与定义投影一致有助于避免多份对象分叉，但不能据此判定架构语义变化对接口和运营没有影响。",
+      "recommendation_zh": "先判断变更是编辑性重命名还是承诺/业务政策含义变化，再据显式依赖逐项复核接口、风险、工作包、接受条件及决定记录。此案例应标为稳定ID投影验证完成、业务语义影响待审，不把自动同步当业务接受。",
+      "evidence": [
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/shared-object-projections.json",
+          "line": 23,
+          "quote": "\"capability_id\": \"CAP-RESERVE\"",
+          "sha256": "7d484a9fa625017ef48d740570779e929a6b8a0207ef88388e8111b535c0d880"
+        },
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/shared-object-projections.json",
+          "line": 24,
+          "quote": "\"name\": \"库存预占（共享对象变更验证）\"",
+          "sha256": "7d484a9fa625017ef48d740570779e929a6b8a0207ef88388e8111b535c0d880"
+        },
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/shared-object-projections.json",
+          "line": 25,
+          "quote": "\"definition\": \"变更验证：按已确认业务政策协调可售库存；政策本身仍待业务确认\"",
+          "sha256": "7d484a9fa625017ef48d740570779e929a6b8a0207ef88388e8111b535c0d880"
+        },
+        {
+          "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/summary.json",
+          "line": 28,
+          "quote": "\"rendered\": false",
+          "sha256": "57698c9bb5a035fbb4c38e5615cb085b94756d082c201e21e3a40d2bbebc984c"
+        }
+      ]
+    }
+  ],
+  "readonly_runtime_observations": {
+    "schema_validator_used_for_acceptance": false,
+    "generated_files_created_by_reviewer": false,
+    "assessment_summary": {
+      "baseline": {
+        "task_sol": "needs-input",
+        "assignment_state": "needs-evidence",
+        "capacity_state": "unresolved",
+        "approval": "not-granted",
+        "support_reviews": [
+          {
+            "requirement_ref": "REQ-SKILL-SOL",
+            "state": "expert-evidence-recorded"
+          }
+        ],
+        "rating_change": "not-inferred",
+        "gap_reasons": [
+          "source-definition-unresolved",
+          "missing-task-skill-requirement",
+          "competence-not-currently-evidenced",
+          "assignment-competence-unproven",
+          "capacity-unresolved",
+          "support-requires-owner-review",
+          "task-role-unassigned",
+          "task-role-unassigned",
+          "task-role-unassigned"
+        ]
+      },
+      "offline-change": {
+        "task_sol": "needs-input",
+        "assignment_state": "needs-evidence",
+        "capacity_state": "unresolved",
+        "approval": "not-granted",
+        "support_reviews": [
+          {
+            "requirement_ref": "REQ-SKILL-SOL",
+            "state": "expert-evidence-unproven"
+          }
+        ],
+        "rating_change": "not-inferred",
+        "gap_reasons": [
+          "source-definition-unresolved",
+          "missing-task-skill-requirement",
+          "competence-not-currently-evidenced",
+          "assignment-competence-unproven",
+          "capacity-unresolved",
+          "support-competence-unproven",
+          "support-requires-owner-review",
+          "task-role-unassigned",
+          "task-role-unassigned",
+          "task-role-unassigned"
+        ]
+      }
+    },
+    "impact_candidate_count": 22,
+    "impact_candidate_ids": [
+      "IF-RECOVERY",
+      "TRANS-OFFLINE",
+      "RISK-STOCK",
+      "APP-STOCK",
+      "APP-STORE",
+      "LOCAL-ORDER-RECORD",
+      "WP-OFFLINE",
+      "REQ-CONSISTENCY",
+      "ORDER-EXCEPTION",
+      "IF-RESERVE",
+      "IF-EVENT",
+      "ORDER-PENDING",
+      "CENTRAL-ORDER-RECORD",
+      "WP-ONLINE",
+      "TRANS-ONLINE",
+      "APP-ORDER",
+      "CAP-RESERVE",
+      "ORDER-CONFIRMED",
+      "CAP-ORDER",
+      "CAP-FULFIL",
+      "ORDER-FULFIL",
+      "CAP-LOGISTICS"
+    ],
+    "impact_notice": "候选排查范围；图可达不自动等于实际业务影响。"
+  },
+  "generated_artifact_review": {
+    "status": "reviewed-with-material-artifact-gaps",
+    "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated",
+    "generation_summary": {
+      "baseline": {
+        "model_sha256": "05b9d5ca3e2972ff1b96ea52132881588163a4ed580e5e4148f79d90a1dafcfb",
+        "views": 12,
+        "entities": 28,
+        "relationships": 31,
+        "validation_findings": [],
+        "rendered": true,
+        "business_approval": "not-granted",
+        "assessment_gap_count": 11
+      },
+      "offline-change": {
+        "model_sha256": "264844d0a6db373b30224327baae5b69629bc0c7bf731fba4617abd85613e841",
+        "views": 13,
+        "entities": 34,
+        "relationships": 46,
+        "validation_findings": [],
+        "rendered": true,
+        "business_approval": "not-granted",
+        "assessment_gap_count": 11
+      },
+      "shared-object-change": {
+        "model_sha256": "452881444b47cdf8e90422f1d589855f33d639fb9539ee6029ef26967022e3f4",
+        "views": 13,
+        "entities": 34,
+        "relationships": 46,
+        "validation_findings": [],
+        "rendered": false,
+        "business_approval": "not-granted",
+        "assessment_gap_count": 11
+      }
+    },
+    "source_snapshots": [
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json",
+        "sha256": "611b436b1c167cff818e1c4ce3a1a4d7f620c5d46c047836c4678c9b221ef8e0"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/run.py",
+        "sha256": "5c0db596236a2ddb15d97d1740db504b6f51c8ef6631e80ed0eb68a11dd9df09"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/base_build.py",
+        "sha256": "9c73196aee6d42c4d732563674f95d80976158ba508a34bb1abdec47a1e9a512"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/summary.json",
+        "sha256": "57698c9bb5a035fbb4c38e5615cb085b94756d082c201e21e3a40d2bbebc984c"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/execution-provenance.json",
+        "sha256": "df27e8136262cec0db6b16ae4eeefa1bf08fe25f524b83e7246d795e30018976"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/change-impact.json",
+        "sha256": "e0dca04bb4ed8b663543266288d4b7ca29b39bcc95300e650c505c5cc84fd366"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/baseline/model.json",
+        "sha256": "f1359ccc1b79ef7c1b72a14d809796dbbebf74ff89fbcfb5791b0f03f3ad8c00"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/baseline/role-assessment.json",
+        "sha256": "b49f182cde2332743ddac2378ca2da8bf3e26e1c88c498f521917e7fdde722d7"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/baseline/shared-object-projections.json",
+        "sha256": "8080c39ab75c61c4e7f7f8bfdbd2efb13bed2fd03b2ae5e0030b0a7aa7a8cc0d"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/baseline/artifacts/role-assignment.json",
+        "sha256": "8e2a4d968c3c9ccfd91d696594e227aa9efbf749e2463b76e237b2b01b295cfe"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/baseline/artifacts/role-assignment.coverage.json",
+        "sha256": "8071cd37c2436896831890c8346adf259948207c00c1ac6d136294a113ad169a"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/baseline/artifacts/role-assignment.md",
+        "sha256": "83fd2015737339d401a265d4743b67f72c7f349da99c77b0b936ec53cae63f30"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/model.json",
+        "sha256": "5e03c486849d5553377a06a2aee961ac0ba4929b43760c991a6b6599bb40f8f9"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/role-assessment.json",
+        "sha256": "0d950f102e935883d8469d300a38e3418703e21da9fb5fb351d8947b372343ea"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/shared-object-projections.json",
+        "sha256": "2aa1531bf25b52274fea965c4e20454b59262574a4700dcaf726282474c584d1"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.json",
+        "sha256": "da1baca615bf26c8804f4c7b23fe5401d1edb9a28bb5c56631049d7e1904a721"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.coverage.json",
+        "sha256": "9c4bd365dbb6c2ee6dd4023a426df0bfca75298b3894ee7ced8f182290cefb9f"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.md",
+        "sha256": "5e9c2dd854132e9125d88bef402b08a4d47c4d7ed8c6739fb6c1a9ad59ccafb6"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/model.json",
+        "sha256": "89a6cbcc27cad7f27ef84d02cf19fd3023515247ab4dbd474d02752f36f1deb7"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/role-assessment.json",
+        "sha256": "0d950f102e935883d8469d300a38e3418703e21da9fb5fb351d8947b372343ea"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/shared-object-projections.json",
+        "sha256": "7d484a9fa625017ef48d740570779e929a6b8a0207ef88388e8111b535c0d880"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/artifacts/role-assignment.json",
+        "sha256": "3d8137d8a6b227ba8e9d99cf9c456837b37b3b10b231d4a417fa4db6f7d8f91a"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/artifacts/role-assignment.coverage.json",
+        "sha256": "1156536f05b41e010bd2b84e554ad8848b8ac84d44c89e1c10328be8682e8cdf"
+      },
+      {
+        "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/artifacts/role-assignment.md",
+        "sha256": "6d5002c8ee8edf03b6f4f7b22fb7f7b7455b477637cbb02af91bad314ff40f91"
+      }
+    ],
+    "checks": [
+      {
+        "id": "G01",
+        "topic": "人员证据、项目目标与配置批准分离",
+        "status": "consistent-with-explicit-gaps",
+        "observation_zh": "两个人员观察均为证据不足，专家4级历史声明未转为现有能力。ASSIGN-A维持needs-evidence、capacity unresolved、approval not-granted；DEV-A未推断等级提升。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.md",
+            "line": 232,
+            "quote": "\"capacity_state\": \"unresolved\"",
+            "sha256": "5e9c2dd854132e9125d88bef402b08a4d47c4d7ed8c6739fb6c1a9ad59ccafb6"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.md",
+            "line": 233,
+            "quote": "\"approval\": \"not-granted\"",
+            "sha256": "5e9c2dd854132e9125d88bef402b08a4d47c4d7ed8c6739fb6c1a9ad59ccafb6"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.md",
+            "line": 260,
+            "quote": "\"rating_change\": \"not-inferred\"",
+            "sha256": "5e9c2dd854132e9125d88bef402b08a4d47c4d7ed8c6739fb6c1a9ad59ccafb6"
+          }
+        ]
+      },
+      {
+        "id": "G02",
+        "topic": "离线约束已传播，通用自动分析能力仍有限",
+        "status": "case-specific-propagation-observed",
+        "observation_zh": "生成模型新增6实体，保留28原实体与在线接口；离线行为进入TASK-SOL、REQ-SKILL-SOL、DEV-A。显式图依赖可达4角色、技能、发展与决策记录；所有候选待确认。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/skill-matrix.md",
+            "line": 34,
+            "quote": "评审断连、重连、幂等重放和库存冲突的恢复设计",
+            "sha256": "c556ec91260b17ed6bdf3a72ea32afce0bbb6abd906af291e8d652f2951ebe68"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/change-impact.json",
+            "line": 53,
+            "quote": "\"relationship_path\": [\n        \"CHANGE-DEVELOPMENT\"",
+            "sha256": "e0dca04bb4ed8b663543266288d4b7ca29b39bcc95300e650c505c5cc84fd366"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/change-impact.json",
+            "line": 11,
+            "quote": "\"confirmation\": \"待逐项确认\"",
+            "sha256": "e0dca04bb4ed8b663543266288d4b7ca29b39bcc95300e650c505c5cc84fd366"
+          }
+        ]
+      },
+      {
+        "id": "G03",
+        "topic": "角色协作和技能矩阵主体完整，角色分配主目录仍不完整",
+        "status": "material-artifact-gap",
+        "observation_zh": "role-collaboration有4角色/5关系，skill-matrix有4角色+4技能/7关系。role-assignment只选上下文对象并呈现空主表，不能用其它视图和内嵌JSON替代配置目录的业务目的；见F08。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-collaboration.json",
+            "line": 46,
+            "quote": "\"relationship_ids\": [",
+            "sha256": "1af07dbc6c96225694842dddaa4471fb22219470aa22a9f8eff7ff4941e3bda2"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/skill-matrix.md",
+            "line": 17,
+            "quote": "| ROLE-CHIEF |",
+            "sha256": "c556ec91260b17ed6bdf3a72ea32afce0bbb6abd906af291e8d652f2951ebe68"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.md",
+            "line": 11,
+            "quote": "| ID | 类型 | 名称 | tier |",
+            "sha256": "5e9c2dd854132e9125d88bef402b08a4d47c4d7ed8c6739fb6c1a9ad59ccafb6"
+          }
+        ]
+      },
+      {
+        "id": "G04",
+        "topic": "配置期间与发展计划覆盖",
+        "status": "explicitly-unresolved",
+        "observation_zh": "发展和复评到11月30日，离线工作包到12月4日；日期差异本身不证明培训设计错误，但人员续任/交接与后续复评支持未证实。GAP-ASSIGNMENT-PERIOD已准确保留；见F04。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/development-plan.json",
+            "line": 76,
+            "quote": "\"due_on\": \"2026-11-30\"",
+            "sha256": "95c499d77d0d132fdaf6670b50930dce295e10c9612d4c3f9d54f09e3a0a1a8a"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/transition-roadmap.json",
+            "line": 100,
+            "quote": "\"end\": \"2026-12-04\"",
+            "sha256": "1e6c8e92cebd80bd80acf72ee13f019effd2eb953fddadec869faf536d9efac7"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/delivery-notebook.json",
+            "line": 352,
+            "quote": "\"id\": \"GAP-ASSIGNMENT-PERIOD\"",
+            "sha256": "4a711f9b9f7c5284127ad0659a95029369e80e3f989759af93a636649ad47e2b"
+          }
+        ]
+      },
+      {
+        "id": "G05",
+        "topic": "共享对象多视图一致性",
+        "status": "stable-id-projection-consistent",
+        "observation_zh": "CAP-RESERVE的名称和定义同步至catalog、capability_application_matrix和roadmap，应用仍APP-STOCK，工作包仍WP-ONLINE/WP-OFFLINE；这项检查仅证明稳定ID投影，语义影响未审，见F09。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/shared-object-projections.json",
+            "line": 46,
+            "quote": "\"capability_application_matrix\": [",
+            "sha256": "7d484a9fa625017ef48d740570779e929a6b8a0207ef88388e8111b535c0d880"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/shared-object-projections.json",
+            "line": 78,
+            "quote": "\"roadmap\": [",
+            "sha256": "7d484a9fa625017ef48d740570779e929a6b8a0207ef88388e8111b535c0d880"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/shared-object-change/shared-object-projections.json",
+            "line": 94,
+            "quote": "\"work_package_id\": \"WP-OFFLINE\"",
+            "sha256": "7d484a9fa625017ef48d740570779e929a6b8a0207ef88388e8111b535c0d880"
+          }
+        ]
+      },
+      {
+        "id": "G06",
+        "topic": "物流与门店/中央数据边界",
+        "status": "consistent-with-candidate-design",
+        "observation_zh": "生成状态迁移仍由ORDER-CONFIRMED进入ORDER-FULFIL；本地受理不自动承诺。门店持久化与中央去重/对账控制已分开，并保留责任、数据丢失和恢复指标的未知。",
+        "evidence": [
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/order-states.md",
+            "line": 28,
+            "quote": "| ORDER-TO-FULFIL |",
+            "sha256": "655d14f477a738c716ca2d80d3d7bfc5d1568c401130782324741bc7911c3feb"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/delivery-notebook.json",
+            "line": 107,
+            "quote": "\"id\": \"CTRL-LOCAL-DURABILITY\"",
+            "sha256": "4a711f9b9f7c5284127ad0659a95029369e80e3f989759af93a636649ad47e2b"
+          },
+          {
+            "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/delivery-notebook.json",
+            "line": 115,
+            "quote": "\"id\": \"CTRL-CENTRAL-REPLAY\"",
+            "sha256": "4a711f9b9f7c5284127ad0659a95029369e80e3f989759af93a636649ad47e2b"
+          }
+        ]
+      }
+    ],
+    "role_assignment_observation": {
+      "baseline": {
+        "selected_entity_ids": [
+          "G249-ASSESSMENT-CONTEXT"
+        ],
+        "selected_relationship_ids": [],
+        "represented_entity_ids": [
+          "G249-ASSESSMENT-CONTEXT"
+        ],
+        "coverage_errors": [],
+        "coverage_warnings": [],
+        "main_role_table_rows": 0
+      },
+      "offline-change": {
+        "selected_entity_ids": [
+          "G249-ASSESSMENT-CONTEXT"
+        ],
+        "selected_relationship_ids": [],
+        "represented_entity_ids": [
+          "G249-ASSESSMENT-CONTEXT"
+        ],
+        "coverage_errors": [],
+        "coverage_warnings": [],
+        "main_role_table_rows": 0
+      },
+      "shared-object-change": {
+        "selected_entity_ids": [
+          "G249-ASSESSMENT-CONTEXT"
+        ],
+        "selected_relationship_ids": [],
+        "represented_entity_ids": [
+          "G249-ASSESSMENT-CONTEXT"
+        ],
+        "coverage_errors": [],
+        "coverage_warnings": [],
+        "main_role_table_rows": 0
+      }
+    },
+    "impact_candidate_count": 32,
+    "impact_candidate_ids": [
+      "IF-RECOVERY",
+      "TRANS-OFFLINE",
+      "RISK-STOCK",
+      "DELIVERY-NOTE",
+      "ROLE-SOL",
+      "DEV-A",
+      "APP-STOCK",
+      "APP-STORE",
+      "LOCAL-ORDER-RECORD",
+      "WP-OFFLINE",
+      "REQ-CONSISTENCY",
+      "ORDER-EXCEPTION",
+      "ROLE-SEG",
+      "SKILL-4",
+      "IF-RESERVE",
+      "IF-EVENT",
+      "ORDER-PENDING",
+      "CENTRAL-ORDER-RECORD",
+      "WP-ONLINE",
+      "CAP-RESERVE",
+      "TRANS-ONLINE",
+      "ROLE-EA",
+      "SKILL-3",
+      "APP-ORDER",
+      "ORDER-CONFIRMED",
+      "CAP-ORDER",
+      "CAP-FULFIL",
+      "ROLE-CHIEF",
+      "SKILL-2",
+      "ORDER-FULFIL",
+      "CAP-LOGISTICS",
+      "SKILL-1"
+    ],
+    "limits_zh": "已复核保存的模型、JSON、Markdown、覆盖登记、来源哈希和变更投影；未对PNG/SVG逐张目视验收，也未复验未执行渲染的shared-object-change图形。角色分配主目录仍为空，不能将本案例标为全部制品验收通过。真实需求、人员行为与组织批准仍无证据。"
+  },
+  "business_decisions_still_needed_zh": [
+    "超卖容忍、一致性及受理/承诺边界",
+    "离线额度、断连时长、可容忍丢失窗口与恢复对账目标",
+    "库存冲突、重复提交、补偿、回退的责任与接受标准",
+    "预算、人员工作量、有效期及支持容量",
+    "角色技能目标的项目认可与真实行为/组织认可证据"
+  ],
+  "review_limit_zh": "所有材料是虚构教学资料。独立AI审阅可识别逻辑和证据缺口，不授予真实业务批准、人员评级或上线权限。"
+}

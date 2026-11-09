@@ -1,0 +1,3663 @@
+{
+  "schema_version": "1.0",
+  "id": "G233/figC-1",
+  "status": "done",
+  "doc": {
+    "code": "G233",
+    "title_zh": "业务能力规划",
+    "title_en": "Business Capability Planning",
+    "zh_md": "G233e_业务能力规划.md",
+    "en_pdf": "togaf-standard-10th/G233e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "C-1",
+    "title_en": "Recruit Employee Value Stream with Business Capability Instances",
+    "title_zh": "带业务能力实例的招聘员工价值流",
+    "section_en": "Appendix C: Recruit Employee Value Stream",
+    "section_zh": "附录 C：Recruit Employee 价值流",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        55
+      ],
+      "printed_page": 41,
+      "bboxes": [
+        [
+          48.2,
+          210.2,
+          563.8,
+          565.9
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        963
+      ],
+      "label_table_lines": [
+        967,
+        1006
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g233e_figC-1_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "ccee1f38689a",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.989（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g233e_figC-1_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "a4ee05360213",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "Offer Position 列上方出现一块原图没有的巨大米色文字块“合同管理”，覆盖了 Compensation Management 的 Salary Bands、Contract Management 标题、HR Application 与 Employment Contract，并延伸到 Onboard 列 Facilities Management 的左缘",
+        "多个数据对象名（职位技能与资质、简历、求职信、入职前信息、员工电子凭证）被加上原图没有的灰色底纹条，且“员工电子凭证”被灰条压住半行",
+        "“发布空缺职位”阶段名被放得明显大于其他阶段名，“薪酬管理”能力名也偏大；版式不统一",
+        "“薪酬预算”被放在一个过大的白框中，盖住 General Ledger 应用框的一部分",
+        "阶段名、能力名、应用名、角色名与成果八边形基本完整译出，连线与嵌套结构保留"
+      ]
+    },
+    {
+      "path": "G233e_业务能力规划.md#L967-L1006",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "ca9902183eff",
+      "fidelity": "incomplete",
+      "issues_zh": [
+        "表头自述“阶段内的细粒度操作标签从略”，因此只收录了阶段名、能力名、部分应用名与阶段成果，缺少约一半图内标签",
+        "缺少的应用组件：Job Posting Website、Company Website、Collaboration Application、Building Access Management、General Ledger、Payroll Application、Banking Application、Benefits Application",
+        "缺少的数据/业务对象：Job Posting、Résumé、Cover Letter、Role Skills and Credentials、Salary Bands、Employment Contract、Pre-employment Information、Employee Electronic Credentials、Health Insurance、Retirement Plan",
+        "缺少的流程/角色：Human Resource Matching、Reject Unqualified Candidates、Interview Candidates、Score and Select Finalist Candidates、Book Interview Times、What's the process?、Assign Office Space、Investigate Reportable Offences；角色 Recruiter、Candidate、HR Advisor、Financial Analyst 也未收录",
+        "缺少 Building Pass Card 与 Gap；已收录的 33 条英文标签与原图逐字一致，译法正确（如 Define Position 定义职位、Communicate Open Position 发布空缺职位）"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "flow",
+      "hierarchy"
+    ],
+    "notation": "ArchiMate 价值流＋能力实例图：沙色价值流容器内五张白色阶段卡，卡内为沙色能力实例框，框内嵌套紫色利益相关者、黄色业务角色/流程、青色应用组件（内嵌黄色业务对象或白色数据对象）、绿色差距与绿色胶囊＋底座交付物；阶段卡底部为紫色成果八边形",
+    "concepts": [
+      "business_capability",
+      "value_stream",
+      "capability_based_planning",
+      "business_architecture"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "把招聘员工价值流的五个阶段展开成 17 个能力实例，逐层嵌套角色、应用、业务对象与差距，并给出前四个阶段的成果。",
+    "purpose_zh": "附录 C 用一个更偏后台的价值流补足正文的零售案例，演示同一套能力实例建模方法在招聘域的应用；同时暴露该价值流的现实问题（执行时间是要求的两倍多、入职后出现技能差距），为“缩短招聘时间、改善岗位与候选人匹配”的改进目标提供模型基础。",
+    "reading_guide_zh": "从左到右五列：Define Position → Communicate Open Position → Select Final Candidates → Offer Position → Onboard Candidates。顶部黄色是触发事件（Position Vacancy），两个紫色是利益相关者（Hiring Manager、Employee Candidate）。每列白卡内自上而下是能力实例；能力框内的紫色是参与者、黄色是角色/流程、青色是应用、黄色矩形是业务对象、白色矩形是数据对象、绿色波浪框是差距，绿色胶囊＋底座是交付物。每列底部紫色八边形（带靶心图标）是阶段成果，Onboard 列没有。带箭头的线跨越列时表示跨阶段的交接。",
+    "key_points_zh": [
+      "五个阶段：Define Position、Communicate Open Position、Select Final Candidates、Offer Position、Onboard Candidates；由职位空缺（Position Vacancy）触发，利益相关者是招聘经理与员工候选人。",
+      "共 17 个能力实例：Define 3 个（Program Management、HR Position Management、Finance Management）、Communicate 3 个（Job Posting、Document Management、Skills Assessment）、Select 3 个（Skills Assessment、Schedule Management、Identity Management）、Offer 4 个（Compensation Management、Contract Management、Document Management、Risk Management）、Onboard 4 个（Facilities Management、Identity Management、Payroll Management、Benefits Management）。",
+      "同一能力多次实例化：Document Management 在 Communicate 与 Offer 各一个（前者存简历/求职信，后者存入职前信息）；Skills Assessment 在 Communicate 与 Select 各一个（前者筛掉不合格者，后者打分选终选人）；Identity Management 在 Select 与 Onboard 各一个（前者流程未定并标了 Gap，后者发放电子凭证）。",
+      "两处跨列交接：Document Management 的简历数据以虚线箭头交给 Select 的 Skills Assessment；Offer 的 Employment Contract 以实线连到 Onboard 的 IAM Application，作为电子凭证的依据。",
+      "未知流程被显式建模：Select 的 Identity Management 里写着“What's the process?”，下方是一个标着“Gap”的绿色差距框——作者用占位问题表示该能力实例的流程尚未定义，这是本图最值得注意的“未完成”信号。",
+      "Payroll Management 中 HR Application 内嵌 Payroll Application，再有实心箭头指向 Banking Application，表示工资发放到银行；这是图中唯一一条应用→应用的实心数据流。",
+      "Facilities Management 末尾的 Building Pass Card 是绿色交付物（带底座），不是应用；它表示入职时发放的门禁卡这一产出。",
+      "前四个阶段各有明确的成果八边形（职位已批准可发布、可管理的合格候选人名单、候选人排名名单、已签署的劳动合同）；Onboard Candidates 阶段没有独立成果图形，止于阶段本身。"
+    ],
+    "hierarchy_zh": "四层：价值流 → 阶段 → 能力实例 → 组件（利益相关者/角色/应用/业务流程/业务对象/差距）。应用组件内再嵌数据对象或应用过程。Building Pass Card 与 Gap 是能力实例内的产出/差距，不再下钻。",
+    "line_semantics_zh": "虚线向下箭头（无标签）：Company Website → Recruiting Application，表示职位发布到招聘系统。虚线向上斜箭头（无标签）：Communicate 的 Document Management → Select 的 Skills Assessment，表示简历/求职信进入筛选。实线向上箭头（无标签）：Book Interview Times → Collaboration Application。实线向下实心箭头（无标签）：Payroll Application → Banking Application。实线无箭头：Employment Contract → IAM Application。其余关系全部由嵌套表达。",
+    "misreadings_zh": [
+      "不要把“What's the process?”当成给读者的提问；它是模型里的占位流程，配合下方“Gap”表示该能力实例的流程尚未定义。",
+      "不要把“Gap”框当成一个流程或应用；它是 ArchiMate 差距元素，表示需要补上的空白。",
+      "不要把两条 Document Management / Skills Assessment 当成重复绘制；它们是同一能力在不同阶段的两次实例化，组件不同。",
+      "不要把 Building Pass Card 当成应用或数据对象；它是设施管理产出的实物交付物。",
+      "不要把跨列的虚线读成阶段顺序；阶段顺序由列位置表达，跨列线是交接。",
+      "不要以为每个阶段都有成果图形：前四个阶段各有一个带靶心图标的紫色成果八边形；Onboard Candidates 列没有独立成果图形，图中也没有整条价值流的最终成果图形，与图 6-3 不同。",
+      "中文稿 PNG 的“合同管理”巨型文字块覆盖了 Offer Position 列，不要据其判断 Contract Management 的组件。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p54",
+        "summary_zh": "招聘员工价值流在文档写作早期开发，作者后来聚焦更以客户为中心的价值流，但仍把这一后台示例纳入；组织追求收入增长，吸引并雇用新员工对整体成功至关重要。"
+      },
+      {
+        "source": "en_pdf p54",
+        "summary_zh": "该价值流当前执行时间是组织要求的两倍多，且最终候选人入职后出现技能差距；需要缩短执行时间并改善岗位与最终候选人之间技能/经验的匹配。"
+      },
+      {
+        "source": "en_pdf p54",
+        "summary_zh": "价值流在出现空缺职位时启动（新设职位或员工离职），并分解为 Define Position、Communicate Open Position、Select Final Candidates、Offer Position、Onboard Candidates 五个阶段。"
+      },
+      {
+        "source": "en_pdf p55",
+        "summary_zh": "图 C-1 对该价值流及业务能力实例进行建模。"
+      },
+      {
+        "source": "zh_md L935",
+        "summary_zh": "中文稿说明招聘价值流执行时间是要求的两倍多，且入职后出现技能差距，需要缩短时间并改善匹配。"
+      },
+      {
+        "source": "zh_md L937",
+        "summary_zh": "中文稿列出五个价值流阶段：定义职位、发布空缺职位、筛选最终候选人、发出职位录用、候选人入职。"
+      },
+      {
+        "source": "zh_md L961",
+        "summary_zh": "图 C-1 对该价值流及业务能力实例进行了建模。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "沙色价值流容器内五列：每列一张白色阶段卡，卡内纵向堆叠 3–4 个沙色能力实例框；能力框内自上而下为利益相关者/角色、应用、业务对象/数据对象/流程；阶段卡底部为带靶心图标的成果八边形。"
+  },
+  "legend": [
+    {
+      "symbol": "沙色大框 + V 形图标",
+      "meaning_zh": "价值流",
+      "explicit": false
+    },
+    {
+      "symbol": "黄色框 + 事件图标",
+      "meaning_zh": "触发事件（Position Vacancy）",
+      "explicit": false
+    },
+    {
+      "symbol": "紫色六边形 + 双环图标",
+      "meaning_zh": "利益相关者（Hiring Manager、Employee Candidate）",
+      "explicit": false
+    },
+    {
+      "symbol": "白色阶段卡 + V 形图标",
+      "meaning_zh": "价值流阶段",
+      "explicit": false
+    },
+    {
+      "symbol": "沙色框 + 能力图标",
+      "meaning_zh": "业务能力实例",
+      "explicit": false
+    },
+    {
+      "symbol": "青色框 + 左侧双页签",
+      "meaning_zh": "应用组件",
+      "explicit": false
+    },
+    {
+      "symbol": "黄色矩形 + 箭头/角色图标",
+      "meaning_zh": "业务流程 / 业务角色",
+      "explicit": false
+    },
+    {
+      "symbol": "黄色直角矩形（应用内）",
+      "meaning_zh": "业务对象（Role Catalog、Résumé 等）",
+      "explicit": false
+    },
+    {
+      "symbol": "白色直角矩形（应用内）",
+      "meaning_zh": "数据对象（Job Posting、Employee Electronic Credentials）",
+      "explicit": false
+    },
+    {
+      "symbol": "白色圆角框 + 箭头图标",
+      "meaning_zh": "应用过程",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色波浪底框 + Gap 图标",
+      "meaning_zh": "差距（Gap）",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色胶囊 + 底座",
+      "meaning_zh": "交付物（Building Pass Card）",
+      "explicit": false
+    },
+    {
+      "symbol": "紫色八边形 + 靶心图标",
+      "meaning_zh": "阶段成果（ArchiMate Outcome 画法）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "vs_recruit",
+      "label_en": "Recruit Employee Value Stream",
+      "label_zh": "招聘员工价值流",
+      "type": "value_stream",
+      "parent": null,
+      "position": "沙色大容器"
+    },
+    {
+      "id": "ev_vacancy",
+      "label_en": "Position Vacancy",
+      "label_zh": "职位空缺",
+      "type": "event",
+      "parent": "vs_recruit",
+      "position": "容器左上（黄）"
+    },
+    {
+      "id": "st_hiring_manager",
+      "label_en": "Hiring Manager",
+      "label_zh": "招聘经理",
+      "type": "stakeholder",
+      "parent": null,
+      "position": "顶部中左（紫）"
+    },
+    {
+      "id": "st_candidate",
+      "label_en": "Employee Candidate",
+      "label_zh": "员工候选人",
+      "type": "stakeholder",
+      "parent": null,
+      "position": "顶部右侧（紫）"
+    },
+    {
+      "id": "stg_define",
+      "label_en": "Define Position",
+      "label_zh": "定义职位",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "order": 1,
+      "position": "第一列"
+    },
+    {
+      "id": "stg_communicate",
+      "label_en": "Communicate Open Position",
+      "label_zh": "发布空缺职位",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "order": 2,
+      "position": "第二列"
+    },
+    {
+      "id": "stg_select",
+      "label_en": "Select Final Candidates",
+      "label_zh": "筛选最终候选人",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "order": 3,
+      "position": "第三列"
+    },
+    {
+      "id": "stg_offer",
+      "label_en": "Offer Position",
+      "label_zh": "发出职位录用",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "order": 4,
+      "position": "第四列"
+    },
+    {
+      "id": "stg_onboard",
+      "label_en": "Onboard Candidates",
+      "label_zh": "候选人入职",
+      "type": "value_stream_stage",
+      "parent": "vs_recruit",
+      "order": 5,
+      "position": "第五列"
+    },
+    {
+      "id": "cap_define_program",
+      "label_en": "Program Management",
+      "label_zh": "项目群管理",
+      "type": "capability",
+      "parent": "stg_define",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "proc_hr_matching",
+      "label_en": "Human Resource Matching",
+      "label_zh": "人力资源匹配",
+      "type": "process",
+      "parent": "cap_define_program",
+      "order": 1
+    },
+    {
+      "id": "role_hm_define",
+      "label_en": "Hiring Manager",
+      "label_zh": "招聘经理",
+      "type": "role",
+      "parent": "cap_define_program",
+      "order": 2,
+      "description_zh": "角色"
+    },
+    {
+      "id": "cap_hr_position",
+      "label_en": "HR Position Management",
+      "label_zh": "人力资源职位管理",
+      "type": "capability",
+      "parent": "stg_define",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "app_file_sharing_1",
+      "label_en": "File Sharing Application",
+      "label_zh": "文件共享应用",
+      "type": "application",
+      "parent": "cap_hr_position",
+      "order": 1
+    },
+    {
+      "id": "obj_role_catalog",
+      "label_en": "Role Catalog",
+      "label_zh": "角色目录",
+      "type": "data",
+      "parent": "app_file_sharing_1"
+    },
+    {
+      "id": "obj_position_desc",
+      "label_en": "Position Description",
+      "label_zh": "职位描述",
+      "type": "data",
+      "parent": "obj_role_catalog"
+    },
+    {
+      "id": "role_hr_advisor_1",
+      "label_en": "HR Advisor",
+      "label_zh": "人力资源顾问",
+      "type": "role",
+      "parent": "cap_hr_position",
+      "order": 2
+    },
+    {
+      "id": "cap_define_finance",
+      "label_en": "Finance Management",
+      "label_zh": "财务管理",
+      "type": "capability",
+      "parent": "stg_define",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "app_general_ledger",
+      "label_en": "General Ledger",
+      "label_zh": "总账",
+      "type": "application",
+      "parent": "cap_define_finance",
+      "order": 1
+    },
+    {
+      "id": "obj_comp_budget",
+      "label_en": "Compensation Budget",
+      "label_zh": "薪酬预算",
+      "type": "data",
+      "parent": "app_general_ledger"
+    },
+    {
+      "id": "role_fin_analyst",
+      "label_en": "Financial Analyst",
+      "label_zh": "财务分析师",
+      "type": "role",
+      "parent": "cap_define_finance",
+      "order": 2
+    },
+    {
+      "id": "out_position",
+      "label_en": "Approved Position Ready for Posting",
+      "label_zh": "职位已批准、可发布",
+      "type": "goal",
+      "parent": "stg_define"
+    },
+    {
+      "id": "cap_job_posting",
+      "label_en": "Job Posting",
+      "label_zh": "职位发布",
+      "type": "capability",
+      "parent": "stg_communicate",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "app_job_posting_web",
+      "label_en": "Job Posting Website",
+      "label_zh": "招聘网站",
+      "type": "application",
+      "parent": "cap_job_posting",
+      "order": 1
+    },
+    {
+      "id": "app_company_web",
+      "label_en": "Company Website",
+      "label_zh": "公司网站",
+      "type": "application",
+      "parent": "cap_job_posting",
+      "order": 2
+    },
+    {
+      "id": "app_recruiting_posting",
+      "label_en": "Recruiting Application",
+      "label_zh": "招聘应用",
+      "type": "application",
+      "parent": "cap_job_posting",
+      "order": 3
+    },
+    {
+      "id": "dat_job_posting",
+      "label_en": "Job Posting",
+      "label_zh": "职位发布",
+      "type": "data",
+      "parent": "app_recruiting_posting",
+      "description_zh": "数据对象"
+    },
+    {
+      "id": "role_recruiter",
+      "label_en": "Recruiter",
+      "label_zh": "招聘人员",
+      "type": "role",
+      "parent": "cap_job_posting",
+      "order": 4
+    },
+    {
+      "id": "role_candidate_1",
+      "label_en": "Candidate",
+      "label_zh": "候选人",
+      "type": "role",
+      "parent": "cap_job_posting",
+      "order": 5,
+      "description_zh": "角色"
+    },
+    {
+      "id": "cap_doc_1",
+      "label_en": "Document Management",
+      "label_zh": "文档管理",
+      "type": "capability",
+      "parent": "stg_communicate",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "app_recruiting_docs",
+      "label_en": "Recruiting Application",
+      "label_zh": "招聘应用",
+      "type": "application",
+      "parent": "cap_doc_1",
+      "description_zh": "文档"
+    },
+    {
+      "id": "obj_resume",
+      "label_en": "Résumé",
+      "label_zh": "简历",
+      "type": "data",
+      "parent": "app_recruiting_docs",
+      "order": 1
+    },
+    {
+      "id": "obj_cover_letter",
+      "label_en": "Cover Letter",
+      "label_zh": "求职信",
+      "type": "data",
+      "parent": "app_recruiting_docs",
+      "order": 2
+    },
+    {
+      "id": "cap_skills_1",
+      "label_en": "Skills Assessment",
+      "label_zh": "技能评估",
+      "type": "capability",
+      "parent": "stg_communicate",
+      "level": 1,
+      "order": 3,
+      "description_zh": "初筛"
+    },
+    {
+      "id": "proc_reject",
+      "label_en": "Reject Unqualified Candidates",
+      "label_zh": "拒绝不合格候选人",
+      "type": "process",
+      "parent": "cap_skills_1",
+      "order": 1
+    },
+    {
+      "id": "role_hr_advisor_2",
+      "label_en": "HR Advisor",
+      "label_zh": "人力资源顾问",
+      "type": "role",
+      "parent": "cap_skills_1",
+      "order": 2,
+      "description_zh": "初筛"
+    },
+    {
+      "id": "out_manageable",
+      "label_en": "Manageable List of Qualified Candidates",
+      "label_zh": "可管理的合格候选人名单",
+      "type": "goal",
+      "parent": "stg_communicate"
+    },
+    {
+      "id": "cap_skills_2",
+      "label_en": "Skills Assessment",
+      "label_zh": "技能评估",
+      "type": "capability",
+      "parent": "stg_select",
+      "level": 1,
+      "order": 1,
+      "description_zh": "终选"
+    },
+    {
+      "id": "obj_role_skills",
+      "label_en": "Role Skills and Credentials",
+      "label_zh": "职位技能与资质",
+      "type": "data",
+      "parent": "cap_skills_2"
+    },
+    {
+      "id": "app_recruiting_score",
+      "label_en": "Recruiting Application",
+      "label_zh": "招聘应用",
+      "type": "application",
+      "parent": "cap_skills_2",
+      "order": 2,
+      "description_zh": "评分"
+    },
+    {
+      "id": "ap_score",
+      "label_en": "Score and Select Finalist Candidates",
+      "label_zh": "评分并选择入围候选人",
+      "type": "process",
+      "parent": "app_recruiting_score"
+    },
+    {
+      "id": "role_hm_select",
+      "label_en": "Hiring Manager",
+      "label_zh": "招聘经理",
+      "type": "role",
+      "parent": "cap_skills_2",
+      "order": 3,
+      "description_zh": "终选"
+    },
+    {
+      "id": "proc_interview",
+      "label_en": "Interview Candidates",
+      "label_zh": "面试候选人",
+      "type": "process",
+      "parent": "cap_skills_2",
+      "order": 4
+    },
+    {
+      "id": "cap_schedule",
+      "label_en": "Schedule Management",
+      "label_zh": "日程管理",
+      "type": "capability",
+      "parent": "stg_select",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "app_collab",
+      "label_en": "Collaboration Application",
+      "label_zh": "协作应用",
+      "type": "application",
+      "parent": "cap_schedule",
+      "order": 1
+    },
+    {
+      "id": "proc_book",
+      "label_en": "Book Interview Times",
+      "label_zh": "预约面试时间",
+      "type": "process",
+      "parent": "cap_schedule",
+      "order": 2
+    },
+    {
+      "id": "role_hr_advisor_3",
+      "label_en": "HR Advisor",
+      "label_zh": "人力资源顾问",
+      "type": "role",
+      "parent": "cap_schedule",
+      "order": 3,
+      "description_zh": "排期"
+    },
+    {
+      "id": "role_candidate_2",
+      "label_en": "Candidate",
+      "label_zh": "候选人",
+      "type": "role",
+      "parent": "cap_schedule",
+      "order": 4,
+      "description_zh": "面试"
+    },
+    {
+      "id": "cap_identity_select",
+      "label_en": "Identity Management",
+      "label_zh": "身份管理",
+      "type": "capability",
+      "parent": "stg_select",
+      "level": 1,
+      "order": 3,
+      "description_zh": "筛选"
+    },
+    {
+      "id": "proc_whats_process",
+      "label_en": "What's the process?",
+      "label_zh": "流程是什么？",
+      "type": "process",
+      "parent": "cap_identity_select",
+      "order": 1,
+      "description_zh": "占位流程"
+    },
+    {
+      "id": "gap_identity",
+      "label_en": "Gap",
+      "label_zh": "差距",
+      "type": "requirement",
+      "parent": "cap_identity_select",
+      "order": 2,
+      "description_zh": "ArchiMate gap 元素，表示该能力实例的流程尚未定义。"
+    },
+    {
+      "id": "out_ranked",
+      "label_en": "Ranked List of Candidates",
+      "label_zh": "候选人排名名单",
+      "type": "goal",
+      "parent": "stg_select"
+    },
+    {
+      "id": "cap_compensation",
+      "label_en": "Compensation Management",
+      "label_zh": "薪酬管理",
+      "type": "capability",
+      "parent": "stg_offer",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "obj_salary_bands",
+      "label_en": "Salary Bands",
+      "label_zh": "薪资带宽",
+      "type": "data",
+      "parent": "cap_compensation"
+    },
+    {
+      "id": "cap_contract",
+      "label_en": "Contract Management",
+      "label_zh": "合同管理",
+      "type": "capability",
+      "parent": "stg_offer",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "app_hr_contract",
+      "label_en": "HR Application",
+      "label_zh": "人力资源应用",
+      "type": "application",
+      "parent": "cap_contract",
+      "description_zh": "合同"
+    },
+    {
+      "id": "obj_employment_contract",
+      "label_en": "Employment Contract",
+      "label_zh": "劳动合同",
+      "type": "data",
+      "parent": "app_hr_contract"
+    },
+    {
+      "id": "cap_doc_2",
+      "label_en": "Document Management",
+      "label_zh": "文档管理",
+      "type": "capability",
+      "parent": "stg_offer",
+      "level": 1,
+      "order": 3,
+      "description_zh": "入职前"
+    },
+    {
+      "id": "app_file_sharing_2",
+      "label_en": "File Sharing Application",
+      "label_zh": "文件共享应用",
+      "type": "application",
+      "parent": "cap_doc_2",
+      "description_zh": "入职前"
+    },
+    {
+      "id": "obj_preemployment",
+      "label_en": "Pre-employment Information",
+      "label_zh": "入职前信息",
+      "type": "data",
+      "parent": "app_file_sharing_2"
+    },
+    {
+      "id": "cap_risk",
+      "label_en": "Risk Management",
+      "label_zh": "风险管理",
+      "type": "capability",
+      "parent": "stg_offer",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "app_police",
+      "label_en": "Police Check Application",
+      "label_zh": "警察审查应用",
+      "type": "application",
+      "parent": "cap_risk"
+    },
+    {
+      "id": "ap_investigate",
+      "label_en": "Investigate Reportable Offences",
+      "label_zh": "调查可报告的违规行为",
+      "type": "process",
+      "parent": "app_police"
+    },
+    {
+      "id": "out_signed",
+      "label_en": "Signed Employment Contract",
+      "label_zh": "已签署的劳动合同",
+      "type": "goal",
+      "parent": "stg_offer"
+    },
+    {
+      "id": "cap_facilities",
+      "label_en": "Facilities Management",
+      "label_zh": "设施管理",
+      "type": "capability",
+      "parent": "stg_onboard",
+      "level": 1,
+      "order": 1
+    },
+    {
+      "id": "proc_assign_space",
+      "label_en": "Assign Office Space",
+      "label_zh": "分配办公空间",
+      "type": "process",
+      "parent": "cap_facilities",
+      "order": 1
+    },
+    {
+      "id": "app_building_access",
+      "label_en": "Building Access Management",
+      "label_zh": "楼宇门禁管理",
+      "type": "application",
+      "parent": "cap_facilities",
+      "order": 2
+    },
+    {
+      "id": "artifact_pass_card",
+      "label_en": "Building Pass Card",
+      "label_zh": "楼宇门禁卡",
+      "type": "artifact",
+      "parent": "cap_facilities",
+      "order": 3,
+      "description_zh": "绿色胶囊＋底座的交付物（与图 7-2 的 Signature Pad 同形），表示入职时发放的门禁卡"
+    },
+    {
+      "id": "cap_identity_onboard",
+      "label_en": "Identity Management",
+      "label_zh": "身份管理",
+      "type": "capability",
+      "parent": "stg_onboard",
+      "level": 1,
+      "order": 2,
+      "description_zh": "入职"
+    },
+    {
+      "id": "app_iam",
+      "label_en": "IAM Application",
+      "label_zh": "身份与访问管理应用",
+      "type": "application",
+      "parent": "cap_identity_onboard"
+    },
+    {
+      "id": "dat_employee_credentials",
+      "label_en": "Employee Electronic Credentials",
+      "label_zh": "员工电子凭证",
+      "type": "data",
+      "parent": "app_iam"
+    },
+    {
+      "id": "cap_payroll",
+      "label_en": "Payroll Management",
+      "label_zh": "薪资管理",
+      "type": "capability",
+      "parent": "stg_onboard",
+      "level": 1,
+      "order": 3
+    },
+    {
+      "id": "app_hr_payroll",
+      "label_en": "HR Application",
+      "label_zh": "人力资源应用",
+      "type": "application",
+      "parent": "cap_payroll",
+      "order": 1,
+      "description_zh": "薪资"
+    },
+    {
+      "id": "app_payroll_app",
+      "label_en": "Payroll Application",
+      "label_zh": "薪资应用",
+      "type": "application",
+      "parent": "app_hr_payroll"
+    },
+    {
+      "id": "app_banking",
+      "label_en": "Banking Application",
+      "label_zh": "银行应用",
+      "type": "application",
+      "parent": "cap_payroll",
+      "order": 2
+    },
+    {
+      "id": "cap_benefits",
+      "label_en": "Benefits Management",
+      "label_zh": "福利管理",
+      "type": "capability",
+      "parent": "stg_onboard",
+      "level": 1,
+      "order": 4
+    },
+    {
+      "id": "app_benefits",
+      "label_en": "Benefits Application",
+      "label_zh": "福利应用",
+      "type": "application",
+      "parent": "cap_benefits"
+    },
+    {
+      "id": "obj_health",
+      "label_en": "Health Insurance",
+      "label_zh": "健康保险",
+      "type": "data",
+      "parent": "app_benefits",
+      "order": 1
+    },
+    {
+      "id": "obj_retirement",
+      "label_en": "Retirement Plan",
+      "label_zh": "退休计划",
+      "type": "data",
+      "parent": "app_benefits",
+      "order": 2
+    }
+  ],
+  "relationships": [
+    {
+      "from": "app_company_web",
+      "to": "app_recruiting_posting",
+      "type": "flow",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "虚线向下箭头：公司网站发布的职位进入招聘应用。"
+    },
+    {
+      "from": "cap_doc_1",
+      "to": "cap_skills_2",
+      "type": "flow",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "虚线斜向上箭头，从 Communicate 的 Document Management 能力框指向 Select 的 Skills Assessment 能力框，表示简历/求职信进入终选。"
+    },
+    {
+      "from": "proc_book",
+      "to": "app_collab",
+      "type": "flow",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "实线向上箭头：预约面试时间的流程写入协作应用。"
+    },
+    {
+      "from": "app_payroll_app",
+      "to": "app_banking",
+      "type": "flow",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "实线向下实心箭头：薪资应用把发放指令发送给银行应用。"
+    },
+    {
+      "from": "obj_employment_contract",
+      "to": "app_iam",
+      "type": "association",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "实线无箭头，从 Employment Contract 跨列连到 IAM Application，表示合同是电子凭证的依据。"
+    },
+    {
+      "from": "ev_vacancy",
+      "to": "vs_recruit",
+      "type": "triggering",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "st_hiring_manager",
+      "to": "vs_recruit",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "招聘经理是价值流的利益相关者。"
+    },
+    {
+      "from": "st_candidate",
+      "to": "vs_recruit",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "员工候选人是价值流的利益相关者。"
+    },
+    {
+      "from": "cap_define_program",
+      "to": "stg_define",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_hr_position",
+      "to": "stg_define",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_define_finance",
+      "to": "stg_define",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_job_posting",
+      "to": "stg_communicate",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_doc_1",
+      "to": "stg_communicate",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_skills_1",
+      "to": "stg_communicate",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_skills_2",
+      "to": "stg_select",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_schedule",
+      "to": "stg_select",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_identity_select",
+      "to": "stg_select",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_compensation",
+      "to": "stg_offer",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_contract",
+      "to": "stg_offer",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_doc_2",
+      "to": "stg_offer",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_risk",
+      "to": "stg_offer",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_facilities",
+      "to": "stg_onboard",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_identity_onboard",
+      "to": "stg_onboard",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_payroll",
+      "to": "stg_onboard",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "cap_benefits",
+      "to": "stg_onboard",
+      "type": "serving",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "stg_define",
+      "to": "out_position",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "stg_communicate",
+      "to": "out_manageable",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "stg_select",
+      "to": "out_ranked",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    },
+    {
+      "from": "stg_offer",
+      "to": "out_signed",
+      "type": "produces",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_recruit",
+      "kind": "sequence",
+      "name_zh": "招聘员工阶段序列",
+      "steps": [
+        "stg_define",
+        "stg_communicate",
+        "stg_select",
+        "stg_offer",
+        "stg_onboard"
+      ],
+      "description_zh": "五列从左到右；正文说明该价值流在职位空缺时启动，目标是缩短执行时间并改善技能匹配。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_recruit_instances",
+      "title_zh": "阶段×能力实例×组件逐项转录",
+      "columns": [
+        "阶段",
+        "能力实例",
+        "应用组件与内嵌对象",
+        "角色/流程/对象",
+        "阶段成果"
+      ],
+      "rows": [
+        [
+          "Define Position 定义职位",
+          "Program Management 项目群管理",
+          "—",
+          "Human Resource Matching 人力资源匹配（流程）；Hiring Manager 招聘经理（角色）",
+          "Approved Position Ready for Posting 职位已批准、可发布"
+        ],
+        [
+          "Define Position 定义职位",
+          "HR Position Management 人力资源职位管理",
+          "File Sharing Application 文件共享应用（Role Catalog 角色目录 → Position Description 职位描述）",
+          "HR Advisor 人力资源顾问",
+          "同上"
+        ],
+        [
+          "Define Position 定义职位",
+          "Finance Management 财务管理",
+          "General Ledger 总账（Compensation Budget 薪酬预算）",
+          "Financial Analyst 财务分析师",
+          "同上"
+        ],
+        [
+          "Communicate Open Position 发布空缺职位",
+          "Job Posting 职位发布",
+          "Job Posting Website 招聘网站；Company Website 公司网站；Recruiting Application 招聘应用（Job Posting 数据对象）",
+          "Recruiter 招聘人员；Candidate 候选人",
+          "Manageable List of Qualified Candidates 可管理的合格候选人名单"
+        ],
+        [
+          "Communicate Open Position 发布空缺职位",
+          "Document Management 文档管理",
+          "Recruiting Application 招聘应用（Résumé 简历；Cover Letter 求职信）",
+          "—",
+          "同上"
+        ],
+        [
+          "Communicate Open Position 发布空缺职位",
+          "Skills Assessment 技能评估",
+          "—",
+          "Reject Unqualified Candidates 拒绝不合格者（流程）；HR Advisor 人力资源顾问",
+          "同上"
+        ],
+        [
+          "Select Final Candidates 筛选最终候选人",
+          "Skills Assessment 技能评估",
+          "Recruiting Application 招聘应用（Score and Select Finalist Candidates 评分并选择入围者）",
+          "Role Skills and Credentials 职位技能与资质（数据）；Hiring Manager 招聘经理；Interview Candidates 面试候选人（流程）",
+          "Ranked List of Candidates 候选人排名名单"
+        ],
+        [
+          "Select Final Candidates 筛选最终候选人",
+          "Schedule Management 日程管理",
+          "Collaboration Application 协作应用",
+          "Book Interview Times 预约面试时间（流程）；HR Advisor；Candidate",
+          "同上"
+        ],
+        [
+          "Select Final Candidates 筛选最终候选人",
+          "Identity Management 身份管理",
+          "—",
+          "What's the process? 流程是什么？（占位流程）；Gap 差距",
+          "同上"
+        ],
+        [
+          "Offer Position 发出职位录用",
+          "Compensation Management 薪酬管理",
+          "—",
+          "Salary Bands 薪资带宽（数据）",
+          "Signed Employment Contract 已签署的劳动合同"
+        ],
+        [
+          "Offer Position 发出职位录用",
+          "Contract Management 合同管理",
+          "HR Application 人力资源应用（Employment Contract 劳动合同）",
+          "—",
+          "同上"
+        ],
+        [
+          "Offer Position 发出职位录用",
+          "Document Management 文档管理",
+          "File Sharing Application 文件共享应用（Pre-employment Information 入职前信息）",
+          "—",
+          "同上"
+        ],
+        [
+          "Offer Position 发出职位录用",
+          "Risk Management 风险管理",
+          "Police Check Application 警察审查应用（Investigate Reportable Offences 调查可报告违规）",
+          "—",
+          "同上"
+        ],
+        [
+          "Onboard Candidates 候选人入职",
+          "Facilities Management 设施管理",
+          "Building Access Management 楼宇门禁管理",
+          "Assign Office Space 分配办公空间（流程）；Building Pass Card 楼宇门禁卡（交付物）",
+          "无独立成果图形"
+        ],
+        [
+          "Onboard Candidates 候选人入职",
+          "Identity Management 身份管理",
+          "IAM Application 身份与访问管理应用（Employee Electronic Credentials 员工电子凭证）",
+          "—",
+          "同上"
+        ],
+        [
+          "Onboard Candidates 候选人入职",
+          "Payroll Management 薪资管理",
+          "HR Application 人力资源应用 → Payroll Application 薪资应用；Banking Application 银行应用",
+          "—",
+          "同上"
+        ],
+        [
+          "Onboard Candidates 候选人入职",
+          "Benefits Management 福利管理",
+          "Benefits Application 福利应用（Health Insurance 健康保险；Retirement Plan 退休计划）",
+          "—",
+          "同上"
+        ]
+      ],
+      "notes_zh": "同一能力在不同阶段出现多次时分行记录；角色/流程/对象列按图中元素类型标注。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G178/fig4-2",
+      "relation": "variant_of",
+      "note_zh": "G178 图 4-2 的招聘员工价值流使用同一业务场景，但阶段划分为 Define Position/Communicate Position/Assess Responses/Interview Candidates/Onboard Employee，与本图五阶段不同，属同一价值流的另一版本"
+    },
+    {
+      "target": "G178/fig4-3",
+      "relation": "related",
+      "note_zh": "G178 图 4-3 把招聘价值流阶段交叉映射到业务能力，可视为本图能力实例的上游映射"
+    },
+    {
+      "target": "G233/fig6-3",
+      "relation": "complements",
+      "note_zh": "两图使用完全相同的建模风格（阶段列→能力实例→角色/应用/数据/流程），可对照前台零售与后台招聘两个价值流"
+    },
+    {
+      "target": "G233/fig6-1",
+      "relation": "related",
+      "note_zh": "本图的 HR Position Management、Job Posting、Skills Assessment、Benefits Management、Payroll Management 均为图 6-1 目录中的能力"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "“Building Pass Card”使用绿色胶囊＋底座的图形，既非应用框也非差距框，本文按交付物（artifact）记录；其确切 ArchiMate 类型无法仅凭图形确认。",
+      "“What's the process?”与“Gap”组合表达流程未定义，但图中没有文字说明二者的关系；本文按“占位流程＋差距”解释。",
+      "Onboard Candidates 阶段没有独立成果图形（前四阶段为带靶心图标的紫色八边形），图中也未画整条价值流的最终成果图形（与图 6-3 不同），无法判断是有意省略还是版面所限。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 55 页图 C-1 截图（500 dpi）与 650 dpi 五列分栏放大",
+      "英文 PDF 第 54–55 页附录 C 正文",
+      "中文稿 G233e_业务能力规划.md 第 939–1006 行（含标签对照表）",
+      "figs/zh/g233e_figC-1_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G233e.pdf",
+    "pdf_sha256": "d5c62f9edb2465d10e59f0a1c9c23fb5d8a0b14e506cf7739a09886fbee07754",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G233/figC-1.json",
+    "interpretation_sha256": "4b5f4010fe4b159920a8a340a281fdce1b03ac452d7d74dacb49992018982ffa",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 55,
+        "text": "Figure C-1: Recruit Employee Value Stream with Business Capability Instances",
+        "bbox_pdf_points": [
+          48.24,
+          570.621,
+          411.659,
+          584.187
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 55,
+      "printed_page": 41,
+      "bbox_pdf_points": [
+        48.2,
+        210.2,
+        563.8,
+        565.9
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G233/figC-1-p0055.png",
+      "image_sha256": "379d0ac9778c6e01767bfd08375cfbd1531dfa33aa039801227ff1573556f0f4",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "379d0ac9778c6e01767bfd08375cfbd1531dfa33aa039801227ff1573556f0f4",
+          "status": "extracted-unverified",
+          "text": "Recruit Employee Value Stream\nPostion Vacancy\nD)\nHiring Manager\n®\nEmployee Candidate\nDefine Position\nD|\n‘Communicate Open\n>\nSelect Final\nD>\nOffer Position\nOnboard Candidates >\nPosition\nCandidates\nProgram Management i\nFacilities Management fi\nHuman Resource\n>\n‘Job Posting\na\n‘Skills Assessment\nee\n‘Compensation\nAssign Office Space <>)\nwatching\nManagement\nRoe Skils and Credentials\n4ob Posting Website\n‘Salary Bands\noa\nBulking Access\nHiring Manager\n‘Management|\nCompany Webste\nFRocruling Application\nHR Position\nci}\nContract Management <i\nBuilding Pass Card\n‘Score and\nHR Application\nManagement\n‘Select Finast\n‘Candidates\nFile Sharing Application\nRecruitna éppteaton\nEmployment\n‘Contract\nIdentity Management\n“Bb Posting\n1AM Application\nRoe Catalog\nHieing Manager\noa\nRecruiter\noa\nDocument Management «fi\nEmployee Electronic\nPostion\nInterview Candidates <>\n‘Credentials\nDescription\nFle Sharing Applicaton\nCandidate\noa\n”\nPre-employment\nInformation\nSchedule Management ff\nHR Advisor\no\nDocument Management if,\nPayroll Management\nCCotaboratton Appication\nFRocruling Application\nHR Application\nFinance Management if}\nResumé\nrs\nRisk Management i]\nPayro\n‘Applicaton\nGeneral Ledge\nBook interview Times >\nPolice Check Application\nr\n‘Compensation\nCover Letter\n*\ni\nBudget\nHR Advisor\nInvesugate cp}\nfa)\nReporable\nfences\nBanking Application\nCandidate\nfa)\nFinancial Analyst CD|\nSkills Assessment\na\nReject Unqualied <>\n‘Candidates\nBenefits Management «fi\n‘Approved Poston Ready\nIdentity Management\nSigned Employment @f\nBenefits Agpication\n‘or\nWhats the process? <p)\n©)\nHR Advaor\no\nHealth insurance\nGap\nSS]\nManageable List of\n‘Qualiies Candidates\ne\nRoterent Pian\nRanked List of\nCandidates\ne",
+          "words": [
+            {
+              "text": "Recruit",
+              "confidence": 85.634712,
+              "bbox_pixels_xywh": [
+                423,
+                16,
+                42,
+                9
+              ]
+            },
+            {
+              "text": "Employee",
+              "confidence": 90.51252,
+              "bbox_pixels_xywh": [
+                469,
+                16,
+                58,
+                12
+              ]
+            },
+            {
+              "text": "Value",
+              "confidence": 96.749298,
+              "bbox_pixels_xywh": [
+                531,
+                16,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "Stream",
+              "confidence": 96.015953,
+              "bbox_pixels_xywh": [
+                567,
+                15,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "Postion",
+              "confidence": 74.450111,
+              "bbox_pixels_xywh": [
+                74,
+                26,
+                33,
+                7
+              ]
+            },
+            {
+              "text": "Vacancy",
+              "confidence": 96.613297,
+              "bbox_pixels_xywh": [
+                110,
+                26,
+                37,
+                9
+              ]
+            },
+            {
+              "text": "D)",
+              "confidence": 60.626034,
+              "bbox_pixels_xywh": [
+                173,
+                26,
+                16,
+                9
+              ]
+            },
+            {
+              "text": "Hiring",
+              "confidence": 17.596149,
+              "bbox_pixels_xywh": [
+                274,
+                26,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Manager",
+              "confidence": 80.759048,
+              "bbox_pixels_xywh": [
+                302,
+                26,
+                39,
+                9
+              ]
+            },
+            {
+              "text": "®",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                364,
+                22,
+                19,
+                13
+              ]
+            },
+            {
+              "text": "Employee",
+              "confidence": 77.545288,
+              "bbox_pixels_xywh": [
+                659,
+                13,
+                45,
+                28
+              ]
+            },
+            {
+              "text": "Candidate",
+              "confidence": 42.037689,
+              "bbox_pixels_xywh": [
+                710,
+                13,
+                47,
+                28
+              ]
+            },
+            {
+              "text": "Define",
+              "confidence": 96.718628,
+              "bbox_pixels_xywh": [
+                66,
+                58,
+                36,
+                10
+              ]
+            },
+            {
+              "text": "Position",
+              "confidence": 96.542168,
+              "bbox_pixels_xywh": [
+                107,
+                58,
+                48,
+                10
+              ]
+            },
+            {
+              "text": "D|",
+              "confidence": 72.284668,
+              "bbox_pixels_xywh": [
+                185,
+                58,
+                14,
+                10
+              ]
+            },
+            {
+              "text": "‘Communicate",
+              "confidence": 83.750427,
+              "bbox_pixels_xywh": [
+                249,
+                58,
+                82,
+                10
+              ]
+            },
+            {
+              "text": "Open",
+              "confidence": 96.662407,
+              "bbox_pixels_xywh": [
+                335,
+                58,
+                31,
+                12
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 51.805283,
+              "bbox_pixels_xywh": [
+                388,
+                58,
+                14,
+                10
+              ]
+            },
+            {
+              "text": "Select",
+              "confidence": 93.813278,
+              "bbox_pixels_xywh": [
+                481,
+                58,
+                36,
+                10
+              ]
+            },
+            {
+              "text": "Final",
+              "confidence": 96.46537,
+              "bbox_pixels_xywh": [
+                522,
+                58,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "D>",
+              "confidence": 31.00613,
+              "bbox_pixels_xywh": [
+                590,
+                58,
+                14,
+                10
+              ]
+            },
+            {
+              "text": "Offer",
+              "confidence": 94.88398,
+              "bbox_pixels_xywh": [
+                672,
+                58,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "Position",
+              "confidence": 94.755539,
+              "bbox_pixels_xywh": [
+                706,
+                58,
+                48,
+                10
+              ]
+            },
+            {
+              "text": "Onboard",
+              "confidence": 77.638313,
+              "bbox_pixels_xywh": [
+                849,
+                58,
+                51,
+                10
+              ]
+            },
+            {
+              "text": "Candidates",
+              "confidence": 56.285568,
+              "bbox_pixels_xywh": [
+                904,
+                58,
+                67,
+                10
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 56.285568,
+              "bbox_pixels_xywh": [
+                985,
+                58,
+                14,
+                10
+              ]
+            },
+            {
+              "text": "Position",
+              "confidence": 93.496841,
+              "bbox_pixels_xywh": [
+                283,
+                73,
+                48,
+                9
+              ]
+            },
+            {
+              "text": "Candidates",
+              "confidence": 95.20961,
+              "bbox_pixels_xywh": [
+                482,
+                73,
+                66,
+                9
+              ]
+            },
+            {
+              "text": "Program",
+              "confidence": 96.767555,
+              "bbox_pixels_xywh": [
+                55,
+                79,
+                43,
+                11
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 87.879128,
+              "bbox_pixels_xywh": [
+                101,
+                79,
+                65,
+                8
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 69.597641,
+              "bbox_pixels_xywh": [
+                176,
+                77,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Facilities",
+              "confidence": 39.292969,
+              "bbox_pixels_xywh": [
+                854,
+                79,
+                45,
+                8
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 62.04818,
+              "bbox_pixels_xywh": [
+                902,
+                79,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "fi",
+              "confidence": 43.928978,
+              "bbox_pixels_xywh": [
+                976,
+                77,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Human",
+              "confidence": 94.035637,
+              "bbox_pixels_xywh": [
+                73,
+                100,
+                30,
+                8
+              ]
+            },
+            {
+              "text": "Resource",
+              "confidence": 69.870605,
+              "bbox_pixels_xywh": [
+                107,
+                100,
+                41,
+                8
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 70.900429,
+              "bbox_pixels_xywh": [
+                164,
+                101,
+                14,
+                10
+              ]
+            },
+            {
+              "text": "‘Job",
+              "confidence": 53.940109,
+              "bbox_pixels_xywh": [
+                277,
+                100,
+                19,
+                9
+              ]
+            },
+            {
+              "text": "Posting",
+              "confidence": 95.899437,
+              "bbox_pixels_xywh": [
+                300,
+                100,
+                38,
+                11
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 46.265656,
+              "bbox_pixels_xywh": [
+                378,
+                98,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "‘Skills",
+              "confidence": 91.435387,
+              "bbox_pixels_xywh": [
+                465,
+                90,
+                32,
+                28
+              ]
+            },
+            {
+              "text": "Assessment",
+              "confidence": 95.901672,
+              "bbox_pixels_xywh": [
+                504,
+                90,
+                58,
+                28
+              ]
+            },
+            {
+              "text": "ee",
+              "confidence": 18.850403,
+              "bbox_pixels_xywh": [
+                581,
+                98,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "‘Compensation",
+              "confidence": 70.095924,
+              "bbox_pixels_xywh": [
+                673,
+                100,
+                74,
+                11
+              ]
+            },
+            {
+              "text": "Assign",
+              "confidence": 63.963249,
+              "bbox_pixels_xywh": [
+                867,
+                100,
+                28,
+                9
+              ]
+            },
+            {
+              "text": "Office",
+              "confidence": 56.337627,
+              "bbox_pixels_xywh": [
+                900,
+                90,
+                24,
+                28
+              ]
+            },
+            {
+              "text": "Space",
+              "confidence": 53.044273,
+              "bbox_pixels_xywh": [
+                930,
+                90,
+                27,
+                28
+              ]
+            },
+            {
+              "text": "<>)",
+              "confidence": 53.044273,
+              "bbox_pixels_xywh": [
+                964,
+                101,
+                14,
+                10
+              ]
+            },
+            {
+              "text": "watching",
+              "confidence": 35.400917,
+              "bbox_pixels_xywh": [
+                91,
+                111,
+                39,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 90.45031,
+              "bbox_pixels_xywh": [
+                678,
+                113,
+                65,
+                10
+              ]
+            },
+            {
+              "text": "Roe",
+              "confidence": 63.063156,
+              "bbox_pixels_xywh": [
+                463,
+                129,
+                19,
+                7
+              ]
+            },
+            {
+              "text": "Skils",
+              "confidence": 68.398102,
+              "bbox_pixels_xywh": [
+                485,
+                129,
+                23,
+                7
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.254143,
+              "bbox_pixels_xywh": [
+                511,
+                129,
+                15,
+                7
+              ]
+            },
+            {
+              "text": "Credentials",
+              "confidence": 48.395351,
+              "bbox_pixels_xywh": [
+                530,
+                129,
+                49,
+                7
+              ]
+            },
+            {
+              "text": "4ob",
+              "confidence": 51.08342,
+              "bbox_pixels_xywh": [
+                266,
+                133,
+                15,
+                7
+              ]
+            },
+            {
+              "text": "Posting",
+              "confidence": 96.36467,
+              "bbox_pixels_xywh": [
+                285,
+                132,
+                31,
+                9
+              ]
+            },
+            {
+              "text": "Website",
+              "confidence": 33.38208,
+              "bbox_pixels_xywh": [
+                320,
+                132,
+                34,
+                8
+              ]
+            },
+            {
+              "text": "‘Salary",
+              "confidence": 75.446899,
+              "bbox_pixels_xywh": [
+                681,
+                139,
+                27,
+                9
+              ]
+            },
+            {
+              "text": "Bands",
+              "confidence": 89.634689,
+              "bbox_pixels_xywh": [
+                712,
+                139,
+                27,
+                8
+              ]
+            },
+            {
+              "text": "oa",
+              "confidence": 32.261803,
+              "bbox_pixels_xywh": [
+                164,
+                154,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "Bulking",
+              "confidence": 44.241333,
+              "bbox_pixels_xywh": [
+                884,
+                143,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 84.070335,
+              "bbox_pixels_xywh": [
+                921,
+                143,
+                31,
+                7
+              ]
+            },
+            {
+              "text": "Hiring",
+              "confidence": 50.564171,
+              "bbox_pixels_xywh": [
+                77,
+                154,
+                24,
+                9
+              ]
+            },
+            {
+              "text": "Manager",
+              "confidence": 91.657677,
+              "bbox_pixels_xywh": [
+                105,
+                154,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "‘Management|",
+              "confidence": 77.090904,
+              "bbox_pixels_xywh": [
+                890,
+                154,
+                57,
+                9
+              ]
+            },
+            {
+              "text": "Company",
+              "confidence": 30.679489,
+              "bbox_pixels_xywh": [
+                271,
+                175,
+                41,
+                9
+              ]
+            },
+            {
+              "text": "Webste",
+              "confidence": 64.059631,
+              "bbox_pixels_xywh": [
+                315,
+                175,
+                34,
+                7
+              ]
+            },
+            {
+              "text": "FRocruling",
+              "confidence": 35.034973,
+              "bbox_pixels_xywh": [
+                477,
+                175,
+                43,
+                9
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                523,
+                175,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 95.868187,
+              "bbox_pixels_xywh": [
+                81,
+                196,
+                14,
+                9
+              ]
+            },
+            {
+              "text": "Position",
+              "confidence": 82.739128,
+              "bbox_pixels_xywh": [
+                99,
+                196,
+                41,
+                9
+              ]
+            },
+            {
+              "text": "ci}",
+              "confidence": 9.461145,
+              "bbox_pixels_xywh": [
+                176,
+                194,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Contract",
+              "confidence": 87.668182,
+              "bbox_pixels_xywh": [
+                654,
+                186,
+                44,
+                8
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 83.216591,
+              "bbox_pixels_xywh": [
+                701,
+                186,
+                65,
+                10
+              ]
+            },
+            {
+              "text": "<i",
+              "confidence": 55.491364,
+              "bbox_pixels_xywh": [
+                776,
+                184,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Building",
+              "confidence": 41.233383,
+              "bbox_pixels_xywh": [
+                874,
+                196,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "Pass",
+              "confidence": 96.75721,
+              "bbox_pixels_xywh": [
+                912,
+                196,
+                21,
+                8
+              ]
+            },
+            {
+              "text": "Card",
+              "confidence": 77.963821,
+              "bbox_pixels_xywh": [
+                936,
+                196,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "‘Score",
+              "confidence": 86.384117,
+              "bbox_pixels_xywh": [
+                498,
+                207,
+                25,
+                7
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 76.443634,
+              "bbox_pixels_xywh": [
+                526,
+                207,
+                16,
+                7
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 91.7453,
+              "bbox_pixels_xywh": [
+                687,
+                197,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 85.912178,
+              "bbox_pixels_xywh": [
+                694,
+                207,
+                56,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 95.888153,
+              "bbox_pixels_xywh": [
+                78,
+                209,
+                65,
+                10
+              ]
+            },
+            {
+              "text": "‘Select",
+              "confidence": 57.823334,
+              "bbox_pixels_xywh": [
+                490,
+                218,
+                27,
+                7
+              ]
+            },
+            {
+              "text": "Finast",
+              "confidence": 38.059887,
+              "bbox_pixels_xywh": [
+                520,
+                218,
+                30,
+                7
+              ]
+            },
+            {
+              "text": "‘Candidates",
+              "confidence": 44.433487,
+              "bbox_pixels_xywh": [
+                496,
+                228,
+                49,
+                8
+              ]
+            },
+            {
+              "text": "File",
+              "confidence": 80.036278,
+              "bbox_pixels_xywh": [
+                63,
+                239,
+                14,
+                7
+              ]
+            },
+            {
+              "text": "Sharing",
+              "confidence": 84.797836,
+              "bbox_pixels_xywh": [
+                82,
+                229,
+                31,
+                28
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 55.135208,
+              "bbox_pixels_xywh": [
+                117,
+                229,
+                47,
+                28
+              ]
+            },
+            {
+              "text": "Recruitna",
+              "confidence": 4.457541,
+              "bbox_pixels_xywh": [
+                260,
+                218,
+                47,
+                31
+              ]
+            },
+            {
+              "text": "éppteaton",
+              "confidence": 23.157486,
+              "bbox_pixels_xywh": [
+                311,
+                218,
+                46,
+                31
+              ]
+            },
+            {
+              "text": "Employment",
+              "confidence": 38.858429,
+              "bbox_pixels_xywh": [
+                694,
+                235,
+                54,
+                10
+              ]
+            },
+            {
+              "text": "‘Contract",
+              "confidence": 55.697121,
+              "bbox_pixels_xywh": [
+                703,
+                246,
+                36,
+                7
+              ]
+            },
+            {
+              "text": "Identity",
+              "confidence": 57.909546,
+              "bbox_pixels_xywh": [
+                857,
+                250,
+                37,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 89.488258,
+              "bbox_pixels_xywh": [
+                898,
+                250,
+                65,
+                10
+              ]
+            },
+            {
+              "text": "“Bb",
+              "confidence": 20.976406,
+              "bbox_pixels_xywh": [
+                287,
+                257,
+                15,
+                7
+              ]
+            },
+            {
+              "text": "Posting",
+              "confidence": 72.842728,
+              "bbox_pixels_xywh": [
+                306,
+                257,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "1AM",
+              "confidence": 24.80094,
+              "bbox_pixels_xywh": [
+                885,
+                271,
+                16,
+                7
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 66.182785,
+              "bbox_pixels_xywh": [
+                904,
+                271,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "Roe",
+              "confidence": 75.660004,
+              "bbox_pixels_xywh": [
+                88,
+                278,
+                19,
+                7
+              ]
+            },
+            {
+              "text": "Catalog",
+              "confidence": 35.082581,
+              "bbox_pixels_xywh": [
+                110,
+                278,
+                33,
+                9
+              ]
+            },
+            {
+              "text": "Hieing",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                482,
+                282,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Manager",
+              "confidence": 96.166504,
+              "bbox_pixels_xywh": [
+                510,
+                282,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "oa",
+              "confidence": 32.261803,
+              "bbox_pixels_xywh": [
+                564,
+                282,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "Recruiter",
+              "confidence": 59.867416,
+              "bbox_pixels_xywh": [
+                283,
+                303,
+                39,
+                7
+              ]
+            },
+            {
+              "text": "oa",
+              "confidence": 32.327538,
+              "bbox_pixels_xywh": [
+                356,
+                303,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "Document",
+              "confidence": 94.605026,
+              "bbox_pixels_xywh": [
+                650,
+                303,
+                52,
+                8
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 84.069824,
+              "bbox_pixels_xywh": [
+                705,
+                303,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "«fi",
+              "confidence": 70.893661,
+              "bbox_pixels_xywh": [
+                776,
+                301,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Employee",
+              "confidence": 80.892929,
+              "bbox_pixels_xywh": [
+                872,
+                299,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "Electronic",
+              "confidence": 16.682625,
+              "bbox_pixels_xywh": [
+                918,
+                299,
+                42,
+                8
+              ]
+            },
+            {
+              "text": "Postion",
+              "confidence": 85.437531,
+              "bbox_pixels_xywh": [
+                98,
+                310,
+                34,
+                7
+              ]
+            },
+            {
+              "text": "Interview",
+              "confidence": 75.587471,
+              "bbox_pixels_xywh": [
+                471,
+                314,
+                38,
+                7
+              ]
+            },
+            {
+              "text": "Candidates",
+              "confidence": 93.330124,
+              "bbox_pixels_xywh": [
+                512,
+                314,
+                49,
+                7
+              ]
+            },
+            {
+              "text": "<>",
+              "confidence": 63.591312,
+              "bbox_pixels_xywh": [
+                564,
+                315,
+                14,
+                9
+              ]
+            },
+            {
+              "text": "‘Credentials",
+              "confidence": 29.226952,
+              "bbox_pixels_xywh": [
+                891,
+                310,
+                49,
+                7
+              ]
+            },
+            {
+              "text": "Description",
+              "confidence": 47.594681,
+              "bbox_pixels_xywh": [
+                91,
+                321,
+                48,
+                9
+              ]
+            },
+            {
+              "text": "Fle",
+              "confidence": 74.72628,
+              "bbox_pixels_xywh": [
+                666,
+                324,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "Sharing",
+              "confidence": 52.075653,
+              "bbox_pixels_xywh": [
+                685,
+                314,
+                31,
+                28
+              ]
+            },
+            {
+              "text": "Applicaton",
+              "confidence": 75.943695,
+              "bbox_pixels_xywh": [
+                720,
+                314,
+                46,
+                28
+              ]
+            },
+            {
+              "text": "Candidate",
+              "confidence": 85.26088,
+              "bbox_pixels_xywh": [
+                280,
+                335,
+                44,
+                7
+              ]
+            },
+            {
+              "text": "oa",
+              "confidence": 32.327538,
+              "bbox_pixels_xywh": [
+                356,
+                335,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "”",
+              "confidence": 37.299843,
+              "bbox_pixels_xywh": [
+                425,
+                347,
+                14,
+                9
+              ]
+            },
+            {
+              "text": "Pre-employment",
+              "confidence": 55.803963,
+              "bbox_pixels_xywh": [
+                685,
+                353,
+                71,
+                9
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 45.492329,
+              "bbox_pixels_xywh": [
+                697,
+                363,
+                47,
+                8
+              ]
+            },
+            {
+              "text": "Schedule",
+              "confidence": 89.380196,
+              "bbox_pixels_xywh": [
+                458,
+                367,
+                47,
+                8
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 87.767845,
+              "bbox_pixels_xywh": [
+                508,
+                367,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 59.304726,
+              "bbox_pixels_xywh": [
+                581,
+                365,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 37.052528,
+              "bbox_pixels_xywh": [
+                83,
+                378,
+                13,
+                7
+              ]
+            },
+            {
+              "text": "Advisor",
+              "confidence": 8.778353,
+              "bbox_pixels_xywh": [
+                99,
+                378,
+                32,
+                7
+              ]
+            },
+            {
+              "text": "o",
+              "confidence": 28.40023,
+              "bbox_pixels_xywh": [
+                159,
+                378,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "Document",
+              "confidence": 88.678963,
+              "bbox_pixels_xywh": [
+                248,
+                378,
+                51,
+                8
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 84.725426,
+              "bbox_pixels_xywh": [
+                303,
+                378,
+                64,
+                10
+              ]
+            },
+            {
+              "text": "if,",
+              "confidence": 35.351604,
+              "bbox_pixels_xywh": [
+                378,
+                372,
+                17,
+                16
+              ]
+            },
+            {
+              "text": "Payroll",
+              "confidence": 91.567162,
+              "bbox_pixels_xywh": [
+                859,
+                378,
+                35,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 79.954742,
+              "bbox_pixels_xywh": [
+                898,
+                378,
+                65,
+                10
+              ]
+            },
+            {
+              "text": "CCotaboratton",
+              "confidence": 45.232357,
+              "bbox_pixels_xywh": [
+                470,
+                388,
+                56,
+                8
+              ]
+            },
+            {
+              "text": "Appication",
+              "confidence": 33.06963,
+              "bbox_pixels_xywh": [
+                529,
+                388,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "FRocruling",
+              "confidence": 55.304565,
+              "bbox_pixels_xywh": [
+                269,
+                399,
+                43,
+                9
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                315,
+                399,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 89.917549,
+              "bbox_pixels_xywh": [
+                887,
+                389,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 86.558769,
+              "bbox_pixels_xywh": [
+                894,
+                399,
+                56,
+                9
+              ]
+            },
+            {
+              "text": "Finance",
+              "confidence": 96.875664,
+              "bbox_pixels_xywh": [
+                57,
+                420,
+                39,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 82.734802,
+              "bbox_pixels_xywh": [
+                100,
+                420,
+                64,
+                11
+              ]
+            },
+            {
+              "text": "if}",
+              "confidence": 17.734613,
+              "bbox_pixels_xywh": [
+                176,
+                418,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Resumé",
+              "confidence": 83.549774,
+              "bbox_pixels_xywh": [
+                301,
+                427,
+                35,
+                8
+              ]
+            },
+            {
+              "text": "rs",
+              "confidence": 37.571068,
+              "bbox_pixels_xywh": [
+                518,
+                425,
+                7,
+                11
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 86.852837,
+              "bbox_pixels_xywh": [
+                665,
+                420,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 66.192711,
+              "bbox_pixels_xywh": [
+                691,
+                420,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "i]",
+              "confidence": 58.107681,
+              "bbox_pixels_xywh": [
+                776,
+                418,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Payro",
+              "confidence": 7.171879,
+              "bbox_pixels_xywh": [
+                914,
+                420,
+                29,
+                10
+              ]
+            },
+            {
+              "text": "‘Applicaton",
+              "confidence": 53.713882,
+              "bbox_pixels_xywh": [
+                905,
+                431,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "General",
+              "confidence": 89.684769,
+              "bbox_pixels_xywh": [
+                80,
+                442,
+                33,
+                7
+              ]
+            },
+            {
+              "text": "Ledge",
+              "confidence": 61.026989,
+              "bbox_pixels_xywh": [
+                117,
+                442,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Book",
+              "confidence": 54.674397,
+              "bbox_pixels_xywh": [
+                475,
+                442,
+                22,
+                7
+              ]
+            },
+            {
+              "text": "interview",
+              "confidence": 48.20768,
+              "bbox_pixels_xywh": [
+                500,
+                431,
+                37,
+                28
+              ]
+            },
+            {
+              "text": "Times",
+              "confidence": 84.765076,
+              "bbox_pixels_xywh": [
+                543,
+                431,
+                24,
+                28
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 48.399956,
+              "bbox_pixels_xywh": [
+                570,
+                443,
+                13,
+                10
+              ]
+            },
+            {
+              "text": "Police",
+              "confidence": 79.634453,
+              "bbox_pixels_xywh": [
+                663,
+                442,
+                25,
+                7
+              ]
+            },
+            {
+              "text": "Check",
+              "confidence": 62.141029,
+              "bbox_pixels_xywh": [
+                694,
+                431,
+                24,
+                28
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 55.993591,
+              "bbox_pixels_xywh": [
+                724,
+                431,
+                50,
+                28
+              ]
+            },
+            {
+              "text": "r",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                921,
+                457,
+                1,
+                6
+              ]
+            },
+            {
+              "text": "‘Compensation",
+              "confidence": 49.589897,
+              "bbox_pixels_xywh": [
+                79,
+                470,
+                63,
+                9
+              ]
+            },
+            {
+              "text": "Cover",
+              "confidence": 65.482658,
+              "bbox_pixels_xywh": [
+                292,
+                470,
+                26,
+                7
+              ]
+            },
+            {
+              "text": "Letter",
+              "confidence": 65.482658,
+              "bbox_pixels_xywh": [
+                321,
+                470,
+                24,
+                7
+              ]
+            },
+            {
+              "text": "*",
+              "confidence": 10.077076,
+              "bbox_pixels_xywh": [
+                918,
+                472,
+                7,
+                7
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 19.060726,
+              "bbox_pixels_xywh": [
+                921,
+                465,
+                1,
+                6
+              ]
+            },
+            {
+              "text": "Budget",
+              "confidence": 62.934353,
+              "bbox_pixels_xywh": [
+                96,
+                481,
+                30,
+                9
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 94.039131,
+              "bbox_pixels_xywh": [
+                497,
+                484,
+                12,
+                8
+              ]
+            },
+            {
+              "text": "Advisor",
+              "confidence": 58.699989,
+              "bbox_pixels_xywh": [
+                512,
+                484,
+                33,
+                8
+              ]
+            },
+            {
+              "text": "Invesugate",
+              "confidence": 32.45063,
+              "bbox_pixels_xywh": [
+                698,
+                474,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "cp}",
+              "confidence": 49.772064,
+              "bbox_pixels_xywh": [
+                759,
+                475,
+                14,
+                9
+              ]
+            },
+            {
+              "text": "fa)",
+              "confidence": 63.153778,
+              "bbox_pixels_xywh": [
+                570,
+                484,
+                14,
+                9
+              ]
+            },
+            {
+              "text": "Reporable",
+              "confidence": 49.526333,
+              "bbox_pixels_xywh": [
+                698,
+                484,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "fences",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                702,
+                495,
+                38,
+                7
+              ]
+            },
+            {
+              "text": "Banking",
+              "confidence": 80.878052,
+              "bbox_pixels_xywh": [
+                876,
+                484,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 65.832047,
+              "bbox_pixels_xywh": [
+                913,
+                484,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "Candidate",
+              "confidence": 85.719017,
+              "bbox_pixels_xywh": [
+                499,
+                516,
+                44,
+                8
+              ]
+            },
+            {
+              "text": "fa)",
+              "confidence": 63.153778,
+              "bbox_pixels_xywh": [
+                570,
+                516,
+                14,
+                9
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 76.206787,
+              "bbox_pixels_xywh": [
+                65,
+                516,
+                42,
+                28
+              ]
+            },
+            {
+              "text": "Analyst",
+              "confidence": 34.349983,
+              "bbox_pixels_xywh": [
+                111,
+                516,
+                38,
+                28
+              ]
+            },
+            {
+              "text": "CD|",
+              "confidence": 49.163376,
+              "bbox_pixels_xywh": [
+                155,
+                527,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "Skills",
+              "confidence": 94.798141,
+              "bbox_pixels_xywh": [
+                258,
+                516,
+                31,
+                28
+              ]
+            },
+            {
+              "text": "Assessment",
+              "confidence": 88.920097,
+              "bbox_pixels_xywh": [
+                295,
+                516,
+                60,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 66.11483,
+              "bbox_pixels_xywh": [
+                378,
+                525,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Reject",
+              "confidence": 85.422432,
+              "bbox_pixels_xywh": [
+                270,
+                548,
+                27,
+                9
+              ]
+            },
+            {
+              "text": "Unqualied",
+              "confidence": 18.036833,
+              "bbox_pixels_xywh": [
+                300,
+                548,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "<>",
+              "confidence": 49.728241,
+              "bbox_pixels_xywh": [
+                367,
+                549,
+                13,
+                10
+              ]
+            },
+            {
+              "text": "‘Candidates",
+              "confidence": 45.582619,
+              "bbox_pixels_xywh": [
+                283,
+                559,
+                49,
+                7
+              ]
+            },
+            {
+              "text": "Benefits",
+              "confidence": 96.622078,
+              "bbox_pixels_xywh": [
+                856,
+                548,
+                41,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 69.89357,
+              "bbox_pixels_xywh": [
+                900,
+                548,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "«fi",
+              "confidence": 49.843231,
+              "bbox_pixels_xywh": [
+                976,
+                546,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "‘Approved",
+              "confidence": 73.832001,
+              "bbox_pixels_xywh": [
+                55,
+                570,
+                41,
+                9
+              ]
+            },
+            {
+              "text": "Poston",
+              "confidence": 84.643616,
+              "bbox_pixels_xywh": [
+                100,
+                570,
+                34,
+                7
+              ]
+            },
+            {
+              "text": "Ready",
+              "confidence": 94.215805,
+              "bbox_pixels_xywh": [
+                138,
+                570,
+                27,
+                9
+              ]
+            },
+            {
+              "text": "Identity",
+              "confidence": 40.530655,
+              "bbox_pixels_xywh": [
+                463,
+                559,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 62.237041,
+              "bbox_pixels_xywh": [
+                504,
+                559,
+                64,
+                11
+              ]
+            },
+            {
+              "text": "Signed",
+              "confidence": 91.980522,
+              "bbox_pixels_xywh": [
+                663,
+                549,
+                34,
+                29
+              ]
+            },
+            {
+              "text": "Employment",
+              "confidence": 50.164146,
+              "bbox_pixels_xywh": [
+                701,
+                549,
+                62,
+                29
+              ]
+            },
+            {
+              "text": "@f",
+              "confidence": 11.980534,
+              "bbox_pixels_xywh": [
+                769,
+                557,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "Benefits",
+              "confidence": 58.402184,
+              "bbox_pixels_xywh": [
+                867,
+                560,
+                38,
+                28
+              ]
+            },
+            {
+              "text": "Agpication",
+              "confidence": 28.180542,
+              "bbox_pixels_xywh": [
+                909,
+                560,
+                49,
+                28
+              ]
+            },
+            {
+              "text": "‘or",
+              "confidence": 58.130905,
+              "bbox_pixels_xywh": [
+                87,
+                580,
+                12,
+                8
+              ]
+            },
+            {
+              "text": "Whats",
+              "confidence": 88.018318,
+              "bbox_pixels_xywh": [
+                471,
+                580,
+                29,
+                8
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 91.080353,
+              "bbox_pixels_xywh": [
+                503,
+                581,
+                14,
+                7
+              ]
+            },
+            {
+              "text": "process?",
+              "confidence": 76.064827,
+              "bbox_pixels_xywh": [
+                520,
+                580,
+                39,
+                9
+              ]
+            },
+            {
+              "text": "<p)",
+              "confidence": 43.205231,
+              "bbox_pixels_xywh": [
+                570,
+                581,
+                13,
+                10
+              ]
+            },
+            {
+              "text": "©)",
+              "confidence": 24.084801,
+              "bbox_pixels_xywh": [
+                169,
+                567,
+                22,
+                31
+              ]
+            },
+            {
+              "text": "HR",
+              "confidence": 48.200691,
+              "bbox_pixels_xywh": [
+                283,
+                591,
+                13,
+                7
+              ]
+            },
+            {
+              "text": "Advaor",
+              "confidence": 33.726776,
+              "bbox_pixels_xywh": [
+                299,
+                591,
+                33,
+                7
+              ]
+            },
+            {
+              "text": "o",
+              "confidence": 18.277369,
+              "bbox_pixels_xywh": [
+                367,
+                591,
+                14,
+                8
+              ]
+            },
+            {
+              "text": "Health",
+              "confidence": 57.842339,
+              "bbox_pixels_xywh": [
+                874,
+                598,
+                27,
+                7
+              ]
+            },
+            {
+              "text": "insurance",
+              "confidence": 57.842339,
+              "bbox_pixels_xywh": [
+                905,
+                598,
+                41,
+                7
+              ]
+            },
+            {
+              "text": "Gap",
+              "confidence": 63.617935,
+              "bbox_pixels_xywh": [
+                507,
+                623,
+                18,
+                9
+              ]
+            },
+            {
+              "text": "SS]",
+              "confidence": 10.757704,
+              "bbox_pixels_xywh": [
+                551,
+                622,
+                15,
+                13
+              ]
+            },
+            {
+              "text": "Manageable",
+              "confidence": 64.021263,
+              "bbox_pixels_xywh": [
+                267,
+                634,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "List",
+              "confidence": 64.021263,
+              "bbox_pixels_xywh": [
+                323,
+                633,
+                27,
+                8
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 76.791199,
+              "bbox_pixels_xywh": [
+                342,
+                623,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "‘Qualiies",
+              "confidence": 53.604431,
+              "bbox_pixels_xywh": [
+                262,
+                644,
+                39,
+                8
+              ]
+            },
+            {
+              "text": "Candidates",
+              "confidence": 78.882164,
+              "bbox_pixels_xywh": [
+                304,
+                644,
+                49,
+                8
+              ]
+            },
+            {
+              "text": "e",
+              "confidence": 31.408211,
+              "bbox_pixels_xywh": [
+                366,
+                631,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "Roterent",
+              "confidence": 44.726582,
+              "bbox_pixels_xywh": [
+                876,
+                641,
+                47,
+                7
+              ]
+            },
+            {
+              "text": "Pian",
+              "confidence": 81.164803,
+              "bbox_pixels_xywh": [
+                926,
+                641,
+                19,
+                7
+              ]
+            },
+            {
+              "text": "Ranked",
+              "confidence": 70.059273,
+              "bbox_pixels_xywh": [
+                481,
+                665,
+                35,
+                28
+              ]
+            },
+            {
+              "text": "List",
+              "confidence": 81.540787,
+              "bbox_pixels_xywh": [
+                520,
+                665,
+                16,
+                28
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.559982,
+              "bbox_pixels_xywh": [
+                539,
+                665,
+                9,
+                28
+              ]
+            },
+            {
+              "text": "Candidates",
+              "confidence": 51.70932,
+              "bbox_pixels_xywh": [
+                491,
+                687,
+                49,
+                8
+              ]
+            },
+            {
+              "text": "e",
+              "confidence": 21.254215,
+              "bbox_pixels_xywh": [
+                574,
+                674,
+                17,
+                17
+              ]
+            }
+          ],
+          "mean_word_confidence": 61.89,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

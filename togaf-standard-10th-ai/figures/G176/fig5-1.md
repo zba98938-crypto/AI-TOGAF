@@ -1,0 +1,274 @@
+# G176/fig5-1 · 业务场景的相对贡献
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G176/fig5-1.md) · [JSON](../../architecture/diagrams/G176/fig5-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G176e.pdf`；SHA-256：`48c76fbfd164020fcbc0a4f2ec12ee849a2af83424a332883f9a8e0260bf4961`。
+
+## 原图 · PDF 第 29 页
+
+![英文原图](../assets/G176/fig5-1-p0029.png)
+
+PDF 坐标：`[151.3, 302.1, 460.7, 446.3]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Problem space
+Solution space
+Customer
+Tactics
+Strategy
+```
+
+## 概要（历史解释；局部修正见上）
+
+业务场景工作中，客户方的贡献从问题空间到解决方案空间逐渐减少，供应商的贡献相应逐渐增加。
+
+## 目的（历史解释；局部修正见上）
+
+第 5 章说明业务场景不是架构师一个人的事：业务线管理者等利益相关者参与以准确捕获业务目标，视企业与 IT 供应商的关系，供应商也可能参与以准确捕获技术方案的角色。本图用一条对角线示意：客户方（业务管理层加企业架构师）在早期贡献最大，供应商在后期探索具体技术方案的角色时贡献最大。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左往右读：左端上沿是“问题空间”、下沿是“战略”，右端上沿是“解决方案空间”、下沿是“战术”，正文把这个方向称为时间线。在任一横向位置竖着看，蓝色（客户方）与绿色（供应商）各占的高度就是双方贡献的相对比例。对角线是两方的分界。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 横轴两端成对标注：问题空间 / 战略（左）到解决方案空间 / 战术（右）；正文对应的说法是早期探索和捕获业务问题，后期探索和捕获具体技术方案的角色。
+- 左端几乎全部是客户方，右端几乎全部是供应商，中间大约各占一半；双方的贡献此消彼长。
+- 正文说明客户方包括业务管理层和企业架构师，图中不区分两者；正文另说业务管理层在早期参与最多、架构师在后期描述架构方案时参与最多，这一对比没有画在图中。
+- 供应商 IT 架构师可以协助企业 IT 架构师把供应商产品集成进企业架构，正文说这种协助很可能落在时间线中部，也就是双方贡献接近的地方。
+- 供应商是否参与取决于组织与 IT 供应商的关系；参与的目的是准确捕获技术方案的角色并保证与供应商的沟通。
+
+## 层级（历史解释；局部修正见上）
+
+没有层级。两个区域（客户方、供应商）是并列的两方；四个角标是横轴两端的说明。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中唯一的线是从左下角到右上角的对角线，它是两方贡献份额的分界线（关系清单中记为 contrast，无箭头）。横向“从左到右”的方向由角标表示，没有画箭头（记为推断的 transitions_to）。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 原图只有客户方和供应商两方，不是三条参与度曲线；中文稿引用的 SVG 自拟了三方曲线。
+- 对角线是份额分界，不是趋势线，也不是测量数据；线性变化只是示意。
+- 上下两组角标描述的是同一个横向方向（问题→方案、战略→战术），不是四个独立维度。
+- 两块区域中部颜色较浅只是渐变效果，没有含义（推断）。
+
+## 元素
+
+```json
+[
+  {
+    "id": "customer",
+    "label_en": "Customer",
+    "label_zh": "客户方",
+    "type": "stakeholder",
+    "position": "左上蓝色区域",
+    "description_zh": "正文：客户方 = 业务管理层 + 企业架构师。"
+  },
+  {
+    "id": "vendor",
+    "label_en": "Vendor",
+    "label_zh": "供应商",
+    "type": "stakeholder",
+    "position": "右下绿色区域",
+    "description_zh": "IT 供应商，是否参与取决于组织与供应商的关系。"
+  },
+  {
+    "id": "problem_space",
+    "label_en": "Problem space",
+    "label_zh": "问题空间",
+    "type": "concept",
+    "position": "左上角（矩形上方）"
+  },
+  {
+    "id": "solution_space",
+    "label_en": "Solution space",
+    "label_zh": "解决方案空间",
+    "type": "concept",
+    "position": "右上角（矩形上方）"
+  },
+  {
+    "id": "strategy",
+    "label_en": "Strategy",
+    "label_zh": "战略",
+    "type": "concept",
+    "position": "左下角（矩形下方）"
+  },
+  {
+    "id": "tactics",
+    "label_en": "Tactics",
+    "label_zh": "战术",
+    "type": "concept",
+    "position": "右下角（矩形下方）"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "customer",
+    "to": "vendor",
+    "type": "contrast",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "对角分界线：两方贡献此消彼长"
+  },
+  {
+    "from": "problem_space",
+    "to": "solution_space",
+    "type": "transitions_to",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "横向从左到右，正文称为时间线"
+  },
+  {
+    "from": "strategy",
+    "to": "tactics",
+    "type": "transitions_to",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "customer",
+    "to": "problem_space",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "客户方份额在问题空间 / 战略一端最大"
+  },
+  {
+    "from": "vendor",
+    "to": "solution_space",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "供应商份额在解决方案空间 / 战术一端最大"
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_shares",
+    "title_zh": "按对角线估读的相对贡献",
+    "columns": [
+      "横向位置",
+      "对应角标",
+      "客户方份额",
+      "供应商份额"
+    ],
+    "rows": [
+      [
+        "左端",
+        "Problem space 问题空间 / Strategy 战略",
+        "≈100%",
+        "≈0%"
+      ],
+      [
+        "中部",
+        "无角标（正文：供应商 IT 架构师协助集成很可能落在这里）",
+        "≈50%",
+        "≈50%"
+      ],
+      [
+        "右端",
+        "Solution space 解决方案空间 / Tactics 战术",
+        "≈0%",
+        "≈100%"
+      ]
+    ],
+    "cell_legend": [
+      "份额 = 该横向位置上色块所占的竖向高度比例"
+    ],
+    "notes_zh": "图中没有刻度，数值是按直线对角线估读的示意比例。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "左上蓝色三角区域（标“Customer”）",
+    "meaning_zh": "客户方（业务管理层加企业架构师）的相对贡献",
+    "explicit": false
+  },
+  {
+    "symbol": "右下绿色三角区域（标“Vendor”）",
+    "meaning_zh": "供应商的相对贡献",
+    "explicit": false
+  },
+  {
+    "symbol": "对角线",
+    "meaning_zh": "两方贡献份额的分界",
+    "explicit": false
+  },
+  {
+    "symbol": "四角文字",
+    "meaning_zh": "横向两端：问题空间 / 战略（左），解决方案空间 / 战术（右）",
+    "explicit": false
+  },
+  {
+    "symbol": "两端深、中间浅的颜色渐变",
+    "meaning_zh": "视觉效果，无含义（推断）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "一个横向矩形，被从左下角到右上角的对角线分成左上蓝色三角和右下绿色三角；矩形上方左右两角写“Problem space”“Solution space”，下方左右两角写“Strategy”“Tactics”；右下有“© The Open Group”。"
+}
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [],
+  "analyzed_from": [
+    "英文 PDF 第 29 页原图截图（220 dpi）",
+    "英文 PDF 第 29 页正文",
+    "中文稿 G176e_业务场景.md 第 353–359 行",
+    "figs/g176_fig5-1.svg 源码"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

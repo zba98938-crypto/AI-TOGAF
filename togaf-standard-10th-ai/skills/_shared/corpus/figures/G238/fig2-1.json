@@ -1,0 +1,1444 @@
+{
+  "schema_version": "1.0",
+  "id": "G238/fig2-1",
+  "status": "done",
+  "doc": {
+    "code": "G238",
+    "title_zh": "信息架构——商业智能与分析",
+    "title_en": "Information Architecture — BI & Analytics",
+    "zh_md": "G238e_信息架构_商业智能与分析.md",
+    "en_pdf": "togaf-standard-10th/G238e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "2-1",
+    "title_en": "BI & Analytics Capability – High-Level Functions",
+    "title_zh": "BI 与分析能力——高层功能",
+    "section_en": "2.1 BI & Analytics High-Level Reference Model",
+    "section_zh": "2.1 BI 与分析高层参考模型",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        13
+      ],
+      "printed_page": 3,
+      "bboxes": [
+        [
+          48.2,
+          260.2,
+          563.8,
+          469.0
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        124
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g238_fig2-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "cac25009c8b2",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "版式被改成 4+4+1 的三行网格，丢掉了原图两个能力容器（BI & Analytics Business Functions / BI & Analytics Application Functions）及其内部“横贯整行”“右侧贯穿整列”的嵌套布局。",
+        "应用层只留下一句文字清单（“数据集成、数据存储……”），原图中 9 个应用功能是各自独立的功能框，且数据集成与监控等有明确位置关系。",
+        "配色自拟：把 9 个业务功能分别涂成黄/蓝/绿/紫四种颜色，而原图业务功能统一为黄色、应用功能统一为青色，颜色只区分业务/应用两个容器。",
+        "补了原图没有的脚注（应用功能对应表 2-2、业务功能支撑能力运转），属于对正文的概括而非图内内容。",
+        "由于容器与嵌套关系丢失，读者无法看出 Govern & Measure 与 Data Integration 的纵向贯穿位置，也无法看出 9+9 的完整结构。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "hierarchy"
+    ],
+    "notation": "ArchiMate 功能分解图：两个大容器（业务功能、应用功能）内嵌若干功能框，每个框右上角带功能（旗帜）图标；只用包含关系，不画连线。",
+    "concepts": [
+      "bi_analytics",
+      "business_architecture",
+      "application_architecture",
+      "reference_model"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "BI 与分析能力由 9 项高层业务功能与 9 项高层应用功能构成，分列左右两栏。",
+    "purpose_zh": "作为第 2 章的总览参考模型：先把 BI 与分析能力拆成业务侧与应用侧各 9 项高层功能，为 2.2/2.3 节的逐项定义提供索引，也为 4.2/4.3 节的详细功能模型提供上层框架。",
+    "reading_guide_zh": "左栏黄色大容器是业务功能，右栏青色大容器是应用功能。容器内每个圆角框是一项功能，右上角的旗帜图标表示它是 ArchiMate 功能元素；同一容器内的框是并列关系，位置只反映版式分组（横贯整行的功能画在上/下，纵向长条画在侧边），不表示先后或调用。图中没有箭头。",
+    "key_points_zh": [
+      "业务侧 9 项：定义战略与路线图、提供必要数据源、设计与开发价值链条、保护数据与确保合规、定义并应用数据质量框架、利用元数据管理、运营平台、治理与度量、沟通与培训。",
+      "应用侧 9 项：数据集成、数据存储、数据处理、信息报表与仪表盘、决策支持分析与可视化、管理、面向工程与数据管理的数据访问、开发、监控。",
+      "两侧的 9 项与表 2-1、表 2-2 的 9 行一一对应；正文对每一项给出定义，图本身不写定义。",
+      "版式暗示两类横切功能：业务侧的 Govern & Measure 纵贯整列，应用侧的 Data Integration 纵贯左列；但原图没有箭头，不能据此断言它们“治理/集成”了其他功能。",
+      "业务功能与应用功能是两套并列的参考清单，不是“业务调用应用”的映射图；正文只说能力建立在这两类参考功能之上。",
+      "这是高层（宏观）视图：4.2 节把左侧展开为详细业务功能，4.3 节把右侧展开为详细应用功能。"
+    ],
+    "hierarchy_zh": "三层：L0 为 BI & Analytics 能力（图中未单独画框，由两个容器整体表示）；L1 为业务功能域与应用功能域两个容器；L2 为 9+9 项功能。功能之间的进一步分解不在本图，见 4-2 与 4-3。",
+    "line_semantics_zh": "图中没有任何连线或箭头。容器包住功能框表示“由……组成/归入该域”；同层功能并排只表示同属一个域，不表示依赖、顺序或数据流。",
+    "misreadings_zh": [
+      "不要把左右两栏读成流程的先后（业务在前、应用在后）；两栏是同一能力的两个视角，阅读顺序没有语义。",
+      "不要把 Govern & Measure 的纵向长条理解为它“治理”了左侧所有功能——原图只靠版式暗示横切，没有画治理关系。",
+      "不要把左侧业务功能当成右侧应用功能的输入输出；图中没有业务→应用的箭头。",
+      "右侧的 Administration、Development、Monitoring 是 BI 与分析平台自身的应用功能，不要误读为通用的 ITIL/DevOps 流程清单。",
+      "中文稿引用的 figs/g238_fig2-1.svg 把应用侧压成一句文字、并给业务功能乱配颜色，不能替代原图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p13",
+        "summary_zh": "第 2 章说明 BI & Analytics 能力由人员、流程、组织与系统组成，建立在参考业务功能与参考应用功能之上；2.1 节给出高层功能参考模型（图 2-1），更详细的功能见 4.2 与 4.3 节。"
+      },
+      {
+        "source": "zh_md L118",
+        "summary_zh": "中文稿定义 BI 与分析能力，并说明它建立在参考业务功能与参考应用功能之上，本章给出高层功能参考模型。"
+      },
+      {
+        "source": "zh_md L124",
+        "summary_zh": "中文稿在此处插入 figs/g238_fig2-1.svg 作为图 2-1，标题为“BI 与分析能力——高层功能”。"
+      },
+      {
+        "source": "zh_md L132",
+        "summary_zh": "表 2-1 逐项列出 9 项高层业务功能及定义，与左栏一一对应。"
+      },
+      {
+        "source": "zh_md L148",
+        "summary_zh": "表 2-2 逐项列出 9 项高层应用功能及定义，与右栏一一对应。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "左右两个并排的大容器：左侧黄色业务功能容器，右侧青色应用功能容器。左侧第一行“定义战略与路线图”横贯整宽，第二行“提供必要数据源”与“设计与开发价值链条”并排，Govern & Measure 为右侧纵贯长条，其余 5 项横贯整行；右侧 Data Integration 为左侧纵贯长条，中间 2×2 为 Data Storage、Information Reporting & Dashboarding、Data Processing、Decision Support Analysis & Visualization，Administration 与 Data Access 并排一行，Development、Monitoring 横贯底部。"
+  },
+  "legend": [
+    {
+      "symbol": "黄色容器",
+      "meaning_zh": "BI & Analytics 业务功能域",
+      "explicit": false
+    },
+    {
+      "symbol": "青色容器",
+      "meaning_zh": "BI & Analytics 应用功能域",
+      "explicit": false
+    },
+    {
+      "symbol": "圆角框 + 右上角旗帜图标",
+      "meaning_zh": "ArchiMate 功能元素（业务功能或应用功能）",
+      "explicit": false
+    },
+    {
+      "symbol": "容器内嵌套",
+      "meaning_zh": "该功能属于此功能域（组成关系）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "business_functions",
+      "label_en": "BI & Analytics Business Functions",
+      "label_zh": "BI 与分析业务功能",
+      "type": "function",
+      "parent": null,
+      "level": 1,
+      "position": "左栏大容器",
+      "description_zh": "业务功能域的容器，本身也是 ArchiMate 功能（右上角带功能图标）。"
+    },
+    {
+      "id": "application_functions",
+      "label_en": "BI & Analytics Application Functions",
+      "label_zh": "BI 与分析应用功能",
+      "type": "function",
+      "parent": null,
+      "level": 1,
+      "position": "右栏大容器",
+      "description_zh": "应用功能域的容器，本身也是 ArchiMate 功能（右上角带功能图标）。"
+    },
+    {
+      "id": "bf_strategy",
+      "label_en": "Define the Strategy & Roadmaps",
+      "label_zh": "定义战略与路线图",
+      "type": "function",
+      "parent": "business_functions",
+      "level": 2,
+      "order": 1,
+      "position": "业务容器第一行，横贯整宽"
+    },
+    {
+      "id": "bf_data_sources",
+      "label_en": "Provide Necessary Data Sources for BI & Analytics Purposes",
+      "label_zh": "为 BI 与分析提供必要数据源",
+      "type": "function",
+      "parent": "business_functions",
+      "level": 2,
+      "order": 2,
+      "position": "业务容器第二行左"
+    },
+    {
+      "id": "bf_value_chain",
+      "label_en": "Design & Develop BI & Analytics Value Chain",
+      "label_zh": "设计与开发 BI 与分析价值链条",
+      "type": "function",
+      "parent": "business_functions",
+      "level": 2,
+      "order": 3,
+      "position": "业务容器第二行右"
+    },
+    {
+      "id": "bf_protect",
+      "label_en": "Protect Data & Ensure Compliance",
+      "label_zh": "保护数据并确保合规",
+      "type": "function",
+      "parent": "business_functions",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "bf_quality",
+      "label_en": "Define & Apply a Data Quality Framework",
+      "label_zh": "定义并应用数据质量框架",
+      "type": "function",
+      "parent": "business_functions",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "bf_metadata",
+      "label_en": "Leverage Metadata Management for BI & Analytics",
+      "label_zh": "为 BI 与分析利用元数据管理",
+      "type": "function",
+      "parent": "business_functions",
+      "level": 2,
+      "order": 6
+    },
+    {
+      "id": "bf_operate",
+      "label_en": "Operate Platforms",
+      "label_zh": "运营平台",
+      "type": "function",
+      "parent": "business_functions",
+      "level": 2,
+      "order": 7
+    },
+    {
+      "id": "bf_communicate",
+      "label_en": "Communicate & Train",
+      "label_zh": "沟通与培训",
+      "type": "function",
+      "parent": "business_functions",
+      "level": 2,
+      "order": 8
+    },
+    {
+      "id": "bf_govern",
+      "label_en": "Govern & Measure",
+      "label_zh": "治理与度量",
+      "type": "function",
+      "parent": "business_functions",
+      "level": 2,
+      "order": 9,
+      "position": "业务容器右侧纵贯长条",
+      "description_zh": "纵向贯穿多行，版式上暗示横切其他业务功能。"
+    },
+    {
+      "id": "af_integration",
+      "label_en": "Data Integration",
+      "label_zh": "数据集成",
+      "type": "function",
+      "parent": "application_functions",
+      "level": 2,
+      "order": 1,
+      "position": "应用容器左侧纵贯长条"
+    },
+    {
+      "id": "af_storage",
+      "label_en": "Data Storage",
+      "label_zh": "数据存储",
+      "type": "function",
+      "parent": "application_functions",
+      "level": 2,
+      "order": 2,
+      "position": "应用容器中上左"
+    },
+    {
+      "id": "af_reporting",
+      "label_en": "Information Reporting & Dashboarding",
+      "label_zh": "信息报表与仪表盘",
+      "type": "function",
+      "parent": "application_functions",
+      "level": 2,
+      "order": 3,
+      "position": "应用容器中上右"
+    },
+    {
+      "id": "af_processing",
+      "label_en": "Data Processing",
+      "label_zh": "数据处理",
+      "type": "function",
+      "parent": "application_functions",
+      "level": 2,
+      "order": 4,
+      "position": "应用容器中下左"
+    },
+    {
+      "id": "af_decision_support",
+      "label_en": "Decision Support Analysis & Visualization",
+      "label_zh": "决策支持分析与可视化",
+      "type": "function",
+      "parent": "application_functions",
+      "level": 2,
+      "order": 5,
+      "position": "应用容器中下右"
+    },
+    {
+      "id": "af_administration",
+      "label_en": "Administration",
+      "label_zh": "管理",
+      "type": "function",
+      "parent": "application_functions",
+      "level": 2,
+      "order": 6,
+      "position": "应用容器下部左"
+    },
+    {
+      "id": "af_data_access",
+      "label_en": "Data Access for Engineering & Data Management Use",
+      "label_zh": "面向工程与数据管理的数据访问",
+      "type": "function",
+      "parent": "application_functions",
+      "level": 2,
+      "order": 7,
+      "position": "应用容器下部右"
+    },
+    {
+      "id": "af_development",
+      "label_en": "Development",
+      "label_zh": "开发",
+      "type": "function",
+      "parent": "application_functions",
+      "level": 2,
+      "order": 8,
+      "position": "应用容器倒数第二行，横贯整宽"
+    },
+    {
+      "id": "af_monitoring",
+      "label_en": "Monitoring",
+      "label_zh": "监控",
+      "type": "function",
+      "parent": "application_functions",
+      "level": 2,
+      "order": 9,
+      "position": "应用容器底行，横贯整宽"
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G238/fig4-2",
+      "relation": "overview_of",
+      "note_zh": "图 2-1 左栏 9 项业务功能在 4-2 中展开为 9 个功能组与 45 项子功能。"
+    },
+    {
+      "target": "G238/fig4-3",
+      "relation": "overview_of",
+      "note_zh": "图 2-1 右栏 9 项应用功能在 4-3 中展开为 9 个功能组与 52 项子功能。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "Govern & Measure 与 Data Integration 的纵向长条只是版式上的横切暗示，原图没有画出它们与其他功能的关系。",
+      "英文图题用 en dash（BI & Analytics Capability – High-Level Functions），中文稿标题为“BI 与分析能力——高层功能”。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 13 页图 2-1 截图与 2×2 放大分块",
+      "英文 PDF 第 13 页 2.1 节正文",
+      "中文稿 G238e_信息架构_商业智能与分析.md 第 118–154 行",
+      "figs/g238_fig2-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G238e.pdf",
+    "pdf_sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G238/fig2-1.json",
+    "interpretation_sha256": "6fa5190199bbb5d412dffe07d7926c0ba407eaa71fb012ab0742413c223daa79",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 13,
+        "text": "Figure 2-1: BI & Analytics Capability – High-Level Functions",
+        "bbox_pdf_points": [
+          48.24,
+          473.727,
+          327.271,
+          487.293
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 13,
+      "printed_page": 3,
+      "bbox_pdf_points": [
+        48.2,
+        260.2,
+        563.8,
+        469.0
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G238/fig2-1-p0013.png",
+      "image_sha256": "9bf6e7d06f16fa726be0470c52115b8a9c46ac14ff80ac80e03413fd779bc7ce",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "9bf6e7d06f16fa726be0470c52115b8a9c46ac14ff80ac80e03413fd779bc7ce",
+          "status": "extracted-unverified",
+          "text": "BI & Analytics Business Functions\nBI & Analytics Application Functions\nAa\nDefine the Strategy & Roadmaps\nAa\nAa\nA\nData Storage\nInformation Reporting &\nAa\nA\nDashboarding\nProvide Necessary Data\nSources for BI & Analytics\nDesign & Develop BI &\nData Integration\nPurposes\nAnalytics Value Chain\nAa\nA\nDecision Support\nData Processing\nAnalysis & Visualization\nProtect Data & Ensure Compliance\na\nGovern &\nMeasure\nDefine & Apply a Data Quality Framework\na)\nA\nData Access for Engineering & (-)\nAdministration\nData Management Use\nLeverage Metadata Management for BI & Analytics (A)\nOperate Platforms\na\nDevelopment\nAa\nCommunicate & Train\nMonitoring\na)",
+          "words": [
+            {
+              "text": "BI",
+              "confidence": 86.022682,
+              "bbox_pixels_xywh": [
+                147,
+                12,
+                14,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.201103,
+              "bbox_pixels_xywh": [
+                165,
+                12,
+                8,
+                12
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 96.826973,
+              "bbox_pixels_xywh": [
+                178,
+                12,
+                64,
+                15
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.030785,
+              "bbox_pixels_xywh": [
+                247,
+                12,
+                62,
+                12
+              ]
+            },
+            {
+              "text": "Functions",
+              "confidence": 96.030785,
+              "bbox_pixels_xywh": [
+                314,
+                12,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "BI",
+              "confidence": 84.794861,
+              "bbox_pixels_xywh": [
+                658,
+                12,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 84.794861,
+              "bbox_pixels_xywh": [
+                676,
+                12,
+                8,
+                12
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 96.027031,
+              "bbox_pixels_xywh": [
+                689,
+                12,
+                64,
+                15
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 95.840057,
+              "bbox_pixels_xywh": [
+                757,
+                12,
+                77,
+                14
+              ]
+            },
+            {
+              "text": "Functions",
+              "confidence": 96.427742,
+              "bbox_pixels_xywh": [
+                839,
+                12,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "Aa",
+              "confidence": 76.51619,
+              "bbox_pixels_xywh": [
+                1003,
+                10,
+                17,
+                18
+              ]
+            },
+            {
+              "text": "Define",
+              "confidence": 96.616501,
+              "bbox_pixels_xywh": [
+                160,
+                50,
+                41,
+                12
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.213783,
+              "bbox_pixels_xywh": [
+                205,
+                51,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "Strategy",
+              "confidence": 93.273712,
+              "bbox_pixels_xywh": [
+                229,
+                50,
+                53,
+                15
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.273712,
+              "bbox_pixels_xywh": [
+                287,
+                50,
+                9,
+                12
+              ]
+            },
+            {
+              "text": "Roadmaps",
+              "confidence": 96.74263,
+              "bbox_pixels_xywh": [
+                300,
+                50,
+                69,
+                14
+              ]
+            },
+            {
+              "text": "Aa",
+              "confidence": 74.782593,
+              "bbox_pixels_xywh": [
+                650,
+                47,
+                16,
+                18
+              ]
+            },
+            {
+              "text": "Aa",
+              "confidence": 76.009514,
+              "bbox_pixels_xywh": [
+                818,
+                47,
+                17,
+                18
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 72.62188,
+              "bbox_pixels_xywh": [
+                998,
+                47,
+                16,
+                18
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.897865,
+              "bbox_pixels_xywh": [
+                718,
+                82,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "Storage",
+              "confidence": 96.860619,
+              "bbox_pixels_xywh": [
+                752,
+                81,
+                49,
+                15
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 96.175743,
+              "bbox_pixels_xywh": [
+                859,
+                73,
+                70,
+                12
+              ]
+            },
+            {
+              "text": "Reporting",
+              "confidence": 93.300285,
+              "bbox_pixels_xywh": [
+                934,
+                73,
+                75,
+                15
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 86.313019,
+              "bbox_pixels_xywh": [
+                1001,
+                69,
+                12,
+                24
+              ]
+            },
+            {
+              "text": "Aa",
+              "confidence": 74.878517,
+              "bbox_pixels_xywh": [
+                193,
+                88,
+                16,
+                18
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 77.980942,
+              "bbox_pixels_xywh": [
+                380,
+                88,
+                17,
+                18
+              ]
+            },
+            {
+              "text": "Dashboarding",
+              "confidence": 92.196243,
+              "bbox_pixels_xywh": [
+                890,
+                90,
+                88,
+                14
+              ]
+            },
+            {
+              "text": "Provide",
+              "confidence": 89.176994,
+              "bbox_pixels_xywh": [
+                36,
+                110,
+                48,
+                12
+              ]
+            },
+            {
+              "text": "Necessary",
+              "confidence": 89.176994,
+              "bbox_pixels_xywh": [
+                90,
+                100,
+                65,
+                32
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 94.329369,
+              "bbox_pixels_xywh": [
+                162,
+                100,
+                30,
+                32
+              ]
+            },
+            {
+              "text": "Sources",
+              "confidence": 90.424461,
+              "bbox_pixels_xywh": [
+                30,
+                127,
+                90,
+                12
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 96.986122,
+              "bbox_pixels_xywh": [
+                86,
+                116,
+                17,
+                33
+              ]
+            },
+            {
+              "text": "BI",
+              "confidence": 83.29409,
+              "bbox_pixels_xywh": [
+                108,
+                116,
+                12,
+                33
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.284248,
+              "bbox_pixels_xywh": [
+                127,
+                127,
+                7,
+                12
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 96.594902,
+              "bbox_pixels_xywh": [
+                137,
+                127,
+                57,
+                14
+              ]
+            },
+            {
+              "text": "Design",
+              "confidence": 93.292542,
+              "bbox_pixels_xywh": [
+                240,
+                119,
+                145,
+                14
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.227333,
+              "bbox_pixels_xywh": [
+                290,
+                109,
+                9,
+                31
+              ]
+            },
+            {
+              "text": "Develop",
+              "confidence": 93.621513,
+              "bbox_pixels_xywh": [
+                303,
+                119,
+                50,
+                14
+              ]
+            },
+            {
+              "text": "BI",
+              "confidence": 75.170013,
+              "bbox_pixels_xywh": [
+                360,
+                109,
+                13,
+                31
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 75.170013,
+              "bbox_pixels_xywh": [
+                378,
+                109,
+                11,
+                31
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 94.517281,
+              "bbox_pixels_xywh": [
+                559,
+                132,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "Integration",
+              "confidence": 82.386192,
+              "bbox_pixels_xywh": [
+                594,
+                132,
+                66,
+                14
+              ]
+            },
+            {
+              "text": "Purposes",
+              "confidence": 85.907051,
+              "bbox_pixels_xywh": [
+                83,
+                144,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 87.772835,
+              "bbox_pixels_xywh": [
+                243,
+                136,
+                57,
+                14
+              ]
+            },
+            {
+              "text": "Value",
+              "confidence": 96.803925,
+              "bbox_pixels_xywh": [
+                305,
+                136,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "Chain",
+              "confidence": 96.847443,
+              "bbox_pixels_xywh": [
+                344,
+                135,
+                37,
+                12
+              ]
+            },
+            {
+              "text": "Aa",
+              "confidence": 70.971573,
+              "bbox_pixels_xywh": [
+                818,
+                151,
+                17,
+                18
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 80.817276,
+              "bbox_pixels_xywh": [
+                998,
+                151,
+                16,
+                18
+              ]
+            },
+            {
+              "text": "Decision",
+              "confidence": 94.492218,
+              "bbox_pixels_xywh": [
+                880,
+                176,
+                54,
+                12
+              ]
+            },
+            {
+              "text": "Support",
+              "confidence": 91.502083,
+              "bbox_pixels_xywh": [
+                939,
+                176,
+                50,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.203835,
+              "bbox_pixels_xywh": [
+                707,
+                184,
+                30,
+                12
+              ]
+            },
+            {
+              "text": "Processing",
+              "confidence": 96.665176,
+              "bbox_pixels_xywh": [
+                741,
+                184,
+                70,
+                15
+              ]
+            },
+            {
+              "text": "Analysis",
+              "confidence": 93.286209,
+              "bbox_pixels_xywh": [
+                858,
+                193,
+                53,
+                14
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.286209,
+              "bbox_pixels_xywh": [
+                916,
+                193,
+                9,
+                11
+              ]
+            },
+            {
+              "text": "Visualization",
+              "confidence": 95.846008,
+              "bbox_pixels_xywh": [
+                929,
+                193,
+                80,
+                11
+              ]
+            },
+            {
+              "text": "Protect",
+              "confidence": 96.805725,
+              "bbox_pixels_xywh": [
+                96,
+                206,
+                45,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 93.275734,
+              "bbox_pixels_xywh": [
+                145,
+                206,
+                30,
+                11
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.275734,
+              "bbox_pixels_xywh": [
+                179,
+                206,
+                9,
+                11
+              ]
+            },
+            {
+              "text": "Ensure",
+              "confidence": 95.092743,
+              "bbox_pixels_xywh": [
+                193,
+                206,
+                45,
+                11
+              ]
+            },
+            {
+              "text": "Compliance",
+              "confidence": 95.864738,
+              "bbox_pixels_xywh": [
+                242,
+                206,
+                75,
+                14
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 76.000069,
+              "bbox_pixels_xywh": [
+                380,
+                201,
+                17,
+                19
+              ]
+            },
+            {
+              "text": "Govern",
+              "confidence": 87.500534,
+              "bbox_pixels_xywh": [
+                435,
+                205,
+                60,
+                11
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 92.033386,
+              "bbox_pixels_xywh": [
+                487,
+                197,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Measure",
+              "confidence": 90.036491,
+              "bbox_pixels_xywh": [
+                437,
+                222,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "Define",
+              "confidence": 93.304619,
+              "bbox_pixels_xywh": [
+                75,
+                249,
+                40,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.28968,
+              "bbox_pixels_xywh": [
+                121,
+                249,
+                6,
+                12
+              ]
+            },
+            {
+              "text": "Apply",
+              "confidence": 96.860809,
+              "bbox_pixels_xywh": [
+                132,
+                249,
+                36,
+                14
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 96.955765,
+              "bbox_pixels_xywh": [
+                172,
+                251,
+                7,
+                10
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.190056,
+              "bbox_pixels_xywh": [
+                184,
+                249,
+                30,
+                12
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 96.386787,
+              "bbox_pixels_xywh": [
+                218,
+                249,
+                45,
+                14
+              ]
+            },
+            {
+              "text": "Framework",
+              "confidence": 96.76741,
+              "bbox_pixels_xywh": [
+                267,
+                249,
+                71,
+                12
+              ]
+            },
+            {
+              "text": "a)",
+              "confidence": 25.896545,
+              "bbox_pixels_xywh": [
+                380,
+                244,
+                17,
+                19
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 85.839233,
+              "bbox_pixels_xywh": [
+                740,
+                252,
+                16,
+                18
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.596321,
+              "bbox_pixels_xywh": [
+                799,
+                254,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 91.467789,
+              "bbox_pixels_xywh": [
+                832,
+                254,
+                46,
+                11
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 96.930115,
+              "bbox_pixels_xywh": [
+                882,
+                254,
+                17,
+                11
+              ]
+            },
+            {
+              "text": "Engineering",
+              "confidence": 88.069847,
+              "bbox_pixels_xywh": [
+                903,
+                254,
+                76,
+                14
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 88.069847,
+              "bbox_pixels_xywh": [
+                983,
+                254,
+                9,
+                11
+              ]
+            },
+            {
+              "text": "(-)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                998,
+                252,
+                16,
+                18
+              ]
+            },
+            {
+              "text": "Administration",
+              "confidence": 94.598709,
+              "bbox_pixels_xywh": [
+                609,
+                272,
+                90,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.939522,
+              "bbox_pixels_xywh": [
+                822,
+                270,
+                29,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.4944,
+              "bbox_pixels_xywh": [
+                856,
+                271,
+                83,
+                14
+              ]
+            },
+            {
+              "text": "Use",
+              "confidence": 96.512039,
+              "bbox_pixels_xywh": [
+                944,
+                271,
+                24,
+                11
+              ]
+            },
+            {
+              "text": "Leverage",
+              "confidence": 96.557648,
+              "bbox_pixels_xywh": [
+                46,
+                291,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 96.546219,
+              "bbox_pixels_xywh": [
+                109,
+                291,
+                59,
+                11
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.546219,
+              "bbox_pixels_xywh": [
+                173,
+                291,
+                83,
+                14
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 96.62693,
+              "bbox_pixels_xywh": [
+                260,
+                291,
+                17,
+                11
+              ]
+            },
+            {
+              "text": "BI",
+              "confidence": 83.558372,
+              "bbox_pixels_xywh": [
+                281,
+                291,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 83.558372,
+              "bbox_pixels_xywh": [
+                303,
+                291,
+                5,
+                11
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 94.239197,
+              "bbox_pixels_xywh": [
+                311,
+                291,
+                57,
+                14
+              ]
+            },
+            {
+              "text": "(A)",
+              "confidence": 25.238962,
+              "bbox_pixels_xywh": [
+                380,
+                286,
+                17,
+                18
+              ]
+            },
+            {
+              "text": "Operate",
+              "confidence": 92.982605,
+              "bbox_pixels_xywh": [
+                148,
+                335,
+                51,
+                14
+              ]
+            },
+            {
+              "text": "Platforms",
+              "confidence": 78.859993,
+              "bbox_pixels_xywh": [
+                204,
+                335,
+                60,
+                12
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 82.329544,
+              "bbox_pixels_xywh": [
+                380,
+                330,
+                17,
+                19
+              ]
+            },
+            {
+              "text": "Development",
+              "confidence": 96.793602,
+              "bbox_pixels_xywh": [
+                742,
+                335,
+                84,
+                14
+              ]
+            },
+            {
+              "text": "Aa",
+              "confidence": 72.523621,
+              "bbox_pixels_xywh": [
+                998,
+                329,
+                16,
+                18
+              ]
+            },
+            {
+              "text": "Communicate",
+              "confidence": 88.725929,
+              "bbox_pixels_xywh": [
+                196,
+                378,
+                88,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 91.819382,
+              "bbox_pixels_xywh": [
+                288,
+                378,
+                9,
+                12
+              ]
+            },
+            {
+              "text": "Train",
+              "confidence": 92.952827,
+              "bbox_pixels_xywh": [
+                301,
+                378,
+                32,
+                12
+              ]
+            },
+            {
+              "text": "Monitoring",
+              "confidence": 94.934746,
+              "bbox_pixels_xywh": [
+                750,
+                377,
+                66,
+                14
+              ]
+            },
+            {
+              "text": "a)",
+              "confidence": 56.822136,
+              "bbox_pixels_xywh": [
+                998,
+                372,
+                16,
+                19
+              ]
+            }
+          ],
+          "mean_word_confidence": 88.17,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

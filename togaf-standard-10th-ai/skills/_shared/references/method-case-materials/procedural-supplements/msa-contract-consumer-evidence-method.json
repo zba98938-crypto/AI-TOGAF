@@ -1,0 +1,86 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "msa-contract-consumer-evidence-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 3,
+      "declared_step": "检查NFR、凭据及地址可发现性",
+      "new_fictional_input": "新虚构契约草案：eligibility/v1.1地址由受控服务目录发布，消费者C-BOOK/C-DESK有独立令牌audience与最小资格权限；移动端C-MOBILE只是拟申请。测试负载每秒20请求、持续10分钟，延迟实测P95=180ms；未做月可用性观察。",
+      "transformation": "逐消费者分别检查地址可发现、令牌作用域、目标audience和未知原因码处理；延迟与月可用性分开。",
+      "candidate_output": "C-BOOK/C-DESK候选权限矩阵、v1.1地址与发现责任完整；延迟仅在声明负载窗满足200ms，99.5%月可用仍unknown。",
+      "adverse_variant_expected": "把C-MOBILE拟申请当已授权，或用10分钟延迟证据放行月SLA，都应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [],
+  "candidate_records": [
+    {
+      "consumer_id": "C-BOOK",
+      "contract_version": "eligibility/v1.1",
+      "discovery": "受控服务目录",
+      "address": "catalog:eligibility/v1.1",
+      "token_audience": "C-BOOK",
+      "permission": "eligibility:read-minimal",
+      "authorization_evidence": "SUP-AUTH-C-BOOK",
+      "unknown_reason_codes": "消费者必须保留未知并转人工；本材料仅设计，消费者测试未取得",
+      "approval_status": "candidate"
+    },
+    {
+      "consumer_id": "C-DESK",
+      "contract_version": "eligibility/v1.1",
+      "discovery": "受控服务目录",
+      "address": "catalog:eligibility/v1.1",
+      "token_audience": "C-DESK",
+      "permission": "eligibility:read-minimal",
+      "authorization_evidence": "SUP-AUTH-C-DESK",
+      "unknown_reason_codes": "消费者必须保留未知并转人工；本材料仅设计，消费者测试未取得",
+      "approval_status": "candidate"
+    },
+    {
+      "consumer_id": "C-MOBILE",
+      "contract_version": "eligibility/v1.1",
+      "discovery": "受控服务目录",
+      "address": "catalog:eligibility/v1.1",
+      "token_audience": "pending",
+      "permission": "not-granted",
+      "authorization_evidence": "application-only",
+      "unknown_reason_codes": "消费者必须保留未知并转人工；本材料仅设计，消费者测试未取得",
+      "approval_status": "candidate"
+    }
+  ],
+  "fictional_input_records": [
+    {
+      "id": "SUP-AUTH-C-BOOK",
+      "kind": "authored-scope-limited-grant-record",
+      "consumer_id": "C-BOOK",
+      "audience": "C-BOOK",
+      "scope": "eligibility:read-minimal",
+      "real_organization_grant": false
+    },
+    {
+      "id": "SUP-AUTH-C-DESK",
+      "kind": "authored-scope-limited-grant-record",
+      "consumer_id": "C-DESK",
+      "audience": "C-DESK",
+      "scope": "eligibility:read-minimal",
+      "real_organization_grant": false
+    }
+  ],
+  "latency_observation": {
+    "load_requests_per_second": 20,
+    "window_minutes": 10,
+    "authored_P95_ms": 180,
+    "project_target_ms": 200,
+    "limit": "只支持本负载窗教学数值；不证明独立消费者未知码测试或月SLA"
+  },
+  "monthly_availability": {
+    "target_percent": 99.5,
+    "observation": "unknown",
+    "acceptance": "pending"
+  }
+}

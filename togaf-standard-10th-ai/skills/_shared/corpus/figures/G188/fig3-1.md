@@ -1,0 +1,322 @@
+# G188/fig3-1 · 本节结构与架构项目流程（箭头）
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G188/fig3-1.md) · [JSON](../../architecture/diagrams/G188/fig3-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G188e.pdf`；SHA-256：`6e654af12a0bc034c7548d425a01123331ac9129c478a0bb957db89dd353dd29`。
+
+## 原图 · PDF 第 31 页
+
+![英文原图](../assets/G188/fig3-1-p0031.png)
+
+PDF 坐标：`[48.2, 407.2, 563.8, 576.2]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Architecture Project start-up
+SA)
+Architecture Project planning
+Planning a stage
+Wi
+Execute, monitor, and control a stage
+WIG
+Architecture Project closing
+_
+wl Ending a stage
+```
+
+## 概要（历史解释；局部修正见上）
+
+第 3 章的结构图：项目启动→规划后进入“阶段规划—执行监控—阶段收尾”的 n 次循环，最后收尾。
+
+## 目的（历史解释；局部修正见上）
+
+既作为第 3 章各小节的导航图（每个方框对应 3.1–3.6 中的一节），又用箭头说明这些活动之间的流程关系：启动与规划是一次性的，阶段级三项活动循环执行，循环结束后才进入项目收尾。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+先读左列自上而下：架构项目启动 → 架构项目规划。规划完成后箭头向右进入右列，开始阶段级循环：阶段规划 → 执行、监控与控制阶段 → 阶段收尾；阶段收尾右侧的箭头向上折回阶段规划，旁标 n，表示对每个阶段重复。循环结束后，从阶段收尾向左下箭头进入架构项目收尾。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 项目启动与项目规划是项目级、一次性活动；阶段规划、执行监控、阶段收尾是阶段级、重复 n 次的活动。
+- 阶段级循环的顺序是“先规划本阶段，再执行监控，最后收尾”，收尾后又回到下一阶段的规划。
+- 架构项目收尾只在阶段循环结束后发生，且由“阶段收尾”触发，而不是与阶段收尾并行。
+- 六个方框与第 3 章的 3.1–3.6 节一一对应，因此这张图也是本章的阅读路线图。
+- 图中没有画 ADM 阶段；ADM 的对应关系在图 2-2 中用圆盘表达，这里只保留项目管理活动。
+
+## 层级（历史解释；局部修正见上）
+
+两层：左列是项目级活动（启动、规划、收尾），右列是阶段级活动（阶段规划、执行监控、阶段收尾）。阶段级活动整体处于“项目规划之后、项目收尾之前”的时间段内，并通过 n 次回路重复；图中没有组织上下级。
+
+## 线条含义（历史解释；局部修正见上）
+
+实线箭头表示流程先后：启动→规划、规划→阶段规划、阶段规划→执行监控→阶段收尾、阶段收尾→项目收尾。右侧折线箭头从阶段收尾回到阶段规划，表示循环，n 表示重复次数。没有虚线、没有并行分支。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把“阶段规划”理解为规划某个 ADM 阶段；本文档中 stage 指项目阶段，一个项目阶段可覆盖多个 ADM 阶段。
+- 不要以为架构项目收尾与阶段收尾是同一件事：阶段收尾每个阶段都做，项目收尾只在最后做一次。
+- 不要把 n 理解为固定次数；它是“对每个阶段重复”的占位符号。
+- 中文稿引用的重绘 SVG 增加了副标题和“说明”，阅读时不要把那些补充文字当作原图内容。
+
+## 元素
+
+```json
+[
+  {
+    "id": "start_up",
+    "label_en": "Architecture Project start-up",
+    "label_zh": "架构项目启动",
+    "type": "phase",
+    "parent": null,
+    "level": 1,
+    "order": 1,
+    "position": "左上"
+  },
+  {
+    "id": "project_planning",
+    "label_en": "Architecture Project planning",
+    "label_zh": "架构项目规划",
+    "type": "phase",
+    "parent": null,
+    "level": 1,
+    "order": 2,
+    "position": "左中"
+  },
+  {
+    "id": "project_closing",
+    "label_en": "Architecture Project closing",
+    "label_zh": "架构项目收尾",
+    "type": "phase",
+    "parent": null,
+    "level": 1,
+    "order": 6,
+    "position": "左下"
+  },
+  {
+    "id": "stage_planning",
+    "label_en": "Planning a stage",
+    "label_zh": "阶段规划",
+    "type": "process",
+    "parent": null,
+    "level": 2,
+    "order": 3,
+    "position": "右上"
+  },
+  {
+    "id": "stage_execution",
+    "label_en": "Execute, monitor, and control a stage",
+    "label_zh": "执行、监控与控制阶段",
+    "type": "process",
+    "parent": null,
+    "level": 2,
+    "order": 4,
+    "position": "右中"
+  },
+  {
+    "id": "stage_ending",
+    "label_en": "Ending a stage",
+    "label_zh": "阶段收尾",
+    "type": "process",
+    "parent": null,
+    "level": 2,
+    "order": 5,
+    "position": "右下"
+  },
+  {
+    "id": "iteration_n",
+    "label_en": "n",
+    "label_zh": "n（重复次数）",
+    "type": "note",
+    "parent": null,
+    "position": "右侧回路旁"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "start_up",
+    "to": "project_planning",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "project_planning",
+    "to": "stage_planning",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "stage_planning",
+    "to": "stage_execution",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "stage_execution",
+    "to": "stage_ending",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "stage_ending",
+    "to": "stage_planning",
+    "type": "iteration",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "label_en": "n",
+    "label_zh": "n（重复次数）",
+    "description_zh": "右侧折线回路，表示对下一阶段重复规划—执行—收尾"
+  },
+  {
+    "from": "stage_ending",
+    "to": "project_closing",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "阶段循环结束后进入项目收尾"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_project",
+    "kind": "sequence",
+    "name_zh": "项目级一次性流程",
+    "steps": [
+      "start_up",
+      "project_planning",
+      "stage_planning"
+    ]
+  },
+  {
+    "id": "f_stage_loop",
+    "kind": "loop",
+    "name_zh": "阶段级循环（n 次）",
+    "steps": [
+      "stage_planning",
+      "stage_execution",
+      "stage_ending",
+      "stage_planning"
+    ]
+  },
+  {
+    "id": "f_closing",
+    "kind": "sequence",
+    "name_zh": "循环结束后的收尾",
+    "steps": [
+      "stage_ending",
+      "project_closing"
+    ]
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "实线箭头",
+    "meaning_zh": "流程先后关系",
+    "explicit": false
+  },
+  {
+    "symbol": "右侧折线箭头 + n",
+    "meaning_zh": "阶段级循环，重复 n 次",
+    "explicit": true
+  },
+  {
+    "symbol": "左列方框",
+    "meaning_zh": "项目级（一次性）活动",
+    "explicit": false
+  },
+  {
+    "symbol": "右列方框",
+    "meaning_zh": "阶段级（重复）活动",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "左列三个宽方框纵向排列：架构项目启动（上）、架构项目规划（中）、架构项目收尾（下）。右列三个方框纵向排列且整体偏右：阶段规划、执行监控、阶段收尾，三者与左列的中部对齐。右列右侧有一条折线回路回到阶段规划，回路旁标 n。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G188/fig2-2",
+    "relation": "variant_of",
+    "note_zh": "同一生命周期的线性简化版：图 2-2 把它叠在 ADM 圆盘上，本图只列六个活动及箭头"
+  },
+  {
+    "target": "G188/fig3-2",
+    "relation": "follows",
+    "note_zh": "本图作为第 3 章结构图，其后 3.1.6 节用图 3-2 展开项目管理团队结构"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "原图左列“Architecture Project closing”与右列“Ending a stage”之间只有一条箭头，未标明是否需要先完成阶段收尾报告；本分析按箭头读为阶段收尾后进入项目收尾。",
+    "n 回路在原图中从“Ending a stage”右侧折回“Planning a stage”右侧，是否同时经过“Architecture Project planning”无法从图中判断；按只回到阶段规划记录。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 31 页原图截图（含 2x2 放大分块）",
+    "英文 PDF 第 31 页正文",
+    "中文稿 G188e_架构项目管理.md 第 269–301 行及图内标签对照表 L287–L298",
+    "figs/zh/g188e_fig3-1_zh.svg 源码与 figs/g188e_fig3-1_en.png"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

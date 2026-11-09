@@ -1,0 +1,797 @@
+{
+  "schema_version": "1.0",
+  "notice": "项目有向关系词汇；不是官方完整元模型。",
+  "relationships": {
+    "constrains": {
+      "source_types": [
+        "constraint"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "约束限制对象"
+    },
+    "located_at": {
+      "source_types": [
+        "environment",
+        "application",
+        "technology",
+        "hardware",
+        "actor"
+      ],
+      "target_types": [
+        "location"
+      ],
+      "meaning": "对象位于地点"
+    },
+    "connects_to": {
+      "source_types": [
+        "environment",
+        "location",
+        "technology"
+      ],
+      "target_types": [
+        "environment",
+        "location",
+        "technology"
+      ],
+      "meaning": "基础连接"
+    },
+    "governs": {
+      "source_types": [
+        "principle",
+        "standard"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "原则或标准治理对象"
+    },
+    "specifies": {
+      "source_types": [
+        "requirement"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "需求规定架构对象"
+    },
+    "traces_to": {
+      "source_types": [
+        "*"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "显式追溯，具体理由记录在 label"
+    },
+    "decomposes": {
+      "source_types": [
+        "capability",
+        "function"
+      ],
+      "target_types": [
+        "capability",
+        "function"
+      ],
+      "meaning": "整体分解为同类型部分"
+    },
+    "defines": {
+      "source_types": [
+        "term"
+      ],
+      "target_types": [
+        "information",
+        "data_entity"
+      ],
+      "meaning": "术语定义业务概念"
+    },
+    "synonym_of": {
+      "source_types": [
+        "term"
+      ],
+      "target_types": [
+        "term"
+      ],
+      "meaning": "同义词"
+    },
+    "realizes": {
+      "source_types": [
+        "function",
+        "technology",
+        "sbb"
+      ],
+      "target_types": [
+        "business_service",
+        "technology_service",
+        "abb"
+      ],
+      "meaning": "实现规定的服务或构建块"
+    },
+    "measured_by": {
+      "source_types": [
+        "*"
+      ],
+      "target_types": [
+        "measure"
+      ],
+      "meaning": "对象由指标衡量"
+    },
+    "commits_to": {
+      "source_types": [
+        "contract"
+      ],
+      "target_types": [
+        "business_service",
+        "requirement"
+      ],
+      "meaning": "合同承诺服务或要求"
+    },
+    "motivates": {
+      "source_types": [
+        "driver"
+      ],
+      "target_types": [
+        "goal"
+      ],
+      "meaning": "驱动促成目标"
+    },
+    "refines": {
+      "source_types": [
+        "goal"
+      ],
+      "target_types": [
+        "objective"
+      ],
+      "meaning": "目标细化为目的"
+    },
+    "member_of": {
+      "source_types": [
+        "actor"
+      ],
+      "target_types": [
+        "organization"
+      ],
+      "meaning": "参与者属于组织"
+    },
+    "triggers": {
+      "source_types": [
+        "event"
+      ],
+      "target_types": [
+        "process",
+        "activity",
+        "business_service"
+      ],
+      "meaning": "事件触发行为"
+    },
+    "produces": {
+      "source_types": [
+        "process",
+        "activity"
+      ],
+      "target_types": [
+        "event",
+        "product"
+      ],
+      "meaning": "行为产出事件或产品"
+    },
+    "controls": {
+      "source_types": [
+        "control"
+      ],
+      "target_types": [
+        "process",
+        "activity"
+      ],
+      "meaning": "控制约束行为"
+    },
+    "assigned_to": {
+      "source_types": [
+        "role"
+      ],
+      "target_types": [
+        "actor",
+        "activity"
+      ],
+      "meaning": "职责分配；端点须按 label 明确"
+    },
+    "concerned_with": {
+      "source_types": [
+        "stakeholder"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "利益相关者关注对象"
+    },
+    "has_stage": {
+      "source_types": [
+        "value_stream"
+      ],
+      "target_types": [
+        "value_stage"
+      ],
+      "meaning": "价值流具有阶段"
+    },
+    "precedes": {
+      "source_types": [
+        "value_stage"
+      ],
+      "target_types": [
+        "value_stage"
+      ],
+      "meaning": "价值阶段先后"
+    },
+    "supports_function": {
+      "source_types": [
+        "application"
+      ],
+      "target_types": [
+        "function"
+      ],
+      "meaning": "应用支撑功能"
+    },
+    "exposes": {
+      "source_types": [
+        "application"
+      ],
+      "target_types": [
+        "interface"
+      ],
+      "meaning": "应用提供接口"
+    },
+    "consumes": {
+      "source_types": [
+        "application"
+      ],
+      "target_types": [
+        "interface"
+      ],
+      "meaning": "应用消费接口"
+    },
+    "stored_in": {
+      "source_types": [
+        "data_entity"
+      ],
+      "target_types": [
+        "data_component"
+      ],
+      "meaning": "数据由组件存储"
+    },
+    "implements_standard": {
+      "source_types": [
+        "technology"
+      ],
+      "target_types": [
+        "standard"
+      ],
+      "meaning": "技术遵循标准"
+    },
+    "plays": {
+      "source_types": [
+        "actor"
+      ],
+      "target_types": [
+        "role"
+      ],
+      "meaning": "参与者承担角色"
+    },
+    "used_by": {
+      "source_types": [
+        "application"
+      ],
+      "target_types": [
+        "organization"
+      ],
+      "meaning": "组织使用、拥有或运营应用，code 区分"
+    },
+    "business_interaction": {
+      "source_types": [
+        "organization"
+      ],
+      "target_types": [
+        "organization"
+      ],
+      "meaning": "提供方向接收方交换服务或产品"
+    },
+    "owned_by": {
+      "source_types": [
+        "capability"
+      ],
+      "target_types": [
+        "organization"
+      ],
+      "meaning": "能力责任或贡献，code 区分"
+    },
+    "used_in_function": {
+      "source_types": [
+        "data_entity"
+      ],
+      "target_types": [
+        "function"
+      ],
+      "meaning": "功能对数据操作，code 为列功能执行的 CRUD"
+    },
+    "uses_application": {
+      "source_types": [
+        "actor",
+        "role"
+      ],
+      "target_types": [
+        "application"
+      ],
+      "meaning": "主体使用应用，不等于授权"
+    },
+    "requires_capability": {
+      "source_types": [
+        "goal",
+        "objective"
+      ],
+      "target_types": [
+        "capability"
+      ],
+      "meaning": "目标需要能力"
+    },
+    "enabled_by": {
+      "source_types": [
+        "value_stream",
+        "value_stage"
+      ],
+      "target_types": [
+        "capability"
+      ],
+      "meaning": "价值流或阶段由能力使能"
+    },
+    "communicates_with": {
+      "source_types": [
+        "application"
+      ],
+      "target_types": [
+        "application"
+      ],
+      "meaning": "应用向另一应用发起通信"
+    },
+    "accesses": {
+      "source_types": [
+        "application",
+        "process"
+      ],
+      "target_types": [
+        "data_entity"
+      ],
+      "meaning": "应用或处理访问数据"
+    },
+    "runs_on": {
+      "source_types": [
+        "application"
+      ],
+      "target_types": [
+        "technology"
+      ],
+      "meaning": "应用部署于或依赖技术，code 区分"
+    },
+    "delivers": {
+      "source_types": [
+        "work_package"
+      ],
+      "target_types": [
+        "outcome"
+      ],
+      "meaning": "工作包交付成果"
+    },
+    "enables_benefit": {
+      "source_types": [
+        "outcome"
+      ],
+      "target_types": [
+        "benefit"
+      ],
+      "meaning": "成果使能收益；因果为待验证假设"
+    },
+    "contributes_to": {
+      "source_types": [
+        "benefit"
+      ],
+      "target_types": [
+        "objective"
+      ],
+      "meaning": "收益贡献目的"
+    },
+    "supports_capability": {
+      "source_types": [
+        "function",
+        "application"
+      ],
+      "target_types": [
+        "capability"
+      ],
+      "meaning": "实现要素支撑能力"
+    },
+    "business_dependency": {
+      "source_types": [
+        "business_model_element"
+      ],
+      "target_types": [
+        "business_model_element"
+      ],
+      "meaning": "业务模式要素之间的依赖"
+    },
+    "produces_information": {
+      "source_types": [
+        "business_service"
+      ],
+      "target_types": [
+        "information"
+      ],
+      "meaning": "业务服务提供信息"
+    },
+    "consumes_information": {
+      "source_types": [
+        "business_service"
+      ],
+      "target_types": [
+        "information"
+      ],
+      "meaning": "业务服务消费信息"
+    },
+    "participates": {
+      "source_types": [
+        "actor"
+      ],
+      "target_types": [
+        "business_use_case",
+        "application_use_case"
+      ],
+      "meaning": "参与者参与用例"
+    },
+    "data_association": {
+      "source_types": [
+        "data_entity"
+      ],
+      "target_types": [
+        "data_entity"
+      ],
+      "meaning": "概念数据实体业务关联"
+    },
+    "served_by": {
+      "source_types": [
+        "objective"
+      ],
+      "target_types": [
+        "business_service"
+      ],
+      "meaning": "目的由业务服务支撑"
+    },
+    "information_association": {
+      "source_types": [
+        "information"
+      ],
+      "target_types": [
+        "information"
+      ],
+      "meaning": "信息概念关系"
+    },
+    "reports_to": {
+      "source_types": [
+        "organization"
+      ],
+      "target_types": [
+        "organization"
+      ],
+      "meaning": "下级向上级汇报"
+    },
+    "collaborates_with": {
+      "source_types": [
+        "organization"
+      ],
+      "target_types": [
+        "organization"
+      ],
+      "meaning": "组织协作，记录方向或双方语义"
+    },
+    "flows_to": {
+      "source_types": [
+        "activity",
+        "process"
+      ],
+      "target_types": [
+        "activity",
+        "process",
+        "decision"
+      ],
+      "meaning": "控制流"
+    },
+    "branches": {
+      "source_types": [
+        "decision"
+      ],
+      "target_types": [
+        "activity",
+        "process"
+      ],
+      "meaning": "有条件分支"
+    },
+    "has_activity": {
+      "source_types": [
+        "process"
+      ],
+      "target_types": [
+        "activity"
+      ],
+      "meaning": "流程包含活动"
+    },
+    "automated_by": {
+      "source_types": [
+        "process",
+        "activity"
+      ],
+      "target_types": [
+        "application"
+      ],
+      "meaning": "应用自动或辅助实现行为"
+    },
+    "transitions_to": {
+      "source_types": [
+        "product_state",
+        "data_state"
+      ],
+      "target_types": [
+        "product_state",
+        "data_state"
+      ],
+      "meaning": "状态转换，label 写触发或条件"
+    },
+    "in_scope": {
+      "source_types": [
+        "project"
+      ],
+      "target_types": [
+        "actor",
+        "application",
+        "organization"
+      ],
+      "meaning": "项目范围内对象"
+    },
+    "external_dependency": {
+      "source_types": [
+        "project"
+      ],
+      "target_types": [
+        "actor",
+        "application",
+        "organization"
+      ],
+      "meaning": "项目外部依赖"
+    },
+    "supports_activity": {
+      "source_types": [
+        "value_chain_activity"
+      ],
+      "target_types": [
+        "value_chain_activity"
+      ],
+      "meaning": "支持价值链活动"
+    },
+    "replaced_by": {
+      "source_types": [
+        "application"
+      ],
+      "target_types": [
+        "application"
+      ],
+      "meaning": "现有应用被另一应用替换"
+    },
+    "migrated_by": {
+      "source_types": [
+        "application"
+      ],
+      "target_types": [
+        "work_package"
+      ],
+      "meaning": "应用由工作包迁移"
+    },
+    "provided_by": {
+      "source_types": [
+        "application_use_case"
+      ],
+      "target_types": [
+        "application"
+      ],
+      "meaning": "用例由应用提供"
+    },
+    "processing_step": {
+      "source_types": [
+        "application"
+      ],
+      "target_types": [
+        "application"
+      ],
+      "meaning": "场景中有序处理消息"
+    },
+    "deployed_on": {
+      "source_types": [
+        "software_module"
+      ],
+      "target_types": [
+        "technology"
+      ],
+      "meaning": "软件部署于节点"
+    },
+    "depends_on": {
+      "source_types": [
+        "software_module",
+        "work_package"
+      ],
+      "target_types": [
+        "software_module",
+        "work_package"
+      ],
+      "meaning": "对象依赖目标作为前置"
+    },
+    "implements_interface": {
+      "source_types": [
+        "software_module"
+      ],
+      "target_types": [
+        "interface"
+      ],
+      "meaning": "模块实现接口"
+    },
+    "replicated_to": {
+      "source_types": [
+        "data_component"
+      ],
+      "target_types": [
+        "data_component"
+      ],
+      "meaning": "数据组件间复制"
+    },
+    "migration_flow": {
+      "source_types": [
+        "data_component",
+        "migration_step"
+      ],
+      "target_types": [
+        "data_component",
+        "migration_step"
+      ],
+      "meaning": "迁移流或转换步骤"
+    },
+    "protected_by": {
+      "source_types": [
+        "data_entity",
+        "data_component"
+      ],
+      "target_types": [
+        "control"
+      ],
+      "meaning": "数据由控制保护"
+    },
+    "authorized_for": {
+      "source_types": [
+        "actor"
+      ],
+      "target_types": [
+        "data_entity"
+      ],
+      "meaning": "经证据支持的访问授权"
+    },
+    "crosses_boundary": {
+      "source_types": [
+        "data_component"
+      ],
+      "target_types": [
+        "trust_zone"
+      ],
+      "meaning": "数据处理跨信任边界"
+    },
+    "logical_association": {
+      "source_types": [
+        "logical_entity"
+      ],
+      "target_types": [
+        "logical_entity"
+      ],
+      "meaning": "逻辑实体关联"
+    },
+    "managed_by": {
+      "source_types": [
+        "technology"
+      ],
+      "target_types": [
+        "management_service"
+      ],
+      "meaning": "技术组件受管理服务管理"
+    },
+    "network_connects": {
+      "source_types": [
+        "technology",
+        "network_zone"
+      ],
+      "target_types": [
+        "technology",
+        "network_zone"
+      ],
+      "meaning": "有向网络通信"
+    },
+    "member_of_zone": {
+      "source_types": [
+        "technology",
+        "hardware"
+      ],
+      "target_types": [
+        "network_zone"
+      ],
+      "meaning": "节点属于网络区"
+    },
+    "hardware_connects": {
+      "source_types": [
+        "hardware"
+      ],
+      "target_types": [
+        "hardware"
+      ],
+      "meaning": "硬件连接"
+    },
+    "contains": {
+      "source_types": [
+        "platform"
+      ],
+      "target_types": [
+        "technology"
+      ],
+      "meaning": "平台组成"
+    },
+    "changes": {
+      "source_types": [
+        "change_request"
+      ],
+      "target_types": [
+        "requirement"
+      ],
+      "meaning": "变更修改需求"
+    },
+    "affects": {
+      "source_types": [
+        "requirement",
+        "change_request"
+      ],
+      "target_types": [
+        "*"
+      ],
+      "meaning": "有证据或待验证的影响"
+    },
+    "mitigates": {
+      "source_types": [
+        "control"
+      ],
+      "target_types": [
+        "risk"
+      ],
+      "meaning": "控制降低风险"
+    },
+    "satisfies": {
+      "source_types": [
+        "abb",
+        "sbb",
+        "application",
+        "technology",
+        "work_package"
+      ],
+      "target_types": [
+        "requirement"
+      ],
+      "meaning": "实现或工作成果满足需求"
+    },
+    "addresses_gap": {
+      "source_types": [
+        "work_package"
+      ],
+      "target_types": [
+        "gap"
+      ],
+      "meaning": "工作包处理差距"
+    }
+  }
+}

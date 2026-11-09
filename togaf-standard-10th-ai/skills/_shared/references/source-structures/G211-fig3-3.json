@@ -1,0 +1,186 @@
+{
+  "schema_version": "2.0",
+  "id": "G211/fig3-3",
+  "title": "人力资源管理能力分解",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      253
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "示范第 3.2.2 节的“分级”：把顶层（一级）能力逐层分解，以适合不同受众的细节程度沟通。高管可能只看一级视图，架构师和规划者需要更细的粒度；实践中常见 3–6 级。",
+    "reading_guide_zh": "外层蓝框的粗体标题是一级能力“人力资源管理”。框内纵向排列的 7 个蓝框是二级能力，每框首行是名称；框内缩进的小字是该二级能力下的三级能力。上下级完全由框的嵌套和缩进表达，没有连线；7 个二级框的上下次序没有含义。",
+    "key_points_zh": [
+      "7 项二级能力：人力资源认证与授权、人力资源绩效测定、人员风险管理、人力资源薪酬管理、人力资源/胜任力匹配、人力资源档案管理、人力资源历史管理。",
+      "“人力资源绩效测定”分解为 3 项三级能力：绩效阈值设定、绩效阈值测定、绩效约束测定。",
+      "“人力资源/胜任力匹配”下也缩进列出一项“人力资源/胜任力评估”；正文只提到绩效测定的 3 项三级能力，没有提这一项。",
+      "分解深度不均匀：只有部分二级能力继续向下分解；正文说明分解层数只取决于向目标受众传达信息、或支撑能力差距决策的需要。",
+      "能力名都围绕业务对象“人力资源（人员）”展开（认证授权、绩效、风险、薪酬、胜任力、档案、历史），符合第 2.1.1 节以业务对象为名词核心的命名约定；分解的是能力本身，不是 HR 部门的组织或流程。",
+      "本图 7 项与同文档图 5-3 中“人力资源管理”下出现的二级能力（胜任力管理、员工供需管理、职位广告、技能评估、福利/条款/薪酬管理、入职跟踪）基本不重合，只有薪酬一项近似；两图都是示例，正文没有说明二者的关系。"
+    ],
+    "hierarchy_zh": "三级：一级能力“人力资源管理”（外框）→ 7 项二级能力（内框）→ 三级能力（内框中的缩进小字：绩效测定下 3 项，胜任力匹配下 1 项）。上下级只由嵌套和缩进表达。",
+    "line_semantics_zh": "图中没有连线。外框包含内框表示一级包含二级；内框中缩进的小字表示该二级能力下的三级能力。元素清单用 parent 记录这种包含关系。",
+    "misreadings_zh": [
+      "二级框的上下排列不表示优先级或流程顺序。",
+      "缩进的小字是三级能力，不是对二级能力的说明文字。",
+      "原图第三项写作“Human Risk Management”（少了 Resource），按原图记录。",
+      "中文稿当前引用的 figs/g211_fig3-3.svg 换成了另一套通用 HR 职能，三级能力也不同，并画成连线错乱的树，不能据它理解本图。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "c_hrm",
+      "label_en": "Human Resource Management",
+      "label_zh": "人力资源管理",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "c_hr_authn_authz",
+      "label_en": "Human Resource Authentication and Authorization",
+      "label_zh": "人力资源认证与授权",
+      "type": "capability",
+      "parent": "c_hrm",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "c_hr_perf_determination",
+      "label_en": "Human Resource Performance Determination",
+      "label_zh": "人力资源绩效测定",
+      "type": "capability",
+      "parent": "c_hrm",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "c_hr_perf_threshold_setting",
+      "label_en": "Human Resource Performance Threshold Setting",
+      "label_zh": "人力资源绩效阈值设定",
+      "type": "capability",
+      "parent": "c_hr_perf_determination",
+      "level": 3,
+      "order": 1
+    },
+    {
+      "id": "c_hr_perf_threshold_determination",
+      "label_en": "Human Resource Performance Threshold Determination",
+      "label_zh": "人力资源绩效阈值测定",
+      "type": "capability",
+      "parent": "c_hr_perf_determination",
+      "level": 3,
+      "order": 2
+    },
+    {
+      "id": "c_hr_perf_constraints_determination",
+      "label_en": "Human Resource Performance Constraints Determination",
+      "label_zh": "人力资源绩效约束测定",
+      "type": "capability",
+      "parent": "c_hr_perf_determination",
+      "level": 3,
+      "order": 3
+    },
+    {
+      "id": "c_human_risk_mgmt",
+      "label_en": "Human Risk Management",
+      "label_zh": "人员风险管理",
+      "type": "capability",
+      "parent": "c_hrm",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "c_hr_compensation_mgmt",
+      "label_en": "Human Resource Compensation Management",
+      "label_zh": "人力资源薪酬管理",
+      "type": "capability",
+      "parent": "c_hrm",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "c_hr_competency_matching",
+      "label_en": "Human Resource/Competency Matching",
+      "label_zh": "人力资源/胜任力匹配",
+      "type": "capability",
+      "parent": "c_hrm",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "c_hr_competency_assessment",
+      "label_en": "Human Resource/Competency Assessment",
+      "label_zh": "人力资源/胜任力评估",
+      "type": "capability",
+      "parent": "c_hr_competency_matching",
+      "level": 3,
+      "order": 1,
+      "description_zh": "原图有，正文未提及。"
+    },
+    {
+      "id": "c_hr_profile_mgmt",
+      "label_en": "Human Resource Profile Management",
+      "label_zh": "人力资源档案管理",
+      "type": "capability",
+      "parent": "c_hrm",
+      "level": 2,
+      "order": 6
+    },
+    {
+      "id": "c_hr_history_mgmt",
+      "label_en": "Human Resource History Management",
+      "label_zh": "人力资源历史管理",
+      "type": "capability",
+      "parent": "c_hrm",
+      "level": 2,
+      "order": 7
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "外层蓝框 + 左上粗体标题",
+      "meaning_zh": "一级业务能力",
+      "explicit": false
+    },
+    {
+      "symbol": "内层蓝框（首行文字）",
+      "meaning_zh": "二级业务能力",
+      "explicit": false
+    },
+    {
+      "symbol": "内框中缩进的小号文字",
+      "meaning_zh": "三级业务能力",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "二级、三级能力的中文译名由解析者拟定；中文稿只给出“人力资源绩效测定”一项。",
+      "“人力资源/胜任力评估”按缩进记为三级能力；正文只说绩效测定下有三级能力，没有说明这一项。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 21 页原图截图（220 dpi）",
+      "英文 PDF 第 21 页正文",
+      "中文稿 G211e_业务能力.md 第 247–253 行",
+      "figs/g211_fig3-3.svg 源码（文字与连线路径）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G211/fig3-3",
+    "asset": "figs/g211_fig3-3.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "09"
+  }
+}

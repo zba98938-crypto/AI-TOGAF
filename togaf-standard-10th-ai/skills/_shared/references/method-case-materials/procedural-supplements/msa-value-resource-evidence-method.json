@@ -1,0 +1,84 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "msa-value-resource-evidence-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 2,
+      "declared_step": "逐服务确认一个ABF与业务价值",
+      "new_fictional_input": "新虚构预约服务唯一ABF为预约时段判断，预期减少人工核实；备件服务唯一ABF为备件可用判断，业务价值尚未观察；不按一个ABF推定收益已实现。",
+      "transformation": "服务→ABF一一说明，业务价值另记expected/observed；开发/运营资源与价值度量不混。",
+      "candidate_output": "预约/备件各一ABF，预约value=expected减少核实、备件value=unknown，均无ROI。",
+      "adverse_variant_expected": "两个ABF塞同服务、或一个ABF即已实现价值，应退回边界/度量澄清。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 4,
+      "declared_step": "关联工作包及命名过渡，检查运营计划缺口",
+      "new_fictional_input": "新虚构本例定义WP-appointment交付预约试点T-pilot，WP-parts交付备件扩大T-expanded；T-expanded依赖T-pilot验收且运营工时未知。",
+      "transformation": "新建本例工作包与命名状态对象，不再当悬空外部引用；开发/运营计划按月分格绑定状态。",
+      "candidate_output": "两工作包映射两状态；T-expanded=blocked-by-unknown-operations-plan，不按9人日开发放行运营。",
+      "adverse_variant_expected": "缺状态定义仍声称内部引用完整，或把开发预算覆盖未知运营计划，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [],
+  "candidate_records": [
+    {
+      "service_id": "SVC-APPOINTMENT",
+      "single_ABF": "预约时段判断",
+      "business_value": "expected减少人工核实",
+      "observed_business_value": "unknown",
+      "work_package_id": "WP-appointment",
+      "state_id": "T-pilot",
+      "development_plan": "本材料按月记录，与运营工时分列；不由开发计划推已投入",
+      "operations_plan": "unknown",
+      "ROI": "not-computed",
+      "approval_status": "candidate"
+    },
+    {
+      "service_id": "SVC-PARTS",
+      "single_ABF": "备件可用判断",
+      "business_value": "unknown",
+      "observed_business_value": "unknown",
+      "work_package_id": "WP-parts",
+      "state_id": "T-expanded",
+      "development_plan": "9人日仅本例声明开发计划，不是已完成",
+      "operations_plan": "unknown",
+      "ROI": "not-computed",
+      "approval_status": "candidate"
+    }
+  ],
+  "named_state_records": [
+    {
+      "id": "T-pilot",
+      "definition": "预约服务限定试点的候选运营状态",
+      "acceptance": "unknown",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "T-expanded",
+      "definition": "备件服务扩大范围的候选状态",
+      "depends_on": "T-pilot acceptance",
+      "operations_condition": "运营计划和恢复未核实，blocked",
+      "approval_status": "candidate"
+    }
+  ],
+  "work_package_records": [
+    {
+      "id": "WP-appointment",
+      "delivers_state": "T-pilot",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "WP-parts",
+      "delivers_state": "T-expanded",
+      "approval_status": "candidate"
+    }
+  ]
+}

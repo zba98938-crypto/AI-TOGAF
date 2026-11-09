@@ -1,0 +1,80 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Cooperation"]
+  n1["MDM"]
+  n2["业务系统（紫色圆柱，左上）"]
+  n3["业务系统（灰色圆柱，右上）"]
+  n4["业务系统（橙色圆柱，左下）"]
+  n5["业务系统（绿色圆柱，右下）"]
+  n6["Customer Data Acquisition Patterns"]
+  n7["Customer Data Distribution Patterns"]
+  n8["C-MDM System (Point of Truth)"]
+  n9["Direct Point of Truth Acquisition UI"]
+  n10["Point of Truth Service (no local storage, near-real time)"]
+  n11["Point of Truth Synchronization Service (local storage, near-real time)"]
+  n12["Batch Acquisition (local storage, batch)"]
+  n13["Direct Point of Truth Access UI (search and read)"]
+  n14["Point of Truth &quot;Search and Read&quot; Service (no local storage, near-real time)"]
+  n15["Point of Truth &quot;On Update Event&quot; Consumption (local storage, near-real time)"]
+  n16["Batch Consumption (local storage, batch)"]
+  n17["Point of Acquisition App"]
+  n18["Point of Consumption App"]
+  n19["Point of Acquisition App"]
+  n20["Point of Acquisition App"]
+  n21["本地客户数据存储图标"]
+  n22["Point of Acquisition App"]
+  n23["本地客户数据存储图标"]
+  n24["Point of Consumption App"]
+  n25["Point of Consumption App"]
+  n26["本地客户数据存储图标"]
+  n27["Point of Consumption App"]
+  n28["本地客户数据存储图标"]
+  n29["客户数据已采集标记"]
+  n30["客户数据已采集标记"]
+  n31["客户数据已采集标记"]
+  n32["客户数据已采集标记"]
+  n33["客户数据已分发标记"]
+  n34["客户数据已分发标记"]
+  n35["客户数据已分发标记"]
+  n36["客户数据已分发标记"]
+  n2 <-->|"流动"| n1
+  n3 <-->|"流动"| n1
+  n4 <-->|"流动"| n1
+  n5 <-->|"流动"| n1
+  n19 -->|"流动"| n8
+  n20 <-->|"流动"| n8
+  n22 -->|"流动"| n8
+  n8 -->|"流动"| n24
+  n8 -->|"流动"| n25
+  n8 -->|"流动"| n27
+  n0 -.->|"分组"| n1
+  n0 -.->|"分组"| n2
+  n0 -.->|"分组"| n3
+  n0 -.->|"分组"| n4
+  n0 -.->|"分组"| n5
+  n6 -.->|"分组"| n9
+  n6 -.->|"分组"| n10
+  n6 -.->|"分组"| n11
+  n6 -.->|"分组"| n12
+  n7 -.->|"分组"| n13
+  n7 -.->|"分组"| n14
+  n7 -.->|"分组"| n15
+  n7 -.->|"分组"| n16
+  n10 -.->|"visual_containment_only"| n19
+  n11 -.->|"visual_containment_only"| n20
+  n20 -.->|"application_encapsulation"| n21
+  n12 -.->|"visual_containment_only"| n22
+  n22 -.->|"application_encapsulation"| n23
+  n14 -.->|"visual_containment_only"| n24
+  n15 -.->|"visual_containment_only"| n25
+  n25 -.->|"application_encapsulation"| n26
+  n16 -.->|"visual_containment_only"| n27
+  n27 -.->|"application_encapsulation"| n28
+  n8 -.->|"application_encapsulation"| n29
+  n19 -.->|"application_encapsulation"| n30
+  n20 -.->|"application_encapsulation"| n31
+  n22 -.->|"application_encapsulation"| n32
+  n8 -.->|"application_encapsulation"| n33
+  n24 -.->|"application_encapsulation"| n34
+  n25 -.->|"application_encapsulation"| n35
+  n27 -.->|"application_encapsulation"| n36

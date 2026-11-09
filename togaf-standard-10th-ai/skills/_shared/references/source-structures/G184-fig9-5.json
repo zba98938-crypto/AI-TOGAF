@@ -1,0 +1,176 @@
+{
+  "schema_version": "2.0",
+  "id": "G184/fig9-5",
+  "title": "安全作为贯穿架构的横切关注点",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      1006
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "用最简的叠加图说明安全架构的定位：四个架构域横向分层，安全以一条竖列同时穿过四层，因此是横切关注点；它为四个域提供安全、隐私与运营风险视角，并影响/输入四个域。",
+    "reading_guide_zh": "自上而下读四条灰色横条：Business、Data、Application、Technology，它们是四个架构域（层）。然后把视线移到中间偏右的浅色竖列 Security：它从第一层上方一直延伸到第四层下方，压过四条横条，表示安全同时作用于四层，而不是其中某一层。图中没有箭头，关系完全由覆盖/穿过表达。",
+    "key_points_zh": [
+      "四条横条自上而下为业务、数据、应用、技术，顺序与 TOGAF 的四个架构域一致。",
+      "Security 是一条竖列，覆盖全部四层并上下超出堆叠范围，强调它不受任一架构域边界限制。",
+      "安全不是第五个架构域，而是横切关注点，贯穿整个 EA。",
+      "正文：安全架构影响并告知业务、应用、数据与技术架构；它可能常在企业架构范围之外组织，但其部分内容必须与架构整合开发。",
+      "竖列遮住横条中段只是前后叠放，不表示四层在此断开或缺失。",
+      "图中没有说明竖列上下超出的额外含义（例如代表架构范围之外的安全组织），不要过度解读。"
+    ],
+    "hierarchy_zh": "四个域并列堆叠，没有上下级包含；Security 是跨四域的竖列，不是四域之上的第五层，也不是某一个域的子元素。",
+    "line_semantics_zh": "图中没有连线或箭头。横切关系由竖列覆盖四条横条表达；竖列的白色填充遮住横条中段是绘制层次（前景/背景），不是关系线。",
+    "misreadings_zh": [
+      "不要把 Security 当作第五层或第五个架构域；它是横切关注点。",
+      "不要把竖列遮住横条读成四层在此中断；横条在竖列后面是连续的。",
+      "不要因为竖列位置偏右就以为它只作用于应用/技术层；它覆盖全部四层。",
+      "不要把竖列上下超出堆叠范围解释为“安全在架构之外”的正式编码；图内没有这个说明。",
+      "中文资产在文字后留下浅色矩形补丁且字号不一，这是本地化痕迹，不是图中的语义编码。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "business",
+      "label_en": "Business",
+      "label_zh": "业务层",
+      "type": "architecture",
+      "parent": null,
+      "level": 1,
+      "order": 1,
+      "position": "最上层横条",
+      "description_zh": "业务架构域，图中以第一层横条表示。"
+    },
+    {
+      "id": "data",
+      "label_en": "Data",
+      "label_zh": "数据层",
+      "type": "architecture",
+      "parent": null,
+      "level": 2,
+      "order": 2,
+      "position": "第二层横条",
+      "description_zh": "数据架构域，图中以第二层横条表示。"
+    },
+    {
+      "id": "application",
+      "label_en": "Application",
+      "label_zh": "应用层",
+      "type": "architecture",
+      "parent": null,
+      "level": 3,
+      "order": 3,
+      "position": "第三层横条",
+      "description_zh": "应用架构域，图中以第三层横条表示。"
+    },
+    {
+      "id": "technology",
+      "label_en": "Technology",
+      "label_zh": "技术层",
+      "type": "architecture",
+      "parent": null,
+      "level": 4,
+      "order": 4,
+      "position": "最下层横条",
+      "description_zh": "技术架构域，图中以第四层横条表示。"
+    },
+    {
+      "id": "security",
+      "label_en": "Security",
+      "label_zh": "安全（横切关注点）",
+      "type": "architecture",
+      "parent": null,
+      "position": "纵贯四层的浅色竖列，标签在列顶",
+      "description_zh": "代表安全架构：安全、隐私与运营风险视角的视图/视角/制品集合；横切四个架构域。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_sec_business",
+      "from": "security",
+      "to": "business",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "由竖列覆盖该横条表达横切影响。"
+    },
+    {
+      "id": "r_sec_data",
+      "from": "security",
+      "to": "data",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "同上，安全竖列覆盖数据层。"
+    },
+    {
+      "id": "r_sec_application",
+      "from": "security",
+      "to": "application",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "同上，安全竖列覆盖应用层。"
+    },
+    {
+      "id": "r_sec_technology",
+      "from": "security",
+      "to": "technology",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "同上，安全竖列覆盖技术层。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "灰色横向圆角长条",
+      "meaning_zh": "一个架构域（业务/数据/应用/技术），图中按层堆叠",
+      "explicit": false
+    },
+    {
+      "symbol": "浅色竖向圆角长列",
+      "meaning_zh": "Security——横切四个架构域的关注点",
+      "explicit": false
+    },
+    {
+      "symbol": "竖列覆盖横条并上下超出",
+      "meaning_zh": "安全穿透并超出任一架构域的边界",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中没有箭头；“Security 影响四个域”的方向依据正文 impacts and informs，而非图内符号。",
+      "四条横条称为“层”还是“域”，正文在 9.5.2 节两种说法都用；本分析把 label_zh 定为“层”，description 说明它们是架构域。",
+      "Security 竖列上下超出堆叠范围是否有额外含义（如代表架构范围之外的安全组织），图内无说明，未作推断。",
+      "中文资产的文字补丁与字号差异不改变结构，但会影响阅读观感。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 91 页图 9-5 截图与 2x2 放大分块",
+      "英文 PDF 第 90、91 页正文",
+      "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 996-1014 行",
+      "figs/zh/g184e_fig9-5_zh.png",
+      "figs/ai/G152/fig4-1.json（同图分析）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G184/fig9-5",
+    "asset": "figs/g184e_fig9-5_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "03"
+  }
+}

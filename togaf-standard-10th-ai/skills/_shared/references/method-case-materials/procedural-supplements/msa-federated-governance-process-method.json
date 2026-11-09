@@ -1,0 +1,97 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "msa-federated-governance-process-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 1,
+      "declared_step": "界定企业护栏和MSA专属决定两条轨道",
+      "new_fictional_input": "新虚构两轨：企业EA管标准/跨产品决策；MSA团队管单服务契约、发布、数据和运维细节；企业最小权限是共用护栏，EX-1需企业豁免裁决。",
+      "transformation": "逐项记录decision_scope和裁决主体；MSA细节不可覆盖企业护栏，企业规则不替团队写实现。",
+      "candidate_output": "EA-TRACK与MSA-TRACK两轨决定台账，EX-1=awaiting-EA-decision；方案仍candidate。",
+      "adverse_variant_expected": "用单轨“层层审批”遗漏团队自治，或以自治绕过EA护栏，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 2,
+      "declared_step": "区分五类角色职责与请求/决定权限",
+      "new_fictional_input": "新虚构五角色：业务赞助人看价值，业务负责人确认功能，IT负责人管生产控制，EA委员会定标准豁免，MSA团队提方案/实施本范围决定；五者职权由本项目材料明确。",
+      "transformation": "分别建立角色→请求/参加/决定/实施权限，不由头衔自动补授权；申请与裁决区分。",
+      "candidate_output": "五角色权限矩阵，EX-1申请人MSA团队、裁决者EA委员会，赞助人投资批准不等豁免。",
+      "adverse_variant_expected": "以赞助人或IT批准替代EA豁免、以EA裁决代做团队实现，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 3,
+      "declared_step": "核对每次发布控制和持续反馈",
+      "new_fictional_input": "新虚构发布清单每次记录双人复核、最小权限管道、自动测试和监控；第1次发布测试有结果但第二复核者缺签名，运行反馈发现错误增加。",
+      "transformation": "每次发布有独立控制证据，缺复核保持blocked；反馈产生变更候选不自动授下一发布许可。",
+      "candidate_output": "REL-1发布blocked（缺第二复核），FEEDBACK-1产生candidate change；EX-1仍待裁决。",
+      "adverse_variant_expected": "用上次复核覆盖本次发布或用拟议监控当风险已可控，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [],
+  "candidate_records": [
+    {
+      "role": "业务赞助人",
+      "request": "价值投资需求",
+      "participate": "价值取舍",
+      "decide": "投资范围（项目提议）",
+      "implement": "不代写技术实现",
+      "approval_status": "candidate"
+    },
+    {
+      "role": "业务负责人",
+      "request": "业务功能需求",
+      "participate": "功能验收",
+      "decide": "业务功能口径（项目提议）",
+      "implement": "业务活动与验收",
+      "approval_status": "candidate"
+    },
+    {
+      "role": "IT负责人",
+      "request": "生产控制要求",
+      "participate": "发布风险",
+      "decide": "生产控制范围（项目提议）",
+      "implement": "生产支持",
+      "approval_status": "candidate"
+    },
+    {
+      "role": "EA委员会",
+      "request": "标准审阅议题",
+      "participate": "跨产品架构评审",
+      "decide": "企业标准豁免（项目提议）",
+      "implement": "不代做单服务实现",
+      "approval_status": "candidate"
+    },
+    {
+      "role": "MSA团队",
+      "request": "EX-1豁免申请",
+      "participate": "服务方案/反馈",
+      "decide": "护栏内服务细节（项目提议）",
+      "implement": "本范围契约/发布/数据/运维",
+      "approval_status": "candidate"
+    }
+  ],
+  "governance_tracks": [
+    {
+      "id": "EA-TRACK",
+      "scope": "企业标准与跨产品决定",
+      "guardrail": "最小权限",
+      "open_item": "EX-1待EA裁决"
+    },
+    {
+      "id": "MSA-TRACK",
+      "scope": "单服务细节与护栏内自治",
+      "release": "REL-1缺第二复核签名，blocked",
+      "feedback": "FEEDBACK-1只形成候选变更"
+    }
+  ]
+}

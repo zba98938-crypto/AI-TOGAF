@@ -1,0 +1,258 @@
+# G210/fig3-1 · 敏捷企业架构的协作方式
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G210/fig3-1.md) · [JSON](../../architecture/diagrams/G210/fig3-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G210e.pdf`；SHA-256：`289803b369a49bc7f49c0d587b7f4af87899eebea8d834a6f52cbb2c3a657a58`。
+
+## 原图 · PDF 第 19 页
+
+![英文原图](../assets/G210/fig3-1-p0019.png)
+
+PDF 坐标：`[99.8, 289.1, 512.2, 487.4]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Enterprise Architecture
+Solution
+Development Agility
+Collaboration
+ADM Sprints
+ADM and Solution Sprints
+Cross-Development
+Cross-Functional
+Collaboration
+Agility
+Mixed Cross-Functional
+Business, ADM, and
+Solution Sprints
+Team Sprints
+```
+
+## 概要（历史解释；局部修正见上）
+
+四种敏捷 EA 协作方式：从架构团队独用冲刺到跨职能混合团队，随敏捷成熟度递进。
+
+## 目的（历史解释；局部修正见上）
+
+作者把全章要讲的四级协作路线压成一张导航图：读者先在图里认出自己组织当前的协作层级，再分别跳读 3.3.5–3.3.8 的详细做法。它同时回答“敏捷 EA 到底有几种做法”这个问题——不是一种，而是四种可选的组合，取决于组织敏捷实践的需要。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左上开始，先左后右、先上后下：左上＝企业架构开发敏捷，右上＝解决方案协作，左下＝跨开发协作，右下＝跨职能敏捷。每个框第一行是方式名称，第二行写明该方式用哪些冲刺（ADM 冲刺 / ADM 与解决方案冲刺 / 业务、ADM 与解决方案冲刺 / 混合跨职能团队冲刺）。图中没有箭头，四个框是并列的可选方式，不是必经流程。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 四种方式对应四种冲刺组合：只做 ADM 冲刺；ADM＋解决方案冲刺；业务＋ADM＋解决方案三套冲刺；混合跨职能团队冲刺。每个框的第二行就是这个组合。
+- 四格的差别本质上是“参与协作的团队范围”逐级扩大：只有架构团队 → 架构＋解决方案 → 业务＋架构＋解决方案 → 三类能力收进同一个混合团队。
+- 正文强调四种方式“取决于组织敏捷实践的需要”，并且这些协作层级“往往与企业的敏捷成熟度相一致”——成熟度是相关因素，不是图里画出来的坐标。
+- 图中没有箭头或阶梯，四格地位并列；把四格读成必须依次经过的四个阶段是过度解读。
+- 四种方式分别在 3.3.5（图 3-2）、3.3.6（图 3-3）、3.3.7（图 3-4）、3.3.8（图 3-5）展开，所以本图是全章的目录图，四张后续图各是其中一格的下钻。
+- 第三种“跨开发协作”在正文里另有一句限定：交付企业架构有多种语境，每种语境下对冲刺、成果与成员的解释会不同（详见第 5 章），所以本图给出的只是最粗的分类。
+
+## 层级（历史解释；局部修正见上）
+
+只有一层：四个并列的协作方式框，互相之间没有上下级。每个框内部是“方式名称（第一行）＋冲刺构成（第二行）”的主从关系，第二行从属于第一行，用来解释该方式怎么做。
+
+## 线条含义（历史解释；局部修正见上）
+
+原图没有任何连线、箭头或坐标轴。四格的先后只能由排版顺序（左上→右上→左下→右下）和正文的叙述顺序暗示，属于阅读顺序而不是流程。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把 2×2 当成带两条轴的“四象限”分析：图里没有坐标轴，四格地位相同，也不存在“横轴高/纵轴低”的取值。
+- 不要以为必须从第一种走到第四种；正文说的是“取决于需要”，成熟度只是常与这些层级相关。
+- 不要忽略每格第二行——它才是“这种协作方式到底用哪些冲刺”的答案，名称本身并不说明做法。
+- 中文稿当前引用的 figs/g210_fig3-1.svg 把四格排成一行并加了 ①②③④ 箭头和“敏捷成熟度 →”轴，还补了四条解释；这些是重绘者的加工，原图没有，不能反过来当作原图的含义。
+
+## 元素
+
+```json
+[
+  {
+    "id": "mode_ea_dev",
+    "label_en": "Enterprise Architecture Development Agility",
+    "label_zh": "企业架构开发敏捷",
+    "type": "concept",
+    "parent": null,
+    "order": 1,
+    "position": "左上",
+    "description_zh": "最基础的一级：只有架构团队按冲刺节奏交付企业架构。"
+  },
+  {
+    "id": "mode_ea_dev_sprints",
+    "label_en": "ADM Sprints",
+    "label_zh": "ADM 冲刺",
+    "type": "note",
+    "parent": "mode_ea_dev",
+    "position": "左上方框第二行",
+    "description_zh": "该方式采用“ADM 冲刺”，即把 ADM 阶段 A–F 切片分到各冲刺。"
+  },
+  {
+    "id": "mode_solution_collab",
+    "label_en": "Solution Collaboration",
+    "label_zh": "解决方案协作",
+    "type": "concept",
+    "parent": null,
+    "order": 2,
+    "position": "右上",
+    "description_zh": "第二级：架构团队与解决方案团队在同一冲刺内协作。"
+  },
+  {
+    "id": "mode_solution_collab_sprints",
+    "label_en": "ADM and Solution Sprints",
+    "label_zh": "ADM 与解决方案冲刺",
+    "type": "note",
+    "parent": "mode_solution_collab",
+    "position": "右上方框第二行",
+    "description_zh": "每个冲刺同时含 EA 与解决方案开发。"
+  },
+  {
+    "id": "mode_cross_dev",
+    "label_en": "Cross-Development Collaboration",
+    "label_zh": "跨开发协作",
+    "type": "concept",
+    "parent": null,
+    "order": 3,
+    "position": "左下",
+    "description_zh": "第三级：业务开发也进入冲刺，三条泳道并行。"
+  },
+  {
+    "id": "mode_cross_dev_sprints",
+    "label_en": "Business, ADM, and Solution Sprints",
+    "label_zh": "业务、ADM 与解决方案冲刺",
+    "type": "note",
+    "parent": "mode_cross_dev",
+    "position": "左下方框第二行",
+    "description_zh": "业务开发、企业架构、解决方案三类冲刺同时存在。"
+  },
+  {
+    "id": "mode_cross_functional",
+    "label_en": "Cross-Functional Agility",
+    "label_zh": "跨职能敏捷",
+    "type": "concept",
+    "parent": null,
+    "order": 4,
+    "position": "右下",
+    "description_zh": "最高一级：三类能力收进同一批混合团队。"
+  },
+  {
+    "id": "mode_cross_functional_sprints",
+    "label_en": "Mixed Cross-Functional Team Sprints",
+    "label_zh": "混合跨职能团队冲刺",
+    "type": "note",
+    "parent": "mode_cross_functional",
+    "position": "右下方框第二行",
+    "description_zh": "由混合的跨职能团队承担冲刺，不再有专门团队。"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_modes",
+    "kind": "sequence",
+    "name_zh": "四种协作方式（按正文叙述与成熟度递增排序）",
+    "steps": [
+      "mode_ea_dev",
+      "mode_solution_collab",
+      "mode_cross_dev",
+      "mode_cross_functional"
+    ],
+    "description_zh": "原图未画箭头，此顺序取自正文 3.3 的列举顺序与“协作层级常与敏捷成熟度一致”的说明，表示成熟度阶梯，不是强制流程。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "青色圆角矩形",
+    "meaning_zh": "一种敏捷 EA 协作方式；框内第一行是方式名称，第二行是该方式采用的冲刺组合",
+    "explicit": false
+  },
+  {
+    "symbol": "2×2 排列",
+    "meaning_zh": "左上→右上→左下→右下的阅读顺序，大致对应协作范围/敏捷成熟度递增（图中无箭头、无坐标轴）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "grid",
+  "description_zh": "2×2 四格，每格一个等大的青色圆角矩形；四个框之间留白，无连线。阅读顺序为左上、右上、左下、右下。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G210/fig3-2",
+    "relation": "overview_of",
+    "note_zh": "本图第一格“企业架构开发敏捷”的下钻；图 3-2 画出只用 ADM 冲刺的时间轴"
+  },
+  {
+    "target": "G210/fig3-3",
+    "relation": "overview_of",
+    "note_zh": "本图第二格“解决方案协作”的下钻；图 3-3 画出架构与解决方案两条泳道"
+  },
+  {
+    "target": "G210/fig3-4",
+    "relation": "overview_of",
+    "note_zh": "本图第三格“跨开发协作”的下钻；图 3-4 画出业务开发、架构、解决方案三层泳道"
+  },
+  {
+    "target": "G210/fig3-5",
+    "relation": "overview_of",
+    "note_zh": "本图第四格“跨职能敏捷”的下钻；图 3-5 画出跨职能团队的单泳道冲刺序列"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "四格在版面上是 2×2，但阅读顺序（先左后右再下一行）是推断，图中无编号或箭头明确标示。",
+    "框内第二行副标题与第一行名称的对应关系（即“该方式用哪些冲刺”）依据正文 p20 与中文稿 L206–L209 补足；图上仅并列两行文字。"
+  ],
+  "analyzed_from": [
+    "figctx.py G210/fig3-1 的 220 dpi 原图裁切（英文 PDF p19）与 2x2 放大分块",
+    "英文 PDF p19（图题与正文）、p20（四种方式逐条说明）",
+    "中文稿 G210e_以敏捷冲刺应用TOGAF_ADM.md L188–L209",
+    "figs/g210_fig3-1.svg 源码（对比重绘版式与文字）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

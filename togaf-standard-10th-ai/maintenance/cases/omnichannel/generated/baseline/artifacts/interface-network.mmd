@@ -1,0 +1,20 @@
+flowchart LR
+  %% Specialized notation is in the SVG; this source is the complete labelled relation projection.
+  %% entity-id: APP-ORDER
+  n0["线上订单应用"]
+  %% entity-id: APP-STORE
+  n1["门店销售应用"]
+  %% entity-id: APP-STOCK
+  n2["库存服务"]
+  %% entity-id: IF-RESERVE
+  n3["中央库存预占接口"]
+  %% entity-id: IF-EVENT
+  n4["订单事件处理接口"]
+  %% relationship-id: EX-RESERVE
+  n2 -->|"提供预占契约"| n3
+  %% relationship-id: USE-RESERVE
+  n0 -->|"候选A：在线请求"| n3
+  %% relationship-id: EX-EVENT
+  n2 -->|"候选B：处理事件"| n4
+  %% relationship-id: USE-EVENT
+  n0 -->|"候选B：提交事件"| n4

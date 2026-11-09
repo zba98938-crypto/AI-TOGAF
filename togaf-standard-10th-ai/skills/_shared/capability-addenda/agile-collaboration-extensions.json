@@ -1,0 +1,3376 @@
+{
+  "schema_version": "capability-extension/1",
+  "version": "2.1-agile-1",
+  "notice": "四专用图、一选择表、一方法，不增族。原图缺失；正文/历史解释/重绘偏差分别记录。",
+  "patches": [
+    {
+      "target_kind": "work_products",
+      "target_id": "architecture-project-schedule",
+      "add": {
+        "entity_types": [
+          "guide:agile_sprint",
+          "guide:agile_activity",
+          "guide:dorp_gate",
+          "guide:agile_context"
+        ],
+        "relationship_types": [
+          "guide:agile_handoff",
+          "guide:agile_continues",
+          "guide:agile_collaborates",
+          "guide:agile_finalizes"
+        ],
+        "source_refs": [
+          "G210 §3.3–3.3.8"
+        ],
+        "capability_references": [
+          "references/capability-addenda/agile-collaboration-patterns.md"
+        ]
+      }
+    },
+    {
+      "target_kind": "work_products",
+      "target_id": "options-decision-matrix",
+      "add": {
+        "entity_types": [
+          "guide:agile_pattern_choice"
+        ],
+        "relationship_types": [],
+        "source_refs": [
+          "G210 §3.3–3.3.8"
+        ],
+        "capability_references": [
+          "references/capability-addenda/agile-collaboration-patterns.md"
+        ]
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "agile-ea-development",
+      "artifact_id": "architecture-project-schedule",
+      "name": "企业架构开发敏捷冲刺协作图",
+      "owner": "togaf-architecture-workbench",
+      "version": "2.1-agile-1",
+      "output_kind": "diagram",
+      "renderer": "agile-sprints",
+      "notation": "sprint-lanes-dorp",
+      "entity_types": [
+        "guide:agile_sprint",
+        "guide:agile_activity",
+        "guide:dorp_gate",
+        "guide:agile_context"
+      ],
+      "relationship_types": [
+        "guide:agile_handoff",
+        "guide:agile_continues",
+        "guide:agile_collaborates",
+        "guide:agile_finalizes"
+      ],
+      "required_attributes": {
+        "guide:agile_sprint": [
+          "order",
+          "timebox",
+          "goal",
+          "display_label"
+        ],
+        "guide:agile_activity": [
+          "sprint_ref",
+          "lane",
+          "team",
+          "capabilities",
+          "work",
+          "parallel_teams",
+          "selection_basis"
+        ],
+        "guide:dorp_gate": [
+          "sprint_ref",
+          "outputs",
+          "dorp_actions",
+          "unfinished_return",
+          "coordination"
+        ],
+        "guide:agile_context": [
+          "role",
+          "business_change",
+          "backlog",
+          "boundary",
+          "source_boundary"
+        ]
+      },
+      "symmetric_relationship_types": [
+        "guide:agile_collaborates"
+      ],
+      "source_refs": [
+        "G210 §3.3、§3.3.5",
+        "G210 图3-2"
+      ],
+      "source_structure_refs": [
+        "references/source-structures/G210-fig3-2.json"
+      ],
+      "definition_status": "local-body-pattern; original-figure-unavailable; historical-structure-not-certified",
+      "template": {
+        "id": "agile-ea-development",
+        "version": "1.0",
+        "source_verified": false,
+        "structure": "sprint-columns; DORP boundaries; parallel lanes; output markers; handoff distinct from symmetric collaboration"
+      },
+      "reference_document": "references/capability-addenda/agile-collaboration-patterns.md",
+      "example": {
+        "notice": "四个备选推演；非同时发生/成熟度等级",
+        "raw_input": "examples/addenda/agile-collaboration/raw-business-materials.json",
+        "analysis_path": "examples/addenda/agile-collaboration/analysis.md",
+        "sources": [
+          {
+            "id": "raw-agile",
+            "kind": "example",
+            "description": "虚构云港城市图书馆预约服务，原业务材料在本包内，未声称真实批准。",
+            "locator": "examples/addenda/agile-collaboration/raw-business-materials.json"
+          },
+          {
+            "id": "guide-agile",
+            "kind": "local-translation",
+            "description": "G210本地正文§3.3–3.3.8；历史图JSON不证明本轮原图已核验。",
+            "locator": "references/source-tables/agile-collaboration-patterns.json"
+          }
+        ],
+        "scopes": [
+          {
+            "id": "scope-ea",
+            "description": "企业架构开发敏捷备选范围"
+          }
+        ],
+        "entities": [
+          {
+            "id": "ea-vision",
+            "type": "guide:agile_context",
+            "name": "业务愿景：座位预约与无障碍协助",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "role": "input",
+              "business_change": "可靠确认、可访问服务；独立备选推演",
+              "backlog": [
+                "B-BOOK预约",
+                "B-CANCEL取消",
+                "G-PRIV隐私待确认"
+              ],
+              "boundary": "候选组织方案；没有上线许可",
+              "source_boundary": "正文＋历史JSON解释；当前原图缺失"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-s0",
+            "type": "guide:agile_sprint",
+            "name": "冲刺0",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "order": 0,
+              "timebox": "2周（R06项目约定）",
+              "goal": "愿景与待办",
+              "display_label": "冲刺0"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-dorp0",
+            "type": "guide:dorp_gate",
+            "name": "DORP0",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "sprint_ref": "ea-s0",
+              "outputs": [
+                {
+                  "id": "ea-BACKLOG0",
+                  "kind": "待办",
+                  "lane": "ea",
+                  "necessity": "required",
+                  "meaning": "业务变革待办，不是MVA/MVP"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-s1",
+            "type": "guide:agile_sprint",
+            "name": "冲刺1",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "order": 1,
+              "timebox": "2周（R06项目约定）",
+              "goal": "预约确认",
+              "display_label": "冲刺1"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-dorp1",
+            "type": "guide:dorp_gate",
+            "name": "DORP1",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "sprint_ref": "ea-s1",
+              "outputs": [
+                {
+                  "id": "ea-MVA1",
+                  "kind": "MVA",
+                  "lane": "ea",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-ea1",
+            "type": "guide:agile_activity",
+            "name": "企业架构团队·冲刺1",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "sprint_ref": "ea-s1",
+              "lane": "ea",
+              "team": "EA-T",
+              "capabilities": [
+                "企业架构"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-s2",
+            "type": "guide:agile_sprint",
+            "name": "冲刺2",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "order": 2,
+              "timebox": "2周（R06项目约定）",
+              "goal": "取消与容量",
+              "display_label": "冲刺2"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-dorp2",
+            "type": "guide:dorp_gate",
+            "name": "DORP2",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "sprint_ref": "ea-s2",
+              "outputs": [
+                {
+                  "id": "ea-MVA2",
+                  "kind": "MVA",
+                  "lane": "ea",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-ea2",
+            "type": "guide:agile_activity",
+            "name": "企业架构团队·冲刺2",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "sprint_ref": "ea-s2",
+              "lane": "ea",
+              "team": "EA-T",
+              "capabilities": [
+                "企业架构"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-s3",
+            "type": "guide:agile_sprint",
+            "name": "冲刺…（本例3）",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "order": 3,
+              "timebox": "2周（R06项目约定）",
+              "goal": "无障碍协助",
+              "display_label": "冲刺…（本例3）"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-dorp3",
+            "type": "guide:dorp_gate",
+            "name": "DORP3",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "sprint_ref": "ea-s3",
+              "outputs": [
+                {
+                  "id": "ea-MVA3",
+                  "kind": "MVA",
+                  "lane": "ea",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-ea3",
+            "type": "guide:agile_activity",
+            "name": "企业架构团队·冲刺…（本例3）",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "sprint_ref": "ea-s3",
+              "lane": "ea",
+              "team": "EA-T",
+              "capabilities": [
+                "企业架构"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "ea-final",
+            "type": "guide:agile_context",
+            "name": "最终产品架构",
+            "scope_id": "scope-ea",
+            "attributes": {
+              "role": "terminal",
+              "business_change": "所选范围的完整产品架构候选",
+              "backlog": [
+                "B-BOOK",
+                "B-CANCEL"
+              ],
+              "boundary": "完整架构后安排实施；本图未展开实施",
+              "source_boundary": "§3.3.5；并行例外需项目依据"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "ea-start-ea",
+            "type": "guide:agile_handoff",
+            "source": "ea-vision",
+            "target": "ea-ea1",
+            "label": "冲刺0愿景/待办进入首轮",
+            "attributes": {
+              "output_kind": "BACKLOG",
+              "timing": "冲刺0之后；不是MVA0",
+              "review": "DORP0计划"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ea-continue-ea1",
+            "type": "guide:agile_continues",
+            "source": "ea-ea1",
+            "target": "ea-ea2",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ea-continue-ea2",
+            "type": "guide:agile_continues",
+            "source": "ea-ea2",
+            "target": "ea-ea3",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ea-finalization",
+            "type": "guide:agile_finalizes",
+            "source": "ea-ea3",
+            "target": "ea-final",
+            "label": "所选范围架构收束",
+            "attributes": {
+              "timing": "last-selected-sprint→architecture-complete",
+              "review": "候选待评审，不表示批准"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "extensions": {
+          "relationship_types": {
+            "guide:agile_handoff": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "前冲刺成果经DORP评审移交后续冲刺，有方向"
+            },
+            "guide:agile_continues": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "同泳道下一冲刺的滚动延续，不等于一个ADM阶段"
+            },
+            "guide:agile_collaborates": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "同冲刺不同团队的对称协作、敏捷治理与支持；不是有向数据流"
+            },
+            "guide:agile_finalizes": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "仅EA模式形成最终产品架构后安排实施，本图不伪造实施任务"
+            }
+          }
+        },
+        "view": {
+          "id": "v-agile-ea-development",
+          "artifact_id": "architecture-project-schedule",
+          "profile_id": "agile-ea-development",
+          "title": "企业架构开发敏捷：预约服务备选推演",
+          "scope_id": "scope-ea",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "segment",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "ea-vision",
+            "ea-s0",
+            "ea-dorp0",
+            "ea-s1",
+            "ea-dorp1",
+            "ea-ea1",
+            "ea-s2",
+            "ea-dorp2",
+            "ea-ea2",
+            "ea-s3",
+            "ea-dorp3",
+            "ea-ea3",
+            "ea-final"
+          ],
+          "relationship_ids": [
+            "ea-start-ea",
+            "ea-continue-ea1",
+            "ea-continue-ea2",
+            "ea-finalization"
+          ],
+          "analysis": "R01–R06及选择表；开放序列只是参数化片段，非成熟度等级。",
+          "legend": "MVA最小可行架构；MVBD最小可行业务开发；MVP最小可行产品。DORP为演示/成果/回顾/规划，不是实施阶段。",
+          "attributes": {
+            "sprint_pattern": {
+              "pattern": "ea",
+              "pattern_label": "企业架构开发敏捷",
+              "lanes": [
+                {
+                  "id": "ea",
+                  "label": "企业架构团队"
+                }
+              ],
+              "adaptive_columns": 2,
+              "decision": "四图分别推演备选方式；采用与依据见选择表。"
+            }
+          }
+        }
+      },
+      "checks": [
+        "DORP边界及四活动",
+        "冲刺0不虚构增量",
+        "交接后续冲刺",
+        "协作双向且同冲刺",
+        "混合每队三能力",
+        "非成熟度评分"
+      ]
+    },
+    {
+      "id": "agile-solution-collaboration",
+      "artifact_id": "architecture-project-schedule",
+      "name": "解决方案协作冲刺协作图",
+      "owner": "togaf-architecture-workbench",
+      "version": "2.1-agile-1",
+      "output_kind": "diagram",
+      "renderer": "agile-sprints",
+      "notation": "sprint-lanes-dorp",
+      "entity_types": [
+        "guide:agile_sprint",
+        "guide:agile_activity",
+        "guide:dorp_gate",
+        "guide:agile_context"
+      ],
+      "relationship_types": [
+        "guide:agile_handoff",
+        "guide:agile_continues",
+        "guide:agile_collaborates",
+        "guide:agile_finalizes"
+      ],
+      "required_attributes": {
+        "guide:agile_sprint": [
+          "order",
+          "timebox",
+          "goal",
+          "display_label"
+        ],
+        "guide:agile_activity": [
+          "sprint_ref",
+          "lane",
+          "team",
+          "capabilities",
+          "work",
+          "parallel_teams",
+          "selection_basis"
+        ],
+        "guide:dorp_gate": [
+          "sprint_ref",
+          "outputs",
+          "dorp_actions",
+          "unfinished_return",
+          "coordination"
+        ],
+        "guide:agile_context": [
+          "role",
+          "business_change",
+          "backlog",
+          "boundary",
+          "source_boundary"
+        ]
+      },
+      "symmetric_relationship_types": [
+        "guide:agile_collaborates"
+      ],
+      "source_refs": [
+        "G210 §3.3、§3.3.6",
+        "G210 图3-3"
+      ],
+      "source_structure_refs": [
+        "references/source-structures/G210-fig3-3.json"
+      ],
+      "definition_status": "local-body-pattern; original-figure-unavailable; historical-structure-not-certified",
+      "template": {
+        "id": "agile-solution-collaboration",
+        "version": "1.0",
+        "source_verified": false,
+        "structure": "sprint-columns; DORP boundaries; parallel lanes; output markers; handoff distinct from symmetric collaboration"
+      },
+      "reference_document": "references/capability-addenda/agile-collaboration-patterns.md",
+      "example": {
+        "notice": "四个备选推演；非同时发生/成熟度等级",
+        "raw_input": "examples/addenda/agile-collaboration/raw-business-materials.json",
+        "analysis_path": "examples/addenda/agile-collaboration/analysis.md",
+        "sources": [
+          {
+            "id": "raw-agile",
+            "kind": "example",
+            "description": "虚构云港城市图书馆预约服务，原业务材料在本包内，未声称真实批准。",
+            "locator": "examples/addenda/agile-collaboration/raw-business-materials.json"
+          },
+          {
+            "id": "guide-agile",
+            "kind": "local-translation",
+            "description": "G210本地正文§3.3–3.3.8；历史图JSON不证明本轮原图已核验。",
+            "locator": "references/source-tables/agile-collaboration-patterns.json"
+          }
+        ],
+        "scopes": [
+          {
+            "id": "scope-solution",
+            "description": "解决方案协作备选范围"
+          }
+        ],
+        "entities": [
+          {
+            "id": "solution-vision",
+            "type": "guide:agile_context",
+            "name": "业务愿景：座位预约与无障碍协助",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "role": "input",
+              "business_change": "可靠确认、可访问服务；独立备选推演",
+              "backlog": [
+                "B-BOOK预约",
+                "B-CANCEL取消",
+                "G-PRIV隐私待确认"
+              ],
+              "boundary": "候选组织方案；没有上线许可",
+              "source_boundary": "正文＋历史JSON解释；当前原图缺失"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-s0",
+            "type": "guide:agile_sprint",
+            "name": "冲刺0",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "order": 0,
+              "timebox": "2周（R06项目约定）",
+              "goal": "愿景与待办",
+              "display_label": "冲刺0"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-dorp0",
+            "type": "guide:dorp_gate",
+            "name": "DORP0",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s0",
+              "outputs": [
+                {
+                  "id": "solution-BACKLOG0",
+                  "kind": "待办",
+                  "lane": "ea",
+                  "necessity": "required",
+                  "meaning": "业务变革待办，不是MVA/MVP"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-s1",
+            "type": "guide:agile_sprint",
+            "name": "冲刺1",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "order": 1,
+              "timebox": "2周（R06项目约定）",
+              "goal": "预约确认",
+              "display_label": "冲刺1"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-dorp1",
+            "type": "guide:dorp_gate",
+            "name": "DORP1",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s1",
+              "outputs": [
+                {
+                  "id": "solution-MVA1",
+                  "kind": "MVA",
+                  "lane": "ea",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                },
+                {
+                  "id": "solution-MVP1",
+                  "kind": "MVP",
+                  "lane": "solution",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-ea1",
+            "type": "guide:agile_activity",
+            "name": "企业架构团队·冲刺1",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s1",
+              "lane": "ea",
+              "team": "EA-T",
+              "capabilities": [
+                "企业架构"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-solution1",
+            "type": "guide:agile_activity",
+            "name": "解决方案团队·冲刺1",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s1",
+              "lane": "solution",
+              "team": "DEV-A / DEV-B",
+              "capabilities": [
+                "解决方案开发"
+              ],
+              "work": "业务待办样机，不消费MVA0",
+              "parallel_teams": 2,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-s2",
+            "type": "guide:agile_sprint",
+            "name": "冲刺2",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "order": 2,
+              "timebox": "2周（R06项目约定）",
+              "goal": "取消与容量",
+              "display_label": "冲刺2"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-dorp2",
+            "type": "guide:dorp_gate",
+            "name": "DORP2",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s2",
+              "outputs": [
+                {
+                  "id": "solution-MVA2",
+                  "kind": "MVA",
+                  "lane": "ea",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                },
+                {
+                  "id": "solution-MVP2",
+                  "kind": "MVP",
+                  "lane": "solution",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-ea2",
+            "type": "guide:agile_activity",
+            "name": "企业架构团队·冲刺2",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s2",
+              "lane": "ea",
+              "team": "EA-T",
+              "capabilities": [
+                "企业架构"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-solution2",
+            "type": "guide:agile_activity",
+            "name": "解决方案团队·冲刺2",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s2",
+              "lane": "solution",
+              "team": "DEV-A / DEV-B",
+              "capabilities": [
+                "解决方案开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 2,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-s3",
+            "type": "guide:agile_sprint",
+            "name": "冲刺…（本例3）",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "order": 3,
+              "timebox": "2周（R06项目约定）",
+              "goal": "无障碍协助",
+              "display_label": "冲刺…（本例3）"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-dorp3",
+            "type": "guide:dorp_gate",
+            "name": "DORP3",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s3",
+              "outputs": [
+                {
+                  "id": "solution-MVP3",
+                  "kind": "MVP",
+                  "lane": "solution",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-ea3",
+            "type": "guide:agile_activity",
+            "name": "企业架构团队·冲刺…（本例3）",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s3",
+              "lane": "ea",
+              "team": "EA-T",
+              "capabilities": [
+                "企业架构"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "solution-solution3",
+            "type": "guide:agile_activity",
+            "name": "解决方案团队·冲刺…（本例3）",
+            "scope_id": "scope-solution",
+            "attributes": {
+              "sprint_ref": "solution-s3",
+              "lane": "solution",
+              "team": "DEV-A / DEV-B",
+              "capabilities": [
+                "解决方案开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 2,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "solution-start-ea",
+            "type": "guide:agile_handoff",
+            "source": "solution-vision",
+            "target": "solution-ea1",
+            "label": "冲刺0愿景/待办进入首轮",
+            "attributes": {
+              "output_kind": "BACKLOG",
+              "timing": "冲刺0之后；不是MVA0",
+              "review": "DORP0计划"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-continue-ea1",
+            "type": "guide:agile_continues",
+            "source": "solution-ea1",
+            "target": "solution-ea2",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-continue-ea2",
+            "type": "guide:agile_continues",
+            "source": "solution-ea2",
+            "target": "solution-ea3",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-start-solution",
+            "type": "guide:agile_handoff",
+            "source": "solution-vision",
+            "target": "solution-solution1",
+            "label": "冲刺0愿景/待办进入首轮",
+            "attributes": {
+              "output_kind": "BACKLOG",
+              "timing": "冲刺0之后；不是MVA0",
+              "review": "DORP0计划"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-continue-solution1",
+            "type": "guide:agile_continues",
+            "source": "solution-solution1",
+            "target": "solution-solution2",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-continue-solution2",
+            "type": "guide:agile_continues",
+            "source": "solution-solution2",
+            "target": "solution-solution3",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-MVA-handoff1",
+            "type": "guide:agile_handoff",
+            "source": "solution-ea1",
+            "target": "solution-solution2",
+            "label": "MVA由后续方案冲刺消费",
+            "attributes": {
+              "output_kind": "MVA",
+              "output_id": "solution-MVA1",
+              "timing": "k→k+1",
+              "review": "DORP架构演示后交接"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-MVA-handoff2",
+            "type": "guide:agile_handoff",
+            "source": "solution-ea2",
+            "target": "solution-solution3",
+            "label": "MVA由后续方案冲刺消费",
+            "attributes": {
+              "output_kind": "MVA",
+              "output_id": "solution-MVA2",
+              "timing": "k→k+1",
+              "review": "DORP架构演示后交接"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-collab-ea-solution1",
+            "type": "guide:agile_collaborates",
+            "source": "solution-ea1",
+            "target": "solution-solution1",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-collab-ea-solution2",
+            "type": "guide:agile_collaborates",
+            "source": "solution-ea2",
+            "target": "solution-solution2",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "solution-collab-ea-solution3",
+            "type": "guide:agile_collaborates",
+            "source": "solution-ea3",
+            "target": "solution-solution3",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "extensions": {
+          "relationship_types": {
+            "guide:agile_handoff": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "前冲刺成果经DORP评审移交后续冲刺，有方向"
+            },
+            "guide:agile_continues": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "同泳道下一冲刺的滚动延续，不等于一个ADM阶段"
+            },
+            "guide:agile_collaborates": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "同冲刺不同团队的对称协作、敏捷治理与支持；不是有向数据流"
+            },
+            "guide:agile_finalizes": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "仅EA模式形成最终产品架构后安排实施，本图不伪造实施任务"
+            }
+          }
+        },
+        "view": {
+          "id": "v-agile-solution-collaboration",
+          "artifact_id": "architecture-project-schedule",
+          "profile_id": "agile-solution-collaboration",
+          "title": "解决方案协作：预约服务备选推演",
+          "scope_id": "scope-solution",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "segment",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "solution-vision",
+            "solution-s0",
+            "solution-dorp0",
+            "solution-s1",
+            "solution-dorp1",
+            "solution-ea1",
+            "solution-solution1",
+            "solution-s2",
+            "solution-dorp2",
+            "solution-ea2",
+            "solution-solution2",
+            "solution-s3",
+            "solution-dorp3",
+            "solution-ea3",
+            "solution-solution3"
+          ],
+          "relationship_ids": [
+            "solution-start-ea",
+            "solution-continue-ea1",
+            "solution-continue-ea2",
+            "solution-start-solution",
+            "solution-continue-solution1",
+            "solution-continue-solution2",
+            "solution-MVA-handoff1",
+            "solution-MVA-handoff2",
+            "solution-collab-ea-solution1",
+            "solution-collab-ea-solution2",
+            "solution-collab-ea-solution3"
+          ],
+          "analysis": "R01–R06及选择表；开放序列只是参数化片段，非成熟度等级。",
+          "legend": "MVA最小可行架构；MVBD最小可行业务开发；MVP最小可行产品。DORP为演示/成果/回顾/规划，不是实施阶段。",
+          "attributes": {
+            "sprint_pattern": {
+              "pattern": "solution",
+              "pattern_label": "解决方案协作",
+              "lanes": [
+                {
+                  "id": "ea",
+                  "label": "企业架构团队"
+                },
+                {
+                  "id": "solution",
+                  "label": "解决方案团队"
+                }
+              ],
+              "adaptive_columns": 2,
+              "decision": "四图分别推演备选方式；采用与依据见选择表。"
+            }
+          }
+        }
+      },
+      "checks": [
+        "DORP边界及四活动",
+        "冲刺0不虚构增量",
+        "交接后续冲刺",
+        "协作双向且同冲刺",
+        "混合每队三能力",
+        "非成熟度评分"
+      ]
+    },
+    {
+      "id": "agile-cross-development",
+      "artifact_id": "architecture-project-schedule",
+      "name": "跨开发协作冲刺协作图",
+      "owner": "togaf-architecture-workbench",
+      "version": "2.1-agile-1",
+      "output_kind": "diagram",
+      "renderer": "agile-sprints",
+      "notation": "sprint-lanes-dorp",
+      "entity_types": [
+        "guide:agile_sprint",
+        "guide:agile_activity",
+        "guide:dorp_gate",
+        "guide:agile_context"
+      ],
+      "relationship_types": [
+        "guide:agile_handoff",
+        "guide:agile_continues",
+        "guide:agile_collaborates",
+        "guide:agile_finalizes"
+      ],
+      "required_attributes": {
+        "guide:agile_sprint": [
+          "order",
+          "timebox",
+          "goal",
+          "display_label"
+        ],
+        "guide:agile_activity": [
+          "sprint_ref",
+          "lane",
+          "team",
+          "capabilities",
+          "work",
+          "parallel_teams",
+          "selection_basis"
+        ],
+        "guide:dorp_gate": [
+          "sprint_ref",
+          "outputs",
+          "dorp_actions",
+          "unfinished_return",
+          "coordination"
+        ],
+        "guide:agile_context": [
+          "role",
+          "business_change",
+          "backlog",
+          "boundary",
+          "source_boundary"
+        ]
+      },
+      "symmetric_relationship_types": [
+        "guide:agile_collaborates"
+      ],
+      "source_refs": [
+        "G210 §3.3、§3.3.7",
+        "G210 图3-4"
+      ],
+      "source_structure_refs": [
+        "references/source-structures/G210-fig3-4.json"
+      ],
+      "definition_status": "local-body-pattern; original-figure-unavailable; historical-structure-not-certified",
+      "template": {
+        "id": "agile-cross-development",
+        "version": "1.0",
+        "source_verified": false,
+        "structure": "sprint-columns; DORP boundaries; parallel lanes; output markers; handoff distinct from symmetric collaboration"
+      },
+      "reference_document": "references/capability-addenda/agile-collaboration-patterns.md",
+      "example": {
+        "notice": "四个备选推演；非同时发生/成熟度等级",
+        "raw_input": "examples/addenda/agile-collaboration/raw-business-materials.json",
+        "analysis_path": "examples/addenda/agile-collaboration/analysis.md",
+        "sources": [
+          {
+            "id": "raw-agile",
+            "kind": "example",
+            "description": "虚构云港城市图书馆预约服务，原业务材料在本包内，未声称真实批准。",
+            "locator": "examples/addenda/agile-collaboration/raw-business-materials.json"
+          },
+          {
+            "id": "guide-agile",
+            "kind": "local-translation",
+            "description": "G210本地正文§3.3–3.3.8；历史图JSON不证明本轮原图已核验。",
+            "locator": "references/source-tables/agile-collaboration-patterns.json"
+          }
+        ],
+        "scopes": [
+          {
+            "id": "scope-cross",
+            "description": "跨开发协作备选范围"
+          }
+        ],
+        "entities": [
+          {
+            "id": "cross-vision",
+            "type": "guide:agile_context",
+            "name": "业务愿景：座位预约与无障碍协助",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "role": "input",
+              "business_change": "可靠确认、可访问服务；独立备选推演",
+              "backlog": [
+                "B-BOOK预约",
+                "B-CANCEL取消",
+                "G-PRIV隐私待确认"
+              ],
+              "boundary": "候选组织方案；没有上线许可",
+              "source_boundary": "正文＋历史JSON解释；当前原图缺失"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-s0",
+            "type": "guide:agile_sprint",
+            "name": "冲刺0",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "order": 0,
+              "timebox": "2周（R06项目约定）",
+              "goal": "愿景与待办",
+              "display_label": "冲刺0"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-dorp0",
+            "type": "guide:dorp_gate",
+            "name": "DORP0",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s0",
+              "outputs": [
+                {
+                  "id": "cross-BACKLOG0",
+                  "kind": "待办",
+                  "lane": "business",
+                  "necessity": "required",
+                  "meaning": "业务变革待办，不是MVA/MVP"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-s1",
+            "type": "guide:agile_sprint",
+            "name": "冲刺1",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "order": 1,
+              "timebox": "2周（R06项目约定）",
+              "goal": "预约确认",
+              "display_label": "冲刺1"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-dorp1",
+            "type": "guide:dorp_gate",
+            "name": "DORP1",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s1",
+              "outputs": [
+                {
+                  "id": "cross-MVBD1",
+                  "kind": "MVBD",
+                  "lane": "business",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                },
+                {
+                  "id": "cross-MVA1",
+                  "kind": "MVA",
+                  "lane": "ea",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                },
+                {
+                  "id": "cross-MVP1",
+                  "kind": "MVP",
+                  "lane": "solution",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-business1",
+            "type": "guide:agile_activity",
+            "name": "业务开发团队·冲刺1",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s1",
+              "lane": "business",
+              "team": "BUS-T候选",
+              "capabilities": [
+                "业务开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-ea1",
+            "type": "guide:agile_activity",
+            "name": "企业架构团队·冲刺1",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s1",
+              "lane": "ea",
+              "team": "EA-T",
+              "capabilities": [
+                "企业架构"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-solution1",
+            "type": "guide:agile_activity",
+            "name": "解决方案团队·冲刺1",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s1",
+              "lane": "solution",
+              "team": "DEV-A / DEV-B",
+              "capabilities": [
+                "解决方案开发"
+              ],
+              "work": "业务待办样机，不消费MVA0",
+              "parallel_teams": 2,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-s2",
+            "type": "guide:agile_sprint",
+            "name": "冲刺2",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "order": 2,
+              "timebox": "2周（R06项目约定）",
+              "goal": "取消与容量",
+              "display_label": "冲刺2"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-dorp2",
+            "type": "guide:dorp_gate",
+            "name": "DORP2",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s2",
+              "outputs": [
+                {
+                  "id": "cross-MVBD2",
+                  "kind": "MVBD",
+                  "lane": "business",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                },
+                {
+                  "id": "cross-MVA2",
+                  "kind": "MVA",
+                  "lane": "ea",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                },
+                {
+                  "id": "cross-MVP2",
+                  "kind": "MVP",
+                  "lane": "solution",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-business2",
+            "type": "guide:agile_activity",
+            "name": "业务开发团队·冲刺2",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s2",
+              "lane": "business",
+              "team": "BUS-T候选",
+              "capabilities": [
+                "业务开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-ea2",
+            "type": "guide:agile_activity",
+            "name": "企业架构团队·冲刺2",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s2",
+              "lane": "ea",
+              "team": "EA-T",
+              "capabilities": [
+                "企业架构"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-solution2",
+            "type": "guide:agile_activity",
+            "name": "解决方案团队·冲刺2",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s2",
+              "lane": "solution",
+              "team": "DEV-A / DEV-B",
+              "capabilities": [
+                "解决方案开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 2,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-s3",
+            "type": "guide:agile_sprint",
+            "name": "冲刺…（本例3）",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "order": 3,
+              "timebox": "2周（R06项目约定）",
+              "goal": "无障碍协助",
+              "display_label": "冲刺…（本例3）"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-dorp3",
+            "type": "guide:dorp_gate",
+            "name": "DORP3",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s3",
+              "outputs": [
+                {
+                  "id": "cross-MVP3",
+                  "kind": "MVP",
+                  "lane": "solution",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-business3",
+            "type": "guide:agile_activity",
+            "name": "业务开发团队·冲刺…（本例3）",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s3",
+              "lane": "business",
+              "team": "BUS-T候选",
+              "capabilities": [
+                "业务开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-ea3",
+            "type": "guide:agile_activity",
+            "name": "企业架构团队·冲刺…（本例3）",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s3",
+              "lane": "ea",
+              "team": "EA-T",
+              "capabilities": [
+                "企业架构"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 1,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "cross-solution3",
+            "type": "guide:agile_activity",
+            "name": "解决方案团队·冲刺…（本例3）",
+            "scope_id": "scope-cross",
+            "attributes": {
+              "sprint_ref": "cross-s3",
+              "lane": "solution",
+              "team": "DEV-A / DEV-B",
+              "capabilities": [
+                "解决方案开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 2,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "cross-start-business",
+            "type": "guide:agile_handoff",
+            "source": "cross-vision",
+            "target": "cross-business1",
+            "label": "冲刺0愿景/待办进入首轮",
+            "attributes": {
+              "output_kind": "BACKLOG",
+              "timing": "冲刺0之后；不是MVA0",
+              "review": "DORP0计划"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-continue-business1",
+            "type": "guide:agile_continues",
+            "source": "cross-business1",
+            "target": "cross-business2",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-continue-business2",
+            "type": "guide:agile_continues",
+            "source": "cross-business2",
+            "target": "cross-business3",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-start-ea",
+            "type": "guide:agile_handoff",
+            "source": "cross-vision",
+            "target": "cross-ea1",
+            "label": "冲刺0愿景/待办进入首轮",
+            "attributes": {
+              "output_kind": "BACKLOG",
+              "timing": "冲刺0之后；不是MVA0",
+              "review": "DORP0计划"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-continue-ea1",
+            "type": "guide:agile_continues",
+            "source": "cross-ea1",
+            "target": "cross-ea2",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-continue-ea2",
+            "type": "guide:agile_continues",
+            "source": "cross-ea2",
+            "target": "cross-ea3",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-start-solution",
+            "type": "guide:agile_handoff",
+            "source": "cross-vision",
+            "target": "cross-solution1",
+            "label": "冲刺0愿景/待办进入首轮",
+            "attributes": {
+              "output_kind": "BACKLOG",
+              "timing": "冲刺0之后；不是MVA0",
+              "review": "DORP0计划"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-continue-solution1",
+            "type": "guide:agile_continues",
+            "source": "cross-solution1",
+            "target": "cross-solution2",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-continue-solution2",
+            "type": "guide:agile_continues",
+            "source": "cross-solution2",
+            "target": "cross-solution3",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-MVA-handoff1",
+            "type": "guide:agile_handoff",
+            "source": "cross-ea1",
+            "target": "cross-solution2",
+            "label": "MVA由后续方案冲刺消费",
+            "attributes": {
+              "output_kind": "MVA",
+              "output_id": "cross-MVA1",
+              "timing": "k→k+1",
+              "review": "DORP架构演示后交接"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-MVA-handoff2",
+            "type": "guide:agile_handoff",
+            "source": "cross-ea2",
+            "target": "cross-solution3",
+            "label": "MVA由后续方案冲刺消费",
+            "attributes": {
+              "output_kind": "MVA",
+              "output_id": "cross-MVA2",
+              "timing": "k→k+1",
+              "review": "DORP架构演示后交接"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-MVBD-handoff1",
+            "type": "guide:agile_handoff",
+            "source": "cross-business1",
+            "target": "cross-ea2",
+            "label": "MVBD由后续架构冲刺消费",
+            "attributes": {
+              "output_kind": "MVBD",
+              "output_id": "cross-MVBD1",
+              "timing": "k→k+1",
+              "review": "DORP业务演示后交接"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-MVBD-handoff2",
+            "type": "guide:agile_handoff",
+            "source": "cross-business2",
+            "target": "cross-ea3",
+            "label": "MVBD由后续架构冲刺消费",
+            "attributes": {
+              "output_kind": "MVBD",
+              "output_id": "cross-MVBD2",
+              "timing": "k→k+1",
+              "review": "DORP业务演示后交接"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-collab-business-ea1",
+            "type": "guide:agile_collaborates",
+            "source": "cross-business1",
+            "target": "cross-ea1",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-collab-business-solution1",
+            "type": "guide:agile_collaborates",
+            "source": "cross-business1",
+            "target": "cross-solution1",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-collab-ea-solution1",
+            "type": "guide:agile_collaborates",
+            "source": "cross-ea1",
+            "target": "cross-solution1",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-collab-business-ea2",
+            "type": "guide:agile_collaborates",
+            "source": "cross-business2",
+            "target": "cross-ea2",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-collab-business-solution2",
+            "type": "guide:agile_collaborates",
+            "source": "cross-business2",
+            "target": "cross-solution2",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-collab-ea-solution2",
+            "type": "guide:agile_collaborates",
+            "source": "cross-ea2",
+            "target": "cross-solution2",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-collab-business-ea3",
+            "type": "guide:agile_collaborates",
+            "source": "cross-business3",
+            "target": "cross-ea3",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-collab-business-solution3",
+            "type": "guide:agile_collaborates",
+            "source": "cross-business3",
+            "target": "cross-solution3",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cross-collab-ea-solution3",
+            "type": "guide:agile_collaborates",
+            "source": "cross-ea3",
+            "target": "cross-solution3",
+            "label": "协作、敏捷治理与支持",
+            "attributes": {
+              "timing": "same-sprint",
+              "directionality": "symmetric",
+              "review": "支持当前成果、反馈下一增量；非数据流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "extensions": {
+          "relationship_types": {
+            "guide:agile_handoff": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "前冲刺成果经DORP评审移交后续冲刺，有方向"
+            },
+            "guide:agile_continues": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "同泳道下一冲刺的滚动延续，不等于一个ADM阶段"
+            },
+            "guide:agile_collaborates": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "同冲刺不同团队的对称协作、敏捷治理与支持；不是有向数据流"
+            },
+            "guide:agile_finalizes": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "仅EA模式形成最终产品架构后安排实施，本图不伪造实施任务"
+            }
+          }
+        },
+        "view": {
+          "id": "v-agile-cross-development",
+          "artifact_id": "architecture-project-schedule",
+          "profile_id": "agile-cross-development",
+          "title": "跨开发协作：预约服务备选推演",
+          "scope_id": "scope-cross",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "segment",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "cross-vision",
+            "cross-s0",
+            "cross-dorp0",
+            "cross-s1",
+            "cross-dorp1",
+            "cross-business1",
+            "cross-ea1",
+            "cross-solution1",
+            "cross-s2",
+            "cross-dorp2",
+            "cross-business2",
+            "cross-ea2",
+            "cross-solution2",
+            "cross-s3",
+            "cross-dorp3",
+            "cross-business3",
+            "cross-ea3",
+            "cross-solution3"
+          ],
+          "relationship_ids": [
+            "cross-start-business",
+            "cross-continue-business1",
+            "cross-continue-business2",
+            "cross-start-ea",
+            "cross-continue-ea1",
+            "cross-continue-ea2",
+            "cross-start-solution",
+            "cross-continue-solution1",
+            "cross-continue-solution2",
+            "cross-MVA-handoff1",
+            "cross-MVA-handoff2",
+            "cross-MVBD-handoff1",
+            "cross-MVBD-handoff2",
+            "cross-collab-business-ea1",
+            "cross-collab-business-solution1",
+            "cross-collab-ea-solution1",
+            "cross-collab-business-ea2",
+            "cross-collab-business-solution2",
+            "cross-collab-ea-solution2",
+            "cross-collab-business-ea3",
+            "cross-collab-business-solution3",
+            "cross-collab-ea-solution3"
+          ],
+          "analysis": "R01–R06及选择表；开放序列只是参数化片段，非成熟度等级。",
+          "legend": "MVA最小可行架构；MVBD最小可行业务开发；MVP最小可行产品。DORP为演示/成果/回顾/规划，不是实施阶段。",
+          "attributes": {
+            "sprint_pattern": {
+              "pattern": "cross",
+              "pattern_label": "跨开发协作",
+              "lanes": [
+                {
+                  "id": "business",
+                  "label": "业务开发团队"
+                },
+                {
+                  "id": "ea",
+                  "label": "企业架构团队"
+                },
+                {
+                  "id": "solution",
+                  "label": "解决方案团队"
+                }
+              ],
+              "adaptive_columns": 2,
+              "decision": "四图分别推演备选方式；采用与依据见选择表。"
+            }
+          }
+        }
+      },
+      "checks": [
+        "DORP边界及四活动",
+        "冲刺0不虚构增量",
+        "交接后续冲刺",
+        "协作双向且同冲刺",
+        "混合每队三能力",
+        "非成熟度评分"
+      ]
+    },
+    {
+      "id": "agile-cross-functional",
+      "artifact_id": "architecture-project-schedule",
+      "name": "跨职能敏捷冲刺协作图",
+      "owner": "togaf-architecture-workbench",
+      "version": "2.1-agile-1",
+      "output_kind": "diagram",
+      "renderer": "agile-sprints",
+      "notation": "sprint-lanes-dorp",
+      "entity_types": [
+        "guide:agile_sprint",
+        "guide:agile_activity",
+        "guide:dorp_gate",
+        "guide:agile_context"
+      ],
+      "relationship_types": [
+        "guide:agile_handoff",
+        "guide:agile_continues",
+        "guide:agile_collaborates",
+        "guide:agile_finalizes"
+      ],
+      "required_attributes": {
+        "guide:agile_sprint": [
+          "order",
+          "timebox",
+          "goal",
+          "display_label"
+        ],
+        "guide:agile_activity": [
+          "sprint_ref",
+          "lane",
+          "team",
+          "capabilities",
+          "work",
+          "parallel_teams",
+          "selection_basis"
+        ],
+        "guide:dorp_gate": [
+          "sprint_ref",
+          "outputs",
+          "dorp_actions",
+          "unfinished_return",
+          "coordination"
+        ],
+        "guide:agile_context": [
+          "role",
+          "business_change",
+          "backlog",
+          "boundary",
+          "source_boundary"
+        ]
+      },
+      "symmetric_relationship_types": [
+        "guide:agile_collaborates"
+      ],
+      "source_refs": [
+        "G210 §3.3、§3.3.8",
+        "G210 图3-5"
+      ],
+      "source_structure_refs": [
+        "references/source-structures/G210-fig3-5.json"
+      ],
+      "definition_status": "local-body-pattern; original-figure-unavailable; historical-structure-not-certified",
+      "template": {
+        "id": "agile-cross-functional",
+        "version": "1.0",
+        "source_verified": false,
+        "structure": "sprint-columns; DORP boundaries; parallel lanes; output markers; handoff distinct from symmetric collaboration"
+      },
+      "reference_document": "references/capability-addenda/agile-collaboration-patterns.md",
+      "example": {
+        "notice": "四个备选推演；非同时发生/成熟度等级",
+        "raw_input": "examples/addenda/agile-collaboration/raw-business-materials.json",
+        "analysis_path": "examples/addenda/agile-collaboration/analysis.md",
+        "sources": [
+          {
+            "id": "raw-agile",
+            "kind": "example",
+            "description": "虚构云港城市图书馆预约服务，原业务材料在本包内，未声称真实批准。",
+            "locator": "examples/addenda/agile-collaboration/raw-business-materials.json"
+          },
+          {
+            "id": "guide-agile",
+            "kind": "local-translation",
+            "description": "G210本地正文§3.3–3.3.8；历史图JSON不证明本轮原图已核验。",
+            "locator": "references/source-tables/agile-collaboration-patterns.json"
+          }
+        ],
+        "scopes": [
+          {
+            "id": "scope-functional",
+            "description": "跨职能敏捷备选范围"
+          }
+        ],
+        "entities": [
+          {
+            "id": "functional-vision",
+            "type": "guide:agile_context",
+            "name": "业务愿景：座位预约与无障碍协助",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "role": "input",
+              "business_change": "可靠确认、可访问服务；独立备选推演",
+              "backlog": [
+                "B-BOOK预约",
+                "B-CANCEL取消",
+                "G-PRIV隐私待确认"
+              ],
+              "boundary": "候选组织方案；没有上线许可",
+              "source_boundary": "正文＋历史JSON解释；当前原图缺失"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-s0",
+            "type": "guide:agile_sprint",
+            "name": "冲刺0",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "order": 0,
+              "timebox": "2周（R06项目约定）",
+              "goal": "愿景与待办",
+              "display_label": "冲刺0"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-dorp0",
+            "type": "guide:dorp_gate",
+            "name": "DORP0",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "sprint_ref": "functional-s0",
+              "outputs": [],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-s1",
+            "type": "guide:agile_sprint",
+            "name": "冲刺1",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "order": 1,
+              "timebox": "2周（R06项目约定）",
+              "goal": "预约确认",
+              "display_label": "冲刺1"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-dorp1",
+            "type": "guide:dorp_gate",
+            "name": "DORP1",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "sprint_ref": "functional-s1",
+              "outputs": [
+                {
+                  "id": "functional-MVP1",
+                  "kind": "MVP",
+                  "lane": "mixed",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-mixed1",
+            "type": "guide:agile_activity",
+            "name": "混合跨职能团队·冲刺1",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "sprint_ref": "functional-s1",
+              "lane": "mixed",
+              "team": "DEV-A / DEV-B候选",
+              "capabilities": [
+                "业务开发",
+                "企业架构",
+                "解决方案开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 2,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-s2",
+            "type": "guide:agile_sprint",
+            "name": "冲刺2",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "order": 2,
+              "timebox": "2周（R06项目约定）",
+              "goal": "取消与容量",
+              "display_label": "冲刺2"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-dorp2",
+            "type": "guide:dorp_gate",
+            "name": "DORP2",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "sprint_ref": "functional-s2",
+              "outputs": [
+                {
+                  "id": "functional-MVP2",
+                  "kind": "MVP",
+                  "lane": "mixed",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-mixed2",
+            "type": "guide:agile_activity",
+            "name": "混合跨职能团队·冲刺2",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "sprint_ref": "functional-s2",
+              "lane": "mixed",
+              "team": "DEV-A / DEV-B候选",
+              "capabilities": [
+                "业务开发",
+                "企业架构",
+                "解决方案开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 2,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-s3",
+            "type": "guide:agile_sprint",
+            "name": "冲刺…（本例3）",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "order": 3,
+              "timebox": "2周（R06项目约定）",
+              "goal": "无障碍协助",
+              "display_label": "冲刺…（本例3）"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-dorp3",
+            "type": "guide:dorp_gate",
+            "name": "DORP3",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "sprint_ref": "functional-s3",
+              "outputs": [
+                {
+                  "id": "functional-MVP3",
+                  "kind": "MVP",
+                  "lane": "mixed",
+                  "necessity": "optional",
+                  "meaning": "候选可演示增量；不等于每轮必需/已上线"
+                }
+              ],
+              "dorp_actions": [
+                "演示",
+                "成果管理",
+                "回顾",
+                "下一冲刺规划"
+              ],
+              "unfinished_return": "保留ID回到业务待办",
+              "coordination": "与利益相关者核对目标价值；混合团队在冲刺末协调"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "functional-mixed3",
+            "type": "guide:agile_activity",
+            "name": "混合跨职能团队·冲刺…（本例3）",
+            "scope_id": "scope-functional",
+            "attributes": {
+              "sprint_ref": "functional-s3",
+              "lane": "mixed",
+              "team": "DEV-A / DEV-B候选",
+              "capabilities": [
+                "业务开发",
+                "企业架构",
+                "解决方案开发"
+              ],
+              "work": "形成该轮目标的可演示切片",
+              "parallel_teams": 2,
+              "selection_basis": "R02/R05备选推演；是否采用见选择表"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "functional-start-mixed",
+            "type": "guide:agile_handoff",
+            "source": "functional-vision",
+            "target": "functional-mixed1",
+            "label": "冲刺0愿景/待办进入首轮",
+            "attributes": {
+              "output_kind": "BACKLOG",
+              "timing": "冲刺0之后；不是MVA0",
+              "review": "DORP0计划"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "functional-continue-mixed1",
+            "type": "guide:agile_continues",
+            "source": "functional-mixed1",
+            "target": "functional-mixed2",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "functional-continue-mixed2",
+            "type": "guide:agile_continues",
+            "source": "functional-mixed2",
+            "target": "functional-mixed3",
+            "label": "同泳道滚动延续",
+            "attributes": {
+              "timing": "k→k+1",
+              "review": "DORP回顾/规划；未完成回流"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "extensions": {
+          "relationship_types": {
+            "guide:agile_handoff": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "前冲刺成果经DORP评审移交后续冲刺，有方向"
+            },
+            "guide:agile_continues": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "同泳道下一冲刺的滚动延续，不等于一个ADM阶段"
+            },
+            "guide:agile_collaborates": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "同冲刺不同团队的对称协作、敏捷治理与支持；不是有向数据流"
+            },
+            "guide:agile_finalizes": {
+              "source_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "target_types": [
+                "guide:agile_activity",
+                "guide:agile_context"
+              ],
+              "meaning": "仅EA模式形成最终产品架构后安排实施，本图不伪造实施任务"
+            }
+          }
+        },
+        "view": {
+          "id": "v-agile-cross-functional",
+          "artifact_id": "architecture-project-schedule",
+          "profile_id": "agile-cross-functional",
+          "title": "跨职能敏捷：预约服务备选推演",
+          "scope_id": "scope-functional",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "segment",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "functional-vision",
+            "functional-s0",
+            "functional-dorp0",
+            "functional-s1",
+            "functional-dorp1",
+            "functional-mixed1",
+            "functional-s2",
+            "functional-dorp2",
+            "functional-mixed2",
+            "functional-s3",
+            "functional-dorp3",
+            "functional-mixed3"
+          ],
+          "relationship_ids": [
+            "functional-start-mixed",
+            "functional-continue-mixed1",
+            "functional-continue-mixed2"
+          ],
+          "analysis": "R01–R06及选择表；开放序列只是参数化片段，非成熟度等级。",
+          "legend": "MVA最小可行架构；MVBD最小可行业务开发；MVP最小可行产品。DORP为演示/成果/回顾/规划，不是实施阶段。",
+          "attributes": {
+            "sprint_pattern": {
+              "pattern": "functional",
+              "pattern_label": "跨职能敏捷",
+              "lanes": [
+                {
+                  "id": "mixed",
+                  "label": "混合跨职能团队"
+                }
+              ],
+              "adaptive_columns": 2,
+              "decision": "四图分别推演备选方式；采用与依据见选择表。"
+            }
+          }
+        }
+      },
+      "checks": [
+        "DORP边界及四活动",
+        "冲刺0不虚构增量",
+        "交接后续冲刺",
+        "协作双向且同冲刺",
+        "混合每队三能力",
+        "非成熟度评分"
+      ]
+    },
+    {
+      "id": "agile-pattern-selection",
+      "artifact_id": "options-decision-matrix",
+      "name": "敏捷协作模式选择与切换",
+      "owner": "togaf-architecture-workbench",
+      "version": "2.1-agile-1",
+      "output_kind": "table",
+      "renderer": "catalog",
+      "notation": "table",
+      "entity_types": [
+        "guide:agile_pattern_choice"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:agile_pattern_choice": [
+          "pattern",
+          "capability_evidence",
+          "coordination",
+          "feasibility",
+          "selected",
+          "reason",
+          "constraints",
+          "switch_trigger",
+          "maturity_boundary"
+        ]
+      },
+      "source_refs": [
+        "G210 §3.3、§3.3.5–3.3.8"
+      ],
+      "definition_status": "source-guided-project-choice; no-score",
+      "template": {
+        "id": "agile-pattern-selection",
+        "version": "1.0",
+        "source_verified": false
+      },
+      "example": {
+        "sources": [
+          {
+            "id": "raw-agile",
+            "kind": "example",
+            "description": "虚构云港城市图书馆预约服务，原业务材料在本包内，未声称真实批准。",
+            "locator": "examples/addenda/agile-collaboration/raw-business-materials.json"
+          },
+          {
+            "id": "guide-agile",
+            "kind": "local-translation",
+            "description": "G210本地正文§3.3–3.3.8；历史图JSON不证明本轮原图已核验。",
+            "locator": "references/source-tables/agile-collaboration-patterns.json"
+          }
+        ],
+        "scopes": [
+          {
+            "id": "scope-selection",
+            "description": "候选选择"
+          }
+        ],
+        "entities": [
+          {
+            "id": "choice-ea",
+            "type": "guide:agile_pattern_choice",
+            "name": "企业架构开发敏捷",
+            "scope_id": "scope-selection",
+            "attributes": {
+              "pattern": "ea",
+              "capability_evidence": "R01业务容量不足；R02独立EA/方案；R05逐队缺口",
+              "coordination": "共享DORP、每周支持会；非每队三能力",
+              "feasibility": "可行备选但延后方案反馈",
+              "selected": false,
+              "reason": "比较反馈时机、能力分布与业务参与；不打分",
+              "constraints": [
+                "隐私未决",
+                "授权待审",
+                "不自动上线"
+              ],
+              "switch_trigger": "每队三能力与授权均有证据才重选",
+              "maturity_boundary": "不是四级成熟度/固定晋级路线"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "choice-solution",
+            "type": "guide:agile_pattern_choice",
+            "name": "解决方案协作",
+            "scope_id": "scope-selection",
+            "attributes": {
+              "pattern": "solution",
+              "capability_evidence": "R01业务容量不足；R02独立EA/方案；R05逐队缺口",
+              "coordination": "共享DORP、每周支持会；非每队三能力",
+              "feasibility": "当前候选采用",
+              "selected": true,
+              "reason": "比较反馈时机、能力分布与业务参与；不打分",
+              "constraints": [
+                "隐私未决",
+                "授权待审",
+                "不自动上线"
+              ],
+              "switch_trigger": "每队三能力与授权均有证据才重选",
+              "maturity_boundary": "不是四级成熟度/固定晋级路线"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "choice-cross",
+            "type": "guide:agile_pattern_choice",
+            "name": "跨开发协作",
+            "scope_id": "scope-selection",
+            "attributes": {
+              "pattern": "cross",
+              "capability_evidence": "R01业务容量不足；R02独立EA/方案；R05逐队缺口",
+              "coordination": "共享DORP、每周支持会；非每队三能力",
+              "feasibility": "业务持续开发容量不足",
+              "selected": false,
+              "reason": "比较反馈时机、能力分布与业务参与；不打分",
+              "constraints": [
+                "隐私未决",
+                "授权待审",
+                "不自动上线"
+              ],
+              "switch_trigger": "每队三能力与授权均有证据才重选",
+              "maturity_boundary": "不是四级成熟度/固定晋级路线"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          },
+          {
+            "id": "choice-functional",
+            "type": "guide:agile_pattern_choice",
+            "name": "跨职能敏捷",
+            "scope_id": "scope-selection",
+            "attributes": {
+              "pattern": "functional",
+              "capability_evidence": "R01业务容量不足；R02独立EA/方案；R05逐队缺口",
+              "coordination": "共享DORP、每周支持会；非每队三能力",
+              "feasibility": "每队三能力证据不足",
+              "selected": false,
+              "reason": "比较反馈时机、能力分布与业务参与；不打分",
+              "constraints": [
+                "隐私未决",
+                "授权待审",
+                "不自动上线"
+              ],
+              "switch_trigger": "每队三能力与授权均有证据才重选",
+              "maturity_boundary": "不是四级成熟度/固定晋级路线"
+            },
+            "evidence": [
+              "raw-agile",
+              "guide-agile"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "not-started"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-agile-pattern-selection",
+          "artifact_id": "options-decision-matrix",
+          "profile_id": "agile-pattern-selection",
+          "title": "预约协作模式选择与切换",
+          "scope_id": "scope-selection",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application",
+              "technology"
+            ],
+            "landscape": "segment",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "choice-ea",
+            "choice-solution",
+            "choice-cross",
+            "choice-functional"
+          ],
+          "relationship_ids": [],
+          "analysis": "选解决方案协作；业务容量/每队三能力不足，保留重选条件。",
+          "legend": "并列选项；没有成熟度/加权总分。"
+        },
+        "raw_input": "examples/addenda/agile-collaboration/raw-business-materials.json",
+        "analysis_path": "examples/addenda/agile-collaboration/analysis.md"
+      },
+      "reference_document": "references/capability-addenda/agile-collaboration-patterns.md",
+      "checks": [
+        "能力容量授权证据",
+        "没有四级成熟度/权重",
+        "未来周期继承/退回条件"
+      ]
+    }
+  ],
+  "analysis_methods": [
+    {
+      "id": "agile-collaboration-selection-switch",
+      "name": "四模式选择与周期切换",
+      "owner": "togaf-architecture-workbench",
+      "source_refs": [
+        "G210 §3.3–3.3.8"
+      ],
+      "steps": [
+        "逐队识别业务/EA/方案能力、容量及证据",
+        "明确反馈时机、职责分布与授权治理边界",
+        "比较四模式，写采用/不采用理由，不打成熟度分",
+        "将目标、DORP、成果和交接建模，未知保留",
+        "切换面向未来，保留历史、继承待办/未决项、关闭不再适用交接",
+        "复核能力授权和回退条件，生成两布局并评审"
+      ],
+      "profile_ids": [
+        "agile-ea-development",
+        "agile-solution-collaboration",
+        "agile-cross-development",
+        "agile-cross-functional",
+        "agile-pattern-selection"
+      ],
+      "output_work_products": [
+        "architecture-project-schedule",
+        "options-decision-matrix"
+      ],
+      "reference_documents": [
+        "references/capability-addenda/agile-collaboration-patterns.md"
+      ],
+      "calculation_policy": "无四级成熟度、权重/固定冲刺数；时间盒为明示项目规则",
+      "execution_mode": "agent-procedural-analysis plus observable constraints"
+    }
+  ],
+  "candidate_resolutions": [
+    {
+      "candidate_id": "agile-collaboration-pattern",
+      "status": "implemented-specialized-views-and-selection; source-visual-acceptance-separate",
+      "profile_ids": [
+        "agile-ea-development",
+        "agile-solution-collaboration",
+        "agile-cross-development",
+        "agile-cross-functional",
+        "agile-pattern-selection"
+      ],
+      "method_ids": [
+        "agile-collaboration-selection-switch"
+      ],
+      "work_product_ids": [
+        "architecture-project-schedule",
+        "options-decision-matrix"
+      ],
+      "evidence_paths": [
+        "examples/addenda/agile-collaboration/local-validation.json",
+        "examples/addenda/agile-collaboration/execution-audit.json"
+      ],
+      "remaining_scope": [
+        "原图缺失，未宣称视觉等价",
+        "公开官方定义由证据层另记"
+      ]
+    }
+  ]
+}

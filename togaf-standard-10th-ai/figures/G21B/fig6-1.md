@@ -1,0 +1,410 @@
+# G21B/fig6-1 · C-MDM 集成风格
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G21B/fig6-1.md) · [JSON](../../architecture/diagrams/G21B/fig6-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G21Be.pdf`；SHA-256：`8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2`。
+
+## 原图 · PDF 第 49 页
+
+![英文原图](../assets/G21B/fig6-1-p0049.png)
+
+PDF 坐标：`[48.2, 36.0, 538.0, 154.6]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+= +=
+ahd
+os ons
+```
+
+## 概要（历史解释；局部修正见上）
+
+用三组箭头对比三种 C-MDM 集成风格：整合式（源→MDM）、协作式（系统↔MDM）、集中式（MDM→系统）。
+
+## 目的（历史解释；局部修正见上）
+
+在第 6.1.1 节用最简的图形区分三种集成风格，重点不在系统数量，而在“谁把数据推给谁、是否双向”：整合式只向上汇聚做分析；协作式双向同步、运营系统仍保留自己的数据；集中式由 MDM 单向分发，MDM 是唯一主数据存储。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左到右读三栏，每栏是一种风格。先看栏名（Consolidation / Cooperation / Centralized），再看箭头：整合式的箭头全部指向 MDM；协作式的箭头是双向的；集中式的箭头全部从 MDM 指向外围系统。圆柱只代表数据存储/系统，颜色用于区分不同系统，没有业务含义（原图无图例）。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 整合式（又称下游 MDM）：所有系统保留自己的数据，更新被推送到 MDM 中心整合；实现最简单、不影响运营系统，但没有单一事实来源，数据质量难以提升。
+- 协作式：所有系统保留自己的数据，更新推送到 MDM 整合后，“新版本的真相”再同步回各系统（按客户 ID），因此画成双向箭头；可在孤岛式信息系统中实现较高质量与治理。
+- 集中式：只有 MDM 存储主数据，所有系统从 MDM 获取；更新与创建都经 MDM 发起，因此箭头从 MDM 指向各系统。
+- 三种风格不互斥，可以组合；若组织未以集中式起步，通常从整合式开始并向协作式演进。
+- 图中整合式画 3 个源系统，协作式与集中式各画 4 个系统，说明后两者覆盖的系统范围更广（运营系统既生产也消费数据）。
+- 三种风格的差别是“主数据主控权”的差别，不是集成技术（批量/实时/服务）的差别；技术模式见图 6-2 至 6-5。
+
+## 层级（历史解释；局部修正见上）
+
+三栏并列，没有上下级。每栏内部是一个中心（MDM）与若干外围系统：整合式为 3 个源系统，协作式/集中式为 4 个系统。
+
+## 线条含义（历史解释；局部修正见上）
+
+箭头表示数据流向与主控关系：单箭头指向 MDM=源系统向 MDM 推送；双箭头=系统与 MDM 双向同步；单箭头从 MDM 指出=MDM 向系统分发。图中没有线型或颜色图例，箭头方向是唯一语义。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把三种风格读成成熟度阶段：它们是可组合的集成风格，图不表示必须从整合式走到集中式。
+- 协作式的双箭头不表示“两个主库”：运营系统保留自己的数据，但真相版本由 C-MDM 定义并同步回去。
+- 集中式的箭头从 MDM 指向系统，不要反读为系统向 MDM 推送；集中式下创建/更新都通过 MDM 发起。
+- 圆柱颜色没有业务含义，原图没有图例；不要按颜色推断系统类型。
+- 中文稿引用的 SVG 只是三张文字卡，完全丢失箭头，不能据它理解三种风格的数据流向。
+
+## 元素
+
+```json
+[
+  {
+    "id": "style_consolidation",
+    "label_en": "Consolidation",
+    "label_zh": "整合式",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "order": 1,
+    "position": "左栏"
+  },
+  {
+    "id": "cons_src_purple",
+    "label_en": null,
+    "label_zh": "源系统（紫色圆柱）",
+    "type": "application",
+    "parent": "style_consolidation",
+    "level": 2
+  },
+  {
+    "id": "cons_src_orange",
+    "label_en": null,
+    "label_zh": "源系统（橙色圆柱）",
+    "type": "application",
+    "parent": "style_consolidation",
+    "level": 2
+  },
+  {
+    "id": "cons_src_grey",
+    "label_en": null,
+    "label_zh": "源系统（灰色圆柱）",
+    "type": "application",
+    "parent": "style_consolidation",
+    "level": 2
+  },
+  {
+    "id": "cons_mdm",
+    "label_en": "MDM",
+    "label_zh": "MDM（主数据管理）",
+    "type": "application",
+    "parent": "style_consolidation",
+    "level": 2,
+    "position": "左栏下方"
+  },
+  {
+    "id": "style_cooperation",
+    "label_en": "Cooperation",
+    "label_zh": "协作式",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "order": 2,
+    "position": "中栏"
+  },
+  {
+    "id": "coop_mdm",
+    "label_en": "MDM",
+    "label_zh": "MDM（主数据管理）",
+    "type": "application",
+    "parent": "style_cooperation",
+    "level": 2,
+    "position": "中栏中央"
+  },
+  {
+    "id": "coop_sys_purple",
+    "label_en": null,
+    "label_zh": "业务系统（紫色圆柱，左上）",
+    "type": "application",
+    "parent": "style_cooperation",
+    "level": 2
+  },
+  {
+    "id": "coop_sys_grey",
+    "label_en": null,
+    "label_zh": "业务系统（灰色圆柱，右上）",
+    "type": "application",
+    "parent": "style_cooperation",
+    "level": 2
+  },
+  {
+    "id": "coop_sys_orange",
+    "label_en": null,
+    "label_zh": "业务系统（橙色圆柱，左下）",
+    "type": "application",
+    "parent": "style_cooperation",
+    "level": 2
+  },
+  {
+    "id": "coop_sys_green",
+    "label_en": null,
+    "label_zh": "业务系统（绿色圆柱，右下）",
+    "type": "application",
+    "parent": "style_cooperation",
+    "level": 2
+  },
+  {
+    "id": "style_centralized",
+    "label_en": "Centralized",
+    "label_zh": "集中式",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "order": 3,
+    "position": "右栏"
+  },
+  {
+    "id": "cent_mdm",
+    "label_en": "MDM",
+    "label_zh": "MDM（主数据管理）",
+    "type": "application",
+    "parent": "style_centralized",
+    "level": 2,
+    "position": "右栏中央"
+  },
+  {
+    "id": "cent_sys_purple",
+    "label_en": null,
+    "label_zh": "业务系统（紫色圆柱，左上）",
+    "type": "application",
+    "parent": "style_centralized",
+    "level": 2
+  },
+  {
+    "id": "cent_sys_grey",
+    "label_en": null,
+    "label_zh": "业务系统（灰色圆柱，右上）",
+    "type": "application",
+    "parent": "style_centralized",
+    "level": 2
+  },
+  {
+    "id": "cent_sys_orange",
+    "label_en": null,
+    "label_zh": "业务系统（橙色圆柱，左下）",
+    "type": "application",
+    "parent": "style_centralized",
+    "level": 2
+  },
+  {
+    "id": "cent_sys_green",
+    "label_en": null,
+    "label_zh": "业务系统（绿色圆柱，右下）",
+    "type": "application",
+    "parent": "style_centralized",
+    "level": 2
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "id": "c1",
+    "from": "cons_src_purple",
+    "to": "cons_mdm",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "整合式：源系统向 MDM 汇聚。"
+  },
+  {
+    "id": "c2",
+    "from": "cons_src_orange",
+    "to": "cons_mdm",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "整合式：源系统向 MDM 汇聚。"
+  },
+  {
+    "id": "c3",
+    "from": "cons_src_grey",
+    "to": "cons_mdm",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "整合式：源系统向 MDM 汇聚。"
+  },
+  {
+    "id": "o1",
+    "from": "coop_sys_purple",
+    "to": "coop_mdm",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "both",
+    "description_zh": "协作式：系统与 MDM 双向同步。"
+  },
+  {
+    "id": "o2",
+    "from": "coop_sys_grey",
+    "to": "coop_mdm",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "both",
+    "description_zh": "协作式：系统与 MDM 双向同步。"
+  },
+  {
+    "id": "o3",
+    "from": "coop_sys_orange",
+    "to": "coop_mdm",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "both",
+    "description_zh": "协作式：系统与 MDM 双向同步。"
+  },
+  {
+    "id": "o4",
+    "from": "coop_sys_green",
+    "to": "coop_mdm",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "both",
+    "description_zh": "协作式：系统与 MDM 双向同步。"
+  },
+  {
+    "id": "t1",
+    "from": "cent_mdm",
+    "to": "cent_sys_purple",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "集中式：MDM 向系统单向分发。"
+  },
+  {
+    "id": "t2",
+    "from": "cent_mdm",
+    "to": "cent_sys_grey",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "集中式：MDM 向系统单向分发。"
+  },
+  {
+    "id": "t3",
+    "from": "cent_mdm",
+    "to": "cent_sys_orange",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "集中式：MDM 向系统单向分发。"
+  },
+  {
+    "id": "t4",
+    "from": "cent_mdm",
+    "to": "cent_sys_green",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "集中式：MDM 向系统单向分发。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "蓝色圆柱 MDM",
+    "meaning_zh": "主数据管理系统（C-MDM）",
+    "explicit": false
+  },
+  {
+    "symbol": "紫/橙/灰/绿色圆柱",
+    "meaning_zh": "组织中的业务系统/数据存储（无标签，颜色仅作区分）",
+    "explicit": false
+  },
+  {
+    "symbol": "单向箭头",
+    "meaning_zh": "数据单向流动：整合式为系统→MDM，集中式为 MDM→系统",
+    "explicit": false
+  },
+  {
+    "symbol": "双向箭头",
+    "meaning_zh": "系统与 MDM 双向同步（协作式）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "三个等宽栏从左到右：Consolidation（3 个源库在上、MDM 在下，箭头向下汇聚）、Cooperation（MDM 居中、4 个系统环绕，双箭头）、Centralized（MDM 居中、4 个系统环绕，箭头由 MDM 向外）。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G21B/fig6-2",
+    "relation": "precedes",
+    "note_zh": "图 6-1 给出三种集成风格，图 6-2 接着给出支撑这些风格的采集/分发交换模式。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "外围圆柱没有标签，无法判断它们具体代表哪些系统；只能按“业务/运营系统”描述。",
+    "原图没有图例说明颜色，颜色可能只是区分不同系统，本分析不赋予业务含义。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 49 页原图截图",
+    "英文 PDF 第 49–50 页正文",
+    "中文稿 G21Be_信息架构_客户主数据管理.md 第 752–756 行",
+    "figs/g21b_fig6-1.svg 源码与渲染图"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

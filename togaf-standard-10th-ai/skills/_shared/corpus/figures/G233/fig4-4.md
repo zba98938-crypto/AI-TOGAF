@@ -1,0 +1,378 @@
+# G233/fig4-4 · 业务对象视图
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G233/fig4-4.md) · [JSON](../../architecture/diagrams/G233/fig4-4.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G233e.pdf`；SHA-256：`d5c62f9edb2465d10e59f0a1c9c23fb5d8a0b14e506cf7739a09886fbee07754`。
+
+## 原图 · PDF 第 27 页
+
+![英文原图](../assets/G233/fig4-4-p0027.png)
+
+PDF 坐标：`[61.1, 260.9, 550.9, 588.3]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Employees
+Customers }+——O<
+Stores
++ Warehouses
+Retail
+Purchases
+Payments }}0—O<
+Products in
+Purchase
+pool
+|
+Payment
+Incentives
+Type
+```
+
+## 概要（历史解释；局部修正见上）
+
+用十个业务对象及其基数关系搭出零售概念数据模型的骨架，核心是“零售购买”这个交易枢纽。
+
+## 目的（历史解释；局部修正见上）
+
+第 4.4.2 节说明：概念数据模型就是业务对象及其关系的集合，很多行业标准模型可直接借用；这张业务对象视图是“简化零售概念数据模型”的基础，用来在考察能力实例时理解应用所拥有的信息对象，并为第 4.4.3 节的应用信息交换目录提供对象清单。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从画面中央的 Retail Purchases（零售购买）读起：它向上连员工、向左连客户与支付、向右连门店与购买中的产品、向下连激励。每条连线两端读基数：靠实体一侧的竖线=1，小圆圈=0（可选），鸦爪=多。再读两条链：Products in Purchase→Products、Payments→Payment Type；最后看 Employees 右上角的自我关联环。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 十个业务对象：Employees、Customers、Retail Purchases、Stores、Warehouses、Payments、Products in Purchase、Products、Payment Type、Incentives；Retail Purchases 是连接最多（6 条）的交易中心。概念模型只表达实体与基数，不含属性，其价值在于为应用中的数据对象提供业务语义。
+- 客户—零售购买是 1:N：一个客户可有多笔购买，每笔购买恰好属于一个客户。
+- 员工—零售购买、支付—零售购买都是 0..1:N：每笔购买可没有或只有一名员工/一笔支付，而一名员工或一笔支付可关联多笔购买（支付可批量覆盖多笔交易）。
+- 激励—零售购买是 1:N：每笔购买对应一个激励（优惠券），一个激励可用于多笔购买。
+- 支付类型—支付、仓库—门店、产品—购买中的产品都是 1:N：支付类型、仓库、产品分别是查找表/主数据，被多笔支付、多家门店、多条购买行引用。
+- 门店—零售购买、零售购买—购买中的产品这两条线的基数符号画在了“父”端（门店/购买端画鸦爪，购买/购买行端画竖线），与其余连线相反；按零售语义应读作“一家门店多笔购买”“一笔购买多条购买行”，本分析按语义记录并在关系说明中标出画面差异。
+- Products in Purchase 是购买与产品之间的关联实体（购买行），不是产品主数据；Products 才是产品主数据。
+- Employees 右上角有一条无标签的自关联环，鸦爪+圆圈落在员工框右侧，表示员工之间存在一对多自关联（如经理—下属）；原图未给关系名。
+
+## 层级（历史解释；局部修正见上）
+
+没有上下级层级，只有实体间的基数关联。Retail Purchases 处于星型中心；Products in Purchase 是 Products 与 Retail Purchases 之间的关联实体；Payment Type 是 Payments 的查找实体；Warehouses 是 Stores 的上游主数据。
+
+## 线条含义（历史解释；局部修正见上）
+
+全部为实线关联，无箭头；方向由基数符号读：竖线=1，小圆圈=0（可选），鸦爪=多。多数连线遵循“靠实体端为 1、另一端为 0..*”的画法，但门店—零售购买、零售购买—购买中的产品两条把鸦爪画在父端，属于原图画法不一致。Employees 自关联用一条绕行的环线表示同一实体内部的一对多关系。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要机械照读门店—零售购买与零售购买—购买中的产品这两条线的鸦爪位置；按画面会得到“一笔购买对应多家门店”“一条购买行对应多笔购买”的荒谬结论，应结合零售语义读作 1:N。
+- 不要把“Products in Purchase”当成产品主数据；它是购买行（关联实体），Products 才是产品主数据。
+- 不要把两端的小圆圈都当成“多”：本图圆圈表示 0（可选），真正表示“多”的是鸦爪；员工与支付端的“|○”合起来是 0..1。
+- 员工自关联没有标签，不能断定是“管理”“汇报”还是“协作”；按鸦爪只能判断是一对多自关联。
+- 中文重绘 SVG 省略了员工与支付端的“○”，并画反了零售购买—购买中的产品，不能据它判断 0..1 与购买行的基数。
+- 不要把本图与图 6-3 中的白色数据对象混为一谈：本图是业务对象（概念层），图 6-3 的应用框内才是数据对象。
+
+## 元素
+
+```json
+[
+  {
+    "id": "employees",
+    "label_en": "Employees",
+    "label_zh": "员工",
+    "type": "data",
+    "parent": null,
+    "position": "上方中部",
+    "notation_type": "ER 实体"
+  },
+  {
+    "id": "customers",
+    "label_en": "Customers",
+    "label_zh": "客户",
+    "type": "data",
+    "parent": null,
+    "position": "左侧中部",
+    "notation_type": "ER 实体"
+  },
+  {
+    "id": "retail_purchases",
+    "label_en": "Retail Purchases",
+    "label_zh": "零售购买",
+    "type": "data",
+    "parent": null,
+    "position": "画面中央",
+    "notation_type": "ER 实体",
+    "description_zh": "交易事实实体，连接最多（6 条）。"
+  },
+  {
+    "id": "stores",
+    "label_en": "Stores",
+    "label_zh": "门店",
+    "type": "data",
+    "parent": null,
+    "position": "右侧中部",
+    "notation_type": "ER 实体"
+  },
+  {
+    "id": "warehouses",
+    "label_en": "Warehouses",
+    "label_zh": "仓库",
+    "type": "data",
+    "parent": null,
+    "position": "最右侧",
+    "notation_type": "ER 实体"
+  },
+  {
+    "id": "payments",
+    "label_en": "Payments",
+    "label_zh": "支付",
+    "type": "data",
+    "parent": null,
+    "position": "左下",
+    "notation_type": "ER 实体"
+  },
+  {
+    "id": "payment_type",
+    "label_en": "Payment Type",
+    "label_zh": "支付类型",
+    "type": "data",
+    "parent": null,
+    "position": "左下最底",
+    "notation_type": "ER 实体"
+  },
+  {
+    "id": "products_in_purchase",
+    "label_en": "Products in Purchase",
+    "label_zh": "购买中的产品",
+    "type": "data",
+    "parent": null,
+    "position": "右下中部",
+    "notation_type": "ER 关联实体",
+    "description_zh": "购买行/关联实体，连接 Retail Purchases 与 Products。"
+  },
+  {
+    "id": "products",
+    "label_en": "Products",
+    "label_zh": "产品",
+    "type": "data",
+    "parent": null,
+    "position": "右下最右",
+    "notation_type": "ER 实体"
+  },
+  {
+    "id": "incentives",
+    "label_en": "Incentives",
+    "label_zh": "激励",
+    "type": "data",
+    "parent": null,
+    "position": "下方中部",
+    "notation_type": "ER 实体"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "customers",
+    "to": "retail_purchases",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "1:N",
+    "description_zh": "一个客户可有多笔购买；每笔购买恰好属于一个客户。客户端画竖线，购买端画圆圈+鸦爪。"
+  },
+  {
+    "from": "employees",
+    "to": "retail_purchases",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "0..1:N",
+    "description_zh": "每笔购买可没有或只有一名员工；一名员工可关联多笔购买。员工端为竖线+圆圈，购买端为圆圈+鸦爪。"
+  },
+  {
+    "from": "payments",
+    "to": "retail_purchases",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "0..1:N",
+    "description_zh": "每笔购买可有 0 或 1 笔支付；一笔支付可覆盖多笔购买。支付端为竖线+圆圈，购买端为圆圈+鸦爪。"
+  },
+  {
+    "from": "incentives",
+    "to": "retail_purchases",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "1:N",
+    "description_zh": "每笔购买对应一个激励，一个激励可用于多笔购买。激励端画竖线，购买端画圆圈+鸦爪。"
+  },
+  {
+    "from": "payment_type",
+    "to": "payments",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "1:N",
+    "description_zh": "一种支付类型可对应多笔支付。支付类型端画竖线，支付端画圆圈+鸦爪。"
+  },
+  {
+    "from": "warehouses",
+    "to": "stores",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "1:N",
+    "description_zh": "一个仓库服务多家门店；每家门店属于一个仓库。仓库端画竖线，门店端画圆圈+鸦爪。"
+  },
+  {
+    "from": "products",
+    "to": "products_in_purchase",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "1:N",
+    "description_zh": "一个产品可出现在多条购买行中；每条购买行对应一个产品。产品端画竖线+圆圈，购买行端画圆圈+鸦爪。"
+  },
+  {
+    "from": "retail_purchases",
+    "to": "products_in_purchase",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "1:N",
+    "description_zh": "语义为一笔购买含多条购买行；但画面把鸦爪画在 Retail Purchases 端、竖线画在 Products in Purchase 端，字面读作 0..*:1，疑为原图画法不一致。"
+  },
+  {
+    "from": "stores",
+    "to": "retail_purchases",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "1:N",
+    "description_zh": "语义为一家门店有多笔购买；但画面把鸦爪画在 Stores 端、竖线画在 Retail Purchases 端，字面读作 0..*:1，疑为原图画法不一致。"
+  },
+  {
+    "from": "employees",
+    "to": "employees",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "cardinality": "1:N",
+    "description_zh": "员工自关联环，鸦爪+圆圈落在员工框右侧，无关系名；只能判断是一对多自关联（如经理—下属），环的另一端未画基数。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "竖线 |（靠实体端）",
+    "meaning_zh": "基数 1（恰好一个）",
+    "explicit": false
+  },
+  {
+    "symbol": "小圆圈 ○",
+    "meaning_zh": "基数 0（可选）；与竖线组合成 0..1",
+    "explicit": false
+  },
+  {
+    "symbol": "鸦爪 <",
+    "meaning_zh": "基数多（0..* 或 1..*，配合圆圈判断可选性）",
+    "explicit": false
+  },
+  {
+    "symbol": "圆角矩形",
+    "meaning_zh": "业务对象实体（概念层，无属性）",
+    "explicit": false
+  },
+  {
+    "symbol": "绕行环线",
+    "meaning_zh": "同一实体的自关联（Employees）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "free",
+  "description_zh": "星型布局：Retail Purchases 居中；Employees 在上，Customers 与 Payments 在左，Stores 与 Products in Purchase 在右，Incentives 在下；Stores 右侧接 Warehouses，Products in Purchase 右侧接 Products，Payments 下方接 Payment Type；Employees 右上角有自关联环。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G233/fig6-3",
+    "relation": "basis_for",
+    "note_zh": "图 6-3 的应用组件内出现 Product Catalog、Product Inventory、Loyalty Customer Identity 等数据对象，其业务语义来自本图的业务对象"
+  },
+  {
+    "target": "G233/figC-1",
+    "relation": "basis_for",
+    "note_zh": "图 C-1 的 Role Catalog、Position Description、Employment Contract 等业务对象可视为本概念模型在招聘域的扩展"
+  },
+  {
+    "target": "G233/fig4-2",
+    "relation": "related",
+    "note_zh": "商业模式画布中的关键资源/成本（库存、仓库）与本图的 Products、Warehouses 等业务对象对应"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "medium",
+  "uncertainties_zh": [
+    "门店—零售购买、零售购买—购买中的产品两处鸦爪画在父端，字面基数与零售语义相反；无法确认是建模错误还是特殊业务规则，本分析按语义记 1:N 并在描述中标出画面差异。",
+    "员工自关联环没有关系名，无法确定是“管理”“汇报”还是其他关系；另一端未画基数，1:N 是从鸦爪端推断的。",
+    "英文 PDF 第 27 页图上有“Evaluation Copy”斜向水印，部分连线/符号被遮挡；基数符号本身仍可辨认，但不排除个别端点被水印干扰。",
+    "圆圈在这些连线上表示 0（可选），本分析据此把员工/支付端读为 0..1；若把圆圈当作绘图工具端点符号，则这两条会变成 1:N。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 27 页图 4-4 截图（figctx 裁剪）、3×3 放大分块及端点高倍裁剪",
+    "英文 PDF 第 24、27 页正文",
+    "中文稿 G233e_业务能力规划.md 第 345–368 行（含 10 条图内标签对照）",
+    "figs/g233e_fig4-4_en.png、figs/zh/g233e_fig4-4_zh.png 与 figs/zh/g233e_fig4-4_zh.svg 源码"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

@@ -1,0 +1,914 @@
+# G238/fig4-3 · BI 与分析参考模型——详细层级
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G238/fig4-3.md) · [JSON](../../architecture/diagrams/G238/fig4-3.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G238e.pdf`；SHA-256：`87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444`。
+
+## 原图 · PDF 第 35 页
+
+![英文原图](../assets/G238/fig4-3-p0035.png)
+
+PDF 坐标：`[48.2, 89.6, 563.8, 405.1]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+BI & Analytics Application Functions
+a
+Data Integration (2)
+Data Storage
+a)
+Information Reporting & Dashboarding
+A
+(
+Raw Data Storage ()
+Prepared Data Storage (9) (Information Data Storage (9)
+Information Servicing
+a
+Metadata Exchange (2)
+Formatted Onine (2)
+Report Difusion (2)
+Batch Exenange (2
+(
+‘Stored Data Encryption (9)
+Data Copy
+a
+‘Sensitive Data Storage (2)
+‘Query Execution
+(
+Data Versioning (-)) (Archiving & Compressing (2)
+Report Authoring ()
+Basic Data Tables
+Manual Upload or (9
+Metadata Storage (-))
+Manipulation & Analysis,
+Data Processing
+a
+Decision Support Analysis & Visualization
+a:
+Data interface (2)
+Batch Processing
+a
+Near Realtime Processing
+a
+Visual Data Discovery (9)
+Statistical Analysis (9
+Streaming
+Business Transformation
+a
+‘Technical Preparation
+a
+‘Dynamic Data Preparation
+i)
+External Device (2)
+Quality Profiing
+a
+Masking
+a
+Data Access for Engineering & Data Management Use (2)
+In-Transit Encryption (9
+‘Statistical Computing
+Metadata Infering
+(
+Search Data Access. (9
+SQL Data Access (9)
+Interface
+a
+a
+‘Management
+a
+‘Change Data Capture
+Aa
+(
+Data visualization ()){ Metadata Exploration (2)
+‘Administration
+a
+Resources Management (2)
+‘Access Management (2)
+Screauing A)
+Service Recovery
+‘Manage Laboratory & Production Environment (~)
+Development
+a
+Data Engineering & Data Science Development
+a
+Integration & Deployment
+a
+Development in integrated Development
+Environment (IDE)
+A) (merce neebot ke Deveoment (2)
+souce cod’) | anayica®
+A
+‘Mgmt
+Deployment
+Data Wrangling & Data Discovery Tools (9) |
+‘Statistic & Machine Learning Tools (3)
+_ Mode Mgmt
+Monitoring
+Technical Mentoring)
+‘Business Usage Monitoring (2)
+Secunty Monitoring
+a
+Data & Application Monitoring (_
+LUneage &Auct 9)
+```
+
+## 概要（历史解释；局部修正见上）
+
+把 BI 与分析应用功能分解为 9 个功能组和 61 项子功能（含 2 个二级分组）。
+
+## 目的（历史解释；局部修正见上）
+
+给出应用侧参考模型的详细层级：把图 2-1 右栏 9 项高层应用功能逐项展开，作为评估/设计 BI & Analytics 平台应用功能的清单，也是表 4-3 的图形版；4.4 节的架构需求按这些功能逐项给出。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从外到内读：最外层是 BI & Analytics Application Functions 总框；内部 9 个带标题的功能组（数据集成、数据存储、数据处理、信息报表与仪表盘、决策支持分析与可视化、数据访问、管理、开发、监控）；组内小框是子功能。左侧 Data Integration 纵贯一列，中央 Data Storage 与 Data Processing 上下排列，右侧 Information Reporting & Dashboarding、Decision Support、Data Access 依次向下；Administration、Development、Monitoring 横贯底部。Development 组内还分“Data Engineering & Data Science Development”和“Integration & Deployment”两个二级分组。所有框右上角的旗帜图标表示功能元素，图中没有箭头。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 9 个功能组与图 2-1 右栏完全对应；子功能数为：数据集成 9、数据存储 9、数据处理 10、信息报表与仪表盘 5、决策支持分析与可视化 3、数据访问 4、管理 5、开发（2 个二级分组、共 9 项）、监控 5。
+- Development 是唯一有第三层的组：下设 Data Engineering & Data Science Development（IDE 开发、Notebook 开发、数据整理与发现工具、统计与机器学习工具）和 Integration & Deployment（源代码管理、分析模型管理、测试、构建管理、部署）。
+- 数据存储组把存储分为原始、已准备、信息、敏感四类，并配以加密、复制、版本管理、归档压缩、元数据存储，体现从原始到业务可用数据的存储谱系。
+- 数据处理组同时覆盖批处理与近实时处理，并含质量剖析、掩码、统计计算、元数据推断、删除、变更数据捕获，支撑关系型与非关系型数据。
+- 信息报表与仪表盘（格式化在线报表、报表分发调度、报表编制、基础数据表分析）与决策支持分析与可视化（可视化数据发现、统计分析、动态数据准备）是两种不同的消费方式：前者面向固定报表/仪表盘，后者面向探索式分析。
+- 图只给功能名称，具体定义见表 4-3；4.4 节再按功能给出架构需求示例。
+- 嵌套只表示功能组成，不表示调用顺序、部署位置或成熟度；图中没有数据流箭头。
+
+## 层级（历史解释；局部修正见上）
+
+四层：L0 为“BI & Analytics Application Functions”总容器；L1 为 9 个功能组；L2 为子功能，其中 Development 组下还有 L2 的两个二级分组（Data Engineering & Data Science Development、Integration & Deployment），这两个分组下才是 L3 子功能（各 4 项与 5 项）。其余 8 个组的子功能都直接挂在 L1 下。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有任何连线或箭头。父子关系完全由框的包含表达（ArchiMate 组合）；同层框并排/上下排列只表示同属一个功能组，不表示顺序、依赖或数据流。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要因为 Data Integration 在左侧纵贯就读成“所有数据先经过集成再进入其他功能”的流水线；图中没有箭头，集成只是并列的功能组之一。
+- 不要把 Development 组内的两个二级分组当成与 Development 平级的 9 个功能组之一；它们嵌在 Development 内部。
+- 不要把 9 个功能组读成架构分层（如数据层/应用层）；它们同属应用功能层，只是按职责分组。
+- 不要把 Information Reporting & Dashboarding 与 Decision Support Analysis & Visualization 混为一谈：前者是报表/仪表盘生产与分发，后者是数据发现、统计分析与动态准备。
+- 中文稿中文化 PNG 把原始数据存储、元数据存储、源代码管理放得过大并溢出，又把若干子功能缩得很小；不能据此判断哪些功能更重要或属于不同层级。
+
+## 元素
+
+```json
+[
+  {
+    "id": "af_root",
+    "label_en": "BI & Analytics Application Functions",
+    "label_zh": "BI 与分析应用功能",
+    "type": "function",
+    "parent": null,
+    "level": 0,
+    "position": "最外层大框"
+  },
+  {
+    "id": "af_integration",
+    "label_en": "Data Integration",
+    "label_zh": "数据集成",
+    "type": "function",
+    "parent": "af_root",
+    "level": 1,
+    "order": 1,
+    "position": "左列纵贯"
+  },
+  {
+    "id": "af_metadata_exchange",
+    "label_en": "Metadata Exchange",
+    "label_zh": "元数据交换",
+    "type": "function",
+    "parent": "af_integration",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "af_batch_exchange",
+    "label_en": "Batch Exchange",
+    "label_zh": "批交换",
+    "type": "function",
+    "parent": "af_integration",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "af_query_execution",
+    "label_en": "Query Execution",
+    "label_zh": "查询执行",
+    "type": "function",
+    "parent": "af_integration",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "af_manual_upload",
+    "label_en": "Manual Upload or Download",
+    "label_zh": "手工上传或下载",
+    "type": "function",
+    "parent": "af_integration",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "af_data_interface",
+    "label_en": "Data Interface",
+    "label_zh": "数据接口",
+    "type": "function",
+    "parent": "af_integration",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "af_streaming",
+    "label_en": "Streaming",
+    "label_zh": "流式",
+    "type": "function",
+    "parent": "af_integration",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "af_external_device",
+    "label_en": "External Device Connection",
+    "label_zh": "外部设备连接",
+    "type": "function",
+    "parent": "af_integration",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "af_transit_encryption",
+    "label_en": "In-Transit Encryption",
+    "label_zh": "传输加密",
+    "type": "function",
+    "parent": "af_integration",
+    "level": 2,
+    "order": 8
+  },
+  {
+    "id": "af_interface_mgmt",
+    "label_en": "Interface Management",
+    "label_zh": "接口管理",
+    "type": "function",
+    "parent": "af_integration",
+    "level": 2,
+    "order": 9
+  },
+  {
+    "id": "af_storage",
+    "label_en": "Data Storage",
+    "label_zh": "数据存储",
+    "type": "function",
+    "parent": "af_root",
+    "level": 1,
+    "order": 2,
+    "position": "中央上"
+  },
+  {
+    "id": "af_raw_storage",
+    "label_en": "Raw Data Storage",
+    "label_zh": "原始数据存储",
+    "type": "function",
+    "parent": "af_storage",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "af_prepared_storage",
+    "label_en": "Prepared Data Storage",
+    "label_zh": "已准备数据存储",
+    "type": "function",
+    "parent": "af_storage",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "af_information_storage",
+    "label_en": "Information Data Storage",
+    "label_zh": "信息数据存储",
+    "type": "function",
+    "parent": "af_storage",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "af_stored_encryption",
+    "label_en": "Stored Data Encryption",
+    "label_zh": "存储数据加密",
+    "type": "function",
+    "parent": "af_storage",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "af_data_copy",
+    "label_en": "Data Copy",
+    "label_zh": "数据复制",
+    "type": "function",
+    "parent": "af_storage",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "af_sensitive_storage",
+    "label_en": "Sensitive Data Storage",
+    "label_zh": "敏感数据存储",
+    "type": "function",
+    "parent": "af_storage",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "af_metadata_storage",
+    "label_en": "Metadata Storage",
+    "label_zh": "元数据存储",
+    "type": "function",
+    "parent": "af_storage",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "af_data_versioning",
+    "label_en": "Data Versioning",
+    "label_zh": "数据版本管理",
+    "type": "function",
+    "parent": "af_storage",
+    "level": 2,
+    "order": 8
+  },
+  {
+    "id": "af_archiving",
+    "label_en": "Archiving & Compressing",
+    "label_zh": "归档与压缩",
+    "type": "function",
+    "parent": "af_storage",
+    "level": 2,
+    "order": 9
+  },
+  {
+    "id": "af_processing",
+    "label_en": "Data Processing",
+    "label_zh": "数据处理",
+    "type": "function",
+    "parent": "af_root",
+    "level": 1,
+    "order": 3,
+    "position": "中央下"
+  },
+  {
+    "id": "af_batch_processing",
+    "label_en": "Batch Processing",
+    "label_zh": "批处理",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "af_near_realtime",
+    "label_en": "Near Realtime Processing",
+    "label_zh": "近实时处理",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "af_business_transform",
+    "label_en": "Business Transformation",
+    "label_zh": "业务转换",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "af_technical_prep",
+    "label_en": "Technical Preparation",
+    "label_zh": "技术准备",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "af_quality_profiling",
+    "label_en": "Quality Profiling",
+    "label_zh": "质量剖析",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "af_masking",
+    "label_en": "Masking",
+    "label_zh": "掩码",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "af_statistical_computing",
+    "label_en": "Statistical Computing",
+    "label_zh": "统计计算",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 7
+  },
+  {
+    "id": "af_metadata_inferring",
+    "label_en": "Metadata Inferring",
+    "label_zh": "元数据推断",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 8
+  },
+  {
+    "id": "af_deletion",
+    "label_en": "Deletion",
+    "label_zh": "删除",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 9
+  },
+  {
+    "id": "af_cdc",
+    "label_en": "Change Data Capture",
+    "label_zh": "变更数据捕获",
+    "type": "function",
+    "parent": "af_processing",
+    "level": 2,
+    "order": 10
+  },
+  {
+    "id": "af_reporting",
+    "label_en": "Information Reporting & Dashboarding",
+    "label_zh": "信息报表与仪表盘",
+    "type": "function",
+    "parent": "af_root",
+    "level": 1,
+    "order": 4,
+    "position": "右上"
+  },
+  {
+    "id": "af_information_servicing",
+    "label_en": "Information Servicing",
+    "label_zh": "信息服务",
+    "type": "function",
+    "parent": "af_reporting",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "af_formatted_online",
+    "label_en": "Formatted Online Reporting",
+    "label_zh": "格式化在线报表",
+    "type": "function",
+    "parent": "af_reporting",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "af_diffusion",
+    "label_en": "Report Diffusion Scheduling",
+    "label_zh": "报表分发调度",
+    "type": "function",
+    "parent": "af_reporting",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "af_report_authoring",
+    "label_en": "Report Authoring",
+    "label_zh": "报表编制",
+    "type": "function",
+    "parent": "af_reporting",
+    "level": 2,
+    "order": 4,
+    "description_zh": "表 4-3 译作“报表创作”。"
+  },
+  {
+    "id": "af_basic_tables",
+    "label_en": "Basic Data Tables Manipulation & Analysis",
+    "label_zh": "基础数据表操作与分析",
+    "type": "function",
+    "parent": "af_reporting",
+    "level": 2,
+    "order": 5,
+    "description_zh": "表 4-3 译作“基本数据表操作与分析”。"
+  },
+  {
+    "id": "af_decision",
+    "label_en": "Decision Support Analysis & Visualization",
+    "label_zh": "决策支持分析与可视化",
+    "type": "function",
+    "parent": "af_root",
+    "level": 1,
+    "order": 5,
+    "position": "右中"
+  },
+  {
+    "id": "af_visual_discovery",
+    "label_en": "Visual Data Discovery",
+    "label_zh": "可视化数据发现",
+    "type": "function",
+    "parent": "af_decision",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "af_stat_analysis",
+    "label_en": "Statistical Analysis",
+    "label_zh": "统计分析",
+    "type": "function",
+    "parent": "af_decision",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "af_dynamic_prep",
+    "label_en": "Dynamic Data Preparation",
+    "label_zh": "动态数据准备",
+    "type": "function",
+    "parent": "af_decision",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "af_data_access",
+    "label_en": "Data Access for Engineering & Data Management Use",
+    "label_zh": "面向工程与数据管理的数据访问",
+    "type": "function",
+    "parent": "af_root",
+    "level": 1,
+    "order": 6,
+    "position": "右中下"
+  },
+  {
+    "id": "af_search_access",
+    "label_en": "Search Data Access",
+    "label_zh": "搜索数据访问",
+    "type": "function",
+    "parent": "af_data_access",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "af_sql_access",
+    "label_en": "SQL Data Access",
+    "label_zh": "SQL 数据访问",
+    "type": "function",
+    "parent": "af_data_access",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "af_data_viz",
+    "label_en": "Data Visualization",
+    "label_zh": "数据可视化",
+    "type": "function",
+    "parent": "af_data_access",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "af_metadata_exploration",
+    "label_en": "Metadata Exploration",
+    "label_zh": "元数据探索",
+    "type": "function",
+    "parent": "af_data_access",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "af_admin",
+    "label_en": "Administration",
+    "label_zh": "管理",
+    "type": "function",
+    "parent": "af_root",
+    "level": 1,
+    "order": 7,
+    "position": "中下部横贯"
+  },
+  {
+    "id": "af_resources",
+    "label_en": "Resources Management",
+    "label_zh": "资源管理",
+    "type": "function",
+    "parent": "af_admin",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "af_access_mgmt",
+    "label_en": "Access Management",
+    "label_zh": "访问管理",
+    "type": "function",
+    "parent": "af_admin",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "af_scheduling",
+    "label_en": "Scheduling",
+    "label_zh": "调度",
+    "type": "function",
+    "parent": "af_admin",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "af_service_recovery",
+    "label_en": "Service Recovery",
+    "label_zh": "服务恢复",
+    "type": "function",
+    "parent": "af_admin",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "af_lab_production",
+    "label_en": "Manage Laboratory & Production Environment",
+    "label_zh": "实验与生产环境管理",
+    "type": "function",
+    "parent": "af_admin",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "af_development",
+    "label_en": "Development",
+    "label_zh": "开发",
+    "type": "function",
+    "parent": "af_root",
+    "level": 1,
+    "order": 8,
+    "position": "下部横贯"
+  },
+  {
+    "id": "af_dev_engineering",
+    "label_en": "Data Engineering & Data Science Development",
+    "label_zh": "数据工程与数据科学开发",
+    "type": "function",
+    "parent": "af_development",
+    "level": 2,
+    "order": 1,
+    "position": "Development 内左分组",
+    "description_zh": "二级分组，本身不是叶子功能。"
+  },
+  {
+    "id": "af_ide",
+    "label_en": "Development in Integrated Development Environment (IDE)",
+    "label_zh": "集成开发环境（IDE）开发",
+    "type": "function",
+    "parent": "af_dev_engineering",
+    "level": 3,
+    "order": 1
+  },
+  {
+    "id": "af_notebook",
+    "label_en": "Interactive Notebook-Like Development",
+    "label_zh": "交互式类 Notebook 开发",
+    "type": "function",
+    "parent": "af_dev_engineering",
+    "level": 3,
+    "order": 2
+  },
+  {
+    "id": "af_wrangling_tools",
+    "label_en": "Data Wrangling & Data Discovery Tools",
+    "label_zh": "数据整理与数据发现工具",
+    "type": "function",
+    "parent": "af_dev_engineering",
+    "level": 3,
+    "order": 3
+  },
+  {
+    "id": "af_stat_ml_tools",
+    "label_en": "Statistic & Machine Learning Tools",
+    "label_zh": "统计与机器学习工具",
+    "type": "function",
+    "parent": "af_dev_engineering",
+    "level": 3,
+    "order": 4
+  },
+  {
+    "id": "af_integration_deploy",
+    "label_en": "Integration & Deployment",
+    "label_zh": "集成与部署",
+    "type": "function",
+    "parent": "af_development",
+    "level": 2,
+    "order": 2,
+    "position": "Development 内右分组",
+    "description_zh": "二级分组，本身不是叶子功能。"
+  },
+  {
+    "id": "af_source_control",
+    "label_en": "Source Code Mgmt",
+    "label_zh": "源代码管理",
+    "type": "function",
+    "parent": "af_integration_deploy",
+    "level": 3,
+    "order": 1
+  },
+  {
+    "id": "af_model_mgmt",
+    "label_en": "Analytical Model Mgmt",
+    "label_zh": "分析模型管理",
+    "type": "function",
+    "parent": "af_integration_deploy",
+    "level": 3,
+    "order": 2
+  },
+  {
+    "id": "af_testing",
+    "label_en": "Testing",
+    "label_zh": "测试",
+    "type": "function",
+    "parent": "af_integration_deploy",
+    "level": 3,
+    "order": 3
+  },
+  {
+    "id": "af_build_mgmt",
+    "label_en": "Build Mgmt",
+    "label_zh": "构建管理",
+    "type": "function",
+    "parent": "af_integration_deploy",
+    "level": 3,
+    "order": 4
+  },
+  {
+    "id": "af_deployment",
+    "label_en": "Deployment",
+    "label_zh": "部署",
+    "type": "function",
+    "parent": "af_integration_deploy",
+    "level": 3,
+    "order": 5
+  },
+  {
+    "id": "af_monitoring",
+    "label_en": "Monitoring",
+    "label_zh": "监控",
+    "type": "function",
+    "parent": "af_root",
+    "level": 1,
+    "order": 9,
+    "position": "底部横贯"
+  },
+  {
+    "id": "af_tech_monitoring",
+    "label_en": "Technical Monitoring",
+    "label_zh": "技术监控",
+    "type": "function",
+    "parent": "af_monitoring",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "af_business_monitoring",
+    "label_en": "Business Usage Monitoring",
+    "label_zh": "业务使用监控",
+    "type": "function",
+    "parent": "af_monitoring",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "af_security_monitoring",
+    "label_en": "Security Monitoring",
+    "label_zh": "安全监控",
+    "type": "function",
+    "parent": "af_monitoring",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "af_data_app_monitoring",
+    "label_en": "Data & Application Monitoring",
+    "label_zh": "数据与应用监控",
+    "type": "function",
+    "parent": "af_monitoring",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "af_lineage_audit",
+    "label_en": "Lineage & Audit",
+    "label_zh": "血缘与审计",
+    "type": "function",
+    "parent": "af_monitoring",
+    "level": 2,
+    "order": 5
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "外层大框",
+    "meaning_zh": "BI & Analytics 应用功能总体（L0）",
+    "explicit": false
+  },
+  {
+    "symbol": "带标题的功能框",
+    "meaning_zh": "应用功能组（L1，与图 2-1 右栏一致）",
+    "explicit": false
+  },
+  {
+    "symbol": "功能组内的二级分组框（仅 Development）",
+    "meaning_zh": "应用功能子域（L2 分组）",
+    "explicit": false
+  },
+  {
+    "symbol": "最内层小圆角框",
+    "meaning_zh": "具体应用功能（L2/L3）",
+    "explicit": false
+  },
+  {
+    "symbol": "右上角旗帜图标",
+    "meaning_zh": "ArchiMate 功能元素（function）",
+    "explicit": false
+  },
+  {
+    "symbol": "青色填充",
+    "meaning_zh": "应用层配色（与图 1-1 的应用功能一致）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "外层大框内：左列 Data Integration（9 项纵排）；中央上方 Data Storage（3×3 共 9 项）、下方 Data Processing（5 行×2 共 10 项）；右列自上而下 Information Reporting & Dashboarding（5 项）、Decision Support Analysis & Visualization（3 项）、Data Access for Engineering & Data Management Use（4 项）；再往下 Administration（5 项一行）、Development（内含左右两个二级分组：Data Engineering & Data Science Development 4 项、Integration & Deployment 5 项）、Monitoring（5 项一行）。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G238/fig2-1",
+    "relation": "detail_of",
+    "note_zh": "本图是图 2-1 右栏 9 项高层应用功能的细化，展开为 61 项子功能与 2 个二级分组。"
+  },
+  {
+    "target": "G238/fig4-2",
+    "relation": "complements",
+    "note_zh": "图 4-2 给出业务功能侧，本图给出应用功能侧，共同构成 BI & Analytics 参考模型。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "英文原图把 Development 下的两个分组画成带标题的框，但表 4-3 没有把“Data Engineering & Data Science Development”“Integration & Deployment”列为独立功能；本分析按图中的二级分组建模。",
+    "Development 内的“Source Code Mgmt”“Analytical Model Mgmt”“Build Mgmt”使用了缩写 Mgmt，中文按表 4-3 译。",
+    "中文图内“报表编制/基础数据表”与表 4-3 的“报表创作/基本数据表”不一致，本分析以图内标签为准并注明表格译法。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 35 页图 4-3 截图与 3×3 放大分块（逐块转录）",
+    "英文 PDF 第 35 页表 4-3 开头",
+    "中文稿 G238e_信息架构_商业智能与分析.md 第 522–690 行",
+    "figs/zh/g238e_fig4-3_zh.png、figs/g238e_fig4-3_en.png（相似度 0.985）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

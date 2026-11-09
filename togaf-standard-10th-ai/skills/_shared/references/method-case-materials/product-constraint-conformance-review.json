@@ -1,0 +1,270 @@
+{
+  "schema_version": "method-teaching-materials/1",
+  "method_id": "product-constraint-conformance-review",
+  "is_example": true,
+  "title": "促销待办对库存约束的临时豁免",
+  "source": "G186 §12.1",
+  "decision": "产品负责人能否以大促紧急为由绕过库存服务，缺少豁免权限时能否解除冲突阻断？",
+  "materials": [
+    [
+      "ARCH",
+      "促销产品只管理资格和价格；企业架构约束库存写入经库存服务，产品偏好不能自行解除约束。"
+    ],
+    [
+      "DISP",
+      "虚构委员会仅对11月预热批次登记临时安排，理由、权限和到期日分别记录。"
+    ]
+  ],
+  "reasoning": [
+    "待办与约束归属于同一产品；跨产品豁免不能复用。",
+    "豁免是阶段G治理材料，记录完整仍不等于真实组织已授权。",
+    "权限方、理由、期限及证据构成同一条记录的必要条件，缺字段不能只靠证据ID解除阻断。",
+    "业务变更去掉豁免时，原冲突仍然存在；不能把紧急程度当作授权。"
+  ],
+  "scenarios": {
+    "sufficient": {
+      "inputs": {
+        "source_ids": [
+          "ARCH",
+          "DISP"
+        ],
+        "as_of": "2026-11-08",
+        "products": [
+          {
+            "id": "PROMO",
+            "name": "促销产品",
+            "boundary": "促销资格与价格",
+            "product_owner": "虚构产品负责人",
+            "architecture_ref": "ARCH-1",
+            "evidence": [
+              "ARCH"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "id": "K-RESERVE",
+            "product_id": "PROMO",
+            "statement": "库存操作必须经过库存服务",
+            "architecture_ref": "ARCH-1",
+            "evidence": [
+              "ARCH"
+            ]
+          }
+        ],
+        "backlog_items": [
+          {
+            "id": "B-DIRECT",
+            "product_id": "PROMO",
+            "title": "预热批次绕过库存服务",
+            "conflicts_with": [
+              "K-RESERVE"
+            ],
+            "dispensation_id": "D-TEMP"
+          }
+        ],
+        "dispensations": [
+          {
+            "id": "D-TEMP",
+            "constraint_ids": [
+              "K-RESERVE"
+            ],
+            "authority": "虚构架构委员会",
+            "rationale": "限11月预热批次，隔离执行并核对库存差额",
+            "expiry": "2026-11-30",
+            "evidence": [
+              "DISP"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "blocked_item_ids": [],
+        "finding_states": [
+          "dispensation-recorded"
+        ],
+        "gap_reasons": []
+      },
+      "explanation": "本情景完整记录临时豁免；效果与真实授权另行审阅。"
+    },
+    "missing": {
+      "inputs": {
+        "source_ids": [
+          "ARCH",
+          "DISP"
+        ],
+        "as_of": "2026-11-08",
+        "products": [
+          {
+            "id": "PROMO",
+            "name": "促销产品",
+            "boundary": "促销资格与价格",
+            "product_owner": "虚构产品负责人",
+            "architecture_ref": "ARCH-1",
+            "evidence": [
+              "ARCH"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "id": "K-RESERVE",
+            "product_id": "PROMO",
+            "statement": "库存操作必须经过库存服务",
+            "architecture_ref": "ARCH-1",
+            "evidence": [
+              "ARCH"
+            ]
+          }
+        ],
+        "backlog_items": [
+          {
+            "id": "B-DIRECT",
+            "product_id": "PROMO",
+            "title": "预热批次绕过库存服务",
+            "conflicts_with": [
+              "K-RESERVE"
+            ],
+            "dispensation_id": "D-TEMP"
+          }
+        ],
+        "dispensations": [
+          {
+            "id": "D-TEMP",
+            "constraint_ids": [
+              "K-RESERVE"
+            ],
+            "rationale": "限11月预热批次，隔离执行并核对库存差额",
+            "expiry": "2026-11-30",
+            "evidence": [
+              "DISP"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "blocked_item_ids": [
+          "B-DIRECT"
+        ],
+        "gap_ids": [
+          "D-TEMP:authority"
+        ]
+      },
+      "explanation": "没有权限方的豁免草稿不能解除约束冲突。"
+    },
+    "change": {
+      "inputs": {
+        "source_ids": [
+          "ARCH",
+          "DISP"
+        ],
+        "as_of": "2026-11-08",
+        "products": [
+          {
+            "id": "PROMO",
+            "name": "促销产品",
+            "boundary": "促销资格与价格",
+            "product_owner": "虚构产品负责人",
+            "architecture_ref": "ARCH-1",
+            "evidence": [
+              "ARCH"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "id": "K-RESERVE",
+            "product_id": "PROMO",
+            "statement": "库存操作必须经过库存服务",
+            "architecture_ref": "ARCH-1",
+            "evidence": [
+              "ARCH"
+            ]
+          }
+        ],
+        "backlog_items": [
+          {
+            "id": "B-DIRECT",
+            "product_id": "PROMO",
+            "title": "预热批次绕过库存服务",
+            "conflicts_with": [
+              "K-RESERVE"
+            ],
+            "dispensation_id": "D-TEMP"
+          }
+        ],
+        "dispensations": []
+      },
+      "expected": {
+        "blocked_item_ids": [
+          "B-DIRECT"
+        ],
+        "finding_states": [
+          "blocked-local-preference"
+        ]
+      },
+      "explanation": "撤销临时豁免后，库存约束继续阻断直接写库待办。"
+    },
+    "counterexample": {
+      "inputs": {
+        "source_ids": [
+          "ARCH",
+          "DISP"
+        ],
+        "as_of": "2026-11-08",
+        "products": [
+          {
+            "id": "PROMO",
+            "name": "促销产品",
+            "boundary": "促销资格与价格",
+            "product_owner": "虚构产品负责人",
+            "architecture_ref": "ARCH-1",
+            "evidence": [
+              "ARCH"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "id": "K-RESERVE",
+            "product_id": "PROMO",
+            "statement": "库存操作必须经过库存服务",
+            "architecture_ref": "ARCH-1",
+            "evidence": [
+              "ARCH"
+            ]
+          }
+        ],
+        "backlog_items": [
+          {
+            "id": "B-DIRECT",
+            "product_id": "PROMO",
+            "title": "预热批次绕过库存服务",
+            "conflicts_with": [
+              "K-ABSENT"
+            ],
+            "dispensation_id": "D-TEMP"
+          }
+        ],
+        "dispensations": [
+          {
+            "id": "D-TEMP",
+            "constraint_ids": [
+              "K-RESERVE"
+            ],
+            "authority": "虚构架构委员会",
+            "rationale": "限11月预热批次，隔离执行并核对库存差额",
+            "expiry": "2026-11-30",
+            "evidence": [
+              "DISP"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "reject": "PCC-004"
+      },
+      "explanation": "待办引用不存在的约束应拒绝，不制造空约束。"
+    }
+  }
+}

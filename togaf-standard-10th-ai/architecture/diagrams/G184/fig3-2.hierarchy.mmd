@@ -1,0 +1,17 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["EA Capability Model"]
+  n1["General Business Capabilities"]
+  n2["Purpose Capabilities"]
+  n3["Foundational Capabilities"]
+  n4["Architecture to Support Strategy"]
+  n5["Architecture to Support Portfolio"]
+  n6["Architecture to Support Projects"]
+  n7["Architecture to Support Solution Delivery"]
+  n2 -.->|"capability_decomposition"| n4
+  n2 -.->|"capability_decomposition"| n5
+  n2 -.->|"capability_decomposition"| n6
+  n2 -.->|"capability_decomposition"| n7
+  n4 -->|"治理范围: governs"| n5
+  n5 -->|"治理范围: governs"| n6
+  n6 -->|"治理范围: governs"| n7

@@ -1,0 +1,1318 @@
+{
+  "schema_version": "1.0",
+  "id": "G234/fig5-2",
+  "status": "done",
+  "doc": {
+    "code": "G234",
+    "title_zh": "信息架构——元数据管理",
+    "title_en": "Information Architecture — Metadata Management",
+    "zh_md": "G234e_信息架构_元数据管理.md",
+    "en_pdf": "togaf-standard-10th/G234e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "5-2",
+    "title_en": "Metadata Management Detailed Application Functions",
+    "title_zh": "元数据管理详细应用功能",
+    "section_en": "5.2 Metadata Management Reference Model – Detailed Application Functions",
+    "section_zh": "5.2 元数据管理参考模型——详细应用功能",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        34
+      ],
+      "printed_page": 24,
+      "bboxes": [
+        [
+          86.9,
+          348.3,
+          525.1,
+          586.5
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        595
+      ],
+      "label_table_lines": [
+        599,
+        634
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g234e_fig5-2_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "ecd6516701d1",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.985（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g234e_fig5-2_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "56070144f06b",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "多处二级功能字号被压到约 5–7 px，正常缩放下难读：元数据创建、修订与删除、工作流校验、数据合规报表、数据文档报表、数据问责报表、数据质量报表、值列表管理（类别列表、代码列表等）、国际化与本地化、数据库版本管理",
+        "“元数据推断”用了“推断”而非图 5-1/正文的“推断”术语尚一致，但与 3.3 节“采集”定义中的“推断（infer）”一致，可接受",
+        "六个功能组、24 个二级功能与应用功能总容器均保留，颜色与嵌套结构未变"
+      ]
+    },
+    {
+      "path": "G234e_信息架构_元数据管理.md#L599-L634",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "259444437448",
+      "fidelity": "faithful",
+      "issues_zh": []
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "hierarchy"
+    ],
+    "notation": "ArchiMate 嵌套功能图：蓝色应用功能大组内嵌 6 个功能组框，每个组框内为带功能记号的二级应用功能框；无连线",
+    "concepts": [
+      "metadata_management",
+      "reference_model",
+      "application_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "把 6 项高层应用功能展开为 24 项二级应用功能，形成元数据管理 IT 方案的功能清单。",
+    "purpose_zh": "第 5.2 节的应用参考模型，用于 ADM 阶段 C/E：阶段 C 拿它做应用功能差距分析，阶段 E 拿它逐项挑战解决方案供应商的功能覆盖。",
+    "reading_guide_zh": "从蓝色大组 Metadata Management Application Functions 进入，按 6 个组读：Acquisition（采集）、Governance（治理）、Reporting（报表）、Reference Data Management（参考数据管理）、Metadata Integration（元数据集成）、Administration（管理）。组框标题是一级应用功能，组内小框是二级功能；没有连线，嵌套表示归属。",
+    "key_points_zh": [
+      "采集组 5 项：元数据创建/修订/删除、元数据分类、元数据关联、元数据推断、数据质量规则执行；覆盖元数据的产生与加工。",
+      "治理组 4 项：工作流校验、影响分析、任务分配、元数据活动监控；对应治理所需的审批、影响评估与运行监控。",
+      "报表组 5 项：数据合规报表、数据文档报表、数据问责报表、数据质量报表、元数据搜索；既面向监管也面向日常使用。",
+      "参考数据管理组只有 1 项：值列表管理（类别列表、代码列表等），说明它是独立但范围集中的能力。",
+      "元数据集成组 4 项：元数据查询、批量导入、批量导出、事件订阅；纯技术性交换能力，与图 4-9 的三种模式对应。",
+      "管理组 5 项：环境管理、访问管理、国际化与本地化、事件日志管理、数据库版本管理；是支撑前三类能力的运行底座。"
+    ],
+    "hierarchy_zh": "两层：应用功能大组（L1）→ 6 个一级功能组（L2）→ 24 个二级应用功能（L3）。组与组并列，无跨组连线。",
+    "line_semantics_zh": "全图无连线；嵌套与框的位置表示“二级功能属于该组”，组框的排列次序不表示调用顺序。",
+    "misreadings_zh": [
+      "不要把 Acquisition 只理解为“采集工具”；它还包含创建、修订、删除、分类、关联与推断。",
+      "不要把 Metadata Integration 当成跨组连接线；它是与其他组并列的一组应用功能。",
+      "不要以为 Reference Data Management 与 Reporting 有从属关系；它们是并列组。",
+      "中文 PNG 中部分二级功能字号极小，不能因看不清而认为原图没有这些功能。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p34",
+        "summary_zh": "图 5-2 使用 ArchiMate 记法展示元数据管理能力的详细应用功能；表 5-2 逐项给出说明。"
+      },
+      {
+        "source": "zh_md L595",
+        "summary_zh": "中文稿在此插入图 5-2，并在 L599 起给出完整的应用功能中英对照。"
+      },
+      {
+        "source": "zh_md L636",
+        "summary_zh": "表 5-2 按应用功能组/应用功能/说明展开详细定义。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "单一蓝色大组内：Acquisition 通栏在顶，左中为 Governance，中央为 Reporting，右侧竖跨 Metadata Integration，左下 Reference Data Management，底部 Administration 通栏。"
+  },
+  "legend": [
+    {
+      "symbol": "蓝色大组 Metadata Management Application Functions",
+      "meaning_zh": "应用功能总容器",
+      "explicit": true
+    },
+    {
+      "symbol": "内层组框标题",
+      "meaning_zh": "一级应用功能/功能组",
+      "explicit": false
+    },
+    {
+      "symbol": "组内小框 + 右上折角箭头",
+      "meaning_zh": "二级应用功能（ArchiMate 功能记号）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "af_root",
+      "label_en": "Metadata Management Application Functions",
+      "label_zh": "元数据管理应用功能",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "蓝色大组"
+    },
+    {
+      "id": "g_acquisition",
+      "label_en": "Acquisition",
+      "label_zh": "采集",
+      "type": "function",
+      "parent": "af_root",
+      "level": 2,
+      "position": "顶部通栏"
+    },
+    {
+      "id": "f_create",
+      "label_en": "Metadata Creation, Revision, & Deletion",
+      "label_zh": "元数据创建、修订与删除",
+      "type": "function",
+      "parent": "g_acquisition",
+      "level": 3
+    },
+    {
+      "id": "f_classification",
+      "label_en": "Metadata Classification",
+      "label_zh": "元数据分类",
+      "type": "function",
+      "parent": "g_acquisition",
+      "level": 3
+    },
+    {
+      "id": "f_association",
+      "label_en": "Metadata Association",
+      "label_zh": "元数据关联",
+      "type": "function",
+      "parent": "g_acquisition",
+      "level": 3
+    },
+    {
+      "id": "f_inference",
+      "label_en": "Metadata Inference",
+      "label_zh": "元数据推断",
+      "type": "function",
+      "parent": "g_acquisition",
+      "level": 3
+    },
+    {
+      "id": "f_dq_rules",
+      "label_en": "Data Quality Rules Execution",
+      "label_zh": "数据质量规则执行",
+      "type": "function",
+      "parent": "g_acquisition",
+      "level": 3
+    },
+    {
+      "id": "g_governance",
+      "label_en": "Governance",
+      "label_zh": "治理",
+      "type": "function",
+      "parent": "af_root",
+      "level": 2,
+      "position": "左中"
+    },
+    {
+      "id": "f_workflow",
+      "label_en": "Workflow Validation",
+      "label_zh": "工作流校验",
+      "type": "function",
+      "parent": "g_governance",
+      "level": 3
+    },
+    {
+      "id": "f_impact",
+      "label_en": "Impact Analysis",
+      "label_zh": "影响分析",
+      "type": "function",
+      "parent": "g_governance",
+      "level": 3
+    },
+    {
+      "id": "f_task",
+      "label_en": "Task Assignment",
+      "label_zh": "任务分配",
+      "type": "function",
+      "parent": "g_governance",
+      "level": 3
+    },
+    {
+      "id": "f_monitoring",
+      "label_en": "Metadata Activity Monitoring",
+      "label_zh": "元数据活动监控",
+      "type": "function",
+      "parent": "g_governance",
+      "level": 3
+    },
+    {
+      "id": "g_reporting",
+      "label_en": "Reporting",
+      "label_zh": "报表",
+      "type": "function",
+      "parent": "af_root",
+      "level": 2,
+      "position": "中央"
+    },
+    {
+      "id": "f_compliance_report",
+      "label_en": "Data Compliance Reporting",
+      "label_zh": "数据合规报表",
+      "type": "function",
+      "parent": "g_reporting",
+      "level": 3
+    },
+    {
+      "id": "f_doc_report",
+      "label_en": "Data Documentation Reporting",
+      "label_zh": "数据文档报表",
+      "type": "function",
+      "parent": "g_reporting",
+      "level": 3
+    },
+    {
+      "id": "f_accountability_report",
+      "label_en": "Data Accountability Reporting",
+      "label_zh": "数据问责报表",
+      "type": "function",
+      "parent": "g_reporting",
+      "level": 3
+    },
+    {
+      "id": "f_quality_report",
+      "label_en": "Data Quality Reporting",
+      "label_zh": "数据质量报表",
+      "type": "function",
+      "parent": "g_reporting",
+      "level": 3
+    },
+    {
+      "id": "f_search",
+      "label_en": "Metadata Searching",
+      "label_zh": "元数据搜索",
+      "type": "function",
+      "parent": "g_reporting",
+      "level": 3
+    },
+    {
+      "id": "g_reference",
+      "label_en": "Reference Data Management",
+      "label_zh": "参考数据管理",
+      "type": "function",
+      "parent": "af_root",
+      "level": 2,
+      "position": "左下"
+    },
+    {
+      "id": "f_lov",
+      "label_en": "List of Values Management (category list, code list, etc.)",
+      "label_zh": "值列表管理（类别列表、代码列表等）",
+      "type": "function",
+      "parent": "g_reference",
+      "level": 3
+    },
+    {
+      "id": "g_integration",
+      "label_en": "Metadata Integration",
+      "label_zh": "元数据集成",
+      "type": "function",
+      "parent": "af_root",
+      "level": 2,
+      "position": "右侧竖跨"
+    },
+    {
+      "id": "f_querying",
+      "label_en": "Metadata Querying",
+      "label_zh": "元数据查询",
+      "type": "function",
+      "parent": "g_integration",
+      "level": 3
+    },
+    {
+      "id": "f_bulk_import",
+      "label_en": "Bulk Import",
+      "label_zh": "批量导入",
+      "type": "function",
+      "parent": "g_integration",
+      "level": 3
+    },
+    {
+      "id": "f_bulk_export",
+      "label_en": "Bulk Export",
+      "label_zh": "批量导出",
+      "type": "function",
+      "parent": "g_integration",
+      "level": 3
+    },
+    {
+      "id": "f_events",
+      "label_en": "Events Subscription",
+      "label_zh": "事件订阅",
+      "type": "function",
+      "parent": "g_integration",
+      "level": 3
+    },
+    {
+      "id": "g_admin",
+      "label_en": "Administration",
+      "label_zh": "管理",
+      "type": "function",
+      "parent": "af_root",
+      "level": 2,
+      "position": "底部通栏"
+    },
+    {
+      "id": "f_env",
+      "label_en": "Environment Management",
+      "label_zh": "环境管理",
+      "type": "function",
+      "parent": "g_admin",
+      "level": 3
+    },
+    {
+      "id": "f_access",
+      "label_en": "Access Management",
+      "label_zh": "访问管理",
+      "type": "function",
+      "parent": "g_admin",
+      "level": 3
+    },
+    {
+      "id": "f_i18n",
+      "label_en": "Internationalization & Localization",
+      "label_zh": "国际化与本地化",
+      "type": "function",
+      "parent": "g_admin",
+      "level": 3
+    },
+    {
+      "id": "f_logging",
+      "label_en": "Event Logging Management",
+      "label_zh": "事件日志管理",
+      "type": "function",
+      "parent": "g_admin",
+      "level": 3
+    },
+    {
+      "id": "f_db_version",
+      "label_en": "Database Versioning",
+      "label_zh": "数据库版本管理",
+      "type": "function",
+      "parent": "g_admin",
+      "level": 3
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G234/fig3-1",
+      "relation": "detail_of",
+      "note_zh": "本图把图 3-1 的 6 项高层应用功能逐项展开为二级功能"
+    },
+    {
+      "target": "G234/fig5-1",
+      "relation": "complements",
+      "note_zh": "图 5-1 是业务侧细化，本图是应用侧细化"
+    },
+    {
+      "target": "G234/fig4-9",
+      "relation": "related",
+      "note_zh": "本图 Metadata Integration 组的四项功能与图 4-9 的三种交换模式直接对应"
+    },
+    {
+      "target": "G234/fig2-1",
+      "relation": "uses_legend",
+      "note_zh": "本图使用图 2-1 定义的 ArchiMate 应用功能记法"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "组框标题同时是一级功能，原图未额外标注；按“功能 + 分组”双重角色处理。",
+      "Metadata Inference 与 3.3 节“采集”定义中的“推断”一致，但中文稿有时写作“元数据推断”，术语已统一。",
+      "中文 PNG 多处二级功能字号过小，译名以中文稿标签表为准。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 34 页原图截图",
+      "英文 PDF 第 34–35 页表 5-2 文字",
+      "中文稿 G234e_信息架构_元数据管理.md 第 595–634 行（图内标签对照）",
+      "figs/g234e_fig5-2_en.png、figs/zh/g234e_fig5-2_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G234e.pdf",
+    "pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G234/fig5-2.json",
+    "interpretation_sha256": "5c5287002642928a8b5ede666a7d4a85fd1e6231c3562d903547f4db749626e9",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 34,
+        "text": "Figure 5-2: Metadata Management Detailed Application Functions",
+        "bbox_pdf_points": [
+          48.24,
+          591.235,
+          356.647,
+          604.801
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 34,
+      "printed_page": 24,
+      "bbox_pdf_points": [
+        86.9,
+        348.3,
+        525.1,
+        586.5
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G234/fig5-2-p0034.png",
+      "image_sha256": "de8894f789116cfd471910d0e6fb871d13a3889caff7e86bd58ab53ccdfcb7d5",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "de8894f789116cfd471910d0e6fb871d13a3889caff7e86bd58ab53ccdfcb7d5",
+          "status": "extracted-unverified",
+          "text": "Metadata Management Application Functions\nAcquisition\nMetadata Integration\nMetadata\nData Quality\nMetadata\nMetadata\nMetadata\nRules\nCreation, Re\nn,\nClassification\nAssociation\nInference\nMetadata\n& Deletion\nExecution\nQuerying\nGovernance\nReporting\nBulk Import\nWorkflow\nData\nImpact\nData Compliance\nDocumentation\nValidation\nAnalysis\nReporting\nReporting\nBulk Export\nTask\nMetadata Activity’\nData\nData Quality\nAccountability\nAssignment\nMonitoring\nReporting\nReporting\nEvents\nMetadata\nSubscription\nReference Data Management\nSearching\nist of Values Management\n(category list, code list, etc.)\n‘Administration\nEnvironment\nAccess\nInternationalization\nEvent Logging\nDatabase\n& Localization\nManagement\nManagement\n‘Management\nVersioning",
+          "words": [
+            {
+              "text": "Metadata",
+              "confidence": 96.52816,
+              "bbox_pixels_xywh": [
+                296,
+                11,
+                56,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.515396,
+              "bbox_pixels_xywh": [
+                356,
+                11,
+                80,
+                12
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 94.964844,
+              "bbox_pixels_xywh": [
+                440,
+                11,
+                70,
+                12
+              ]
+            },
+            {
+              "text": "Functions",
+              "confidence": 79.846252,
+              "bbox_pixels_xywh": [
+                516,
+                11,
+                61,
+                9
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 93.805519,
+              "bbox_pixels_xywh": [
+                303,
+                44,
+                71,
+                13
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 88.729538,
+              "bbox_pixels_xywh": [
+                699,
+                43,
+                56,
+                10
+              ]
+            },
+            {
+              "text": "Integration",
+              "confidence": 80.617897,
+              "bbox_pixels_xywh": [
+                760,
+                43,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 96.762405,
+              "bbox_pixels_xywh": [
+                78,
+                70,
+                51,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.810638,
+              "bbox_pixels_xywh": [
+                553,
+                70,
+                24,
+                9
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 59.603851,
+              "bbox_pixels_xywh": [
+                582,
+                70,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 92.575348,
+              "bbox_pixels_xywh": [
+                209,
+                77,
+                51,
+                9
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 95.418228,
+              "bbox_pixels_xywh": [
+                328,
+                77,
+                51,
+                9
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 89.102982,
+              "bbox_pixels_xywh": [
+                444,
+                77,
+                52,
+                9
+              ]
+            },
+            {
+              "text": "Rules",
+              "confidence": 66.318367,
+              "bbox_pixels_xywh": [
+                571,
+                84,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "Creation,",
+              "confidence": 88.9776,
+              "bbox_pixels_xywh": [
+                49,
+                84,
+                51,
+                11
+              ]
+            },
+            {
+              "text": "Re",
+              "confidence": 43.336159,
+              "bbox_pixels_xywh": [
+                105,
+                84,
+                14,
+                9
+              ]
+            },
+            {
+              "text": "n,",
+              "confidence": 42.183033,
+              "bbox_pixels_xywh": [
+                148,
+                87,
+                9,
+                8
+              ]
+            },
+            {
+              "text": "Classification",
+              "confidence": 89.267227,
+              "bbox_pixels_xywh": [
+                196,
+                92,
+                77,
+                9
+              ]
+            },
+            {
+              "text": "Association",
+              "confidence": 95.961914,
+              "bbox_pixels_xywh": [
+                319,
+                92,
+                68,
+                9
+              ]
+            },
+            {
+              "text": "Inference",
+              "confidence": 95.829666,
+              "bbox_pixels_xywh": [
+                444,
+                92,
+                52,
+                9
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 95.95388,
+              "bbox_pixels_xywh": [
+                737,
+                86,
+                51,
+                9
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 91.275047,
+              "bbox_pixels_xywh": [
+                74,
+                99,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "Deletion",
+              "confidence": 94.036255,
+              "bbox_pixels_xywh": [
+                86,
+                99,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "Execution",
+              "confidence": 96.836296,
+              "bbox_pixels_xywh": [
+                559,
+                99,
+                56,
+                9
+              ]
+            },
+            {
+              "text": "Querying",
+              "confidence": 81.163681,
+              "bbox_pixels_xywh": [
+                736,
+                100,
+                52,
+                12
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 96.457718,
+              "bbox_pixels_xywh": [
+                137,
+                139,
+                75,
+                10
+              ]
+            },
+            {
+              "text": "Reporting",
+              "confidence": 95.000389,
+              "bbox_pixels_xywh": [
+                471,
+                140,
+                61,
+                12
+              ]
+            },
+            {
+              "text": "Bulk",
+              "confidence": 94.705971,
+              "bbox_pixels_xywh": [
+                730,
+                151,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Import",
+              "confidence": 91.431534,
+              "bbox_pixels_xywh": [
+                759,
+                151,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "Workflow",
+              "confidence": 96.024086,
+              "bbox_pixels_xywh": [
+                76,
+                167,
+                54,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.893784,
+              "bbox_pixels_xywh": [
+                559,
+                160,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Impact",
+              "confidence": 94.151382,
+              "bbox_pixels_xywh": [
+                228,
+                167,
+                38,
+                12
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.028549,
+              "bbox_pixels_xywh": [
+                379,
+                167,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Compliance",
+              "confidence": 92.357346,
+              "bbox_pixels_xywh": [
+                409,
+                167,
+                67,
+                12
+              ]
+            },
+            {
+              "text": "Documentation",
+              "confidence": 90.88427,
+              "bbox_pixels_xywh": [
+                528,
+                175,
+                87,
+                9
+              ]
+            },
+            {
+              "text": "Validation",
+              "confidence": 82.964661,
+              "bbox_pixels_xywh": [
+                74,
+                182,
+                57,
+                9
+              ]
+            },
+            {
+              "text": "Analysis",
+              "confidence": 77.435425,
+              "bbox_pixels_xywh": [
+                222,
+                182,
+                49,
+                11
+              ]
+            },
+            {
+              "text": "Reporting",
+              "confidence": 95.841408,
+              "bbox_pixels_xywh": [
+                400,
+                182,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "Reporting",
+              "confidence": 96.555771,
+              "bbox_pixels_xywh": [
+                544,
+                189,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Bulk",
+              "confidence": 96.912895,
+              "bbox_pixels_xywh": [
+                729,
+                209,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Export",
+              "confidence": 81.715645,
+              "bbox_pixels_xywh": [
+                759,
+                209,
+                37,
+                12
+              ]
+            },
+            {
+              "text": "Task",
+              "confidence": 95.919731,
+              "bbox_pixels_xywh": [
+                89,
+                225,
+                27,
+                9
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 76.757187,
+              "bbox_pixels_xywh": [
+                197,
+                225,
+                52,
+                9
+              ]
+            },
+            {
+              "text": "Activity’",
+              "confidence": 81.900696,
+              "bbox_pixels_xywh": [
+                253,
+                225,
+                43,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.261253,
+              "bbox_pixels_xywh": [
+                415,
+                218,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.113731,
+              "bbox_pixels_xywh": [
+                537,
+                225,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 85.225494,
+              "bbox_pixels_xywh": [
+                566,
+                225,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "Accountability",
+              "confidence": 74.150368,
+              "bbox_pixels_xywh": [
+                386,
+                232,
+                83,
+                11
+              ]
+            },
+            {
+              "text": "Assignment",
+              "confidence": 85.849045,
+              "bbox_pixels_xywh": [
+                68,
+                239,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "Monitoring",
+              "confidence": 96.591728,
+              "bbox_pixels_xywh": [
+                216,
+                239,
+                61,
+                12
+              ]
+            },
+            {
+              "text": "Reporting",
+              "confidence": 96.9198,
+              "bbox_pixels_xywh": [
+                400,
+                247,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "Reporting",
+              "confidence": 96.726891,
+              "bbox_pixels_xywh": [
+                544,
+                239,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Events",
+              "confidence": 96.577316,
+              "bbox_pixels_xywh": [
+                743,
+                260,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 94.151184,
+              "bbox_pixels_xywh": [
+                402,
+                282,
+                51,
+                9
+              ]
+            },
+            {
+              "text": "Subscription",
+              "confidence": 90.106262,
+              "bbox_pixels_xywh": [
+                726,
+                274,
+                72,
+                12
+              ]
+            },
+            {
+              "text": "Reference",
+              "confidence": 96.915688,
+              "bbox_pixels_xywh": [
+                85,
+                295,
+                62,
+                10
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.98542,
+              "bbox_pixels_xywh": [
+                152,
+                295,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.414505,
+              "bbox_pixels_xywh": [
+                184,
+                295,
+                79,
+                12
+              ]
+            },
+            {
+              "text": "Searching",
+              "confidence": 95.872749,
+              "bbox_pixels_xywh": [
+                399,
+                296,
+                57,
+                12
+              ]
+            },
+            {
+              "text": "ist",
+              "confidence": 95.065674,
+              "bbox_pixels_xywh": [
+                107,
+                326,
+                10,
+                8
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.870026,
+              "bbox_pixels_xywh": [
+                121,
+                325,
+                11,
+                9
+              ]
+            },
+            {
+              "text": "Values",
+              "confidence": 96.747078,
+              "bbox_pixels_xywh": [
+                135,
+                325,
+                39,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 88.037498,
+              "bbox_pixels_xywh": [
+                178,
+                325,
+                73,
+                12
+              ]
+            },
+            {
+              "text": "(category",
+              "confidence": 92.803719,
+              "bbox_pixels_xywh": [
+                93,
+                340,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "list,",
+              "confidence": 96.872406,
+              "bbox_pixels_xywh": [
+                151,
+                340,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "code",
+              "confidence": 96.215256,
+              "bbox_pixels_xywh": [
+                175,
+                340,
+                27,
+                9
+              ]
+            },
+            {
+              "text": "list,",
+              "confidence": 95.756973,
+              "bbox_pixels_xywh": [
+                207,
+                340,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "etc.)",
+              "confidence": 91.446686,
+              "bbox_pixels_xywh": [
+                230,
+                340,
+                24,
+                11
+              ]
+            },
+            {
+              "text": "‘Administration",
+              "confidence": 72.303505,
+              "bbox_pixels_xywh": [
+                390,
+                389,
+                92,
+                10
+              ]
+            },
+            {
+              "text": "Environment",
+              "confidence": 96.556061,
+              "bbox_pixels_xywh": [
+                86,
+                418,
+                73,
+                9
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 78.837418,
+              "bbox_pixels_xywh": [
+                259,
+                418,
+                41,
+                9
+              ]
+            },
+            {
+              "text": "Internationalization",
+              "confidence": 47.267021,
+              "bbox_pixels_xywh": [
+                382,
+                418,
+                109,
+                9
+              ]
+            },
+            {
+              "text": "Event",
+              "confidence": 96.720192,
+              "bbox_pixels_xywh": [
+                552,
+                418,
+                33,
+                9
+              ]
+            },
+            {
+              "text": "Logging",
+              "confidence": 89.937767,
+              "bbox_pixels_xywh": [
+                589,
+                418,
+                46,
+                11
+              ]
+            },
+            {
+              "text": "Database",
+              "confidence": 96.940094,
+              "bbox_pixels_xywh": [
+                725,
+                418,
+                52,
+                9
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 88.391342,
+              "bbox_pixels_xywh": [
+                396,
+                432,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "Localization",
+              "confidence": 92.45549,
+              "bbox_pixels_xywh": [
+                409,
+                432,
+                68,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 85.63607,
+              "bbox_pixels_xywh": [
+                86,
+                432,
+                73,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 77.989288,
+              "bbox_pixels_xywh": [
+                243,
+                432,
+                73,
+                12
+              ]
+            },
+            {
+              "text": "‘Management",
+              "confidence": 90.190125,
+              "bbox_pixels_xywh": [
+                557,
+                432,
+                73,
+                12
+              ]
+            },
+            {
+              "text": "Versioning",
+              "confidence": 95.923065,
+              "bbox_pixels_xywh": [
+                720,
+                432,
+                61,
+                12
+              ]
+            }
+          ],
+          "mean_word_confidence": 89.18,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

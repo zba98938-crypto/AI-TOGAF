@@ -1,0 +1,491 @@
+{
+  "schema_version": "1.0",
+  "id": "G21B/fig5-2",
+  "status": "done",
+  "doc": {
+    "code": "G21B",
+    "title_zh": "信息架构——客户主数据管理",
+    "title_en": "Information Architecture — Customer Master Data (C-MDM)",
+    "zh_md": "G21Be_信息架构_客户主数据管理.md",
+    "en_pdf": "togaf-standard-10th/G21Be.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "5-2",
+    "title_en": "Organization/Legal Entity Kernel Data",
+    "title_zh": "组织/法人内核数据",
+    "section_en": "5.1.2 Organization/Legal Entity Kernel Data",
+    "section_zh": "5.1.2 组织/法人内核数据",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        39
+      ],
+      "printed_page": 29,
+      "bboxes": [
+        [
+          48.2,
+          235.3,
+          563.8,
+          438.6
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        485
+      ],
+      "label_table_lines": [
+        489,
+        500
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21be_fig5-2_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "bc9d080ec52a",
+      "fidelity": "unchecked",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.987（≥0.9 通常为同一图）",
+        "中文稿未引用该英文 PNG（引用的是 figs/zh/ 下的中文化版本），未逐像素核对。"
+      ]
+    },
+    {
+      "path": "figs/zh/g21be_fig5-2_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "e85fd8e677b7",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "“法人描述”字号远小于其他五个分类标签，原图六个标签字号一致。",
+        "“联系方式数据”字号也偏小，且文字后面有一块米色高亮底（原图无此底色），看起来像被选中或加注释。",
+        "六个框顶部的内侧分隔线多处中断（只剩两端短线段），原图每框内横线完整。",
+        "标题“客户数据——组织”字号小于原图并下移到两根横线之间。"
+      ]
+    },
+    {
+      "path": "G21Be_信息架构_客户主数据管理.md#L489-L500",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "df2c2c407216",
+      "fidelity": "faithful",
+      "issues_zh": []
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "hierarchy",
+      "infographic"
+    ],
+    "notation": "淡黄色底板 + 顶部标题的“数据范围”图：底板内 2×3 排列六个分类框，框内只有分类名，无连线。",
+    "concepts": [
+      "master_data_management",
+      "data_architecture",
+      "information_concept"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "组织客户内核数据六类：内部/外部标识键、法人描述、联系方式、偏好/同意、关系/集团成员。",
+    "purpose_zh": "界定 C-MDM 对“组织”（法人实体）客户应管理的核心数据范围，与图 5-1 的自然人范围并列；说明同一套 C-MDM 要同时容纳 B2C 与 B2B 两类客户，且法人数据需要额外的官方注册标识与规模/业务领域描述。",
+    "reading_guide_zh": "先确认标题是“Customer Data – Organization”，再与图 5-1 对照读：上排仍是内部标识键、外部标识键，但第三格换成“法人描述”；下排是联系方式、偏好/同意、关系/集团成员。六个框并列，无先后；字段级内容见表 5-2。",
+    "key_points_zh": [
+      "组织客户同样有内部标识键（业务客户编码、唯一技术键）与外部标识键（组织官方编号、数据提供方参考号、国家登记 ID 等）。",
+      "法人描述包含组织名称、替代名称（经营名称）、成立日期、规模参数（dimensioning data，如官方权重类别）与组织业务领域；中文稿表 5-2 特别标注英文原文仍沿用“First name”“Date of birth”等自然人字段名。",
+      "联系方式数据包括相关自然人及其联系方式（可链接到 C-MDM 中的另一自然人）、相关地址与相关电子邮箱。",
+      "偏好/同意数据与自然人相同，记录组织授权/不授权使用某范围数据。",
+      "关系/集团成员描述组织与其他实体的关系（如母公司、子公司、集团成员），对应自然人图中的“与其他客户的关系”。",
+      "图 5-2 与图 5-1 结构完全同构，差别只在第三格（法人描述 vs 个人标识数据）与第六格（关系/集团成员 vs 与其他客户的关系）。"
+    ],
+    "hierarchy_zh": "两层：第 1 层是“组织客户内核数据”；第 2 层是六个并列分类。分类之间无上下级、无连线。",
+    "line_semantics_zh": "图中没有连线或箭头；六个分类的并列与同属关系只由 2×3 网格与淡黄底板表达。",
+    "misreadings_zh": [
+      "不要把“法人描述”当作一个字段：它是名称、替代名称、成立日期、规模参数、业务领域等一组属性的分类。",
+      "英文原图表 5-2 中仍出现“First name”“Date of birth”字样，是原文沿用自然人模板的措辞，实际含义是组织名称与成立日期（中文稿已注明）。",
+      "组织客户的“关系/集团成员”不是人际父子关系，而是法人之间的集团/股权/成员关系。",
+      "图只给分类，不给字段；设计数据模型须结合表 5-2。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p39",
+        "summary_zh": "组织多数是依国家规定在主管机关登记的法人实体，可以是公司、行政机构、NGO 等；图 5-2 给出组织/法人内核数据的分类，表 5-2 逐项说明。"
+      },
+      {
+        "source": "zh_md L483",
+        "summary_zh": "组织多数情况下是依所在国家规定在主管机关登记的法人实体，可以是公司、行政机构、非政府组织（NGO）等。"
+      },
+      {
+        "source": "zh_md L485",
+        "summary_zh": "中文稿引用图 5-2（组织/法人内核数据），图内标签对照表列出六个分类。"
+      },
+      {
+        "source": "zh_md L508",
+        "summary_zh": "表 5-2 的法人描述包括名称（原文 First name）、替代名称、出生日期（原文 Date of birth，即成立日期）、规模参数数据、组织业务领域。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "grid",
+    "description_zh": "淡黄色大底板，顶部居中标题；内部 2 行 × 3 列六个分类框（上排：内部标识键、外部标识键、法人描述；下排：联系方式数据、偏好/同意数据、关系/集团成员）。"
+  },
+  "legend": [
+    {
+      "symbol": "淡黄色底板",
+      "meaning_zh": "组织/法人内核数据的整体范围",
+      "explicit": false
+    },
+    {
+      "symbol": "底板内的浅色框 + 顶部横线",
+      "meaning_zh": "一个数据分类（细项见表 5-2）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "org_kernel",
+      "label_en": "Customer Data – Organization",
+      "label_zh": "客户数据——组织",
+      "type": "data",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "org_internal_keys",
+      "label_en": "Internal Identification Keys",
+      "label_zh": "内部标识键",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "org_external_keys",
+      "label_en": "External Identification Keys",
+      "label_zh": "外部标识键",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "org_legal_desc",
+      "label_en": "Legal Person Description",
+      "label_zh": "法人描述",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "org_contact",
+      "label_en": "Contact Data",
+      "label_zh": "联系方式数据",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "org_prefs",
+      "label_en": "Preferences/Consent Data",
+      "label_zh": "偏好/同意数据",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "org_group",
+      "label_en": "Relationships/Group Membership",
+      "label_zh": "关系/集团成员",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 6
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G21B/fig5-1",
+      "relation": "complements",
+      "note_zh": "图 5-1 与图 5-2 结构同构，分别覆盖自然人客户与组织/法人客户的内核数据。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中只给分类名，字段级内容依据表 5-2；表 5-2 中“First name/Date of birth”沿用了自然人字段名，本分析按中文稿注释理解为组织名称/成立日期。",
+      "“关系/集团成员”的具体关系类型（母子公司、集团成员等）图中未列出。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 39 页原图截图",
+      "英文 PDF 第 39 页正文与表 5-2 开头",
+      "中文稿 G21Be_信息架构_客户主数据管理.md 第 483–515 行",
+      "figs/zh/g21be_fig5-2_zh.png 中文化图"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Be.pdf",
+    "pdf_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21B/fig5-2.json",
+    "interpretation_sha256": "481bb80a41ca3ec37b51599bddc1b1555d16260c0a09c7e637cf745a769e07fc",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 39,
+        "text": "Figure 5-2: Organization/Legal Entity Kernel Data",
+        "bbox_pdf_points": [
+          48.24,
+          443.34,
+          281.425,
+          456.906
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 39,
+      "printed_page": 29,
+      "bbox_pdf_points": [
+        48.2,
+        235.3,
+        563.8,
+        438.6
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21B/fig5-2-p0039.png",
+      "image_sha256": "fa208fb9f4786e4eef80ebf43ca725f9afdc4fd06b77adf9b4121cb3bd2c9be0",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "fa208fb9f4786e4eef80ebf43ca725f9afdc4fd06b77adf9b4121cb3bd2c9be0",
+          "status": "extracted-unverified",
+          "text": "Customer Data — Organization\nInternal Identification\nExternal Identification\nLegal Person Description\nKeys\nKeys\nContact Data\nPreferences/Consent\nRelationships/Group\nData\nMembership",
+          "words": [
+            {
+              "text": "Customer",
+              "confidence": 96.761002,
+              "bbox_pixels_xywh": [
+                350,
+                31,
+                107,
+                18
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 93.032364,
+              "bbox_pixels_xywh": [
+                465,
+                31,
+                48,
+                18
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 70.558617,
+              "bbox_pixels_xywh": [
+                520,
+                41,
+                13,
+                3
+              ]
+            },
+            {
+              "text": "Organization",
+              "confidence": 96.742371,
+              "bbox_pixels_xywh": [
+                540,
+                31,
+                139,
+                22
+              ]
+            },
+            {
+              "text": "Internal",
+              "confidence": 96.93306,
+              "bbox_pixels_xywh": [
+                85,
+                132,
+                73,
+                17
+              ]
+            },
+            {
+              "text": "Identification",
+              "confidence": 91.446083,
+              "bbox_pixels_xywh": [
+                168,
+                132,
+                127,
+                17
+              ]
+            },
+            {
+              "text": "External",
+              "confidence": 96.713898,
+              "bbox_pixels_xywh": [
+                405,
+                132,
+                81,
+                17
+              ]
+            },
+            {
+              "text": "Identification",
+              "confidence": 94.355545,
+              "bbox_pixels_xywh": [
+                496,
+                132,
+                127,
+                17
+              ]
+            },
+            {
+              "text": "Legal",
+              "confidence": 96.60968,
+              "bbox_pixels_xywh": [
+                709,
+                132,
+                54,
+                22
+              ]
+            },
+            {
+              "text": "Person",
+              "confidence": 96.336853,
+              "bbox_pixels_xywh": [
+                772,
+                132,
+                71,
+                17
+              ]
+            },
+            {
+              "text": "Description",
+              "confidence": 96.876221,
+              "bbox_pixels_xywh": [
+                852,
+                132,
+                113,
+                22
+              ]
+            },
+            {
+              "text": "Keys",
+              "confidence": 97.000954,
+              "bbox_pixels_xywh": [
+                166,
+                159,
+                48,
+                22
+              ]
+            },
+            {
+              "text": "Keys",
+              "confidence": 96.996841,
+              "bbox_pixels_xywh": [
+                490,
+                159,
+                48,
+                22
+              ]
+            },
+            {
+              "text": "Contact",
+              "confidence": 96.955421,
+              "bbox_pixels_xywh": [
+                122,
+                286,
+                79,
+                18
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.94474,
+              "bbox_pixels_xywh": [
+                209,
+                286,
+                46,
+                18
+              ]
+            },
+            {
+              "text": "Preferences/Consent",
+              "confidence": 92.28981,
+              "bbox_pixels_xywh": [
+                407,
+                286,
+                215,
+                18
+              ]
+            },
+            {
+              "text": "Relationships/Group",
+              "confidence": 92.702545,
+              "bbox_pixels_xywh": [
+                735,
+                286,
+                207,
+                22
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.900017,
+              "bbox_pixels_xywh": [
+                490,
+                314,
+                45,
+                17
+              ]
+            },
+            {
+              "text": "Membership",
+              "confidence": 96.333687,
+              "bbox_pixels_xywh": [
+                775,
+                314,
+                125,
+                21
+              ]
+            }
+          ],
+          "mean_word_confidence": 94.34,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

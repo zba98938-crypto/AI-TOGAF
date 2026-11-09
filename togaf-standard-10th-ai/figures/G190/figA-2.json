@@ -1,0 +1,816 @@
+{
+  "schema_version": "1.0",
+  "id": "G190/figA-2",
+  "status": "done",
+  "doc": {
+    "code": "G190",
+    "title_zh": "信息映射",
+    "title_en": "Information Mapping",
+    "zh_md": "G190e_信息映射.md",
+    "en_pdf": "togaf-standard-10th/G190e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "A-2",
+    "title_en": "Information-to-Business Capability Cross-Mapping using the ArchiMate Language",
+    "title_zh": "使用 ArchiMate 语言的“信息—业务能力”交叉映射",
+    "section_en": "A.1. ArchiMate Language Example",
+    "section_zh": "A.1 ArchiMate 语言示例",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        23
+      ],
+      "printed_page": 13,
+      "bboxes": [
+        [
+          86.9,
+          229.8,
+          525.1,
+          548.1
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        251
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g190_figA-2.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "9af2747236f7",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "只保留了一半元素：原图 4 项能力（投资管理、支付管理、金融工具管理、金融交易管理）与 4 个信息概念（投资、金融工具、付款、金融交易），SVG 只有投资管理、支付管理、投资、付款",
+        "丢掉了 ArchiMate 的两个分组（Business capabilities / Information）及其分组级 Uses 虚线箭头和 Modifies 实线，原图的核心“总览 + 局部详图”两层结构完全消失",
+        "线型与方向都错：原图 Uses 是虚线、箭头指向能力；SVG 四条全是实线且无箭头，标为“使用”，方向丢失",
+        "原图下方面板（投资管理的局部详图，含 3 条 Uses + 1 条 Modifies）整块缺失",
+        "ArchiMate 图标（能力框右上角的小图标、业务对象顶部标签带）没有还原，改成普通圆角框",
+        "自拟了原图没有的说明文字“说明：用 ArchiMate 关联关系表达能力与信息概念之间的使用关系”"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "archimate",
+      "network"
+    ],
+    "notation": "ArchiMate 分组（group）内含业务能力（capability，带小图标）与业务对象（business object，黄色带标签带）；关系用虚线箭头 Uses（信息→能力）与实线 Modifies（能力→信息）；下方面板为同一模型的局部放大",
+    "concepts": [
+      "information_map",
+      "information_concept",
+      "business_capability",
+      "cross_mapping",
+      "archimate"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "用 ArchiMate 分组表达信息与业务能力两类元素的整体“使用/修改”关系，并把投资管理一项放大成局部详图。",
+    "purpose_zh": "附录 A.1 在讲完业务对象之间的结构关系后，用本图说明 ArchiMate 还能表达信息概念与业务能力等其他业务架构概念之间的关系。上方分组图给出总体关系，下方详图证明这些关系可以落到底层业务对象上。",
+    "reading_guide_zh": "先读上方两个分组框：Information 组左侧引出的虚线箭头（Uses）指向 Business capabilities 组，表示信息被能力使用；反向的实线（Modifies）连接两组，表示能力修改信息。再读下方面板：这是投资管理一行的放大，实线 Modifies 从投资管理连到 Investment，三条虚线 Uses 分别从 Investment、Financial instrument、Financial transaction 指回投资管理。",
+    "key_points_zh": [
+      "上图把两类元素各装进一个 ArchiMate 分组（Business capabilities / Information），关系只画在分组边界上，是高度概括的视图。",
+      "Uses 用虚线、Modifies 用实线，线型本身编码关系种类；Uses 的箭头指向能力（信息被能力使用），Modifies 没有箭头但按标签读作能力→信息。",
+      "下方面板把投资管理展开：它修改 Investment，同时使用 Investment、Financial instrument、Financial transaction 三个业务对象。",
+      "同一个业务对象可以既被修改又被使用：Investment 在详图中同时出现在 Modifies 与 Uses 两端。",
+      "投资管理是唯一被展开的能力，说明这一面板是示例性的下钻，而不是完整映射。",
+      "分组框、能力框、业务对象框都带 ArchiMate 图标，表明这是 ArchiMate 视图而非普通框图。"
+    ],
+    "hierarchy_zh": "两层容器关系：Business capabilities 分组包含 4 项能力，Information 分组包含 4 个业务对象；能力与业务对象之间是使用/修改的交叉关系，不构成层级。下方面板是同一模型的一个局部视图，不是新的层级。",
+    "line_semantics_zh": "虚线 + 箭头 = Uses（信息概念→业务能力）；实线、无箭头 = Modifies（业务能力→信息概念）。上方两条线连接分组边界；下方四条线连接具体元素，其中 Modifies 用折线从投资管理顶部绕到 Investment，三条 Uses 用虚线折线指回投资管理的右上、右侧与底部。",
+    "misreadings_zh": [
+      "上方的分组级连线只是概括：不能据此认为 Information 组内每个业务对象都参与 Use，具体参与情况要看下方面板。",
+      "Uses 是虚线箭头且指向能力；Modifies 是实线且没有箭头，不能凭“有没有箭头”判断谁是主语。",
+      "下方面板不是第二套模型，而是投资管理一行的放大；两处出现同名元素是重复展示，不是重复定义。",
+      "分组框（Business capabilities / Information）是 ArchiMate 的容器，不是能力或信息概念本身。",
+      "中文重绘 SVG 只有 2×2 个元素、没有分组和虚线，不能据它理解本图的两层结构。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p23",
+        "summary_zh": "ArchiMate 允许业务对象之间使用多种关系，因其形式语义，信息地图能更深入揭示信息景观的结构；“含义”概念可表达不同利益相关者对同一对象的不同解释；ArchiMate 记法也可表达信息概念与业务能力等其他业务架构概念之间的关系。"
+      },
+      {
+        "source": "zh_md L249",
+        "summary_zh": "中文稿说明 ArchiMate 的正式语义、业务对象间多种关系，以及“含义”概念的用途。"
+      },
+      {
+        "source": "zh_md L251",
+        "summary_zh": "中文稿在此处引用图 A-2（figs/g190_figA-2.svg）。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "上下两个面板：上方横向并置“Business capabilities”分组（2×2 能力框）与“Information”分组（2×2 业务对象框），两分组之间画 Uses 虚线与 Modifies 实线；下方为带细边框的局部详图，投资管理在左，Investment/Financial instrument/Financial transaction 在右。"
+  },
+  "legend": [
+    {
+      "symbol": "虚线 + 箭头 + Uses",
+      "meaning_zh": "信息概念被业务能力使用（箭头指向能力）",
+      "explicit": true
+    },
+    {
+      "symbol": "实线 + Modifies",
+      "meaning_zh": "业务能力修改信息概念（无箭头，按标签读作能力→信息）",
+      "explicit": true
+    },
+    {
+      "symbol": "浅棕色分组框（右上角小图标）",
+      "meaning_zh": "ArchiMate 分组（group）",
+      "explicit": false
+    },
+    {
+      "symbol": "浅棕色圆角框（右上角小图标）",
+      "meaning_zh": "ArchiMate 业务能力（capability）",
+      "explicit": false
+    },
+    {
+      "symbol": "黄色矩形（顶部标签带）",
+      "meaning_zh": "ArchiMate 业务对象（business object）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "grp_capabilities",
+      "label_en": "Business capabilities",
+      "label_zh": "业务能力",
+      "type": "group",
+      "level": 1,
+      "position": "上方面板左侧"
+    },
+    {
+      "id": "grp_information",
+      "label_en": "Information",
+      "label_zh": "信息",
+      "type": "group",
+      "level": 1,
+      "position": "上方面板右侧"
+    },
+    {
+      "id": "cap_investment",
+      "label_en": "Investment management",
+      "label_zh": "投资管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "level": 2,
+      "order": 1,
+      "position": "上组左上；下方面板左侧重复出现"
+    },
+    {
+      "id": "cap_payment",
+      "label_en": "Payment Management",
+      "label_zh": "支付管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "level": 2,
+      "order": 2,
+      "position": "上组右上"
+    },
+    {
+      "id": "cap_financial_instrument",
+      "label_en": "Financial instrument management",
+      "label_zh": "金融工具管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "level": 2,
+      "order": 3,
+      "position": "上组左下"
+    },
+    {
+      "id": "cap_financial_transaction",
+      "label_en": "Financial transaction management",
+      "label_zh": "金融交易管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "level": 2,
+      "order": 4,
+      "position": "上组右下"
+    },
+    {
+      "id": "info_investment",
+      "label_en": "Investment",
+      "label_zh": "投资",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "parent": "grp_information",
+      "level": 2,
+      "order": 1,
+      "position": "上组左上；下方详图右上"
+    },
+    {
+      "id": "info_financial_instrument",
+      "label_en": "Financial instrument",
+      "label_zh": "金融工具",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "parent": "grp_information",
+      "level": 2,
+      "order": 2,
+      "position": "上组右上；下方详图右中"
+    },
+    {
+      "id": "info_payment",
+      "label_en": "Payment",
+      "label_zh": "付款",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "parent": "grp_information",
+      "level": 2,
+      "order": 3,
+      "position": "上组左下"
+    },
+    {
+      "id": "info_financial_transaction",
+      "label_en": "Financial transaction",
+      "label_zh": "金融交易",
+      "type": "data",
+      "notation_type": "ArchiMate Business Object",
+      "parent": "grp_information",
+      "level": 2,
+      "order": 4,
+      "position": "上组右下；下方详图右下"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "grp_information",
+      "to": "grp_capabilities",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "上方面板：从 Information 分组左边缘引出的虚线箭头指向 Business capabilities 分组右边缘。"
+    },
+    {
+      "from": "grp_capabilities",
+      "to": "grp_information",
+      "type": "access",
+      "label_en": "Modifies",
+      "label_zh": "修改",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "上方面板：两分组之间的实线，无箭头。"
+    },
+    {
+      "from": "cap_investment",
+      "to": "info_investment",
+      "type": "access",
+      "label_en": "Modifies",
+      "label_zh": "修改",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "下方面板：从投资管理顶部折向上、再向右接到 Investment 左边缘的实线。"
+    },
+    {
+      "from": "info_investment",
+      "to": "cap_investment",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "下方面板：从 Investment 左边缘折向左下、箭头落在投资管理右上角。"
+    },
+    {
+      "from": "info_financial_instrument",
+      "to": "cap_investment",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "下方面板：从 Financial instrument 左边缘水平向左，箭头落在投资管理右侧。"
+    },
+    {
+      "from": "info_financial_transaction",
+      "to": "cap_investment",
+      "type": "serving",
+      "label_en": "Uses",
+      "label_zh": "使用",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "forward",
+      "description_zh": "下方面板：从 Financial transaction 左边缘折向左上，箭头落在投资管理底边。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G190/fig4-1",
+      "relation": "based_on",
+      "note_zh": "同一组“投资类能力—信息概念”的 Uses/Modifies 映射，本图改用 ArchiMate 分组与业务对象记法，并增加投资管理的局部详图"
+    },
+    {
+      "target": "G190/figA-1",
+      "relation": "complements",
+      "note_zh": "同一节的两个 ArchiMate 示例：图 A-1 展示业务对象间结构关系，本图展示信息概念与业务能力的关系"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "下方面板左侧、投资管理框后面还有一段被裁切的白色矩形与顶部细线残片（可能是原幻灯片的分组边框或标题），标签不可见，无法判定其身份，未列入 elements。",
+      "分组级的两条线是原图的高度概括画法，ArchiMate 规范中并不存在“组到组”的 Uses/Modifies 关系类型；此处按图面文字记录为 serving/access，不主张其符合严格语义。",
+      "原图能力框/业务对象框右上角的小图标分辨率有限，按位置判断为 ArchiMate 的能力与业务对象标记。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 23 页图 A-2 原图截图（含上方面板与下方面板）",
+      "英文 PDF 第 23 页整页与正文",
+      "中文稿 G190e_信息映射.md 第 249–251 行",
+      "figs/g190_figA-2.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G190e.pdf",
+    "pdf_sha256": "7d7431f02be8992e49abbee999263a7d0065506dd6f8d94da210b2ae20853d03",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G190/figA-2.json",
+    "interpretation_sha256": "514ba827192719e4c83627aab3c3b0af67e8dcedc15f789b10c6af5e8f843944",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 23,
+        "text": "Figure A-2: Information-to-Business Capability Cross-Mapping using the ArchiMate Language",
+        "bbox_pdf_points": [
+          48.24,
+          552.838,
+          484.208,
+          566.404
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 23,
+      "printed_page": 13,
+      "bbox_pdf_points": [
+        86.9,
+        229.8,
+        525.1,
+        548.1
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G190/figA-2-p0023.png",
+      "image_sha256": "6f68a2f81012e840878368a6dcd81308f922e41a432e04f2fa919c24077df66b",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "6f68a2f81012e840878368a6dcd81308f922e41a432e04f2fa919c24077df66b",
+          "status": "extracted-unverified",
+          "text": "Business capabilities\nE)\nInformation\nInvestment il\nPayment\nInvestment\nFinancial\nmanagement\n|\nManagement\n‘\ninstrument\n)\nUses\nél\nPayment\nFinancial\nFinancial\nFinancial\ntransaction\ninstrument\ntransaction\nmanagement\n)\n|\nmanagement\n|\nInvestment\nModifies\nBiises\nInvestment\nmanagement\nFinancial instrument\nUses\na\nUses\nFinancial transaction",
+          "words": [
+            {
+              "text": "Business",
+              "confidence": 96.662872,
+              "bbox_pixels_xywh": [
+                121,
+                19,
+                61,
+                13
+              ]
+            },
+            {
+              "text": "capabilities",
+              "confidence": 94.823349,
+              "bbox_pixels_xywh": [
+                187,
+                18,
+                81,
+                16
+              ]
+            },
+            {
+              "text": "E)",
+              "confidence": 1.918831,
+              "bbox_pixels_xywh": [
+                364,
+                15,
+                16,
+                15
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 96.398514,
+              "bbox_pixels_xywh": [
+                672,
+                27,
+                82,
+                13
+              ]
+            },
+            {
+              "text": "Investment",
+              "confidence": 75.356125,
+              "bbox_pixels_xywh": [
+                75,
+                70,
+                79,
+                12
+              ]
+            },
+            {
+              "text": "il",
+              "confidence": 53.392036,
+              "bbox_pixels_xywh": [
+                173,
+                65,
+                15,
+                16
+              ]
+            },
+            {
+              "text": "Payment",
+              "confidence": 96.987328,
+              "bbox_pixels_xywh": [
+                256,
+                69,
+                60,
+                16
+              ]
+            },
+            {
+              "text": "Investment",
+              "confidence": 96.782562,
+              "bbox_pixels_xywh": [
+                610,
+                78,
+                79,
+                13
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 96.941704,
+              "bbox_pixels_xywh": [
+                759,
+                78,
+                62,
+                13
+              ]
+            },
+            {
+              "text": "management",
+              "confidence": 95.298225,
+              "bbox_pixels_xywh": [
+                67,
+                89,
+                94,
+                14
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 91.012344,
+              "bbox_pixels_xywh": [
+                216,
+                70,
+                1,
+                42
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.431892,
+              "bbox_pixels_xywh": [
+                240,
+                88,
+                92,
+                15
+              ]
+            },
+            {
+              "text": "‘",
+              "confidence": 25.645227,
+              "bbox_pixels_xywh": [
+                337,
+                65,
+                19,
+                46
+              ]
+            },
+            {
+              "text": "instrument",
+              "confidence": 94.762558,
+              "bbox_pixels_xywh": [
+                750,
+                96,
+                78,
+                13
+              ]
+            },
+            {
+              "text": ")",
+              "confidence": 74.752823,
+              "bbox_pixels_xywh": [
+                186,
+                113,
+                4,
+                5
+              ]
+            },
+            {
+              "text": "Uses",
+              "confidence": 96.965248,
+              "bbox_pixels_xywh": [
+                398,
+                114,
+                31,
+                12
+              ]
+            },
+            {
+              "text": "él",
+              "confidence": 31.054974,
+              "bbox_pixels_xywh": [
+                173,
+                141,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "Payment",
+              "confidence": 95.399918,
+              "bbox_pixels_xywh": [
+                620,
+                142,
+                60,
+                15
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 96.757957,
+              "bbox_pixels_xywh": [
+                759,
+                142,
+                62,
+                13
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 95.783936,
+              "bbox_pixels_xywh": [
+                82,
+                146,
+                62,
+                13
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 41.913532,
+              "bbox_pixels_xywh": [
+                255,
+                146,
+                62,
+                13
+              ]
+            },
+            {
+              "text": "transaction",
+              "confidence": 96.744781,
+              "bbox_pixels_xywh": [
+                747,
+                161,
+                79,
+                12
+              ]
+            },
+            {
+              "text": "instrument",
+              "confidence": 96.480736,
+              "bbox_pixels_xywh": [
+                75,
+                164,
+                78,
+                13
+              ]
+            },
+            {
+              "text": "transaction",
+              "confidence": 80.315178,
+              "bbox_pixels_xywh": [
+                245,
+                164,
+                81,
+                13
+              ]
+            },
+            {
+              "text": "management",
+              "confidence": 96.131935,
+              "bbox_pixels_xywh": [
+                65,
+                184,
+                94,
+                14
+              ]
+            },
+            {
+              "text": ")",
+              "confidence": 30.236435,
+              "bbox_pixels_xywh": [
+                184,
+                196,
+                6,
+                6
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 94.110321,
+              "bbox_pixels_xywh": [
+                216,
+                147,
+                1,
+                47
+              ]
+            },
+            {
+              "text": "management",
+              "confidence": 96.351311,
+              "bbox_pixels_xywh": [
+                240,
+                184,
+                93,
+                14
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 81.371094,
+              "bbox_pixels_xywh": [
+                356,
+                148,
+                1,
+                46
+              ]
+            },
+            {
+              "text": "Investment",
+              "confidence": 95.213219,
+              "bbox_pixels_xywh": [
+                574,
+                288,
+                75,
+                12
+              ]
+            },
+            {
+              "text": "Modifies",
+              "confidence": 96.520973,
+              "bbox_pixels_xywh": [
+                454,
+                327,
+                57,
+                13
+              ]
+            },
+            {
+              "text": "Biises",
+              "confidence": 34.307522,
+              "bbox_pixels_xywh": [
+                325,
+                387,
+                53,
+                26
+              ]
+            },
+            {
+              "text": "Investment",
+              "confidence": 94.108223,
+              "bbox_pixels_xywh": [
+                222,
+                402,
+                75,
+                13
+              ]
+            },
+            {
+              "text": "management",
+              "confidence": 95.847359,
+              "bbox_pixels_xywh": [
+                214,
+                421,
+                90,
+                14
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 93.850784,
+              "bbox_pixels_xywh": [
+                547,
+                435,
+                59,
+                12
+              ]
+            },
+            {
+              "text": "instrument",
+              "confidence": 93.850784,
+              "bbox_pixels_xywh": [
+                612,
+                435,
+                75,
+                12
+              ]
+            },
+            {
+              "text": "Uses",
+              "confidence": 96.758789,
+              "bbox_pixels_xywh": [
+                357,
+                450,
+                32,
+                19
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                242,
+                480,
+                16,
+                13
+              ]
+            },
+            {
+              "text": "Uses",
+              "confidence": 96.614952,
+              "bbox_pixels_xywh": [
+                254,
+                497,
+                31,
+                12
+              ]
+            },
+            {
+              "text": "Financial",
+              "confidence": 96.059441,
+              "bbox_pixels_xywh": [
+                544,
+                569,
+                59,
+                13
+              ]
+            },
+            {
+              "text": "transaction",
+              "confidence": 96.248627,
+              "bbox_pixels_xywh": [
+                609,
+                570,
+                76,
+                12
+              ]
+            }
+          ],
+          "mean_word_confidence": 80.64,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,222 @@
+# G188/img-p54 · 风险登记表示例（3.4.5 节未编号插图）
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G188/img-p54.md) · [JSON](../../architecture/diagrams/G188/img-p54.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G188e.pdf`；SHA-256：`6e654af12a0bc034c7548d425a01123331ac9129c478a0bb957db89dd353dd29`。
+
+## 原图 · PDF 第 68 页
+
+![英文原图](../assets/G188/img-p54-p0068.png)
+
+PDF 坐标：`[63.2, 229.8, 548.8, 386.4]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+10
+Date Raised
+Risk Description
+‘Mitigation Plan
+‘Owner
+Status
+Date Closed
+there isa risk that biling capabilites of the target
+Hire an external constancy with knowledge on
+solution will be defined in a way that no existing
+ling capabilities of market available solutions.
+CRM solution
+Identified
+3
+04,03,2014
+[COTS solution can support. Architecture Project
+3
+or:
+‘mitigation plan
+architect
+team has no knowledge of such solutions
+[Extend the project plan with an RFI to gain
+tobe agreed
+available on the market.
+knowledge of solutions available on the market.
+1. Perfom performance tests on development
+architecture Project has the resposibiity for
+Jenvironment and extrapolate results to estimate
+performance. Development environment has to be
+solution performance, but itis the Infrastructur
+Managed
+4
+05.03,2014
+2
+Filed with test data
+Architecture
+who decides on the hardware technology and
+2. Expected infrastructure needs will be passed to
+Project manager
+mitigation plan
+sizing. Therefore, Architecture Project may be
+agreed
+the infrastructure team.
+lunable to ensure performance of the solution.
+3. Consult solution provider on the recommended
+hardware after the performance tests.
+```
+
+## 概要（历史解释；局部修正见上）
+
+项目经理用于跟踪风险与问题的简单风险登记表：记录编号、日期、描述、可能性/影响/严重度、缓解计划、责任人与状态。
+
+## 目的（历史解释；局部修正见上）
+
+在“识别并检查风险与问题”的说明后给出一个真实表格样例，展示风险如何被登记与跟踪：每条风险都有编号、提出日期、完整描述、可能性与影响评分、由二者得出的严重度、缓解计划、责任人、状态和关闭日期。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+按列读：先由 ID/Date Raised 定位一条风险，再读 Risk Description 了解风险本身；接着看 Likelihood、Impact 与着色单元格 Severity 判断等级；然后读 Mitigation Plan 了解应对，最后看 Owner、Status、Date Closed 判断跟踪状态。表中只保留第 3、4 两行，上下各有“…”表示省略了其他行。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 风险登记表把“识别”转成“可跟踪”：每条风险有唯一 ID、提出日期和明确责任人，避免口头跟踪。
+- 风险 3 关注解决方案的计费能力可能无法由现有 COTS 产品支持，而架构团队对市场方案缺乏了解；缓解措施是聘请外部咨询或通过 RFI 补充市场知识。
+- 风险 4 关注架构项目对解决方案性能负责、但硬件技术与选型由基础设施团队决定，导致架构项目可能无法保证性能；缓解措施包括性能测试与外推、向基础设施团队传递容量需求、在测试后咨询方案供应商。
+- Severity 由 Likelihood 与 Impact 共同决定，并在单元格中用颜色标出：风险 3 为 3×2→5（琥珀色），风险 4 为 2×2→4（绿色）；数值不是简单乘积。
+- 状态用“已识别（缓解计划待定）”“已管理（缓解计划已同意）”区分，说明风险要走到“缓解计划已约定”才算被管理。
+- Date Closed 两行均为空，表示风险尚未关闭；表中有意保留空列，提醒登记表要跟踪到关闭。
+
+## 层级（历史解释；局部修正见上）
+
+无层级，只有一张表：表头一行 + 两条数据行；上下“…”表示表格被截取，省略了其他风险行。
+
+## 线条含义（历史解释；局部修正见上）
+
+表格线只分隔行列，不表达关系。Severity 单元格底色是唯一的编码：琥珀色表示严重度 5，绿色表示严重度 4；原图未给颜色图例。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要以为表中只有两条风险：上下都有省略号，实际登记表还有更多行。
+- 不要把 Severity 当作 Likelihood×Impact 的乘积：3×2 得到 5、2×2 得到 4，说明它来自风险矩阵而非算术。
+- 不要以为绿色一定比琥珀色严重：此处绿色对应 4、琥珀对应 5，颜色越暖等级越高。
+- 不要把 Owner 理解为风险后果的承担者；它是负责推进缓解计划的人（CRM 解决方案架构师、架构项目经理）。
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_risk_register",
+    "title_zh": "风险登记表（原图可见部分逐行转录）",
+    "columns": [
+      "ID",
+      "Date Raised",
+      "Risk Description",
+      "Likelihood",
+      "Impact",
+      "Severity",
+      "Mitigation Plan",
+      "Owner",
+      "Status",
+      "Date Closed"
+    ],
+    "rows": [
+      [
+        "3",
+        "04.03.2014",
+        "There is a risk that billing capabilities of the target solution will be defined in a way that no existing COTS solution can support. Architecture Project team has no knowledge of such solutions available on the market.",
+        "3",
+        "2",
+        "5",
+        "Hire an external consultancy with knowledge on billing capabilities of market available solutions. OR: Extend the project plan with an RFI to gain knowledge on solutions available on the market.",
+        "CRM solution architect",
+        "Identified - mitigation plan to be agreed",
+        ""
+      ],
+      [
+        "4",
+        "05.03.2014",
+        "Architecture Project has the responsibility for solution performance, but it is the Infrastructure who decides on the hardware technology and sizing. Therefore, Architecture Project may be unable to ensure performance of the solution.",
+        "2",
+        "2",
+        "4",
+        "1. Perform performance tests on development environment and extrapolate results to estimate performance. Development environment has to be filled with test data. 2. Expected infrastructure needs will be passed to the Infrastructure team. 3. Consult solution provider on the recommended hardware after the performance tests.",
+        "Architecture Project manager",
+        "Managed - mitigation plan agreed",
+        ""
+      ]
+    ],
+    "cell_legend": [
+      "Severity 列着色：琥珀色=5（风险 3），绿色=4（风险 4）；其他单元格无底色",
+      "Date 格式为 DD.MM.YYYY",
+      "第一行上方与第二行下方各有“…”表示省略其他风险行"
+    ],
+    "notes_zh": "原图为未编号、无标题的表格截图，仅完整显示表头与第 3、4 行；未显示的第 1、2 行无法转录。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "琥珀色 Severity 单元格",
+    "meaning_zh": "严重度 5（较高）",
+    "explicit": false
+  },
+  {
+    "symbol": "绿色 Severity 单元格",
+    "meaning_zh": "严重度 4（较低）",
+    "explicit": false
+  },
+  {
+    "symbol": "“…”",
+    "meaning_zh": "表格被截取，省略其他行",
+    "explicit": true
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "横向表格：10 列从左到右为 ID、Date Raised、Risk Description（最宽）、Likelihood、Impact、Severity、Mitigation Plan（最宽）、Owner、Status、Date Closed；表头深灰底白字，数据行白底黑字。"
+}
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "原图只显示两条数据行，无法得知省略的行数与是否有标题行之外的说明文字。",
+    "Severity 的颜色语义（琥珀=高、绿=中）由数值与常见交通灯习惯推断，原图没有图例。",
+    "表头 Likelihood/Impact/Severity 三列较窄且文字竖排，按英文表头逐字转录。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 68 页原图截图（含 3x3 放大分块）",
+    "英文 PDF 第 68 页正文",
+    "中文稿 G188e_架构项目管理.md 第 1130、1143、1160 行",
+    "无 figs/ 资产引用"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": null,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

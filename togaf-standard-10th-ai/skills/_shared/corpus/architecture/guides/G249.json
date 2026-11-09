@@ -1,0 +1,1515 @@
+{
+  "architecture_question_zh": "如何从明确mandate和实际架构工作，建立可裁剪的角色、任务技能要求、证据评估、正式认可及发展闭环，并支持架构决策与制品交付？",
+  "application_inputs_zh": [
+    "利益相关者确认的架构mandate、目标、范围、约束与实际决策权；未确认的授权明确列缺口",
+    "需要完成的架构任务、复杂性、有效时间、企业/分段/方案视角，以及待支持的业务决定",
+    "现有岗位、角色、人员、外部顾问和assignment关系，及可获得的导师/专家支持",
+    "按任务采纳的技能目标及裁剪理由；原始表5-2六列保留为来源参考，不覆盖原值",
+    "真实工作样本、决策记录、评审记录、反馈和证据日期；自评、观察、正式认可、Open CA证书分别标识",
+    "服务水平、风险、过渡计划、运营维护与实际批准证据，作为架构工作接受条件"
+  ],
+  "application_outputs_zh": [
+    "mandate、工作包、assignment、角色范围与实际授权的可追溯映射",
+    "按Chief/Enterprise/Segment/Solution决策范围划分的任务契约及协作交接",
+    "按任务裁剪的技能目标、支持条件与个人能力证据矩阵；未知、不适用与已确认能力分开",
+    "与目标、原则、需求、能力、服务、系统、构建块和过渡架构使用同一对象ID的决策及制品包",
+    "有证据的缺口、专家支持/导师安排、实践发展任务、复评时间及认可记录",
+    "按采纳口径形成的KPI与运营反馈，回到mandate、任务边界与发展计划的复审"
+  ],
+  "application_steps_zh": [
+    "确认mandate与实际决策人：收集目标、范围、利益相关者和授权证据，区分建议、待确认和已批准；这是项目执行约定。",
+    "从真实架构工作定义assignment：记录工作对象、范围、复杂性、时间、约束、所需决定和接受条件，再配置角色。",
+    "按决策范围选择角色视角：Chief处理战略/运营承诺，Enterprise处理跨分段一致性，Segment处理分段内能力/构件，Solution处理明确需求、过渡交付与运行。",
+    "把职责绑定模型对象及交接：目标/原则/约束向下传递，可行性、风险、偏离与运营结果返回相关决策人；治理、协作和汇报分别建模。",
+    "依据具体任务裁剪技能目标：保留八类技能与原始六列来源，新增或调整要求必须注明来源和理由；Chief/Segment不得伪造官方数值列。",
+    "按四级定义采集和审阅能力证据：记录实际任务、独立程度、情境难度及专家支持；未知不能填零，自评不自动提升为正式认可。",
+    "形成有证据的差距和支持方案：区分知识不足、缺乏实践、无证据、需要专家支持以及尚未授权，不把它们压成一个总分。",
+    "选择任务对应的领域方法与制品：同一模型派生目录、矩阵、架构图和路线图；保留需求—决定—对象—制品—接受证据追踪。",
+    "安排实践、导师支持和复评，保存正式认可决定；课程完成、制品生成、人员胜任、Open CA认证和真实业务批准分别处理。",
+    "以服务水平和采纳的KPI检查工作结果，记录新风险与情境变化；必要时调整mandate、assignment、角色裁剪和发展路径。"
+  ],
+  "decision_criteria_zh": [
+    "能否从每个assignment追溯到mandate、目标、实际决策权和接受人，而非仅有角色名称？",
+    "相同模型的企业、分段、方案视角是否保持对象与约束一致，是否清楚不同角色作出什么决定？",
+    "任务所需熟练度与观察到的能力是否分开，证据是否说明难度、独立性、专家支持和时效？",
+    "是否保留一人多角色/多人同角色及有依据的裁剪，并避免把治理总序套成所有协作关系？",
+    "Chief/Segment是否明确没有来源独立数值列；四级技能与三级Open CA是否未被换算？",
+    "安全、隐私、测试、运营维护、拓扑权衡和过渡交付是否有实际输入与接受证据？",
+    "KPI是否有采纳口径与目标来源；缺少授权或专业判断时是否停留在草稿/待评审而非自动通过？",
+    "发展活动是否产生可复评的工作证据，并能反过来调整人员配置和任务支持条件？"
+  ],
+  "scope_and_misreading_zh": "本指南主要建立人的架构实践角色和技能框架，不是AI SKILL.md格式规范。它以明确mandate、实际任务和人员能力为出发点；角色层级、正式岗位、具体assignment、专业技能熟练度与Open CA认证必须区分。Chief是Enterprise的特例，Chief和Segment在表5-2均没有独立数值列。四类角色表示不同决策范围，不推出固定四级人事汇报或四个AI代理。来源中的描述性起点、潜在KPI与企业采纳值分别保存。",
+  "source_findings": [
+    {
+      "pdf_page": 16,
+      "quote_en": "Job means",
+      "topic": "identity",
+      "statement_zh": "岗位是通常具有雇佣契约的正式位置；角色是活动及技能组合；任务是分配的具体工作。",
+      "id": "G249:A01",
+      "context_en": "er purposes as well. It is necessary to provide a context for the terms “job, role, and assignment” as these terms are used in many different overloaded contexts. In this guide: • Job means the agreed position usually with a formal contract for employment • Role means the expected activities that are generally performed with an associated set of skills • Assignment means a piece of work that a person has been assigned to perform usually within the context of their ",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "6",
+      "evidence": {
+        "finding_id": "G249:A01",
+        "document_id": "G249",
+        "pdf_page": 16,
+        "printed_page_label": "6",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Job means",
+        "context_en": "n Age (SFIA) for other purposes as well. It is necessary to provide a context for the terms “job, role, and assignment” as these terms are used in many different overloaded contexts. In this guide: • Job means the agreed position usually with a formal contract for employment • Role means the expected activities that are generally performed with an associated set of skills • Assignment means a piece of work that a person has been assigned to perform usually within the context of their job and role (but not always) This guide recognizes that in many enter",
+        "source_section": {
+          "id": "G249:s0016",
+          "title": "4. Architecture Roles",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0016:b008"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-16",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 16,
+      "quote_en": "multiple roles",
+      "topic": "multiplicity",
+      "statement_zh": "一人可能承担多个角色，也可能多人分别只承担一个角色；人员与角色不能默认一对一配置。",
+      "id": "G249:A02",
+      "context_en": "erson has been assigned to perform usually within the context of their job and role (but not always) This guide recognizes that in many enterprises there may be people who perform multiple roles, and also multiple people that perform only one role. An illustrative starting point is provided, identifying the most important roles performed as part of an Enterprise Architecture practice from which you should tailor these to your specific enterprise needs. The TOGAF Standar",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "6",
+      "evidence": {
+        "finding_id": "G249:A02",
+        "document_id": "G249",
+        "pdf_page": 16,
+        "printed_page_label": "6",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "multiple roles",
+        "context_en": "ece of work that a person has been assigned to perform usually within the context of their job and role (but not always) This guide recognizes that in many enterprises there may be people who perform multiple roles, and also multiple people that perform only one role. An illustrative starting point is provided, identifying the most important roles performed as part of an Enterprise Architecture practice from which you should tailor these to your specific enterprise needs. The TOGAF Standard provides an example set of roles that are valuable in the evolution ",
+        "source_section": {
+          "id": "G249:s0016",
+          "title": "4. Architecture Roles",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0016:b012",
+          "G249:p0016:b013",
+          "G249:p0016:b014",
+          "G249:p0016:b015"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-16",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 17,
+      "quote_en": "special case of an Enterprise Architect",
+      "topic": "specialization",
+      "statement_zh": "首席架构师是企业架构师的特例，重点把架构融入战略和运营上下文。",
+      "id": "G249:A03",
+      "context_en": "4. Architecture Roles Evaluation Copy 4.1. Chief Architect The Chief Architect is a special case of an Enterprise Architect and is responsible for integrating the Enterprise Architecture view into the wider strategic and operational context of the enterprise. The main context of the role is political and collaborative, persuasive and strategic. It strives to ensure that the business understands the i",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "7",
+      "evidence": {
+        "finding_id": "G249:A03",
+        "document_id": "G249",
+        "pdf_page": 17,
+        "printed_page_label": "7",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "special case of an Enterprise Architect",
+        "context_en": "The Chief Architect is a special case of an Enterprise Architect and is responsible for integrating the Enterprise Architecture view into the wider strategic and operational context of the enterprise. The main context of the role is political and collaborative, persuasive and strategic. It strives to ensure that the business understands the importance of a well understood and governed architecture and how it im",
+        "source_section": {
+          "id": "G249:s0016",
+          "title": "4. Architecture Roles",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0017:b001",
+          "G249:p0017:b002",
+          "G249:p0017:b003",
+          "G249:p0017:b004",
+          "G249:p0017:b005"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-17",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 17,
+      "quote_en": "superior architectures",
+      "topic": "constraint",
+      "statement_zh": "解决方案工作受企业和分段上位架构指引；该关系本身不证明人事汇报。",
+      "id": "G249:A04",
+      "context_en": "-systems, systems, and services provided and overseen by a segment. Solution Architects implement new and/or changed solutions satisfying specific requirements and informed by the superior architectures identified at the Enterprise and Segment Levels. The users and stakeholders represent the other roles working in and/or influencing business or technology within the enterprise. Change to services and solutions are usually targeted at those roles responding to specific requireme",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "7",
+      "evidence": {
+        "finding_id": "G249:A04",
+        "document_id": "G249",
+        "pdf_page": 17,
+        "printed_page_label": "7",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "superior architectures",
+        "context_en": "ious components, sub-systems, systems, and services provided and overseen by a segment. Solution Architects implement new and/or changed solutions satisfying specific requirements and informed by the superior architectures identified at the Enterprise and Segment Levels. The users and stakeholders represent the other roles working in and/or influencing business or technology within the enterprise. Change to services and solutions are usually targeted at those roles responding to specific requirements that they have identified. The TOGAF Standard does not give specif",
+        "source_section": {
+          "id": "G249:s0016",
+          "title": "4. Architecture Roles",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0017:b006",
+          "G249:p0017:b007",
+          "G249:p0017:b008",
+          "G249:p0017:b009",
+          "G249:p0017:b010",
+          "G249:p0017:b011"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-17",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 21,
+      "quote_en": "coherent grouping of capabilities",
+      "topic": "segment",
+      "statement_zh": "分段是为管理和控制而组合的一组连贯能力，通常按能力组合或变更计划管理。",
+      "id": "G249:A05",
+      "context_en": "d cost boundaries (boundaries must be properly set to reflect the potential variation relevant to a specific change) 4.3. Segment Architect (Business and Technical) A segment is a coherent grouping of capabilities for management and control purposes, usually managed as portfolio of capabilities or a specific program of change. The TOGAF Standard also uses the concept of a domain. A domain is used to reflect any useful grouping of capabilities to be managed by an enterprise; with four part",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "11",
+      "evidence": {
+        "finding_id": "G249:A05",
+        "document_id": "G249",
+        "pdf_page": 21,
+        "printed_page_label": "11",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "coherent grouping of capabilities",
+        "context_en": "d time, resource, and cost boundaries (boundaries must be properly set to reflect the potential variation relevant to a specific change) 4.3. Segment Architect (Business and Technical) A segment is a coherent grouping of capabilities for management and control purposes, usually managed as portfolio of capabilities or a specific program of change. The TOGAF Standard also uses the concept of a domain. A domain is used to reflect any useful grouping of capabilities to be managed by an enterprise; with four particular Information Services (IS)/ Internet Technology (IT) related seg",
+        "source_section": {
+          "id": "G249:s0019",
+          "title": "4.3. Segment Architect (Business and Technical)",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0021:b010",
+          "G249:p0021:b011",
+          "G249:p0021:b012",
+          "G249:p0021:b013",
+          "G249:p0021:b014",
+          "G249:p0021:b015",
+          "G249:p0021:b016"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-21",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 26,
+      "quote_en": "categories of skills",
+      "topic": "skills",
+      "statement_zh": "角色技能要求涵盖应用、架构、业务、变更、数据、通用、法律和技术类别。",
+      "id": "G249:A06",
+      "context_en": "Evaluation Copy 5. Skills and Proficiency Levels 5. Skills and Proficiency Levels The architecture team skillset will need to include the following main categories of skills: • Application Typically comprising application management, Application Programming Interface (API) patterns, software design principles, etc. • Architecture Typically comprising modeling, building block design, high-level design, role definition, Architecture Principle design, ",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "16",
+      "evidence": {
+        "finding_id": "G249:A06",
+        "document_id": "G249",
+        "pdf_page": 26,
+        "printed_page_label": "16",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "categories of skills",
+        "context_en": "5. Skills and Proficiency Levels The architecture team skillset will need to include the following main categories of skills: • Application Typically comprising application management, Application Programming Interface (API) patterns, software design principles, etc. • Architecture Typically comprising modeling, building block design, high-level design, role definition, Architecture Principle design, high-level migration planning, architectural building block management",
+        "source_section": {
+          "id": "G249:s0021",
+          "title": "5. Skills and Proficiency Levels",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0026:b002"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-26",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 14,
+      "quote_en": "The TOGAF Standard is descriptive, not prescriptive",
+      "topic": "tailoring",
+      "statement_zh": "本指南提供描述性、可裁剪的实践起点；组织可直接采用或显著调整，不能把示例角色、层级或数值自动认定为企业强制规则。",
+      "id": "G249:A07",
+      "context_en": "t there will be considerable customization and organizational alignment when applied to each specific circumstance. [1] The TOGAF Standard is descriptive, not prescriptive, and provides an illustrative approach that can be used to underpin the management of an enterprise’s Architecture Landscape. In some cases, the illustrated approach or model will be adopted directly; in others it may b",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "4",
+      "evidence": {
+        "finding_id": "G249:A07",
+        "document_id": "G249",
+        "pdf_page": 14,
+        "printed_page_label": "4",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "The TOGAF Standard is descriptive, not prescriptive",
+        "context_en": "the TOGAF Standard, the standard does not mandate how to do this and expects that there will be considerable customization and organizational alignment when applied to each specific circumstance. [1] The TOGAF Standard is descriptive, not prescriptive, and provides an illustrative approach that can be used to underpin the management of an enterprise’s Architecture Landscape. In some cases, the illustrated approach or model will be adopted directly; in others it may be significantly changed. When doing so, bear in mind that the TOGAF Standard illustrations are based on a long running accumulatio",
+        "source_section": {
+          "id": "G249:s0015",
+          "title": "3. Architecture Roles and Skills: The Basis of an Enterprise Architecture Practice",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0014:b005",
+          "G249:p0014:b006",
+          "G249:p0014:b007",
+          "G249:p0014:b008",
+          "G249:p0014:b009",
+          "G249:p0014:b010",
+          "G249:p0014:b011",
+          "G249:p0014:b012",
+          "G249:p0014:b013"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-14",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 14,
+      "quote_en": "Have a clear mandate from the appropriate relevant stakeholders",
+      "topic": "mandate",
+      "statement_zh": "有效架构实践首先需要适当利益相关者的明确mandate；仅有角色名和技能清单不足以证明实践有何任务、范围与授权。",
+      "id": "G249:A08",
+      "context_en": "stablishment of an architecture practice.) In order to set up an effective architecture practice, there is a need to: • Have a clear mandate from the appropriate relevant stakeholders (this will vary from organization to organization) • Identify and define needed architectural competencies, while aligning necessary staff roles, skills, and experience with the architecture tasks the enterprise needs t",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "4",
+      "evidence": {
+        "finding_id": "G249:A08",
+        "document_id": "G249",
+        "pdf_page": 14,
+        "printed_page_label": "4",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Have a clear mandate from the appropriate relevant stakeholders",
+        "context_en": "s document but are addressed in The Open Group documents on the setting up and establishment of an architecture practice.) In order to set up an effective architecture practice, there is a need to: • Have a clear mandate from the appropriate relevant stakeholders (this will vary from organization to organization) • Identify and define needed architectural competencies, while aligning necessary staff roles, skills, and experience with the architecture tasks the enterprise needs to be performed, whether these are to be performed internally to the enterprise or externally; for example, as part of a consultanc",
+        "source_section": {
+          "id": "G249:s0015",
+          "title": "3. Architecture Roles and Skills: The Basis of an Enterprise Architecture Practice",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0014:b019",
+          "G249:p0014:b020"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-14",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 14,
+      "quote_en": "aligning necessary staff roles, skills, and experience with the architecture tasks the enterprise needs to be performed",
+      "topic": "work-alignment",
+      "statement_zh": "先识别企业需要完成的架构任务，再使人员角色、技能和经验与任务对齐；范围包括内部人员和外部顾问。",
+      "id": "G249:A09",
+      "context_en": "lders (this will vary from organization to organization) • Identify and define needed architectural competencies, while aligning necessary staff roles, skills, and experience with the architecture tasks the enterprise needs to be performed, whether these are to be performed internally to the enterprise or externally; for example, as part of a consultancy engagement • Formally recognize the skills and capabilities of architects, as part of the task of esta",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "4",
+      "evidence": {
+        "finding_id": "G249:A09",
+        "document_id": "G249",
+        "pdf_page": 14,
+        "printed_page_label": "4",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "aligning necessary staff roles, skills, and experience with the architecture tasks the enterprise needs to be performed",
+        "context_en": "there is a need to: • Have a clear mandate from the appropriate relevant stakeholders (this will vary from organization to organization) • Identify and define needed architectural competencies, while aligning necessary staff roles, skills, and experience with the architecture tasks the enterprise needs to be performed, whether these are to be performed internally to the enterprise or externally; for example, as part of a consultancy engagement • Formally recognize the skills and capabilities of architects, as part of the task of establishing and maintaining a professional architecture organization • Provide a competency development path for architects to ensure",
+        "source_section": {
+          "id": "G249:s0015",
+          "title": "3. Architecture Roles and Skills: The Basis of an Enterprise Architecture Practice",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0014:b021",
+          "G249:p0014:b022",
+          "G249:p0014:b023",
+          "G249:p0014:b024"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-14",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 14,
+      "quote_en": "Formally recognize the skills and capabilities of architects",
+      "topic": "recognition",
+      "statement_zh": "正式认可架构师的技能和能力是建立与维持专业架构组织的一项工作；角色任命、技能证据和认可结论应分别理解。",
+      "id": "G249:A10",
+      "context_en": "hese are to be performed internally to the enterprise or externally; for example, as part of a consultancy engagement • Formally recognize the skills and capabilities of architects, as part of the task of establishing and maintaining a professional architecture organization • Provide a competency development path for architects to ensure minimal competency levels, and provide confidence that the a",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "4",
+      "evidence": {
+        "finding_id": "G249:A10",
+        "document_id": "G249",
+        "pdf_page": 14,
+        "printed_page_label": "4",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Formally recognize the skills and capabilities of architects",
+        "context_en": "ence with the architecture tasks the enterprise needs to be performed, whether these are to be performed internally to the enterprise or externally; for example, as part of a consultancy engagement • Formally recognize the skills and capabilities of architects, as part of the task of establishing and maintaining a professional architecture organization • Provide a competency development path for architects to ensure minimal competency levels, and provide confidence that the architecture activities performed by those certified meet an acceptable level A well-defined set of the roles and skills enables yo",
+        "source_section": {
+          "id": "G249:s0015",
+          "title": "3. Architecture Roles and Skills: The Basis of an Enterprise Architecture Practice",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0014:b025",
+          "G249:p0014:b026"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-14",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 14,
+      "quote_en": "Provide a competency development path for architects to ensure minimal competency levels",
+      "topic": "development",
+      "statement_zh": "架构实践需要能力发展路径，建立最低胜任要求，并对架构活动达到可接受水平形成信心；发展不止是罗列课程。",
+      "id": "G249:A11",
+      "context_en": "abilities of architects, as part of the task of establishing and maintaining a professional architecture organization • Provide a competency development path for architects to ensure minimal competency levels, and provide confidence that the architecture activities performed by those certified meet an acceptable level A well-defined set of the roles and skills enables you to: • Simplify communication between recruiting organ",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "4",
+      "evidence": {
+        "finding_id": "G249:A11",
+        "document_id": "G249",
+        "pdf_page": 14,
+        "printed_page_label": "4",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Provide a competency development path for architects to ensure minimal competency levels",
+        "context_en": "ple, as part of a consultancy engagement • Formally recognize the skills and capabilities of architects, as part of the task of establishing and maintaining a professional architecture organization • Provide a competency development path for architects to ensure minimal competency levels, and provide confidence that the architecture activities performed by those certified meet an acceptable level A well-defined set of the roles and skills enables you to: • Simplify communication between recruiting organizations, consultancies, and employment agencies • Provide criteria for consistent decisions about the development and assignment ",
+        "source_section": {
+          "id": "G249:s0015",
+          "title": "3. Architecture Roles and Skills: The Basis of an Enterprise Architecture Practice",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0014:b027",
+          "G249:p0014:b028",
+          "G249:p0014:b029"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-14",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 15,
+      "quote_en": "Enable employees to self-assess against a set of required skills",
+      "topic": "self-assessment-and-mentoring",
+      "statement_zh": "员工可按所需技能自评并制定培训和职业计划，必要时由导师支持；自评是一类输入，不自动等于独立确认的能力或认证。",
+      "id": "G249:A12",
+      "context_en": "• Enable employees to self-assess against a set of required skills to prepare their own training and career plans, supported by mentoring where appropriate • Assess levels of talent and where investments in training should be made, based on common skill gaps • Create a stable base of f",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "5",
+      "evidence": {
+        "finding_id": "G249:A12",
+        "document_id": "G249",
+        "pdf_page": 15,
+        "printed_page_label": "5",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Enable employees to self-assess against a set of required skills",
+        "context_en": "• Enable employees to self-assess against a set of required skills to prepare their own training and career plans, supported by mentoring where appropriate • Assess levels of talent and where investments in training should be made, based on common skill gaps • Create a stable base of future architects and nurture them by mentoring with a well-defined path • Create a stable base of future architects and allow dete",
+        "source_section": {
+          "id": "G249:s0015",
+          "title": "3. Architecture Roles and Skills: The Basis of an Enterprise Architecture Practice",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0015:b001",
+          "G249:p0015:b002"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-15",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 17,
+      "quote_en": "responsible for communicating and gaining commitment",
+      "topic": "chief-decision-scope",
+      "statement_zh": "Chief Architect的关键工作是沟通并取得重大业务/技术变革的承诺，将架构需求与企业高层的战略和运营目标相连接；其输出价值不只是一张架构图。",
+      "id": "G249:A13",
+      "context_en": "f shaping and governance. 4.1. Chief Architect The Chief Architect is a very experienced and accomplished professional, responsible for communicating and gaining commitment for significant technical and business change and performance improvement across an enterprise and its marketplace (whether as an internal employee or external consultant/ resource). They work at the most senior levels ",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "7",
+      "evidence": {
+        "finding_id": "G249:A13",
+        "document_id": "G249",
+        "pdf_page": 17,
+        "printed_page_label": "7",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "responsible for communicating and gaining commitment",
+        "context_en": "tion from which you can grow your model should you need to address more levels of shaping and governance. 4.1. Chief Architect The Chief Architect is a very experienced and accomplished professional, responsible for communicating and gaining commitment for significant technical and business change and performance improvement across an enterprise and its marketplace (whether as an internal employee or external consultant/ resource). They work at the most senior levels creating a consensus among executives and board members about the nature and need for an effective Architecture Landscape. They co",
+        "source_section": {
+          "id": "G249:s0017",
+          "title": "4.1. Chief Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0017:b027",
+          "G249:p0017:b028",
+          "G249:p0017:b029",
+          "G249:p0017:b030"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-17",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 18,
+      "quote_en": "Translating business and technology strategies, goals, and objectives into related changes in the operating model",
+      "topic": "chief-operating-model",
+      "statement_zh": "Chief Architect把业务/技术战略、目标与目的转化为运营模型变化，领导总体架构全景、重大约束和高风险变革，并支持架构团队发展。",
+      "id": "G249:A14",
+      "context_en": "Activities may include, but are not limited to: • Supporting and contributing to the development of business strategy • Translating business and technology strategies, goals, and objectives into related changes in the operating model • Assessing current capabilities and identifying required changes in those capabilities to achieve business and technology strategies, goals, and objectives • Communicating and collaborating through multiple channels an",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "8",
+      "evidence": {
+        "finding_id": "G249:A14",
+        "document_id": "G249",
+        "pdf_page": 18,
+        "printed_page_label": "8",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Translating business and technology strategies, goals, and objectives into related changes in the operating model",
+        "context_en": "needed to keep an enterprise operating effectively in its evolving marketplace. Activities may include, but are not limited to: • Supporting and contributing to the development of business strategy • Translating business and technology strategies, goals, and objectives into related changes in the operating model • Assessing current capabilities and identifying required changes in those capabilities to achieve business and technology strategies, goals, and objectives • Communicating and collaborating through multiple channels and mechanisms with enterprise leadership to ensure that they understand and are up to date with the Architecture Roadmap • Leading ",
+        "source_section": {
+          "id": "G249:s0017",
+          "title": "4.1. Chief Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0018:b009",
+          "G249:p0018:b010"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-18",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 19,
+      "quote_en": "They create roadmaps for change across multiple segments",
+      "topic": "enterprise-decision-scope",
+      "statement_zh": "Enterprise Architect的范围跨多个分段，不局限于单一方案、产品、技术或生命周期环节；通过跨分段路线图、原则和政策塑造架构全景。",
+      "id": "G249:A15",
+      "context_en": "fic part of the requirements/analysis/design/delivery lifecycle, a specific market, or a single product or technology). They create roadmaps for change across multiple segments, define principles and policies to shape the Architecture Landscape, and oversee the governance process for architectural change. Their prime responsibility is to create and evolve the conditions for the integration, in",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "9",
+      "evidence": {
+        "finding_id": "G249:A15",
+        "document_id": "G249",
+        "pdf_page": 19,
+        "printed_page_label": "9",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "They create roadmaps for change across multiple segments",
+        "context_en": "mited to any particular solution aspect or segment (e.g., not limited to a specific part of the requirements/analysis/design/delivery lifecycle, a specific market, or a single product or technology). They create roadmaps for change across multiple segments, define principles and policies to shape the Architecture Landscape, and oversee the governance process for architectural change. Their prime responsibility is to create and evolve the conditions for the integration, interoperability, and governance of solution components, leading Segment Architects, Solution Architects, and various specialists to",
+        "source_section": {
+          "id": "G249:s0018",
+          "title": "4.2. Enterprise Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0019:b026",
+          "G249:p0019:b027",
+          "G249:p0019:b028",
+          "G249:p0019:b029",
+          "G249:p0019:b030",
+          "G249:p0019:b031"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-19",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 19,
+      "quote_en": "conditions for the integration, interoperability, and governance of solution components",
+      "topic": "enterprise-integration",
+      "statement_zh": "Enterprise Architect的首要责任是建立并演进解决方案构件的集成、互操作与治理条件；因此必须处理跨分段的依赖、约束和协同。",
+      "id": "G249:A16",
+      "context_en": "pe, and oversee the governance process for architectural change. Their prime responsibility is to create and evolve the conditions for the integration, interoperability, and governance of solution components, leading Segment Architects, Solution Architects, and various specialists to create, implement, and operate the services and solutions needed to keep their enterprise as an effective player in its evolving marketplace. ",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "9",
+      "evidence": {
+        "finding_id": "G249:A16",
+        "document_id": "G249",
+        "pdf_page": 19,
+        "printed_page_label": "9",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "conditions for the integration, interoperability, and governance of solution components",
+        "context_en": "tiple segments, define principles and policies to shape the Architecture Landscape, and oversee the governance process for architectural change. Their prime responsibility is to create and evolve the conditions for the integration, interoperability, and governance of solution components, leading Segment Architects, Solution Architects, and various specialists to create, implement, and operate the services and solutions needed to keep their enterprise as an effective player in its evolving marketplace. 4. Architecture Roles 4.2. Enterprise Architect Architecture Roles and Skills 9 Evaluation Copy © The Open Group, All Rights Reser",
+        "source_section": {
+          "id": "G249:s0018",
+          "title": "4.2. Enterprise Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0019:b032",
+          "G249:p0019:b033",
+          "G249:p0019:b034",
+          "G249:p0019:b035"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-19",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 22,
+      "quote_en": "creation, integration, interoperability, and evolution of the systems, sub-systems, and components within a segment(s)",
+      "topic": "segment-decision-scope",
+      "statement_zh": "Segment Architect围绕分段内系统、子系统与构件的创建、集成、互操作和演进工作，使专家和Solution Architect清楚分工并实现端到端业务服务水平。",
+      "id": "G249:A17",
+      "context_en": ", legal, and follow the required policies and standards. Their prime responsibility is to create the conditions for the creation, integration, interoperability, and evolution of the systems, sub-systems, and components within a segment(s), ensuring that the technical/business specialists and Solution Architects are clear about their roles, understand how to work together effectively, and deliver the components and building blocks that achieve the end-to-",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "12",
+      "evidence": {
+        "finding_id": "G249:A17",
+        "document_id": "G249",
+        "pdf_page": 22,
+        "printed_page_label": "12",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "creation, integration, interoperability, and evolution of the systems, sub-systems, and components within a segment(s)",
+        "context_en": ", and components related to a segment(s), ensuring that they are fit for purpose, legal, and follow the required policies and standards. Their prime responsibility is to create the conditions for the creation, integration, interoperability, and evolution of the systems, sub-systems, and components within a segment(s), ensuring that the technical/business specialists and Solution Architects are clear about their roles, understand how to work together effectively, and deliver the components and building blocks that achieve the end-to-end business service levels required by an enterprise and its clients. Activities may include, but are not limited to: • Translati",
+        "source_section": {
+          "id": "G249:s0019",
+          "title": "4.3. Segment Architect (Business and Technical)",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0022:b008",
+          "G249:p0022:b009",
+          "G249:p0022:b010",
+          "G249:p0022:b011",
+          "G249:p0022:b012"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-22",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 23,
+      "quote_en": "a series of implementable Transition Architectures",
+      "topic": "solution-transition-scope",
+      "statement_zh": "Solution Architect将为明确需求选择的系统、子系统、构件及互操作安排纳入统一变更路线图，通过可实施的过渡架构分步交付价值。",
+      "id": "G249:A18",
+      "context_en": "d their interoperability, and place them in a consolidated roadmap of change, delivering the required evolution through a series of implementable Transition Architectures (value-driven deliverable units of work). They ensure that the latest business and technical options are considered and effectively exploited. They operate effectively when the situations encountered are dynamic, evolvi",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "13",
+      "evidence": {
+        "finding_id": "G249:A18",
+        "document_id": "G249",
+        "pdf_page": 23,
+        "printed_page_label": "13",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "a series of implementable Transition Architectures",
+        "context_en": ". They specify the systems, sub-systems, and components needed for a solution and their interoperability, and place them in a consolidated roadmap of change, delivering the required evolution through a series of implementable Transition Architectures (value-driven deliverable units of work). They ensure that the latest business and technical options are considered and effectively exploited. They operate effectively when the situations encountered are dynamic, evolving, or novel in complexity, scope, or solution compared to those encountered before. They oversee all specification, 4. Architectu",
+        "source_section": {
+          "id": "G249:s0020",
+          "title": "4.4. Solution Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0023:b028",
+          "G249:p0023:b029",
+          "G249:p0023:b030",
+          "G249:p0023:b031",
+          "G249:p0023:b032"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-23",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 24,
+      "quote_en": "including the planned operation, maintenance, and evolution of the solution within a production environment",
+      "topic": "solution-operations",
+      "statement_zh": "解决方案职责包括服务、流程、组织、运营模型和技术变化，还包括生产环境中的运营、维护和演进安排；不能仅按应用部署理解解决方案架构。",
+      "id": "G249:A19",
+      "context_en": "ed to: • Specifying changes to services, processes, organization structure, and operating models as well as technology, including the planned operation, maintenance, and evolution of the solution within a production environment • Ensuring that existing and planned solution components are compatible with relevant architectures, strategies, policies, standards, and practices • Taking full account of the requirements for security, privacy, and te",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "14",
+      "evidence": {
+        "finding_id": "G249:A19",
+        "document_id": "G249",
+        "pdf_page": 24,
+        "printed_page_label": "14",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "including the planned operation, maintenance, and evolution of the solution within a production environment",
+        "context_en": "cerns, requirements, and expectations. Activities may include, but are not limited to: • Specifying changes to services, processes, organization structure, and operating models as well as technology, including the planned operation, maintenance, and evolution of the solution within a production environment • Ensuring that existing and planned solution components are compatible with relevant architectures, strategies, policies, standards, and practices • Taking full account of the requirements for security, privacy, and testing of solutions • Clearly identifying the benefits and issues associated with different solution topologies (such as with on-pr",
+        "source_section": {
+          "id": "G249:s0020",
+          "title": "4.4. Solution Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0024:b012",
+          "G249:p0024:b013",
+          "G249:p0024:b014"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-24",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 24,
+      "quote_en": "Taking full account of the requirements for security, privacy, and testing of solutions",
+      "topic": "solution-quality",
+      "statement_zh": "安全、隐私和测试要求是Solution Architect必须充分考虑的内容；制品完整不等于这些要求已经得到满足。",
+      "id": "G249:A20",
+      "context_en": "lanned solution components are compatible with relevant architectures, strategies, policies, standards, and practices • Taking full account of the requirements for security, privacy, and testing of solutions • Clearly identifying the benefits and issues associated with different solution topologies (such as with on-premise and off-premise solutions and services), systems, sub-systems, and components for each change being sp",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "14",
+      "evidence": {
+        "finding_id": "G249:A20",
+        "document_id": "G249",
+        "pdf_page": 24,
+        "printed_page_label": "14",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Taking full account of the requirements for security, privacy, and testing of solutions",
+        "context_en": "n of the solution within a production environment • Ensuring that existing and planned solution components are compatible with relevant architectures, strategies, policies, standards, and practices • Taking full account of the requirements for security, privacy, and testing of solutions • Clearly identifying the benefits and issues associated with different solution topologies (such as with on-premise and off-premise solutions and services), systems, sub-systems, and components for each change being specified and implemented • Creating, evolving, and ensuring the implementation of the Target Architecture Roadmaps, for each major ",
+        "source_section": {
+          "id": "G249:s0020",
+          "title": "4.4. Solution Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0024:b017"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-24",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 24,
+      "quote_en": "benefits and issues associated with different solution topologies",
+      "topic": "solution-alternatives",
+      "statement_zh": "Solution Architect需要明确不同解决方案拓扑及系统/构件选项的收益与问题，包含本地与非本地方案；选项权衡应有具体需求与约束依据。",
+      "id": "G249:A21",
+      "context_en": "ces • Taking full account of the requirements for security, privacy, and testing of solutions • Clearly identifying the benefits and issues associated with different solution topologies (such as with on-premise and off-premise solutions and services), systems, sub-systems, and components for each change being specified and implemented • Creating, evolving, and ensuring the implementation of the Target ",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "14",
+      "evidence": {
+        "finding_id": "G249:A21",
+        "document_id": "G249",
+        "pdf_page": 24,
+        "printed_page_label": "14",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "benefits and issues associated with different solution topologies",
+        "context_en": "patible with relevant architectures, strategies, policies, standards, and practices • Taking full account of the requirements for security, privacy, and testing of solutions • Clearly identifying the benefits and issues associated with different solution topologies (such as with on-premise and off-premise solutions and services), systems, sub-systems, and components for each change being specified and implemented • Creating, evolving, and ensuring the implementation of the Target Architecture Roadmaps, for each major product and/or service change and its constituent transition architectures • Providing guida",
+        "source_section": {
+          "id": "G249:s0020",
+          "title": "4.4. Solution Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0024:b018",
+          "G249:p0024:b019",
+          "G249:p0024:b020"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-24",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 24,
+      "quote_en": "including managing requests for changes and any necessary deviations from specifications",
+      "topic": "solution-deviation",
+      "statement_zh": "解决方案实施采用基于风险的治理，并管理变更请求和必要的规格偏离；规则符合性、例外请求与真实批准不能混为一个状态。",
+      "id": "G249:A22",
+      "context_en": "constituent transition architectures • Providing guidance and risk-based governance to support solution implementation, including managing requests for changes and any necessary deviations from specifications • Ensuring that all stakeholders can communicate and collaborate effectively to deliver the targeted solutions and services and their expected service levels Key Stakeholders may include, but are not limited to: • Enter",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "14",
+      "evidence": {
+        "finding_id": "G249:A22",
+        "document_id": "G249",
+        "pdf_page": 24,
+        "printed_page_label": "14",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "including managing requests for changes and any necessary deviations from specifications",
+        "context_en": "get Architecture Roadmaps, for each major product and/or service change and its constituent transition architectures • Providing guidance and risk-based governance to support solution implementation, including managing requests for changes and any necessary deviations from specifications • Ensuring that all stakeholders can communicate and collaborate effectively to deliver the targeted solutions and services and their expected service levels Key Stakeholders may include, but are not limited to: • Enterprise Architects • Relevant business segment leaders • Senior customer/user representatives • Relevant business operators • Releva",
+        "source_section": {
+          "id": "G249:s0020",
+          "title": "4.4. Solution Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0024:b023",
+          "G249:p0024:b024"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-24",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 25,
+      "quote_en": "boundaries must be properly set to reflect the potential variation relevant to a specific change",
+      "topic": "kpi-calibration",
+      "statement_zh": "潜在KPI包括利益相关者满意、服务水平和约定交付边界；时间、资源与成本边界须反映具体变革的可能波动，不能直接把示例3/5或占位四分位当作企业统一门槛。",
+      "id": "G249:A23",
+      "context_en": " for the targeted solutions • Solutions are delivered and signed off within agreed time, resource, and cost boundaries (boundaries must be properly set to reflect the potential variation relevant to a specific change) 4. Architecture Roles 4.4. Solution Architect Architecture Roles and Skills 15 Evaluation Copy © The Open Group, All Rights Reserved. Evaluation Copy. Not for redistribution",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "15",
+      "evidence": {
+        "finding_id": "G249:A23",
+        "document_id": "G249",
+        "pdf_page": 25,
+        "printed_page_label": "15",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "boundaries must be properly set to reflect the potential variation relevant to a specific change",
+        "context_en": "Service changes delivering and accepted at or better than planned service levels for the targeted solutions • Solutions are delivered and signed off within agreed time, resource, and cost boundaries (boundaries must be properly set to reflect the potential variation relevant to a specific change) 4. Architecture Roles 4.4. Solution Architect Architecture Roles and Skills 15 Evaluation Copy © The Open Group, All Rights Reserved. Evaluation Copy. Not for redistribution",
+        "source_section": {
+          "id": "G249:s0020",
+          "title": "4.4. Solution Architect",
+          "level": 3
+        },
+        "source_block_ids": [
+          "G249:p0025:b012",
+          "G249:p0025:b013"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-25",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 27,
+      "quote_en": "Some understanding but reliant on specialists.",
+      "topic": "proficiency-background",
+      "statement_zh": "Background（1）：有一定理解，但依赖专家。它描述实践能力和支持条件，不是零能力，也不是缺失证据的默认值。",
+      "id": "G249:A24",
+      "context_en": "Table 5-1: Proficiency Levels Level Number Level Name Level Description 1 Background Some understanding but reliant on specialists. 2 Aware Understands and can address issues with the support of specialists. 3 Knowledgeable Good detail enabling effective decision-making, requiring specialist input in difficult situations. 4 Expert Extensive experien",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "17",
+      "evidence": {
+        "finding_id": "G249:A24",
+        "document_id": "G249",
+        "pdf_page": 27,
+        "printed_page_label": "17",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Some understanding but reliant on specialists.",
+        "context_en": "Table 5-1: Proficiency Levels Level Number Level Name Level Description 1 Background Some understanding but reliant on specialists. 2 Aware Understands and can address issues with the support of specialists. 3 Knowledgeable Good detail enabling effective decision-making, requiring specialist input in difficult situations. 4 Expert Extensive experience, practical, and applied knowledge. Table 5-2: Skill/Architecture Role Matrix Skill Category Skill Subcategory Enterpris e Archi",
+        "source_section": {
+          "id": "G249:s0021",
+          "title": "5. Skills and Proficiency Levels",
+          "level": 2
+        },
+        "source_block_ids": [],
+        "source_table_ids": [
+          "G249:p0027:t01"
+        ],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-27",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 27,
+      "quote_en": "Understands and can address issues with the support of specialists.",
+      "topic": "proficiency-aware",
+      "statement_zh": "Aware（2）：理解问题，并可在专家支持下处理问题。需要把专家支持作为任务执行条件，不能将数值2等同独立胜任。",
+      "id": "G249:A25",
+      "context_en": "cy Levels Level Number Level Name Level Description 1 Background Some understanding but reliant on specialists. 2 Aware Understands and can address issues with the support of specialists. 3 Knowledgeable Good detail enabling effective decision-making, requiring specialist input in difficult situations. 4 Expert Extensive experience, practical, and applied knowledge. Table 5-2: Skill/Architecture Role Mat",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "17",
+      "evidence": {
+        "finding_id": "G249:A25",
+        "document_id": "G249",
+        "pdf_page": 27,
+        "printed_page_label": "17",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Understands and can address issues with the support of specialists.",
+        "context_en": "Table 5-1: Proficiency Levels Level Number Level Name Level Description 1 Background Some understanding but reliant on specialists. 2 Aware Understands and can address issues with the support of specialists. 3 Knowledgeable Good detail enabling effective decision-making, requiring specialist input in difficult situations. 4 Expert Extensive experience, practical, and applied knowledge. Table 5-2: Skill/Architecture Role Matrix Skill Category Skill Subcategory Enterpris e Architect Business Domain Architect Data Domain Architect Applicati on Domain Arc",
+        "source_section": {
+          "id": "G249:s0021",
+          "title": "5. Skills and Proficiency Levels",
+          "level": 2
+        },
+        "source_block_ids": [],
+        "source_table_ids": [
+          "G249:p0027:t01"
+        ],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-27",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 27,
+      "quote_en": "Good detail enabling effective decision-making, requiring specialist input in difficult situations.",
+      "topic": "proficiency-knowledgeable",
+      "statement_zh": "Knowledgeable（3）：有足够细节知识支持有效决策，困难情境仍需专家输入。因此熟练度必须结合任务复杂性、独立性和支持安排解释。",
+      "id": "G249:A26",
+      "context_en": "but reliant on specialists. 2 Aware Understands and can address issues with the support of specialists. 3 Knowledgeable Good detail enabling effective decision-making, requiring specialist input in difficult situations. 4 Expert Extensive experience, practical, and applied knowledge. Table 5-2: Skill/Architecture Role Matrix Skill Category Skill Subcategory Enterpris e Architect Business Domain Architect Data Domain Architect Applicati",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "17",
+      "evidence": {
+        "finding_id": "G249:A26",
+        "document_id": "G249",
+        "pdf_page": 27,
+        "printed_page_label": "17",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Good detail enabling effective decision-making, requiring specialist input in difficult situations.",
+        "context_en": "evels Level Number Level Name Level Description 1 Background Some understanding but reliant on specialists. 2 Aware Understands and can address issues with the support of specialists. 3 Knowledgeable Good detail enabling effective decision-making, requiring specialist input in difficult situations. 4 Expert Extensive experience, practical, and applied knowledge. Table 5-2: Skill/Architecture Role Matrix Skill Category Skill Subcategory Enterpris e Architect Business Domain Architect Data Domain Architect Applicati on Domain Architect Technolo gy Domain Architect Solution Architect Application Artificial Intelligence (AI) and Expert Systems 3",
+        "source_section": {
+          "id": "G249:s0021",
+          "title": "5. Skills and Proficiency Levels",
+          "level": 2
+        },
+        "source_block_ids": [],
+        "source_table_ids": [
+          "G249:p0027:t01"
+        ],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-27",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 27,
+      "quote_en": "Extensive experience, practical, and applied knowledge.",
+      "topic": "proficiency-expert",
+      "statement_zh": "Expert（4）：具有丰富经验以及实践和应用知识。该等级不是仅凭知识问答、自报分数或课程完成即可证明的能力。",
+      "id": "G249:A27",
+      "context_en": "wledgeable Good detail enabling effective decision-making, requiring specialist input in difficult situations. 4 Expert Extensive experience, practical, and applied knowledge. Table 5-2: Skill/Architecture Role Matrix Skill Category Skill Subcategory Enterpris e Architect Business Domain Architect Data Domain Architect Applicati on Domain Architect Technolo gy Domain Architect Solution Archit",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "17",
+      "evidence": {
+        "finding_id": "G249:A27",
+        "document_id": "G249",
+        "pdf_page": 27,
+        "printed_page_label": "17",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Extensive experience, practical, and applied knowledge.",
+        "context_en": " Aware Understands and can address issues with the support of specialists. 3 Knowledgeable Good detail enabling effective decision-making, requiring specialist input in difficult situations. 4 Expert Extensive experience, practical, and applied knowledge. Table 5-2: Skill/Architecture Role Matrix Skill Category Skill Subcategory Enterpris e Architect Business Domain Architect Data Domain Architect Applicati on Domain Architect Technolo gy Domain Architect Solution Architect Application Artificial Intelligence (AI) and Expert Systems 3 3 3 3 2 2 Application Application Development 3 2 2 3 2 3 Applic",
+        "source_section": {
+          "id": "G249:s0021",
+          "title": "5. Skills and Proficiency Levels",
+          "level": 2
+        },
+        "source_block_ids": [],
+        "source_table_ids": [
+          "G249:p0027:t01"
+        ],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-27",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 27,
+      "quote_en": "Solution Architect",
+      "topic": "matrix-column-scope",
+      "statement_zh": "表5-2的列覆盖观察：Enterprise、Business Domain、Data Domain、Application Domain、Technology Domain、Solution共六个角色列；Chief和Segment没有独立数值列。不能把Enterprise列自动复制为Chief要求，也不能把四个domain列无规则地合并成Segment要求。",
+      "id": "G249:A28",
+      "context_en": " e Architect Business Domain Architect Data Domain Architect Applicati on Domain Architect Technolo gy Domain Architect Solution Architect Application Artificial Intelligence (AI) and Expert Systems 3 3 3 3 2 2 Application Application Development 3 2 2 3 2 3 Application Application Modeling 3 2 2 3 2 2 Application Application Security 3 2 2 3 3 3 Applicati",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "17",
+      "finding_kind": "source-table-column-coverage-observation",
+      "observed_table_ids": [
+        "G249:p0027:t02",
+        "G249:p0028:t01",
+        "G249:p0029:t01"
+      ],
+      "evidence": {
+        "finding_id": "G249:A28",
+        "document_id": "G249",
+        "pdf_page": 27,
+        "printed_page_label": "17",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Solution Architect",
+        "context_en": "e 5-2: Skill/Architecture Role Matrix Skill Category Skill Subcategory Enterpris e Architect Business Domain Architect Data Domain Architect Applicati on Domain Architect Technolo gy Domain Architect Solution Architect Application Artificial Intelligence (AI) and Expert Systems 3 3 3 3 2 2 Application Application Development 3 2 2 3 2 3 Application Application Modeling 3 2 2 3 2 2 Application Application Security 3 2 2 3 3 3 Application Integration and Interoperability 3 2 3 4 3 4 Application Optimistic/ Pessimistic Patterns 4 3 4 4 3 4 Application Programming 3",
+        "source_section": {
+          "id": "G249:s0021",
+          "title": "5. Skills and Proficiency Levels",
+          "level": 2
+        },
+        "source_block_ids": [],
+        "source_table_ids": [
+          "G249:p0027:t02"
+        ],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-27",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 31,
+      "quote_en": "experience-based certification assessing the required skills and experience",
+      "topic": "open-ca-basis",
+      "statement_zh": "附录A的Open CA是依据经验评估专业架构师所需技能与经验的认证体系；它与某一项目的角色任命和单项技能熟练度是不同记录。",
+      "id": "G249:A29",
+      "context_en": "A: The Open Group Certified Architect Program The Open Group Open Professions program provides experience-based certification assessing the required skills and experience for professional Architects in the form of the Certified Architect program (Open CA). Architecture certifications are available for the following disciplines: • Business Architecture • Digital Architecture • Enterprise ",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "21",
+      "evidence": {
+        "finding_id": "G249:A29",
+        "document_id": "G249",
+        "pdf_page": 31,
+        "printed_page_label": "21",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "experience-based certification assessing the required skills and experience",
+        "context_en": "A: The Open Group Certified Architect Program The Open Group Open Professions program provides experience-based certification assessing the required skills and experience for professional Architects in the form of the Certified Architect program (Open CA). Architecture certifications are available for the following disciplines: • Business Architecture • Digital Architecture • Enterprise Architecture • Solution/IT Architecture Three levels of certification are available, depending on the length and characteristics o",
+        "source_section": {
+          "id": "G249:s0023",
+          "title": "A: The Open Group Certified Architect Program",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0031:b002",
+          "G249:p0031:b003",
+          "G249:p0031:b004"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-31",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 31,
+      "quote_en": "Three levels of certification are available",
+      "topic": "open-ca-levels",
+      "statement_zh": "Open CA提供Certified、Master Certified、Distinguished三个认证层次，分别关联受协助/监督的贡献、独立领导并负责交付、以及领导力和影响广度深度。不能把这些认证层次换算为表5-1的四级技能值。",
+      "id": "G249:A30",
+      "context_en": "lowing disciplines: • Business Architecture • Digital Architecture • Enterprise Architecture • Solution/IT Architecture Three levels of certification are available, depending on the length and characteristics of the Architect’s experience: • Level 1: Certified Architect – able to perform as a contributing Architect with assistance/supervision, with a wide range of appropriate skil",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "21",
+      "evidence": {
+        "finding_id": "G249:A30",
+        "document_id": "G249",
+        "pdf_page": 31,
+        "printed_page_label": "21",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "Three levels of certification are available",
+        "context_en": "chitect program (Open CA). Architecture certifications are available for the following disciplines: • Business Architecture • Digital Architecture • Enterprise Architecture • Solution/IT Architecture Three levels of certification are available, depending on the length and characteristics of the Architect’s experience: • Level 1: Certified Architect – able to perform as a contributing Architect with assistance/supervision, with a wide range of appropriate skills • Level 2: Master Certified Architect – able to perform independently as lead Architect, and take responsibility for delivery o",
+        "source_section": {
+          "id": "G249:s0023",
+          "title": "A: The Open Group Certified Architect Program",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0031:b010",
+          "G249:p0031:b011"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-31",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    },
+    {
+      "pdf_page": 30,
+      "quote_en": "shape and customize it to your specific needs",
+      "topic": "continuous-tailoring",
+      "statement_zh": "角色、技能和熟练度模型是企业定制实践的建议起点，需要围绕具体需求持续调整，以形成有效的实践与发展机制。",
+      "id": "G249:A31",
+      "context_en": " recommended starting point for developing the approach that will best fit a specific enterprise(s). Make sure that you shape and customize it to your specific needs to gain the best outcomes and ongoing effectiveness. 6. Summary 20 The Open Group TOGAF® Series Guide (2025) Evaluation Copy © The Open Group, All Rights Reserved. Evaluation Copy. Not for redistribution",
+      "document_id": "G249",
+      "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+      "printed_page_label": "20",
+      "evidence": {
+        "finding_id": "G249:A31",
+        "document_id": "G249",
+        "pdf_page": 30,
+        "printed_page_label": "20",
+        "source_path": "togaf-standard-10th/G249e.pdf",
+        "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+        "quote_en": "shape and customize it to your specific needs",
+        "context_en": "s of the architects within the wider business environment. This model/shape is a recommended starting point for developing the approach that will best fit a specific enterprise(s). Make sure that you shape and customize it to your specific needs to gain the best outcomes and ongoing effectiveness. 6. Summary 20 The Open Group TOGAF® Series Guide (2025) Evaluation Copy © The Open Group, All Rights Reserved. Evaluation Copy. Not for redistribution",
+        "source_section": {
+          "id": "G249:s0022",
+          "title": "6. Summary",
+          "level": 2
+        },
+        "source_block_ids": [
+          "G249:p0030:b005",
+          "G249:p0030:b006",
+          "G249:p0030:b007"
+        ],
+        "source_table_ids": [],
+        "section_attribution": "quote-containing-source-blocks-and-preceding-content-heading",
+        "source_markdown_path": "documents/G249.md#page-30",
+        "source_json_path": "documents/G249.json",
+        "verification": "source-PDF-SHA256-and-normalized-quote-on-physical-page"
+      },
+      "assertion_status": "authored-source-grounded-paraphrase"
+    }
+  ],
+  "id": "G249",
+  "title_zh": "架构角色与技能",
+  "title_en": "TOGAF® Series Guide: Architecture Roles and Skills",
+  "source": {
+    "path": "togaf-standard-10th/G249e.pdf",
+    "sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da",
+    "bytes": 1487563,
+    "page_count": 33,
+    "format": "pdf"
+  },
+  "operational_interpretation": {
+    "assertion_status": "project-derived-operating-model-not-source-mandate",
+    "notice_zh": "以下工作链和字段是依据G249形成的项目执行解释；不是官方规定的流程、制品清单或认证规则。AI协助分析和生成，人承担实际mandate、任命、认可及批准。",
+    "evidence_ids": [
+      "G249:A07",
+      "G249:A08",
+      "G249:A09",
+      "G249:A10",
+      "G249:A11",
+      "G249:A12",
+      "G249:A13",
+      "G249:A14",
+      "G249:A15",
+      "G249:A16",
+      "G249:A17",
+      "G249:A18",
+      "G249:A19",
+      "G249:A20",
+      "G249:A21",
+      "G249:A22",
+      "G249:A23",
+      "G249:A24",
+      "G249:A25",
+      "G249:A26",
+      "G249:A27",
+      "G249:A28",
+      "G249:A29",
+      "G249:A30",
+      "G249:A31"
+    ],
+    "chain": [
+      {
+        "stage": "mandate",
+        "question_zh": "为什么需要架构工作，谁要求并授权？",
+        "inputs_zh": [
+          "目标与关注点",
+          "适用范围和约束",
+          "授权证据"
+        ],
+        "outputs_zh": [
+          "架构任务边界",
+          "决策人与未确认授权缺口"
+        ],
+        "acceptance_zh": "有可追溯的真实mandate；没有时仅形成待确认建议。"
+      },
+      {
+        "stage": "work-and-assignment",
+        "question_zh": "需要完成什么工作，由谁在何种条件下承担？",
+        "inputs_zh": [
+          "mandate",
+          "任务复杂性与时间",
+          "现有岗位/角色/人员"
+        ],
+        "outputs_zh": [
+          "assignment",
+          "角色决策范围",
+          "交接与专家支持安排"
+        ],
+        "acceptance_zh": "责任、工作对象、时间和接受条件清楚；任命不自动证明胜任或人事汇报。"
+      },
+      {
+        "stage": "task-specific-skill-target",
+        "question_zh": "这项任务需要怎样的知识、实践与独立性？",
+        "inputs_zh": [
+          "assignment",
+          "表5-1等级定义",
+          "表5-2来源参考"
+        ],
+        "outputs_zh": [
+          "任务技能目标",
+          "裁剪依据",
+          "必要支持条件"
+        ],
+        "acceptance_zh": "保留原矩阵；采纳目标另存；Chief/Segment无来源独立列。"
+      },
+      {
+        "stage": "observed-evidence",
+        "question_zh": "现有证据能够支持什么程度的能力判断？",
+        "inputs_zh": [
+          "实际工作样本",
+          "评审/反馈",
+          "自评及证据时间"
+        ],
+        "outputs_zh": [
+          "按技能的观察结果",
+          "未知与不足",
+          "与目标的条件性差距"
+        ],
+        "acceptance_zh": "每项判断说明任务情境、独立程度、专家参与及证据；自评与审核结论分开。"
+      },
+      {
+        "stage": "recognition-and-development",
+        "question_zh": "谁认可该能力，如何弥补不足并验证进步？",
+        "inputs_zh": [
+          "能力证据",
+          "差距",
+          "导师及实践机会"
+        ],
+        "outputs_zh": [
+          "认可状态",
+          "实践/导师计划",
+          "复评安排"
+        ],
+        "acceptance_zh": "认可有人类责任与证据；培训完成不能直接替代任务胜任；Open CA另行记录。"
+      },
+      {
+        "stage": "delivery-and-feedback",
+        "question_zh": "架构工作是否支持了预期决定和服务变化？",
+        "inputs_zh": [
+          "架构决定与制品",
+          "测试/运营证据",
+          "采纳的KPI"
+        ],
+        "outputs_zh": [
+          "接受/偏离记录",
+          "运营反馈",
+          "需调整的mandate与assignment"
+        ],
+        "acceptance_zh": "结构校验、专业判断、正式批准和运营结果分别陈述。"
+      }
+    ],
+    "role_decision_contracts": [
+      {
+        "role": "Chief Architect",
+        "decision_scope_zh": "战略、运营模型与架构全景的重大变革及承诺",
+        "inputs_zh": [
+          "企业目标与战略驱动",
+          "全景风险与跨域约束",
+          "高层关注点"
+        ],
+        "analysis_zh": "解释变革的必要性、范围与选项，判断架构全景和运营模型如何支撑企业目标，并组织承诺。",
+        "outputs_zh": [
+          "高层决策材料",
+          "运营模型变化方向",
+          "重大原则/约束与跨域路线图取舍"
+        ],
+        "acceptance_zh": "决策及承诺来自授权者，目标到变革的论证可追溯。"
+      },
+      {
+        "role": "Enterprise Architect",
+        "decision_scope_zh": "跨分段的集成、互操作和架构全景演进",
+        "inputs_zh": [
+          "目标与原则",
+          "分段能力/路线图",
+          "跨域依赖和冲突"
+        ],
+        "analysis_zh": "比较跨分段方案，处理共同对象、接口、标准和路线图冲突，明确共享约束与治理条件。",
+        "outputs_zh": [
+          "跨分段目标架构与依赖图",
+          "共享原则/政策",
+          "协调后的演进路线图"
+        ],
+        "acceptance_zh": "分段间对象与接口一致；冲突、权衡与尚待决定事项有记录。"
+      },
+      {
+        "role": "Segment Architect",
+        "decision_scope_zh": "一组一致能力及其系统、子系统和构件的演进",
+        "inputs_zh": [
+          "分段目标与能力边界",
+          "企业约束",
+          "现有构件和其他分段接口"
+        ],
+        "analysis_zh": "将分段能力落实到实现对象和约束，分析域内演进、标准、互操作及对端到端服务的贡献。",
+        "outputs_zh": [
+          "分段能力与构件映射",
+          "接口/标准约束",
+          "分段路线图与协作交接"
+        ],
+        "acceptance_zh": "范围清楚，构件和约束可追溯到能力及服务水平，跨分段影响已反馈。"
+      },
+      {
+        "role": "Solution Architect",
+        "decision_scope_zh": "满足明确需求并交付目标服务水平的新增或变更解决方案",
+        "inputs_zh": [
+          "需求与服务水平",
+          "上位架构约束",
+          "生产环境及安全/隐私/测试条件"
+        ],
+        "analysis_zh": "比较拓扑与构件选项，安排可实施的过渡架构、测试及运营维护；识别风险、变更和必要偏离。",
+        "outputs_zh": [
+          "方案与拓扑权衡",
+          "需求到构件/测试追踪",
+          "过渡交付、运营维护及偏离记录"
+        ],
+        "acceptance_zh": "需求、服务水平与运行安排有证据；未批准偏离不自动成为合法例外。"
+      }
+    ],
+    "example": {
+      "identity": "fictional-method-example",
+      "scenario_zh": "某零售企业计划新增跨渠道履约服务。",
+      "trace_zh": "Chief核对该变化与经营目标和资源承诺；Enterprise协调订单、库存、物流分段之间的依赖；Segment定义本分段能力、构件与接口；Solution比较具体系统拓扑、过渡版本、测试和运行方案。四种视角共享能力/服务/系统ID，并把所需技能、专家支持和实际观察证据绑定到各assignment。",
+      "boundary_zh": "示例不证明该企业、任命、预算、批准或人员能力真实存在，也不要求必须配置四个人或四个代理。"
+    }
+  },
+  "schema_version": "togaf-architecture-analysis/1.0",
+  "path_base": "corpus-root",
+  "content_role": "authored-source-grounded-architecture-analysis",
+  "maintenance_source": "tools/togaf_corpus/architecture-analysis-data.json",
+  "maintenance_sha256": "e13c6e5e34a20f7093548ad68049baff12d1b59800ec64075547e5fd52afafdf",
+  "semantic_policy": {
+    "status": "authored-source-grounded-navigation-model-not-the-normative-TOGAF-metamodel",
+    "evidence_policy_zh": "每条概念与关系引用已绑定PDF指纹、实体页码和原文短引的分析发现；定义为语料上下文释义，不冒充逐字规范定义。",
+    "cardinality_policy_zh": "仅在来源明确说明时记录基数。null表示未在所引证据中规定，不表示不存在、零或无限。",
+    "hierarchy_policy_zh": "严格区分组成、类型特化、分类、实现、架构约束、信息流和组织汇报；图形嵌套、位置、颜色及线条样式本身不足以新增人员汇报关系。",
+    "recommendation_policy_zh": "指南应用输入、输出、步骤、判断标准为基于证据编写的项目建议，需按本项目上下文裁剪，不表示原文强制要求。",
+    "source_scope_zh": "覆盖本文件夹26份TOGAF Series Guide。此层不声称包含本地未提供的TOGAF基础内容、配套外部电子表格或外部引用全文。"
+  },
+  "application_analysis_status": "derived-project-recommendations-not-source-mandates-or-project-facts",
+  "application_evidence_ids": [
+    "G249:A01",
+    "G249:A02",
+    "G249:A03",
+    "G249:A04",
+    "G249:A05",
+    "G249:A06",
+    "G249:A07",
+    "G249:A08",
+    "G249:A09",
+    "G249:A10",
+    "G249:A11",
+    "G249:A12",
+    "G249:A13",
+    "G249:A14",
+    "G249:A15",
+    "G249:A16",
+    "G249:A17",
+    "G249:A18",
+    "G249:A19",
+    "G249:A20",
+    "G249:A21",
+    "G249:A22",
+    "G249:A23",
+    "G249:A24",
+    "G249:A25",
+    "G249:A26",
+    "G249:A27",
+    "G249:A28",
+    "G249:A29",
+    "G249:A30",
+    "G249:A31"
+  ],
+  "concept_ids": [
+    "segment_architecture",
+    "detailed_architecture",
+    "capability_group",
+    "role",
+    "person",
+    "job",
+    "assignment",
+    "skill",
+    "enterprise_architect",
+    "chief_architect",
+    "solution_architect",
+    "solution_architecture_work"
+  ],
+  "relationship_ids": [
+    "R009",
+    "R089",
+    "R090",
+    "R091",
+    "R092",
+    "R094",
+    "R095",
+    "R096",
+    "R097"
+  ],
+  "figures": [
+    {
+      "id": "G249/fig4-1",
+      "document_id": "G249",
+      "title_en": "Architecture Roles and their Relationships",
+      "title_zh": "架构角色及其关系",
+      "pdf_pages": [
+        16
+      ],
+      "json_path": "figures/G249/fig4-1.json",
+      "markdown_path": "figures/G249/fig4-1.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 12,
+      "relationships": 15,
+      "graph_issue_count": 0,
+      "ocr_word_count": 144
+    },
+    {
+      "id": "G249/fig4-2",
+      "document_id": "G249",
+      "title_en": "Entity Relationship Diagram for Architecture Level Concepts",
+      "title_zh": "架构层级概念的实体关系图",
+      "pdf_pages": [
+        21
+      ],
+      "json_path": "figures/G249/fig4-2.json",
+      "markdown_path": "figures/G249/fig4-2.md",
+      "source_role": "source-figure-with-historical-interpretation",
+      "elements": 18,
+      "relationships": 11,
+      "graph_issue_count": 0,
+      "ocr_word_count": 183
+    }
+  ],
+  "figure_notice_zh": "这里链接本指南的图记录供逐项核对，不把历史图示释义自动当作已验证原文关系；图记录的独立质量与视觉审查状态优先。",
+  "full_text": {
+    "json_path": "documents/G249.json",
+    "markdown_path": "documents/G249.md"
+  }
+}

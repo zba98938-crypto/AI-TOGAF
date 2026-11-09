@@ -1,0 +1,417 @@
+{
+  "schema_version": "2.0",
+  "id": "G217/fig4-1",
+  "title": "TOGAF 原则与 DPBoK 标准语境的映射",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      436
+    ],
+    "label_table_lines": [
+      440,
+      465
+    ]
+  },
+  "reading": {
+    "purpose_zh": "在 4.3 节开头给出原则与 DPBoK 四个涌现语境的对照总表，随后按语境逐条展开原则说明；同时用“适用于较早语境即适用于之后所有语境”的规则，让读者能把一张稀疏矩阵读成累积的服务/原则集合。",
+    "reading_guide_zh": "先读列标题：Context I 个人/创始人 → II 团队 → III 团队之团队 → IV 持久企业，组织规模与治理复杂度递增。再逐行看 × 从哪一列开始出现；由于累积规则，一行的 × 应从某一列起连续到最右列。左上角对角线只是把行标题区与列标题区分开，不是数据。",
+    "key_points_zh": [
+      "只评估并列出 15 项 TOGAF 原则：2、3、4、5、6、10、11、12、15、16、17、18、19、20、21；编号不连续是原图如此（只列适用项），不是漏抄。",
+      "四项原则在四个语境全部适用：P2 最大化企业收益、P15 数据安全、P17 易用性、P19 响应式变更管理。",
+      "P3 信息管理是每个人的事、P4 业务连续性只在语境 IV 出现；P5 通用应用、P10–P12 三项数据原则、P16 技术独立性、P20 控制技术多样性、P21 互操作性从语境 III 开始适用。",
+      "语境 II 只新增 P6 服务导向，并延续 P2、P15、P17、P18、P19；语境 I 只有 P2、P15、P17、P19 四项。",
+      "每一行的 × 都从某一列开始连续到 IV，体现正文规则“若原则适用于较早语境，则也适用于之后所有语境”；因此最左侧的 × 就是该原则的引入语境。",
+      "语境 IV 覆盖全部 15 项，语境 I 只覆盖 4 项：原则组合随组织规模、治理和合规需求增加而扩展。",
+      "图前的 NOTE 明确该映射只作参考和一般性指导，最终选择哪些原则取决于具体情境。"
+    ],
+    "hierarchy_zh": "列方向是 DPBoK 的四个涌现层级（I→IV，组织规模/复杂度递增，不是互斥类型）；行方向是 TOGAF 原则清单（按原则编号升序）；没有更深的层级。",
+    "line_semantics_zh": "图中唯一的线是左上角单元格的对角线，只用于分隔“原则”行标题与“语境”列标题。× 不是连线，表示该原则在该语境适用；空白表示未评估为适用。",
+    "misreadings_zh": [
+      "× 表示“适用/可参考”，不是“强制实施”或“已经实施”。",
+      "空白不表示禁止，只表示该语境未把该原则评估为适用；结合累积规则，较晚语境仍可能适用。",
+      "四列不是互斥的组织类型，而是涌现层级；一个组织可能同时处于多个语境。",
+      "原则编号跳号（缺 1、7、8、9、13、14）是原图只列适用项，不是排版缺行。",
+      "左上角斜线不是趋势线或分界线，只是表头分隔符。",
+      "中文稿引用的 g217e_fig4-1_zh.png 表头被截断、原则 2–5 的 × 丢失，不能据它判断列对应关系或“哪些原则全适用”。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "axis_contexts",
+      "label_en": "DPBoK Contexts",
+      "label_zh": "DPBoK 语境",
+      "type": "group",
+      "parent": null,
+      "position": "表头右上",
+      "description_zh": "四个语境列的总标题。"
+    },
+    {
+      "id": "axis_principles",
+      "label_en": "Principles from the TOGAF Standard",
+      "label_zh": "TOGAF 标准中的原则",
+      "type": "group",
+      "parent": null,
+      "position": "表头左下",
+      "description_zh": "15 行原则的总标题。"
+    },
+    {
+      "id": "ctx_i",
+      "label_en": "Context I: Individual/Founder",
+      "label_zh": "语境 I：个人/创始人",
+      "type": "phase",
+      "parent": "axis_contexts",
+      "order": 1,
+      "level": 1,
+      "position": "第 1 列（最左）"
+    },
+    {
+      "id": "ctx_ii",
+      "label_en": "Context II: Team",
+      "label_zh": "语境 II：团队",
+      "type": "phase",
+      "parent": "axis_contexts",
+      "order": 2,
+      "level": 1,
+      "position": "第 2 列"
+    },
+    {
+      "id": "ctx_iii",
+      "label_en": "Context III: Team of Teams",
+      "label_zh": "语境 III：团队之团队",
+      "type": "phase",
+      "parent": "axis_contexts",
+      "order": 3,
+      "level": 1,
+      "position": "第 3 列"
+    },
+    {
+      "id": "ctx_iv",
+      "label_en": "Context IV: Enduring Enterprise",
+      "label_zh": "语境 IV：持久企业",
+      "type": "phase",
+      "parent": "axis_contexts",
+      "order": 4,
+      "level": 1,
+      "position": "第 4 列（最右）"
+    },
+    {
+      "id": "p2",
+      "label_en": "Principle 2: Maximize Benefit to the Enterprise",
+      "label_zh": "原则 2：最大化企业收益",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 2,
+      "level": 1,
+      "position": "第 1 行"
+    },
+    {
+      "id": "p3",
+      "label_en": "Principle 3: Information Management is Everybody’s Business",
+      "label_zh": "原则 3：信息管理是每个人的事",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 3,
+      "level": 1,
+      "position": "第 2 行"
+    },
+    {
+      "id": "p4",
+      "label_en": "Principle 4: Business Continuity",
+      "label_zh": "原则 4：业务连续性",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 4,
+      "level": 1,
+      "position": "第 3 行"
+    },
+    {
+      "id": "p5",
+      "label_en": "Principle 5: Common Use Applications",
+      "label_zh": "原则 5：通用应用",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 5,
+      "level": 1,
+      "position": "第 4 行"
+    },
+    {
+      "id": "p6",
+      "label_en": "Principle 6: Service Orientation",
+      "label_zh": "原则 6：服务导向",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 6,
+      "level": 1,
+      "position": "第 5 行"
+    },
+    {
+      "id": "p10",
+      "label_en": "Principle 10: Data is an Asset",
+      "label_zh": "原则 10：数据是资产",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 10,
+      "level": 1,
+      "position": "第 6 行"
+    },
+    {
+      "id": "p11",
+      "label_en": "Principle 11: Data is Shared",
+      "label_zh": "原则 11：数据是共享的",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 11,
+      "level": 1,
+      "position": "第 7 行"
+    },
+    {
+      "id": "p12",
+      "label_en": "Principle 12: Data is Accessible",
+      "label_zh": "原则 12：数据可访问",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 12,
+      "level": 1,
+      "position": "第 8 行"
+    },
+    {
+      "id": "p15",
+      "label_en": "Principle 15: Data Security",
+      "label_zh": "原则 15：数据安全",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 15,
+      "level": 1,
+      "position": "第 9 行"
+    },
+    {
+      "id": "p16",
+      "label_en": "Principle 16: Technology Independence",
+      "label_zh": "原则 16：技术独立性",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 16,
+      "level": 1,
+      "position": "第 10 行"
+    },
+    {
+      "id": "p17",
+      "label_en": "Principle 17: Ease-of-Use",
+      "label_zh": "原则 17：易用性",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 17,
+      "level": 1,
+      "position": "第 11 行"
+    },
+    {
+      "id": "p18",
+      "label_en": "Principle 18: Requirements-Based Change",
+      "label_zh": "原则 18：基于需求的变化",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 18,
+      "level": 1,
+      "position": "第 12 行"
+    },
+    {
+      "id": "p19",
+      "label_en": "Principle 19: Responsive Change Management",
+      "label_zh": "原则 19：响应式变更管理",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 19,
+      "level": 1,
+      "position": "第 13 行"
+    },
+    {
+      "id": "p20",
+      "label_en": "Principle 20: Control Technical Diversity",
+      "label_zh": "原则 20：控制（管理）技术多样性",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 20,
+      "level": 1,
+      "position": "第 14 行"
+    },
+    {
+      "id": "p21",
+      "label_en": "Principle 21: Interoperability",
+      "label_zh": "原则 21：互操作性",
+      "type": "principle",
+      "parent": "axis_principles",
+      "order": 21,
+      "level": 1,
+      "position": "第 15 行"
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_principles",
+      "title_zh": "TOGAF 原则 × DPBoK 语境适用性矩阵（按原图逐行转录）",
+      "columns": [
+        "TOGAF 原则",
+        "Context I: Individual/Founder",
+        "Context II: Team",
+        "Context III: Team of Teams",
+        "Context IV: Enduring Enterprise"
+      ],
+      "rows": [
+        [
+          "Principle 2: Maximize Benefit to the Enterprise",
+          "×",
+          "×",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 3: Information Management is Everybody’s Business",
+          "",
+          "",
+          "",
+          "×"
+        ],
+        [
+          "Principle 4: Business Continuity",
+          "",
+          "",
+          "",
+          "×"
+        ],
+        [
+          "Principle 5: Common Use Applications",
+          "",
+          "",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 6: Service Orientation",
+          "",
+          "×",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 10: Data is an Asset",
+          "",
+          "",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 11: Data is Shared",
+          "",
+          "",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 12: Data is Accessible",
+          "",
+          "",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 15: Data Security",
+          "×",
+          "×",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 16: Technology Independence",
+          "",
+          "",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 17: Ease-of-Use",
+          "×",
+          "×",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 18: Requirements-Based Change",
+          "",
+          "×",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 19: Responsive Change Management",
+          "×",
+          "×",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 20: Control Technical Diversity",
+          "",
+          "",
+          "×",
+          "×"
+        ],
+        [
+          "Principle 21: Interoperability",
+          "",
+          "",
+          "×",
+          "×"
+        ]
+      ],
+      "cell_legend": [
+        "× = 该原则适用于该 DPBoK 语境；空白 = 未评估为适用"
+      ],
+      "notes_zh": "原图 15 行 × 4 列，× 均从某列起连续到第 IV 列，符合“较早语境适用则之后都适用”的累积规则。"
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "单元格中的 ×",
+      "meaning_zh": "该 TOGAF 原则适用于该 DPBoK 语境",
+      "explicit": false
+    },
+    {
+      "symbol": "空白单元格",
+      "meaning_zh": "该语境未把该原则评估为适用",
+      "explicit": false
+    },
+    {
+      "symbol": "左上角对角线",
+      "meaning_zh": "分隔行标题区与列标题区，无数据含义",
+      "explicit": true
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "× 的具体含义按正文“applicable”理解为适用/可参考；原图没有图例说明。",
+      "中文稿引用的中文化 PNG 严重损坏，列标题与原则 2–5 的 × 无法核对，只能以英文原图为准。",
+      "中文稿未给出图 4-1 的中文图题，本文件按英文标题与正文术语拟译。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 39 页 450 dpi 渲染与 figctx 220 dpi 截图",
+      "fig4-1_p39_1.png 及放大分块 z11/z22",
+      "英文 PDF 第 38–39 页正文与图题（Figure 4-1）",
+      "中文稿 G217e_在数字企业中使用TOGAF标准.md 第 434–465 行",
+      "figs/g217_fig4-1.svg 文本、figs/zh/g217e_fig4-1_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G217/fig4-1",
+    "asset": "figs/g217e_fig4-1_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "10"
+  }
+}

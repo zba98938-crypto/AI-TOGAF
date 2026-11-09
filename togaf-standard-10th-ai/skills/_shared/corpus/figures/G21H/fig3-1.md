@@ -1,0 +1,482 @@
+# G21H/fig3-1 · DBRM 要素——高层视图
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G21H/fig3-1.md) · [JSON](../../architecture/diagrams/G21H/fig3-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G21He.pdf`；SHA-256：`40881f73b66ae8cfabc279aba8fe3767182ac3e865823054d0aca58f6292a470`。
+
+## 原图 · PDF 第 24 页
+
+![英文原图](../assets/G21H/fig3-1-p0024.png)
+
+PDF 坐标：`[61.1, 284.2, 550.9, 607.8]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Strategic Context
+as
+c=
+Business Motivation
+=
+Customer
+Focus
+Business Services and Products
+f
+on
+Ecosystem and Business
+<8
+Model
+Operating Model
+isiness Capability Model
+J
+Digital
+Enterprise
+Business Operating Environment
+Digital Enablement
+© The Open Group
+```
+
+## 概要（历史解释；局部修正见上）
+
+DBRM 的十个核心要素分属数字、战略、结构、运营四个域，数字实践纵贯三域并以箭头牵引其余要素。
+
+## 目的（历史解释；局部修正见上）
+
+在第 3 章开头给出 DBRM 的最高层视图：先把十个核心要素按四个域摆出来，让利益相关者看清模型范围与域的分工，再进入第 4 章的逐要素细化。正文明确说这张图只表示“关系存在”，不展开关系的细节；它的作用是建立共同的范围与词汇，而不是解释机制。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+先看左侧三条横向域带的竖排标签，自上而下是战略域（为什么）、结构域（是什么）、运营域（怎么做）；再看纵贯这三条带的橙色数字实践列，列内上方是 Customer Focus、下方是 Digital Enterprise。然后顺着绿色箭头读：从数字实践列向右分出的箭头指向战略三要素、结构中的生态与业务模型、运营两要素；列内下方还有一条自下而上的箭头（Digital Enterprise→Customer Focus）。最后看结构域内部：三个方块之间的双向箭头表示相互依赖，顶部汇流线把三个结构要素汇成一个箭头送入业务服务与产品，底部汇流线由业务运营环境向上分三支送入三个结构要素。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 十个核心要素与域的归属：数字域=客户聚焦、数字企业；战略域=战略语境、业务动机、业务服务与产品；结构域=生态与业务模型、运营模式、业务能力模型；运营域=业务运营环境、数字使能。
+- 四个域回答不同问题：数字域强调由外而内的数字实践，战略域回答“为什么”，结构域回答“是什么”，运营域回答“怎么做”（左侧竖排标签）。
+- 数字实践不是一个与战略/结构/运营并列的第四层，而是一条纵贯三层的竖列：客户聚焦位于战略带的高度，数字企业位于运营带的高度，表示数字实践贯穿三个域。
+- 从数字实践列向右的箭头有明确分工：Customer Focus 指向战略语境、业务动机、业务服务与产品；Digital Enterprise 指向生态与业务模型、业务运营环境、数字使能。这与正文“客户聚焦与数字企业确保其他要素面向适当数字能力”的表述一致。
+- Digital Enterprise 还有一条向上的箭头指向 Customer Focus，表示数字企业能力支撑/强化客户聚焦；图中没有反向箭头，不能读成二者互为因果。
+- 结构域三个要素（生态与业务模型、运营模式、业务能力模型）之间是双向箭头，表示相互依赖、共同定义企业“是什么”，没有先后顺序。
+- 结构三要素通过顶部汇流线共同支撑业务服务与产品（合流后只有一个箭头进入该要素）；业务运营环境通过底部汇流线向上支撑三个结构要素，表示运营环境使能结构模型的执行。
+- 本图刻意不画关系细节：正文说 Figure 3-1 不表达实体间的详细关系，只表明关系存在；具体子要素与组内关系见图 4-1 与第 4 章。
+
+## 层级（历史解释；局部修正见上）
+
+两层。第 1 层是四个域（战略域、结构域、运营域三条横带 + 数字实践一条竖带）；第 2 层是十个核心要素。数字实践列内 Customer Focus 与 Digital Enterprise 是并列的核心要素，不是父子；结构域三要素、运营域两要素、战略域三要素也各自并列。图中没有子要素层，子要素在图 4-1 才出现。
+
+## 线条含义（历史解释；局部修正见上）
+
+全部为绿色实线箭头，无文字标签。方向分四类：①数字实践列→其他要素（影响/使能），箭头画在目标要素一侧；②Digital Enterprise→Customer Focus（列内向上）；③结构三要素之间的双向箭头（相互依赖）；④两条汇流线：顶部把三个结构要素汇成一个箭头送入业务服务与产品，底部由业务运营环境向上分三支送入三个结构要素（图 3-1 中业务运营环境一端没有箭头）。域带本身是背景容器，不是连线；要素之间的上下位置不表示层级，只有 parent 关系表示的域归属。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把四个域读成四个并列的层：数字实践是纵贯战略/结构/运营三带的竖列，不是第四层，也不是流程的第一站。
+- 结构三要素之间的双向箭头不是流程顺序，而是相互依赖；图中没有时间先后，也没有“从生态到运营模式再到能力模型”的推进关系。
+- 顶部汇流线虽然只有一个箭头进入业务服务与产品，但它汇集了三个结构要素；不要读成只有运营模式支撑业务服务与产品。
+- 底部汇流线的方向是业务运营环境向上进入三个结构要素（图 3-1 中 BOpEnv 顶端无箭头）；不要反读成结构要素流向运营环境。图 4-1 在同一位置多画了一个向下的箭头，两图不要混用。
+- 箭头只表示“关系存在”，不表示强度、成熟度、价值流顺序或影响大小；原文明确说本图不表达详细关系。
+- 中文稿当前引用的 figs/g21h_fig3-1.svg 把四域画成四列并删除了全部箭头，不能据它理解本图的关系结构。
+
+## 元素
+
+```json
+[
+  {
+    "id": "digital_practices",
+    "label_en": "Digital Practices",
+    "label_zh": "数字实践（数字域）",
+    "type": "group",
+    "parent": null,
+    "level": 0,
+    "position": "左侧橙色竖带，纵贯战略、结构、运营三域",
+    "description_zh": "纵贯三域的竖列，内部上方为客户聚焦、下方为数字企业；对应稿件第 3.2 节的数字域。"
+  },
+  {
+    "id": "customer_focus",
+    "label_en": "Customer Focus",
+    "label_zh": "客户聚焦",
+    "type": "concept",
+    "parent": "digital_practices",
+    "level": 1,
+    "position": "橙色竖带内上方（与战略域同高）",
+    "description_zh": "数字域要素；由外而内发现客户如何使用产品与服务以及隐藏需求。"
+  },
+  {
+    "id": "digital_enterprise",
+    "label_en": "Digital Enterprise",
+    "label_zh": "数字企业",
+    "type": "concept",
+    "parent": "digital_practices",
+    "level": 1,
+    "position": "橙色竖带内下方（与运营域同高）",
+    "description_zh": "数字域要素；数字产品与服务组合、数字运营与数字胜任力的总称。"
+  },
+  {
+    "id": "strategy_domain",
+    "label_en": "Strategy Domain (Why)",
+    "label_zh": "战略域（为什么）",
+    "type": "group",
+    "parent": null,
+    "level": 0,
+    "position": "右侧最上方浅绿横带",
+    "description_zh": "原图左侧竖排标签为“Strategy Domain (Why)”。"
+  },
+  {
+    "id": "strategic_context",
+    "label_en": "Strategic Context",
+    "label_zh": "战略语境",
+    "type": "concept",
+    "parent": "strategy_domain",
+    "level": 1,
+    "order": 1,
+    "position": "战略域第一条通栏横条"
+  },
+  {
+    "id": "business_motivation",
+    "label_en": "Business Motivation",
+    "label_zh": "业务动机",
+    "type": "concept",
+    "parent": "strategy_domain",
+    "level": 1,
+    "order": 2,
+    "position": "战略域第二条通栏横条"
+  },
+  {
+    "id": "business_services",
+    "label_en": "Business Services and Products",
+    "label_zh": "业务服务与产品",
+    "type": "concept",
+    "parent": "strategy_domain",
+    "level": 1,
+    "order": 3,
+    "position": "战略域第三条通栏横条"
+  },
+  {
+    "id": "structural_domain",
+    "label_en": "Structural Domain (What)",
+    "label_zh": "结构域（是什么）",
+    "type": "group",
+    "parent": null,
+    "level": 0,
+    "position": "右侧中部蓝灰横带",
+    "description_zh": "原图左侧竖排标签为“Structural Domain (What)”。"
+  },
+  {
+    "id": "ecosystem_model",
+    "label_en": "Ecosystem and Business Model",
+    "label_zh": "生态与业务模型",
+    "type": "concept",
+    "parent": "structural_domain",
+    "level": 1,
+    "order": 1,
+    "position": "结构域左侧方块"
+  },
+  {
+    "id": "operating_model",
+    "label_en": "Operating Model",
+    "label_zh": "运营模式",
+    "type": "concept",
+    "parent": "structural_domain",
+    "level": 1,
+    "order": 2,
+    "position": "结构域中间方块"
+  },
+  {
+    "id": "capability_model",
+    "label_en": "Business Capability Model",
+    "label_zh": "业务能力模型",
+    "type": "concept",
+    "parent": "structural_domain",
+    "level": 1,
+    "order": 3,
+    "position": "结构域右侧方块"
+  },
+  {
+    "id": "operational_domain",
+    "label_en": "Operational Domain (How)",
+    "label_zh": "运营域（怎么做）",
+    "type": "group",
+    "parent": null,
+    "level": 0,
+    "position": "右侧最下方淡黄横带",
+    "description_zh": "原图左侧竖排标签为“Operational Domain (How)”。"
+  },
+  {
+    "id": "business_operating_env",
+    "label_en": "Business Operating Environment",
+    "label_zh": "业务运营环境",
+    "type": "concept",
+    "parent": "operational_domain",
+    "level": 1,
+    "order": 1,
+    "position": "运营域上方通栏横条"
+  },
+  {
+    "id": "digital_enablement",
+    "label_en": "Digital Enablement",
+    "label_zh": "数字使能",
+    "type": "concept",
+    "parent": "operational_domain",
+    "level": 1,
+    "order": 2,
+    "position": "运营域下方通栏横条"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "id": "r_de_cf",
+    "from": "digital_enterprise",
+    "to": "customer_focus",
+    "type": "influence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "橙色列内自下而上的箭头，从 Digital Enterprise 顶边指向 Customer Focus 底边。"
+  },
+  {
+    "id": "r_cf_sc",
+    "from": "customer_focus",
+    "to": "strategic_context",
+    "type": "influence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "Customer Focus 右缘引出竖直分支，箭头指向 Strategic Context 左边缘。"
+  },
+  {
+    "id": "r_cf_bm",
+    "from": "customer_focus",
+    "to": "business_motivation",
+    "type": "influence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "同一分支向下，箭头指向 Business Motivation 左边缘。"
+  },
+  {
+    "id": "r_cf_bsp",
+    "from": "customer_focus",
+    "to": "business_services",
+    "type": "influence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "同一分支再向下，箭头指向 Business Services and Products 左边缘。"
+  },
+  {
+    "id": "r_de_eb",
+    "from": "digital_enterprise",
+    "to": "ecosystem_model",
+    "type": "influence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "Digital Enterprise 右缘引出的分支，箭头指向 Ecosystem and Business Model 左边缘。"
+  },
+  {
+    "id": "r_de_boe",
+    "from": "digital_enterprise",
+    "to": "business_operating_env",
+    "type": "influence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "Digital Enterprise 右缘引出分支，箭头指向 Business Operating Environment 左边缘。"
+  },
+  {
+    "id": "r_de_den",
+    "from": "digital_enterprise",
+    "to": "digital_enablement",
+    "type": "influence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "同一分支向下，箭头指向 Digital Enablement 左边缘。"
+  },
+  {
+    "id": "r_eb_om",
+    "from": "ecosystem_model",
+    "to": "operating_model",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "both",
+    "description_zh": "两个方块之间的双向箭头，表示相互依赖。"
+  },
+  {
+    "id": "r_om_bcm",
+    "from": "operating_model",
+    "to": "capability_model",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "both",
+    "description_zh": "两个方块之间的双向箭头，表示相互依赖。"
+  },
+  {
+    "id": "r_eb_bsp",
+    "from": "ecosystem_model",
+    "to": "business_services",
+    "type": "serving",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "顶部汇流线左端从 Ecosystem 顶边引出，向右汇入；箭头只在合流后进入 Business Services and Products。"
+  },
+  {
+    "id": "r_om_bsp",
+    "from": "operating_model",
+    "to": "business_services",
+    "type": "serving",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "顶部汇流线中段从 Operating Model 顶边引出，合流后向上进入 Business Services and Products。"
+  },
+  {
+    "id": "r_bcm_bsp",
+    "from": "capability_model",
+    "to": "business_services",
+    "type": "serving",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "顶部汇流线右端从 Business Capability Model 顶边引出，向左汇入同一箭头。"
+  },
+  {
+    "id": "r_boe_eb",
+    "from": "business_operating_env",
+    "to": "ecosystem_model",
+    "type": "serving",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "底部汇流线由 Business Operating Environment 顶边向上引出，分成三支；此支箭头指向 Ecosystem 底边。"
+  },
+  {
+    "id": "r_boe_om",
+    "from": "business_operating_env",
+    "to": "operating_model",
+    "type": "serving",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "底部汇流线中支，箭头指向 Operating Model 底边。"
+  },
+  {
+    "id": "r_boe_bcm",
+    "from": "business_operating_env",
+    "to": "capability_model",
+    "type": "serving",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "底部汇流线右支，箭头指向 Business Capability Model 底边。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "橙色竖带 + 竖排“Digital Practices”",
+    "meaning_zh": "数字实践/数字域，纵贯战略、结构、运营三个域",
+    "explicit": false
+  },
+  {
+    "symbol": "浅绿横带 + 左侧竖排“Strategy Domain (Why)”",
+    "meaning_zh": "战略域，回答“为什么”",
+    "explicit": false
+  },
+  {
+    "symbol": "蓝灰横带 + 左侧竖排“Structural Domain (What)”",
+    "meaning_zh": "结构域，回答“是什么”",
+    "explicit": false
+  },
+  {
+    "symbol": "淡黄横带 + 左侧竖排“Operational Domain (How)”",
+    "meaning_zh": "运营域，回答“怎么做”",
+    "explicit": false
+  },
+  {
+    "symbol": "绿色实线箭头",
+    "meaning_zh": "要素之间的关系，箭头指向被影响/被支撑的一方；线上无文字标签",
+    "explicit": false
+  },
+  {
+    "symbol": "双向绿色箭头",
+    "meaning_zh": "两个要素相互依赖，不是单向关系",
+    "explicit": false
+  },
+  {
+    "symbol": "水平汇流线 + 单个箭头",
+    "meaning_zh": "多个要素接入同一条线后合流为一个箭头，表示共同支撑",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "左侧一条纵贯全图的橙色数字实践列（内含上下两个大圆角框）；右侧自上而下三条横带：浅绿战略域（3 条通栏横条）、蓝灰结构域（3 个并排方块）、淡黄运营域（2 条通栏横条）。左侧三条横带的左缘各有竖排域名标签；全图无图例。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G21H/fig4-1",
+    "relation": "overview_of",
+    "note_zh": "图 4-1 是同一 DBRM 的详细视图：把本图的十个核心要素展开为 42 个子要素，并补出组内向上箭头与结构性汇流线。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "数字实践列右侧的竖直干线同时连接 Customer Focus、Digital Enterprise 与生态/业务模型分支，图中未画连接点；本分析按分支高度把生态/业务模型归到 Digital Enterprise，若按整条干线理解则也可视为整个 Digital Practices 域的共同影响。",
+    "底部汇流线在业务运营环境顶端没有箭头，故按“业务运营环境→结构三要素”解读；顶部汇流线三个结构要素均接入、只有一个箭头进入业务服务与产品，图中未标注合流规则。",
+    "十要素的中文译名取自中文稿，未另行统一“业务服务与产品/业务服务与产品要素”等措辞。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 24 页 figure 截图（220 dpi）与 600 dpi 重渲染局部核对",
+    "英文 PDF 第 24 页正文",
+    "中文稿 G21He_TOGAF数字业务参考模型.md 第 214–253 行",
+    "figs/g21h_fig3-1.svg 源码与文本内容"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

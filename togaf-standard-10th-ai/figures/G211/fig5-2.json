@@ -1,0 +1,545 @@
+{
+  "schema_version": "1.0",
+  "id": "G211/fig5-2",
+  "status": "done",
+  "doc": {
+    "code": "G211",
+    "title_zh": "业务能力",
+    "title_en": "Business Capabilities",
+    "zh_md": "G211e_业务能力.md",
+    "en_pdf": "togaf-standard-10th/G211e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "5-2",
+    "title_en": "Capability/Organization Mapping Example",
+    "title_zh": "能力/组织映射示例",
+    "section_en": "5.2.1 Capability/Organization Mapping",
+    "section_zh": "5.2.1 能力/组织映射",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        25
+      ],
+      "printed_page": 15,
+      "bboxes": [
+        [
+          48.2,
+          201.5,
+          563.8,
+          352.9
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        323
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g211_fig5-2.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "1037d0701f68",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "行列完全不同：原图是 2 项能力（项目管理、学习管理）× 4 个组织单元（人力资源、房地产、信息技术、销售与市场）；SVG 换成 5 项能力（客户管理、财务管理、人力资源管理、采购管理、培训管理）× 5 个单元（销售、财务、人力资源、运营、IT，套用图 3-1 的 ABC 公司）",
+        "着色含义是自拟的：SVG 写明“绿色为核心承担单元、黄色为可能重复建设”；原图用绿/黄/红和空白给每个单元格着色，没有图例，也没有“核心承担单元”的说法",
+        "原图的具体映射全部丢失，例如学习管理在销售与市场为红、在人力资源和信息技术为绿；项目管理在房地产为绿、在信息技术为黄"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "matrix"
+    ],
+    "notation": "能力 × 组织单元交叉映射矩阵：行 = 业务能力，列 = 组织单元，单元格着色（绿/黄/红）表示该单元执行该能力并附带热力评价，空白表示不执行；原图没有图例",
+    "concepts": [
+      "cross_mapping",
+      "business_capability",
+      "capability_heat_map",
+      "business_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "用矩阵展示同一业务能力分布在多个组织单元，并按红绿灯着色比较各单元的表现。",
+    "purpose_zh": "示范第 5.2.1 节的能力/组织映射：多数能力只对应一个组织部分，但同一能力在多个部分执行可能导致部署不一致和低效。矩阵显示同一能力出现在哪些单元，叠加热力着色后还能看出整合或统一的机会。",
+    "reading_guide_zh": "逐行读：每行一项业务能力，向右看四个组织单元列。着色的格子表示该单元执行这项能力，空白表示不执行；颜色沿用第 5.1 节的红绿灯含义（绿好、黄有差距、红差距大）。同一行中颜色不同，说明同一能力在不同单元的表现不一致。",
+    "key_points_zh": [
+      "项目管理：在房地产（绿）和信息技术（黄）执行，人力资源、销售与市场不执行。",
+      "学习管理：在人力资源（绿）、信息技术（绿）、销售与市场（红）执行，房地产不执行。",
+      "两项能力都分布在多个单元，正是正文所说可能导致部署不一致和低效的情形；第 3.1.1 节从组织架构图识别能力时假设每项能力只对应一个业务单元，没有考察这种重复。",
+      "热力着色增加了一个维度：同一能力在各单元表现不同（如学习管理在销售与市场为红，在人力资源和信息技术为绿），提示可以整合或统一该能力。",
+      "正文给出两种整合思路：在能力内统一使用一套工具；或把能力完全重新归并到某个特定组织单元，以优化能力的全部组件。",
+      "本图的组织单元（人力资源、房地产、信息技术、销售与市场）不是图 3-1 中 ABC 公司的单元，是独立的通用示例。"
+    ],
+    "hierarchy_zh": "没有层级。表头“Organizational Units”横跨四个单元列；行标题列的表头为“Business Capabilities”。",
+    "line_semantics_zh": "没有连线。能力与组织单元的对应由单元格是否着色表达（关系清单中记为 maps_to，explicit=false），颜色写在关系说明和表格中。",
+    "misreadings_zh": [
+      "空白格按常规理解为该单元不执行此能力；原文没有明说空白是“不执行”还是“未评估”。",
+      "颜色是该单元执行该能力的热力评价，不是能力整体的评分；同一能力在不同单元可以是不同颜色。",
+      "本图的组织单元与图 3-1 的 ABC 公司不同，不要套用 ABC 公司的组织结构。",
+      "中文稿当前引用的 figs/g211_fig5-2.svg 换成了另一套 5 × 5 的能力与组织，并自拟“核心承担单元/可能重复”的颜色含义，不能据它理解本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p25",
+        "summary_zh": "许多能力只对应组织中的一个部分；在多个部分执行同一能力有时会导致部署不一致和低效。前面从组织架构图识别能力时，每项能力都对应一个业务单元，没有考察重复。图 5-2 的矩阵展示同一能力如何存在于不同组织单元。"
+      },
+      {
+        "source": "en_pdf p25",
+        "summary_zh": "作为附加维度，能力热力图显示了在组织中整合或统一能力的机会：可以在能力内统一工具，也可以把能力围绕特定组织单元彻底重新归并。"
+      },
+      {
+        "source": "en_pdf p24",
+        "summary_zh": "能力与组织单元、价值流、信息资产等各域都有关系；从业务规划角度看，最常用的三种映射是能力/组织、能力/价值流、能力/业务流程映射。"
+      },
+      {
+        "source": "zh_md L321",
+        "summary_zh": "中文稿：图 5-2 的矩阵展示同一业务能力如何存在于不同组织单元。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "grid",
+    "description_zh": "表格：首行为横跨四列的表头“Organizational Units”；第二行为“Business Capabilities”与四个组织单元名；下面两行为能力，单元格整格着色或留白。"
+  },
+  "legend": [
+    {
+      "symbol": "深绿色单元格",
+      "meaning_zh": "该单元执行此能力，表现达到期望（按第 5.1 节红绿灯含义推断）",
+      "explicit": false
+    },
+    {
+      "symbol": "黄色单元格",
+      "meaning_zh": "该单元执行此能力，有一定差距（推断）",
+      "explicit": false
+    },
+    {
+      "symbol": "红色单元格",
+      "meaning_zh": "该单元执行此能力，差距较大（推断）",
+      "explicit": false
+    },
+    {
+      "symbol": "白色空白单元格",
+      "meaning_zh": "该单元不执行此能力（推断）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "grp_org_units",
+      "label_en": "Organizational Units",
+      "label_zh": "组织单元",
+      "type": "group",
+      "parent": null,
+      "description_zh": "横跨四个单元列的表头"
+    },
+    {
+      "id": "grp_capabilities",
+      "label_en": "Business Capabilities",
+      "label_zh": "业务能力",
+      "type": "group",
+      "parent": null,
+      "description_zh": "行标题列的表头"
+    },
+    {
+      "id": "ou_hr",
+      "label_en": "Human Resources",
+      "label_zh": "人力资源",
+      "type": "organization_unit",
+      "parent": "grp_org_units",
+      "order": 1
+    },
+    {
+      "id": "ou_real_estate",
+      "label_en": "Real Estate",
+      "label_zh": "房地产",
+      "type": "organization_unit",
+      "parent": "grp_org_units",
+      "order": 2
+    },
+    {
+      "id": "ou_it",
+      "label_en": "Information Technology",
+      "label_zh": "信息技术",
+      "type": "organization_unit",
+      "parent": "grp_org_units",
+      "order": 3
+    },
+    {
+      "id": "ou_sales_marketing",
+      "label_en": "Sales and Marketing",
+      "label_zh": "销售与市场",
+      "type": "organization_unit",
+      "parent": "grp_org_units",
+      "order": 4
+    },
+    {
+      "id": "c_project_mgmt",
+      "label_en": "Project Management",
+      "label_zh": "项目管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "order": 1
+    },
+    {
+      "id": "c_learning_mgmt",
+      "label_en": "Learning Management",
+      "label_zh": "学习管理",
+      "type": "capability",
+      "parent": "grp_capabilities",
+      "order": 2
+    }
+  ],
+  "relationships": [
+    {
+      "from": "c_project_mgmt",
+      "to": "ou_real_estate",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "单元格为绿色"
+    },
+    {
+      "from": "c_project_mgmt",
+      "to": "ou_it",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "单元格为黄色"
+    },
+    {
+      "from": "c_learning_mgmt",
+      "to": "ou_hr",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "单元格为绿色"
+    },
+    {
+      "from": "c_learning_mgmt",
+      "to": "ou_it",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "单元格为绿色"
+    },
+    {
+      "from": "c_learning_mgmt",
+      "to": "ou_sales_marketing",
+      "type": "maps_to",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "单元格为红色"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_cap_org",
+      "title_zh": "业务能力 × 组织单元（按原图逐行转录，单元格为颜色）",
+      "columns": [
+        "业务能力 Business Capabilities",
+        "人力资源 Human Resources",
+        "房地产 Real Estate",
+        "信息技术 Information Technology",
+        "销售与市场 Sales and Marketing"
+      ],
+      "rows": [
+        [
+          "项目管理 Project Management",
+          "（空白）",
+          "绿",
+          "黄",
+          "（空白）"
+        ],
+        [
+          "学习管理 Learning Management",
+          "绿",
+          "（空白）",
+          "绿",
+          "红"
+        ]
+      ],
+      "cell_legend": [
+        "绿/黄/红 = 该单元执行此能力，颜色按第 5.1 节红绿灯含义表示表现或成熟度",
+        "（空白）= 该单元不执行此能力",
+        "原图没有图例，以上含义为推断"
+      ],
+      "notes_zh": "原图四个组织单元列上方还有一行横跨的表头“Organizational Units”。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G211/fig3-1",
+      "relation": "contrasts_with",
+      "note_zh": "正文对比：从图 3-1 组织架构图识别能力时每项能力只对应一个业务单元；本图展示同一能力跨多个单元"
+    },
+    {
+      "target": "G211/fig5-1",
+      "relation": "related",
+      "note_zh": "本图把图 5-1 的热力着色用在能力 × 组织单元的交叉格上"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "原图没有图例；绿/黄/红按第 5.1 节红绿灯含义解释，空白按“不执行”解释，原文均未明说。",
+      "“Real Estate”译为“房地产”（指不动产/物业职能）由解析者拟定。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 25 页原图截图（220 dpi）",
+      "英文 PDF 第 24–25 页正文",
+      "中文稿 G211e_业务能力.md 第 315–325 行",
+      "figs/g211_fig5-2.svg 源码（行列与颜色）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G211e.pdf",
+    "pdf_sha256": "93fa7ac115956d34c0ad2161c46a5fd01cbc972d5f85a0f19f2f5b9d8c0a2b34",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G211/fig5-2.json",
+    "interpretation_sha256": "c74ccabe4357a97c318191da5e4af105c9a4f14f18452aac89a6f2603f63a8b9",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 25,
+        "text": "Figure 5-2: Capability/Organization Mapping Example",
+        "bbox_pdf_points": [
+          48.24,
+          357.654,
+          301.226,
+          371.22
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 25,
+      "printed_page": 15,
+      "bbox_pdf_points": [
+        48.2,
+        201.5,
+        563.8,
+        352.9
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G211/fig5-2-p0025.png",
+      "image_sha256": "e94032e9c9800d43aec03f24e0dedaee403b6a35669effc6e03957df315b7231",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "e94032e9c9800d43aec03f24e0dedaee403b6a35669effc6e03957df315b7231",
+          "status": "extracted-unverified",
+          "text": "Organizational Units\nBusiness Capabilities\nHuman Resources\nReal Estate\nInformation Technology\nSales and Marketing\nProject Management\nLearning Management",
+          "words": [
+            {
+              "text": "Organizational",
+              "confidence": 96.33532,
+              "bbox_pixels_xywh": [
+                546,
+                26,
+                128,
+                19
+              ]
+            },
+            {
+              "text": "Units",
+              "confidence": 96.995842,
+              "bbox_pixels_xywh": [
+                679,
+                26,
+                44,
+                15
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.608902,
+              "bbox_pixels_xywh": [
+                20,
+                98,
+                73,
+                14
+              ]
+            },
+            {
+              "text": "Capabilities",
+              "confidence": 96.190224,
+              "bbox_pixels_xywh": [
+                99,
+                98,
+                99,
+                18
+              ]
+            },
+            {
+              "text": "Human",
+              "confidence": 95.974342,
+              "bbox_pixels_xywh": [
+                256,
+                99,
+                64,
+                13
+              ]
+            },
+            {
+              "text": "Resources",
+              "confidence": 96.854904,
+              "bbox_pixels_xywh": [
+                326,
+                99,
+                85,
+                13
+              ]
+            },
+            {
+              "text": "Real",
+              "confidence": 96.751701,
+              "bbox_pixels_xywh": [
+                449,
+                98,
+                37,
+                14
+              ]
+            },
+            {
+              "text": "Estate",
+              "confidence": 96.861275,
+              "bbox_pixels_xywh": [
+                491,
+                99,
+                51,
+                13
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 96.508934,
+              "bbox_pixels_xywh": [
+                575,
+                98,
+                104,
+                14
+              ]
+            },
+            {
+              "text": "Technology",
+              "confidence": 96.239914,
+              "bbox_pixels_xywh": [
+                684,
+                98,
+                98,
+                18
+              ]
+            },
+            {
+              "text": "Sales",
+              "confidence": 96.911789,
+              "bbox_pixels_xywh": [
+                824,
+                98,
+                42,
+                14
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.05262,
+              "bbox_pixels_xywh": [
+                872,
+                98,
+                32,
+                14
+              ]
+            },
+            {
+              "text": "Marketing",
+              "confidence": 96.646729,
+              "bbox_pixels_xywh": [
+                909,
+                98,
+                89,
+                18
+              ]
+            },
+            {
+              "text": "Project",
+              "confidence": 96.63131,
+              "bbox_pixels_xywh": [
+                20,
+                169,
+                59,
+                19
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.600349,
+              "bbox_pixels_xywh": [
+                84,
+                170,
+                113,
+                18
+              ]
+            },
+            {
+              "text": "Learning",
+              "confidence": 95.920189,
+              "bbox_pixels_xywh": [
+                20,
+                241,
+                78,
+                18
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.489532,
+              "bbox_pixels_xywh": [
+                103,
+                241,
+                112,
+                18
+              ]
+            }
+          ],
+          "mean_word_confidence": 96.5,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,586 @@
+{
+  "schema_version": "2.0",
+  "id": "G248/fig6-1",
+  "title": "架构层级、角色与域关系的实体关系图",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      355
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "第 6 章“建立语境”要说明架构层级、角色与域如何互动：四级实体给出从企业到服务的层级链，四个角色注释说明谁在哪一级工作，域部分说明业务域如何利用 IS/IT 域的能力、又如何继续分解到数据/应用/技术域与构建块。",
+    "reading_guide_zh": "先读顶部四段角色文字，按列对应下方的 Enterprise、Segment、Capability、Service。再读中间主链：Enterprise —has→ Segment —offers→ Capability —enables→ Service，每条线下方还有反向读法（< enables、< organized by、< utilizes）。然后读下半部：Business Domain 与 IS/IT Domain 之间的能力供需、两者向上归入 Segment 的箭头、以及各自的向下分解（XX/XX/.. 与 Data/Application/Technology Domain）。最后读右侧 Capability 与 Building Block、Service 与 System 的实现/执行关系。",
+    "key_points_zh": [
+      "顶层是四级链：Enterprise（1..*）—has→（1..*）Segment（1..*）—offers→（1..*）Capability（1..*）—enables→（1..*）Service；三条线都标了 1..*，并各有反向读法。",
+      "反向读法表明层级间的支撑关系：Segment < enables Enterprise（分段使能企业）、Capability < organized by Segment（能力由分段组织）、Service < utilizes Capability（服务利用能力）。",
+      "四个角色与层级对应：企业架构师跨分段治理、分段架构师治理分段内能力、能力（专家）设计与构建者创建/变更构建块中的能力、解决方案架构师把能力组织为交付服务的方案。",
+      "Business Domain（1..*）utilizes capabilities from（0..*）IS/IT Domain；反向是 IS/IT Domain < provides capabilities to Business Domain，即业务域消费、IS/IT 域提供能力。",
+      "Business Domain 与 IS/IT Domain 都通过无标签箭头向上归入 Segment，说明一个分段由业务域与信息系统域共同构成。",
+      "域可继续分解：Business Domain 下是 XX、XX、..（占位示例）；IS/IT Domain 下固定为 Data Domain、Application Domain、Technology Domain 三个域。",
+      "Capability 由 1..* Building Block 实现（implemented by > / < implements，两端 1..*）。",
+      "Service 由 1..* System 执行（performed by ∨，两端 1..*）；System 内嵌套 Building Block，并标 1..* 与 ∨/∧，表示系统由构建块组成。"
+    ],
+    "hierarchy_zh": "三层结构：最上是四段角色注释（企业架构师、分段架构师、能力设计与构建者、解决方案架构师）；中间是四级实体链 Enterprise → Segment → Capability → Service；下方是域的分解树——Segment 统辖 Business Domain 与 IS/IT Domain，Business Domain 再分为 XX/XX/..，IS/IT Domain 再分为 Data/Application/Technology Domain；右侧 System 以嵌套方式包含 Building Block。",
+    "line_semantics_zh": "实线连接实体，线上用 “has >”“< enables” 这类带 > / < 的文字表示阅读方向（> 向右、< 向左），两端数字为基数；带文字的关系线本身没有箭头，方向只能看文字符号。域分解与归入分段的线是没有文字的细实线，箭头指向“整体”一端（Segment 或上级域）。System 与 Building Block 之间用嵌套框加 ∨ / 1..* / ∧ 表示组成。全图为纯黑白线框加四处彩色强调词。",
+    "misreadings_zh": [
+      "“< enables”应读作 Segment 使能 Enterprise（箭头向左），不要读成 Enterprise 使能 Segment。",
+      "“Business Domain utilizes capabilities from IS/IT Domain”表示业务域从 IS/IT 域获取能力，不是 IS/IT 域从业务域获取能力；反向的“< provides capabilities to”才是 IS/IT 域向业务域提供能力。",
+      "两个“XX”和一个“..”是占位示例框，不是名为 XX 的实体；底注说明业务域可以继续分解为业务功能/流程组合等。",
+      "Building Block 画在 System 框内，但它同时通过 implemented by / implements 与 Capability 相连；不要把它只理解为 System 的内部零件。",
+      "IS/IT 端的 0..* 表示一个业务域可以利用零个或多个 IS/IT 域，不要读成至少一个。",
+      "四个彩色词（Business、Data、Application、Technology）只是强调，不是图例分类；中文稿当前引用的 SVG 把整张 ERD 换成了层级/角色/交付物表，不能据它理解本图。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "enterprise",
+      "label_en": "Enterprise",
+      "label_zh": "企业",
+      "type": "architecture",
+      "parent": null,
+      "level": 1,
+      "position": "主链最左",
+      "description_zh": "企业级架构层级。"
+    },
+    {
+      "id": "segment",
+      "label_en": "Segment",
+      "label_zh": "分段",
+      "type": "architecture",
+      "parent": null,
+      "level": 2,
+      "position": "主链第二",
+      "description_zh": "分段级架构层级，向上使能企业、向下组织能力并统辖业务域与 IS/IT 域。"
+    },
+    {
+      "id": "capability",
+      "label_en": "Capability",
+      "label_zh": "能力",
+      "type": "capability",
+      "parent": null,
+      "level": 3,
+      "position": "主链第三",
+      "description_zh": "能力级，由构建块实现。"
+    },
+    {
+      "id": "service",
+      "label_en": "Service",
+      "label_zh": "服务",
+      "type": "service",
+      "parent": null,
+      "level": 4,
+      "position": "主链最右",
+      "description_zh": "对外交付的服务，由系统执行。"
+    },
+    {
+      "id": "business_domain",
+      "label_en": "Business Domain",
+      "label_zh": "业务域",
+      "type": "architecture",
+      "parent": null,
+      "position": "中排左",
+      "description_zh": "业务架构域，可继续分解为业务功能/流程组合等；图中“Business”为彩色强调。"
+    },
+    {
+      "id": "is_it_domain",
+      "label_en": "IS/IT Domain",
+      "label_zh": "信息系统/IT 域",
+      "type": "architecture",
+      "parent": null,
+      "position": "中排右",
+      "description_zh": "信息系统域，向上为业务域提供能力。"
+    },
+    {
+      "id": "data_domain",
+      "label_en": "Data Domain",
+      "label_zh": "数据域",
+      "type": "architecture",
+      "position": "下排左",
+      "description_zh": "IS/IT 域的三个起始域之一；“Data”为粉色强调。"
+    },
+    {
+      "id": "application_domain",
+      "label_en": "Application Domain",
+      "label_zh": "应用域",
+      "type": "architecture",
+      "position": "下排中",
+      "description_zh": "IS/IT 域的三个起始域之一；“Application”为绿色强调。"
+    },
+    {
+      "id": "technology_domain",
+      "label_en": "Technology Domain",
+      "label_zh": "技术域",
+      "type": "architecture",
+      "position": "下排右",
+      "description_zh": "IS/IT 域的三个起始域之一；“Technology”为蓝色强调。"
+    },
+    {
+      "id": "system",
+      "label_en": "System",
+      "label_zh": "系统",
+      "type": "application",
+      "parent": null,
+      "position": "右侧中部",
+      "description_zh": "执行服务的系统，框内嵌套构建块。"
+    },
+    {
+      "id": "building_block",
+      "label_en": "Building Block",
+      "label_zh": "构建块",
+      "type": "building_block",
+      "parent": "system",
+      "position": "System 框内",
+      "description_zh": "实现能力的构建块，同时是系统的组成部分。"
+    },
+    {
+      "id": "xx_left",
+      "label_en": "XX",
+      "label_zh": "XX（占位子域一）",
+      "type": "other",
+      "position": "业务域下方左框",
+      "description_zh": "占位示例，代表业务域可继续分解出的子域。"
+    },
+    {
+      "id": "xx_center",
+      "label_en": "XX",
+      "label_zh": "XX（占位子域二）",
+      "type": "other",
+      "position": "业务域下方中框",
+      "description_zh": "占位示例，代表业务域可继续分解出的子域。"
+    },
+    {
+      "id": "ellipsis",
+      "label_en": "..",
+      "label_zh": "..（省略）",
+      "type": "other",
+      "position": "业务域下方右框",
+      "description_zh": "表示还可以有更多子域。"
+    },
+    {
+      "id": "role_enterprise_architects",
+      "label_en": "Enterprise Architects",
+      "label_zh": "企业架构师",
+      "type": "role",
+      "parent": null,
+      "position": "顶部第一段",
+      "description_zh": "原文：Enterprise Architects evolve and govern aspects across and between segments to achieve goals and objectives. 中文：演进并治理跨分段及分段之间的事务，以实现目标与目的。"
+    },
+    {
+      "id": "role_segment_architects",
+      "label_en": "Segment Architects",
+      "label_zh": "分段架构师",
+      "type": "role",
+      "parent": null,
+      "position": "顶部第二段",
+      "description_zh": "原文：Segment Architects evolve and govern capabilities within segments to achieve goals and objectives. 中文：演进并治理分段内的能力，以实现目标与目的。"
+    },
+    {
+      "id": "role_capability_designers",
+      "label_en": "Capability (specialist) designers and builders",
+      "label_zh": "能力（专家）设计与构建者",
+      "type": "role",
+      "parent": null,
+      "position": "顶部第三段",
+      "description_zh": "原文：Capability (specialist) designers and builders create and change capability in building blocks to satisfy requirements. 中文：在构建块中创建和变更能力，以满足需求。"
+    },
+    {
+      "id": "role_solution_architects",
+      "label_en": "Solution Architects",
+      "label_zh": "解决方案架构师",
+      "type": "role",
+      "parent": null,
+      "position": "顶部第四段",
+      "description_zh": "原文：Solution Architects organize capabilities into new or changed solutions delivering services to meet requirements. 中文：把能力组织为新的或变更后的解决方案，交付服务以满足需求。"
+    },
+    {
+      "id": "note_business_domain",
+      "label_en": "The TOGAF Standard identifies one overall business domain that may be broken down further; e.g., business function/process portfolios depending on what a business actually does; e.g., finance, manufacturing, legal, HR, customer management, service, and support.",
+      "label_zh": "TOGAF 标准识别一个总体业务域，可进一步分解；例如按企业实际业务划分为业务功能/流程组合，如财务、制造、法务、人力资源、客户管理、服务与支持。",
+      "type": "note",
+      "parent": null,
+      "position": "业务域下方说明",
+      "description_zh": "解释 XX/XX/.. 占位框的含义。"
+    },
+    {
+      "id": "note_is_it_domains",
+      "label_en": "The TOGAF Standard identifies three starting information system domains which may be broken down further; e.g., (technology) into software, servers, user devices, execution environments, networks, buildings, and mechanical devices.",
+      "label_zh": "TOGAF 标准识别三个起始信息系统域，它们可进一步分解；例如（技术域）可分解为软件、服务器、用户设备、执行环境、网络、建筑与机械设备。",
+      "type": "note",
+      "parent": null,
+      "position": "信息系统域下方说明",
+      "description_zh": "解释 Data/Application/Technology 三个起始域。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_has",
+      "from": "enterprise",
+      "to": "segment",
+      "type": "composition",
+      "label_en": "has >",
+      "label_zh": "拥有 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "企业拥有一个或多个分段；箭头向右。"
+    },
+    {
+      "id": "r_enables_enterprise",
+      "from": "segment",
+      "to": "enterprise",
+      "type": "serving",
+      "label_en": "< enables",
+      "label_zh": "< 使能",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 has 同一条连线：分段使能企业；箭头向左，两端 1..*。"
+    },
+    {
+      "id": "r_offers",
+      "from": "segment",
+      "to": "capability",
+      "type": "aggregation",
+      "label_en": "offers >",
+      "label_zh": "提供 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "分段提供一个或多个能力；箭头向右。"
+    },
+    {
+      "id": "r_organized_by",
+      "from": "capability",
+      "to": "segment",
+      "type": "assignment",
+      "label_en": "< organized by",
+      "label_zh": "< 由……组织",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 offers 同一条连线：能力由分段组织；箭头向左，两端 1..*。"
+    },
+    {
+      "id": "r_enables_service",
+      "from": "capability",
+      "to": "service",
+      "type": "serving",
+      "label_en": "enables >",
+      "label_zh": "使能 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "能力使能服务；箭头向右，两端 1..*。"
+    },
+    {
+      "id": "r_utilizes",
+      "from": "service",
+      "to": "capability",
+      "type": "consumes",
+      "label_en": "< utilizes",
+      "label_zh": "< 利用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 enables 同一条连线：服务利用能力；箭头向左，两端 1..*。"
+    },
+    {
+      "id": "r_utilizes_from",
+      "from": "business_domain",
+      "to": "is_it_domain",
+      "type": "consumes",
+      "label_en": "utilizes capabilities from >",
+      "label_zh": "从……利用能力 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:0..*",
+      "description_zh": "业务域从 IS/IT 域利用能力；Business Domain 端 1..*、IS/IT Domain 端 0..*。"
+    },
+    {
+      "id": "r_provides_capabilities",
+      "from": "is_it_domain",
+      "to": "business_domain",
+      "type": "serving",
+      "label_en": "< provides capabilities to",
+      "label_zh": "< 向……提供能力",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "0..*:1..*",
+      "description_zh": "与 utilizes capabilities from 同一条连线：IS/IT 域向业务域提供能力；箭头向左。"
+    },
+    {
+      "id": "r_bd_in_segment",
+      "from": "segment",
+      "to": "business_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "无文字细实线：业务域向上归入分段（箭头指 Segment），表示分段由业务域构成；Segment 端无基数。"
+    },
+    {
+      "id": "r_it_in_segment",
+      "from": "segment",
+      "to": "is_it_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "无文字细实线：IS/IT 域向上归入分段（箭头指 Segment）；两个域的上行线在分段下方汇合。"
+    },
+    {
+      "id": "r_bd_xx_left",
+      "from": "business_domain",
+      "to": "xx_left",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "业务域分解出占位子域 XX；箭头指向 Business Domain（整体）。"
+    },
+    {
+      "id": "r_bd_xx_center",
+      "from": "business_domain",
+      "to": "xx_center",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "业务域分解出第二个占位子域 XX；箭头指向 Business Domain。"
+    },
+    {
+      "id": "r_bd_ellipsis",
+      "from": "business_domain",
+      "to": "ellipsis",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "业务域还可继续分解出更多子域（..）；箭头指向 Business Domain。"
+    },
+    {
+      "id": "r_it_data",
+      "from": "is_it_domain",
+      "to": "data_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "IS/IT 域包含数据域；箭头指向 IS/IT Domain。"
+    },
+    {
+      "id": "r_it_app",
+      "from": "is_it_domain",
+      "to": "application_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "IS/IT 域包含应用域；箭头指向 IS/IT Domain。"
+    },
+    {
+      "id": "r_it_tech",
+      "from": "is_it_domain",
+      "to": "technology_domain",
+      "type": "composition",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": true,
+      "line": "solid",
+      "arrow": "backward",
+      "cardinality": null,
+      "description_zh": "IS/IT 域包含技术域；箭头指向 IS/IT Domain。"
+    },
+    {
+      "id": "r_implemented_by",
+      "from": "capability",
+      "to": "building_block",
+      "type": "realization",
+      "label_en": "implemented by >",
+      "label_zh": "由……实现 >",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "能力由构建块实现；箭头向右，两端 1..*。"
+    },
+    {
+      "id": "r_implements",
+      "from": "building_block",
+      "to": "capability",
+      "type": "realization",
+      "label_en": "< implements",
+      "label_zh": "< 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 implemented by 同一条连线：构建块实现能力；箭头向左。"
+    },
+    {
+      "id": "r_performed_by",
+      "from": "service",
+      "to": "system",
+      "type": "serving",
+      "label_en": "performed by ∨",
+      "label_zh": "由……执行 ∨",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "cardinality": "1..*:1..*",
+      "description_zh": "服务由系统执行；箭头向下，两端 1..*。"
+    },
+    {
+      "id": "r_system_bb",
+      "from": "system",
+      "to": "building_block",
+      "type": "composition",
+      "label_en": "∨ 1..* ∧",
+      "label_zh": "∨ 1..* ∧",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "cardinality": "1..*",
+      "description_zh": "System 框内嵌套 Building Block，两者之间标 1..* 与 ∨/∧ 两个方向符号，表示系统由 1..* 个构建块组成（基数只在 System 端标出）。"
+    },
+    {
+      "id": "r_role_enterprise",
+      "from": "role_enterprise_architects",
+      "to": "enterprise",
+      "type": "governs",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "按版式推断：企业架构师注释位于企业/分段之上，治理企业级与跨分段事务。"
+    },
+    {
+      "id": "r_role_segment",
+      "from": "role_segment_architects",
+      "to": "segment",
+      "type": "governs",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "按版式推断：分段架构师注释位于 Segment 之上，治理分段内能力。"
+    },
+    {
+      "id": "r_role_capability",
+      "from": "role_capability_designers",
+      "to": "capability",
+      "type": "assignment",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "按版式推断：能力设计与构建者注释位于 Capability 之上，在构建块中创建/变更能力。"
+    },
+    {
+      "id": "r_role_solution",
+      "from": "role_solution_architects",
+      "to": "service",
+      "type": "assignment",
+      "label_en": null,
+      "label_zh": null,
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "按版式推断：解决方案架构师注释位于 Service 之上，把能力组织为交付服务的方案。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "白底黑框矩形",
+      "meaning_zh": "一个实体（层级、域、系统或构建块）",
+      "explicit": false
+    },
+    {
+      "symbol": "线上 “has >”“< enables” 等带 > / < 的文字",
+      "meaning_zh": "关系名及其阅读方向：> 向右、< 向左；线上没有箭头，方向只看这两个符号",
+      "explicit": false
+    },
+    {
+      "symbol": "线两端的 1..*、0..*",
+      "meaning_zh": "该端基数（一个以上 / 零个以上）",
+      "explicit": false
+    },
+    {
+      "symbol": "无文字的细实线箭头",
+      "meaning_zh": "分解/归入：箭头指向整体（Segment 或上级域）",
+      "explicit": false
+    },
+    {
+      "symbol": "System 框内嵌套 Building Block + ∨ / 1..* / ∧",
+      "meaning_zh": "系统由 1..* 个构建块组成",
+      "explicit": false
+    },
+    {
+      "symbol": "彩色词 Business / Data / Application / Technology",
+      "meaning_zh": "对域名的强调，无分类含义",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "System 与 Building Block 之间的符号是 ∨、1..*、∧ 三个字符，未说明是双向箭头还是逻辑符号；按“系统由 1..* 构建块组成”记录为 composition、双箭头，基数只在 System 端标出。",
+      "Business Domain 与 IS/IT Domain 向上归入 Segment 的两条线没有文字与基数，按版式判为组成/归入关系（箭头指向 Segment）。",
+      "顶部四个角色注释与下方实体的对应关系由横向位置推断（图中没有连线），标为 implicit。",
+      "Business Domain/IS-IT Domain 的“1..*”“0..*”分别标在线两端，按左端 Business Domain、右端 IS/IT Domain 归属。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 29 页图 6-1 截图（220 dpi）及 2×2 放大分块",
+      "英文 PDF 第 29 页正文",
+      "中文稿 G248e_构建块的选择方法.md 第 336–355 行",
+      "figs/g248_fig6-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G248/fig6-1",
+    "asset": "figs/g248_fig6-1.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "19"
+  }
+}

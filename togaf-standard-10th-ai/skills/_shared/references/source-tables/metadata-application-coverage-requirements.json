@@ -1,0 +1,495 @@
+{
+  "schema_version": "1.0",
+  "source": "G234 §5.2 表5-2",
+  "source_sha256": "9764e0e0feca8e21a9f7515b01a4e2d29f408d9f3f65596a8752dc7a5e6bd7d0",
+  "definition_status": "local-translation-read; official-definition-not-independently-verified",
+  "notice": "功能及完整定义来自随包来源表。facets为便于逐项核验而拆分的源语义，不是新的TOGAF强制认证判据；项目可有依据地裁剪。括号中的算法、格式和接口例子不是全部必须实现。",
+  "creation_categories": [
+    {
+      "id": "category-1",
+      "name": "数据术语表"
+    },
+    {
+      "id": "category-2",
+      "name": "数据字典"
+    },
+    {
+      "id": "category-3",
+      "name": "数据使用"
+    },
+    {
+      "id": "category-4",
+      "name": "数据分类"
+    },
+    {
+      "id": "category-5",
+      "name": "规则与政策"
+    },
+    {
+      "id": "category-6",
+      "name": "问题"
+    },
+    {
+      "id": "category-7",
+      "name": "治理资产"
+    },
+    {
+      "id": "category-8",
+      "name": "数据质量规则执行"
+    }
+  ],
+  "functions": [
+    {
+      "id": "application-function-641",
+      "group": "采集",
+      "name": "元数据创建、修订与删除",
+      "source_definition": "创建并维护元数据对象，包括（但不限于）：<br>• **数据术语表**：业务数据对象、业务数据元素、业务术语、删除/保留日期<br>• **数据字典**：环境、应用（及相关技术）、数据集（数据库）、表、列<br>• **数据使用**：数据处理活动、数据接收方、数据传输、数据保护影响评估、数据提供方、数据访问与权限、指向外部文档参考的 URL 链接<br>• **数据分类**：数据保密性分类、数据隐私分类、业务价值分类、定义自定义元数据分类维度<br>• **规则与政策**：数据政策、业务数据质量规则<br>• **问题**：业务数据问题（含相关业务问题与业务影响）、按数据质量规则执行后报告的数据质量问题<br>• **治理资产**：元数据的逻辑分组，包括（但不限于）主题域（如保单、理赔、产品）、业务领域（如家庭、汽车、旅行、健康）、地理区域（如意大利、法国、西班牙、巴黎）；数据域，即两个或以上元数据分组的组合；数据管家、数据所有者、数据经理、数据隐私官、数据保管人、应用所有者<br>• **数据质量规则执行**：技术数据质量规则。",
+      "source_locator": "G234 §5.2 表5-2 L641",
+      "creation_category_check": true,
+      "facets": [
+        {
+          "id": "create",
+          "name": "创建元数据"
+        },
+        {
+          "id": "revise",
+          "name": "修订元数据"
+        },
+        {
+          "id": "delete",
+          "name": "删除元数据"
+        }
+      ]
+    },
+    {
+      "id": "application-function-642",
+      "group": "采集",
+      "name": "元数据分类",
+      "source_definition": "对元数据分类的能力：数据保密性分类；数据隐私分类；定义自定义元数据分类维度。",
+      "source_locator": "G234 §5.2 表5-2 L642",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "confidentiality",
+          "name": "保密性分类"
+        },
+        {
+          "id": "privacy",
+          "name": "隐私分类"
+        },
+        {
+          "id": "custom-classification",
+          "name": "自定义分类维度"
+        }
+      ]
+    },
+    {
+      "id": "application-function-643",
+      "group": "采集",
+      "name": "元数据关联",
+      "source_definition": "链接元数据资产，以描述数据的完整价值链与数据血缘。",
+      "source_locator": "G234 §5.2 表5-2 L643",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "value-chain",
+          "name": "完整数据价值链关联"
+        },
+        {
+          "id": "lineage",
+          "name": "数据血缘关联"
+        }
+      ]
+    },
+    {
+      "id": "application-function-644",
+      "group": "采集",
+      "name": "元数据推断",
+      "source_definition": "通过自动化过程（如机器学习或人工智能（AI）算法）记录元数据；例如（但不限于）：自动处理可用数据以发现元数据关系；从模式中识别元数据（电子邮件、电话号码、信用卡等）；识别数据之间的关系（相同值、分布等）；从字典中识别元数据（公司名称、城市、名字、姓氏、同义词等）。",
+      "source_locator": "G234 §5.2 表5-2 L644",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "automated-recording",
+          "name": "自动过程识别并记录元数据；示例算法不是强制清单"
+        }
+      ]
+    },
+    {
+      "id": "application-function-645",
+      "group": "采集",
+      "name": "数据质量规则执行",
+      "source_definition": "执行元数据存储库中定义的数据质量规则，并捕获其结果。",
+      "source_locator": "G234 §5.2 表5-2 L645",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "execute-rule",
+          "name": "执行存储库定义的质量规则"
+        },
+        {
+          "id": "capture-result",
+          "name": "捕获规则执行结果"
+        }
+      ]
+    },
+    {
+      "id": "application-function-646",
+      "group": "治理",
+      "name": "工作流校验",
+      "source_definition": "创建工作流，可视化状态与任务。",
+      "source_locator": "G234 §5.2 表5-2 L646",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "create-workflow",
+          "name": "创建工作流"
+        },
+        {
+          "id": "visualize-states",
+          "name": "可视化状态"
+        },
+        {
+          "id": "visualize-tasks",
+          "name": "可视化任务"
+        }
+      ]
+    },
+    {
+      "id": "application-function-647",
+      "group": "治理",
+      "name": "任务分配",
+      "source_definition": "向人员分配任务。",
+      "source_locator": "G234 §5.2 表5-2 L647",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "assign-task",
+          "name": "把任务分配给人员"
+        }
+      ]
+    },
+    {
+      "id": "application-function-648",
+      "group": "治理",
+      "name": "影响分析",
+      "source_definition": "查看变更影响。（例如，如果我更改业务定义，有多少技术定义基于它？）",
+      "source_locator": "G234 §5.2 表5-2 L648",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "view-change-impact",
+          "name": "查看元数据变更的影响"
+        }
+      ]
+    },
+    {
+      "id": "application-function-649",
+      "group": "治理",
+      "name": "元数据活动监控",
+      "source_definition": "报告元数据使用情况。",
+      "source_locator": "G234 §5.2 表5-2 L649",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "report-usage",
+          "name": "报告元数据使用情况"
+        }
+      ]
+    },
+    {
+      "id": "application-function-650",
+      "group": "报表",
+      "name": "数据合规报表",
+      "source_definition": "可视化端到端数据生命周期（数据起源、数据转换、数据传输、数据分类），以支持监管要求。",
+      "source_locator": "G234 §5.2 表5-2 L650",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "origin",
+          "name": "显示数据起源"
+        },
+        {
+          "id": "transformation",
+          "name": "显示数据转换"
+        },
+        {
+          "id": "transfer",
+          "name": "显示数据传输"
+        },
+        {
+          "id": "classification",
+          "name": "显示数据分类"
+        }
+      ]
+    },
+    {
+      "id": "application-function-651",
+      "group": "报表",
+      "name": "数据文档报表",
+      "source_definition": "可视化存储库内的元数据完成情况；可视化元数据关联；度量元数据质量并在组织内共享。",
+      "source_locator": "G234 §5.2 表5-2 L651",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "completion",
+          "name": "可视化元数据完成情况"
+        },
+        {
+          "id": "associations",
+          "name": "可视化元数据关联"
+        },
+        {
+          "id": "quality",
+          "name": "度量元数据质量"
+        },
+        {
+          "id": "sharing",
+          "name": "组织内共享结果"
+        }
+      ]
+    },
+    {
+      "id": "application-function-652",
+      "group": "报表",
+      "name": "数据问责报表",
+      "source_definition": "以报表能力可视化组织内谁对数据负责。",
+      "source_locator": "G234 §5.2 表5-2 L652",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "accountability",
+          "name": "可视化谁对数据负责"
+        }
+      ]
+    },
+    {
+      "id": "application-function-653",
+      "group": "报表",
+      "name": "数据质量报表",
+      "source_definition": "按时间（历史与当前）度量数据质量，并在组织内共享。",
+      "source_locator": "G234 §5.2 表5-2 L653",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "history",
+          "name": "历史质量度量"
+        },
+        {
+          "id": "current",
+          "name": "当前质量度量"
+        },
+        {
+          "id": "sharing",
+          "name": "组织内共享结果"
+        }
+      ]
+    },
+    {
+      "id": "application-function-654",
+      "group": "报表",
+      "name": "元数据搜索",
+      "source_definition": "对元数据进行多条件搜索；对元数据进行全文搜索（类似 Google™）；带自动补全的元数据搜索。",
+      "source_locator": "G234 §5.2 表5-2 L654",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "multiple-criteria",
+          "name": "多条件搜索"
+        },
+        {
+          "id": "full-text",
+          "name": "全文搜索"
+        },
+        {
+          "id": "autocomplete",
+          "name": "搜索自动补全"
+        }
+      ]
+    },
+    {
+      "id": "application-function-655",
+      "group": "参考数据管理",
+      "name": "值列表管理（类别列表、代码列表等）",
+      "source_definition": "创建并维护规范化的值列表（类别列表、代码列表等）；管理参考数据（值列表）。",
+      "source_locator": "G234 §5.2 表5-2 L655",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "create-normalized-values",
+          "name": "创建规范化值列表"
+        },
+        {
+          "id": "maintain-reference-values",
+          "name": "维护参考值列表"
+        }
+      ]
+    },
+    {
+      "id": "application-function-656",
+      "group": "管理",
+      "name": "环境管理",
+      "source_definition": "管理多个环境，每个环境有自己的治理（如工作流校验）与管理（如访问管理、数据库版本管理）设置。",
+      "source_locator": "G234 §5.2 表5-2 L656",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "multiple-environments",
+          "name": "管理多个环境"
+        },
+        {
+          "id": "per-environment-governance",
+          "name": "每环境治理设置"
+        },
+        {
+          "id": "per-environment-administration",
+          "name": "每环境管理设置"
+        }
+      ]
+    },
+    {
+      "id": "application-function-657",
+      "group": "管理",
+      "name": "访问管理",
+      "source_definition": "管理、创建、删除、更新元数据访问权限；创建用户与组，并根据角色授予元数据授权（包括批处理或用户角色）。",
+      "source_locator": "G234 §5.2 表5-2 L657",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "create-permission",
+          "name": "创建访问权限"
+        },
+        {
+          "id": "delete-permission",
+          "name": "删除访问权限"
+        },
+        {
+          "id": "update-permission",
+          "name": "更新访问权限"
+        },
+        {
+          "id": "users-groups",
+          "name": "创建用户和组"
+        },
+        {
+          "id": "role-authorization",
+          "name": "按角色授权，区分批处理/用户角色"
+        }
+      ]
+    },
+    {
+      "id": "application-function-658",
+      "group": "管理",
+      "name": "国际化与本地化",
+      "source_definition": "提供使元数据管理工具适应不同语言和本地要求的手段。",
+      "source_locator": "G234 §5.2 表5-2 L658",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "language",
+          "name": "适应不同语言"
+        },
+        {
+          "id": "local-requirements",
+          "name": "适应本地要求"
+        }
+      ]
+    },
+    {
+      "id": "application-function-659",
+      "group": "管理",
+      "name": "事件日志管理",
+      "source_definition": "记录系统中的任何事件。保留元数据修改的历史、来源与作者。",
+      "source_locator": "G234 §5.2 表5-2 L659",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "events",
+          "name": "记录系统事件"
+        },
+        {
+          "id": "modification-history",
+          "name": "保留元数据修改历史"
+        },
+        {
+          "id": "provenance",
+          "name": "保留修改来源"
+        },
+        {
+          "id": "author",
+          "name": "保留修改作者"
+        }
+      ]
+    },
+    {
+      "id": "application-function-660",
+      "group": "管理",
+      "name": "数据库版本管理",
+      "source_definition": "支持元数据数据库的版本管理。",
+      "source_locator": "G234 §5.2 表5-2 L660",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "database-version",
+          "name": "支持元数据数据库版本管理"
+        }
+      ]
+    },
+    {
+      "id": "application-function-661",
+      "group": "元数据集成",
+      "name": "元数据查询",
+      "source_definition": "使用原生 SQL 或任何其他查询语言或接口（如 API）查询存储库中的元数据资产。",
+      "source_locator": "G234 §5.2 表5-2 L661",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "metadata-query",
+          "name": "用SQL或其他语言/接口查询元数据资产；不要求两者并用"
+        }
+      ]
+    },
+    {
+      "id": "application-function-662",
+      "group": "元数据集成",
+      "name": "批量导入",
+      "source_definition": "从文件（如 CSV、JSON、XML）或通过应用接口（如 API）把多条元数据导入元数据存储库。",
+      "source_locator": "G234 §5.2 表5-2 L662",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "bulk-import",
+          "name": "从文件或接口导入多条元数据；不要求每种格式"
+        }
+      ]
+    },
+    {
+      "id": "application-function-663",
+      "group": "元数据集成",
+      "name": "批量导出",
+      "source_definition": "以非专有文件格式（如 CSV）、通过 API 或任何其他应用接口从存储库导出多条元数据。",
+      "source_locator": "G234 §5.2 表5-2 L663",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "bulk-export",
+          "name": "用非专有文件格式或接口导出多条元数据"
+        }
+      ]
+    },
+    {
+      "id": "application-function-664",
+      "group": "元数据集成",
+      "name": "事件订阅",
+      "source_definition": "监听来自事件代理的一个或多个事件。",
+      "source_locator": "G234 §5.2 表5-2 L664",
+      "creation_category_check": false,
+      "facets": [
+        {
+          "id": "subscribe-events",
+          "name": "监听事件代理的一个或多个事件"
+        }
+      ]
+    }
+  ]
+}

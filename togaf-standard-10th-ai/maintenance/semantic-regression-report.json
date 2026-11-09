@@ -1,0 +1,633 @@
+{
+  "schema_version": "semantic-regression/1",
+  "executed_at": "2026-11-08T09:59:10.095192+00:00",
+  "command": "python3 togaf-standard-10th-ai/maintenance/semantic-regression.py",
+  "result": "passed",
+  "counts": {
+    "checks": 36,
+    "passed": 36,
+    "failed": 0
+  },
+  "failed_checks": [],
+  "scope_zh": "7 张已发布图及其当前检索；本地全渠道案例 build/validate/evaluate；已识别误读的正例与内存反例。",
+  "limits_zh": [
+    "这些是项目回归断言；本轮未重新逐页视觉审阅全部官方出版物。",
+    "通过只确认已列语义边界与反例行为，不确认真实人员胜任、培训有效、业务方案充分或组织批准。",
+    "缺等级实际行为为 missing-input/needs-input，拒绝判为完备而非必抛异常；99 为 G249-LEVEL 硬拒绝。",
+    "历史 source_element/source_relation 保留在审计文件，当前检索不得复用旧错误语义；不能要求全文删除历史字符串。",
+    "脚本不联网，只写两个 maintenance 报告，未调用 case 主程序或生成器。"
+  ],
+  "input_sha256": {
+    "togaf-standard-10th-ai/architecture/diagrams/G188/fig4-2.json": "9bbb78164073504a36a683aa359c5e30539a231ffeadb1d8baa75d85337b1e5a",
+    "togaf-standard-10th-ai/architecture/diagrams/G188/fig5-1.json": "520a154bd5c710f11becb1b2d7e78001a5b387e1e6315ea7f7a6f726161e6a74",
+    "togaf-standard-10th-ai/architecture/diagrams/G206/fig2-1.json": "cd7ed8e0a28457d476c9cd7acb2608b2a14b97756cd46b71b37dc93a1bc0e79e",
+    "togaf-standard-10th-ai/architecture/diagrams/G212/figA-1.json": "a8a0227368b6cd4ba24d12620109abbe27858449da2379fb0b3b40dbd60f69b8",
+    "togaf-standard-10th-ai/architecture/diagrams/G217/figC-1.json": "43e69a4920d0160d889d8d46daedd12517dd6ca737b15ed8ad2f9a84e9243e70",
+    "togaf-standard-10th-ai/architecture/diagrams/G249/fig4-1.json": "c36bd111bcd02c87382bc18fdf2a035dacfc2c48766355756b0bc17dfdc9aa8b",
+    "togaf-standard-10th-ai/architecture/diagrams/G249/fig4-2.json": "83f56503730cb8658f89aa531fa1276351429782ee27b8b8b47475e69d5a8d95",
+    "togaf-standard-10th-ai/maintenance/cases/omnichannel/assignment_expression.py": "c192adb57f9d712fa8fcf054f6da1db535e769a478e6d0eb364054c3c7027df1",
+    "togaf-standard-10th-ai/maintenance/cases/omnichannel/base_build.py": "e0f18602977cf3d1aef3588e3639729082a299458ed2cda43f3b510fc9ede0f7",
+    "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md": "f7c505913f5b8a405bba45c0d6ccfd8097abc5c38e3ea7fa1862585175497f64",
+    "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json": "611b436b1c167cff818e1c4ce3a1a4d7f620c5d46c047836c4678c9b221ef8e0",
+    "togaf-standard-10th-ai/maintenance/cases/omnichannel/run.py": "c86d78aa5b55f0c83c69ed708a60b2e44cc5ec0faa850657eba1b78eb3c03c56",
+    "togaf-standard-10th-ai/maintenance/semantic-regression.py": "f3880ec9db04b57384fbae54568bd952f323498f7a727c1eb14877140ca5162f",
+    "togaf-standard-10th-ai/retrieval/architecture-chunks.jsonl": "b52e9ace7124e1600f39eba7864908a7c97f60195c44ad0824f4063fcbe8a189",
+    "togaf-standard-10th-ai/skills/_shared/references/g249/skill-task-map.json": "4bbaf00d34b1a524b6ef8fd04aa275da53e55b56e885a8e7428261927a70bf16",
+    "togaf-standard-10th-ai/skills/_shared/references/source-tables/g249-skill-proficiency.json": "dadf7bbc207f02dc04e9c543ea801a76d3c6571a891228886f99be1b3ceccf79",
+    "togaf-standard-10th-ai/skills/_shared/scripts/analysis_binding.py": "8e320f7409639abbeba69d972ea2952c5d4cda4ecbe5db1cda26b7bd6847a760",
+    "togaf-standard-10th-ai/skills/_shared/scripts/analysis_evidence.py": "b1c1a45e8d546ba2b319605f22eebb6fd5e3435297bdded454ab1838dcf8d65c",
+    "togaf-standard-10th-ai/skills/_shared/scripts/analysis_projection_binding.py": "b3147d475af4d132ecf4e6f149dfeb1b31915bad96732a510fe0e099f2c0aec1",
+    "togaf-standard-10th-ai/skills/_shared/scripts/analyze.py": "7e485d44444f0c80acc1c65a7d6b0de25483d4c78fc9f34f893fc743fd1af3cc",
+    "togaf-standard-10th-ai/skills/_shared/scripts/assignment_projection.py": "fc7f878fbbc5f7e4110876aa01ca890bad80ebf48bd530c716adf9a22a503cd2",
+    "togaf-standard-10th-ai/skills/_shared/scripts/backlog_analysis.py": "dc7a492bd9cdecc929a585dbd640bbfd96b7c1a9ae745f1d1999ea2efd23b547",
+    "togaf-standard-10th-ai/skills/_shared/scripts/closure_semantics.py": "c4b418ffc32785a3f4e5c551963402bad9bb5367a10e69d504720d575fde203e",
+    "togaf-standard-10th-ai/skills/_shared/scripts/collaboration_management_analysis.py": "ad3e23229fa771d9b568383f74cf54ccd22fd0feab53edf8d182edb5f0a5a26d",
+    "togaf-standard-10th-ai/skills/_shared/scripts/contract_semantics.py": "88a0f76ab75813c836911240215b95b242f49e2477f780e6f0973d31a135d1af",
+    "togaf-standard-10th-ai/skills/_shared/scripts/delivery_analysis.py": "1924700d0b2105514ca80fff749996ddc8cd0112e8ed90b52a861c0e1dc142f4",
+    "togaf-standard-10th-ai/skills/_shared/scripts/evaluation_semantics.py": "7a1e04fec1819fedfc907937e572d71b58cb1186102539bd38773ffacd626679",
+    "togaf-standard-10th-ai/skills/_shared/scripts/evidence_analysis.py": "947a4eb3e88a4f402b73a84fbfcc5c71d64035e513bf8d7add735d7e93e9673e",
+    "togaf-standard-10th-ai/skills/_shared/scripts/field_contracts.py": "2bd89f5b214b159c8af87dff19895824e8d34d9f19e530a0f2ae85a264c6c7da",
+    "togaf-standard-10th-ai/skills/_shared/scripts/foundation_planning.py": "00df1f430ec98e802714632621d78ccc8058af137d00d28ac8aae6836be56f14",
+    "togaf-standard-10th-ai/skills/_shared/scripts/g249_binding.py": "1e691d105b77d0973771d343333ec908e860ce1a274f67e0cb9c9f231c6ce02f",
+    "togaf-standard-10th-ai/skills/_shared/scripts/g249_reasoning.py": "dd9cf766b167f685337bb5e1447d5382ca9386ef8412665882eefb9b630bfb3e",
+    "togaf-standard-10th-ai/skills/_shared/scripts/gap_closure_analysis.py": "c33d3aaa2f1d71f0a95260ee51120dc109a2b8f1eb82af401de3c8f9e864048d",
+    "togaf-standard-10th-ai/skills/_shared/scripts/gap_closure_tables.py": "77a180be1ea0238af2b7b8eb285e30ef621b0c217f5a7db7d59586a5e6f2cd97",
+    "togaf-standard-10th-ai/skills/_shared/scripts/generate.py": "20d6f5974c914f69fb31b3020d91197faaa80b913307d5b0655008ab3877bf94",
+    "togaf-standard-10th-ai/skills/_shared/scripts/metadata_coverage_analysis.py": "50b840ab61a72c0d0c2758ed9f94884ced7be78a3e225b76ebc423745913e6f0",
+    "togaf-standard-10th-ai/skills/_shared/scripts/migration_analysis.py": "9fbfdc15d9642804152723f784e47c448d295ed3286460c162c519321cbe0917",
+    "togaf-standard-10th-ai/skills/_shared/scripts/numeric_contracts.py": "eb9abea6b50d6a7a939ad75786c0c4e13b479cb05a98f80e09597ccfec9cc4c4",
+    "togaf-standard-10th-ai/skills/_shared/scripts/organization_derivation.py": "c830a66b89e474204d8f626570fc1a82755dd91290888f7f729eea52a679881a",
+    "togaf-standard-10th-ai/skills/_shared/scripts/proficiency_contract.py": "7dc53bbd484ea9db063ce3cc119c212af70eb1079167d928b04f3832619abbbc",
+    "togaf-standard-10th-ai/skills/_shared/scripts/proficiency_semantics.py": "a5aef2b148319bb3b8212844ea172c88462935384015529ff78ab2027e653f44",
+    "togaf-standard-10th-ai/skills/_shared/scripts/registry.py": "245499a0dc1df7e9bc53c57f798837cb35c00a089d348120c33f04c0dd6f7e24",
+    "togaf-standard-10th-ai/skills/_shared/scripts/scenario_readiness_analysis.py": "780b7956e73e9095a834f769be8c4c4257fcedf624a3a04b6f1eddcbe2d56f42",
+    "togaf-standard-10th-ai/skills/_shared/scripts/strict_json.py": "fc5e7d55be8380a8c9a8b6f582a71b2e5919f64be6076d9d667d3f4c40d9e779",
+    "togaf-standard-10th-ai/skills/_shared/scripts/validate.py": "cad9c2dd8385c0b19046947066c98abcfb88144b04380e04d0134dc7a693116f"
+  },
+  "checks": [
+    {
+      "id": "PUB-G188/fig4-2",
+      "assertion_zh": "当前发布图语义保持已审阅事实",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "rejected_ADM_sequences": 9,
+        "communication_plan_producer": "G188/fig4-2#adm_soaw",
+        "scope": "图中关系；不消除邻近正文的源文冲突"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "RAG-G188/fig4-2",
+      "assertion_zh": "当前检索重组后保持语义及来源指纹；不能只测磁盘 JSON",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "rejected_ADM_sequences": 9,
+        "communication_plan_producer": "G188/fig4-2#adm_soaw",
+        "scope": "图中关系；不消除邻近正文的源文冲突",
+        "retrieval_parts": 55
+      },
+      "status": "passed"
+    },
+    {
+      "id": "PUB-G188/fig5-1",
+      "assertion_zh": "当前发布图语义保持已审阅事实",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "rejected_ADM_sequences": 9,
+        "communication_plan_producer": "G188/fig5-1#adm_soaw",
+        "scope": "图中关系；不消除邻近正文的源文冲突"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "RAG-G188/fig5-1",
+      "assertion_zh": "当前检索重组后保持语义及来源指纹；不能只测磁盘 JSON",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "rejected_ADM_sequences": 9,
+        "communication_plan_producer": "G188/fig5-1#adm_soaw",
+        "scope": "图中关系；不消除邻近正文的源文冲突",
+        "retrieval_parts": 47
+      },
+      "status": "passed"
+    },
+    {
+      "id": "PUB-G206/fig2-1",
+      "assertion_zh": "当前发布图语义保持已审阅事实",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "anonymous_points": 84,
+        "annotations": 8,
+        "fabricated_communities": 0
+      },
+      "status": "passed"
+    },
+    {
+      "id": "RAG-G206/fig2-1",
+      "assertion_zh": "当前检索重组后保持语义及来源指纹；不能只测磁盘 JSON",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "anonymous_points": 84,
+        "annotations": 8,
+        "fabricated_communities": 0,
+        "retrieval_parts": 55
+      },
+      "status": "passed"
+    },
+    {
+      "id": "PUB-G212/figA-1",
+      "assertion_zh": "当前发布图语义保持已审阅事实",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "cells": 42,
+        "fulfilled": 21,
+        "unfulfilled": 21,
+        "official_numeric_scores": 0,
+        "neutral": "Define/Validate/Understand fulfilled; Commit/Disseminate/Evolve unfulfilled"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "RAG-G212/figA-1",
+      "assertion_zh": "当前检索重组后保持语义及来源指纹；不能只测磁盘 JSON",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "cells": 42,
+        "fulfilled": 21,
+        "unfulfilled": 21,
+        "official_numeric_scores": 0,
+        "neutral": "Define/Validate/Understand fulfilled; Commit/Disseminate/Evolve unfulfilled",
+        "retrieval_parts": 5
+      },
+      "status": "passed"
+    },
+    {
+      "id": "PUB-G217/figC-1",
+      "assertion_zh": "当前发布图语义保持已审阅事实",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "rows": 24,
+        "data_cells": 240,
+        "phase_columns": [
+          "Preliminary Phase",
+          "Phase A",
+          "Phase B",
+          "Phase C",
+          "Phase D",
+          "Phase E",
+          "Phase F",
+          "Phase G",
+          "Phase H",
+          "ADM Architecture Requirements Management"
+        ],
+        "source_Xs": 64,
+        "classification_band_G_X": "preserved; not a new service"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "RAG-G217/figC-1",
+      "assertion_zh": "当前检索重组后保持语义及来源指纹；不能只测磁盘 JSON",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "rows": 24,
+        "data_cells": 240,
+        "phase_columns": [
+          "Preliminary Phase",
+          "Phase A",
+          "Phase B",
+          "Phase C",
+          "Phase D",
+          "Phase E",
+          "Phase F",
+          "Phase G",
+          "Phase H",
+          "ADM Architecture Requirements Management"
+        ],
+        "source_Xs": 64,
+        "classification_band_G_X": "preserved; not a new service",
+        "retrieval_parts": 14
+      },
+      "status": "passed"
+    },
+    {
+      "id": "PUB-G249/fig4-1",
+      "assertion_zh": "当前发布图语义保持已审阅事实",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "domain_labels": 2,
+        "shared_gray_scope": 1,
+        "unsupported_role_cardinalities": 0
+      },
+      "status": "passed"
+    },
+    {
+      "id": "RAG-G249/fig4-1",
+      "assertion_zh": "当前检索重组后保持语义及来源指纹；不能只测磁盘 JSON",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "domain_labels": 2,
+        "shared_gray_scope": 1,
+        "unsupported_role_cardinalities": 0,
+        "retrieval_parts": 12
+      },
+      "status": "passed"
+    },
+    {
+      "id": "PUB-G249/fig4-2",
+      "assertion_zh": "当前发布图语义保持已审阅事实",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "r0005_cardinality": "unspecified:1..*",
+        "from_cardinality": null,
+        "to_cardinality": "1..*",
+        "explicit_connector": false
+      },
+      "status": "passed"
+    },
+    {
+      "id": "RAG-G249/fig4-2",
+      "assertion_zh": "当前检索重组后保持语义及来源指纹；不能只测磁盘 JSON",
+      "basis": "project-regression-over-reviewed-source",
+      "actual": {
+        "r0005_cardinality": "unspecified:1..*",
+        "from_cardinality": null,
+        "to_cardinality": "1..*",
+        "explicit_connector": false,
+        "retrieval_parts": 16
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-ADM-SEQUENCE",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Restore one rejected ADM sequence",
+      "actual": {
+        "rejected": true,
+        "reason": "Nine invented ADM sequences must remain rejected"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-COMM-PLAN",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Move Communication Plan origin back to risks",
+      "actual": {
+        "rejected": true,
+        "reason": "Communication Plan must originate at SoAW in this figure: [{\"id\": \"G188/fig5-1#r0015\", \"source_relation_index\": 14, \"source_relation_id\": null, \"from\": \"G188/fig5-1#adm_risks\", \"to\": \"G188/fig5-1#d_communication_plan\", \"predicate\": \"produces\", \"predicate_zh\": \"产生/交付\", \"direction\": \"subject-to-object\", \"label_en\": null, \"label_zh\": null, \"description_zh\": \"沟通计划与已批准SoAW共用从Develop Statement of Architecture Work引出的点线分支；不是从风险识别过程引出。正文4.2.1的不同说法另记源文冲突。\", \"visual\": {\"explicit_connection\": true, \"line_style\": \"dotted\", \"arrow\": \"forward\", \"from\": \"G188/fig5-1#adm_soaw\", \"to\": \"G188/fig5-1#d_communication_plan\", \"direction_is_semantic_not_pixel_geometry\": true}, \"semantic_basis\": \"current-source-review\", \"status\": \"source-reviewed-correction\", \"cardinality\": null, \"polarity\": null, \"required_proficiency\": null, \"source_relation\": {\"from\": \"adm_risks\", \"to\": \"d_communication_plan\", \"type\": \"produces\", \"explicit\": true, \"line\": \"dashed\", \"arrow\": \"forward\"}, \"evidence_refs\": [\"source-interpretation\", \"current-visual-review\"]}]"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-COMMUNITY",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Invent community label on anonymous point",
+      "actual": {
+        "rejected": true,
+        "reason": "Anonymous source points acquired fabricated names"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-SCORE",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Restore invented score=7",
+      "actual": {
+        "rejected": true,
+        "reason": "No official numeric score may be inferred: \"sa\""
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-42-CELLS",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Remove one of 42 cells",
+      "actual": {
+        "rejected": true,
+        "reason": "Expected six conditions by seven answers (42 cells)"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-SAME-COUNT-SWAP",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Swap filled/empty cells without changing count",
+      "actual": {
+        "rejected": true,
+        "reason": "Cumulative filled/empty pattern changed: {\"condition\": \"Evolve\", \"actual\": [\"不存在/未满足\", \"已存在/已满足\", \"不存在/未满足\", \"不存在/未满足\", \"不存在/未满足\", \"不存在/未满足\", \"不存在/未满足\"]}"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-64-X",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Remove classification-band G X",
+      "actual": {
+        "rejected": true,
+        "reason": "Reviewed X coordinates changed: [[], [1, 2, 6, 9, 10], [1, 2, 6, 7, 8, 10], [], [1, 2, 3, 4, 5, 7, 9], [1, 2, 9], [], [2, 3, 4, 5, 9], [3, 4, 5, 9], [3, 4, 5, 6, 7], [8, 9], [], [3, 4, 5, 6, 7, 8, 9], [], [8], [8], [], [6, 7, 8], [2, 9], [3, 4, 5, 6], [3, 4, 5, 7, 8, 9], [3], [], [9]]"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-X-COORDINATE",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Move X to another phase while retaining 64 Xs",
+      "actual": {
+        "rejected": true,
+        "reason": "Reviewed X coordinates changed: [[], [1, 2, 6, 9, 10], [1, 2, 6, 7, 8, 10], [], [1, 2, 3, 4, 5, 7, 9], [1, 2, 9], [], [2, 3, 4, 5, 9], [3, 4, 5, 9], [3, 4, 5, 6, 7], [8, 9], [7], [3, 4, 5, 6, 7, 8, 9], [], [8], [8], [], [6, 7, 8], [2, 9], [3, 4, 5, 6], [3, 4, 5, 7, 8, 9], [3], [], [9]]"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-TWO-DOMAIN-BOXES",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Restore independent left domain box",
+      "actual": {
+        "rejected": true,
+        "reason": "Separate domain box interpretation returned: \"左侧灰色大框\""
+      },
+      "status": "passed"
+    },
+    {
+      "id": "NEG-INVENTED-CARDINALITY",
+      "assertion_zh": "注入曾见误读，检查器必须拒绝",
+      "basis": "project-regression-over-reviewed-source",
+      "in_memory_counterexample": "Invent source-end cardinality on nested containment",
+      "actual": {
+        "rejected": true,
+        "reason": "Unprinted containing-end cardinality invented: \"1..* → 1..*\""
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-BASELINE",
+      "assertion_zh": "实际调用 case build(True)、validate、evaluate；结构有效仍保留未知容量与未批准",
+      "basis": "project-runtime-behavior",
+      "actual": {
+        "structural_errors": [],
+        "gap_count": 12,
+        "assignment": {
+          "id": "ASSIGN-A",
+          "state": "needs-evidence",
+          "requirements": [
+            {
+              "requirement_ref": "REQ-SKILL-SOL",
+              "state": "unproven",
+              "missing_behavioral_criteria": [
+                "独立完成异常接口设计并经评审",
+                "评审断连、重连、幂等重放和库存冲突的恢复设计"
+              ]
+            }
+          ],
+          "capacity_state": "unresolved",
+          "period_state": "not-covered",
+          "approval": "not-granted",
+          "support": {
+            "provider": "PERSON-EXPERT",
+            "mode": "共同评审异常场景及接口契约，不替代甲的能力证据",
+            "requirement_refs": [
+              "REQ-SKILL-SOL"
+            ],
+            "assessment_refs": [
+              "OBS-EXPERT"
+            ],
+            "available_hours": 8,
+            "evidence": [
+              "CASE-EXPERT"
+            ]
+          },
+          "support_reviews": [
+            {
+              "requirement_ref": "REQ-SKILL-SOL",
+              "state": "expert-evidence-unproven"
+            }
+          ]
+        },
+        "business_approval": "not-granted"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-99-requirements",
+      "assertion_zh": "99 超出四级量表，必须由实际评价器拒绝",
+      "basis": "project-runtime-behavior",
+      "in_memory_counterexample": "requirements[0].proficiency = 99; synchronize bound model",
+      "actual": {
+        "rejected": true,
+        "code": "G249-LEVEL",
+        "binding_errors": 0,
+        "message": "G249-LEVEL [REQ-SKILL-CH]: Proficiency must be an integer 1..4 or null"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-99-assessments",
+      "assertion_zh": "99 超出四级量表，必须由实际评价器拒绝",
+      "basis": "project-runtime-behavior",
+      "in_memory_counterexample": "assessments[0].proficiency = 99; synchronize bound model",
+      "actual": {
+        "rejected": true,
+        "code": "G249-LEVEL",
+        "binding_errors": 0,
+        "message": "G249-LEVEL [OBS-A]: Proficiency must be an integer 1..4 or null"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-MISSING-null",
+      "assertion_zh": "缺等级拒绝判为完备，保留未知而不默认为 1",
+      "basis": "project-runtime-behavior",
+      "in_memory_counterexample": "proficiency = null",
+      "actual": {
+        "hard_exception": false,
+        "rejected_as_complete": true,
+        "binding_errors": 0,
+        "requirement": {
+          "id": "REQ-SKILL-CH",
+          "task_ref": "TASK-CH",
+          "role_ref": "ROLE-CHIEF",
+          "skill_id": "G249:skill:business:strategic-planning",
+          "proficiency": null,
+          "scale_id": "G249-table5-1",
+          "behavioral_criteria": [
+            "把战略约束转成可复议决定"
+          ],
+          "state": "needs-input"
+        },
+        "gap": {
+          "id": "REQ-SKILL-CH:proficiency",
+          "reason": "missing-input",
+          "action": "补充 proficiency 的事实、责任或规则；保留草稿。"
+        },
+        "semantic_boundary": "待补草稿有效；不得宣称等级齐备或人员达标。不是缺字段必抛异常。"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-MISSING-absent",
+      "assertion_zh": "缺等级拒绝判为完备，保留未知而不默认为 1",
+      "basis": "project-runtime-behavior",
+      "in_memory_counterexample": "Remove proficiency",
+      "actual": {
+        "hard_exception": false,
+        "rejected_as_complete": true,
+        "binding_errors": 0,
+        "requirement": {
+          "id": "REQ-SKILL-CH",
+          "task_ref": "TASK-CH",
+          "role_ref": "ROLE-CHIEF",
+          "skill_id": "G249:skill:business:strategic-planning",
+          "proficiency": null,
+          "scale_id": "G249-table5-1",
+          "behavioral_criteria": [
+            "把战略约束转成可复议决定"
+          ],
+          "state": "needs-input"
+        },
+        "gap": {
+          "id": "REQ-SKILL-CH:proficiency",
+          "reason": "missing-input",
+          "action": "补充 proficiency 的事实、责任或规则；保留草稿。"
+        },
+        "semantic_boundary": "待补草稿有效；不得宣称等级齐备或人员达标。不是缺字段必抛异常。"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-TRAINING",
+      "assertion_zh": "完成培训／宣称复评完成，没有新行为评审不能自动升级",
+      "basis": "project-runtime-behavior",
+      "in_memory_counterexample": "Mark reassessment completed without assessment_ref",
+      "actual": {
+        "development": {
+          "id": "DEV-A",
+          "state": "needs-input",
+          "rating_change": "not-inferred"
+        },
+        "missing_reassessment": true,
+        "current_proficiency": null,
+        "assessments_unchanged": true,
+        "binding_errors": 0
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-OFFICIAL-chief",
+      "assertion_zh": "Chief／通用 Segment 无官方独立等级列，模型校验必须拒绝伪装",
+      "basis": "project-runtime-behavior",
+      "in_memory_counterexample": "Retarget official EA reference to chief role",
+      "actual": {
+        "rejected_by": "model.validate/proficiency_semantics",
+        "errors": [
+          {
+            "level": "error",
+            "code": "source-role-column",
+            "id": "REF-REQ-SKILL-EA",
+            "message": "Chief和通用Segment没有表5-2独立列；应保留项目裁剪要求。"
+          }
+        ],
+        "binding_errors": 0,
+        "note": "此项调用模型校验；不将 evaluate 单独冒称完整的模型校验。"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-OFFICIAL-segment",
+      "assertion_zh": "Chief／通用 Segment 无官方独立等级列，模型校验必须拒绝伪装",
+      "basis": "project-runtime-behavior",
+      "in_memory_counterexample": "Retarget official EA reference to segment role",
+      "actual": {
+        "rejected_by": "model.validate/proficiency_semantics",
+        "errors": [
+          {
+            "level": "error",
+            "code": "source-role-column",
+            "id": "REF-REQ-SKILL-EA",
+            "message": "Chief和通用Segment没有表5-2独立列；应保留项目裁剪要求。"
+          }
+        ],
+        "binding_errors": 0,
+        "note": "此项调用模型校验；不将 evaluate 单独冒称完整的模型校验。"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-LATERAL",
+      "assertion_zh": "没有项目强制职级政策时，同级专业指导与协作循环允许",
+      "basis": "project-runtime-behavior",
+      "in_memory_counterexample": "Same-tier guidance plus reverse collaboration in a bound case model",
+      "actual": {
+        "accepted_relationships": [
+          {
+            "source": "ROLE-SOL",
+            "id": "LATERAL-A",
+            "type": "architecture_guidance",
+            "target": "ROLE-SOL-PEER",
+            "scope": "候选接口相互评审",
+            "evidence": [
+              "CASE-REVIEW"
+            ]
+          },
+          {
+            "source": "ROLE-SOL-PEER",
+            "id": "LATERAL-B",
+            "type": "collaborates_with",
+            "target": "ROLE-SOL",
+            "scope": "候选接口相互评审",
+            "evidence": [
+              "CASE-REVIEW"
+            ]
+          }
+        ],
+        "hierarchy_policy": null,
+        "gaps": 16,
+        "binding_errors": 0,
+        "boundary": "允许有证据的同级专业指导与协调；缺少职责细节仍待补，不代表组织批准。"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "CASE-REPORT-CYCLE",
+      "assertion_zh": "组织汇报循环仍应拒绝，避免同级协调规则过度放宽",
+      "basis": "project-runtime-behavior",
+      "in_memory_counterexample": "Replace the pair with a reports_to cycle",
+      "actual": {
+        "rejected": true,
+        "code": "ROLE-REPORT-CYCLE",
+        "binding_errors": 0
+      },
+      "status": "passed"
+    },
+    {
+      "id": "RUNTIME-SUITE",
+      "assertion_zh": "加载本地案例与共享只读运行时，执行业务语义反例",
+      "basis": "project-runtime-loading",
+      "actual": null,
+      "status": "passed"
+    },
+    {
+      "id": "BOUNDARY-READONLY",
+      "assertion_zh": "skills 与 case 文件前后逐字节指纹一致，反例只在内存中",
+      "basis": "execution-boundary",
+      "actual": {
+        "files_hashed": 40133,
+        "changed": [],
+        "network": "blocked by audit hook",
+        "write_allowlist": [
+          "togaf-standard-10th-ai/maintenance/semantic-regression-report.json",
+          "togaf-standard-10th-ai/maintenance/semantic-regression-report.md"
+        ]
+      },
+      "status": "passed"
+    }
+  ]
+}

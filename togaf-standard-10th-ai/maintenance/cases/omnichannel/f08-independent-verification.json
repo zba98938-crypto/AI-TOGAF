@@ -1,0 +1,355 @@
+{
+  "schema_version": "independent-artifact-verification/1",
+  "case_id": "g249-omnichannel",
+  "finding_id": "F08",
+  "variant": "offline-change",
+  "reviewer": "AI independent review by /root/g249_skills_deep",
+  "review_date": "2026-11-08",
+  "authority": "independent-ai-review-not-business-approval",
+  "status": "original-subject-omission-resolved-with-main-relationship-visibility-limit",
+  "conclusion_zh": "F08原始的空主目录、角色任务配置主体被藏在分析JSON中的问题已实质修复。Markdown主目录和实际PNG均显示4角色、4任务、1配置、2证据。全部7关系在JSON及可读明细页可查，但单张PNG/SVG主图只直接画出5关系；两条配置至证据关系只在明细页。不能把制品包7关系覆盖写成主图7条均可见。",
+  "method_zh": [
+    "只读对照原始业务材料、角色技能输入、制品Markdown/JSON、分组明细、局部及总体覆盖记录。",
+    "实际打开1590×1179的PNG进行视觉复核，结合SVG主体和关系标识核实数量。",
+    "对照两名人员的原始行为记录、未知评级、任务工作量、配置期限、40小时及8小时支持；从保存的模型核实离线工作包结束2026-12-04。",
+    "未重跑run.py，未修改生成文件、输入材料或覆盖状态。"
+  ],
+  "subject_counts": {
+    "selected": {
+      "roles": 4,
+      "tasks": 4,
+      "assignments": 1,
+      "evidence_states": 2
+    },
+    "json_entities": 11,
+    "main_png_svg_entities": 11,
+    "markdown_entities": 11,
+    "json_relationships": 7,
+    "main_png_svg_relationships": 5,
+    "companion_relationships": 7
+  },
+  "subject_visibility": [
+    {
+      "id": "ROLE-CHIEF",
+      "type": "guide:architecture-role",
+      "name": "首席架构师",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "ROLE-EA",
+      "type": "guide:architecture-role",
+      "name": "企业架构师",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "ROLE-SEG",
+      "type": "guide:architecture-role",
+      "name": "库存分段架构师",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "ROLE-SOL",
+      "type": "guide:architecture-role",
+      "name": "履约解决方案架构师",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "TASK-CH",
+      "type": "case:architecture-task",
+      "name": "战略优先与业务承诺边界",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "TASK-EA",
+      "type": "case:architecture-task",
+      "name": "跨分段互操作原则",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "TASK-SEG",
+      "type": "case:architecture-task",
+      "name": "库存语义与运营条件",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "TASK-SOL",
+      "type": "case:architecture-task",
+      "name": "预占、断连受理及恢复同步候选比较",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "ASSIGN-A",
+      "type": "case:person-assignment",
+      "name": "甲的候选履约架构任务配置",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "EVIDENCE-A",
+      "type": "case:competence-evidence",
+      "name": "甲的任务能力证据不足",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    },
+    {
+      "id": "EVIDENCE-EXPERT",
+      "type": "case:competence-evidence",
+      "name": "专家支持证据未证实",
+      "markdown_direct": true,
+      "main_png_svg_direct": true,
+      "companion_record": true
+    }
+  ],
+  "relationship_visibility": [
+    {
+      "id": "CONFIG-TASK-CH",
+      "source": "ROLE-CHIEF",
+      "target": "TASK-CH",
+      "meaning_zh": "本次工作职责",
+      "main_png_svg_direct": true,
+      "companion_readable": true,
+      "coverage_locations": [
+        "main",
+        "companion"
+      ]
+    },
+    {
+      "id": "CONFIG-TASK-EA",
+      "source": "ROLE-EA",
+      "target": "TASK-EA",
+      "meaning_zh": "本次工作职责",
+      "main_png_svg_direct": true,
+      "companion_readable": true,
+      "coverage_locations": [
+        "main",
+        "companion"
+      ]
+    },
+    {
+      "id": "CONFIG-TASK-SEG",
+      "source": "ROLE-SEG",
+      "target": "TASK-SEG",
+      "meaning_zh": "本次工作职责",
+      "main_png_svg_direct": true,
+      "companion_readable": true,
+      "coverage_locations": [
+        "main",
+        "companion"
+      ]
+    },
+    {
+      "id": "CONFIG-TASK-SOL",
+      "source": "ROLE-SOL",
+      "target": "TASK-SOL",
+      "meaning_zh": "本次工作职责",
+      "main_png_svg_direct": true,
+      "companion_readable": true,
+      "coverage_locations": [
+        "main",
+        "companion"
+      ]
+    },
+    {
+      "id": "CONFIG-ASSIGN-TASK",
+      "source": "ASSIGN-A",
+      "target": "TASK-SOL",
+      "meaning_zh": "候选承担；未批准",
+      "main_png_svg_direct": true,
+      "companion_readable": true,
+      "coverage_locations": [
+        "main",
+        "companion"
+      ]
+    },
+    {
+      "id": "CONFIG-EVIDENCE-A",
+      "source": "ASSIGN-A",
+      "target": "EVIDENCE-A",
+      "meaning_zh": "任职能力待举证",
+      "main_png_svg_direct": false,
+      "companion_readable": true,
+      "coverage_locations": [
+        "companion"
+      ]
+    },
+    {
+      "id": "CONFIG-EVIDENCE-EXPERT",
+      "source": "ASSIGN-A",
+      "target": "EVIDENCE-EXPERT",
+      "meaning_zh": "支持者证据待审",
+      "main_png_svg_direct": false,
+      "companion_readable": true,
+      "coverage_locations": [
+        "companion"
+      ]
+    }
+  ],
+  "source_and_unknown_checks": [
+    {
+      "id": "mandate",
+      "status": "passed",
+      "observation_zh": "CASE-MANDATE的四角色职责与主目录对应。经营负责人仅委托分析；具体决定人、库存风险接受者、审批机制仍待确认。角色并非组织汇报线。"
+    },
+    {
+      "id": "offline-change",
+      "status": "passed",
+      "observation_zh": "TASK-SOL成果增加断连持久化、幂等重放、补偿与回退验证；有CASE-CHANGE依据。同步与异步候选未定优，尚无业务接受。"
+    },
+    {
+      "id": "task-targets",
+      "status": "passed",
+      "observation_zh": "四项3级要求明确标为虚构项目裁剪目标，原文参考等级另列；没有据此评价人员。optimistic-pessimistic-patterns定义与目标仍未解决。"
+    },
+    {
+      "id": "person-a",
+      "status": "passed",
+      "observation_zh": "甲的异常接口设计评审行为未获证实，current_proficiency=null、evidence_insufficient；没有降为2级或升级为3级。主目录及PNG均明确提示。"
+    },
+    {
+      "id": "expert",
+      "status": "passed",
+      "observation_zh": "专家的一项异常设计评审行为保留，但current_proficiency=null；历史4级仅为未证实声明，没有凭头衔或单项行为认定支持能力。"
+    },
+    {
+      "id": "capacity",
+      "status": "passed",
+      "observation_zh": "四任务workload_hours均为null。甲40小时和专家支持8小时保留，但容量仍unresolved；未将未知标成足够或不足。"
+    },
+    {
+      "id": "unassigned-roles",
+      "status": "passed",
+      "observation_zh": "首席、企业、库存分段三个角色任务仍无具体人员配置，期间和容量待明确。"
+    },
+    {
+      "id": "assignment-period",
+      "status": "passed",
+      "observation_zh": "ASSIGN-A仅2026-11-07至2026-11-30；候选WP-OFFLINE到2026-12-04。GAP-ASSIGNMENT-PERIOD直接显示12月1日至4日续任、替代或交接及容量缺口，未自动延长。"
+    },
+    {
+      "id": "development",
+      "status": "passed",
+      "observation_zh": "DEV-A复评2026-11-30仍planned，无结果；rating_change=not-inferred。发展行动完成不自动弥补后续配置期限缺口。"
+    },
+    {
+      "id": "approval",
+      "status": "passed",
+      "observation_zh": "配置approval=not-granted，项目candidate/not-started；覆盖记录generated-awaiting-review，布局source_verified=false。本复核未改变这些状态。"
+    }
+  ],
+  "coverage_assessment": {
+    "errors": [],
+    "warnings": [],
+    "unrepresented_entity_ids": [],
+    "unrepresented_relationship_ids": [],
+    "local_expression_contract": "omnichannel-assignment/1",
+    "review_status_preserved": "generated-awaiting-review",
+    "business_approval_preserved": "not-granted",
+    "conclusion_zh": "主体计数与实际主表和PNG相符；两条证据关系如实标为companion-only。零覆盖错误意味着按该表达契约覆盖了制品包，并非所有字段和7条连线都在单图中，也非业务验收。"
+  },
+  "visual_findings": [
+    {
+      "id": "F08-V01",
+      "severity": "scope-limit",
+      "status": "explicitly-recorded-not-original-empty-directory-failure",
+      "observation_zh": "CONFIG-EVIDENCE-A、CONFIG-EVIDENCE-EXPERT在主PNG没有箭头；它们在明细页有显式源、目标和语义。若验收要求所有7关系均在主图直接可见，则该更严格要求尚未满足。",
+      "recommendation_zh": "汇报采用“11主体直接可见、5条主图关系、2条明细关系”的准确表述；如需单图独立使用，再增加两条证据连线。"
+    },
+    {
+      "id": "F08-V02",
+      "severity": "minor-usability",
+      "status": "observed",
+      "observation_zh": "PNG保留workload_hours: None及current_proficiency: None等字段形式，旁边有中文未知和证据说明。信息可识别，但业务版可统一显示“未知”，降低阅读成本。"
+    }
+  ],
+  "provenance_note_zh": "按任务指定的本地raw-business-materials.md与role-skill-inputs.json完成来源内容比较。制品sources中CASE-PERSON/CASE-EXPERT/CASE-ROLE-TARGET的locator仍采用examples/g249-omnichannel/role-skill-inputs.json旧相对形式；本次没有假称这些旧定位已归一化或逐条可点击。",
+  "limits_zh": [
+    "结论仅针对offline-change的F08修复，不自动覆盖baseline、shared-object-change或其他F01–F09。",
+    "未重跑生成器，也未检验删除主体后的负向覆盖检测能力；本次证明当前保存制品的实际表达。",
+    "视觉检查覆盖此张PNG及SVG关系身份；明细HTML通过结构和可读文本核对，未另行浏览器渲染验收。",
+    "全部案例资料为虚构教学资料；AI独立复核不是业务批准、人员评级、技能认证或上线授权。"
+  ],
+  "input_snapshots": [
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md",
+      "sha256": "714d46a130507863e5ee1bd956804ebd648fa0803577ee13bbc705f0e3979e96",
+      "bytes": 2886
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json",
+      "sha256": "611b436b1c167cff818e1c4ce3a1a4d7f620c5d46c047836c4678c9b221ef8e0",
+      "bytes": 11750
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.md",
+      "sha256": "d70580d218532a34f62b73ea8bf47a26da260f69049a1de366e0a8a01296706b",
+      "bytes": 8353
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.json",
+      "sha256": "a12ac5024fc0a6d20d0c65ffe9bab686ccdd0751f38f80d6a0fa7b7ed231219c",
+      "bytes": 28258
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.png",
+      "sha256": "d93101eb5f93b136fa29ca53ea205ce51e5576b63dc903bb12d3aa12cc1e9266",
+      "bytes": 250614
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.svg",
+      "sha256": "ff09c7258db092633132291dc29434fdccfc94db137f094b3d6d7361fa03e9ef",
+      "bytes": 220703
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.coverage.json",
+      "sha256": "ccde7f4d104a26df19bfcf5d8461634f92f9251f9cb0ccecbaf5bd26f7638cfd",
+      "bytes": 34313
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.details.html",
+      "sha256": "b7f0700f7e88359e042399384dafef31a15b503ec94d66aee7ea0a63a68639bd",
+      "bytes": 18211
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/artifacts/role-assignment.layout.json",
+      "sha256": "986d773ee5d28b4f2bbe0a6c171c915a12467ca797a302903083db3453242d9d",
+      "bytes": 469
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/expression-coverage.json",
+      "sha256": "0c10707e29ad1aae57f8ebfde00d0de57f0e6219549399415d708c50d3a727e3",
+      "bytes": 60929
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/generated/offline-change/model.json",
+      "sha256": "5be105ead46034e2c56c719035f345d6090bbb50ca177dcfc0a2b8f66219da74",
+      "bytes": 264643
+    },
+    {
+      "path": "togaf-standard-10th-ai/maintenance/cases/omnichannel/review-history/before-f08-fix.json",
+      "sha256": "5143971176ca3f0187f0079e7900a28b71fbf5ceab899ce668649ad0b5a967a8",
+      "bytes": 56074
+    }
+  ],
+  "writes": [
+    "togaf-standard-10th-ai/maintenance/cases/omnichannel/f08-independent-verification.json",
+    "togaf-standard-10th-ai/maintenance/cases/omnichannel/f08-independent-verification.md"
+  ]
+}

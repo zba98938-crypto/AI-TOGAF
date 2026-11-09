@@ -1,0 +1,257 @@
+{
+  "schema_version": "method-teaching-materials/1",
+  "method_id": "domain-architecture-alignment-review",
+  "is_example": true,
+  "title": "预约项目的应用域与安全关注点对齐",
+  "source": "G186 §12.2",
+  "decision": "安全方案与应用方案是否服务同一项目，独立文档能否替代共享模型和跨域引用？",
+  "materials": [
+    [
+      "CHARTER",
+      "EA-PILOT目标为中央预约和隐私保护，应用域引用共享对象APP-RESERVE。"
+    ],
+    [
+      "SECURITY",
+      "手机号脱敏需求REQ-MASK适用于预约应用DOM-APP，安全作为跨域关注点记录。"
+    ]
+  ],
+  "reasoning": [
+    "对齐基于项目ID、目的和共享对象，不以文档标题相同为证。",
+    "安全关注指向实际受影响的应用域，不能孤立成与整体EA无关的第二项目。",
+    "共享引用缺失时只保留待补，不宣称架构质量不合格。",
+    "项目切换是业务范围改变，应明确报出separate-project而非沿用原结论。"
+  ],
+  "scenarios": {
+    "sufficient": {
+      "inputs": {
+        "source_ids": [
+          "CHARTER",
+          "SECURITY"
+        ],
+        "ea_project": {
+          "id": "EA-PILOT",
+          "objective_ids": [
+            "OBJ-RESERVE",
+            "OBJ-PRIVACY"
+          ]
+        },
+        "domains": [
+          {
+            "id": "DOM-APP",
+            "name": "预约应用",
+            "kind": "application",
+            "project_id": "EA-PILOT",
+            "objective_ids": [
+              "OBJ-RESERVE"
+            ],
+            "shared_entity_ids": [
+              "APP-RESERVE"
+            ],
+            "evidence": [
+              "CHARTER"
+            ]
+          },
+          {
+            "id": "DOM-SEC",
+            "name": "预约安全关注",
+            "kind": "security",
+            "project_id": "EA-PILOT",
+            "objective_ids": [
+              "OBJ-PRIVACY"
+            ],
+            "shared_entity_ids": [
+              "REQ-MASK"
+            ],
+            "treated_as": "concern",
+            "referenced_domain_ids": [
+              "DOM-APP"
+            ],
+            "evidence": [
+              "SECURITY"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "row_states": [
+          "aligned-awaiting-review",
+          "aligned-awaiting-review"
+        ],
+        "gap_reasons": []
+      },
+      "explanation": "共同项目与目标成立；不评价脱敏方案强度。"
+    },
+    "missing": {
+      "inputs": {
+        "source_ids": [
+          "CHARTER",
+          "SECURITY"
+        ],
+        "ea_project": {
+          "id": "EA-PILOT",
+          "objective_ids": [
+            "OBJ-RESERVE",
+            "OBJ-PRIVACY"
+          ]
+        },
+        "domains": [
+          {
+            "id": "DOM-APP",
+            "name": "预约应用",
+            "kind": "application",
+            "project_id": "EA-PILOT",
+            "objective_ids": [
+              "OBJ-RESERVE"
+            ],
+            "shared_entity_ids": [],
+            "evidence": [
+              "CHARTER"
+            ]
+          },
+          {
+            "id": "DOM-SEC",
+            "name": "预约安全关注",
+            "kind": "security",
+            "project_id": "EA-PILOT",
+            "objective_ids": [
+              "OBJ-PRIVACY"
+            ],
+            "shared_entity_ids": [
+              "REQ-MASK"
+            ],
+            "treated_as": "concern",
+            "referenced_domain_ids": [
+              "DOM-APP"
+            ],
+            "evidence": [
+              "SECURITY"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "row_states": [
+          "needs-input",
+          "aligned-awaiting-review"
+        ],
+        "gap_reasons": [
+          "no-shared-model-reference"
+        ]
+      },
+      "explanation": "应用域没有共享对象引用，不能仅靠项目名推断已融入共享模型。"
+    },
+    "change": {
+      "inputs": {
+        "source_ids": [
+          "CHARTER",
+          "SECURITY"
+        ],
+        "ea_project": {
+          "id": "EA-PILOT",
+          "objective_ids": [
+            "OBJ-RESERVE",
+            "OBJ-PRIVACY"
+          ]
+        },
+        "domains": [
+          {
+            "id": "DOM-APP",
+            "name": "预约应用",
+            "kind": "application",
+            "project_id": "EA-OTHER",
+            "objective_ids": [
+              "OBJ-RESERVE"
+            ],
+            "shared_entity_ids": [
+              "APP-RESERVE"
+            ],
+            "evidence": [
+              "CHARTER"
+            ]
+          },
+          {
+            "id": "DOM-SEC",
+            "name": "预约安全关注",
+            "kind": "security",
+            "project_id": "EA-PILOT",
+            "objective_ids": [
+              "OBJ-PRIVACY"
+            ],
+            "shared_entity_ids": [
+              "REQ-MASK"
+            ],
+            "treated_as": "concern",
+            "referenced_domain_ids": [
+              "DOM-APP"
+            ],
+            "evidence": [
+              "SECURITY"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "row_states": [
+          "misaligned",
+          "aligned-awaiting-review"
+        ]
+      },
+      "explanation": "应用域转入另一个项目后原整体EA对齐失效。"
+    },
+    "counterexample": {
+      "inputs": {
+        "source_ids": [
+          "CHARTER",
+          "SECURITY"
+        ],
+        "ea_project": {
+          "id": "EA-PILOT",
+          "objective_ids": [
+            "OBJ-RESERVE",
+            "OBJ-PRIVACY"
+          ]
+        },
+        "domains": [
+          {
+            "id": "DOM-APP",
+            "name": "预约应用",
+            "kind": "application",
+            "project_id": "EA-PILOT",
+            "objective_ids": [
+              "OBJ-RESERVE"
+            ],
+            "shared_entity_ids": [
+              "APP-RESERVE"
+            ],
+            "evidence": [
+              "CHARTER"
+            ]
+          },
+          {
+            "id": "DOM-SEC",
+            "name": "预约安全关注",
+            "kind": "security",
+            "project_id": "EA-PILOT",
+            "objective_ids": [
+              "OBJ-PRIVACY"
+            ],
+            "shared_entity_ids": [
+              "REQ-MASK"
+            ],
+            "treated_as": "concern",
+            "referenced_domain_ids": [
+              "DOM-ABSENT"
+            ],
+            "evidence": [
+              "SECURITY"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "reject": "DAA-002"
+      },
+      "explanation": "安全引用未登记域时拒绝悬空引用。"
+    }
+  }
+}

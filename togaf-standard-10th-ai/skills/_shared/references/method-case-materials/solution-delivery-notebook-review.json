@@ -1,0 +1,438 @@
+{
+  "schema_version": "method-teaching-materials/1",
+  "method_id": "solution-delivery-notebook-review",
+  "is_example": true,
+  "title": "预约工作包的需求规格与风险控制配对",
+  "source": "G186 附录D 表D-1",
+  "decision": "仅有目标架构概念图，能否据此判断重试控制和退货能力已交付？",
+  "materials": [
+    [
+      "SCOPE",
+      "工作包只补预约中央预占，不处理自提退货；双店试点后才讨论推广。"
+    ],
+    [
+      "SPEC",
+      "需求是确认前取得预占凭证；事件接口规格必须携带该凭证ID。"
+    ],
+    [
+      "RISK",
+      "重试可能重复预占，候选控制为请求键幂等；尚无控制运行结果。"
+    ]
+  ],
+  "reasoning": [
+    "概念图只解释方案，不能代替可检查的事件规格。",
+    "需求与规格、风险与控制分别配对，不能把同一条连线当两种证明。",
+    "退货是明确范围外差距，保留后续工作责任。",
+    "有控制条目只证明设计已记录；没有运行证据就不能判断重复预占已被消除。"
+  ],
+  "scenarios": {
+    "sufficient": {
+      "inputs": {
+        "id": "NB-PILOT",
+        "source_ids": [
+          "SCOPE",
+          "SPEC",
+          "RISK"
+        ],
+        "evidence": [
+          "SCOPE",
+          "SPEC",
+          "RISK"
+        ],
+        "work_package_id": "WP-PILOT",
+        "solution_concept_ref": "VIEW-RESERVATION",
+        "implementation_strategy": "先双店试点；中央预占成功才确认预约",
+        "stakeholders": [
+          {
+            "id": "OPS",
+            "name": "门店运营",
+            "requirement_ids": [
+              "REQ-RESERVE"
+            ]
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-RESERVE",
+            "statement": "确认前取得中央库存预占凭证",
+            "stakeholder_ids": [
+              "OPS"
+            ]
+          }
+        ],
+        "specifications": [
+          {
+            "id": "SPEC-RESERVE",
+            "requirement_id": "REQ-RESERVE",
+            "statement": "确认事件引用预占凭证ID",
+            "spec_type": "事件接口",
+            "applies_to": "预约服务"
+          }
+        ],
+        "risks": [
+          {
+            "id": "RISK-DUP",
+            "description": "重试重复预占"
+          }
+        ],
+        "controls": [
+          {
+            "id": "CTRL-IDEM",
+            "risk_id": "RISK-DUP",
+            "statement": "重复请求键只返回同一预占结果",
+            "applies_to": "预约接口"
+          }
+        ],
+        "gaps": [
+          {
+            "id": "GAP-RESERVE",
+            "description": "当前确认无中央预占",
+            "in_scope": true
+          },
+          {
+            "id": "GAP-RETURN",
+            "description": "自提退货流程未覆盖",
+            "in_scope": false
+          }
+        ],
+        "architecture_summary": {
+          "business": {
+            "view_ids": [
+              "VIEW-business"
+            ]
+          },
+          "information": {
+            "view_ids": [
+              "VIEW-information"
+            ]
+          },
+          "application": {
+            "view_ids": [
+              "VIEW-application"
+            ]
+          },
+          "security": {
+            "view_ids": [
+              "VIEW-security"
+            ]
+          },
+          "infrastructure": {
+            "not_applicable_reason": "沿用已声明的试点平台，本工作包不改变基础设施"
+          }
+        }
+      },
+      "expected": {
+        "gap_reasons": [],
+        "in_scope_gap_ids": [
+          "GAP-RESERVE"
+        ],
+        "out_of_scope_gap_ids": [
+          "GAP-RETURN"
+        ]
+      },
+      "explanation": "一项规格与一项控制分别回链需求和风险。"
+    },
+    "missing": {
+      "inputs": {
+        "id": "NB-PILOT",
+        "source_ids": [
+          "SCOPE",
+          "SPEC",
+          "RISK"
+        ],
+        "evidence": [
+          "SCOPE",
+          "SPEC",
+          "RISK"
+        ],
+        "work_package_id": "WP-PILOT",
+        "solution_concept_ref": "VIEW-RESERVATION",
+        "implementation_strategy": "先双店试点；中央预占成功才确认预约",
+        "stakeholders": [
+          {
+            "id": "OPS",
+            "name": "门店运营",
+            "requirement_ids": [
+              "REQ-RESERVE"
+            ]
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-RESERVE",
+            "statement": "确认前取得中央库存预占凭证",
+            "stakeholder_ids": [
+              "OPS"
+            ]
+          }
+        ],
+        "specifications": [
+          {
+            "id": "SPEC-RESERVE",
+            "requirement_id": "REQ-RESERVE",
+            "statement": "确认事件引用预占凭证ID",
+            "spec_type": "事件接口",
+            "applies_to": "预约服务"
+          }
+        ],
+        "risks": [
+          {
+            "id": "RISK-DUP",
+            "description": "重试重复预占"
+          }
+        ],
+        "controls": [],
+        "gaps": [
+          {
+            "id": "GAP-RESERVE",
+            "description": "当前确认无中央预占",
+            "in_scope": true
+          },
+          {
+            "id": "GAP-RETURN",
+            "description": "自提退货流程未覆盖",
+            "in_scope": false
+          }
+        ],
+        "architecture_summary": {
+          "business": {
+            "view_ids": [
+              "VIEW-business"
+            ]
+          },
+          "information": {
+            "view_ids": [
+              "VIEW-information"
+            ]
+          },
+          "application": {
+            "view_ids": [
+              "VIEW-application"
+            ]
+          },
+          "security": {
+            "view_ids": [
+              "VIEW-security"
+            ]
+          },
+          "infrastructure": {
+            "not_applicable_reason": "沿用已声明的试点平台，本工作包不改变基础设施"
+          }
+        }
+      },
+      "expected": {
+        "gap_reasons": [
+          "uncontrolled-risk"
+        ]
+      },
+      "explanation": "删除控制且无风险处理决定，保留未受控风险。"
+    },
+    "change": {
+      "inputs": {
+        "id": "NB-PILOT",
+        "source_ids": [
+          "SCOPE",
+          "SPEC",
+          "RISK"
+        ],
+        "evidence": [
+          "SCOPE",
+          "SPEC",
+          "RISK"
+        ],
+        "work_package_id": "WP-PILOT",
+        "solution_concept_ref": "VIEW-RESERVATION",
+        "implementation_strategy": "先双店试点；中央预占成功才确认预约",
+        "stakeholders": [
+          {
+            "id": "OPS",
+            "name": "门店运营",
+            "requirement_ids": [
+              "REQ-RESERVE"
+            ]
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-RESERVE",
+            "statement": "确认前取得中央库存预占凭证",
+            "stakeholder_ids": [
+              "OPS"
+            ]
+          }
+        ],
+        "specifications": [
+          {
+            "id": "SPEC-RESERVE",
+            "requirement_id": "REQ-RESERVE",
+            "statement": "确认事件引用预占凭证ID",
+            "spec_type": "事件接口",
+            "applies_to": "预约服务"
+          }
+        ],
+        "risks": [
+          {
+            "id": "RISK-DUP",
+            "description": "重试重复预占"
+          }
+        ],
+        "controls": [
+          {
+            "id": "CTRL-IDEM",
+            "risk_id": "RISK-DUP",
+            "statement": "重复请求键只返回同一预占结果",
+            "applies_to": "预约接口"
+          }
+        ],
+        "gaps": [
+          {
+            "id": "GAP-RESERVE",
+            "description": "当前确认无中央预占",
+            "in_scope": true
+          },
+          {
+            "id": "GAP-RETURN",
+            "description": "自提退货流程未覆盖",
+            "in_scope": true
+          }
+        ],
+        "architecture_summary": {
+          "business": {
+            "view_ids": [
+              "VIEW-business"
+            ]
+          },
+          "information": {
+            "view_ids": [
+              "VIEW-information"
+            ]
+          },
+          "application": {
+            "view_ids": [
+              "VIEW-application"
+            ]
+          },
+          "security": {
+            "view_ids": [
+              "VIEW-security"
+            ]
+          },
+          "infrastructure": {
+            "not_applicable_reason": "沿用已声明的试点平台，本工作包不改变基础设施"
+          }
+        }
+      },
+      "expected": {
+        "in_scope_gap_ids": [
+          "GAP-RESERVE",
+          "GAP-RETURN"
+        ],
+        "out_of_scope_gap_ids": [],
+        "gap_reasons": [
+          "out-of-scope-gaps-not-identified"
+        ]
+      },
+      "explanation": "将退货纳入工作包后，原范围外说明失效，需重新确认未处理差距。"
+    },
+    "counterexample": {
+      "inputs": {
+        "id": "NB-PILOT",
+        "source_ids": [
+          "SCOPE",
+          "SPEC",
+          "RISK"
+        ],
+        "evidence": [
+          "SCOPE",
+          "SPEC",
+          "RISK"
+        ],
+        "work_package_id": "WP-PILOT",
+        "solution_concept_ref": "VIEW-RESERVATION",
+        "implementation_strategy": "先双店试点；中央预占成功才确认预约",
+        "stakeholders": [
+          {
+            "id": "OPS",
+            "name": "门店运营",
+            "requirement_ids": [
+              "REQ-RESERVE"
+            ]
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-RESERVE",
+            "statement": "确认前取得中央库存预占凭证",
+            "stakeholder_ids": [
+              "OPS"
+            ]
+          }
+        ],
+        "specifications": [
+          {
+            "id": "SPEC-RESERVE",
+            "requirement_id": "REQ-ABSENT",
+            "statement": "确认事件引用预占凭证ID",
+            "spec_type": "事件接口",
+            "applies_to": "预约服务"
+          }
+        ],
+        "risks": [
+          {
+            "id": "RISK-DUP",
+            "description": "重试重复预占"
+          }
+        ],
+        "controls": [
+          {
+            "id": "CTRL-IDEM",
+            "risk_id": "RISK-DUP",
+            "statement": "重复请求键只返回同一预占结果",
+            "applies_to": "预约接口"
+          }
+        ],
+        "gaps": [
+          {
+            "id": "GAP-RESERVE",
+            "description": "当前确认无中央预占",
+            "in_scope": true
+          },
+          {
+            "id": "GAP-RETURN",
+            "description": "自提退货流程未覆盖",
+            "in_scope": false
+          }
+        ],
+        "architecture_summary": {
+          "business": {
+            "view_ids": [
+              "VIEW-business"
+            ]
+          },
+          "information": {
+            "view_ids": [
+              "VIEW-information"
+            ]
+          },
+          "application": {
+            "view_ids": [
+              "VIEW-application"
+            ]
+          },
+          "security": {
+            "view_ids": [
+              "VIEW-security"
+            ]
+          },
+          "infrastructure": {
+            "not_applicable_reason": "沿用已声明的试点平台，本工作包不改变基础设施"
+          }
+        }
+      },
+      "expected": {
+        "reject": "SDN-004"
+      },
+      "explanation": "规格指向不存在的需求必须拒绝。"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Execution Process"]
+  n1["Planning Process"]
+  n2["Execution"]
+  n3["Process Governance"]
+  n4["Architecture Support"]
+  n5["Advice, Direction, and Constraints"]
+  n6["Reporting"]
+  n5 -->|"支撑/服务"| n1
+  n6 -->|"支撑/服务"| n3
+  n2 -->|"触发"| n4
+  n4 -.->|"产生/交付"| n5
+  n4 -.->|"产生/交付"| n6
+  n0 -.->|"分组"| n1
+  n0 -.->|"分组"| n2
+  n0 -.->|"分组"| n3
+  n4 -.->|"分组"| n5
+  n4 -.->|"分组"| n6

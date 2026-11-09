@@ -1,0 +1,227 @@
+{
+  "schema_version": "2.0",
+  "id": "G21I/fig10-1",
+  "title": "范围转型",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      635
+    ],
+    "label_table_lines": [
+      639,
+      649
+    ]
+  },
+  "reading": {
+    "purpose_zh": "第 10.2 节（阶段 E 的范围转型）用本图说明云原生与 MSA 的核心理念：目标状态是模块化、分布式、高度解耦的方案；由于微服务独立且自包含，每个模块的范围可以单独管理，各有自己的路线图与过渡计划。范围转型是阶段 E 的三类关键考虑之一（另两类为组织转型和技术转型）。",
+    "reading_guide_zh": "从左到右读。左侧“现状”下列出两种起点：单体（橙色框）和全新建设（绿框），二者是可选的两种情形，不是同时存在的两个部分。中间的大箭头是“转型路线图”（复数）。右侧“目标状态”是 5 个独立的微服务，其中 3 个画在云里，2 个在云外。",
+    "key_points_zh": [
+      "现状有两种情形：可分解的单体方案，或没有遗留系统的全新建设（Greenfield）。",
+      "目标状态是模块化、分布式、高度解耦的方案，由多个彼此独立的微服务组成。",
+      "微服务独立且自包含，所以每个模块的范围可以单独管理，各有自己的路线图与过渡计划；箭头上写的是复数的“转型路线图”。",
+      "部分微服务在云内、部分在云外：原文指出微服务是云原生方案的一种，但也可以部署在云外；云原生则专为云设计。",
+      "阶段 E 还要考虑组织转型（每个微服务由单一团队拥有，治理结构精益、联邦式）和技术转型（异构技术格局、内外双重参考架构、交付与部署基础设施，以及数据转型），这些不在本图中。"
+    ],
+    "hierarchy_zh": "两组：“现状”下是单体与全新建设两种可选起点；“目标状态”下是 5 个微服务，其中 3 个位于云形图内。",
+    "line_semantics_zh": "只有一个大块箭头，从现状指向目标状态，标“转型路线图”。现状中的两个框之间、各微服务之间都没有连线。",
+    "misreadings_zh": [
+      "单体与全新建设是二选一的两种起点，不是需要同时迁移的两个系统。",
+      "箭头不表示一次性整体迁移；原文强调每个模块有自己的路线图与过渡计划。",
+      "云外的 2 个微服务不是“尚未迁移”的部分；原图没有区分它们的状态，正文只说明微服务也可以部署在云外。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "current_state",
+      "label_en": "Current State",
+      "label_zh": "现状",
+      "type": "architecture",
+      "parent": null,
+      "position": "左上标题框"
+    },
+    {
+      "id": "monolith",
+      "label_en": "Monolith",
+      "label_zh": "单体应用",
+      "type": "application",
+      "parent": "current_state",
+      "position": "左列上",
+      "description_zh": "可分解的单体方案。"
+    },
+    {
+      "id": "greenfield",
+      "label_en": "Greenfield",
+      "label_zh": "全新建设（绿地）",
+      "type": "concept",
+      "parent": "current_state",
+      "position": "左列下",
+      "description_zh": "没有遗留系统的全新建设场景。"
+    },
+    {
+      "id": "roadmaps",
+      "label_en": "Transformation Roadmaps",
+      "label_zh": "转型路线图",
+      "type": "artifact",
+      "position": "中间大箭头上",
+      "description_zh": "复数：每个模块各有路线图与过渡计划。"
+    },
+    {
+      "id": "target_state",
+      "label_en": "Target State",
+      "label_zh": "目标状态",
+      "type": "architecture",
+      "parent": null,
+      "position": "右上标题框",
+      "description_zh": "模块化、分布式、高度解耦的方案。"
+    },
+    {
+      "id": "cloud",
+      "label_en": null,
+      "label_zh": "云（未标名称的云形图）",
+      "type": "technology",
+      "parent": "target_state",
+      "position": "右侧中上"
+    },
+    {
+      "id": "ms_1",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "cloud",
+      "position": "云内左上"
+    },
+    {
+      "id": "ms_2",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "cloud",
+      "position": "云内右上"
+    },
+    {
+      "id": "ms_3",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "cloud",
+      "position": "云内中"
+    },
+    {
+      "id": "ms_4",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "target_state",
+      "position": "云外右下",
+      "description_zh": "部署在云外的微服务。"
+    },
+    {
+      "id": "ms_5",
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "parent": "target_state",
+      "position": "云外左下"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "current_state",
+      "to": "target_state",
+      "type": "transitions_to",
+      "label_en": "Transformation Roadmaps",
+      "label_zh": "转型路线图",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "description_zh": "大块箭头"
+    },
+    {
+      "from": "roadmaps",
+      "to": "target_state",
+      "type": "realization",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "forward",
+      "description_zh": "路线图（各模块各一份）把现状带到目标状态"
+    },
+    {
+      "from": "monolith",
+      "to": "greenfield",
+      "type": "contrast",
+      "label_zh": "二选一的起点",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_scope",
+      "kind": "sequence",
+      "name_zh": "范围转型",
+      "steps": [
+        "current_state",
+        "roadmaps",
+        "target_state"
+      ]
+    }
+  ],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "灰蓝色标题框",
+      "meaning_zh": "状态名称（现状 / 目标状态）",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色实心框",
+      "meaning_zh": "单体方案（已有系统）",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色边框、白底的框",
+      "meaning_zh": "全新建设（没有已有系统）",
+      "explicit": false
+    },
+    {
+      "symbol": "灰蓝色大块箭头",
+      "meaning_zh": "转型路线图，由现状指向目标状态",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色圆角框",
+      "meaning_zh": "微服务",
+      "explicit": false
+    },
+    {
+      "symbol": "云形图",
+      "meaning_zh": "云（未标名称）；云内为云上部署的微服务",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中的云没有标签；“云内/云外”与“微服务可部署在云外”的对应来自第 10.1 节正文，图本身没有说明。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 44 页原图截图（220 dpi）",
+      "英文 PDF 第 43–44 页正文",
+      "中文稿 G21Ie_微服务架构.md 第 616–662 行（含图内标签对照表 L639–L648）",
+      "figs/zh/g21ie_fig10-1_zh.png",
+      "figs/g21ie_fig10-1_en.png（自动相似度 0.979）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G21I/fig10-1",
+    "asset": "figs/g21ie_fig10-1_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "13"
+  }
+}

@@ -1,0 +1,1615 @@
+{
+  "schema_version": "1.0",
+  "id": "G234/fig4-5",
+  "status": "done",
+  "doc": {
+    "code": "G234",
+    "title_zh": "信息架构——元数据管理",
+    "title_en": "Information Architecture — Metadata Management",
+    "zh_md": "G234e_信息架构_元数据管理.md",
+    "en_pdf": "togaf-standard-10th/G234e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-5",
+    "title_en": "Key Metadata Assets",
+    "title_zh": "关键元数据资产",
+    "section_en": "4.3 Metadata Management Guidelines for Information Systems Architectures (ADM Phase C)",
+    "section_zh": "4.3 信息系统架构阶段的元数据管理指南（ADM 阶段 C）",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        26
+      ],
+      "printed_page": 16,
+      "bboxes": [
+        [
+          61.1,
+          332.7,
+          550.9,
+          572.9
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        303
+      ],
+      "label_table_lines": [
+        307,
+        350
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g234e_fig4-5_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "2d98949d47b1",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.977（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g234e_fig4-5_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "21bcfc5dd720",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "顶部两个维度表头“数据安全与隐私”和“元数据治理”被挤进同一行，只剩一条竖线分隔，容易被读成一个复合维度；原图为两个独立表头单元",
+        "左侧竖排的“元数据类型”（原图 METADATA TYPE）被拆成竖排单字并移到表格外缘，位置与字号都不稳定，部分字几乎贴边",
+        "单元格字号被压得很小（尤其 Metadata Governance 列的“服务水平协议”“组织”），在正常缩放下难以辨认",
+        "网格、行列结构与全部 30 个资产标签均已保留，未发现错译或漏项"
+      ]
+    },
+    {
+      "path": "G234e_信息架构_元数据管理.md#L307-L350",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "5436270aa307",
+      "fidelity": "faithful",
+      "issues_zh": []
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "matrix"
+    ],
+    "notation": "二维矩阵：横轴为 4 个数据管理维度，纵轴为 3 类元数据，单元格内为灰底圆角资产标签；虚线网格分隔",
+    "concepts": [
+      "metadata_management",
+      "data_architecture",
+      "data_management",
+      "information_concept"
+    ],
+    "adm_phases": [
+      "adm_phase_c"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "用 3 类元数据 × 4 个数据管理维度，定位 30 项关键元数据资产的归属。",
+    "purpose_zh": "正文说元数据常分为业务、技术、运营三类，图 4-5 给出“为支持数据治理应捕获的关键元数据资产”的基线建议，并按数据管理维度组织，便于架构师按维度查漏、按类型分工。",
+    "reading_guide_zh": "先读横轴四个维度：Data Quality、Data Documentation、Data Security & Privacy、Metadata Governance；再读纵轴三类元数据：Business、Technical、Operational。读某个维度时纵向扫一列，读某类元数据时横向扫一行。单元格里的标签就是资产，空格表示该组合未列资产。",
+    "key_points_zh": [
+      "业务元数据资产最多，四个维度都有覆盖；技术元数据集中在数据质量、数据文档化与数据安全隐私；运营元数据每个维度只有 1 项。",
+      "Data Documentation 列最密：业务 9 项、技术 5 项、运营 1 项，是元数据存储库的主体内容。",
+      "Data Quality 列以规则、问题、异常为主：Business Data Issue、Business Data Quality Rule、Technical Data Quality Rule、Data Quality Anomaly。",
+      "Data Security & Privacy 列以处理活动、评估、删除规则、访问事件为主，业务与技术各有一条删除规则。",
+      "Metadata Governance 列只有业务元数据（Role、Data Policy、Business Data Domain、SLAs、Organization）和运营元数据（Metadata Activity Logs）；技术元数据为空。",
+      "技术元数据在 Metadata Governance 单元格为空是原图事实，不是漏画；技术元数据的治理通过业务层的角色/政策与运营层的活动日志体现。"
+    ],
+    "hierarchy_zh": "两维坐标，不存在上下级：4 个维度（列）× 3 个类型（行），每个单元格内的资产并列。",
+    "line_semantics_zh": "虚线是单元格分隔线，没有箭头；位置（行与列）就是唯一的语义。",
+    "misreadings_zh": [
+      "不要把空单元格理解为“不允许”或“不存在”，它只表示基线清单未列。",
+      "Data Volume 属运营元数据 × Data Documentation，不在 Data Quality 列。",
+      "Metadata Activity Logs 属运营元数据 × Metadata Governance，不是技术元数据。",
+      "中文图的“数据安全与隐私”和“元数据治理”表头挤在一行，不要把它们当成一个维度。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p26",
+        "summary_zh": "元数据按 DMBOK2 分为业务、技术、运营三类；业务元数据由人管理，技术元数据存在于 IT 系统数据结构中，运营元数据在特定时点生成；图 4-5 给出支持数据治理应捕获的关键元数据资产基线，定义见附录 A。"
+      },
+      {
+        "source": "zh_md L295",
+        "summary_zh": "中文稿复述三类元数据的定义与图 4-5 的基线定位。"
+      },
+      {
+        "source": "zh_md L303",
+        "summary_zh": "中文稿在此插入图 4-5 并给出 30 项标签的中英对照。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "grid",
+    "description_zh": "4 列（数据管理维度）× 3 行（元数据类型）的矩阵；左上角为行列标题交叉格；单元格内资产标签按两小列堆叠。"
+  },
+  "legend": [
+    {
+      "symbol": "深色顶栏 DATA MANAGEMENT DIMENSIONS",
+      "meaning_zh": "横轴：数据管理维度",
+      "explicit": true
+    },
+    {
+      "symbol": "左侧竖排 METADATA TYPE",
+      "meaning_zh": "纵轴：元数据类型",
+      "explicit": true
+    },
+    {
+      "symbol": "灰底圆角标签",
+      "meaning_zh": "一项关键元数据资产",
+      "explicit": false
+    },
+    {
+      "symbol": "虚线网格",
+      "meaning_zh": "维度与类型的单元格边界",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "dim_quality",
+      "label_en": "Data Quality",
+      "label_zh": "数据质量",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 1 列表头"
+    },
+    {
+      "id": "dim_documentation",
+      "label_en": "Data Documentation",
+      "label_zh": "数据文档化",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 2 列表头"
+    },
+    {
+      "id": "dim_security_privacy",
+      "label_en": "Data Security & Privacy",
+      "label_zh": "数据安全与隐私",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 3 列表头"
+    },
+    {
+      "id": "dim_governance",
+      "label_en": "Metadata Governance",
+      "label_zh": "元数据治理",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 4 列表头"
+    },
+    {
+      "id": "a_business_issue",
+      "label_en": "Business Data Issue",
+      "label_zh": "业务数据问题",
+      "type": "data",
+      "parent": "dim_quality",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_dq_rule",
+      "label_en": "Business Data Quality Rule",
+      "label_zh": "业务数据质量规则",
+      "type": "principle",
+      "parent": "dim_quality",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_term",
+      "label_en": "Business Term",
+      "label_zh": "业务术语",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_data_object",
+      "label_en": "Business Data Object",
+      "label_zh": "业务数据对象",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_data_element",
+      "label_en": "Business Data Element",
+      "label_zh": "业务数据元素",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_process",
+      "label_en": "Process",
+      "label_zh": "流程",
+      "type": "process",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_class_taxonomies",
+      "label_en": "Data Classification Taxonomies",
+      "label_zh": "数据分类体系",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_rule",
+      "label_en": "Business Rule",
+      "label_zh": "业务规则",
+      "type": "principle",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_code_set",
+      "label_en": "Code Set",
+      "label_zh": "代码集",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_code_value",
+      "label_en": "Code Value",
+      "label_zh": "代码值",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_activity",
+      "label_en": "Activity",
+      "label_zh": "活动",
+      "type": "process",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_processing_activity",
+      "label_en": "Data Processing Activity",
+      "label_zh": "数据处理活动",
+      "type": "process",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_privacy_assessment",
+      "label_en": "Data Privacy Assessment",
+      "label_zh": "数据隐私评估",
+      "type": "artifact",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_deletion_rule",
+      "label_en": "Business Data Deletion Rule",
+      "label_zh": "业务数据删除规则",
+      "type": "principle",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_role",
+      "label_en": "Role",
+      "label_zh": "角色",
+      "type": "role",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_data_policy",
+      "label_en": "Data Policy",
+      "label_zh": "数据政策",
+      "type": "principle",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_business_domain",
+      "label_en": "Business Data Domain",
+      "label_zh": "业务数据域",
+      "type": "data",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_slas",
+      "label_en": "SLAs",
+      "label_zh": "服务水平协议",
+      "type": "artifact",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "a_organization",
+      "label_en": "Organization",
+      "label_zh": "组织",
+      "type": "organization_unit",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Business"
+      }
+    },
+    {
+      "id": "t_technical_dq_rule",
+      "label_en": "Technical Data Quality Rule",
+      "label_zh": "技术数据质量规则",
+      "type": "principle",
+      "parent": "dim_quality",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_application",
+      "label_en": "Application",
+      "label_zh": "应用",
+      "type": "application",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_data_flow",
+      "label_en": "Data Flow",
+      "label_zh": "数据流",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_database",
+      "label_en": "Database",
+      "label_zh": "数据库",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_data_set",
+      "label_en": "Data Set",
+      "label_zh": "数据集",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_data_field",
+      "label_en": "Data Field",
+      "label_zh": "数据字段",
+      "type": "data",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "t_technical_deletion_rule",
+      "label_en": "Technical Data Deletion Rule",
+      "label_zh": "技术数据删除规则",
+      "type": "principle",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Technical"
+      }
+    },
+    {
+      "id": "o_dq_anomaly",
+      "label_en": "Data Quality Anomaly",
+      "label_zh": "数据质量异常",
+      "type": "data",
+      "parent": "dim_quality",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Operational"
+      }
+    },
+    {
+      "id": "o_data_volume",
+      "label_en": "Data Volume",
+      "label_zh": "数据量",
+      "type": "metric",
+      "parent": "dim_documentation",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Operational"
+      }
+    },
+    {
+      "id": "o_access_event",
+      "label_en": "Data Access Event",
+      "label_zh": "数据访问事件",
+      "type": "event",
+      "parent": "dim_security_privacy",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Operational"
+      }
+    },
+    {
+      "id": "o_activity_logs",
+      "label_en": "Metadata Activity Logs",
+      "label_zh": "元数据活动日志",
+      "type": "data",
+      "parent": "dim_governance",
+      "level": 2,
+      "attributes": {
+        "metadata_type": "Operational"
+      }
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_asset_matrix",
+      "title_zh": "元数据类型 × 数据管理维度：关键元数据资产（逐格转录）",
+      "columns": [
+        "元数据类型",
+        "数据管理维度",
+        "元数据资产"
+      ],
+      "rows": [
+        [
+          "Business 业务",
+          "Data Quality 数据质量",
+          "Business Data Issue；Business Data Quality Rule"
+        ],
+        [
+          "Business 业务",
+          "Data Documentation 数据文档化",
+          "Business Term；Business Data Object；Business Data Element；Process；Data Classification Taxonomies；Business Rule；Code Set；Code Value；Activity"
+        ],
+        [
+          "Business 业务",
+          "Data Security & Privacy 数据安全与隐私",
+          "Data Processing Activity；Data Privacy Assessment；Business Data Deletion Rule"
+        ],
+        [
+          "Business 业务",
+          "Metadata Governance 元数据治理",
+          "Role；Data Policy；Business Data Domain；SLAs；Organization"
+        ],
+        [
+          "Technical 技术",
+          "Data Quality 数据质量",
+          "Technical Data Quality Rule"
+        ],
+        [
+          "Technical 技术",
+          "Data Documentation 数据文档化",
+          "Application；Data Flow；Database；Data Set；Data Field"
+        ],
+        [
+          "Technical 技术",
+          "Data Security & Privacy 数据安全与隐私",
+          "Technical Data Deletion Rule"
+        ],
+        [
+          "Technical 技术",
+          "Metadata Governance 元数据治理",
+          ""
+        ],
+        [
+          "Operational 运营",
+          "Data Quality 数据质量",
+          "Data Quality Anomaly"
+        ],
+        [
+          "Operational 运营",
+          "Data Documentation 数据文档化",
+          "Data Volume"
+        ],
+        [
+          "Operational 运营",
+          "Data Security & Privacy 数据安全与隐私",
+          "Data Access Event"
+        ],
+        [
+          "Operational 运营",
+          "Metadata Governance 元数据治理",
+          "Metadata Activity Logs"
+        ]
+      ],
+      "notes_zh": "Data Documentation 业务格在原图中分两小列排列：左列 Business Term/Business Data Object/Business Data Element/Process/Data Classification Taxonomies，右列 Business Rule/Code Set/Code Value/Activity；行内顺序按原图自上而下、先左列后右列。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G234/fig4-1",
+      "relation": "complements",
+      "note_zh": "图 4-1 按元数据域列资产，本图把同一批资产重新按类型与治理维度分类"
+    },
+    {
+      "target": "G234/fig4-4",
+      "relation": "complements",
+      "note_zh": "本图给出图 4-4 数据模型面板应包含的资产清单"
+    },
+    {
+      "target": "G234/fig5-1",
+      "relation": "related",
+      "note_zh": "图 5-1 的文档化业务功能逐项对应本图 Data Documentation 列的资产"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图 Data Documentation 业务格分两小列，未标注小列含义；本分析按阅读顺序合并转录。",
+      "SLAs 在图中未展开，按中文稿译作“服务水平协议”。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 26 页原图截图",
+      "英文 PDF 第 26 页正文",
+      "中文稿 G234e_信息架构_元数据管理.md 第 295–350 行（图内标签对照）",
+      "figs/g234e_fig4-5_en.png、figs/zh/g234e_fig4-5_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G234e.pdf",
+    "pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G234/fig4-5.json",
+    "interpretation_sha256": "712917f7ec1b82a2df65d9d0125eb49888c51c85357a93d3998f819253fe9172",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 26,
+        "text": "Figure 4-5: Key Metadata Assets",
+        "bbox_pdf_points": [
+          48.24,
+          577.601,
+          199.401,
+          591.167
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 26,
+      "printed_page": 16,
+      "bbox_pdf_points": [
+        61.1,
+        332.7,
+        550.9,
+        572.9
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G234/fig4-5-p0026.png",
+      "image_sha256": "13a48440766207a2dfe3bbf8e3be35c74e7ef9ba745620c44032699097ffdbfd",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "13a48440766207a2dfe3bbf8e3be35c74e7ef9ba745620c44032699097ffdbfd",
+          "status": "extracted-unverified",
+          "text": "DATA MANAGEMENT DIMENSIONS\nData Quality\nData Security & Privacy\nMetadata Governance\nData Documentation\ni\n;\nBusiness\nBusiness Dataissue\nData Processing\nRole\nData Policy\n(isinessTern ] [ Busessrule\n<\nActivity\n[ Business Data\nCode Set\nBusiness Data\n-\nSLAS\n(Business Data Quality\nRule\nObject\n{\nData Privacy\nDomain\nAssessment\nBusnessData\n(Tete vaiue\nElement\nBusiness Data\nOrganization\n{\nActivity\nDeletion Rule\n(\nProcess\nData\nClassification\n|\nTaxonomies\nTechnical\nTechnical Data\nTechnical Data\n(Avoteaton\n[\nDatabase\nDeletion Rule\nQuality Rule\n(bata ow\n{\nData Set\n(\"bata Feta\nOperational |\n(beta voume\nData Access Event\n)",
+          "words": [
+            {
+              "text": "DATA",
+              "confidence": 95.819649,
+              "bbox_pixels_xywh": [
+                329,
+                13,
+                52,
+                16
+              ]
+            },
+            {
+              "text": "MANAGEMENT",
+              "confidence": 95.819649,
+              "bbox_pixels_xywh": [
+                388,
+                13,
+                154,
+                16
+              ]
+            },
+            {
+              "text": "DIMENSIONS",
+              "confidence": 96.218117,
+              "bbox_pixels_xywh": [
+                550,
+                13,
+                135,
+                16
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.70253,
+              "bbox_pixels_xywh": [
+                214,
+                64,
+                34,
+                25
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 96.70253,
+              "bbox_pixels_xywh": [
+                255,
+                64,
+                57,
+                25
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.728134,
+              "bbox_pixels_xywh": [
+                576,
+                68,
+                36,
+                13
+              ]
+            },
+            {
+              "text": "Security",
+              "confidence": 93.306229,
+              "bbox_pixels_xywh": [
+                617,
+                68,
+                67,
+                16
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.295876,
+              "bbox_pixels_xywh": [
+                688,
+                68,
+                11,
+                13
+              ]
+            },
+            {
+              "text": "Privacy",
+              "confidence": 96.804024,
+              "bbox_pixels_xywh": [
+                705,
+                68,
+                60,
+                16
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 96.42411,
+              "bbox_pixels_xywh": [
+                787,
+                68,
+                74,
+                13
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 96.948479,
+              "bbox_pixels_xywh": [
+                866,
+                68,
+                98,
+                13
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 97.009583,
+              "bbox_pixels_xywh": [
+                384,
+                64,
+                36,
+                27
+              ]
+            },
+            {
+              "text": "Documentation",
+              "confidence": 95.672775,
+              "bbox_pixels_xywh": [
+                425,
+                64,
+                124,
+                33
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 32.391392,
+              "bbox_pixels_xywh": [
+                568,
+                98,
+                1,
+                3
+              ]
+            },
+            {
+              "text": ";",
+              "confidence": 33.167526,
+              "bbox_pixels_xywh": [
+                879,
+                98,
+                3,
+                3
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.269951,
+              "bbox_pixels_xywh": [
+                67,
+                103,
+                75,
+                12
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 81.688324,
+              "bbox_pixels_xywh": [
+                207,
+                106,
+                44,
+                8
+              ]
+            },
+            {
+              "text": "Dataissue",
+              "confidence": 43.426987,
+              "bbox_pixels_xywh": [
+                255,
+                106,
+                50,
+                8
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 83.046196,
+              "bbox_pixels_xywh": [
+                627,
+                104,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "Processing",
+              "confidence": 83.046196,
+              "bbox_pixels_xywh": [
+                653,
+                104,
+                53,
+                11
+              ]
+            },
+            {
+              "text": "Role",
+              "confidence": 67.308105,
+              "bbox_pixels_xywh": [
+                816,
+                105,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.310562,
+              "bbox_pixels_xywh": [
+                895,
+                105,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 94.956734,
+              "bbox_pixels_xywh": [
+                920,
+                105,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "(isinessTern",
+              "confidence": 18.034668,
+              "bbox_pixels_xywh": [
+                374,
+                100,
+                78,
+                19
+              ]
+            },
+            {
+              "text": "]",
+              "confidence": 19.16441,
+              "bbox_pixels_xywh": [
+                459,
+                119,
+                2,
+                2
+              ]
+            },
+            {
+              "text": "[",
+              "confidence": 56.771317,
+              "bbox_pixels_xywh": [
+                473,
+                101,
+                1,
+                18
+              ]
+            },
+            {
+              "text": "Busessrule",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                482,
+                105,
+                68,
+                9
+              ]
+            },
+            {
+              "text": "<",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                557,
+                125,
+                3,
+                3
+              ]
+            },
+            {
+              "text": "Activity",
+              "confidence": 67.27491,
+              "bbox_pixels_xywh": [
+                650,
+                117,
+                34,
+                10
+              ]
+            },
+            {
+              "text": "[",
+              "confidence": 82.899796,
+              "bbox_pixels_xywh": [
+                376,
+                124,
+                3,
+                2
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 47.11166,
+              "bbox_pixels_xywh": [
+                382,
+                124,
+                45,
+                15
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 47.11166,
+              "bbox_pixels_xywh": [
+                430,
+                131,
+                22,
+                8
+              ]
+            },
+            {
+              "text": "Code",
+              "confidence": 85.396851,
+              "bbox_pixels_xywh": [
+                494,
+                132,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Set",
+              "confidence": 85.396851,
+              "bbox_pixels_xywh": [
+                524,
+                132,
+                15,
+                9
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 89.358208,
+              "bbox_pixels_xywh": [
+                793,
+                123,
+                43,
+                28
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 69.845085,
+              "bbox_pixels_xywh": [
+                842,
+                123,
+                20,
+                28
+              ]
+            },
+            {
+              "text": "-",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                879,
+                128,
+                3,
+                3
+              ]
+            },
+            {
+              "text": "SLAS",
+              "confidence": 51.14706,
+              "bbox_pixels_xywh": [
+                909,
+                135,
+                26,
+                8
+              ]
+            },
+            {
+              "text": "(Business",
+              "confidence": 85.066292,
+              "bbox_pixels_xywh": [
+                199,
+                129,
+                48,
+                14
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 85.066292,
+              "bbox_pixels_xywh": [
+                250,
+                135,
+                22,
+                8
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 61.246342,
+              "bbox_pixels_xywh": [
+                275,
+                135,
+                34,
+                10
+              ]
+            },
+            {
+              "text": "Rule",
+              "confidence": 51.251507,
+              "bbox_pixels_xywh": [
+                245,
+                147,
+                21,
+                9
+              ]
+            },
+            {
+              "text": "Object",
+              "confidence": 80.271553,
+              "bbox_pixels_xywh": [
+                401,
+                143,
+                32,
+                11
+              ]
+            },
+            {
+              "text": "{",
+              "confidence": 46.718071,
+              "bbox_pixels_xywh": [
+                473,
+                128,
+                1,
+                18
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 82.272949,
+              "bbox_pixels_xywh": [
+                637,
+                145,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "Privacy",
+              "confidence": 65.225098,
+              "bbox_pixels_xywh": [
+                663,
+                145,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "Domain",
+              "confidence": 95.122421,
+              "bbox_pixels_xywh": [
+                808,
+                146,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "Assessment",
+              "confidence": 93.510872,
+              "bbox_pixels_xywh": [
+                637,
+                158,
+                60,
+                8
+              ]
+            },
+            {
+              "text": "BusnessData",
+              "confidence": 86.715355,
+              "bbox_pixels_xywh": [
+                382,
+                168,
+                70,
+                8
+              ]
+            },
+            {
+              "text": "(Tete",
+              "confidence": 23.977142,
+              "bbox_pixels_xywh": [
+                473,
+                155,
+                40,
+                17
+              ]
+            },
+            {
+              "text": "vaiue",
+              "confidence": 28.85273,
+              "bbox_pixels_xywh": [
+                518,
+                160,
+                27,
+                8
+              ]
+            },
+            {
+              "text": "Element",
+              "confidence": 87.362259,
+              "bbox_pixels_xywh": [
+                397,
+                181,
+                41,
+                8
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 86.444092,
+              "bbox_pixels_xywh": [
+                632,
+                186,
+                45,
+                8
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 76.125114,
+              "bbox_pixels_xywh": [
+                680,
+                186,
+                21,
+                8
+              ]
+            },
+            {
+              "text": "Organization",
+              "confidence": 53.897228,
+              "bbox_pixels_xywh": [
+                796,
+                175,
+                62,
+                11
+              ]
+            },
+            {
+              "text": "{",
+              "confidence": 34.691315,
+              "bbox_pixels_xywh": [
+                473,
+                182,
+                1,
+                18
+              ]
+            },
+            {
+              "text": "Activity",
+              "confidence": 45.710369,
+              "bbox_pixels_xywh": [
+                500,
+                187,
+                33,
+                10
+              ]
+            },
+            {
+              "text": "Deletion",
+              "confidence": 92.063629,
+              "bbox_pixels_xywh": [
+                630,
+                188,
+                45,
+                28
+              ]
+            },
+            {
+              "text": "Rule",
+              "confidence": 93.36982,
+              "bbox_pixels_xywh": [
+                679,
+                188,
+                21,
+                28
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 66.800072,
+              "bbox_pixels_xywh": [
+                374,
+                201,
+                1,
+                19
+              ]
+            },
+            {
+              "text": "Process",
+              "confidence": 83.140839,
+              "bbox_pixels_xywh": [
+                398,
+                206,
+                39,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.202682,
+              "bbox_pixels_xywh": [
+                406,
+                230,
+                21,
+                8
+              ]
+            },
+            {
+              "text": "Classification",
+              "confidence": 41.633728,
+              "bbox_pixels_xywh": [
+                383,
+                243,
+                66,
+                8
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 72.608597,
+              "bbox_pixels_xywh": [
+                374,
+                231,
+                1,
+                33
+              ]
+            },
+            {
+              "text": "Taxonomies",
+              "confidence": 87.495346,
+              "bbox_pixels_xywh": [
+                386,
+                255,
+                61,
+                9
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 96.739006,
+              "bbox_pixels_xywh": [
+                65,
+                285,
+                78,
+                13
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 43.664291,
+              "bbox_pixels_xywh": [
+                219,
+                290,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 87.883347,
+              "bbox_pixels_xywh": [
+                269,
+                290,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 79.771049,
+              "bbox_pixels_xywh": [
+                631,
+                290,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 79.771049,
+              "bbox_pixels_xywh": [
+                680,
+                290,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "(Avoteaton",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                375,
+                285,
+                70,
+                23
+              ]
+            },
+            {
+              "text": "[",
+              "confidence": 40.558567,
+              "bbox_pixels_xywh": [
+                472,
+                288,
+                1,
+                17
+              ]
+            },
+            {
+              "text": "Database",
+              "confidence": 94.605774,
+              "bbox_pixels_xywh": [
+                491,
+                291,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "Deletion",
+              "confidence": 88.784676,
+              "bbox_pixels_xywh": [
+                630,
+                293,
+                45,
+                28
+              ]
+            },
+            {
+              "text": "Rule",
+              "confidence": 91.269073,
+              "bbox_pixels_xywh": [
+                679,
+                293,
+                21,
+                28
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 48.430397,
+              "bbox_pixels_xywh": [
+                226,
+                303,
+                34,
+                11
+              ]
+            },
+            {
+              "text": "Rule",
+              "confidence": 48.430397,
+              "bbox_pixels_xywh": [
+                263,
+                303,
+                21,
+                9
+              ]
+            },
+            {
+              "text": "(bata",
+              "confidence": 23.549128,
+              "bbox_pixels_xywh": [
+                375,
+                316,
+                41,
+                19
+              ]
+            },
+            {
+              "text": "ow",
+              "confidence": 53.1856,
+              "bbox_pixels_xywh": [
+                425,
+                321,
+                17,
+                8
+              ]
+            },
+            {
+              "text": "{",
+              "confidence": 18.799582,
+              "bbox_pixels_xywh": [
+                472,
+                316,
+                1,
+                17
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 91.18367,
+              "bbox_pixels_xywh": [
+                495,
+                320,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "Set",
+              "confidence": 74.471268,
+              "bbox_pixels_xywh": [
+                521,
+                320,
+                15,
+                9
+              ]
+            },
+            {
+              "text": "(\"bata",
+              "confidence": 24.128323,
+              "bbox_pixels_xywh": [
+                472,
+                345,
+                40,
+                17
+              ]
+            },
+            {
+              "text": "Feta",
+              "confidence": 35.491386,
+              "bbox_pixels_xywh": [
+                517,
+                333,
+                22,
+                35
+              ]
+            },
+            {
+              "text": "Operational",
+              "confidence": 96.726112,
+              "bbox_pixels_xywh": [
+                58,
+                407,
+                94,
+                16
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 96.175522,
+              "bbox_pixels_xywh": [
+                160,
+                406,
+                2,
+                9
+              ]
+            },
+            {
+              "text": "(beta",
+              "confidence": 45.86224,
+              "bbox_pixels_xywh": [
+                424,
+                410,
+                32,
+                19
+              ]
+            },
+            {
+              "text": "voume",
+              "confidence": 55.653374,
+              "bbox_pixels_xywh": [
+                462,
+                415,
+                36,
+                8
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 91.340637,
+              "bbox_pixels_xywh": [
+                622,
+                415,
+                22,
+                8
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 91.340637,
+              "bbox_pixels_xywh": [
+                647,
+                415,
+                35,
+                8
+              ]
+            },
+            {
+              "text": "Event",
+              "confidence": 96.595291,
+              "bbox_pixels_xywh": [
+                686,
+                415,
+                27,
+                8
+              ]
+            },
+            {
+              "text": ")",
+              "confidence": 50.48954,
+              "bbox_pixels_xywh": [
+                312,
+                428,
+                3,
+                3
+              ]
+            }
+          ],
+          "mean_word_confidence": 68.74,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

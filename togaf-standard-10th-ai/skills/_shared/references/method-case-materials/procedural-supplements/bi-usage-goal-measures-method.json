@@ -1,0 +1,148 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "bi-usage-goal-measures-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 2,
+      "declared_step": "连接参考目标，但另设有来源的项目度量",
+      "new_fictional_input": "新虚构项目计数目标11月达到1个生产采用自动检查，参考目标只是改善决策；采用证据需负责人、实际工单使用和稳定运行记录，基线0不计算相对增长。",
+      "transformation": "project_metric与reference_goal分字段；计数目标、基线、观察、窗口、责任、来源分别记录。",
+      "candidate_output": "目标1、基线0、当前观察unknown；reference_goal=改善决策，不能从目标推出采用已发生。",
+      "adverse_variant_expected": "用基线0给增长300%，或把参考目标当实测数字，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 5,
+      "declared_step": "检查测量结果和目标/方向不同",
+      "new_fictional_input": "新虚构U1试点10个预警工单，8个在调度前复核、3个改变调拨；项目比例定义3/10=30%，时效满足比例8/10=80%，仅本试点周；仍无稳定运行证据。",
+      "transformation": "按预警工单10作声明分母分别计算改变比例与时效比例；实际观察、目标、方向各自状态独立。",
+      "candidate_output": "本周两观察为30%/80%，目标达成unknown，生产采用仍缺稳定运行。",
+      "adverse_variant_expected": "分母换成全体工单不披露，或两个比例直接相加，或据一次试点判生产采用，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [],
+  "candidate_records": [
+    {
+      "id": "SUP-ADOPTION-TARGET",
+      "metric_kind": "project-count",
+      "reference_goal": "改善决策",
+      "project_target": 1,
+      "baseline": 0,
+      "unit": "生产采用的自动检查个数",
+      "window": "2026年11月",
+      "owner": "试点分析负责人（提议）",
+      "observed_value": "unknown",
+      "required_adoption_evidence": [
+        "负责人接受",
+        "真实工单使用",
+        "稳定运行记录"
+      ],
+      "target_achieved": "unknown",
+      "relative_growth": "not-defined-at-zero-baseline",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "SUP-U1-CHANGED",
+      "metric_kind": "project-fraction",
+      "numerator": 3,
+      "denominator": 10,
+      "denominator_definition": "本虚构试点周的10个预警工单",
+      "observed_percent": 30,
+      "unit": "percent",
+      "target": "unknown",
+      "causal_claim": "not-established",
+      "approval_status": "candidate"
+    },
+    {
+      "id": "SUP-U1-TIMELY",
+      "metric_kind": "project-fraction",
+      "numerator": 8,
+      "denominator": 10,
+      "denominator_definition": "同10个预警工单",
+      "observed_percent": 80,
+      "unit": "percent",
+      "target": "unknown",
+      "adoption_status": "stable-production-evidence-missing",
+      "approval_status": "candidate"
+    }
+  ],
+  "fictional_input_records": [
+    {
+      "id": "SUP-WORK-ORDER-1",
+      "reviewed_before_dispatch": true,
+      "changed_dispatch": true,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    },
+    {
+      "id": "SUP-WORK-ORDER-2",
+      "reviewed_before_dispatch": true,
+      "changed_dispatch": true,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    },
+    {
+      "id": "SUP-WORK-ORDER-3",
+      "reviewed_before_dispatch": true,
+      "changed_dispatch": true,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    },
+    {
+      "id": "SUP-WORK-ORDER-4",
+      "reviewed_before_dispatch": true,
+      "changed_dispatch": false,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    },
+    {
+      "id": "SUP-WORK-ORDER-5",
+      "reviewed_before_dispatch": true,
+      "changed_dispatch": false,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    },
+    {
+      "id": "SUP-WORK-ORDER-6",
+      "reviewed_before_dispatch": true,
+      "changed_dispatch": false,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    },
+    {
+      "id": "SUP-WORK-ORDER-7",
+      "reviewed_before_dispatch": true,
+      "changed_dispatch": false,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    },
+    {
+      "id": "SUP-WORK-ORDER-8",
+      "reviewed_before_dispatch": true,
+      "changed_dispatch": false,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    },
+    {
+      "id": "SUP-WORK-ORDER-9",
+      "reviewed_before_dispatch": false,
+      "changed_dispatch": false,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    },
+    {
+      "id": "SUP-WORK-ORDER-10",
+      "reviewed_before_dispatch": false,
+      "changed_dispatch": false,
+      "scope": "U1试点周",
+      "real_runtime_record": false
+    }
+  ]
+}

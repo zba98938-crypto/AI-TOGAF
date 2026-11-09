@@ -1,0 +1,2372 @@
+{
+  "schema_version": "1.0",
+  "id": "G242/fig3-10",
+  "status": "done",
+  "doc": {
+    "code": "G242",
+    "title_zh": "环境可持续的信息系统",
+    "title_en": "Environmentally Sustainable Information Systems",
+    "zh_md": "G242e_环境可持续的信息系统.md",
+    "en_pdf": "togaf-standard-10th/G242e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-10",
+    "title_en": "Yearly Environmental Assessment of the Information System (Source: The Shift Project Lean-ICT Work Group)",
+    "title_zh": "信息系统的年度环境评估（来源：The Shift Project Lean-ICT 工作组）",
+    "section_en": "3.6.1 Build and Share Information System Carbon Footprint Measure from Cradle to Grave",
+    "section_zh": "3.6.1 建立并共享“摇篮到坟墓”的信息系统碳足迹度量",
+    "attribution": "Source: The Shift Project Lean-ICT Work Group",
+    "en_location": {
+      "pages": [
+        61
+      ],
+      "printed_page": 43,
+      "bboxes": [
+        [
+          48.2,
+          402.2,
+          563.8,
+          704.8
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        1030
+      ],
+      "label_table_lines": [
+        1034,
+        1061
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g242_fig3-10_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "27bff7127d0f",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.976（≥0.9 通常为同一图）",
+        "英文截图与原图一致（自动相似度 0.976），表头、六列、六行、图例与数值均完整。"
+      ]
+    },
+    {
+      "path": "figs/zh/g242_fig3-10_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "3512b2aa776b",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "只翻译了表头大列名、行名与图例；大量单元格仍是英文：“Microsoft Azure”“Computers, Phones, Printers, Screens, etc.”“% of Terminals Required by Customer to Use the Organization Digital Services”“Measure Method to Identify”“#Terminals #Equipement”“#Services”。",
+        "黄色“#kWH * Electric Mix of the Location”被改成“用电量（kWh）Electric Mix of 位置”，中英拼接且语义走样（把“当地电力结构”译成“位置”）。",
+        "行名“Total MtCO2e/Year”未译，“抵消的 MtCO2e”“存储容量（TB）”“不适用”等译法与中文稿其他处不完全统一。",
+        "版式保持原图，数值与色块未变。"
+      ]
+    },
+    {
+      "path": "G242e_环境可持续的信息系统.md#L1034-L1061",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "5a956f0f9d08",
+      "fidelity": "incomplete",
+      "issues_zh": [
+        "对照表只覆盖 19 个主要标签，未列出表内数据项：“DC#1”“DC#2”“……”、PUE 数值、“#Physical Servers #Virtual Servers #Network Equipment #Storage Bays…”“#Services”“#Terminals #Equipment”“# Volume in TB”“Not Concerned”。",
+        "未说明色块语义（黄=范围 2、蓝=范围 3）对应图例，读者需回到图或图例才能确认。"
+      ]
+    },
+    {
+      "path": "figs/zh/g242_fig3-10_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "f5335cd654d3",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "把原图“Sub-contractors”与“Public Network”两列各自的“Measure Method to Identify”合并成一个跨两列的单元格，丢掉了原图的一条列分隔线（两列在语义上是两类不同的核算对象）。",
+        "原图“Yearly Measure Over 2-3 Years”为圆角黑框，SVG 改为普通白框，视觉层级略变。",
+        "“Inventory, Equipment's Lifetime”中的“#Storage Bays…”译成“存储托架”，可接受；“#Services”译“服务数量”准确。",
+        "图例色块与原图一致（黄=范围 2、蓝=范围 3），数值 1.5/1.4/1.2 与省略号均保留。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "matrix"
+    ],
+    "notation": "以表格呈现的核算矩阵：列为核算对象（自营数据中心、公有云、分包商、公共网络、工作站、客户终端），行为 PUE、用电量、设备清单、总量、抵消、存储，单元格填公式/度量方法/数值，黄蓝底色编码 GHG 范围。",
+    "concepts": [
+      "ghg_emissions",
+      "sustainability"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "一张年度碳核算模板：按六类核算对象，逐行填 PUE、用电、设备清单、总量、抵消与存储。",
+    "purpose_zh": "把 3.6.1 节列出的七类排放来源落成可逐年填报的矩阵：左列是核算步骤，上方是对象与数据源，中间填度量方法或公式，底部汇总为年度 MtCO₂e，并明确“抵消必须单列”“客户终端只填其使用本组织数字服务所需终端的比例”。",
+    "reading_guide_zh": "先看左上角“连续 2–3 年年度度量”——这是整套表的填报周期。横向六列是核算对象，列下小格是具体数据源（DC#1/DC#2、Office 365/Azure/AWS、营销活动/分包服务、互联网、计算机/电话/打印机、客户终端占比）。纵向分两段：碳核算（PUE → 用电量 → 设备清单）与分析（年度总量 → 抵消 → 存储）。黄色格=范围 2（用电），蓝色格=范围 3（服务与材料采购），白格为度量方法或不适用。",
+    "key_points_zh": [
+      "核算对象分六类：组织自营数据中心、公有云、分包商、公共网络、工作站/薪酬/分包商、客户终端；前三类是组织可控或可索取数据的重点。",
+      "自营数据中心用 PUE × 用电量 × 当地电力结构折算，PUE 示例为 1.5、1.4、1.2；公有云不填 PUE，直接取提供方公布的 MtCO₂e。",
+      "用电量的算法统一为“#kWh × 当地电力结构（Electric Mix of the Location）”，区别只在取数来源；客户终端一格虽是同一公式，但按范围 3 着色（蓝），因为终端不由组织运营。",
+      "设备清单行要求填“#物理服务器 #虚拟服务器 #网络设备 #存储架…”，公有云填“#服务数量”，工作站与客户终端填“#终端 #设备”，用于按设备寿命摊算制造排放。",
+      "年度总量不逐项相加，而是“使用公开参考数据：ADEME 温室气体排放清单（bilan GES）、TSP REN、提供方公布的 GES”。",
+      "抵消（Offset）必须单独计算，不得并入总量——这与正文批评“把抵消混入合并排放”的坏实践一致。",
+      "存储容量只对自营与公有云填写（# Volume in TB），分包商、公共网络、工作站、客户终端标为“Not Concerned（不涉及）”。",
+      "分包商与公共网络两列没有设备清单，只填“Measure Method to Identify（用于识别的度量方法）”，说明这两类的数据要靠估算或供应方披露。"
+    ],
+    "hierarchy_zh": "三层：最外层是全表（年度评估）；中间是左侧两个括号分组“Carbon Accounting（碳核算，前三行）”与“Analysis（分析，后三行）”；最内层是六个核算对象列及其子数据源。行与列交叉成单元格，不构成上下级。",
+    "line_semantics_zh": "图中没有连接线或箭头。语义完全由行列位置与底色表达：同一行=同一核算步骤，同一列=同一核算对象；黄色=范围 2，蓝色=范围 3；跨列的大白框表示该步骤对所有对象统一处理。",
+    "misreadings_zh": [
+      "“PUE”行只对自营数据中心和公有云有值（1.5/1.4/1.2），其余列空白，不表示漏填，而是这些对象不适用 PUE。",
+      "“MtCO₂e”不是把各列相加得到的，而是引用公开参考数据/提供方披露；不要把该格理解为求和结果。",
+      "“Not Concerned”只出现在存储行，指该对象不核算存储容量，不是“不关心环境影响”。",
+      "抵消行虽然横跨全表，但语义是“单独计算”，不能从年度总量中扣减后再报告。",
+      "客户终端列的比例（% of Terminals Required by Customer…）是分摊系数，不是排放量；它决定组织应承担多少客户终端排放。",
+      "中文稿引用的 PNG 把“Electric Mix of the Location”误译成“位置”，不要据此理解为“当地位置”而非“当地电力结构”。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p61",
+        "summary_zh": "信息系统重塑应从年度环境评估开始，考虑自营数据中心用电（按区域电力结构 kgCO2/kWh）、服务器与网络设备制造、云服务、数字服务外包、公共互联网、特定网络与移动运营商、员工与提供方设备的使用与制造。"
+      },
+      {
+        "source": "en_pdf p61",
+        "summary_zh": "对这套温室气体核算管理两到三年，可实现动态管理并检验信息系统环境影响是升是降。"
+      },
+      {
+        "source": "zh_md L1030",
+        "summary_zh": "中文稿在此引用重绘 SVG，并在图后说明该模型受 AXA 集团 2020 年数字可持续工作启发，“公共网络”也可指移动运营商资产。"
+      },
+      {
+        "source": "zh_md L1062",
+        "summary_zh": "“公共网络”亦可指移动运营商的资产；建模受 AXA 2020 年工作启发。"
+      },
+      {
+        "source": "zh_md L1064",
+        "summary_zh": "为务实起见需做近似并区分优先级；缺少精确数据不应导致不做评估。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "grid",
+    "description_zh": "六列（自营数据中心、公有云、分包商、公共网络、工作站、客户终端）× 六行（PUE、用电量、设备清单、总量、抵消、存储）；左上角为周期框，左缘两个竖排括号分组，底部为图例。"
+  },
+  "legend": [
+    {
+      "symbol": "黄色单元格",
+      "meaning_zh": "范围 2：与用电相关的间接温室气体排放",
+      "explicit": true
+    },
+    {
+      "symbol": "蓝色单元格",
+      "meaning_zh": "范围 3：与服务、材料采购相关的间接温室气体排放",
+      "explicit": true
+    },
+    {
+      "symbol": "白色单元格",
+      "meaning_zh": "无范围着色：度量方法、公式说明或不适用",
+      "explicit": false
+    },
+    {
+      "symbol": "浅灰单元格",
+      "meaning_zh": "Not Concerned（该对象不核算此项）",
+      "explicit": false
+    },
+    {
+      "symbol": "左侧竖排括号",
+      "meaning_zh": "行分组：Carbon Accounting（碳核算）/ Analysis（分析）",
+      "explicit": true
+    }
+  ],
+  "elements": [
+    {
+      "id": "yearly_measure",
+      "label_en": "Yearly Measure Over 2-3 Years",
+      "label_zh": "连续 2–3 年年度度量",
+      "type": "note",
+      "parent": null,
+      "level": 1,
+      "position": "左上角圆角黑框"
+    },
+    {
+      "id": "col_onprem",
+      "label_en": "On-Premise Data Centers Managed by the Organization",
+      "label_zh": "组织自营的数据中心",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 1,
+      "position": "第 2 列，深蓝表头"
+    },
+    {
+      "id": "sub_dc1",
+      "label_en": "DC#1",
+      "label_zh": "数据中心 #1",
+      "type": "data",
+      "parent": "col_onprem",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "sub_dc2",
+      "label_en": "DC#2",
+      "label_zh": "数据中心 #2",
+      "type": "data",
+      "parent": "col_onprem",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "sub_dc_more",
+      "label_en": "…",
+      "label_zh": "……（更多数据中心）",
+      "type": "data",
+      "parent": "col_onprem",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "col_cloud",
+      "label_en": "Public Cloud",
+      "label_zh": "公有云",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 2,
+      "position": "第 3 列"
+    },
+    {
+      "id": "sub_office365",
+      "label_en": "Microsoft Office 365",
+      "label_zh": "微软 Office 365",
+      "type": "application",
+      "parent": "col_cloud",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "sub_azure",
+      "label_en": "Microsoft Azure",
+      "label_zh": "微软 Azure",
+      "type": "application",
+      "parent": "col_cloud",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "sub_aws",
+      "label_en": "AWS",
+      "label_zh": "AWS（亚马逊云）",
+      "type": "application",
+      "parent": "col_cloud",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "sub_cloud_more",
+      "label_en": "…",
+      "label_zh": "……（更多云服务）",
+      "type": "application",
+      "parent": "col_cloud",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "col_subcon",
+      "label_en": "Sub-contractors",
+      "label_zh": "分包商",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 3,
+      "position": "第 4 列"
+    },
+    {
+      "id": "sub_marketing",
+      "label_en": "Marketing Campaign, Sub-contractor Services",
+      "label_zh": "营销活动、分包服务",
+      "type": "process",
+      "parent": "col_subcon",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "col_publicnet",
+      "label_en": "Public Network",
+      "label_zh": "公共网络",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 4,
+      "position": "第 5 列"
+    },
+    {
+      "id": "sub_internet",
+      "label_en": "Internet",
+      "label_zh": "互联网",
+      "type": "technology",
+      "parent": "col_publicnet",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "col_workstation",
+      "label_en": "Workstation / Salaries / Sub-contractors",
+      "label_zh": "工作站/薪酬/分包商",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 5,
+      "position": "第 6 列"
+    },
+    {
+      "id": "sub_devices",
+      "label_en": "Computers, Phones, Printers, Screens, etc.",
+      "label_zh": "计算机、电话、打印机、屏幕等",
+      "type": "technology",
+      "parent": "col_workstation",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "col_customers",
+      "label_en": "Customers' Terminals",
+      "label_zh": "客户终端",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 6,
+      "position": "第 7 列"
+    },
+    {
+      "id": "sub_terminal_pct",
+      "label_en": "% of Terminals Required by Customer to Use the Organization Digital Services",
+      "label_zh": "客户使用组织数字服务所需终端的百分比",
+      "type": "metric",
+      "parent": "col_customers",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "row_pue",
+      "label_en": "PUE",
+      "label_zh": "PUE（电力使用效率）",
+      "type": "metric",
+      "parent": null,
+      "level": 1,
+      "order": 1,
+      "position": "第 1 行"
+    },
+    {
+      "id": "row_electricity",
+      "label_en": "Electricity Consumption",
+      "label_zh": "用电量",
+      "type": "metric",
+      "parent": null,
+      "level": 1,
+      "order": 2,
+      "position": "第 2 行"
+    },
+    {
+      "id": "row_inventories",
+      "label_en": "Inventories, Equipment's Lifetime",
+      "label_zh": "设备清单、设备寿命",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "order": 3,
+      "position": "第 3 行"
+    },
+    {
+      "id": "row_total",
+      "label_en": "Total MtCO2e/Year",
+      "label_zh": "年度 MtCO₂e 总量",
+      "type": "metric",
+      "parent": null,
+      "level": 1,
+      "order": 4,
+      "position": "第 4 行"
+    },
+    {
+      "id": "row_offset",
+      "label_en": "MtCO2e Offset",
+      "label_zh": "MtCO₂e 抵消",
+      "type": "metric",
+      "parent": null,
+      "level": 1,
+      "order": 5,
+      "position": "第 5 行"
+    },
+    {
+      "id": "row_storage",
+      "label_en": "Storage Terabyte",
+      "label_zh": "存储容量（TB）",
+      "type": "metric",
+      "parent": null,
+      "level": 1,
+      "order": 6,
+      "position": "第 6 行"
+    },
+    {
+      "id": "grp_carbon_accounting",
+      "label_en": "Carbon Accounting",
+      "label_zh": "碳核算",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左缘竖排，括号覆盖前三行"
+    },
+    {
+      "id": "grp_analysis",
+      "label_en": "Analysis",
+      "label_zh": "分析",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左缘竖排，括号覆盖后三行"
+    },
+    {
+      "id": "cell_mix_onprem",
+      "label_en": "#kWH * Electric Mix of the Location",
+      "label_zh": "#kWh × 当地电力结构",
+      "type": "metric",
+      "parent": "col_onprem",
+      "level": 3,
+      "position": "用电量行，黄色，跨 DC#1/DC#2/…"
+    },
+    {
+      "id": "cell_cloud_mtco2e",
+      "label_en": "MtCO2e",
+      "label_zh": "MtCO₂e",
+      "type": "metric",
+      "parent": "col_cloud",
+      "level": 3,
+      "position": "用电量行，蓝色，跨四个云服务子列"
+    },
+    {
+      "id": "cell_measure_sub",
+      "label_en": "Measure Method to Identify",
+      "label_zh": "用于识别的度量方法",
+      "type": "note",
+      "parent": "col_subcon",
+      "level": 3,
+      "position": "用电量与设备清单两行，蓝色"
+    },
+    {
+      "id": "cell_measure_net",
+      "label_en": "Measure Method to Identify",
+      "label_zh": "用于识别的度量方法",
+      "type": "note",
+      "parent": "col_publicnet",
+      "level": 3,
+      "position": "用电量与设备清单两行，蓝色"
+    },
+    {
+      "id": "cell_mix_workstation",
+      "label_en": "#kWH * Electric Mix of the Location",
+      "label_zh": "#kWh × 当地电力结构",
+      "type": "metric",
+      "parent": "col_workstation",
+      "level": 3,
+      "position": "用电量行，黄色"
+    },
+    {
+      "id": "cell_mix_customers",
+      "label_en": "#kWH * Electric Mix of the Location",
+      "label_zh": "#kWh × 当地电力结构",
+      "type": "metric",
+      "parent": "col_customers",
+      "level": 3,
+      "position": "用电量行，蓝色（范围 3）"
+    },
+    {
+      "id": "cell_inventory_onprem",
+      "label_en": "#Physical Servers #Virtual Servers #Network Equipment #Storage Bays…",
+      "label_zh": "#物理服务器 #虚拟服务器 #网络设备 #存储架……",
+      "type": "data",
+      "parent": "col_onprem",
+      "level": 3,
+      "position": "设备清单行，蓝色"
+    },
+    {
+      "id": "cell_services",
+      "label_en": "#Services",
+      "label_zh": "#服务数量",
+      "type": "data",
+      "parent": "col_cloud",
+      "level": 3,
+      "position": "设备清单行，蓝色"
+    },
+    {
+      "id": "cell_terminals_ws",
+      "label_en": "#Terminals #Equipment",
+      "label_zh": "#终端 #设备",
+      "type": "data",
+      "parent": "col_workstation",
+      "level": 3,
+      "position": "设备清单行，蓝色"
+    },
+    {
+      "id": "cell_terminals_cust",
+      "label_en": "#Terminals #Equipment",
+      "label_zh": "#终端 #设备",
+      "type": "data",
+      "parent": "col_customers",
+      "level": 3,
+      "position": "设备清单行，蓝色"
+    },
+    {
+      "id": "cell_total_note",
+      "label_en": "Use public reference data: balance sheet GHG emissions ADEME, TSP REN, GES published by providers",
+      "label_zh": "使用公开参考数据：ADEME 温室气体排放清单（bilan GES）、TSP REN，以及提供方公布的温室气体排放（GES）",
+      "type": "note",
+      "parent": null,
+      "level": 3,
+      "position": "年度总量行，白色跨全表"
+    },
+    {
+      "id": "cell_offset_note",
+      "label_en": "Offset Should be Counted Separately",
+      "label_zh": "抵消应单独计算",
+      "type": "note",
+      "parent": null,
+      "level": 3,
+      "position": "抵消行，白色跨全表"
+    },
+    {
+      "id": "cell_storage_note",
+      "label_en": "# Volume in TB",
+      "label_zh": "# 容量（TB）",
+      "type": "metric",
+      "parent": null,
+      "level": 3,
+      "position": "存储行，白色，跨自营与公有云"
+    },
+    {
+      "id": "cell_not_concerned",
+      "label_en": "Not Concerned",
+      "label_zh": "不涉及",
+      "type": "note",
+      "parent": null,
+      "level": 3,
+      "position": "存储行，浅灰，跨分包商至客户终端"
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_yearly_assessment",
+      "title_zh": "年度环境评估矩阵（按原图逐格转录；黄=范围 2，蓝=范围 3）",
+      "columns": [
+        "核算步骤",
+        "自营数据中心（DC#1 / DC#2 / …）",
+        "公有云（Office 365 / Azure / AWS / …）",
+        "分包商（营销活动、分包服务）",
+        "公共网络（互联网）",
+        "工作站/薪酬/分包商（计算机、电话、打印机、屏幕等）",
+        "客户终端（所需终端百分比）"
+      ],
+      "rows": [
+        [
+          "PUE",
+          "1.5 / 1.4 / ……",
+          "1.2 / …… / …… / ……",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "用电量 Electricity Consumption",
+          "#kWH * Electric Mix of the Location（黄）",
+          "MtCO₂e（蓝）",
+          "Measure Method to Identify（蓝）",
+          "Measure Method to Identify（蓝）",
+          "#kWH * Electric Mix of the Location（黄）",
+          "#kWH * Electric Mix of the Location（蓝）"
+        ],
+        [
+          "设备清单、设备寿命 Inventories, Equipment's Lifetime",
+          "#Physical Servers #Virtual Servers #Network Equipment #Storage Bays…（蓝）",
+          "#Services（蓝）",
+          "Measure Method to Identify（蓝）",
+          "Measure Method to Identify（蓝）",
+          "#Terminals #Equipment（蓝）",
+          "#Terminals #Equipment（蓝）"
+        ],
+        [
+          "Total MtCO₂e/Year",
+          "Use public reference data: balance sheet GHG emissions ADEME, TSP REN, GES published by providers（白，跨全部列）",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "MtCO₂e Offset",
+          "Offset Should be Counted Separately（白，跨全部列）",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Storage Terabyte",
+          "# Volume in TB（白）",
+          "# Volume in TB（白）",
+          "Not Concerned（浅灰）",
+          "Not Concerned（浅灰）",
+          "Not Concerned（浅灰）",
+          "Not Concerned（浅灰）"
+        ]
+      ],
+      "cell_legend": [
+        "黄色：范围 2——与用电相关的间接温室气体排放",
+        "蓝色：范围 3——与服务、材料采购相关的间接温室气体排放",
+        "白色：无范围着色（公式、度量方法说明或汇总）",
+        "浅灰：Not Concerned，该项不适用于此核算对象"
+      ],
+      "notes_zh": "“总量”与“抵消”两行在原图是一整条跨列表格；“存储”行在公有云右侧断开，后四列合为“Not Concerned”。PUE 行仅自营与公有云有示例值，其余列为空白。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G242/fig3-9",
+      "relation": "based_on",
+      "note_zh": "本图用黄/蓝区分范围 2 与范围 3，图例直接沿用图 3-9 的范围定义。"
+    },
+    {
+      "target": "G242/fig3-11",
+      "relation": "related",
+      "note_zh": "同属 3.6 节度量链：图 3-10 做年度总量核算，图 3-11 把同一足迹分解到业务、应用、基础设施三个层级。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "PUE 值 1.5/1.4/1.2 是示例值，原图未说明取值口径。",
+      "“MtCO₂e”格在公有云列的含义按上下文理解为提供方披露的服务排放，原图未加注。",
+      "分包商与公共网络列只有“Measure Method to Identify”，具体方法未在图中给出。",
+      "左上角“Yearly Measure Over 2-3 Years”是否也覆盖“存储”行，图中未明示。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 61 页（印刷页 43）原图截图与 2×2 放大分块",
+      "英文 PDF 第 61 页正文",
+      "中文稿 G242e_环境可持续的信息系统.md 第 1017–1064 行",
+      "figs/zh/g242_fig3-10_zh.svg 源码、figs/zh/g242_fig3-10_zh.png、figs/g242_fig3-10_en.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G242e.pdf",
+    "pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G242/fig3-10.json",
+    "interpretation_sha256": "287d88e934eaacf0f4cfe9b8ab1085f0720a629027216e1d0cde763351e4fc6b",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 61,
+        "text": "Figure 3-10: Yearly Environmental Assessment of the Information System (Source: The Shift Project Lean-ICT",
+        "bbox_pdf_points": [
+          48.24,
+          709.479,
+          552.767,
+          723.045
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 61,
+      "printed_page": 43,
+      "bbox_pdf_points": [
+        48.2,
+        402.2,
+        563.8,
+        704.8
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G242/fig3-10-p0061.png",
+      "image_sha256": "977ef001591e0171f90386e428b567141c30a15ebe816c9500e57d91dca481f4",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "977ef001591e0171f90386e428b567141c30a15ebe816c9500e57d91dca481f4",
+          "status": "extracted-unverified",
+          "text": "On-Premise Data\nWorkstation /\n‘Sub-\nPublic\nSalaries/\nCustomers’\nCenters Managed by\nPublic Cloud\ncontractors\nNetwork\nSub-\nTerminals\nYearly Measure\nthe Organization\ncontractors\nOver 2-3 Years\nMicrosoft\nMicrosoft\n% of Terminals.\nacs\nI\n(Office 365)\nAzure\nJo]\nMarketing\nComputers,\nRequired by\n‘Campaign,\nSub-\nInternet\nPhones,\nCustomer to\ncontractor\nPrinters,\nUse the\nScreens, etc.\n|\nOrganization\n6 | ‘4 I\nLJ\nL|\n:\nServices\n|\n|\nDigital Services\nElectricity\n#KWH * Electric Mix of\n#kWH *\n#KWH *\nMtCO,\nElectric Mix of\nElectric Mix of\nConsumption\nthe Location\nthe Location\nthe Location\nMeasure\nMeasure\nMethod to\nMethod\nto\n#Physical Servers\nIdentity\nInventories,\n#Virtual Servers\n#Services\nIdentify\n#Terminals\n#Terminals\nEquipment's Lifetime\n#Network Equipment\n+#Equipement\n#Equipement\n#Storage Bays...\nUse public reference data:\nbalance sheet GHG emissions ADEME, TSP REN, GES published by providers\nOffset Should be Counted Separately\nMtCO,2e Offset\nStorage Terabyte\n# Volume in TB\nNot Concerned\nLegend\n‘Scope 2: Indirect GHG emissions linked to electricity consumption\n‘Scope 3: Indirect GHG emissions linked to services, material purchasing",
+          "words": [
+            {
+              "text": "On-Premise",
+              "confidence": 95.291367,
+              "bbox_pixels_xywh": [
+                258,
+                19,
+                76,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.911545,
+              "bbox_pixels_xywh": [
+                340,
+                20,
+                29,
+                10
+              ]
+            },
+            {
+              "text": "Workstation",
+              "confidence": 91.047852,
+              "bbox_pixels_xywh": [
+                800,
+                11,
+                76,
+                10
+              ]
+            },
+            {
+              "text": "/",
+              "confidence": 83.741905,
+              "bbox_pixels_xywh": [
+                881,
+                11,
+                4,
+                10
+              ]
+            },
+            {
+              "text": "‘Sub-",
+              "confidence": 72.508858,
+              "bbox_pixels_xywh": [
+                640,
+                28,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "Public",
+              "confidence": 89.035263,
+              "bbox_pixels_xywh": [
+                723,
+                28,
+                39,
+                11
+              ]
+            },
+            {
+              "text": "Salaries/",
+              "confidence": 90.901337,
+              "bbox_pixels_xywh": [
+                815,
+                28,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "Customers’",
+              "confidence": 88.729446,
+              "bbox_pixels_xywh": [
+                927,
+                28,
+                73,
+                11
+              ]
+            },
+            {
+              "text": "Centers",
+              "confidence": 96.485916,
+              "bbox_pixels_xywh": [
+                246,
+                37,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "Managed",
+              "confidence": 93.376404,
+              "bbox_pixels_xywh": [
+                302,
+                37,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 93.376404,
+              "bbox_pixels_xywh": [
+                367,
+                37,
+                14,
+                14
+              ]
+            },
+            {
+              "text": "Public",
+              "confidence": 96.509674,
+              "bbox_pixels_xywh": [
+                464,
+                37,
+                39,
+                11
+              ]
+            },
+            {
+              "text": "Cloud",
+              "confidence": 92.214272,
+              "bbox_pixels_xywh": [
+                508,
+                37,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "contractors",
+              "confidence": 95.708893,
+              "bbox_pixels_xywh": [
+                619,
+                46,
+                72,
+                10
+              ]
+            },
+            {
+              "text": "Network",
+              "confidence": 92.836067,
+              "bbox_pixels_xywh": [
+                716,
+                46,
+                52,
+                11
+              ]
+            },
+            {
+              "text": "Sub-",
+              "confidence": 92.818207,
+              "bbox_pixels_xywh": [
+                828,
+                46,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "Terminals",
+              "confidence": 75.006783,
+              "bbox_pixels_xywh": [
+                932,
+                46,
+                62,
+                11
+              ]
+            },
+            {
+              "text": "Yearly",
+              "confidence": 96.498123,
+              "bbox_pixels_xywh": [
+                86,
+                45,
+                49,
+                16
+              ]
+            },
+            {
+              "text": "Measure",
+              "confidence": 93.862602,
+              "bbox_pixels_xywh": [
+                142,
+                45,
+                67,
+                13
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.93869,
+              "bbox_pixels_xywh": [
+                260,
+                55,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "Organization",
+              "confidence": 95.178482,
+              "bbox_pixels_xywh": [
+                285,
+                55,
+                81,
+                14
+              ]
+            },
+            {
+              "text": "contractors",
+              "confidence": 94.496452,
+              "bbox_pixels_xywh": [
+                806,
+                64,
+                72,
+                10
+              ]
+            },
+            {
+              "text": "Over",
+              "confidence": 96.33699,
+              "bbox_pixels_xywh": [
+                89,
+                66,
+                38,
+                13
+              ]
+            },
+            {
+              "text": "2-3",
+              "confidence": 96.33699,
+              "bbox_pixels_xywh": [
+                133,
+                66,
+                23,
+                13
+              ]
+            },
+            {
+              "text": "Years",
+              "confidence": 96.617836,
+              "bbox_pixels_xywh": [
+                161,
+                66,
+                45,
+                13
+              ]
+            },
+            {
+              "text": "Microsoft",
+              "confidence": 65.937485,
+              "bbox_pixels_xywh": [
+                409,
+                89,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "Microsoft",
+              "confidence": 92.781807,
+              "bbox_pixels_xywh": [
+                472,
+                89,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "%",
+              "confidence": 82.661766,
+              "bbox_pixels_xywh": [
+                923,
+                84,
+                10,
+                9
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.921478,
+              "bbox_pixels_xywh": [
+                937,
+                84,
+                10,
+                9
+              ]
+            },
+            {
+              "text": "Terminals.",
+              "confidence": 57.916912,
+              "bbox_pixels_xywh": [
+                951,
+                84,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "acs",
+              "confidence": 41.605854,
+              "bbox_pixels_xywh": [
+                230,
+                86,
+                120,
+                30
+              ]
+            },
+            {
+              "text": "I",
+              "confidence": 71.079735,
+              "bbox_pixels_xywh": [
+                396,
+                88,
+                7,
+                26
+              ]
+            },
+            {
+              "text": "(Office",
+              "confidence": 94.360451,
+              "bbox_pixels_xywh": [
+                406,
+                104,
+                31,
+                9
+              ]
+            },
+            {
+              "text": "365)",
+              "confidence": 90.924637,
+              "bbox_pixels_xywh": [
+                441,
+                104,
+                20,
+                9
+              ]
+            },
+            {
+              "text": "Azure",
+              "confidence": 78.144089,
+              "bbox_pixels_xywh": [
+                480,
+                104,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "Jo]",
+              "confidence": 57.067944,
+              "bbox_pixels_xywh": [
+                524,
+                86,
+                50,
+                30
+              ]
+            },
+            {
+              "text": "Marketing",
+              "confidence": 94.513123,
+              "bbox_pixels_xywh": [
+                629,
+                91,
+                52,
+                12
+              ]
+            },
+            {
+              "text": "Computers,",
+              "confidence": 82.929893,
+              "bbox_pixels_xywh": [
+                811,
+                98,
+                62,
+                12
+              ]
+            },
+            {
+              "text": "Required",
+              "confidence": 96.638344,
+              "bbox_pixels_xywh": [
+                931,
+                98,
+                48,
+                12
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.808762,
+              "bbox_pixels_xywh": [
+                984,
+                98,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "‘Campaign,",
+              "confidence": 74.580597,
+              "bbox_pixels_xywh": [
+                626,
+                106,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "Sub-",
+              "confidence": 72.675102,
+              "bbox_pixels_xywh": [
+                643,
+                120,
+                25,
+                10
+              ]
+            },
+            {
+              "text": "Internet",
+              "confidence": 91.319275,
+              "bbox_pixels_xywh": [
+                722,
+                121,
+                40,
+                9
+              ]
+            },
+            {
+              "text": "Phones,",
+              "confidence": 96.290077,
+              "bbox_pixels_xywh": [
+                821,
+                113,
+                40,
+                9
+              ]
+            },
+            {
+              "text": "Customer",
+              "confidence": 95.759834,
+              "bbox_pixels_xywh": [
+                931,
+                113,
+                52,
+                9
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 96.399414,
+              "bbox_pixels_xywh": [
+                987,
+                114,
+                9,
+                8
+              ]
+            },
+            {
+              "text": "contractor",
+              "confidence": 89.634201,
+              "bbox_pixels_xywh": [
+                629,
+                136,
+                53,
+                8
+              ]
+            },
+            {
+              "text": "Printers,",
+              "confidence": 96.216476,
+              "bbox_pixels_xywh": [
+                820,
+                128,
+                41,
+                9
+              ]
+            },
+            {
+              "text": "Use",
+              "confidence": 96.584663,
+              "bbox_pixels_xywh": [
+                943,
+                128,
+                21,
+                9
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 85.460785,
+              "bbox_pixels_xywh": [
+                968,
+                128,
+                16,
+                9
+              ]
+            },
+            {
+              "text": "Screens,",
+              "confidence": 89.453957,
+              "bbox_pixels_xywh": [
+                807,
+                142,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "etc.",
+              "confidence": 77.104462,
+              "bbox_pixels_xywh": [
+                858,
+                143,
+                16,
+                9
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 62.381676,
+              "bbox_pixels_xywh": [
+                899,
+                93,
+                7,
+                63
+              ]
+            },
+            {
+              "text": "Organization",
+              "confidence": 83.507408,
+              "bbox_pixels_xywh": [
+                929,
+                142,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "6",
+              "confidence": 36.658051,
+              "bbox_pixels_xywh": [
+                254,
+                141,
+                15,
+                9
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 70.423798,
+              "bbox_pixels_xywh": [
+                291,
+                127,
+                6,
+                37
+              ]
+            },
+            {
+              "text": "‘4",
+              "confidence": 81.923386,
+              "bbox_pixels_xywh": [
+                313,
+                141,
+                15,
+                9
+              ]
+            },
+            {
+              "text": "I",
+              "confidence": 67.749405,
+              "bbox_pixels_xywh": [
+                343,
+                129,
+                7,
+                33
+              ]
+            },
+            {
+              "text": "LJ",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                396,
+                127,
+                71,
+                37
+              ]
+            },
+            {
+              "text": "L|",
+              "confidence": 35.091129,
+              "bbox_pixels_xywh": [
+                527,
+                126,
+                47,
+                39
+              ]
+            },
+            {
+              "text": ":",
+              "confidence": 25.004993,
+              "bbox_pixels_xywh": [
+                605,
+                87,
+                6,
+                78
+              ]
+            },
+            {
+              "text": "Services",
+              "confidence": 74.449654,
+              "bbox_pixels_xywh": [
+                632,
+                150,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 84.321106,
+              "bbox_pixels_xywh": [
+                699,
+                91,
+                5,
+                68
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 80.984673,
+              "bbox_pixels_xywh": [
+                780,
+                89,
+                6,
+                71
+              ]
+            },
+            {
+              "text": "Digital",
+              "confidence": 96.796158,
+              "bbox_pixels_xywh": [
+                922,
+                157,
+                32,
+                11
+              ]
+            },
+            {
+              "text": "Services",
+              "confidence": 78.783478,
+              "bbox_pixels_xywh": [
+                959,
+                157,
+                46,
+                9
+              ]
+            },
+            {
+              "text": "Electricity",
+              "confidence": 89.481079,
+              "bbox_pixels_xywh": [
+                117,
+                201,
+                62,
+                13
+              ]
+            },
+            {
+              "text": "#KWH",
+              "confidence": 52.292854,
+              "bbox_pixels_xywh": [
+                241,
+                201,
+                39,
+                11
+              ]
+            },
+            {
+              "text": "*",
+              "confidence": 92.377556,
+              "bbox_pixels_xywh": [
+                286,
+                201,
+                4,
+                4
+              ]
+            },
+            {
+              "text": "Electric",
+              "confidence": 96.317223,
+              "bbox_pixels_xywh": [
+                296,
+                201,
+                47,
+                11
+              ]
+            },
+            {
+              "text": "Mix",
+              "confidence": 96.173981,
+              "bbox_pixels_xywh": [
+                348,
+                201,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 77.015137,
+              "bbox_pixels_xywh": [
+                375,
+                201,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "#kWH",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                817,
+                192,
+                39,
+                11
+              ]
+            },
+            {
+              "text": "*",
+              "confidence": 85.228561,
+              "bbox_pixels_xywh": [
+                862,
+                192,
+                4,
+                4
+              ]
+            },
+            {
+              "text": "#KWH",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                939,
+                191,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "*",
+              "confidence": 58.431644,
+              "bbox_pixels_xywh": [
+                984,
+                184,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "MtCO,",
+              "confidence": 34.51226,
+              "bbox_pixels_xywh": [
+                479,
+                209,
+                51,
+                15
+              ]
+            },
+            {
+              "text": "Electric",
+              "confidence": 96.157028,
+              "bbox_pixels_xywh": [
+                797,
+                210,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "Mix",
+              "confidence": 96.312569,
+              "bbox_pixels_xywh": [
+                849,
+                210,
+                22,
+                10
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.897423,
+              "bbox_pixels_xywh": [
+                876,
+                209,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "Electric",
+              "confidence": 95.485207,
+              "bbox_pixels_xywh": [
+                919,
+                209,
+                48,
+                12
+              ]
+            },
+            {
+              "text": "Mix",
+              "confidence": 95.485207,
+              "bbox_pixels_xywh": [
+                971,
+                209,
+                22,
+                12
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 90.42141,
+              "bbox_pixels_xywh": [
+                998,
+                209,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "Consumption",
+              "confidence": 93.124825,
+              "bbox_pixels_xywh": [
+                105,
+                218,
+                85,
+                14
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 95.668221,
+              "bbox_pixels_xywh": [
+                274,
+                218,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "Location",
+              "confidence": 95.668221,
+              "bbox_pixels_xywh": [
+                299,
+                218,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.721039,
+              "bbox_pixels_xywh": [
+                802,
+                227,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "Location",
+              "confidence": 95.625412,
+              "bbox_pixels_xywh": [
+                827,
+                227,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.566437,
+              "bbox_pixels_xywh": [
+                924,
+                227,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "Location",
+              "confidence": 96.840439,
+              "bbox_pixels_xywh": [
+                949,
+                227,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "Measure",
+              "confidence": 26.662121,
+              "bbox_pixels_xywh": [
+                627,
+                241,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "Measure",
+              "confidence": 96.597443,
+              "bbox_pixels_xywh": [
+                714,
+                232,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "Method",
+              "confidence": 94.925255,
+              "bbox_pixels_xywh": [
+                623,
+                258,
+                48,
+                12
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 95.56601,
+              "bbox_pixels_xywh": [
+                676,
+                259,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "Method",
+              "confidence": 88.426338,
+              "bbox_pixels_xywh": [
+                718,
+                250,
+                48,
+                11
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 96.923439,
+              "bbox_pixels_xywh": [
+                736,
+                268,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "#Physical",
+              "confidence": 26.008476,
+              "bbox_pixels_xywh": [
+                255,
+                272,
+                62,
+                14
+              ]
+            },
+            {
+              "text": "Servers",
+              "confidence": 96.111481,
+              "bbox_pixels_xywh": [
+                322,
+                272,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "Identity",
+              "confidence": 93.632904,
+              "bbox_pixels_xywh": [
+                632,
+                276,
+                47,
+                15
+              ]
+            },
+            {
+              "text": "Inventories,",
+              "confidence": 96.778358,
+              "bbox_pixels_xywh": [
+                111,
+                290,
+                73,
+                12
+              ]
+            },
+            {
+              "text": "#Virtual",
+              "confidence": 26.681309,
+              "bbox_pixels_xywh": [
+                261,
+                289,
+                49,
+                12
+              ]
+            },
+            {
+              "text": "Servers",
+              "confidence": 87.777802,
+              "bbox_pixels_xywh": [
+                315,
+                289,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "#Services",
+              "confidence": 82.482323,
+              "bbox_pixels_xywh": [
+                472,
+                298,
+                64,
+                12
+              ]
+            },
+            {
+              "text": "Identify",
+              "confidence": 83.107758,
+              "bbox_pixels_xywh": [
+                719,
+                285,
+                47,
+                14
+              ]
+            },
+            {
+              "text": "#Terminals",
+              "confidence": 45.569473,
+              "bbox_pixels_xywh": [
+                806,
+                289,
+                71,
+                11
+              ]
+            },
+            {
+              "text": "#Terminals",
+              "confidence": 59.749863,
+              "bbox_pixels_xywh": [
+                928,
+                289,
+                71,
+                11
+              ]
+            },
+            {
+              "text": "Equipment's",
+              "confidence": 88.052826,
+              "bbox_pixels_xywh": [
+                81,
+                308,
+                78,
+                13
+              ]
+            },
+            {
+              "text": "Lifetime",
+              "confidence": 94.378311,
+              "bbox_pixels_xywh": [
+                165,
+                308,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "#Network",
+              "confidence": 63.919624,
+              "bbox_pixels_xywh": [
+                245,
+                307,
+                62,
+                12
+              ]
+            },
+            {
+              "text": "Equipment",
+              "confidence": 96.390533,
+              "bbox_pixels_xywh": [
+                312,
+                307,
+                70,
+                14
+              ]
+            },
+            {
+              "text": "+#Equipement",
+              "confidence": 17.617102,
+              "bbox_pixels_xywh": [
+                798,
+                306,
+                87,
+                15
+              ]
+            },
+            {
+              "text": "#Equipement",
+              "confidence": 31.305923,
+              "bbox_pixels_xywh": [
+                920,
+                306,
+                87,
+                15
+              ]
+            },
+            {
+              "text": "#Storage",
+              "confidence": 77.588036,
+              "bbox_pixels_xywh": [
+                258,
+                325,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "Bays...",
+              "confidence": 93.717102,
+              "bbox_pixels_xywh": [
+                322,
+                325,
+                46,
+                14
+              ]
+            },
+            {
+              "text": "Use",
+              "confidence": 96.744377,
+              "bbox_pixels_xywh": [
+                513,
+                359,
+                32,
+                14
+              ]
+            },
+            {
+              "text": "public",
+              "confidence": 96.738892,
+              "bbox_pixels_xywh": [
+                553,
+                359,
+                49,
+                18
+              ]
+            },
+            {
+              "text": "reference",
+              "confidence": 96.173874,
+              "bbox_pixels_xywh": [
+                609,
+                359,
+                81,
+                14
+              ]
+            },
+            {
+              "text": "data:",
+              "confidence": 96.760284,
+              "bbox_pixels_xywh": [
+                697,
+                359,
+                41,
+                14
+              ]
+            },
+            {
+              "text": "balance",
+              "confidence": 96.889107,
+              "bbox_pixels_xywh": [
+                283,
+                383,
+                67,
+                14
+              ]
+            },
+            {
+              "text": "sheet",
+              "confidence": 96.49028,
+              "bbox_pixels_xywh": [
+                357,
+                383,
+                46,
+                14
+              ]
+            },
+            {
+              "text": "GHG",
+              "confidence": 96.908089,
+              "bbox_pixels_xywh": [
+                410,
+                382,
+                43,
+                15
+              ]
+            },
+            {
+              "text": "emissions",
+              "confidence": 93.296219,
+              "bbox_pixels_xywh": [
+                460,
+                383,
+                86,
+                14
+              ]
+            },
+            {
+              "text": "ADEME,",
+              "confidence": 93.169609,
+              "bbox_pixels_xywh": [
+                551,
+                383,
+                69,
+                14
+              ]
+            },
+            {
+              "text": "TSP",
+              "confidence": 96.458115,
+              "bbox_pixels_xywh": [
+                632,
+                382,
+                37,
+                15
+              ]
+            },
+            {
+              "text": "REN,",
+              "confidence": 96.784447,
+              "bbox_pixels_xywh": [
+                676,
+                383,
+                38,
+                14
+              ]
+            },
+            {
+              "text": "GES",
+              "confidence": 96.933655,
+              "bbox_pixels_xywh": [
+                728,
+                382,
+                39,
+                15
+              ]
+            },
+            {
+              "text": "published",
+              "confidence": 95.905945,
+              "bbox_pixels_xywh": [
+                775,
+                383,
+                81,
+                16
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.970306,
+              "bbox_pixels_xywh": [
+                864,
+                383,
+                19,
+                16
+              ]
+            },
+            {
+              "text": "providers",
+              "confidence": 96.875633,
+              "bbox_pixels_xywh": [
+                890,
+                383,
+                79,
+                16
+              ]
+            },
+            {
+              "text": "Offset",
+              "confidence": 96.796227,
+              "bbox_pixels_xywh": [
+                464,
+                426,
+                51,
+                15
+              ]
+            },
+            {
+              "text": "Should",
+              "confidence": 96.913589,
+              "bbox_pixels_xywh": [
+                522,
+                426,
+                59,
+                15
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 96.580513,
+              "bbox_pixels_xywh": [
+                589,
+                427,
+                20,
+                14
+              ]
+            },
+            {
+              "text": "Counted",
+              "confidence": 96.959633,
+              "bbox_pixels_xywh": [
+                616,
+                426,
+                72,
+                15
+              ]
+            },
+            {
+              "text": "Separately",
+              "confidence": 96.261459,
+              "bbox_pixels_xywh": [
+                695,
+                426,
+                93,
+                19
+              ]
+            },
+            {
+              "text": "MtCO,2e",
+              "confidence": 86.463165,
+              "bbox_pixels_xywh": [
+                97,
+                428,
+                59,
+                15
+              ]
+            },
+            {
+              "text": "Offset",
+              "confidence": 95.79097,
+              "bbox_pixels_xywh": [
+                161,
+                428,
+                38,
+                11
+              ]
+            },
+            {
+              "text": "Storage",
+              "confidence": 96.882782,
+              "bbox_pixels_xywh": [
+                93,
+                492,
+                50,
+                14
+              ]
+            },
+            {
+              "text": "Terabyte",
+              "confidence": 96.907776,
+              "bbox_pixels_xywh": [
+                148,
+                493,
+                55,
+                13
+              ]
+            },
+            {
+              "text": "#",
+              "confidence": 93.296822,
+              "bbox_pixels_xywh": [
+                379,
+                491,
+                8,
+                14
+              ]
+            },
+            {
+              "text": "Volume",
+              "confidence": 96.477898,
+              "bbox_pixels_xywh": [
+                396,
+                491,
+                64,
+                14
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 95.373512,
+              "bbox_pixels_xywh": [
+                467,
+                491,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "TB",
+              "confidence": 96.784767,
+              "bbox_pixels_xywh": [
+                487,
+                491,
+                23,
+                14
+              ]
+            },
+            {
+              "text": "Not",
+              "confidence": 96.996246,
+              "bbox_pixels_xywh": [
+                777,
+                491,
+                29,
+                14
+              ]
+            },
+            {
+              "text": "Concerned",
+              "confidence": 96.433121,
+              "bbox_pixels_xywh": [
+                813,
+                490,
+                94,
+                15
+              ]
+            },
+            {
+              "text": "Legend",
+              "confidence": 96.654137,
+              "bbox_pixels_xywh": [
+                471,
+                541,
+                45,
+                12
+              ]
+            },
+            {
+              "text": "‘Scope",
+              "confidence": 83.808754,
+              "bbox_pixels_xywh": [
+                551,
+                558,
+                35,
+                12
+              ]
+            },
+            {
+              "text": "2:",
+              "confidence": 95.189285,
+              "bbox_pixels_xywh": [
+                591,
+                558,
+                6,
+                10
+              ]
+            },
+            {
+              "text": "Indirect",
+              "confidence": 96.486588,
+              "bbox_pixels_xywh": [
+                606,
+                558,
+                41,
+                10
+              ]
+            },
+            {
+              "text": "GHG",
+              "confidence": 96.177971,
+              "bbox_pixels_xywh": [
+                651,
+                558,
+                28,
+                10
+              ]
+            },
+            {
+              "text": "emissions",
+              "confidence": 96.177971,
+              "bbox_pixels_xywh": [
+                684,
+                561,
+                57,
+                7
+              ]
+            },
+            {
+              "text": "linked",
+              "confidence": 96.617783,
+              "bbox_pixels_xywh": [
+                745,
+                558,
+                32,
+                10
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 90.105469,
+              "bbox_pixels_xywh": [
+                782,
+                559,
+                10,
+                9
+              ]
+            },
+            {
+              "text": "electricity",
+              "confidence": 96.92186,
+              "bbox_pixels_xywh": [
+                797,
+                558,
+                53,
+                12
+              ]
+            },
+            {
+              "text": "consumption",
+              "confidence": 82.645279,
+              "bbox_pixels_xywh": [
+                854,
+                559,
+                72,
+                11
+              ]
+            },
+            {
+              "text": "‘Scope",
+              "confidence": 89.999931,
+              "bbox_pixels_xywh": [
+                532,
+                575,
+                36,
+                13
+              ]
+            },
+            {
+              "text": "3:",
+              "confidence": 96.025314,
+              "bbox_pixels_xywh": [
+                572,
+                576,
+                10,
+                10
+              ]
+            },
+            {
+              "text": "Indirect",
+              "confidence": 92.273613,
+              "bbox_pixels_xywh": [
+                587,
+                576,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "GHG",
+              "confidence": 94.796501,
+              "bbox_pixels_xywh": [
+                633,
+                575,
+                28,
+                11
+              ]
+            },
+            {
+              "text": "emissions",
+              "confidence": 92.174774,
+              "bbox_pixels_xywh": [
+                665,
+                576,
+                58,
+                10
+              ]
+            },
+            {
+              "text": "linked",
+              "confidence": 94.102737,
+              "bbox_pixels_xywh": [
+                726,
+                576,
+                33,
+                10
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 93.788521,
+              "bbox_pixels_xywh": [
+                763,
+                576,
+                11,
+                10
+              ]
+            },
+            {
+              "text": "services,",
+              "confidence": 93.788521,
+              "bbox_pixels_xywh": [
+                778,
+                576,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "material",
+              "confidence": 94.417152,
+              "bbox_pixels_xywh": [
+                833,
+                576,
+                45,
+                10
+              ]
+            },
+            {
+              "text": "purchasing",
+              "confidence": 96.20005,
+              "bbox_pixels_xywh": [
+                882,
+                576,
+                63,
+                12
+              ]
+            }
+          ],
+          "mean_word_confidence": 84.58,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,5322 @@
+{
+  "schema_version": "capability-addendum/1",
+  "version": "2.1-addendum-1",
+  "notice": "五个独立指南工作产品、六个表格规范和五个程序性分析方法。由手工审阅的原料/证据形成完整结果；不是额外TOGAF制品族上限，也不是官方定义与视觉全通过声明。",
+  "work_products": [
+    {
+      "id": "architecture-backlog",
+      "artifact_id": "architecture-backlog",
+      "name": "架构业务变革与冲刺待办",
+      "name_zh": "架构业务变革与冲刺待办",
+      "name_en": "Architecture Business Change and Sprint Backlog",
+      "owner": "togaf-requirements",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G210 §2、§3.3.2–3.3.4",
+        "G20F §4.5、§5.2.3、§5.3.2"
+      ],
+      "source_locators": [
+        {
+          "guide": "G210",
+          "section": "2. 本指南使用的定义",
+          "lines": [
+            122,
+            145
+          ],
+          "source_version": "G210 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G210.json",
+          "source_hash": "7ea00e56a0f588c55e22edbacfd6d040069d1adc76c78fc33c570b88ec7d9857"
+        },
+        {
+          "guide": "G210",
+          "section": "3.3.2 演示、成果、回顾与规划（DORP）",
+          "lines": [
+            215,
+            242
+          ],
+          "source_version": "G210 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G210.json",
+          "source_hash": "7ea00e56a0f588c55e22edbacfd6d040069d1adc76c78fc33c570b88ec7d9857"
+        },
+        {
+          "guide": "G210",
+          "section": "3.3.3 业务变革待办列表与冲刺待办列表",
+          "lines": [
+            243,
+            251
+          ],
+          "source_version": "G210 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G210.json",
+          "source_hash": "7ea00e56a0f588c55e22edbacfd6d040069d1adc76c78fc33c570b88ec7d9857"
+        },
+        {
+          "guide": "G20F",
+          "section": "4.5 ADM 层级与阶段映射到敏捷概念",
+          "lines": [
+            304,
+            327
+          ],
+          "source_version": "G20F local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G20F.json",
+          "source_hash": "fd48bcaf45af3fb67c9ae5a8c9e254954237075c8f385543dfcf526380cc1fe3"
+        }
+      ],
+      "definition_status": "guide-body-located-with-explicit-project-operational-contract",
+      "decision": "先处理哪些业务变革，当前团队冲刺承诺哪些架构结果？",
+      "stakeholders": [
+        "业务负责人",
+        "架构/产品团队",
+        "相关评审与治理人员"
+      ],
+      "concerns": [
+        "先处理哪些业务变革，当前团队冲刺承诺哪些架构结果？",
+        "来源、边界与待决项"
+      ],
+      "required_inputs": [
+        "原始目标/需求/变更及来源",
+        "业务优先级及理由",
+        "依赖与验收条件",
+        "团队时间盒、目标、可用容量及估算依据"
+      ],
+      "optional_inputs": [
+        "已有模型/待办/历史决策",
+        "组织特定规则及证据"
+      ],
+      "missing_input_policy": "缺失关键输入标记draft和带ID缺口，停止对应通过判断；可以生成明确草稿，不能编造分数、批准、实现或事实。",
+      "entity_types": [
+        "guide:backlog_item",
+        "guide:sprint"
+      ],
+      "relationship_types": [
+        "guide:backlog_depends_on",
+        "guide:scheduled_in"
+      ],
+      "relationship_definitions": {
+        "guide:backlog_depends_on": {
+          "source_types": [
+            "guide:backlog_item"
+          ],
+          "target_types": [
+            "guide:backlog_item"
+          ],
+          "meaning": "源待办以目标待办成果作为前置；不是优先级关系"
+        },
+        "guide:scheduled_in": {
+          "source_types": [
+            "guide:backlog_item"
+          ],
+          "target_types": [
+            "guide:sprint"
+          ],
+          "meaning": "某日期将待办选入冲刺；不表示完成或投产"
+        }
+      },
+      "fields": [
+        "name",
+        "backlog_scope",
+        "business_value",
+        "priority",
+        "priority_basis",
+        "owner",
+        "status",
+        "acceptance_criteria",
+        "estimate",
+        "sprint_id",
+        "dependencies",
+        "source_refs",
+        "history",
+        "goal",
+        "timebox",
+        "team",
+        "capacity",
+        "selected_item_ids",
+        "planning_status",
+        "outcome",
+        "snapshot_at"
+      ],
+      "attribute_semantics": {
+        "backlog_scope": {
+          "meaning": "需求所属的业务变革待办范围；冲刺选择以关系和sprint_id表达",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "business_value": {
+          "meaning": "需求对相关利益人的预期增量价值，允许定性且需来源",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "priority": {
+          "meaning": "利益相关者明确给定的相对顺序；不是量化价值评分",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "priority_basis": {
+          "meaning": "排序依据及提出该判断的来源，不由行号推断",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "owner": {
+          "meaning": "负责澄清、交付或处理该项的角色；不是隐含审批人",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "status": {
+          "meaning": "该工作产品自身的业务流程状态，独立于模型批准/实现状态",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "acceptance_criteria": {
+          "meaning": "判断待办成果达成的可检查条件，须符合原始目标",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "estimate": {
+          "meaning": "带数值或null、单位、依据与estimated/unknown状态的项目估算",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "sprint_id": {
+          "meaning": "所选冲刺稳定ID，未分配为unassigned；多次选择保留history",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "dependencies": {
+          "meaning": "前置待办ID，与guide:backlog_depends_on关系逐项一致",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "source_refs": {
+          "meaning": "支持本条业务内容的来源ID列表，区别指南定义来源",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "history": {
+          "meaning": "按观察时间保留状态/结论与证据的历史，不由后续结果覆盖",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "goal": {
+          "meaning": "整个冲刺的可验证目标；不能由选中事项标题自动代替",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "timebox": {
+          "meaning": "项目声明的开始、结束日期及来源；不是TOGAF固定周期",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "team": {
+          "meaning": "本冲刺共同负责交付的团队范围",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "capacity": {
+          "meaning": "含value、unit、basis的可用投入；未知不能按零处理",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "selected_item_ids": {
+          "meaning": "冲刺选择的待办稳定ID；与选择关系一致",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "planning_status": {
+          "meaning": "该时间点的冲刺规划状态，不代替结果",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "outcome": {
+          "meaning": "冲刺规划时点是否已有成果观察；未观察需明示",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "snapshot_at": {
+          "meaning": "当前规划记录所对应的观察时点",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        }
+      },
+      "required_attributes": {
+        "guide:backlog_item": [
+          "backlog_scope",
+          "business_value",
+          "priority",
+          "priority_basis",
+          "owner",
+          "status",
+          "acceptance_criteria",
+          "estimate",
+          "sprint_id",
+          "dependencies",
+          "source_refs",
+          "history"
+        ],
+        "guide:sprint": [
+          "goal",
+          "timebox",
+          "team",
+          "capacity",
+          "selected_item_ids",
+          "planning_status",
+          "outcome",
+          "snapshot_at"
+        ]
+      },
+      "analysis": [
+        "将每项业务需求归一为稳定ID，保留来源、价值、责任人与验收条件；未知不填零。",
+        "依据利益相关者给定排序及依赖确定候选顺序；没有权重时不计算分数。",
+        "区分业务变革范围与团队冲刺范围；以相同ID选择近期工作，记录目标与容量。",
+        "核对前置工作及所选估算是否在声明容量内；未知估算不能给出容量通过。",
+        "以演示证据更新状态；未完成项回流业务待办，保存历史且不自动承诺下一冲刺。"
+      ],
+      "analysis_steps": [
+        "将每项业务需求归一为稳定ID，保留来源、价值、责任人与验收条件；未知不填零。",
+        "依据利益相关者给定排序及依赖确定候选顺序；没有权重时不计算分数。",
+        "区分业务变革范围与团队冲刺范围；以相同ID选择近期工作，记录目标与容量。",
+        "核对前置工作及所选估算是否在声明容量内；未知估算不能给出容量通过。",
+        "以演示证据更新状态；未完成项回流业务待办，保存历史且不自动承诺下一冲刺。"
+      ],
+      "output": [
+        "范围、决策与原料出处",
+        "对象属性表及关系表",
+        "逐条分析结论和理由",
+        "待确认输入/例外/修改影响",
+        "指定视图与交付物引用"
+      ],
+      "checks": [
+        "业务优先级有证据；编号顺序不等同关系方向",
+        "每个选中项能关联冲刺目标、估算依据和验收条件",
+        "依赖无环；依赖可在冲刺内先完成或有既成证据",
+        "容量单位一致；未知不能计零",
+        "未完成工作保留原ID并回流；历史冲刺记录不重写"
+      ],
+      "semantic_checks": [
+        "业务优先级有证据；编号顺序不等同关系方向",
+        "每个选中项能关联冲刺目标、估算依据和验收条件",
+        "依赖无环；依赖可在冲刺内先完成或有既成证据",
+        "容量单位一致；未知不能计零",
+        "未完成工作保留原ID并回流；历史冲刺记录不重写"
+      ],
+      "misreadings": [
+        "不把速率当项目完成度",
+        "不固定1–4周为所有组织规则",
+        "业务待办与冲刺待办是同族两视图，不复制身份或双计制品",
+        "本例优先级和人日是项目规则，不是TOGAF权重"
+      ],
+      "related_deliverables": [
+        "architecture-requirements-specification",
+        "implementation-migration-plan",
+        "architecture-definition-document"
+      ],
+      "default_profile_id": "architecture-business-backlog",
+      "reference_document": "references/capability-addenda/architecture-backlog.md",
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "BL-01",
+            "type": "guide:backlog_item",
+            "name": "跨馆身份核对规则",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "避免同名读者误关联，明确人工复核责任",
+              "priority": 1,
+              "priority_basis": "BR-05业务负责人显式排序；无权重",
+              "owner": "借阅业务负责人",
+              "status": "selected",
+              "acceptance_criteria": "区分同名异证测试读者，并保留未知情形的人工复核分支",
+              "estimate": {
+                "value": 2,
+                "unit": "person-day",
+                "basis": "BR-05",
+                "status": "estimated"
+              },
+              "sprint_id": "SP-01",
+              "dependencies": [],
+              "source_refs": [
+                "BR-02"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "selected",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-01",
+              "BR-02",
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "BL-02",
+            "type": "guide:backlog_item",
+            "name": "预约API契约",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "使两馆能按共同标识及状态开展契约审阅",
+              "priority": 2,
+              "priority_basis": "BR-05显式排序；先解决身份前置",
+              "owner": "接口负责人",
+              "status": "selected",
+              "acceptance_criteria": "明确读者标识、预约状态、失败返回与消费者，包括取消后重约约束",
+              "estimate": {
+                "value": 1,
+                "unit": "person-day",
+                "basis": "BR-03",
+                "status": "estimated"
+              },
+              "sprint_id": "SP-01",
+              "dependencies": [
+                "BL-01"
+              ],
+              "source_refs": [
+                "BR-03"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "selected",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-03",
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "BL-03",
+            "type": "guide:backlog_item",
+            "name": "试点审计事件清单",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "支持关联读者操作的责任和修改解释",
+              "priority": 3,
+              "priority_basis": "BR-05显式排序；与冲刺目标直接相关",
+              "owner": "数据治理负责人",
+              "status": "selected",
+              "acceptance_criteria": "列谁/何时/理由/原值/修改值，并关联身份复核过程",
+              "estimate": {
+                "value": 1,
+                "unit": "person-day",
+                "basis": "BR-04",
+                "status": "estimated"
+              },
+              "sprint_id": "SP-01",
+              "dependencies": [],
+              "source_refs": [
+                "BR-04"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "selected",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-04",
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "BL-04",
+            "type": "guide:backlog_item",
+            "name": "预约页面配色探索",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "待访谈确认是否改善理解；不是当前冲刺的必要输出",
+              "priority": 4,
+              "priority_basis": "BR-05显式排序；与本冲刺目标关系较弱",
+              "owner": "业务负责人",
+              "status": "open",
+              "acceptance_criteria": "需补访谈问题与期望改善；当前待澄清",
+              "estimate": {
+                "value": 0.5,
+                "unit": "person-day",
+                "basis": "BR-05",
+                "status": "estimated"
+              },
+              "sprint_id": "unassigned",
+              "dependencies": [],
+              "source_refs": [
+                "BR-05"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "open",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "SP-01",
+            "type": "guide:sprint",
+            "name": "两馆身份与预约契约包冲刺",
+            "attributes": {
+              "goal": "形成可供两馆审阅的身份与预约契约包，包含审计事件",
+              "timebox": {
+                "start": "2026-11-02",
+                "end": "2026-11-06",
+                "source": "BR-05"
+              },
+              "team": "跨馆架构团队",
+              "capacity": {
+                "value": 4,
+                "unit": "person-day",
+                "basis": "BR-05；已扣日常支持"
+              },
+              "selected_item_ids": [
+                "BL-01",
+                "BL-02",
+                "BL-03"
+              ],
+              "planning_status": "planned",
+              "outcome": "not-yet-observed-at-planning",
+              "snapshot_at": "2026-11-02"
+            },
+            "evidence": [
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "REL-BL-02-01",
+            "type": "guide:backlog_depends_on",
+            "source": "BL-02",
+            "target": "BL-01",
+            "label": "预约契约以身份核对规则为前置",
+            "evidence": [
+              "BR-03"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REL-BL-01-SP",
+            "type": "guide:scheduled_in",
+            "source": "BL-01",
+            "target": "SP-01",
+            "label": "2026-11-02选择进入本冲刺；不代表完成",
+            "evidence": [
+              "BR-06"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REL-BL-02-SP",
+            "type": "guide:scheduled_in",
+            "source": "BL-02",
+            "target": "SP-01",
+            "label": "2026-11-02选择进入本冲刺；不代表完成",
+            "evidence": [
+              "BR-06"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REL-BL-03-SP",
+            "type": "guide:scheduled_in",
+            "source": "BL-03",
+            "target": "SP-01",
+            "label": "2026-11-02选择进入本冲刺；不代表完成",
+            "evidence": [
+              "BR-06"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "extensions": {
+          "relationship_types": {
+            "guide:backlog_depends_on": {
+              "source_types": [
+                "guide:backlog_item"
+              ],
+              "target_types": [
+                "guide:backlog_item"
+              ],
+              "meaning": "源待办以目标待办成果作为前置；不是优先级关系"
+            },
+            "guide:scheduled_in": {
+              "source_types": [
+                "guide:backlog_item"
+              ],
+              "target_types": [
+                "guide:sprint"
+              ],
+              "meaning": "某日期将待办选入冲刺；不表示完成或投产"
+            }
+          }
+        },
+        "view": {
+          "id": "v-architecture-business-backlog",
+          "artifact_id": "architecture-backlog",
+          "profile_id": "architecture-business-backlog",
+          "title": "架构业务变革与冲刺待办／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "BL-01",
+            "BL-02",
+            "BL-03",
+            "BL-04",
+            "SP-01"
+          ],
+          "relationship_ids": [
+            "REL-BL-02-01",
+            "REL-BL-01-SP",
+            "REL-BL-02-SP",
+            "REL-BL-03-SP"
+          ],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "implementation_status": {
+        "definition": "local-body-reviewed; official-verification-separate",
+        "model": "package-schema-and-id-check-required",
+        "analysis": "manually-worked-complete-example",
+        "generation": "table-generation-executed-locally",
+        "modification": "local-examples-executed",
+        "review": "local-rules-executed; independent-review-pending",
+        "visual": "not-applicable-table-output; no-diagram-equivalence-claimed"
+      },
+      "adm_phases": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "Requirements Management"
+      ],
+      "adm_mapping_status": "project-operational-applicability-guided-by-body; not an exhaustive source mapping"
+    },
+    {
+      "id": "dorp-record",
+      "artifact_id": "dorp-record",
+      "name": "冲刺DORP记录",
+      "name_zh": "冲刺DORP记录",
+      "name_en": "Sprint DORP Record",
+      "owner": "togaf-change-value",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G210 §3.3.2、§5.5"
+      ],
+      "source_locators": [
+        {
+          "guide": "G210",
+          "section": "3.3.2 演示、成果、回顾与规划（DORP）",
+          "lines": [
+            215,
+            242
+          ],
+          "source_version": "G210 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G210.json",
+          "source_hash": "7ea00e56a0f588c55e22edbacfd6d040069d1adc76c78fc33c570b88ec7d9857"
+        },
+        {
+          "guide": "G210",
+          "section": "5.5 架构演示、回顾与冲刺规划",
+          "lines": [
+            540,
+            545
+          ],
+          "source_version": "G210 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G210.json",
+          "source_hash": "7ea00e56a0f588c55e22edbacfd6d040069d1adc76c78fc33c570b88ec7d9857"
+        }
+      ],
+      "definition_status": "guide-body-located-with-explicit-project-operational-contract",
+      "decision": "本冲刺是否达成目标、学到什么、哪些工作需要回流或进入下一次规划？",
+      "stakeholders": [
+        "业务负责人",
+        "架构/产品团队",
+        "相关评审与治理人员"
+      ],
+      "concerns": [
+        "本冲刺是否达成目标、学到什么、哪些工作需要回流或进入下一次规划？",
+        "来源、边界与待决项"
+      ],
+      "required_inputs": [
+        "明确冲刺目标与所选待办",
+        "演示观察及成果证据",
+        "未完成项/新需求",
+        "回顾及下一步行动责任"
+      ],
+      "optional_inputs": [
+        "已有模型/待办/历史决策",
+        "组织特定规则及证据"
+      ],
+      "missing_input_policy": "缺失关键输入标记draft和带ID缺口，停止对应通过判断；可以生成明确草稿，不能编造分数、批准、实现或事实。",
+      "entity_types": [
+        "guide:dorp_record"
+      ],
+      "relationship_types": [],
+      "relationship_definitions": {},
+      "fields": [
+        "name",
+        "sprint_ref",
+        "goal",
+        "demo",
+        "outcomes",
+        "retrospective",
+        "next_plan",
+        "returned_to_business_backlog",
+        "new_backlog_requests",
+        "review_at",
+        "history"
+      ],
+      "attribute_semantics": {
+        "sprint_ref": {
+          "meaning": "DORP所审阅冲刺稳定ID；在独立调用时作为明确外部引用",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "goal": {
+          "meaning": "整个冲刺的可验证目标；不能由选中事项标题自动代替",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "demo": {
+          "meaning": "逐项实际展示内容、证据和未展示/失败观察，不是完成自报",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "outcomes": {
+          "meaning": "相对于原目标的结论、完成/未完成集合及理由",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "retrospective": {
+          "meaning": "对做法及结果的回顾，区分观察与推测根因",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "next_plan": {
+          "meaning": "下一步建议的ID、行动、责任、时间和状态，不能冒充已批准承诺",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "returned_to_business_backlog": {
+          "meaning": "未完成项回流业务待办的原始ID列表",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "new_backlog_requests": {
+          "meaning": "新提出但可能尚未澄清/估算的需求，不默认承诺",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "review_at": {
+          "meaning": "DORP的评审时点，用于保留历史目标判断",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "history": {
+          "meaning": "按观察时间保留状态/结论与证据的历史，不由后续结果覆盖",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        }
+      },
+      "required_attributes": {
+        "guide:dorp_record": [
+          "sprint_ref",
+          "goal",
+          "demo",
+          "outcomes",
+          "retrospective",
+          "next_plan",
+          "returned_to_business_backlog",
+          "new_backlog_requests",
+          "review_at",
+          "history"
+        ]
+      },
+      "analysis": [
+        "先固定本次冲刺目标和评审时点，不因结果不好而改写目标。",
+        "按Demo记录实际展示和未展示内容；按Outcome核对目标与成果。",
+        "按Retrospective解释偏差与可改进做法，不将推测当根因事实。",
+        "按Planning形成有责任人与依据的下一步建议；未完成项回到业务待办。",
+        "新需求先登记澄清，不自动承诺下一冲刺；保留历史与后续补充。"
+      ],
+      "analysis_steps": [
+        "先固定本次冲刺目标和评审时点，不因结果不好而改写目标。",
+        "按Demo记录实际展示和未展示内容；按Outcome核对目标与成果。",
+        "按Retrospective解释偏差与可改进做法，不将推测当根因事实。",
+        "按Planning形成有责任人与依据的下一步建议；未完成项回到业务待办。",
+        "新需求先登记澄清，不自动承诺下一冲刺；保留历史与后续补充。"
+      ],
+      "output": [
+        "范围、决策与原料出处",
+        "对象属性表及关系表",
+        "逐条分析结论和理由",
+        "待确认输入/例外/修改影响",
+        "指定视图与交付物引用"
+      ],
+      "checks": [
+        "Demo/Outcome/Retrospective/Planning四项分别存在",
+        "有强制冲刺目标，结论对应同一目标",
+        "完成和未完成集不交叉，未完成集全部回流",
+        "未展示或缺证据的成果不标完成",
+        "后续完成不能倒改原冲刺历史失败"
+      ],
+      "semantic_checks": [
+        "Demo/Outcome/Retrospective/Planning四项分别存在",
+        "有强制冲刺目标，结论对应同一目标",
+        "完成和未完成集不交叉，未完成集全部回流",
+        "未展示或缺证据的成果不标完成",
+        "后续完成不能倒改原冲刺历史失败"
+      ],
+      "misreadings": [
+        "DORP不是只写会议纪要或四个空标题",
+        "不能把演示次数代替价值",
+        "下次计划是建议，非批准或实际已完成"
+      ],
+      "related_deliverables": [
+        "change-request",
+        "compliance-assessment",
+        "implementation-migration-plan"
+      ],
+      "default_profile_id": "dorp-record-default",
+      "reference_document": "references/capability-addenda/dorp-record.md",
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "DORP-01",
+            "type": "guide:dorp_record",
+            "name": "SP-01结束DORP记录",
+            "attributes": {
+              "sprint_ref": "SP-01",
+              "goal": "形成可供两馆审阅的身份与预约契约包，包含审计事件",
+              "demo": [
+                {
+                  "item": "BL-01",
+                  "evidence": "DEMO-01 / BR-07",
+                  "observation": "同名异证分开且有人工复核分支"
+                },
+                {
+                  "item": "BL-03",
+                  "evidence": "AUD-01 / BR-07",
+                  "observation": "审计清单已形成"
+                },
+                {
+                  "item": "BL-02",
+                  "evidence": "BR-07",
+                  "observation": "取消后重约约束缺失，未完成"
+                }
+              ],
+              "outcomes": {
+                "goal_result": "not-achieved",
+                "completed": [
+                  "BL-01",
+                  "BL-03"
+                ],
+                "incomplete": [
+                  "BL-02"
+                ],
+                "reason": "API契约关键状态缺失，整体包不满足目标"
+              },
+              "retrospective": "乙馆接口负责人介入过晚，状态语义直到最后一天才暴露",
+              "next_plan": [
+                {
+                  "id": "ACT-01",
+                  "action": "邀请乙馆负责人澄清取消规则并评审取值",
+                  "owner": "接口负责人",
+                  "target_date": "2026-11-09",
+                  "status": "proposed"
+                }
+              ],
+              "returned_to_business_backlog": [
+                "BL-02"
+              ],
+              "new_backlog_requests": [
+                {
+                  "id": "REQ-SMS",
+                  "description": "短信通知模板",
+                  "status": "needs-clarification",
+                  "estimate": null
+                }
+              ],
+              "review_at": "2026-11-06",
+              "history": [
+                {
+                  "at": "2026-11-06",
+                  "goal_result": "not-achieved",
+                  "evidence": "BR-07"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-06",
+              "BR-07",
+              "BR-08"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "view": {
+          "id": "v-dorp-record-default",
+          "artifact_id": "dorp-record",
+          "profile_id": "dorp-record-default",
+          "title": "冲刺DORP记录／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "DORP-01"
+          ],
+          "relationship_ids": [],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "implementation_status": {
+        "definition": "local-body-reviewed; official-verification-separate",
+        "model": "package-schema-and-id-check-required",
+        "analysis": "manually-worked-complete-example",
+        "generation": "table-generation-executed-locally",
+        "modification": "local-examples-executed",
+        "review": "local-rules-executed; independent-review-pending",
+        "visual": "not-applicable-table-output; no-diagram-equivalence-claimed"
+      },
+      "adm_phases": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "adm_mapping_status": "project-operational-applicability-guided-by-body; not an exhaustive source mapping"
+    },
+    {
+      "id": "decision-delegation-register",
+      "artifact_id": "decision-delegation-register",
+      "name": "决策授权与可逆性登记",
+      "name_zh": "决策授权与可逆性登记",
+      "name_en": "Decision Delegation and Reversibility Register",
+      "owner": "togaf-implementation-governance",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G210 §5.4（转引Management 3.0及Bezos）"
+      ],
+      "source_locators": [
+        {
+          "guide": "G210",
+          "section": "5.4 架构治理与冲刺",
+          "lines": [
+            523,
+            539
+          ],
+          "source_version": "G210 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G210.json",
+          "source_hash": "7ea00e56a0f588c55e22edbacfd6d040069d1adc76c78fc33c570b88ec7d9857"
+        }
+      ],
+      "definition_status": "guide-body-located-with-explicit-project-operational-contract",
+      "decision": "某类决策由谁、在何种边界内决定，何时需扩大参与或重新评审？",
+      "stakeholders": [
+        "业务负责人",
+        "架构/产品团队",
+        "相关评审与治理人员"
+      ],
+      "concerns": [
+        "某类决策由谁、在何种边界内决定，何时需扩大参与或重新评审？",
+        "来源、边界与待决项"
+      ],
+      "required_inputs": [
+        "决策范围和影响对象",
+        "参与人、权限与企业护栏",
+        "可逆性证据和回滚条件",
+        "组织采用的授权规则及批准状态"
+      ],
+      "optional_inputs": [
+        "已有模型/待办/历史决策",
+        "组织特定规则及证据"
+      ],
+      "missing_input_policy": "缺失关键输入标记draft和带ID缺口，停止对应通过判断；可以生成明确草稿，不能编造分数、批准、实现或事实。",
+      "entity_types": [
+        "guide:delegation_decision"
+      ],
+      "relationship_types": [],
+      "relationship_definitions": {},
+      "fields": [
+        "name",
+        "decision_scope",
+        "delegation_level",
+        "framework_origin",
+        "authority",
+        "participants",
+        "reversibility",
+        "reversibility_evidence",
+        "rollback_plan",
+        "guardrails",
+        "authorization_status",
+        "review_trigger",
+        "decision_result",
+        "source_refs"
+      ],
+      "attribute_semantics": {
+        "decision_scope": {
+          "meaning": "授权适用的具体决定、对象和影响边界",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "delegation_level": {
+          "meaning": "G210引用的Management3.0名称之一；只作词汇，具体权责另列",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "framework_origin": {
+          "meaning": "外部方法归属与项目操作化说明，防止冒充TOGAF独创",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "authority": {
+          "meaning": "谁在听取谁意见后做何种决定的项目明文约定",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "participants": {
+          "meaning": "需要参与当前决策的团队或角色，不仅列被通知人",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "reversibility": {
+          "meaning": "reversible/irreversible/unknown；对整个决定结果而非单一技术动作判断",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "reversibility_evidence": {
+          "meaning": "支持可逆性判断的业务与技术证据或明确缺口",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "rollback_plan": {
+          "meaning": "回滚方式、条件与未覆盖部分；不可回滚明确not-available",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "guardrails": {
+          "meaning": "授权不能突破的企业/项目约束及范围",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "authorization_status": {
+          "meaning": "授权安排本身的proposed/approved等状态；批准需要真实证据",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "review_trigger": {
+          "meaning": "哪些范围、消费者、规则或恢复条件变化要求复评",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "decision_result": {
+          "meaning": "当前决定或建议及未决条件，不由授权级别自动推导",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "source_refs": {
+          "meaning": "支持本条业务内容的来源ID列表，区别指南定义来源",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        }
+      },
+      "required_attributes": {
+        "guide:delegation_decision": [
+          "decision_scope",
+          "delegation_level",
+          "framework_origin",
+          "authority",
+          "participants",
+          "reversibility",
+          "reversibility_evidence",
+          "rollback_plan",
+          "guardrails",
+          "authorization_status",
+          "review_trigger",
+          "decision_result",
+          "source_refs"
+        ]
+      },
+      "analysis": [
+        "为具体决策划清范围、受影响方及护栏。",
+        "记录reversible/irreversible/unknown及依据；未知不能默认为可逆。",
+        "可选引用七授权名称tell/sell/consult/agree/advise/inquire/delegate，逐条用项目语言明确定谁决定、谁参与。",
+        "不可逆或可逆性不明时明确更广群体及需补证据；不从数值等级自动推导批准。",
+        "记录提案、批准证据与复评触发，授权状态与架构实现状态独立。"
+      ],
+      "analysis_steps": [
+        "为具体决策划清范围、受影响方及护栏。",
+        "记录reversible/irreversible/unknown及依据；未知不能默认为可逆。",
+        "可选引用七授权名称tell/sell/consult/agree/advise/inquire/delegate，逐条用项目语言明确定谁决定、谁参与。",
+        "不可逆或可逆性不明时明确更广群体及需补证据；不从数值等级自动推导批准。",
+        "记录提案、批准证据与复评触发，授权状态与架构实现状态独立。"
+      ],
+      "output": [
+        "范围、决策与原料出处",
+        "对象属性表及关系表",
+        "逐条分析结论和理由",
+        "待确认输入/例外/修改影响",
+        "指定视图与交付物引用"
+      ],
+      "checks": [
+        "七名称来自外部方法；权责描述与组织约定一致",
+        "可逆有回滚条件与证据；unknown不当作reversible",
+        "不可逆决策有跨相关团队参与安排",
+        "无批准证据只能proposed，不实际执行",
+        "决策影响变化触发复评"
+      ],
+      "semantic_checks": [
+        "七名称来自外部方法；权责描述与组织约定一致",
+        "可逆有回滚条件与证据；unknown不当作reversible",
+        "不可逆决策有跨相关团队参与安排",
+        "无批准证据只能proposed，不实际执行",
+        "决策影响变化触发复评"
+      ],
+      "misreadings": [
+        "七级不是TOGAF成熟度评分",
+        "“高授权级”不代表更好",
+        "来源转引不等于已核实完整Management3.0规则",
+        "用户使用本技能不构成外部业务授权"
+      ],
+      "related_deliverables": [
+        "organization-model",
+        "tailored-architecture-framework",
+        "compliance-assessment"
+      ],
+      "default_profile_id": "decision-delegation-register-default",
+      "reference_document": "references/capability-addenda/decision-delegation-register.md",
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "DEC-01",
+            "type": "guide:delegation_decision",
+            "name": "试点API内部命名权限",
+            "attributes": {
+              "decision_scope": "仅无外部消费者的试点API内部命名",
+              "delegation_level": "consult",
+              "framework_origin": "Management 3.0，G210 §5.4转引；具体权责为本例项目规则",
+              "authority": "架构负责人听取开发团队意见后决定",
+              "participants": [
+                "架构负责人",
+                "开发团队"
+              ],
+              "reversibility": "reversible",
+              "reversibility_evidence": "无外部消费者；保留旧别名且可恢复路由（BR-09）",
+              "rollback_plan": "恢复旧别名与路由；一旦增加外部消费者重新评估",
+              "guardrails": [
+                "不改变契约业务语义",
+                "不涉及读者证据删除"
+              ],
+              "authorization_status": "proposed",
+              "review_trigger": "新增外部消费者或无法恢复路由",
+              "decision_result": "拟采用consult，待正式授权",
+              "source_refs": [
+                "BR-09"
+              ]
+            },
+            "evidence": [
+              "BR-09"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "DEC-02",
+            "type": "guide:delegation_decision",
+            "name": "读者关联证据保留期限变更",
+            "attributes": {
+              "decision_scope": "读者关联历史证据的保留期限",
+              "delegation_level": "agree",
+              "framework_origin": "Management 3.0及可逆性区分由G210 §5.4转引；本例约定共同决策",
+              "authority": "数据治理、借阅业务与安全负责人共同决策",
+              "participants": [
+                "数据治理负责人",
+                "借阅业务负责人",
+                "安全负责人"
+              ],
+              "reversibility": "irreversible",
+              "reversibility_evidence": "删除历史证据后普通回滚不可恢复（BR-10）",
+              "rollback_plan": "not-available；决策完成前不得执行删除",
+              "guardrails": [
+                "不得凭技术团队单方决定",
+                "先补保留依据与影响"
+              ],
+              "authorization_status": "proposed",
+              "review_trigger": "法律/业务依据或数据范围变化",
+              "decision_result": "需更广群体共同评审；依据未齐保持草稿",
+              "source_refs": [
+                "BR-10"
+              ]
+            },
+            "evidence": [
+              "BR-10"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "DEC-03",
+            "type": "guide:delegation_decision",
+            "name": "脱敏日志展示样式权限",
+            "attributes": {
+              "decision_scope": "既有脱敏/访问护栏内的展示样式",
+              "delegation_level": "delegate",
+              "framework_origin": "Management 3.0，G210 §5.4转引；本例拟委派规则",
+              "authority": "拟由开发团队决定并留存变更记录",
+              "participants": [
+                "开发团队",
+                "日志使用者"
+              ],
+              "reversibility": "reversible",
+              "reversibility_evidence": "可切回旧模板，保留期限/字段不变（BR-11）",
+              "rollback_plan": "切回旧展示模板并检查脱敏",
+              "guardrails": [
+                "不改保留期限",
+                "不改审计字段",
+                "保持访问与脱敏规则"
+              ],
+              "authorization_status": "proposed",
+              "review_trigger": "涉及保留期限、字段或脱敏规则",
+              "decision_result": "授权仅为提案，未实施",
+              "source_refs": [
+                "BR-11"
+              ]
+            },
+            "evidence": [
+              "BR-11"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "view": {
+          "id": "v-decision-delegation-register-default",
+          "artifact_id": "decision-delegation-register",
+          "profile_id": "decision-delegation-register-default",
+          "title": "决策授权与可逆性登记／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "DEC-01",
+            "DEC-02",
+            "DEC-03"
+          ],
+          "relationship_ids": [],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "implementation_status": {
+        "definition": "local-body-reviewed; official-verification-separate",
+        "model": "package-schema-and-id-check-required",
+        "analysis": "manually-worked-complete-example",
+        "generation": "table-generation-executed-locally",
+        "modification": "local-examples-executed",
+        "review": "local-rules-executed; independent-review-pending",
+        "visual": "not-applicable-table-output; no-diagram-equivalence-claimed"
+      },
+      "adm_phases": [
+        "Preliminary",
+        "G",
+        "H"
+      ],
+      "adm_mapping_status": "project-operational-applicability-guided-by-body; not an exhaustive source mapping"
+    },
+    {
+      "id": "architecture-description-formality-review",
+      "artifact_id": "architecture-description-formality-review",
+      "name": "架构描述充分性与正式度评审",
+      "name_zh": "架构描述充分性与正式度评审",
+      "name_en": "Architecture Description Sufficiency and Formality Review",
+      "owner": "togaf-artifact-review",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G217 §2.4（图2-1为方法示意）"
+      ],
+      "source_locators": [
+        {
+          "guide": "G217",
+          "section": "2.4 成熟的数字产品与运营卓越",
+          "lines": [
+            199,
+            217
+          ],
+          "source_version": "G217 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G217.json",
+          "source_hash": "55bb821195d0bac043efe7b85d6ef3582bda8edba1d0dc612955e6a1f5bc7cdb"
+        }
+      ],
+      "definition_status": "guide-body-located-with-explicit-project-operational-contract",
+      "decision": "当前描述是否足以支持指定决策，表达与治理控制是否适合当前目的？",
+      "stakeholders": [
+        "业务负责人",
+        "架构/产品团队",
+        "相关评审与治理人员"
+      ],
+      "concerns": [
+        "当前描述是否足以支持指定决策，表达与治理控制是否适合当前目的？",
+        "来源、边界与待决项"
+      ],
+      "required_inputs": [
+        "被评描述及版本",
+        "具体决策、利益相关者和关注点",
+        "现有内容与证据",
+        "项目所需正式控制及裁剪理由"
+      ],
+      "optional_inputs": [
+        "已有模型/待办/历史决策",
+        "组织特定规则及证据"
+      ],
+      "missing_input_policy": "缺失关键输入标记draft和带ID缺口，停止对应通过判断；可以生成明确草稿，不能编造分数、批准、实现或事实。",
+      "entity_types": [
+        "guide:description_review"
+      ],
+      "relationship_types": [],
+      "relationship_definitions": {},
+      "fields": [
+        "name",
+        "description_ref",
+        "decision",
+        "stakeholders",
+        "concerns",
+        "sufficiency",
+        "sufficiency_evidence",
+        "current_formality",
+        "needed_formality",
+        "formality_fit",
+        "rationale",
+        "actions",
+        "evolution_state",
+        "approval_state",
+        "review_rule",
+        "source_refs"
+      ],
+      "attribute_semantics": {
+        "description_ref": {
+          "meaning": "被评架构描述及其版本的稳定引用",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "decision": {
+          "meaning": "该描述将支持的具体决策；充分性仅对该决策有效",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "stakeholders": {
+          "meaning": "使用该描述做决策或受到其影响的利益相关者",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "concerns": {
+          "meaning": "本次评审必须回应的具体关注点",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "sufficiency": {
+          "meaning": "对明确决策的sufficient-for-stated-decision/insufficient/unknown文字判断",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "sufficiency_evidence": {
+          "meaning": "逐关注点支持或阻断决策的内容及证据",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "current_formality": {
+          "meaning": "当前采用的术语/记法/版本/审阅等正式控制集合",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "needed_formality": {
+          "meaning": "针对用途所需正式控制集合，必须给裁剪依据",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "formality_fit": {
+          "meaning": "当前控制是否合适、缺少或过度的文字判断；不是批准状态",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "rationale": {
+          "meaning": "将内容/控制与决策联系起来的评审推理",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "actions": {
+          "meaning": "最小必要补充、削减或下一轮验证行动",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "evolution_state": {
+          "meaning": "被评描述所表达的架构演进状态，不当作正式程度",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "approval_state": {
+          "meaning": "描述的批准状态，独立于充分性与正式控制",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "review_rule": {
+          "meaning": "本项目使用的判断约定与出处；不称TOGAF量表",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "source_refs": {
+          "meaning": "支持本条业务内容的来源ID列表，区别指南定义来源",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        }
+      },
+      "required_attributes": {
+        "guide:description_review": [
+          "description_ref",
+          "decision",
+          "stakeholders",
+          "concerns",
+          "sufficiency",
+          "sufficiency_evidence",
+          "current_formality",
+          "needed_formality",
+          "formality_fit",
+          "rationale",
+          "actions",
+          "evolution_state",
+          "approval_state",
+          "review_rule",
+          "source_refs"
+        ]
+      },
+      "analysis": [
+        "定义该描述要支持的决策与范围，不能泛称“架构是否完整”。",
+        "逐关注点核对内容及证据，判断sufficient-for-stated-decision/insufficient/unknown。",
+        "独立列当前与所需正式控制（如术语、记法、版本、审阅证据），判断适合、缺少或过度并给理由。",
+        "识别复杂系统缺文档或未验证概念就强制全面建模的极端，按当前目的提出最小补充。",
+        "演进状态、审批状态另列；不把approved/target当作正式度。"
+      ],
+      "analysis_steps": [
+        "定义该描述要支持的决策与范围，不能泛称“架构是否完整”。",
+        "逐关注点核对内容及证据，判断sufficient-for-stated-decision/insufficient/unknown。",
+        "独立列当前与所需正式控制（如术语、记法、版本、审阅证据），判断适合、缺少或过度并给理由。",
+        "识别复杂系统缺文档或未验证概念就强制全面建模的极端，按当前目的提出最小补充。",
+        "演进状态、审批状态另列；不把approved/target当作正式度。"
+      ],
+      "output": [
+        "范围、决策与原料出处",
+        "对象属性表及关系表",
+        "逐条分析结论和理由",
+        "待确认输入/例外/修改影响",
+        "指定视图与交付物引用"
+      ],
+      "checks": [
+        "充分性与正式度各有独立依据",
+        "没有来源的等级、数值轴、总分一律不用",
+        "相对于指定决策而非抽象完整性给结论",
+        "批准/实现/演进与正式度不同字段",
+        "修订后复核受影响关注点并保留原判断"
+      ],
+      "semantic_checks": [
+        "充分性与正式度各有独立依据",
+        "没有来源的等级、数值轴、总分一律不用",
+        "相对于指定决策而非抽象完整性给结论",
+        "批准/实现/演进与正式度不同字段",
+        "修订后复核受影响关注点并保留原判断"
+      ],
+      "misreadings": [
+        "形式规范不证明内容充分",
+        "非正式探索不意味着没有架构",
+        "本表是正文操作化模板，不是已核验图2-1复刻",
+        "不同用途结论不能直接互换"
+      ],
+      "related_deliverables": [
+        "architecture-definition-document",
+        "compliance-assessment",
+        "tailored-architecture-framework"
+      ],
+      "default_profile_id": "architecture-description-formality-table",
+      "reference_document": "references/capability-addenda/architecture-description-formality-review.md",
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "REV-01",
+            "type": "guide:description_review",
+            "name": "统一读者图的决策充分性",
+            "attributes": {
+              "description_ref": "DESC-01",
+              "decision": "是否可以开始预约契约评审",
+              "stakeholders": [
+                "接口负责人",
+                "借阅业务负责人"
+              ],
+              "concerns": [
+                "同名识别",
+                "三馆边界",
+                "人工复核责任"
+              ],
+              "sufficiency": "insufficient",
+              "sufficiency_evidence": "遗漏乙/丙馆冲突与人工责任（BR-12）",
+              "current_formality": [
+                "版本标识",
+                "正式建模记法",
+                "语法检查"
+              ],
+              "needed_formality": [
+                "明确边界和冲突",
+                "稳定ID与证据",
+                "责任可追溯"
+              ],
+              "formality_fit": "control-present-content-insufficient",
+              "rationale": "形式可检查不证明内容足够；本次决定需先补遗漏内容",
+              "actions": [
+                "补乙/丙馆和冲突分支",
+                "指定人工复核责任"
+              ],
+              "evolution_state": "target",
+              "approval_state": "candidate",
+              "review_rule": "BR-20项目文字判断；无等级/权重",
+              "source_refs": [
+                "BR-12"
+              ]
+            },
+            "evidence": [
+              "BR-12",
+              "BR-20"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "REV-02",
+            "type": "guide:description_review",
+            "name": "访谈草图的正式度裁剪",
+            "attributes": {
+              "description_ref": "DESC-02",
+              "decision": "是否可开始内部访谈以验证取书概念",
+              "stakeholders": [
+                "访谈负责人",
+                "试点读者"
+              ],
+              "concerns": [
+                "概念是否可理解",
+                "假设是否可测试"
+              ],
+              "sufficiency": "sufficient-for-stated-decision",
+              "sufficiency_evidence": "已有访谈目的、对象、问题；并未证明产品可行（BR-13）",
+              "current_formality": [
+                "临时草图"
+              ],
+              "needed_formality": [
+                "假设标注",
+                "范围边界",
+                "版本标记"
+              ],
+              "formality_fit": "additional-production-model-would-be-excess",
+              "rationale": "完整生产部署/容灾在当前探索决策尚无依据，先补三个轻量控制",
+              "actions": [
+                "标注假设、边界与版本",
+                "访谈后再决定产品架构深度"
+              ],
+              "evolution_state": "target",
+              "approval_state": "candidate",
+              "review_rule": "BR-20项目文字判断；不是准许省略生产治理",
+              "source_refs": [
+                "BR-13"
+              ]
+            },
+            "evidence": [
+              "BR-13",
+              "BR-20"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "REV-03",
+            "type": "guide:description_review",
+            "name": "预约契约的审阅与发布边界",
+            "attributes": {
+              "description_ref": "DESC-03",
+              "decision": "是否可以完成预约契约的内容审阅",
+              "stakeholders": [
+                "接口负责人",
+                "乙馆消费者"
+              ],
+              "concerns": [
+                "取消重约语义",
+                "版本与错误返回",
+                "消费者影响"
+              ],
+              "sufficiency": "insufficient",
+              "sufficiency_evidence": "取消后重约约束缺失（BR-07/BR-14）",
+              "current_formality": [
+                "输入输出",
+                "错误码",
+                "消费者",
+                "范围",
+                "版本",
+                "待决项"
+              ],
+              "needed_formality": [
+                "状态约束完整",
+                "版本与消费者记录",
+                "变更评审证据"
+              ],
+              "formality_fit": "appropriate-controls-with-content-gap",
+              "rationale": "可作审阅草稿，但内容审阅仍有阻断缺口；更不代表发布批准",
+              "actions": [
+                "补取消重约约束及验证证据",
+                "复核是否可完成内容审阅，发布批准另行"
+              ],
+              "evolution_state": "target",
+              "approval_state": "candidate",
+              "review_rule": "BR-20项目文字判断；approved不作为正式度",
+              "source_refs": [
+                "BR-14"
+              ]
+            },
+            "evidence": [
+              "BR-07",
+              "BR-14",
+              "BR-20"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "view": {
+          "id": "v-architecture-description-formality-table",
+          "artifact_id": "architecture-description-formality-review",
+          "profile_id": "architecture-description-formality-table",
+          "title": "架构描述充分性与正式度评审／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "REV-01",
+            "REV-02",
+            "REV-03"
+          ],
+          "relationship_ids": [],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "implementation_status": {
+        "definition": "local-body-reviewed; official-verification-separate",
+        "model": "package-schema-and-id-check-required",
+        "analysis": "manually-worked-complete-example",
+        "generation": "table-generation-executed-locally",
+        "modification": "local-examples-executed",
+        "review": "local-rules-executed; independent-review-pending",
+        "visual": "not-applicable-table-output; no-diagram-equivalence-claimed"
+      },
+      "adm_phases": [
+        "Preliminary",
+        "A",
+        "B",
+        "C",
+        "D",
+        "G"
+      ],
+      "adm_mapping_status": "project-operational-applicability-guided-by-body; not an exhaustive source mapping"
+    },
+    {
+      "id": "technical-debt-register",
+      "artifact_id": "technical-debt-register",
+      "name": "技术与架构债登记",
+      "name_zh": "技术与架构债登记",
+      "name_en": "Technical and Architecture Debt Register",
+      "owner": "togaf-change-value",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G217 §2.2–2.3、附录D.4"
+      ],
+      "source_locators": [
+        {
+          "guide": "G217",
+          "section": "2.2 反应式管理技术债务",
+          "lines": [
+            175,
+            184
+          ],
+          "source_version": "G217 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G217.json",
+          "source_hash": "55bb821195d0bac043efe7b85d6ef3582bda8edba1d0dc612955e6a1f5bc7cdb"
+        },
+        {
+          "guide": "G217",
+          "section": "2.3 主动式管理技术债务",
+          "lines": [
+            185,
+            198
+          ],
+          "source_version": "G217 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G217.json",
+          "source_hash": "55bb821195d0bac043efe7b85d6ef3582bda8edba1d0dc612955e6a1f5bc7cdb"
+        },
+        {
+          "guide": "G217",
+          "section": "D.4 在管理技术债务的同时使能创新（Enabling Innovation While Managing Technical Debt）",
+          "lines": [
+            1240,
+            1241
+          ],
+          "source_version": "G217 local Chinese translation; original definition verification separate",
+          "evidence_record": "reviews/full-text-reading-v3/G217.json",
+          "source_hash": "55bb821195d0bac043efe7b85d6ef3582bda8edba1d0dc612955e6a1f5bc7cdb"
+        }
+      ],
+      "definition_status": "guide-body-located-with-explicit-project-operational-contract",
+      "decision": "哪些债务应由本产品或EA协调处理，如何追溯偿还并验证关闭？",
+      "stakeholders": [
+        "业务负责人",
+        "架构/产品团队",
+        "相关评审与治理人员"
+      ],
+      "concerns": [
+        "哪些债务应由本产品或EA协调处理，如何追溯偿还并验证关闭？",
+        "来源、边界与待决项"
+      ],
+      "required_inputs": [
+        "运营/架构问题与证据",
+        "受影响产品和跨产品关系",
+        "原因及业务后果",
+        "偿还选项、负责人、待办与关闭规则"
+      ],
+      "optional_inputs": [
+        "已有模型/待办/历史决策",
+        "组织特定规则及证据"
+      ],
+      "missing_input_policy": "缺失关键输入标记draft和带ID缺口，停止对应通过判断；可以生成明确草稿，不能编造分数、批准、实现或事实。",
+      "entity_types": [
+        "guide:technical_debt"
+      ],
+      "relationship_types": [],
+      "relationship_definitions": {},
+      "fields": [
+        "name",
+        "kind",
+        "affected_products",
+        "cause",
+        "consequence",
+        "evidence_summary",
+        "ea_involvement",
+        "ea_rationale",
+        "repayment_option",
+        "backlog_refs",
+        "owner",
+        "review_date",
+        "status",
+        "closure_criteria",
+        "verification_evidence",
+        "closure_decision",
+        "cost_or_interest"
+      ],
+      "attribute_semantics": {
+        "kind": {
+          "meaning": "债务的技术/数据/接口/架构性质，允许项目分类",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "affected_products": {
+          "meaning": "受影响产品或服务范围，为EA介入判断提供依据",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "cause": {
+          "meaning": "已知原因或明确假说，必须区别根因证实程度",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "consequence": {
+          "meaning": "对业务、运营、变更或集成的影响，不默认货币化",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "evidence_summary": {
+          "meaning": "债务观察来源、可信度与缺失数值的说明",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "ea_involvement": {
+          "meaning": "由本产品处理或需要EA跨产品协调的路由判断",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "ea_rationale": {
+          "meaning": "该路由判断的范围和后果依据，不是所有债一律EA负责",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "repayment_option": {
+          "meaning": "偿还候选行为及预期解决的问题，不等于已选定执行",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "backlog_refs": {
+          "meaning": "偿还关联的待办ID；空列表表示尚未形成条目",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "owner": {
+          "meaning": "负责澄清、交付或处理该项的角色；不是隐含审批人",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "review_date": {
+          "meaning": "下一复核时点，由项目安排；不代表完成承诺",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "status": {
+          "meaning": "该工作产品自身的业务流程状态，独立于模型批准/实现状态",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "closure_criteria": {
+          "meaning": "项目声明的关闭依据要求，来源和变更必须记录",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "verification_evidence": {
+          "meaning": "修复结果的验证引用，选入计划不能当验证",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "closure_decision": {
+          "meaning": "责任人基于关闭依据的复核结论或not-closed",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        },
+        "cost_or_interest": {
+          "meaning": "仅记录有出处的成本/金额/假设；未知明示，不自造利率或ROI",
+          "value_rule": "必填有来源的具体值或显式unknown/待确认，并在缺口中登记；空值不能伪装完成。",
+          "definition_origin": "project-operational-contract-guided-by-cited-body"
+        }
+      },
+      "required_attributes": {
+        "guide:technical_debt": [
+          "kind",
+          "affected_products",
+          "cause",
+          "consequence",
+          "evidence_summary",
+          "ea_involvement",
+          "ea_rationale",
+          "repayment_option",
+          "backlog_refs",
+          "owner",
+          "review_date",
+          "status",
+          "closure_criteria",
+          "verification_evidence",
+          "closure_decision",
+          "cost_or_interest"
+        ]
+      },
+      "analysis": [
+        "从问题记录识别债务及来源，区分技术局部问题与架构跨产品问题。",
+        "描述影响、原因及不确定性，不凭债务比喻生成利率/金额。",
+        "判断是否需EA协调；仅局部债可交产品团队，说明理由。",
+        "比较偿还候选与资源/依赖，关联待办、标准、复用或变更记录。",
+        "按声明的项目关闭规则收集修复、验证和复核证据，不能凭排期关闭。"
+      ],
+      "analysis_steps": [
+        "从问题记录识别债务及来源，区分技术局部问题与架构跨产品问题。",
+        "描述影响、原因及不确定性，不凭债务比喻生成利率/金额。",
+        "判断是否需EA协调；仅局部债可交产品团队，说明理由。",
+        "比较偿还候选与资源/依赖，关联待办、标准、复用或变更记录。",
+        "按声明的项目关闭规则收集修复、验证和复核证据，不能凭排期关闭。"
+      ],
+      "output": [
+        "范围、决策与原料出处",
+        "对象属性表及关系表",
+        "逐条分析结论和理由",
+        "待确认输入/例外/修改影响",
+        "指定视图与交付物引用"
+      ],
+      "checks": [
+        "原因、后果、范围和负责人明确",
+        "EA介入有跨产品或全局理由",
+        "偿还与待办可追溯",
+        "未知成本不填零、不自动算利息",
+        "关闭有验证及复核，原始观察保留"
+      ],
+      "semantic_checks": [
+        "原因、后果、范围和负责人明确",
+        "EA介入有跨产品或全局理由",
+        "偿还与待办可追溯",
+        "未知成本不填零、不自动算利息",
+        "关闭有验证及复核，原始观察保留"
+      ],
+      "misreadings": [
+        "不是所有债务都必须EA处理",
+        "环境债与技术债不能按名称无条件合并",
+        "计划偿还不等于已偿还",
+        "本例关闭门槛是项目规则，不是TOGAF强制公式"
+      ],
+      "related_deliverables": [
+        "change-request",
+        "architecture-repository",
+        "implementation-migration-plan"
+      ],
+      "default_profile_id": "technical-debt-register-default",
+      "reference_document": "references/capability-addenda/technical-debt-register.md",
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "DEBT-01",
+            "type": "guide:technical_debt",
+            "name": "三馆重复身份匹配规则",
+            "attributes": {
+              "kind": "architecture-and-data-semantics",
+              "affected_products": [
+                "跨馆借阅",
+                "身份管理"
+              ],
+              "cause": "三系统复制规则且责任不清",
+              "consequence": "同名误关联与复核责任缺失",
+              "evidence_summary": "BR-15虚构问题记录；未提供发生概率或损失金额",
+              "ea_involvement": "cross-product-coordination",
+              "ea_rationale": "需要跨两个产品与三馆统一语义/责任",
+              "repayment_option": "统一最小身份规则及人工复核接口",
+              "backlog_refs": [
+                "BL-01"
+              ],
+              "owner": "借阅业务负责人和EA协调人",
+              "review_date": "2026-11-09",
+              "status": "selected",
+              "closure_criteria": "修复交付引用、验证证据、责任人复核（BR-20项目规则）",
+              "verification_evidence": [],
+              "closure_decision": "not-closed",
+              "cost_or_interest": "unknown；无货币公式/利率来源"
+            },
+            "evidence": [
+              "BR-15"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "DEBT-02",
+            "type": "guide:technical_debt",
+            "name": "甲馆CSV转码重跑",
+            "attributes": {
+              "kind": "technical-local",
+              "affected_products": [
+                "甲馆报表"
+              ],
+              "cause": "过期转码脚本缺自动校验",
+              "consequence": "每周需人工重跑一次",
+              "evidence_summary": "BR-16虚构运营观察；工时和损失金额未知",
+              "ea_involvement": "local-product-team",
+              "ea_rationale": "暂无跨产品影响证据；不要求EA处理所有债务",
+              "repayment_option": "补自动转码校验，估算待定",
+              "backlog_refs": [],
+              "owner": "甲馆报表负责人",
+              "review_date": "2026-11-09",
+              "status": "open",
+              "closure_criteria": "修复交付引用、验证证据、责任人复核（BR-20项目规则）",
+              "verification_evidence": [],
+              "closure_decision": "not-closed",
+              "cost_or_interest": "unknown；不能把重跑次数直接当金额"
+            },
+            "evidence": [
+              "BR-16"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "DEBT-03",
+            "type": "guide:technical_debt",
+            "name": "预约状态接口词汇不一致",
+            "attributes": {
+              "kind": "architecture-interface",
+              "affected_products": [
+                "预约服务",
+                "两馆消费者"
+              ],
+              "cause": "两份契约名称不同",
+              "consequence": "消费者重复维护状态映射",
+              "evidence_summary": "BR-17虚构接口观察；无财务折算",
+              "ea_involvement": "cross-product-coordination",
+              "ea_rationale": "业务、接口与两个消费者需共同采用词汇",
+              "repayment_option": "统一状态词汇并验证两个消费者映射",
+              "backlog_refs": [
+                "BL-02"
+              ],
+              "owner": "接口负责人",
+              "review_date": "2026-11-09",
+              "status": "selected",
+              "closure_criteria": "修复交付引用、验证证据、责任人复核（BR-20项目规则）",
+              "verification_evidence": [],
+              "closure_decision": "not-closed",
+              "cost_or_interest": "unknown；未计算利息或折现"
+            },
+            "evidence": [
+              "BR-17"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "view": {
+          "id": "v-technical-debt-register-default",
+          "artifact_id": "technical-debt-register",
+          "profile_id": "technical-debt-register-default",
+          "title": "技术与架构债登记／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "DEBT-01",
+            "DEBT-02",
+            "DEBT-03"
+          ],
+          "relationship_ids": [],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "implementation_status": {
+        "definition": "local-body-reviewed; official-verification-separate",
+        "model": "package-schema-and-id-check-required",
+        "analysis": "manually-worked-complete-example",
+        "generation": "table-generation-executed-locally",
+        "modification": "local-examples-executed",
+        "review": "local-rules-executed; independent-review-pending",
+        "visual": "not-applicable-table-output; no-diagram-equivalence-claimed"
+      },
+      "adm_phases": [
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "adm_mapping_status": "project-operational-applicability-guided-by-body; not an exhaustive source mapping"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "architecture-business-backlog",
+      "artifact_id": "architecture-backlog",
+      "name": "业务变革待办",
+      "name_zh": "业务变革待办",
+      "owner": "togaf-requirements",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G210 §2、§3.3.2–3.3.4",
+        "G20F §4.5、§5.2.3、§5.3.2"
+      ],
+      "entity_types": [
+        "guide:backlog_item"
+      ],
+      "relationship_types": [
+        "guide:backlog_depends_on",
+        "guide:scheduled_in"
+      ],
+      "required_attributes": {
+        "guide:backlog_item": [
+          "backlog_scope",
+          "business_value",
+          "priority",
+          "priority_basis",
+          "owner",
+          "status",
+          "acceptance_criteria",
+          "estimate",
+          "sprint_id",
+          "dependencies",
+          "source_refs",
+          "history"
+        ]
+      },
+      "checks": [
+        "业务优先级有证据；编号顺序不等同关系方向",
+        "每个选中项能关联冲刺目标、估算依据和验收条件",
+        "依赖无环；依赖可在冲刺内先完成或有既成证据",
+        "容量单位一致；未知不能计零",
+        "未完成工作保留原ID并回流；历史冲刺记录不重写"
+      ],
+      "definition_status": "body-derived-project-table",
+      "template": {
+        "id": "architecture-business-backlog",
+        "version": "1.0",
+        "source_verified": false,
+        "reference_identity": "正文操作化表格，不是来源图复刻",
+        "layout_notes": "保留ID、字段、来源与关系表；长文可分节/分页，不能截断为摘要。"
+      },
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "BL-01",
+            "type": "guide:backlog_item",
+            "name": "跨馆身份核对规则",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "避免同名读者误关联，明确人工复核责任",
+              "priority": 1,
+              "priority_basis": "BR-05业务负责人显式排序；无权重",
+              "owner": "借阅业务负责人",
+              "status": "selected",
+              "acceptance_criteria": "区分同名异证测试读者，并保留未知情形的人工复核分支",
+              "estimate": {
+                "value": 2,
+                "unit": "person-day",
+                "basis": "BR-05",
+                "status": "estimated"
+              },
+              "sprint_id": "SP-01",
+              "dependencies": [],
+              "source_refs": [
+                "BR-02"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "selected",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-01",
+              "BR-02",
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "BL-02",
+            "type": "guide:backlog_item",
+            "name": "预约API契约",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "使两馆能按共同标识及状态开展契约审阅",
+              "priority": 2,
+              "priority_basis": "BR-05显式排序；先解决身份前置",
+              "owner": "接口负责人",
+              "status": "selected",
+              "acceptance_criteria": "明确读者标识、预约状态、失败返回与消费者，包括取消后重约约束",
+              "estimate": {
+                "value": 1,
+                "unit": "person-day",
+                "basis": "BR-03",
+                "status": "estimated"
+              },
+              "sprint_id": "SP-01",
+              "dependencies": [
+                "BL-01"
+              ],
+              "source_refs": [
+                "BR-03"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "selected",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-03",
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "BL-03",
+            "type": "guide:backlog_item",
+            "name": "试点审计事件清单",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "支持关联读者操作的责任和修改解释",
+              "priority": 3,
+              "priority_basis": "BR-05显式排序；与冲刺目标直接相关",
+              "owner": "数据治理负责人",
+              "status": "selected",
+              "acceptance_criteria": "列谁/何时/理由/原值/修改值，并关联身份复核过程",
+              "estimate": {
+                "value": 1,
+                "unit": "person-day",
+                "basis": "BR-04",
+                "status": "estimated"
+              },
+              "sprint_id": "SP-01",
+              "dependencies": [],
+              "source_refs": [
+                "BR-04"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "selected",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-04",
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "BL-04",
+            "type": "guide:backlog_item",
+            "name": "预约页面配色探索",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "待访谈确认是否改善理解；不是当前冲刺的必要输出",
+              "priority": 4,
+              "priority_basis": "BR-05显式排序；与本冲刺目标关系较弱",
+              "owner": "业务负责人",
+              "status": "open",
+              "acceptance_criteria": "需补访谈问题与期望改善；当前待澄清",
+              "estimate": {
+                "value": 0.5,
+                "unit": "person-day",
+                "basis": "BR-05",
+                "status": "estimated"
+              },
+              "sprint_id": "unassigned",
+              "dependencies": [],
+              "source_refs": [
+                "BR-05"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "open",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "REL-BL-02-01",
+            "type": "guide:backlog_depends_on",
+            "source": "BL-02",
+            "target": "BL-01",
+            "label": "预约契约以身份核对规则为前置",
+            "evidence": [
+              "BR-03"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "extensions": {
+          "relationship_types": {
+            "guide:backlog_depends_on": {
+              "source_types": [
+                "guide:backlog_item"
+              ],
+              "target_types": [
+                "guide:backlog_item"
+              ],
+              "meaning": "源待办以目标待办成果作为前置；不是优先级关系"
+            }
+          }
+        },
+        "view": {
+          "id": "v-architecture-business-backlog",
+          "artifact_id": "architecture-backlog",
+          "profile_id": "architecture-business-backlog",
+          "title": "业务变革待办／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "BL-01",
+            "BL-02",
+            "BL-03",
+            "BL-04"
+          ],
+          "relationship_ids": [
+            "REL-BL-02-01"
+          ],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "reference_document": "references/capability-addenda/architecture-backlog.md"
+    },
+    {
+      "id": "architecture-sprint-backlog",
+      "artifact_id": "architecture-backlog",
+      "name": "团队冲刺待办",
+      "name_zh": "团队冲刺待办",
+      "owner": "togaf-requirements",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G210 §2、§3.3.2–3.3.4",
+        "G20F §4.5、§5.2.3、§5.3.2"
+      ],
+      "entity_types": [
+        "guide:backlog_item",
+        "guide:sprint"
+      ],
+      "relationship_types": [
+        "guide:backlog_depends_on",
+        "guide:scheduled_in"
+      ],
+      "required_attributes": {
+        "guide:backlog_item": [
+          "backlog_scope",
+          "business_value",
+          "priority",
+          "priority_basis",
+          "owner",
+          "status",
+          "acceptance_criteria",
+          "estimate",
+          "sprint_id",
+          "dependencies",
+          "source_refs",
+          "history"
+        ],
+        "guide:sprint": [
+          "goal",
+          "timebox",
+          "team",
+          "capacity",
+          "selected_item_ids",
+          "planning_status",
+          "outcome",
+          "snapshot_at"
+        ]
+      },
+      "checks": [
+        "业务优先级有证据；编号顺序不等同关系方向",
+        "每个选中项能关联冲刺目标、估算依据和验收条件",
+        "依赖无环；依赖可在冲刺内先完成或有既成证据",
+        "容量单位一致；未知不能计零",
+        "未完成工作保留原ID并回流；历史冲刺记录不重写"
+      ],
+      "definition_status": "body-derived-project-table",
+      "template": {
+        "id": "architecture-sprint-backlog",
+        "version": "1.0",
+        "source_verified": false,
+        "reference_identity": "正文操作化表格，不是来源图复刻",
+        "layout_notes": "保留ID、字段、来源与关系表；长文可分节/分页，不能截断为摘要。"
+      },
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "BL-01",
+            "type": "guide:backlog_item",
+            "name": "跨馆身份核对规则",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "避免同名读者误关联，明确人工复核责任",
+              "priority": 1,
+              "priority_basis": "BR-05业务负责人显式排序；无权重",
+              "owner": "借阅业务负责人",
+              "status": "selected",
+              "acceptance_criteria": "区分同名异证测试读者，并保留未知情形的人工复核分支",
+              "estimate": {
+                "value": 2,
+                "unit": "person-day",
+                "basis": "BR-05",
+                "status": "estimated"
+              },
+              "sprint_id": "SP-01",
+              "dependencies": [],
+              "source_refs": [
+                "BR-02"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "selected",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-01",
+              "BR-02",
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "BL-02",
+            "type": "guide:backlog_item",
+            "name": "预约API契约",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "使两馆能按共同标识及状态开展契约审阅",
+              "priority": 2,
+              "priority_basis": "BR-05显式排序；先解决身份前置",
+              "owner": "接口负责人",
+              "status": "selected",
+              "acceptance_criteria": "明确读者标识、预约状态、失败返回与消费者，包括取消后重约约束",
+              "estimate": {
+                "value": 1,
+                "unit": "person-day",
+                "basis": "BR-03",
+                "status": "estimated"
+              },
+              "sprint_id": "SP-01",
+              "dependencies": [
+                "BL-01"
+              ],
+              "source_refs": [
+                "BR-03"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "selected",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-03",
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "BL-03",
+            "type": "guide:backlog_item",
+            "name": "试点审计事件清单",
+            "attributes": {
+              "backlog_scope": "business-change",
+              "business_value": "支持关联读者操作的责任和修改解释",
+              "priority": 3,
+              "priority_basis": "BR-05显式排序；与冲刺目标直接相关",
+              "owner": "数据治理负责人",
+              "status": "selected",
+              "acceptance_criteria": "列谁/何时/理由/原值/修改值，并关联身份复核过程",
+              "estimate": {
+                "value": 1,
+                "unit": "person-day",
+                "basis": "BR-04",
+                "status": "estimated"
+              },
+              "sprint_id": "SP-01",
+              "dependencies": [],
+              "source_refs": [
+                "BR-04"
+              ],
+              "history": [
+                {
+                  "at": "2026-11-02",
+                  "status": "selected",
+                  "evidence": "BR-06"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-04",
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "SP-01",
+            "type": "guide:sprint",
+            "name": "两馆身份与预约契约包冲刺",
+            "attributes": {
+              "goal": "形成可供两馆审阅的身份与预约契约包，包含审计事件",
+              "timebox": {
+                "start": "2026-11-02",
+                "end": "2026-11-06",
+                "source": "BR-05"
+              },
+              "team": "跨馆架构团队",
+              "capacity": {
+                "value": 4,
+                "unit": "person-day",
+                "basis": "BR-05；已扣日常支持"
+              },
+              "selected_item_ids": [
+                "BL-01",
+                "BL-02",
+                "BL-03"
+              ],
+              "planning_status": "planned",
+              "outcome": "not-yet-observed-at-planning",
+              "snapshot_at": "2026-11-02"
+            },
+            "evidence": [
+              "BR-05",
+              "BR-06"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [
+          {
+            "id": "REL-BL-02-01",
+            "type": "guide:backlog_depends_on",
+            "source": "BL-02",
+            "target": "BL-01",
+            "label": "预约契约以身份核对规则为前置",
+            "evidence": [
+              "BR-03"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REL-BL-01-SP",
+            "type": "guide:scheduled_in",
+            "source": "BL-01",
+            "target": "SP-01",
+            "label": "2026-11-02选择进入本冲刺；不代表完成",
+            "evidence": [
+              "BR-06"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REL-BL-02-SP",
+            "type": "guide:scheduled_in",
+            "source": "BL-02",
+            "target": "SP-01",
+            "label": "2026-11-02选择进入本冲刺；不代表完成",
+            "evidence": [
+              "BR-06"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REL-BL-03-SP",
+            "type": "guide:scheduled_in",
+            "source": "BL-03",
+            "target": "SP-01",
+            "label": "2026-11-02选择进入本冲刺；不代表完成",
+            "evidence": [
+              "BR-06"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "extensions": {
+          "relationship_types": {
+            "guide:backlog_depends_on": {
+              "source_types": [
+                "guide:backlog_item"
+              ],
+              "target_types": [
+                "guide:backlog_item"
+              ],
+              "meaning": "源待办以目标待办成果作为前置；不是优先级关系"
+            },
+            "guide:scheduled_in": {
+              "source_types": [
+                "guide:backlog_item"
+              ],
+              "target_types": [
+                "guide:sprint"
+              ],
+              "meaning": "某日期将待办选入冲刺；不表示完成或投产"
+            }
+          }
+        },
+        "view": {
+          "id": "v-architecture-sprint-backlog",
+          "artifact_id": "architecture-backlog",
+          "profile_id": "architecture-sprint-backlog",
+          "title": "团队冲刺待办／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "BL-01",
+            "BL-02",
+            "BL-03",
+            "SP-01"
+          ],
+          "relationship_ids": [
+            "REL-BL-02-01",
+            "REL-BL-01-SP",
+            "REL-BL-02-SP",
+            "REL-BL-03-SP"
+          ],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "reference_document": "references/capability-addenda/architecture-backlog.md"
+    },
+    {
+      "id": "dorp-record-default",
+      "artifact_id": "dorp-record",
+      "name": "DORP四活动记录",
+      "name_zh": "DORP四活动记录",
+      "owner": "togaf-change-value",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G210 §3.3.2、§5.5"
+      ],
+      "entity_types": [
+        "guide:dorp_record"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:dorp_record": [
+          "sprint_ref",
+          "goal",
+          "demo",
+          "outcomes",
+          "retrospective",
+          "next_plan",
+          "returned_to_business_backlog",
+          "new_backlog_requests",
+          "review_at",
+          "history"
+        ]
+      },
+      "checks": [
+        "Demo/Outcome/Retrospective/Planning四项分别存在",
+        "有强制冲刺目标，结论对应同一目标",
+        "完成和未完成集不交叉，未完成集全部回流",
+        "未展示或缺证据的成果不标完成",
+        "后续完成不能倒改原冲刺历史失败"
+      ],
+      "definition_status": "body-derived-project-table",
+      "template": {
+        "id": "dorp-record-default",
+        "version": "1.0",
+        "source_verified": false,
+        "reference_identity": "正文操作化表格，不是来源图复刻",
+        "layout_notes": "保留ID、字段、来源与关系表；长文可分节/分页，不能截断为摘要。"
+      },
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "DORP-01",
+            "type": "guide:dorp_record",
+            "name": "SP-01结束DORP记录",
+            "attributes": {
+              "sprint_ref": "SP-01",
+              "goal": "形成可供两馆审阅的身份与预约契约包，包含审计事件",
+              "demo": [
+                {
+                  "item": "BL-01",
+                  "evidence": "DEMO-01 / BR-07",
+                  "observation": "同名异证分开且有人工复核分支"
+                },
+                {
+                  "item": "BL-03",
+                  "evidence": "AUD-01 / BR-07",
+                  "observation": "审计清单已形成"
+                },
+                {
+                  "item": "BL-02",
+                  "evidence": "BR-07",
+                  "observation": "取消后重约约束缺失，未完成"
+                }
+              ],
+              "outcomes": {
+                "goal_result": "not-achieved",
+                "completed": [
+                  "BL-01",
+                  "BL-03"
+                ],
+                "incomplete": [
+                  "BL-02"
+                ],
+                "reason": "API契约关键状态缺失，整体包不满足目标"
+              },
+              "retrospective": "乙馆接口负责人介入过晚，状态语义直到最后一天才暴露",
+              "next_plan": [
+                {
+                  "id": "ACT-01",
+                  "action": "邀请乙馆负责人澄清取消规则并评审取值",
+                  "owner": "接口负责人",
+                  "target_date": "2026-11-09",
+                  "status": "proposed"
+                }
+              ],
+              "returned_to_business_backlog": [
+                "BL-02"
+              ],
+              "new_backlog_requests": [
+                {
+                  "id": "REQ-SMS",
+                  "description": "短信通知模板",
+                  "status": "needs-clarification",
+                  "estimate": null
+                }
+              ],
+              "review_at": "2026-11-06",
+              "history": [
+                {
+                  "at": "2026-11-06",
+                  "goal_result": "not-achieved",
+                  "evidence": "BR-07"
+                }
+              ]
+            },
+            "evidence": [
+              "BR-06",
+              "BR-07",
+              "BR-08"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "view": {
+          "id": "v-dorp-record-default",
+          "artifact_id": "dorp-record",
+          "profile_id": "dorp-record-default",
+          "title": "DORP四活动记录／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "DORP-01"
+          ],
+          "relationship_ids": [],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "reference_document": "references/capability-addenda/dorp-record.md"
+    },
+    {
+      "id": "decision-delegation-register-default",
+      "artifact_id": "decision-delegation-register",
+      "name": "决策授权与可逆性登记",
+      "name_zh": "决策授权与可逆性登记",
+      "owner": "togaf-implementation-governance",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G210 §5.4（转引Management 3.0及Bezos）"
+      ],
+      "entity_types": [
+        "guide:delegation_decision"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:delegation_decision": [
+          "decision_scope",
+          "delegation_level",
+          "framework_origin",
+          "authority",
+          "participants",
+          "reversibility",
+          "reversibility_evidence",
+          "rollback_plan",
+          "guardrails",
+          "authorization_status",
+          "review_trigger",
+          "decision_result",
+          "source_refs"
+        ]
+      },
+      "checks": [
+        "七名称来自外部方法；权责描述与组织约定一致",
+        "可逆有回滚条件与证据；unknown不当作reversible",
+        "不可逆决策有跨相关团队参与安排",
+        "无批准证据只能proposed，不实际执行",
+        "决策影响变化触发复评"
+      ],
+      "definition_status": "body-derived-project-table",
+      "template": {
+        "id": "decision-delegation-register-default",
+        "version": "1.0",
+        "source_verified": false,
+        "reference_identity": "正文操作化表格，不是来源图复刻",
+        "layout_notes": "保留ID、字段、来源与关系表；长文可分节/分页，不能截断为摘要。"
+      },
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "DEC-01",
+            "type": "guide:delegation_decision",
+            "name": "试点API内部命名权限",
+            "attributes": {
+              "decision_scope": "仅无外部消费者的试点API内部命名",
+              "delegation_level": "consult",
+              "framework_origin": "Management 3.0，G210 §5.4转引；具体权责为本例项目规则",
+              "authority": "架构负责人听取开发团队意见后决定",
+              "participants": [
+                "架构负责人",
+                "开发团队"
+              ],
+              "reversibility": "reversible",
+              "reversibility_evidence": "无外部消费者；保留旧别名且可恢复路由（BR-09）",
+              "rollback_plan": "恢复旧别名与路由；一旦增加外部消费者重新评估",
+              "guardrails": [
+                "不改变契约业务语义",
+                "不涉及读者证据删除"
+              ],
+              "authorization_status": "proposed",
+              "review_trigger": "新增外部消费者或无法恢复路由",
+              "decision_result": "拟采用consult，待正式授权",
+              "source_refs": [
+                "BR-09"
+              ]
+            },
+            "evidence": [
+              "BR-09"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "DEC-02",
+            "type": "guide:delegation_decision",
+            "name": "读者关联证据保留期限变更",
+            "attributes": {
+              "decision_scope": "读者关联历史证据的保留期限",
+              "delegation_level": "agree",
+              "framework_origin": "Management 3.0及可逆性区分由G210 §5.4转引；本例约定共同决策",
+              "authority": "数据治理、借阅业务与安全负责人共同决策",
+              "participants": [
+                "数据治理负责人",
+                "借阅业务负责人",
+                "安全负责人"
+              ],
+              "reversibility": "irreversible",
+              "reversibility_evidence": "删除历史证据后普通回滚不可恢复（BR-10）",
+              "rollback_plan": "not-available；决策完成前不得执行删除",
+              "guardrails": [
+                "不得凭技术团队单方决定",
+                "先补保留依据与影响"
+              ],
+              "authorization_status": "proposed",
+              "review_trigger": "法律/业务依据或数据范围变化",
+              "decision_result": "需更广群体共同评审；依据未齐保持草稿",
+              "source_refs": [
+                "BR-10"
+              ]
+            },
+            "evidence": [
+              "BR-10"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "DEC-03",
+            "type": "guide:delegation_decision",
+            "name": "脱敏日志展示样式权限",
+            "attributes": {
+              "decision_scope": "既有脱敏/访问护栏内的展示样式",
+              "delegation_level": "delegate",
+              "framework_origin": "Management 3.0，G210 §5.4转引；本例拟委派规则",
+              "authority": "拟由开发团队决定并留存变更记录",
+              "participants": [
+                "开发团队",
+                "日志使用者"
+              ],
+              "reversibility": "reversible",
+              "reversibility_evidence": "可切回旧模板，保留期限/字段不变（BR-11）",
+              "rollback_plan": "切回旧展示模板并检查脱敏",
+              "guardrails": [
+                "不改保留期限",
+                "不改审计字段",
+                "保持访问与脱敏规则"
+              ],
+              "authorization_status": "proposed",
+              "review_trigger": "涉及保留期限、字段或脱敏规则",
+              "decision_result": "授权仅为提案，未实施",
+              "source_refs": [
+                "BR-11"
+              ]
+            },
+            "evidence": [
+              "BR-11"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "view": {
+          "id": "v-decision-delegation-register-default",
+          "artifact_id": "decision-delegation-register",
+          "profile_id": "decision-delegation-register-default",
+          "title": "决策授权与可逆性登记／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "DEC-01",
+            "DEC-02",
+            "DEC-03"
+          ],
+          "relationship_ids": [],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "reference_document": "references/capability-addenda/decision-delegation-register.md"
+    },
+    {
+      "id": "architecture-description-formality-table",
+      "artifact_id": "architecture-description-formality-review",
+      "name": "充分性与正式控制对照表",
+      "name_zh": "充分性与正式控制对照表",
+      "owner": "togaf-artifact-review",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G217 §2.4（图2-1为方法示意）"
+      ],
+      "entity_types": [
+        "guide:description_review"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:description_review": [
+          "description_ref",
+          "decision",
+          "stakeholders",
+          "concerns",
+          "sufficiency",
+          "sufficiency_evidence",
+          "current_formality",
+          "needed_formality",
+          "formality_fit",
+          "rationale",
+          "actions",
+          "evolution_state",
+          "approval_state",
+          "review_rule",
+          "source_refs"
+        ]
+      },
+      "checks": [
+        "充分性与正式度各有独立依据",
+        "没有来源的等级、数值轴、总分一律不用",
+        "相对于指定决策而非抽象完整性给结论",
+        "批准/实现/演进与正式度不同字段",
+        "修订后复核受影响关注点并保留原判断"
+      ],
+      "definition_status": "body-derived-project-table",
+      "template": {
+        "id": "architecture-description-formality-table",
+        "version": "1.0",
+        "source_verified": false,
+        "reference_identity": "正文操作化表格，不是来源图复刻",
+        "layout_notes": "保留ID、字段、来源与关系表；长文可分节/分页，不能截断为摘要。"
+      },
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "REV-01",
+            "type": "guide:description_review",
+            "name": "统一读者图的决策充分性",
+            "attributes": {
+              "description_ref": "DESC-01",
+              "decision": "是否可以开始预约契约评审",
+              "stakeholders": [
+                "接口负责人",
+                "借阅业务负责人"
+              ],
+              "concerns": [
+                "同名识别",
+                "三馆边界",
+                "人工复核责任"
+              ],
+              "sufficiency": "insufficient",
+              "sufficiency_evidence": "遗漏乙/丙馆冲突与人工责任（BR-12）",
+              "current_formality": [
+                "版本标识",
+                "正式建模记法",
+                "语法检查"
+              ],
+              "needed_formality": [
+                "明确边界和冲突",
+                "稳定ID与证据",
+                "责任可追溯"
+              ],
+              "formality_fit": "control-present-content-insufficient",
+              "rationale": "形式可检查不证明内容足够；本次决定需先补遗漏内容",
+              "actions": [
+                "补乙/丙馆和冲突分支",
+                "指定人工复核责任"
+              ],
+              "evolution_state": "target",
+              "approval_state": "candidate",
+              "review_rule": "BR-20项目文字判断；无等级/权重",
+              "source_refs": [
+                "BR-12"
+              ]
+            },
+            "evidence": [
+              "BR-12",
+              "BR-20"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "REV-02",
+            "type": "guide:description_review",
+            "name": "访谈草图的正式度裁剪",
+            "attributes": {
+              "description_ref": "DESC-02",
+              "decision": "是否可开始内部访谈以验证取书概念",
+              "stakeholders": [
+                "访谈负责人",
+                "试点读者"
+              ],
+              "concerns": [
+                "概念是否可理解",
+                "假设是否可测试"
+              ],
+              "sufficiency": "sufficient-for-stated-decision",
+              "sufficiency_evidence": "已有访谈目的、对象、问题；并未证明产品可行（BR-13）",
+              "current_formality": [
+                "临时草图"
+              ],
+              "needed_formality": [
+                "假设标注",
+                "范围边界",
+                "版本标记"
+              ],
+              "formality_fit": "additional-production-model-would-be-excess",
+              "rationale": "完整生产部署/容灾在当前探索决策尚无依据，先补三个轻量控制",
+              "actions": [
+                "标注假设、边界与版本",
+                "访谈后再决定产品架构深度"
+              ],
+              "evolution_state": "target",
+              "approval_state": "candidate",
+              "review_rule": "BR-20项目文字判断；不是准许省略生产治理",
+              "source_refs": [
+                "BR-13"
+              ]
+            },
+            "evidence": [
+              "BR-13",
+              "BR-20"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "REV-03",
+            "type": "guide:description_review",
+            "name": "预约契约的审阅与发布边界",
+            "attributes": {
+              "description_ref": "DESC-03",
+              "decision": "是否可以完成预约契约的内容审阅",
+              "stakeholders": [
+                "接口负责人",
+                "乙馆消费者"
+              ],
+              "concerns": [
+                "取消重约语义",
+                "版本与错误返回",
+                "消费者影响"
+              ],
+              "sufficiency": "insufficient",
+              "sufficiency_evidence": "取消后重约约束缺失（BR-07/BR-14）",
+              "current_formality": [
+                "输入输出",
+                "错误码",
+                "消费者",
+                "范围",
+                "版本",
+                "待决项"
+              ],
+              "needed_formality": [
+                "状态约束完整",
+                "版本与消费者记录",
+                "变更评审证据"
+              ],
+              "formality_fit": "appropriate-controls-with-content-gap",
+              "rationale": "可作审阅草稿，但内容审阅仍有阻断缺口；更不代表发布批准",
+              "actions": [
+                "补取消重约约束及验证证据",
+                "复核是否可完成内容审阅，发布批准另行"
+              ],
+              "evolution_state": "target",
+              "approval_state": "candidate",
+              "review_rule": "BR-20项目文字判断；approved不作为正式度",
+              "source_refs": [
+                "BR-14"
+              ]
+            },
+            "evidence": [
+              "BR-07",
+              "BR-14",
+              "BR-20"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "view": {
+          "id": "v-architecture-description-formality-table",
+          "artifact_id": "architecture-description-formality-review",
+          "profile_id": "architecture-description-formality-table",
+          "title": "充分性与正式控制对照表／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "REV-01",
+            "REV-02",
+            "REV-03"
+          ],
+          "relationship_ids": [],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "reference_document": "references/capability-addenda/architecture-description-formality-review.md"
+    },
+    {
+      "id": "technical-debt-register-default",
+      "artifact_id": "technical-debt-register",
+      "name": "技术与架构债登记表",
+      "name_zh": "技术与架构债登记表",
+      "owner": "togaf-change-value",
+      "renderer": "catalog",
+      "notation": "table",
+      "output_kind": "table",
+      "version": "2.1-addendum-1",
+      "source_refs": [
+        "G217 §2.2–2.3、附录D.4"
+      ],
+      "entity_types": [
+        "guide:technical_debt"
+      ],
+      "relationship_types": [],
+      "required_attributes": {
+        "guide:technical_debt": [
+          "kind",
+          "affected_products",
+          "cause",
+          "consequence",
+          "evidence_summary",
+          "ea_involvement",
+          "ea_rationale",
+          "repayment_option",
+          "backlog_refs",
+          "owner",
+          "review_date",
+          "status",
+          "closure_criteria",
+          "verification_evidence",
+          "closure_decision",
+          "cost_or_interest"
+        ]
+      },
+      "checks": [
+        "原因、后果、范围和负责人明确",
+        "EA介入有跨产品或全局理由",
+        "偿还与待办可追溯",
+        "未知成本不填零、不自动算利息",
+        "关闭有验证及复核，原始观察保留"
+      ],
+      "definition_status": "body-derived-project-table",
+      "template": {
+        "id": "technical-debt-register-default",
+        "version": "1.0",
+        "source_verified": false,
+        "reference_identity": "正文操作化表格，不是来源图复刻",
+        "layout_notes": "保留ID、字段、来源与关系表；长文可分节/分页，不能截断为摘要。"
+      },
+      "example": {
+        "notice": "虚构跨城图书互借案例；不代表真实批准、实现或原图复刻。",
+        "raw_input": "examples/addenda/new-work-products/raw-brief.md",
+        "analysis_path": "examples/addenda/new-work-products/analysis.md",
+        "sources": [
+          {
+            "id": "BR-01",
+            "kind": "example",
+            "description": "甲、乙、丙三个图书馆计划允许读者跨馆预约并在常用馆取书。三套目录系统使用不同读者标识，同名读者不能直接合并。业务负责人关心错误关联和等待解释。",
+            "locator": "raw-brief.md#BR-01"
+          },
+          {
+            "id": "BR-02",
+            "kind": "example",
+            "description": "试点首先需要一份跨馆读者身份核对规则；验收条件是区分姓名相同但证件信息不同的两名测试读者，记录无法判定的情形并交人工复核。责任人是借阅业务负责人。",
+            "locator": "raw-brief.md#BR-02"
+          },
+          {
+            "id": "BR-03",
+            "kind": "example",
+            "description": "第二项需要提供跨馆预约 API 契约。它依赖身份核对规则；需明确读者标识、预约状态、失败返回和消费者。接口负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-03"
+          },
+          {
+            "id": "BR-04",
+            "kind": "example",
+            "description": "第三项需要试点审计事件清单，记录谁在何时因何理由关联读者，并区分原值与修改值。数据治理负责人估计需 1 人日。",
+            "locator": "raw-brief.md#BR-04"
+          },
+          {
+            "id": "BR-05",
+            "kind": "example",
+            "description": "架构团队在 2026-11-02 至 2026-11-06 的冲刺 SP-01 可投入 4 人日，已经扣除例会和日常支持。身份规则估计需 2 人日；预约页面配色提案估计需 0.5 人日。该工时与日期是本例项目规则。业务负责人按“身份正确性 → 对外预约契约 → 审计可解释性 → 配色探索”排序，未采用加权分数。",
+            "locator": "raw-brief.md#BR-05"
+          },
+          {
+            "id": "BR-06",
+            "kind": "example",
+            "description": "SP-01 的目标是“形成可供两馆审阅的身份与预约契约包，包含审计事件”；这些是待评审设计结果，不能声称已投产。页面配色与此目标关系较弱，未选入本冲刺。团队在 11 月 2 日选择了身份规则、API 契约和审计清单。",
+            "locator": "raw-brief.md#BR-06"
+          },
+          {
+            "id": "BR-07",
+            "kind": "example",
+            "description": "11 月 6 日演示中，身份规则正确分开两名同名测试读者，材料 DEMO-01 记录了人工复核分支；审计清单 AUD-01 已形成。预约契约仍缺乙馆“取消后重新预约”的状态约束，未完成。总体冲刺目标未达成。未完成项应回到业务变革待办，不能直接宣称顺延已获准。",
+            "locator": "raw-brief.md#BR-07"
+          },
+          {
+            "id": "BR-08",
+            "kind": "example",
+            "description": "回顾发现乙馆接口负责人直到最后一天才参与。下一次先邀请该负责人澄清取消规则，并评审旧系统状态取值；记录行动 ACT-01，负责人接口负责人，目标日期 11 月 9 日。11 月 6 日还收到“短信通知模板”的新需求，记为待澄清，尚无估算，不自动承诺下个冲刺。",
+            "locator": "raw-brief.md#BR-08"
+          },
+          {
+            "id": "BR-09",
+            "kind": "example",
+            "description": "对试点 API 的内部命名，项目提出采用 consult：架构负责人先听取开发团队意见，再由架构负责人做出记录化决策。可逆性依据是当前无外部消费者，保留旧别名并能恢复路由；一旦有外部消费者即重新评估。此为拟定授权安排，尚未获正式批准。",
+            "locator": "raw-brief.md#BR-09"
+          },
+          {
+            "id": "BR-10",
+            "kind": "example",
+            "description": "删除读者关联的历史证据无法以普通回滚恢复。因此保留期限变更应由数据治理、借阅业务与安全负责人共同达成一致（agree）；在依据和共同决策完成前不执行。其他例中的 tell/sell/advise/inquire/delegate 仅为 G210 引用的外部 Management 3.0 名称，本项目并未默认授权所有事项。",
+            "locator": "raw-brief.md#BR-10"
+          },
+          {
+            "id": "BR-11",
+            "kind": "example",
+            "description": "试点日志展示样式由开发团队在既定脱敏与访问护栏内提出 delegate；更改不触及保留期限或审计字段，能切回旧模板。没有正式授权证明，因此仍为 proposed。",
+            "locator": "raw-brief.md#BR-11"
+          },
+          {
+            "id": "BR-12",
+            "kind": "example",
+            "description": "评审材料 DESC-01 是一张版本化、通过语法检查的“统一读者”图；它遗漏乙馆与丙馆的身份冲突和人工复核责任。当前决策是能否开始接口契约评审，故它内容不足，即使已经使用正式模型表示。",
+            "locator": "raw-brief.md#BR-12"
+          },
+          {
+            "id": "BR-13",
+            "kind": "example",
+            "description": "DESC-02 是给内部访谈的临时预约页面草图，只用于判断读者是否理解跨馆取书。已有访谈目的、对象和问题，尚无需求可行性证据；此时要求完整生产部署与容灾模型会增加与当前决策无关的工作。项目只要求标明假设、边界与版本。",
+            "locator": "raw-brief.md#BR-13"
+          },
+          {
+            "id": "BR-14",
+            "kind": "example",
+            "description": "DESC-03 是准备进入契约审阅的预约接口说明，已有输入输出、错误码、消费者、范围、版本和待决问题；它仍缺 BR-07 的取消状态。因此在该问题补齐前只能作为审阅草稿，不能宣称足够支持发布，也不能把 approved 当成正式度。",
+            "locator": "raw-brief.md#BR-14"
+          },
+          {
+            "id": "BR-15",
+            "kind": "example",
+            "description": "债务 DEBT-01：三系统各自复制姓名匹配规则且责任不清；同名读者有被误关联的风险。影响跨馆借阅与身份管理两个产品范围，需要 EA 协调语义与责任；偿还候选是统一最小规则和人工复核接口，对应身份规则待办。",
+            "locator": "raw-brief.md#BR-15"
+          },
+          {
+            "id": "BR-16",
+            "kind": "example",
+            "description": "债务 DEBT-02：单馆报表仍使用过期的 CSV 转码脚本；运行人员每周手工重跑一次。影响仅甲馆报表，暂无跨产品影响证据，由该产品团队处理即可；候选改动是补自动转码校验，估算未知。",
+            "locator": "raw-brief.md#BR-16"
+          },
+          {
+            "id": "BR-17",
+            "kind": "example",
+            "description": "债务 DEBT-03：预约状态接口在两份文档中命名不一致，令消费者重复编写映射。需接口团队与业务共同统一词汇；候选偿还对应 API 契约待办。未提供损失金额、利率或任何货币折算规则。",
+            "locator": "raw-brief.md#BR-17"
+          },
+          {
+            "id": "BR-18",
+            "kind": "example",
+            "description": "修改试验材料：11 月 9 日乙馆给出取消规则，并在 DEMO-02 中验证 API 的取消和重新预约，API 项可标为设计完成（不是投产）；DESC-03 加入该证据后足以支持契约审阅。DEBT-03 的两个消费者回归结果 TEST-03 表明映射一致，可按本例关闭规则关闭该债项。新证据不改变原冲刺目标未达成的历史记录。",
+            "locator": "raw-brief.md#BR-18"
+          },
+          {
+            "id": "BR-19",
+            "kind": "example",
+            "description": "第二个修改试验：API 命名现在已有一名外部消费者，旧别名不能完全恢复其缓存状态；把 BR-09 的可逆性改为 unknown，原自治安排必须保持 proposed 并补更广利益相关者评审，不能把未知当可逆。",
+            "locator": "raw-brief.md#BR-19"
+          },
+          {
+            "id": "BR-20",
+            "kind": "example",
+            "description": "本例关闭债务的项目规则：需记录修复交付引用、验证证据和责任人复核结论；仅“已排计划”或“工时已消耗”不能关闭。描述评审使用“是否足够支持指定决策”和“当前正式控制是否适合目的”两独立判断，采用文字理由，不使用数值等级或总分。",
+            "locator": "raw-brief.md#BR-20"
+          }
+        ],
+        "entities": [
+          {
+            "id": "DEBT-01",
+            "type": "guide:technical_debt",
+            "name": "三馆重复身份匹配规则",
+            "attributes": {
+              "kind": "architecture-and-data-semantics",
+              "affected_products": [
+                "跨馆借阅",
+                "身份管理"
+              ],
+              "cause": "三系统复制规则且责任不清",
+              "consequence": "同名误关联与复核责任缺失",
+              "evidence_summary": "BR-15虚构问题记录；未提供发生概率或损失金额",
+              "ea_involvement": "cross-product-coordination",
+              "ea_rationale": "需要跨两个产品与三馆统一语义/责任",
+              "repayment_option": "统一最小身份规则及人工复核接口",
+              "backlog_refs": [
+                "BL-01"
+              ],
+              "owner": "借阅业务负责人和EA协调人",
+              "review_date": "2026-11-09",
+              "status": "selected",
+              "closure_criteria": "修复交付引用、验证证据、责任人复核（BR-20项目规则）",
+              "verification_evidence": [],
+              "closure_decision": "not-closed",
+              "cost_or_interest": "unknown；无货币公式/利率来源"
+            },
+            "evidence": [
+              "BR-15"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "DEBT-02",
+            "type": "guide:technical_debt",
+            "name": "甲馆CSV转码重跑",
+            "attributes": {
+              "kind": "technical-local",
+              "affected_products": [
+                "甲馆报表"
+              ],
+              "cause": "过期转码脚本缺自动校验",
+              "consequence": "每周需人工重跑一次",
+              "evidence_summary": "BR-16虚构运营观察；工时和损失金额未知",
+              "ea_involvement": "local-product-team",
+              "ea_rationale": "暂无跨产品影响证据；不要求EA处理所有债务",
+              "repayment_option": "补自动转码校验，估算待定",
+              "backlog_refs": [],
+              "owner": "甲馆报表负责人",
+              "review_date": "2026-11-09",
+              "status": "open",
+              "closure_criteria": "修复交付引用、验证证据、责任人复核（BR-20项目规则）",
+              "verification_evidence": [],
+              "closure_decision": "not-closed",
+              "cost_or_interest": "unknown；不能把重跑次数直接当金额"
+            },
+            "evidence": [
+              "BR-16"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          },
+          {
+            "id": "DEBT-03",
+            "type": "guide:technical_debt",
+            "name": "预约状态接口词汇不一致",
+            "attributes": {
+              "kind": "architecture-interface",
+              "affected_products": [
+                "预约服务",
+                "两馆消费者"
+              ],
+              "cause": "两份契约名称不同",
+              "consequence": "消费者重复维护状态映射",
+              "evidence_summary": "BR-17虚构接口观察；无财务折算",
+              "ea_involvement": "cross-product-coordination",
+              "ea_rationale": "业务、接口与两个消费者需共同采用词汇",
+              "repayment_option": "统一状态词汇并验证两个消费者映射",
+              "backlog_refs": [
+                "BL-02"
+              ],
+              "owner": "接口负责人",
+              "review_date": "2026-11-09",
+              "status": "selected",
+              "closure_criteria": "修复交付引用、验证证据、责任人复核（BR-20项目规则）",
+              "verification_evidence": [],
+              "closure_decision": "not-closed",
+              "cost_or_interest": "unknown；未计算利息或折现"
+            },
+            "evidence": [
+              "BR-17"
+            ],
+            "certainty": "assumed",
+            "approval_status": "candidate",
+            "implementation_status": "unknown"
+          }
+        ],
+        "relationships": [],
+        "extensions": {
+          "relationship_types": {}
+        },
+        "view": {
+          "id": "v-technical-debt-register-default",
+          "artifact_id": "technical-debt-register",
+          "profile_id": "technical-debt-register-default",
+          "title": "技术与架构债登记表／虚构跨馆案例",
+          "context": {
+            "domains": [
+              "business",
+              "data",
+              "application"
+            ],
+            "landscape": "capability",
+            "purpose": "project",
+            "abstraction": "logical",
+            "evolution": "target"
+          },
+          "entity_ids": [
+            "DEBT-01",
+            "DEBT-02",
+            "DEBT-03"
+          ],
+          "relationship_ids": [],
+          "analysis": "见analysis.md逐项原料→判断→结果；字段中的状态均是案例观察，不代表生产实施或批准。",
+          "legend": "表格行以稳定ID区分；未知保留unknown，空列表表示明确没有该项；关系表按类型和端点解释。"
+        }
+      },
+      "reference_document": "references/capability-addenda/technical-debt-register.md"
+    }
+  ],
+  "analysis_methods": [
+    {
+      "id": "architecture-backlog-method",
+      "name": "架构业务变革与冲刺待办分析方法",
+      "owner": "togaf-requirements",
+      "source_refs": [
+        "G210 §2、§3.3.2–3.3.4",
+        "G20F §4.5、§5.2.3、§5.3.2"
+      ],
+      "input_fields": [
+        "原始目标/需求/变更及来源",
+        "业务优先级及理由",
+        "依赖与验收条件",
+        "团队时间盒、目标、可用容量及估算依据"
+      ],
+      "steps": [
+        "将每项业务需求归一为稳定ID，保留来源、价值、责任人与验收条件；未知不填零。",
+        "依据利益相关者给定排序及依赖确定候选顺序；没有权重时不计算分数。",
+        "区分业务变革范围与团队冲刺范围；以相同ID选择近期工作，记录目标与容量。",
+        "核对前置工作及所选估算是否在声明容量内；未知估算不能给出容量通过。",
+        "以演示证据更新状态；未完成项回流业务待办，保存历史且不自动承诺下一冲刺。"
+      ],
+      "output_work_products": [
+        "architecture-backlog"
+      ],
+      "calculation_policy": "procedural-non-scoring；仅待办容量可按声明同单位估算相加，不能计算业务通过分数",
+      "execution_mode": "agent-analysis-with-evidence; local-validation-rules-check-observable-invariants",
+      "checks": [
+        "业务优先级有证据；编号顺序不等同关系方向",
+        "每个选中项能关联冲刺目标、估算依据和验收条件",
+        "依赖无环；依赖可在冲刺内先完成或有既成证据",
+        "容量单位一致；未知不能计零",
+        "未完成工作保留原ID并回流；历史冲刺记录不重写"
+      ],
+      "reference_document": "references/capability-addenda/architecture-backlog.md"
+    },
+    {
+      "id": "dorp-record-method",
+      "name": "冲刺DORP记录分析方法",
+      "owner": "togaf-change-value",
+      "source_refs": [
+        "G210 §3.3.2、§5.5"
+      ],
+      "input_fields": [
+        "明确冲刺目标与所选待办",
+        "演示观察及成果证据",
+        "未完成项/新需求",
+        "回顾及下一步行动责任"
+      ],
+      "steps": [
+        "先固定本次冲刺目标和评审时点，不因结果不好而改写目标。",
+        "按Demo记录实际展示和未展示内容；按Outcome核对目标与成果。",
+        "按Retrospective解释偏差与可改进做法，不将推测当根因事实。",
+        "按Planning形成有责任人与依据的下一步建议；未完成项回到业务待办。",
+        "新需求先登记澄清，不自动承诺下一冲刺；保留历史与后续补充。"
+      ],
+      "output_work_products": [
+        "dorp-record"
+      ],
+      "calculation_policy": "procedural-non-scoring；仅待办容量可按声明同单位估算相加，不能计算业务通过分数",
+      "execution_mode": "agent-analysis-with-evidence; local-validation-rules-check-observable-invariants",
+      "checks": [
+        "Demo/Outcome/Retrospective/Planning四项分别存在",
+        "有强制冲刺目标，结论对应同一目标",
+        "完成和未完成集不交叉，未完成集全部回流",
+        "未展示或缺证据的成果不标完成",
+        "后续完成不能倒改原冲刺历史失败"
+      ],
+      "reference_document": "references/capability-addenda/dorp-record.md"
+    },
+    {
+      "id": "decision-delegation-register-method",
+      "name": "决策授权与可逆性登记分析方法",
+      "owner": "togaf-implementation-governance",
+      "source_refs": [
+        "G210 §5.4（转引Management 3.0及Bezos）"
+      ],
+      "input_fields": [
+        "决策范围和影响对象",
+        "参与人、权限与企业护栏",
+        "可逆性证据和回滚条件",
+        "组织采用的授权规则及批准状态"
+      ],
+      "steps": [
+        "为具体决策划清范围、受影响方及护栏。",
+        "记录reversible/irreversible/unknown及依据；未知不能默认为可逆。",
+        "可选引用七授权名称tell/sell/consult/agree/advise/inquire/delegate，逐条用项目语言明确定谁决定、谁参与。",
+        "不可逆或可逆性不明时明确更广群体及需补证据；不从数值等级自动推导批准。",
+        "记录提案、批准证据与复评触发，授权状态与架构实现状态独立。"
+      ],
+      "output_work_products": [
+        "decision-delegation-register"
+      ],
+      "calculation_policy": "procedural-non-scoring；仅待办容量可按声明同单位估算相加，不能计算业务通过分数",
+      "execution_mode": "agent-analysis-with-evidence; local-validation-rules-check-observable-invariants",
+      "checks": [
+        "七名称来自外部方法；权责描述与组织约定一致",
+        "可逆有回滚条件与证据；unknown不当作reversible",
+        "不可逆决策有跨相关团队参与安排",
+        "无批准证据只能proposed，不实际执行",
+        "决策影响变化触发复评"
+      ],
+      "reference_document": "references/capability-addenda/decision-delegation-register.md"
+    },
+    {
+      "id": "architecture-description-formality-review-method",
+      "name": "架构描述充分性与正式度评审分析方法",
+      "owner": "togaf-artifact-review",
+      "source_refs": [
+        "G217 §2.4（图2-1为方法示意）"
+      ],
+      "input_fields": [
+        "被评描述及版本",
+        "具体决策、利益相关者和关注点",
+        "现有内容与证据",
+        "项目所需正式控制及裁剪理由"
+      ],
+      "steps": [
+        "定义该描述要支持的决策与范围，不能泛称“架构是否完整”。",
+        "逐关注点核对内容及证据，判断sufficient-for-stated-decision/insufficient/unknown。",
+        "独立列当前与所需正式控制（如术语、记法、版本、审阅证据），判断适合、缺少或过度并给理由。",
+        "识别复杂系统缺文档或未验证概念就强制全面建模的极端，按当前目的提出最小补充。",
+        "演进状态、审批状态另列；不把approved/target当作正式度。"
+      ],
+      "output_work_products": [
+        "architecture-description-formality-review"
+      ],
+      "calculation_policy": "procedural-non-scoring；仅待办容量可按声明同单位估算相加，不能计算业务通过分数",
+      "execution_mode": "agent-analysis-with-evidence; local-validation-rules-check-observable-invariants",
+      "checks": [
+        "充分性与正式度各有独立依据",
+        "没有来源的等级、数值轴、总分一律不用",
+        "相对于指定决策而非抽象完整性给结论",
+        "批准/实现/演进与正式度不同字段",
+        "修订后复核受影响关注点并保留原判断"
+      ],
+      "reference_document": "references/capability-addenda/architecture-description-formality-review.md"
+    },
+    {
+      "id": "technical-debt-register-method",
+      "name": "技术与架构债登记分析方法",
+      "owner": "togaf-change-value",
+      "source_refs": [
+        "G217 §2.2–2.3、附录D.4"
+      ],
+      "input_fields": [
+        "运营/架构问题与证据",
+        "受影响产品和跨产品关系",
+        "原因及业务后果",
+        "偿还选项、负责人、待办与关闭规则"
+      ],
+      "steps": [
+        "从问题记录识别债务及来源，区分技术局部问题与架构跨产品问题。",
+        "描述影响、原因及不确定性，不凭债务比喻生成利率/金额。",
+        "判断是否需EA协调；仅局部债可交产品团队，说明理由。",
+        "比较偿还候选与资源/依赖，关联待办、标准、复用或变更记录。",
+        "按声明的项目关闭规则收集修复、验证和复核证据，不能凭排期关闭。"
+      ],
+      "output_work_products": [
+        "technical-debt-register"
+      ],
+      "calculation_policy": "procedural-non-scoring；仅待办容量可按声明同单位估算相加，不能计算业务通过分数",
+      "execution_mode": "agent-analysis-with-evidence; local-validation-rules-check-observable-invariants",
+      "checks": [
+        "原因、后果、范围和负责人明确",
+        "EA介入有跨产品或全局理由",
+        "偿还与待办可追溯",
+        "未知成本不填零、不自动算利息",
+        "关闭有验证及复核，原始观察保留"
+      ],
+      "reference_document": "references/capability-addenda/technical-debt-register.md"
+    }
+  ],
+  "default_profiles": {
+    "architecture-backlog": "architecture-business-backlog",
+    "dorp-record": "dorp-record-default",
+    "decision-delegation-register": "decision-delegation-register-default",
+    "architecture-description-formality-review": "architecture-description-formality-table",
+    "technical-debt-register": "technical-debt-register-default"
+  },
+  "entity_type_definitions": {
+    "guide:backlog_item": "业务变革需求项；冲刺选择复用同一ID，不复制需求身份",
+    "guide:sprint": "团队与时间盒下有独立目标的冲刺",
+    "guide:dorp_record": "演示/成果/回顾/规划四活动的可追溯记录",
+    "guide:delegation_decision": "特定决策范围的授权与可逆性约定",
+    "guide:description_review": "架构描述相对于指定决策的充分性与正式度判断",
+    "guide:technical_debt": "技术或架构债及偿还追溯，不隐含财务债务计算"
+  },
+  "relationship_definitions": {
+    "guide:backlog_depends_on": {
+      "source_types": [
+        "guide:backlog_item"
+      ],
+      "target_types": [
+        "guide:backlog_item"
+      ],
+      "meaning": "源待办以目标待办成果作为前置；不是优先级关系"
+    },
+    "guide:scheduled_in": {
+      "source_types": [
+        "guide:backlog_item"
+      ],
+      "target_types": [
+        "guide:sprint"
+      ],
+      "meaning": "某日期将待办选入冲刺；不表示完成或投产"
+    }
+  },
+  "adapter": {
+    "merge": "按id合并work_products/profiles/analysis_methods/default_profiles，不改原70制品ID；已存在同义项须去重。",
+    "entity_types": "namespaced类型由能力注册表识别，不再同时填model.extensions.entity_types，避免核心覆盖错误。",
+    "relationships": "把example.extensions.relationship_types原样带入模型，或以同等语义登记；不能转成traces_to。",
+    "example_source_paths": "example中的raw_input/analysis_path相对skills/_shared；source.locator相对示例目录。",
+    "table_generation": "profiles的output_kind=table；renderer=catalog用于既有Markdown表格机制，不走通用图布局。",
+    "analysis_execution": "analysis_methods是可操作的人机程序，不声称analyze.py已有自动策略；本地验证代码在examples/addenda/build_new_work_products.py的violations。",
+    "validation": "本地10反例/12张表格及修改已执行；标准CLI验证见examples/addenda/new-work-products/standard-integration.json，独立业务评审另记。"
+  },
+  "candidate_resolutions": [
+    {
+      "candidate_id": "architecture-backlog",
+      "work_product_ids": [
+        "architecture-backlog"
+      ],
+      "profile_ids": [
+        "architecture-business-backlog"
+      ],
+      "method_ids": [
+        "architecture-backlog-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/new-work-products"
+      ],
+      "evidence_paths": [
+        "examples/addenda/new-work-products/validation.json",
+        "examples/addenda/new-work-products/standard-integration.json",
+        "examples/addenda/new-work-products/modification-impact.json",
+        "examples/addenda/new-work-products/negative-cases.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "独立业务分析/评审与公开定义核实待完成。"
+      ]
+    },
+    {
+      "candidate_id": "sprint-backlog",
+      "work_product_ids": [
+        "architecture-backlog"
+      ],
+      "profile_ids": [
+        "architecture-sprint-backlog"
+      ],
+      "method_ids": [
+        "architecture-backlog-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/new-work-products"
+      ],
+      "evidence_paths": [
+        "examples/addenda/new-work-products/validation.json",
+        "examples/addenda/new-work-products/standard-integration.json",
+        "examples/addenda/new-work-products/modification-impact.json",
+        "examples/addenda/new-work-products/negative-cases.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "独立业务分析/评审与公开定义核实待完成。",
+        "本例为单团队；跨团队容量/依赖的独立案例仍未提供。"
+      ]
+    },
+    {
+      "candidate_id": "dorp-record",
+      "work_product_ids": [
+        "dorp-record"
+      ],
+      "profile_ids": [
+        "dorp-record-default"
+      ],
+      "method_ids": [
+        "dorp-record-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/new-work-products"
+      ],
+      "evidence_paths": [
+        "examples/addenda/new-work-products/validation.json",
+        "examples/addenda/new-work-products/standard-integration.json",
+        "examples/addenda/new-work-products/modification-impact.json",
+        "examples/addenda/new-work-products/negative-cases.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "独立业务分析/评审与公开定义核实待完成。"
+      ]
+    },
+    {
+      "candidate_id": "decision-delegation-register",
+      "work_product_ids": [
+        "decision-delegation-register"
+      ],
+      "profile_ids": [
+        "decision-delegation-register-default"
+      ],
+      "method_ids": [
+        "decision-delegation-register-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/new-work-products"
+      ],
+      "evidence_paths": [
+        "examples/addenda/new-work-products/validation.json",
+        "examples/addenda/new-work-products/standard-integration.json",
+        "examples/addenda/new-work-products/modification-impact.json",
+        "examples/addenda/new-work-products/negative-cases.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "独立业务分析/评审与公开定义核实待完成。"
+      ]
+    },
+    {
+      "candidate_id": "architecture-description-formality-review",
+      "work_product_ids": [
+        "architecture-description-formality-review"
+      ],
+      "profile_ids": [
+        "architecture-description-formality-table"
+      ],
+      "method_ids": [
+        "architecture-description-formality-review-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/new-work-products"
+      ],
+      "evidence_paths": [
+        "examples/addenda/new-work-products/validation.json",
+        "examples/addenda/new-work-products/standard-integration.json",
+        "examples/addenda/new-work-products/modification-impact.json",
+        "examples/addenda/new-work-products/negative-cases.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "独立业务分析/评审与公开定义核实待完成。"
+      ]
+    },
+    {
+      "candidate_id": "technical-debt-register",
+      "work_product_ids": [
+        "technical-debt-register"
+      ],
+      "profile_ids": [
+        "technical-debt-register-default"
+      ],
+      "method_ids": [
+        "technical-debt-register-method"
+      ],
+      "status": "implemented-project-table-example; source-and-independent-acceptance-pending",
+      "case_paths": [
+        "examples/addenda/new-work-products"
+      ],
+      "evidence_paths": [
+        "examples/addenda/new-work-products/validation.json",
+        "examples/addenda/new-work-products/standard-integration.json",
+        "examples/addenda/new-work-products/modification-impact.json",
+        "examples/addenda/new-work-products/negative-cases.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "独立业务分析/评审与公开定义核实待完成。"
+      ]
+    },
+    {
+      "candidate_id": "architecture-backlog-trace",
+      "work_product_ids": [
+        "architecture-backlog"
+      ],
+      "profile_ids": [
+        "architecture-business-backlog",
+        "architecture-sprint-backlog"
+      ],
+      "method_ids": [
+        "architecture-backlog-method"
+      ],
+      "status": "partial-implementation; strategic-MVA-full-trace-gap",
+      "case_paths": [
+        "examples/addenda/new-work-products"
+      ],
+      "evidence_paths": [
+        "examples/addenda/new-work-products/validation.json",
+        "examples/addenda/new-work-products/standard-integration.json",
+        "examples/addenda/new-work-products/modification-impact.json",
+        "examples/addenda/new-work-products/negative-cases.json"
+      ],
+      "acceptance_status": {
+        "definition": "local-body-read; public-official-definition-separate",
+        "model": "standard-v2-validation-passed",
+        "analysis": "manual-procedure-and-explicit-fictional-case",
+        "generation": "standard-saved-table-values-verified",
+        "modification": "modified-case-output-verified",
+        "review": "local-observable-rules-and-negative-case-passed; independent-business-review-pending",
+        "visual": "not-applicable-to-table; source-diagram-fidelity-not-claimed"
+      },
+      "remaining_scope": [
+        "只实现业务变革待办到冲刺及依赖/验收证据；战略—MVA—epic/feature/story—ABB/SBB完整追溯尚未实现，不计该候选全通过。"
+      ]
+    }
+  ]
+}

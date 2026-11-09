@@ -1,0 +1,2024 @@
+{
+  "schema_version": "1.0",
+  "id": "G234/fig4-10",
+  "status": "done",
+  "doc": {
+    "code": "G234",
+    "title_zh": "信息架构——元数据管理",
+    "title_en": "Information Architecture — Metadata Management",
+    "zh_md": "G234e_信息架构_元数据管理.md",
+    "en_pdf": "togaf-standard-10th/G234e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-10",
+    "title_en": "Technical Metadata Inference",
+    "title_zh": "技术元数据推断",
+    "section_en": "4.3 Metadata Management Guidelines for Information Systems Architectures (ADM Phase C)",
+    "section_zh": "4.3 信息系统架构阶段的元数据管理指南（ADM 阶段 C）",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        29
+      ],
+      "printed_page": 19,
+      "bboxes": [
+        [
+          61.1,
+          301.1,
+          550.9,
+          477.7
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        467
+      ],
+      "label_table_lines": [
+        471,
+        485
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g234e_fig4-10_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "a175bfb0d2af",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.986（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g234e_fig4-10_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "7ede449f20a9",
+      "fidelity": "incomplete",
+      "issues_zh": [
+        "右侧三段说明仍为英文（Structured data… / Semi-structured files… / Unstructured data…），只有左侧图内标签中文化",
+        "“METADATA”“DATA”两条竖排标签被移到虚线框外左侧，原图在框内左缘；图中还残留两处蓝色空白方块（人物/图标替换失败）",
+        "该 PNG 未被中文稿引用（中文稿用 SVG），仅作旁证"
+      ]
+    },
+    {
+      "path": "G234e_信息架构_元数据管理.md#L471-L485",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "99744b6f81f5",
+      "fidelity": "faithful",
+      "issues_zh": []
+    },
+    {
+      "path": "figs/zh/g234e_fig4-10_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "86d6c6c17708",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "右侧三段说明被压缩改写为 2–3 行短句，原图为完整段落（如“Note: Data schema collection does not require access to data”“we cannot manage what we don't know”等措辞被简化），信息量减少",
+        "竖排的“元数据”“数据”标签放在虚线框外左侧，原图位于虚线框内左缘；字号与字距偏大",
+        "“数据剖析”竖排文字字号明显小于原图 Data Profiling，且胶囊高度被压缩",
+        "左侧图结构、三类数据图标、蓝色采集箭头、灰色层间箭头与三条说明引线均保留"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "layered",
+      "infographic"
+    ],
+    "notation": "分层示意图：上方 METADATA 带放元数据管理框，下方 DATA 带用灰色梯形表示数据域，域内并排数据剖析与三类数据存储；蓝色箭头向上表示元数据采集，灰色箭头表示剖析/结构推断，右侧三段说明用引线指向对应数据类型",
+    "concepts": [
+      "metadata_management",
+      "data_architecture",
+      "data_management",
+      "adm_phase_c"
+    ],
+    "adm_phases": [
+      "adm_phase_c"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "数据层通过数据剖析从结构化、半结构化、非结构化数据推断技术元数据，供上层元数据管理使用。",
+    "purpose_zh": "说明技术元数据的两种获得方式之一——事后推断：当数据模式与运营元数据不是“按设计”定义时，需要剖析数据内容、抽取最低限度结构，才能纳入元数据管理与治理。",
+    "reading_guide_zh": "左侧虚线框分上下两带：上带 METADATA 只有 Metadata Management 框与三名管理者；下带 DATA 是灰色梯形数据域，左侧竖胶囊 Data Profiling，右侧自上而下 Structured、Semi-Structured、Unstructured 三类存储。蓝色箭头从数据域指向元数据管理，灰色箭头表示剖析读取与层间结构推断。右侧三段说明分别用细线指向对应的数据层。",
+    "key_points_zh": [
+      "结构化数据（RDBMS、元数据存储）可从数据库字典、技术元数据存储、数据集成存储库直接收集，收集模式本身不需要访问数据。",
+      "半结构化文件（Parquet、Avro 等）自带结构，但不能保证模式随时间稳定，每个文件可能有自己的结构。",
+      "非结构化数据（PDF、DOCX、JPG、AVI 等）必须先抽取最低限度结构（图像中的形状、文档中的电子邮件地址等），才能分析与治理；这需要扫描数据内容，海量文件时计算量很大。",
+      "Data Profiling 是可复用的横向能力，同时读取三类数据；它本身不是元数据存储库。",
+      "只有两条蓝色箭头跨越 METADATA/DATA 分界：一条来自 Data Profiling，一条来自结构化存储，说明元数据上行的两个入口。",
+      "正文指出技术元数据可“按设计”获得，也可事后借助元数据推断、机器学习等技术提取；本图对应后者。"
+    ],
+    "hierarchy_zh": "两层：METADATA（元数据管理 + 管理者）在上，DATA（数据剖析 + 三类数据）在下；DATA 内三类数据自上而下为 Structured、Semi-Structured、Unstructured，Data Profiling 位于左侧纵向贯穿。",
+    "line_semantics_zh": "蓝色向上箭头 = 元数据采集/上行；灰色横向线 = 数据剖析读取该类数据（无箭头）；灰色向上箭头 = 由下层数据向上推断结构；细灰引线 = 说明文字指向对应数据层，不是流程。",
+    "misreadings_zh": [
+      "不要把 Data Profiling 当成元数据存储库或 ETL 工具；它是读取数据、产出技术元数据的剖析组件。",
+      "不要以为三类数据各自都有一条蓝色箭头直连元数据管理；图中只有 Data Profiling 与结构化存储两条。",
+      "不要把层间的灰色向上箭头读成数据流向上层；它表示结构推断的方向。",
+      "右侧三个方框是说明注释，不是图例，也不代表三个处理步骤。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p29",
+        "summary_zh": "收集技术与运营元数据的复杂度取决于数据多样性与 IT 全景，关键差别是模式与运营元数据“按设计”定义，还是事后用元数据推断、机器学习等技术提取；图 4-10 展示技术元数据推断。"
+      },
+      {
+        "source": "en_pdf p29",
+        "summary_zh": "结构化数据可从数据库字典、技术元数据存储、数据集成存储库收集，收集模式无需访问数据；半结构化文件模式不稳定；非结构化数据须先抽取最低限度结构，需扫描内容，海量文件时计算密集。"
+      },
+      {
+        "source": "zh_md L465",
+        "summary_zh": "中文稿复述同一段技术元数据推断的复杂度与三类数据说明。"
+      },
+      {
+        "source": "zh_md L467",
+        "summary_zh": "中文稿在此插入图 4-10（SVG）。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "左侧虚线框上下分层（METADATA / DATA），DATA 内左侧竖排 Data Profiling、右侧三类数据自上而下堆叠；右侧三个说明框纵向排列并各有一条引线指向对应数据层。"
+  },
+  "legend": [
+    {
+      "symbol": "上下两条青色细线",
+      "meaning_zh": "METADATA 与 DATA 的分界",
+      "explicit": false
+    },
+    {
+      "symbol": "青色向上箭头",
+      "meaning_zh": "元数据采集/上行",
+      "explicit": false
+    },
+    {
+      "symbol": "灰色横向线（无箭头）",
+      "meaning_zh": "数据剖析读取该类数据",
+      "explicit": false
+    },
+    {
+      "symbol": "灰色向上箭头",
+      "meaning_zh": "由下层数据向上推断结构",
+      "explicit": false
+    },
+    {
+      "symbol": "右侧说明框 + 细引线",
+      "meaning_zh": "对该类数据采集方式的注释",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "band_metadata",
+      "label_en": "METADATA",
+      "label_zh": "元数据",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左侧虚线框上半",
+      "description_zh": "元数据层带。"
+    },
+    {
+      "id": "metadata_management",
+      "label_en": "Metadata Management",
+      "label_zh": "元数据管理",
+      "type": "application",
+      "parent": "band_metadata",
+      "level": 2,
+      "position": "上带中央"
+    },
+    {
+      "id": "metadata_managers",
+      "label_zh": "元数据管理者（3 人，无标签）",
+      "type": "actor",
+      "parent": "band_metadata",
+      "level": 2,
+      "position": "元数据管理框上方",
+      "description_zh": "原图为三个青色人物图标，无文字标签。"
+    },
+    {
+      "id": "band_data",
+      "label_en": "DATA",
+      "label_zh": "数据",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左侧虚线框下半",
+      "description_zh": "数据层带，内含灰色梯形数据域。"
+    },
+    {
+      "id": "data_profiling",
+      "label_en": "Data Profiling",
+      "label_zh": "数据剖析",
+      "type": "function",
+      "parent": "band_data",
+      "level": 2,
+      "position": "数据域左侧竖胶囊"
+    },
+    {
+      "id": "structured",
+      "label_en": "Structured",
+      "label_zh": "结构化数据",
+      "type": "data",
+      "parent": "band_data",
+      "level": 2,
+      "position": "数据域上层"
+    },
+    {
+      "id": "structured_detail",
+      "label_en": "RDBMS, metadata store",
+      "label_zh": "关系数据库管理系统、元数据存储",
+      "type": "note",
+      "parent": "structured",
+      "level": 3,
+      "position": "Structured 下方斜体"
+    },
+    {
+      "id": "semi_structured",
+      "label_en": "Semi-Structured",
+      "label_zh": "半结构化数据",
+      "type": "data",
+      "parent": "band_data",
+      "level": 2,
+      "position": "数据域中层"
+    },
+    {
+      "id": "semi_detail",
+      "label_en": "Parquet, Avro, etc.",
+      "label_zh": "Parquet、Avro 等",
+      "type": "note",
+      "parent": "semi_structured",
+      "level": 3,
+      "position": "Semi-Structured 下方斜体"
+    },
+    {
+      "id": "unstructured",
+      "label_en": "Unstructured",
+      "label_zh": "非结构化数据",
+      "type": "data",
+      "parent": "band_data",
+      "level": 2,
+      "position": "数据域下层"
+    },
+    {
+      "id": "unstructured_detail",
+      "label_en": "PDF, DOCX, JPG, AVI, etc.",
+      "label_zh": "PDF、DOCX、JPG、AVI 等",
+      "type": "note",
+      "parent": "unstructured",
+      "level": 3,
+      "position": "Unstructured 下方斜体"
+    },
+    {
+      "id": "note_structured",
+      "label_en": "Structured data can be easily collected from database dictionaries, technical metadata stores, data integration repositories, etc. Note: Data schema collection does not require access to data.",
+      "label_zh": "结构化数据可容易地从数据库字典、技术元数据存储、数据集成存储库等收集。注意：收集数据模式不需要访问数据。",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "右侧第一说明框"
+    },
+    {
+      "id": "note_semi",
+      "label_en": "Semi-structured files come with a structure but do not guarantee schema stability over time as each file may have its own structure.",
+      "label_zh": "半结构化文件带有结构，但不能保证模式随时间稳定，因为每个文件可能有自己的结构。",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "右侧第二说明框"
+    },
+    {
+      "id": "note_unstructured",
+      "label_en": "Unstructured data – we cannot manage what we don't know: a minimum of structure (shapes in an image; email address from a document, etc.) must be extracted from the unstructured data before analysis and governance. Such exercise requires scanning the data content which may be very intensive data processing if there are millions of files to scan.",
+      "label_zh": "非结构化数据——我们无法管理自己不知道的内容：在分析与治理前，必须从非结构化数据中抽取最低限度的结构（图像中的形状、文档中的电子邮件地址等）。这项工作需要扫描数据内容，如果要扫描数百万个文件，可能是非常密集的数据处理。",
+      "type": "note",
+      "parent": null,
+      "level": 2,
+      "position": "右侧第三说明框"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "data_profiling",
+      "to": "structured",
+      "type": "access",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据剖析到结构化存储的横向细线，无箭头。"
+    },
+    {
+      "from": "data_profiling",
+      "to": "semi_structured",
+      "type": "access",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "data_profiling",
+      "to": "unstructured",
+      "type": "access",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "semi_structured",
+      "to": "structured",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "灰色向上箭头：由半结构化数据向上推断/补全结构。"
+    },
+    {
+      "from": "unstructured",
+      "to": "semi_structured",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "灰色向上箭头：由非结构化数据抽取最低结构后向上层归并。"
+    },
+    {
+      "from": "data_profiling",
+      "to": "metadata_management",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "蓝色箭头：剖析结果作为元数据上行。"
+    },
+    {
+      "from": "structured",
+      "to": "metadata_management",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "蓝色箭头：结构化存储的技术元数据上行。"
+    },
+    {
+      "from": "note_structured",
+      "to": "structured",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "说明框的引线指向 Structured 层。"
+    },
+    {
+      "from": "note_semi",
+      "to": "semi_structured",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    },
+    {
+      "from": "note_unstructured",
+      "to": "unstructured",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G234/fig4-9",
+      "relation": "complements",
+      "note_zh": "图 4-9 的拉取模式常以代理收集本图所示的技术元数据"
+    },
+    {
+      "target": "G234/fig4-1",
+      "relation": "detail_of",
+      "note_zh": "图 4-1 底部技术元数据的三类数据形态在本图展开为采集与推断方式"
+    },
+    {
+      "target": "G234/fig4-5",
+      "relation": "related",
+      "note_zh": "本图推断出的技术元数据对应图 4-5 技术类型的资产"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "层间两条灰色向上箭头的具体语义（结构推断还是数据抽取）原文未逐箭头说明，按“由下层向上抽取结构”理解。",
+      "元数据管理框上方的三个人物图标没有标签，按元数据管理者/用户处理。",
+      "右侧说明框文字很多，本分析按原图三段完整转录；中文 SVG 为压缩改写。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 29 页原图截图（2x2 与 3x3 放大分块）",
+      "英文 PDF 第 29 页正文",
+      "中文稿 G234e_信息架构_元数据管理.md 第 465–491 行",
+      "figs/g234e_fig4-10_en.png、figs/zh/g234e_fig4-10_zh.png、figs/zh/g234e_fig4-10_zh.svg"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G234e.pdf",
+    "pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G234/fig4-10.json",
+    "interpretation_sha256": "b1765dcafdc1f7860b5bafb171248fdc41ff23c6d056a79c479fe387bc44c1cc",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 29,
+        "text": "Figure 4-10: Technical Metadata Inference",
+        "bbox_pdf_points": [
+          48.24,
+          482.442,
+          245.787,
+          496.008
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 29,
+      "printed_page": 19,
+      "bbox_pdf_points": [
+        61.1,
+        301.1,
+        550.9,
+        477.7
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G234/fig4-10-p0029.png",
+      "image_sha256": "6013b06f964026ec60cdafe995e87d78a2233f7fc63c0260e865e7208e728f8e",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "6013b06f964026ec60cdafe995e87d78a2233f7fc63c0260e865e7208e728f8e",
+          "status": "extracted-unverified",
+          "text": "\\\\\n&bA\n\\\\\n\\\\\n}]\nMetadata\n\\\\\n\\\\ \\\nManage\nnt\n\\\\\n\\\\\n¢)\n\\\\\n\\\\\n}|\nY\n\\\\\n\\\nLY\n/\\\n(\\\nNy \\\\\n\\\\\n<\n‘Structured data can be easily collected from database dictionaries, technical metadata stores,\ndata integration repositories, etc. Note: Data schema collection does not require access to\ndata,\nPy\nNt\nT\nTI\n\\\\\nv\ni\nin\nSemi-structured files come with a structure but do not guarantee schema stability over\ntime as each file may have its own structure.\nT\nx\nH\nT\nV\nI\n1\nt\n\\\nUnstructured data — we cannot manage what we don't know: a minimum of structure\nA\\\n(shapes in an image; email address from a document, etc.) must be extracted from the\nJ\nunstructured data before analysis and govemance. Such exercise requires scanning the data\n\\\\\n\\\ncontentwhich may be very intensive data processing if there are millions of files to scan.\n~",
+          "words": [
+            {
+              "text": "\\\\",
+              "confidence": 31.390339,
+              "bbox_pixels_xywh": [
+                779,
+                2,
+                10,
+                8
+              ]
+            },
+            {
+              "text": "&bA",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                91,
+                17,
+                70,
+                19
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 77.477478,
+              "bbox_pixels_xywh": [
+                684,
+                28,
+                10,
+                6
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 86.858475,
+              "bbox_pixels_xywh": [
+                685,
+                38,
+                10,
+                5
+              ]
+            },
+            {
+              "text": "}]",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                780,
+                10,
+                10,
+                25
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 87.768616,
+              "bbox_pixels_xywh": [
+                94,
+                47,
+                55,
+                9
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 89.825302,
+              "bbox_pixels_xywh": [
+                620,
+                45,
+                11,
+                15
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 68.276955,
+              "bbox_pixels_xywh": [
+                725,
+                41,
+                25,
+                6
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 68.276955,
+              "bbox_pixels_xywh": [
+                744,
+                28,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Manage",
+              "confidence": 94.990845,
+              "bbox_pixels_xywh": [
+                82,
+                63,
+                47,
+                11
+              ]
+            },
+            {
+              "text": "nt",
+              "confidence": 89.932495,
+              "bbox_pixels_xywh": [
+                153,
+                64,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 92.184952,
+              "bbox_pixels_xywh": [
+                621,
+                58,
+                11,
+                8
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 91.883591,
+              "bbox_pixels_xywh": [
+                622,
+                66,
+                11,
+                6
+              ]
+            },
+            {
+              "text": "¢)",
+              "confidence": 72.627136,
+              "bbox_pixels_xywh": [
+                815,
+                51,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 91.089432,
+              "bbox_pixels_xywh": [
+                623,
+                73,
+                11,
+                4
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 92.512115,
+              "bbox_pixels_xywh": [
+                624,
+                78,
+                12,
+                10
+              ]
+            },
+            {
+              "text": "}|",
+              "confidence": 46.945587,
+              "bbox_pixels_xywh": [
+                727,
+                58,
+                10,
+                17
+              ]
+            },
+            {
+              "text": "Y",
+              "confidence": 67.045227,
+              "bbox_pixels_xywh": [
+                817,
+                69,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                685,
+                91,
+                18,
+                9
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 78.124382,
+              "bbox_pixels_xywh": [
+                683,
+                100,
+                6,
+                9
+              ]
+            },
+            {
+              "text": "LY",
+              "confidence": 43.984642,
+              "bbox_pixels_xywh": [
+                703,
+                101,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "/\\",
+              "confidence": 86.595802,
+              "bbox_pixels_xywh": [
+                679,
+                113,
+                12,
+                8
+              ]
+            },
+            {
+              "text": "(\\",
+              "confidence": 58.784943,
+              "bbox_pixels_xywh": [
+                456,
+                122,
+                10,
+                15
+              ]
+            },
+            {
+              "text": "Ny",
+              "confidence": 27.801418,
+              "bbox_pixels_xywh": [
+                540,
+                107,
+                18,
+                30
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 90.635429,
+              "bbox_pixels_xywh": [
+                576,
+                113,
+                13,
+                14
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 89.297592,
+              "bbox_pixels_xywh": [
+                580,
+                128,
+                10,
+                3
+              ]
+            },
+            {
+              "text": "<",
+              "confidence": 82.739372,
+              "bbox_pixels_xywh": [
+                125,
+                158,
+                16,
+                11
+              ]
+            },
+            {
+              "text": "‘Structured",
+              "confidence": 92.931122,
+              "bbox_pixels_xywh": [
+                368,
+                147,
+                71,
+                11
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 96.796715,
+              "bbox_pixels_xywh": [
+                443,
+                147,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "can",
+              "confidence": 96.796715,
+              "bbox_pixels_xywh": [
+                477,
+                150,
+                22,
+                8
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 94.925644,
+              "bbox_pixels_xywh": [
+                504,
+                147,
+                15,
+                11
+              ]
+            },
+            {
+              "text": "easily",
+              "confidence": 96.6558,
+              "bbox_pixels_xywh": [
+                524,
+                147,
+                36,
+                14
+              ]
+            },
+            {
+              "text": "collected",
+              "confidence": 94.646385,
+              "bbox_pixels_xywh": [
+                564,
+                147,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "from",
+              "confidence": 96.380516,
+              "bbox_pixels_xywh": [
+                623,
+                147,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "database",
+              "confidence": 96.92775,
+              "bbox_pixels_xywh": [
+                657,
+                147,
+                58,
+                11
+              ]
+            },
+            {
+              "text": "dictionaries,",
+              "confidence": 86.338951,
+              "bbox_pixels_xywh": [
+                720,
+                147,
+                77,
+                12
+              ]
+            },
+            {
+              "text": "technical",
+              "confidence": 86.338951,
+              "bbox_pixels_xywh": [
+                800,
+                147,
+                58,
+                11
+              ]
+            },
+            {
+              "text": "metadata",
+              "confidence": 96.739342,
+              "bbox_pixels_xywh": [
+                862,
+                147,
+                58,
+                11
+              ]
+            },
+            {
+              "text": "stores,",
+              "confidence": 96.889771,
+              "bbox_pixels_xywh": [
+                924,
+                148,
+                38,
+                10
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 96.105331,
+              "bbox_pixels_xywh": [
+                368,
+                164,
+                27,
+                11
+              ]
+            },
+            {
+              "text": "integration",
+              "confidence": 96.105331,
+              "bbox_pixels_xywh": [
+                399,
+                164,
+                66,
+                14
+              ]
+            },
+            {
+              "text": "repositories,",
+              "confidence": 96.717422,
+              "bbox_pixels_xywh": [
+                470,
+                164,
+                77,
+                14
+              ]
+            },
+            {
+              "text": "etc.",
+              "confidence": 95.867172,
+              "bbox_pixels_xywh": [
+                551,
+                164,
+                22,
+                11
+              ]
+            },
+            {
+              "text": "Note:",
+              "confidence": 91.56424,
+              "bbox_pixels_xywh": [
+                578,
+                164,
+                33,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 91.56424,
+              "bbox_pixels_xywh": [
+                617,
+                164,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "schema",
+              "confidence": 96.395889,
+              "bbox_pixels_xywh": [
+                651,
+                164,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "collection",
+              "confidence": 96.395889,
+              "bbox_pixels_xywh": [
+                704,
+                164,
+                60,
+                11
+              ]
+            },
+            {
+              "text": "does",
+              "confidence": 88.627365,
+              "bbox_pixels_xywh": [
+                772,
+                164,
+                27,
+                11
+              ]
+            },
+            {
+              "text": "not",
+              "confidence": 88.627365,
+              "bbox_pixels_xywh": [
+                803,
+                164,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "require",
+              "confidence": 96.698402,
+              "bbox_pixels_xywh": [
+                827,
+                164,
+                45,
+                14
+              ]
+            },
+            {
+              "text": "access",
+              "confidence": 95.456276,
+              "bbox_pixels_xywh": [
+                875,
+                165,
+                59,
+                10
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 93.53936,
+              "bbox_pixels_xywh": [
+                924,
+                154,
+                14,
+                31
+              ]
+            },
+            {
+              "text": "data,",
+              "confidence": 83.827835,
+              "bbox_pixels_xywh": [
+                368,
+                181,
+                31,
+                11
+              ]
+            },
+            {
+              "text": "Py",
+              "confidence": 14.943008,
+              "bbox_pixels_xywh": [
+                428,
+                201,
+                6,
+                10
+              ]
+            },
+            {
+              "text": "Nt",
+              "confidence": 37.293491,
+              "bbox_pixels_xywh": [
+                472,
+                200,
+                11,
+                13
+              ]
+            },
+            {
+              "text": "T",
+              "confidence": 24.054779,
+              "bbox_pixels_xywh": [
+                506,
+                203,
+                1,
+                5
+              ]
+            },
+            {
+              "text": "TI",
+              "confidence": 59.787598,
+              "bbox_pixels_xywh": [
+                536,
+                200,
+                10,
+                6
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 40.822598,
+              "bbox_pixels_xywh": [
+                560,
+                201,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "v",
+              "confidence": 83.369637,
+              "bbox_pixels_xywh": [
+                596,
+                199,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 53.554058,
+              "bbox_pixels_xywh": [
+                429,
+                212,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 36.392815,
+              "bbox_pixels_xywh": [
+                537,
+                207,
+                10,
+                9
+              ]
+            },
+            {
+              "text": "Semi-structured",
+              "confidence": 90.959442,
+              "bbox_pixels_xywh": [
+                368,
+                225,
+                108,
+                11
+              ]
+            },
+            {
+              "text": "files",
+              "confidence": 96.436432,
+              "bbox_pixels_xywh": [
+                480,
+                225,
+                28,
+                11
+              ]
+            },
+            {
+              "text": "come",
+              "confidence": 96.847084,
+              "bbox_pixels_xywh": [
+                513,
+                227,
+                37,
+                9
+              ]
+            },
+            {
+              "text": "with",
+              "confidence": 96.750374,
+              "bbox_pixels_xywh": [
+                555,
+                225,
+                27,
+                11
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 96.750374,
+              "bbox_pixels_xywh": [
+                587,
+                227,
+                7,
+                9
+              ]
+            },
+            {
+              "text": "structure",
+              "confidence": 96.823593,
+              "bbox_pixels_xywh": [
+                600,
+                225,
+                61,
+                11
+              ]
+            },
+            {
+              "text": "but",
+              "confidence": 96.423164,
+              "bbox_pixels_xywh": [
+                665,
+                225,
+                22,
+                11
+              ]
+            },
+            {
+              "text": "do",
+              "confidence": 95.642044,
+              "bbox_pixels_xywh": [
+                692,
+                225,
+                17,
+                11
+              ]
+            },
+            {
+              "text": "not",
+              "confidence": 91.568466,
+              "bbox_pixels_xywh": [
+                716,
+                225,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "guarantee",
+              "confidence": 91.568466,
+              "bbox_pixels_xywh": [
+                739,
+                225,
+                68,
+                14
+              ]
+            },
+            {
+              "text": "schema",
+              "confidence": 96.579849,
+              "bbox_pixels_xywh": [
+                812,
+                225,
+                53,
+                11
+              ]
+            },
+            {
+              "text": "stability",
+              "confidence": 96.579849,
+              "bbox_pixels_xywh": [
+                869,
+                225,
+                52,
+                14
+              ]
+            },
+            {
+              "text": "over",
+              "confidence": 96.886612,
+              "bbox_pixels_xywh": [
+                927,
+                227,
+                31,
+                9
+              ]
+            },
+            {
+              "text": "time",
+              "confidence": 95.388779,
+              "bbox_pixels_xywh": [
+                368,
+                242,
+                28,
+                11
+              ]
+            },
+            {
+              "text": "as",
+              "confidence": 96.725418,
+              "bbox_pixels_xywh": [
+                400,
+                245,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "each",
+              "confidence": 96.697548,
+              "bbox_pixels_xywh": [
+                420,
+                242,
+                30,
+                22
+              ]
+            },
+            {
+              "text": "file",
+              "confidence": 82.056534,
+              "bbox_pixels_xywh": [
+                454,
+                234,
+                24,
+                34
+              ]
+            },
+            {
+              "text": "may",
+              "confidence": 82.056534,
+              "bbox_pixels_xywh": [
+                480,
+                245,
+                23,
+                11
+              ]
+            },
+            {
+              "text": "have",
+              "confidence": 96.530647,
+              "bbox_pixels_xywh": [
+                508,
+                242,
+                31,
+                11
+              ]
+            },
+            {
+              "text": "its",
+              "confidence": 96.280846,
+              "bbox_pixels_xywh": [
+                543,
+                242,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "own",
+              "confidence": 96.803215,
+              "bbox_pixels_xywh": [
+                561,
+                245,
+                26,
+                8
+              ]
+            },
+            {
+              "text": "structure.",
+              "confidence": 85.027115,
+              "bbox_pixels_xywh": [
+                592,
+                243,
+                59,
+                10
+              ]
+            },
+            {
+              "text": "T",
+              "confidence": 87.416199,
+              "bbox_pixels_xywh": [
+                486,
+                263,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "x",
+              "confidence": 35.689831,
+              "bbox_pixels_xywh": [
+                516,
+                263,
+                7,
+                6
+              ]
+            },
+            {
+              "text": "H",
+              "confidence": 51.732651,
+              "bbox_pixels_xywh": [
+                327,
+                271,
+                2,
+                4
+              ]
+            },
+            {
+              "text": "T",
+              "confidence": 37.438324,
+              "bbox_pixels_xywh": [
+                369,
+                268,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "V",
+              "confidence": 37.003422,
+              "bbox_pixels_xywh": [
+                387,
+                264,
+                3,
+                7
+              ]
+            },
+            {
+              "text": "I",
+              "confidence": 22.188305,
+              "bbox_pixels_xywh": [
+                430,
+                269,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 34.82935,
+              "bbox_pixels_xywh": [
+                496,
+                268,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "t",
+              "confidence": 46.172707,
+              "bbox_pixels_xywh": [
+                327,
+                283,
+                2,
+                5
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 25.250177,
+              "bbox_pixels_xywh": [
+                337,
+                289,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "Unstructured",
+              "confidence": 96.889732,
+              "bbox_pixels_xywh": [
+                369,
+                280,
+                88,
+                11
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 93.292572,
+              "bbox_pixels_xywh": [
+                461,
+                280,
+                28,
+                11
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 33.050659,
+              "bbox_pixels_xywh": [
+                494,
+                286,
+                8,
+                2
+              ]
+            },
+            {
+              "text": "we",
+              "confidence": 96.968849,
+              "bbox_pixels_xywh": [
+                505,
+                283,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "cannot",
+              "confidence": 92.100128,
+              "bbox_pixels_xywh": [
+                529,
+                281,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "manage",
+              "confidence": 93.945045,
+              "bbox_pixels_xywh": [
+                580,
+                283,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "what",
+              "confidence": 93.945045,
+              "bbox_pixels_xywh": [
+                638,
+                272,
+                31,
+                28
+              ]
+            },
+            {
+              "text": "we",
+              "confidence": 96.01796,
+              "bbox_pixels_xywh": [
+                677,
+                283,
+                15,
+                8
+              ]
+            },
+            {
+              "text": "don't",
+              "confidence": 71.515305,
+              "bbox_pixels_xywh": [
+                698,
+                280,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "know:",
+              "confidence": 95.991951,
+              "bbox_pixels_xywh": [
+                737,
+                280,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 95.991951,
+              "bbox_pixels_xywh": [
+                782,
+                283,
+                7,
+                8
+              ]
+            },
+            {
+              "text": "minimum",
+              "confidence": 96.468422,
+              "bbox_pixels_xywh": [
+                794,
+                280,
+                59,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 94.895561,
+              "bbox_pixels_xywh": [
+                854,
+                272,
+                13,
+                28
+              ]
+            },
+            {
+              "text": "structure",
+              "confidence": 85.956253,
+              "bbox_pixels_xywh": [
+                871,
+                280,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "A\\",
+              "confidence": 78.484085,
+              "bbox_pixels_xywh": [
+                327,
+                294,
+                14,
+                12
+              ]
+            },
+            {
+              "text": "(shapes",
+              "confidence": 90.365898,
+              "bbox_pixels_xywh": [
+                369,
+                297,
+                50,
+                13
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 90.365898,
+              "bbox_pixels_xywh": [
+                423,
+                297,
+                10,
+                10
+              ]
+            },
+            {
+              "text": "an",
+              "confidence": 96.764099,
+              "bbox_pixels_xywh": [
+                438,
+                300,
+                14,
+                7
+              ]
+            },
+            {
+              "text": "image;",
+              "confidence": 15.754271,
+              "bbox_pixels_xywh": [
+                459,
+                288,
+                41,
+                29
+              ]
+            },
+            {
+              "text": "email",
+              "confidence": 15.754271,
+              "bbox_pixels_xywh": [
+                505,
+                288,
+                32,
+                29
+              ]
+            },
+            {
+              "text": "address",
+              "confidence": 89.47963,
+              "bbox_pixels_xywh": [
+                541,
+                297,
+                51,
+                10
+              ]
+            },
+            {
+              "text": "from",
+              "confidence": 96.353722,
+              "bbox_pixels_xywh": [
+                596,
+                297,
+                28,
+                10
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 96.082161,
+              "bbox_pixels_xywh": [
+                629,
+                300,
+                7,
+                7
+              ]
+            },
+            {
+              "text": "document,",
+              "confidence": 90.432526,
+              "bbox_pixels_xywh": [
+                640,
+                297,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "etc.)",
+              "confidence": 87.830116,
+              "bbox_pixels_xywh": [
+                711,
+                297,
+                27,
+                13
+              ]
+            },
+            {
+              "text": "must",
+              "confidence": 96.081902,
+              "bbox_pixels_xywh": [
+                744,
+                298,
+                31,
+                9
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 96.081902,
+              "bbox_pixels_xywh": [
+                779,
+                297,
+                15,
+                10
+              ]
+            },
+            {
+              "text": "extracted",
+              "confidence": 96.830856,
+              "bbox_pixels_xywh": [
+                798,
+                297,
+                57,
+                10
+              ]
+            },
+            {
+              "text": "from",
+              "confidence": 95.350586,
+              "bbox_pixels_xywh": [
+                861,
+                297,
+                28,
+                10
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 94.936508,
+              "bbox_pixels_xywh": [
+                894,
+                297,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "J",
+              "confidence": 48.029579,
+              "bbox_pixels_xywh": [
+                161,
+                298,
+                7,
+                22
+              ]
+            },
+            {
+              "text": "unstructured",
+              "confidence": 93.434586,
+              "bbox_pixels_xywh": [
+                369,
+                314,
+                80,
+                11
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 96.941582,
+              "bbox_pixels_xywh": [
+                453,
+                314,
+                27,
+                11
+              ]
+            },
+            {
+              "text": "before",
+              "confidence": 93.591743,
+              "bbox_pixels_xywh": [
+                484,
+                314,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "analysis",
+              "confidence": 87.227737,
+              "bbox_pixels_xywh": [
+                527,
+                314,
+                53,
+                14
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 87.227737,
+              "bbox_pixels_xywh": [
+                583,
+                314,
+                24,
+                11
+              ]
+            },
+            {
+              "text": "govemance.",
+              "confidence": 92.369804,
+              "bbox_pixels_xywh": [
+                611,
+                317,
+                79,
+                11
+              ]
+            },
+            {
+              "text": "Such",
+              "confidence": 96.922821,
+              "bbox_pixels_xywh": [
+                694,
+                314,
+                33,
+                11
+              ]
+            },
+            {
+              "text": "exercise",
+              "confidence": 95.988678,
+              "bbox_pixels_xywh": [
+                731,
+                314,
+                53,
+                11
+              ]
+            },
+            {
+              "text": "requires",
+              "confidence": 88.569153,
+              "bbox_pixels_xywh": [
+                788,
+                314,
+                52,
+                14
+              ]
+            },
+            {
+              "text": "scanning",
+              "confidence": 88.569153,
+              "bbox_pixels_xywh": [
+                843,
+                314,
+                58,
+                14
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.616257,
+              "bbox_pixels_xywh": [
+                904,
+                314,
+                21,
+                11
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 92.851402,
+              "bbox_pixels_xywh": [
+                928,
+                314,
+                27,
+                11
+              ]
+            },
+            {
+              "text": "\\\\",
+              "confidence": 92.225334,
+              "bbox_pixels_xywh": [
+                341,
+                347,
+                10,
+                7
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 92.437042,
+              "bbox_pixels_xywh": [
+                348,
+                338,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "contentwhich",
+              "confidence": 89.599464,
+              "bbox_pixels_xywh": [
+                368,
+                331,
+                88,
+                11
+              ]
+            },
+            {
+              "text": "may",
+              "confidence": 97.015121,
+              "bbox_pixels_xywh": [
+                462,
+                334,
+                25,
+                10
+              ]
+            },
+            {
+              "text": "be",
+              "confidence": 90.276932,
+              "bbox_pixels_xywh": [
+                491,
+                331,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "very",
+              "confidence": 90.276932,
+              "bbox_pixels_xywh": [
+                509,
+                331,
+                26,
+                13
+              ]
+            },
+            {
+              "text": "intensive",
+              "confidence": 96.592163,
+              "bbox_pixels_xywh": [
+                540,
+                324,
+                55,
+                28
+              ]
+            },
+            {
+              "text": "data",
+              "confidence": 96.824684,
+              "bbox_pixels_xywh": [
+                601,
+                324,
+                25,
+                28
+              ]
+            },
+            {
+              "text": "processing",
+              "confidence": 92.129883,
+              "bbox_pixels_xywh": [
+                632,
+                331,
+                116,
+                13
+              ]
+            },
+            {
+              "text": "if",
+              "confidence": 92.129883,
+              "bbox_pixels_xywh": [
+                702,
+                324,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "there",
+              "confidence": 96.85714,
+              "bbox_pixels_xywh": [
+                718,
+                324,
+                29,
+                28
+              ]
+            },
+            {
+              "text": "are",
+              "confidence": 95.837227,
+              "bbox_pixels_xywh": [
+                753,
+                334,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "millions",
+              "confidence": 95.423569,
+              "bbox_pixels_xywh": [
+                778,
+                331,
+                108,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 95.423569,
+              "bbox_pixels_xywh": [
+                830,
+                324,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "files",
+              "confidence": 75.584915,
+              "bbox_pixels_xywh": [
+                844,
+                331,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 75.584915,
+              "bbox_pixels_xywh": [
+                874,
+                324,
+                13,
+                28
+              ]
+            },
+            {
+              "text": "scan.",
+              "confidence": 90.348724,
+              "bbox_pixels_xywh": [
+                891,
+                334,
+                34,
+                8
+              ]
+            },
+            {
+              "text": "~",
+              "confidence": 15.390425,
+              "bbox_pixels_xywh": [
+                377,
+                348,
+                1,
+                6
+              ]
+            }
+          ],
+          "mean_word_confidence": 80.62,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

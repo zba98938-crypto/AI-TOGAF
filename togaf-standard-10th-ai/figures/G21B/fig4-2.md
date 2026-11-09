@@ -1,0 +1,853 @@
+# G21B/fig4-2 · 参考 C-MDM 路线图步骤
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G21B/fig4-2.md) · [JSON](../../architecture/diagrams/G21B/fig4-2.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G21Be.pdf`；SHA-256：`8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2`。
+
+## 原图 · PDF 第 33 页
+
+![英文原图](../assets/G21B/fig4-2-p0033.png)
+
+PDF 坐标：`[48.2, 133.2, 563.8, 465.8]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+2p
+3f$
+conmancuiowcune
+if
+Neninausive Curtarer
+Point Tah
+~f
+Master Port of Tu
+[racnenennanennnny
+By
+aaa a
+peratona
+==
+ygement
+\@,
+eee
+jagement |
+ocment =| = soa
+Noo”
+>it
+s-
+Anatytics
+‘Customer
+eeeed
+(Custo me
+Anatytics
+‘Customer
+Anatytis
+‘Customer
+Legend
+o ttt ~~" ==S=T
+MER ct een
+eranges
+een
+mtchantare of pentane sta
+comer tar
+swe a)
+none
+---->
+each step
+```
+
+## 概要（历史解释；局部修正见上）
+
+用四个逐步演进的 plateau 展示 C-MDM 从“整合客户数据库”走到“全范围主数据真相点”的路线图。
+
+## 目的（历史解释；局部修正见上）
+
+为 ADM 阶段 F（迁移规划）提供参考路线：不是一步建成 C-MDM，而是按数据主控权与集成程度分四步演进；每一步用绿色标出相对上一步新增的能力，帮助规划者理解“先整合分析、再非侵入式真相点、再主数据真相点、最后覆盖全范围”的迁移逻辑。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从左到右读四个面板（步骤 1→4），这是时间顺序。每个面板内部从左上往下读：运营团队通过用户界面把数据写入“互动运营数据”和“核心业务运营数据”两个库；数据再流向中间的内核客户数据（C-MDM）；内核向下供分析库使用；右侧是 C-MDM 中央团队。绿色线/绿色块表示该步骤相比上一步新增或改变的能力；灰色线是上一步已存在、本步未变的能力。左侧竖排的 C/R/U/D 徽标表示该存储支持哪些创建/读取/更新/删除操作。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 步骤 1“整合客户数据库”：三个运营源库的数据被抽取/整合到 C-MDM 初始版本，内核只有读能力（R），还没有真正的黄金记录；绿色标出“源→内核”“内核→分析”“内核/分析→中央团队”的首次建立。
+- 步骤 2“非侵入式客户数据真相点”：内核升级为可创建/更新/删除（CRUD），并新增 Customer ID；C-MDM 把黄金记录反向传播给运营库（绿色上行箭头），但不同步；中央团队通过人工回路参与去重与纠错（绿色虚线）。
+- 步骤 3“主数据真相点”：两个运营库的 CRUD 全部变绿，运营库与内核之间改为双向同步（绿色双向箭头），运营团队的人工录入改为直接写入内核（绿色虚线向下）；这是主控权从运营系统向 C-MDM 转移的关键一步。
+- 步骤 4“全范围主数据真相点”：两个运营库出现绿色顶环，表示它们只保留只读快照/副本，主数据完全以 C-MDM 为准；其余连线恢复灰色，说明没有新的集成机制，只是覆盖范围扩大。
+- 四步的差别不在“有没有集成”，而在“谁拥有主数据”：运营系统拥有（步骤 1–2）→ 共同同步（步骤 3）→ C-MDM 独有（步骤 4）。
+- 中央团队（data owners、stewards 等）在步骤 2 起成为常设角色，通过人工交互处理去重、纠错与合并；这与表 4-6 的文字描述一致。
+- 绿色只在“变化”处出现，不能把绿色线理解为“数据流方向”；方向由箭头决定。
+
+## 层级（历史解释；局部修正见上）
+
+时间上四层（Step 1→4 的 plateau），每层内部是同一套元素：运营团队、两个运营数据库、内核客户数据（内含 Customer ID 行）、分析客户数据、C-MDM 中央团队。四层之间不是包含关系，而是同一架构在四个成熟度阶段的快照。
+
+## 线条含义（历史解释；局部修正见上）
+
+实线箭头=自动化数据流（同步或异步）；虚线箭头=通过用户界面的人工交互；双向箭头=同步事务（Synchronous transaction Synchronization）；绿色=该步骤新增或变化。C/R/U/D 是存储层支持的基本操作（Create/Read/Update/Delete），不是流程步骤。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把四个面板当成四张彼此独立的架构图：它们是同一架构在四个 plateau 的快照，元素位置固定，便于比较变化。
+- 绿色不是“好/通过”的状态色，只表示“本步骤相比上一步有变化”。
+- 步骤 1 的内核只标 R 不代表它不能写入：它是由批量整合写入、对消费方只读的初始版本；CRUD 徽标描述的是该存储对外提供的基本操作。
+- 中文重绘图把 Customer ID 在步骤 3、4 也标成绿色，并漏掉“同步事务”图例项，容易误读为这两步仍有 Customer ID 变更或双向同步；应以英文原图为准。
+- 步骤 4 的绿色顶环表示运营库只保留只读副本，不是“数据库被替换”。
+
+## 元素
+
+```json
+[
+  {
+    "id": "step1",
+    "label_en": "1 Consolidated Customer Database",
+    "label_zh": "步骤 1：整合客户数据库",
+    "type": "phase",
+    "parent": null,
+    "level": 1,
+    "order": 1,
+    "position": "面板 1 顶部"
+  },
+  {
+    "id": "step2",
+    "label_en": "2 Non-Intrusive Customer Data Point of Truth",
+    "label_zh": "步骤 2：非侵入式客户数据真相点",
+    "type": "phase",
+    "parent": null,
+    "level": 1,
+    "order": 2,
+    "position": "面板 2 顶部"
+  },
+  {
+    "id": "step3",
+    "label_en": "3 Master Point of Truth",
+    "label_zh": "步骤 3：主数据真相点",
+    "type": "phase",
+    "parent": null,
+    "level": 1,
+    "order": 3,
+    "position": "面板 3 顶部"
+  },
+  {
+    "id": "step4",
+    "label_en": "Full Scope Master Point of Truth",
+    "label_zh": "步骤 4：全范围主数据真相点",
+    "type": "phase",
+    "parent": null,
+    "level": 1,
+    "order": 4,
+    "position": "面板 4 顶部（无步骤号）",
+    "description_zh": "对应表 4-6 的 C-MDM Target 行。"
+  },
+  {
+    "id": "op_team",
+    "label_en": "Operational teams",
+    "label_zh": "运营团队",
+    "type": "actor",
+    "parent": null,
+    "position": "每个面板上方与下方各一个人群图标",
+    "description_zh": "上方图标代表录入运营数据的团队，下方图标代表使用分析数据的团队；标签来自图例。"
+  },
+  {
+    "id": "eng_data",
+    "label_en": "Engagement Operational Data",
+    "label_zh": "互动运营数据",
+    "type": "data",
+    "parent": null,
+    "position": "每个面板左上圆柱"
+  },
+  {
+    "id": "core_data",
+    "label_en": "Core Business Operational Data",
+    "label_zh": "核心业务运营数据",
+    "type": "data",
+    "parent": null,
+    "position": "每个面板右上圆柱"
+  },
+  {
+    "id": "kernel",
+    "label_en": "Kernel Customer Data",
+    "label_zh": "内核客户数据",
+    "type": "data",
+    "parent": null,
+    "position": "每个面板中部圆柱",
+    "description_zh": "面板 1 为绿色；面板 2–4 为蓝色。"
+  },
+  {
+    "id": "customer_id",
+    "label_en": "Customer ID",
+    "label_zh": "客户 ID",
+    "type": "data",
+    "parent": "kernel",
+    "level": 2,
+    "position": "内核圆柱内的浅绿色横条（面板 2 起出现）",
+    "description_zh": "面板 2 中该横条为绿色（新增）；原图面板 3、4 未再用绿色标出。"
+  },
+  {
+    "id": "analytics",
+    "label_en": "Analytics Customer Data",
+    "label_zh": "分析客户数据",
+    "type": "data",
+    "parent": null,
+    "position": "每个面板下方圆柱"
+  },
+  {
+    "id": "central_team",
+    "label_en": "C-MDM central team (data owners, stewards, etc.)",
+    "label_zh": "C-MDM 中央团队（数据所有者、数据管家等）",
+    "type": "organization_unit",
+    "parent": null,
+    "position": "每个面板右侧人群图标",
+    "description_zh": "面板 1 为绿色（2 人），面板 2–4 为蓝色（3 人）。"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "id": "p1_1",
+    "from": "op_team",
+    "to": "eng_data",
+    "type": "flow",
+    "label_en": "Manual human interaction through a user interface",
+    "label_zh": "通过用户界面的人工交互",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 1，灰色虚线。"
+  },
+  {
+    "id": "p1_2",
+    "from": "op_team",
+    "to": "core_data",
+    "type": "flow",
+    "label_en": "Manual human interaction through a user interface",
+    "label_zh": "通过用户界面的人工交互",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 1，灰色虚线。"
+  },
+  {
+    "id": "p1_3",
+    "from": "eng_data",
+    "to": "kernel",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 1，绿色（本步骤新建）。"
+  },
+  {
+    "id": "p1_4",
+    "from": "core_data",
+    "to": "kernel",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 1，绿色。"
+  },
+  {
+    "id": "p1_5",
+    "from": "kernel",
+    "to": "analytics",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 1，绿色。"
+  },
+  {
+    "id": "p1_6",
+    "from": "kernel",
+    "to": "central_team",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 1，绿色。"
+  },
+  {
+    "id": "p1_7",
+    "from": "analytics",
+    "to": "central_team",
+    "type": "flow",
+    "label_en": "Manual human interaction through a user interface",
+    "label_zh": "通过用户界面的人工交互",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 1，绿色虚线。"
+  },
+  {
+    "id": "p1_8",
+    "from": "analytics",
+    "to": "op_team",
+    "type": "flow",
+    "label_en": "Manual human interaction through a user interface",
+    "label_zh": "通过用户界面的人工交互",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 1，向下指向底部运营团队图标。"
+  },
+  {
+    "id": "p2_1",
+    "from": "op_team",
+    "to": "eng_data",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 2，灰色虚线。"
+  },
+  {
+    "id": "p2_2",
+    "from": "op_team",
+    "to": "core_data",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 2，灰色虚线。"
+  },
+  {
+    "id": "p2_3",
+    "from": "eng_data",
+    "to": "kernel",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 2，灰色。"
+  },
+  {
+    "id": "p2_4",
+    "from": "core_data",
+    "to": "kernel",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 2，灰色。"
+  },
+  {
+    "id": "p2_5",
+    "from": "kernel",
+    "to": "eng_data",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 2，绿色：黄金记录向上传播到互动运营库（不同步）。"
+  },
+  {
+    "id": "p2_6",
+    "from": "kernel",
+    "to": "core_data",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 2，绿色：黄金记录向上传播到核心业务运营库（不同步）。"
+  },
+  {
+    "id": "p2_7",
+    "from": "kernel",
+    "to": "central_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 2，灰色虚线。"
+  },
+  {
+    "id": "p2_8",
+    "from": "central_team",
+    "to": "kernel",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 2，绿色虚线：中央团队的人工纠正回写内核。"
+  },
+  {
+    "id": "p2_9",
+    "from": "central_team",
+    "to": "op_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 2，绿色虚线绕右侧与顶部一圈后向下指向运营团队（新增的人工推送/沟通路径）。"
+  },
+  {
+    "id": "p2_10",
+    "from": "analytics",
+    "to": "central_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 2，灰色虚线。"
+  },
+  {
+    "id": "p2_11",
+    "from": "kernel",
+    "to": "analytics",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 2，灰色。"
+  },
+  {
+    "id": "p2_12",
+    "from": "analytics",
+    "to": "op_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 2，灰色虚线，指向底部运营团队。"
+  },
+  {
+    "id": "p3_1",
+    "from": "op_team",
+    "to": "eng_data",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 3，灰色虚线。"
+  },
+  {
+    "id": "p3_2",
+    "from": "op_team",
+    "to": "core_data",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 3，灰色虚线。"
+  },
+  {
+    "id": "p3_3",
+    "from": "eng_data",
+    "to": "kernel",
+    "type": "flow",
+    "label_en": "Synchronous transaction Synchronization",
+    "label_zh": "同步事务",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "both",
+    "description_zh": "面板 3，绿色双向箭头：互动运营库与内核双向同步。"
+  },
+  {
+    "id": "p3_4",
+    "from": "core_data",
+    "to": "kernel",
+    "type": "flow",
+    "label_en": "Synchronous transaction Synchronization",
+    "label_zh": "同步事务",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "both",
+    "description_zh": "面板 3，绿色双向箭头：核心业务运营库与内核双向同步。"
+  },
+  {
+    "id": "p3_5",
+    "from": "op_team",
+    "to": "kernel",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 3，绿色虚线：运营团队直接向内核录入。"
+  },
+  {
+    "id": "p3_6",
+    "from": "central_team",
+    "to": "op_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 3，灰色虚线回路，从右侧绕顶部指向运营团队。"
+  },
+  {
+    "id": "p3_7",
+    "from": "kernel",
+    "to": "central_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 3，灰色虚线。"
+  },
+  {
+    "id": "p3_8",
+    "from": "central_team",
+    "to": "kernel",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 3，灰色虚线。"
+  },
+  {
+    "id": "p3_9",
+    "from": "analytics",
+    "to": "central_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 3，灰色虚线。"
+  },
+  {
+    "id": "p3_10",
+    "from": "kernel",
+    "to": "analytics",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 3，灰色。"
+  },
+  {
+    "id": "p3_11",
+    "from": "analytics",
+    "to": "op_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 3，灰色虚线。"
+  },
+  {
+    "id": "p4_1",
+    "from": "op_team",
+    "to": "eng_data",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色虚线。"
+  },
+  {
+    "id": "p4_2",
+    "from": "op_team",
+    "to": "core_data",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色虚线。"
+  },
+  {
+    "id": "p4_3",
+    "from": "op_team",
+    "to": "kernel",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色虚线，直接写入内核。"
+  },
+  {
+    "id": "p4_4",
+    "from": "eng_data",
+    "to": "kernel",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色（只读副本回传）。"
+  },
+  {
+    "id": "p4_5",
+    "from": "core_data",
+    "to": "kernel",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色。"
+  },
+  {
+    "id": "p4_6",
+    "from": "kernel",
+    "to": "central_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色虚线。"
+  },
+  {
+    "id": "p4_7",
+    "from": "central_team",
+    "to": "kernel",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色虚线。"
+  },
+  {
+    "id": "p4_8",
+    "from": "central_team",
+    "to": "op_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色虚线回路。"
+  },
+  {
+    "id": "p4_9",
+    "from": "analytics",
+    "to": "central_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色虚线。"
+  },
+  {
+    "id": "p4_10",
+    "from": "kernel",
+    "to": "analytics",
+    "type": "flow",
+    "label_en": "Automated data flow",
+    "label_zh": "自动化数据流",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色。"
+  },
+  {
+    "id": "p4_11",
+    "from": "analytics",
+    "to": "op_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "面板 4，灰色虚线。"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "roadmap",
+    "kind": "sequence",
+    "name_zh": "C-MDM 路线图四步",
+    "steps": [
+      "step1",
+      "step2",
+      "step3",
+      "step4"
+    ],
+    "description_zh": "四个 plateau 按从左到右的时间顺序演进。"
+  }
+]
+```
+
+## 转录表格
+
+```json
+[
+  {
+    "id": "t_crud_by_panel",
+    "title_zh": "四个 plateau 的 CRUD 能力与绿色强调点（按原图逐面板转录）",
+    "columns": [
+      "步骤（plateau）",
+      "内核客户数据 CRUD",
+      "互动运营数据 CRUD",
+      "核心业务运营数据 CRUD",
+      "分析客户数据 CRUD",
+      "本步骤绿色标注的变化"
+    ],
+    "rows": [
+      [
+        "1 Consolidated Customer Database 整合客户数据库",
+        "R（仅读）",
+        "C R U D",
+        "C R U D",
+        "R（仅读）",
+        "内核圆柱整体为绿色；两个运营库→内核、内核→分析库、内核→中央团队、分析库→中央团队为绿色（首次建立整合链路）"
+      ],
+      [
+        "2 Non-Intrusive Customer Data Point of Truth 非侵入式客户数据真相点",
+        "C R U D（C/U/D 绿、R 灰）",
+        "C R U D",
+        "C R U D",
+        "R（仅读）",
+        "Customer ID 横条为绿色；内核→两个运营库的反向传播为绿色；中央团队→内核的回写、中央团队绕顶部→运营团队的人工路径为绿色"
+      ],
+      [
+        "3 Master Point of Truth 主数据真相点",
+        "C R U D",
+        "C R U D（全绿）",
+        "C R U D（全绿）",
+        "R（仅读）",
+        "两个运营库的 CRUD 全部变绿；两个运营库↔内核的双向同步为绿色；运营团队→内核的直接录入为绿色"
+      ],
+      [
+        "4 Full Scope Master Point of Truth 全范围主数据真相点",
+        "C R U D",
+        "C R U D",
+        "C R U D",
+        "R（仅读）",
+        "两个运营库顶部的绿色圆环（只读快照/副本）；其余连线为灰色"
+      ]
+    ],
+    "cell_legend": [
+      "CRUD = Create/Read/Update/Delete（图例：主数据版本持久存储的基本操作）",
+      "绿字=该步骤新增或变化",
+      "绿环=运营库顶部只读快照标记"
+    ],
+    "notes_zh": "“步骤 4”在原图顶部没有编号，只用名称 Full Scope Master Point of Truth；表 4-6 把该行称为 C-MDM Target。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "C / R / U / D 圆点",
+    "meaning_zh": "Create / Read / Update / Delete，主数据版本持久存储支持的基本操作（图例原文：Basic functions of persistent storage of master customer data version）",
+    "explicit": true
+  },
+  {
+    "symbol": "灰色人群图标",
+    "meaning_zh": "Operational teams（运营团队）",
+    "explicit": true
+  },
+  {
+    "symbol": "蓝色人群图标",
+    "meaning_zh": "C-MDM central team (data owners, stewards, etc.)（C-MDM 中央团队：数据所有者、数据管家等）",
+    "explicit": true
+  },
+  {
+    "symbol": "双向箭头",
+    "meaning_zh": "Synchronous transaction Synchronization（同步事务）",
+    "explicit": true
+  },
+  {
+    "symbol": "单箭头实线",
+    "meaning_zh": "Automated data flow (synchronous or not)（自动化数据流，同步或异步）",
+    "explicit": true
+  },
+  {
+    "symbol": "虚线箭头",
+    "meaning_zh": "Manual human interaction through a user interface（通过用户界面的人工交互）",
+    "explicit": true
+  },
+  {
+    "symbol": "绿色文字/线条/填充",
+    "meaning_zh": "Green indicates changes in each step（绿色表示该步骤发生的变化）",
+    "explicit": true
+  },
+  {
+    "symbol": "圆柱体",
+    "meaning_zh": "数据存储（operational data / kernel / analytics）",
+    "explicit": false
+  },
+  {
+    "symbol": "3D 台阶块",
+    "meaning_zh": "plateau（路线图步骤）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "四个等宽面板从左到右排列，面板间以细竖线分隔；每个面板顶部是 3D 台阶块（步骤号 + 名称），下方同一套元素布局；底部横跨四栏的是图例框。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G21B/tab4-6",
+    "relation": "overview_of",
+    "note_zh": "图 4-2 给出四个 plateau 的图示，表 4-6 逐行说明每个 plateau 的描述、用例、数据质量与进入下一步的触发条件，并嵌入同样的步骤小图。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "原图未说明面板 1 内核与分析库只标 R 的准确含义；本分析按“该存储对外只读”描述。",
+    "中央团队与内核之间在面板 2–4 各画了两条方向相反的虚线，其中一条始终是灰色、另一条在面板 2 为绿色；原图无箭头图例说明其业务含义，本分析只按“人工交互”记录。",
+    "步骤 4 顶部无编号，本分析按顺序记为步骤 4（与表 4-6 的 C-MDM Target 对应）。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 33 页原图截图及 3×3 放大分块、四个面板 2 倍放大图",
+    "英文 PDF 第 33 页正文",
+    "中文稿 G21Be_信息架构_客户主数据管理.md 第 406–419 行（含表 4-6 全文）",
+    "figs/zh/g21be_fig4-2_zh.svg 源码与渲染图"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

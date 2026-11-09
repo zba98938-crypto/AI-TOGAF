@@ -1,0 +1,1359 @@
+{
+  "schema_version": "1.0",
+  "id": "G248/fig2-3",
+  "status": "done",
+  "doc": {
+    "code": "G248",
+    "title_zh": "构建块的选择方法",
+    "title_en": "An Approach to Selecting Building Blocks",
+    "zh_md": "G248e_构建块的选择方法.md",
+    "en_pdf": "togaf-standard-10th/G248e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "2-3",
+    "title_en": "ERD of TOGAF Transition Architecture with MVP and MMP Concepts",
+    "title_zh": "包含 MVP 与 MMP 概念的 TOGAF 过渡架构 ERD",
+    "section_en": "2.1 Transition Architectures and MVP/MMP/MQP",
+    "section_zh": "2.1 过渡架构与 MVP/MMP/MQP",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        17
+      ],
+      "printed_page": 5,
+      "bboxes": [
+        [
+          48.2,
+          36.0,
+          563.8,
+          351.4
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        136
+      ],
+      "label_table_lines": [
+        140,
+        165
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g248e_fig2-3_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "0f123905a792",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.99（≥0.9 通常为同一图）",
+        "与英文 PDF 第 17 页截图相似度 0.99，内容一致；仅分辨率低于 600 dpi 重渲染。"
+      ]
+    },
+    {
+      "path": "figs/zh/g248e_fig2-3_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "9e440d083b2e",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "所有关系短语旁的箭头（→/←/↑/↓）都被删除，例如“成为下一个”“由……应对”“实现”“影响”“提供”“变更为”“演进自”“部署于”“假设经 MVP 验证”，双向关系的方向无法还原。",
+        "MVP、MMP 两个橙色框内原本以大号“MVP”“MMP”为主标签，中文化后改成极小的“最小可行产品 (MVP)”“最小可市场化产品 (MMP)”，字号远小于其他实体名，框内几乎空白，主标签实际不可读。",
+        "“implemented by ↓”整条保留英文未译，而与之配对的“implements”译成“实现”，同一关系的两种读法一中一英，不成对。",
+        "“交付冲刺”框超出图框下边界，方框被截断一截。",
+        "其余版式（实体位置、橙色/蓝色区分、基数 1、0..1、1..*、maps to 虚线）与原图一致。"
+      ]
+    },
+    {
+      "path": "G248e_构建块的选择方法.md#L140-L165",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "88d836861ddf",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "21 个英文标签与原图一致，中文译法正确（含 MVP、MMP、Delivery Sprints、maps to、hypothesis proved MVP）；但对照表不含基数与箭头方向。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "er_model"
+    ],
+    "notation": "实体关系图（ERD）记法：蓝色矩形为架构/目标实体，橙色圆角矩形为敏捷交付概念，细实线连接并标基数，敏捷概念与架构实体之间用带斜体标签的虚线 maps to 对应",
+    "concepts": [
+      "mvp_mva",
+      "transition_architecture",
+      "baseline_target_gap",
+      "agile_sprint",
+      "architecture_landscape"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "在过渡架构 ERD 上加入 MVP、MMP 与交付冲刺，并用 maps to 虚线把它们对齐到过渡架构与工作包。",
+    "purpose_zh": "把敏捷的 MVP/MMP 概念挂到 TOGAF 的过渡架构模型上：MVP 映射到过渡架构，交付冲刺映射到工作包，MMP 由 MVP 验证假设后形成，并由交付冲刺实现，从而说明敏捷增量交付如何与标准中的架构层级对应。",
+    "reading_guide_zh": "先按图 2-2 的方式读蓝色部分的架构 ERD（目标—基线—过渡—工作包）。再看左下角的橙色链：MVP → MMP → Delivery Sprints，注意三条纵向关系及其基数。最后看两条斜体“maps to”虚线：MVP 映射到 Transition Architecture，Delivery Sprints 映射到 Work Package；另有一条从 Delivery Sprints 绕左侧上行的“implements”线直接回到 MVP。",
+    "key_points_zh": [
+      "图 2-2 的六个架构实体全部保留，关系与基数不变；新增的是 MVP、MMP、Delivery Sprints 三个橙色敏捷概念。",
+      "MVP 通过虚线“maps to”对应到过渡架构，说明一个 MVP 是某个过渡架构在交付上的映射物；该虚线没有箭头与基数。",
+      "MMP 与 MVP 之间标注“hypothesis proved MVP ↑”，基数 MVP 端 1、MMP 端 0..1：一个 MVP 最多形成一个 MMP，MMP 用来证明 MVP 的假设成立。",
+      "MMP 与 Delivery Sprints 之间是双向 1..*：交付冲刺实现 MMP，MMP 由交付冲刺实现。",
+      "另有一条从 Delivery Sprints 左侧绕行、直接指向 MVP 的“implements / implemented by”线，MVP 端标 1，表示交付冲刺也可越过 MMP 直接实现 MVP。",
+      "Delivery Sprints 通过虚线“maps to”对应到 Work Package，把敏捷冲刺与架构侧的工作包对齐；该虚线同样没有箭头与基数。",
+      "蓝色部分仍表达：目标架构提供可用能力、工作包部署于目标架构、目标架构成为下一轮基线。"
+    ],
+    "hierarchy_zh": "没有容器或上下级。蓝色架构实体与橙色敏捷概念分列左右两侧，靠实线（实现/验证）与虚线（映射）相连；可读作“架构侧（目标/基线/过渡/工作包）”与“交付侧（MVP/MMP/冲刺）”两栏，但图中没有画分栏边框。",
+    "line_semantics_zh": "细实线表示实体间的实现、验证或变更关系，线旁写主动/被动关系名并用箭头指示方向，两端标基数；斜体“maps to”配细虚线，表示跨模型的概念对应，不带箭头和基数。橙色框与蓝色框只靠颜色区分交付概念和架构概念，没有图例说明。",
+    "misreadings_zh": [
+      "“maps to”是虚线且无箭头，不能读成实现关系或数据流；它只表示 MVP 与过渡架构、交付冲刺与工作包之间的概念对应。",
+      "“hypothesis proved MVP”的箭头向上，应读作 MMP 证明 MVP 的假设（MMP→MVP），不要反读成 MVP 证明 MMP。",
+      "Delivery Sprints 左侧那条长线不是连接到基线架构，而是绕到 MVP 左缘，表示冲刺直接实现 MVP。",
+      "MMP 端基数是 0..1 而不是 1：一个 MVP 可能尚未形成 MMP。",
+      "中文稿当前引用的 PNG 删掉了所有箭头，MVP/MMP 主标签缩成几乎不可读的小字，“implemented by”还未翻译，不能据它判断方向或辨认实体。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p16",
+        "summary_zh": "支撑增量交付的敏捷概念包括 MVP 与 MMP，它们强调快速收集反馈、从学习中迭代增量开发；这些概念可与 TOGAF 标准方法对齐，如图 2-3 所示。"
+      },
+      {
+        "source": "en_pdf p17",
+        "summary_zh": "变革开始时常有多个未知因素，往往无法给出相当完整的目标描述；TOGAF 建议采用“愿望式递进”，目标会随推进而变化。"
+      },
+      {
+        "source": "zh_md L134",
+        "summary_zh": "中文稿介绍 MVP 与 MMP，并说明它们可与 TOGAF 标准方法对齐，如图 2-3 所示。"
+      },
+      {
+        "source": "zh_md L136",
+        "summary_zh": "中文稿在此处插入图 2-3（当前指向 figs/zh/g248e_fig2-3_zh.png）。"
+      },
+      {
+        "source": "zh_md L172",
+        "summary_zh": "中文稿说明小规模变革中 MQP 可作为基线与目标之间的中间状态，MVP 可能是产品路线图中的临时步骤，并需平衡灵活性与速度、避免过度架构。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "上半部沿用图 2-2 的环形 ERD（业务目标左上、能力右上、基线左中、目标右中、过渡架构中央、工作包底部）；左下另起一条竖向橙色链 MVP → MMP → Delivery Sprints，两条斜体 maps to 虚线分别从 MVP 指向过渡架构、从 Delivery Sprints 指向工作包，另有一条实现线从 Delivery Sprints 左侧绕回 MVP。"
+  },
+  "legend": [
+    {
+      "symbol": "蓝色矩形",
+      "meaning_zh": "架构/目标类实体（目标、能力、基线/目标/过渡架构、工作包）",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色圆角矩形",
+      "meaning_zh": "敏捷交付概念（MVP、MMP、交付冲刺）",
+      "explicit": false
+    },
+    {
+      "symbol": "斜体 maps to + 细虚线",
+      "meaning_zh": "跨模型的概念映射，无方向与基数",
+      "explicit": false
+    },
+    {
+      "symbol": "细实线 + 关系短语 + 箭头",
+      "meaning_zh": "实现、验证、变更等关系，箭头指示阅读方向",
+      "explicit": false
+    },
+    {
+      "symbol": "线旁 1、0..1、1..*",
+      "meaning_zh": "该端基数",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "business_goal",
+      "label_en": "Business Goal / Objective",
+      "label_zh": "业务目标／目的",
+      "type": "goal",
+      "parent": null,
+      "position": "左上",
+      "description_zh": "动机层实体，合并表示业务目标与业务目的。"
+    },
+    {
+      "id": "available_capability",
+      "label_en": "Available Capability & Implemented Solution",
+      "label_zh": "可用能力与已实现的解决方案",
+      "type": "capability",
+      "parent": null,
+      "position": "右上",
+      "description_zh": "已经可获得的能力及其已落地解决方案。"
+    },
+    {
+      "id": "baseline_architecture",
+      "label_en": "Baseline Architecture",
+      "label_zh": "基线架构",
+      "type": "architecture",
+      "parent": null,
+      "position": "左中",
+      "description_zh": "当前状态的架构。"
+    },
+    {
+      "id": "target_architecture",
+      "label_en": "Target Architecture",
+      "label_zh": "目标架构",
+      "type": "architecture",
+      "parent": null,
+      "position": "右中",
+      "description_zh": "期望的最终状态架构。"
+    },
+    {
+      "id": "transition_architecture",
+      "label_en": "Transition Architecture",
+      "label_zh": "过渡架构",
+      "type": "architecture",
+      "parent": null,
+      "position": "中央偏上",
+      "description_zh": "向目标推进的可实施中间状态。"
+    },
+    {
+      "id": "work_package",
+      "label_en": "Work Package",
+      "label_zh": "工作包",
+      "type": "process",
+      "parent": null,
+      "position": "底部中央",
+      "description_zh": "实现过渡架构的一组工作。"
+    },
+    {
+      "id": "mvp",
+      "label_en": "MVP",
+      "label_zh": "最小可行产品（MVP）",
+      "type": "product",
+      "parent": null,
+      "position": "左侧橙色链最上",
+      "description_zh": "Minimum Viable Product，用最小范围验证假设的产品增量。"
+    },
+    {
+      "id": "mmp",
+      "label_en": "MMP",
+      "label_zh": "最小可市场化产品（MMP）",
+      "type": "product",
+      "parent": null,
+      "position": "左侧橙色链中间",
+      "description_zh": "Minimum Marketable Product，经客户期望检验、可被市场接受的产品状态。"
+    },
+    {
+      "id": "delivery_sprints",
+      "label_en": "Delivery Sprints",
+      "label_zh": "交付冲刺",
+      "type": "time",
+      "parent": null,
+      "position": "左侧橙色链最下",
+      "description_zh": "实现 MVP/MMP 的迭代交付冲刺。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_addressed_by",
+      "from": "business_goal",
+      "to": "available_capability",
+      "type": "association",
+      "label_en": "addressed by →",
+      "label_zh": "由……应对 →",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1..*",
+      "description_zh": "业务目标/目的由可用能力与已实现方案来应对；两端 1..*。"
+    },
+    {
+      "id": "r_achieves",
+      "from": "available_capability",
+      "to": "business_goal",
+      "type": "realization",
+      "label_en": "← achieves",
+      "label_zh": "← 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 addressed by 同一条连线：可用能力与已实现方案实现业务目标；两端 1..*。"
+    },
+    {
+      "id": "r_impacts",
+      "from": "business_goal",
+      "to": "baseline_architecture",
+      "type": "influence",
+      "label_en": "↓ impacts",
+      "label_zh": "↓ 影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1..*",
+      "description_zh": "业务目标/目的影响基线架构；箭头向下，两端 1..*。"
+    },
+    {
+      "id": "r_changed_to",
+      "from": "baseline_architecture",
+      "to": "transition_architecture",
+      "type": "transitions_to",
+      "label_en": "changed to →",
+      "label_zh": "变更为 →",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1:1..*",
+      "description_zh": "基线架构变更为过渡架构；基线端 1、过渡架构端 1..*。"
+    },
+    {
+      "id": "r_evolved_from",
+      "from": "transition_architecture",
+      "to": "baseline_architecture",
+      "type": "association",
+      "label_en": "← evolved from",
+      "label_zh": "← 演进自",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1",
+      "description_zh": "与 changed to 同一条连线：过渡架构演进自基线；箭头指向基线，基线端 1。"
+    },
+    {
+      "id": "r_provides",
+      "from": "target_architecture",
+      "to": "available_capability",
+      "type": "serving",
+      "label_en": "provides ↑",
+      "label_zh": "提供 ↑",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1..*",
+      "description_zh": "目标架构提供可用能力与已实现方案；箭头向上，两端 1..*。"
+    },
+    {
+      "id": "r_implements",
+      "from": "work_package",
+      "to": "transition_architecture",
+      "type": "realization",
+      "label_en": "↑ implements",
+      "label_zh": "↑ 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1..*",
+      "description_zh": "工作包实现过渡架构；箭头向上，两端 1..*。"
+    },
+    {
+      "id": "r_implemented_by",
+      "from": "transition_architecture",
+      "to": "work_package",
+      "type": "assignment",
+      "label_en": "implemented by ↓",
+      "label_zh": "由……实现 ↓",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 implements 同一条连线：过渡架构由工作包实现；箭头指向工作包，两端 1..*。"
+    },
+    {
+      "id": "r_deployed_in",
+      "from": "work_package",
+      "to": "target_architecture",
+      "type": "dependency",
+      "label_en": "deployed in ↑",
+      "label_zh": "部署于 ↑",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1",
+      "description_zh": "工作包部署于目标架构；目标架构端 1、工作包端 1..*。"
+    },
+    {
+      "id": "r_becomes_next",
+      "from": "target_architecture",
+      "to": "baseline_architecture",
+      "type": "transitions_to",
+      "label_en": "← becomes the next",
+      "label_zh": "← 成为下一个",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": null,
+      "description_zh": "目标架构成为下一轮基线；线沿图框顶部绕行，箭头指向基线，未标基数。"
+    },
+    {
+      "id": "r_maps_mvp_ta",
+      "from": "mvp",
+      "to": "transition_architecture",
+      "type": "maps_to",
+      "label_en": "maps to",
+      "label_zh": "映射到",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "none",
+      "cardinality": null,
+      "description_zh": "MVP 映射到过渡架构；斜体标签，细虚线，无箭头与基数。"
+    },
+    {
+      "id": "r_mmp_proves_mvp",
+      "from": "mmp",
+      "to": "mvp",
+      "type": "association",
+      "label_en": "hypothesis proved MVP ↑",
+      "label_zh": "假设经 MVP 验证 ↑",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "0..1:1",
+      "description_zh": "MMP 证明 MVP 的假设；箭头向上，MVP 端 1、MMP 端 0..1。"
+    },
+    {
+      "id": "r_ds_implements_mmp",
+      "from": "delivery_sprints",
+      "to": "mmp",
+      "type": "realization",
+      "label_en": "↑ implements",
+      "label_zh": "↑ 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1..*",
+      "description_zh": "交付冲刺实现 MMP；箭头向上，两端 1..*。"
+    },
+    {
+      "id": "r_mmp_implemented_by_ds",
+      "from": "mmp",
+      "to": "delivery_sprints",
+      "type": "assignment",
+      "label_en": "implemented by ↓",
+      "label_zh": "由……实现 ↓",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1..*:1..*",
+      "description_zh": "与 implements 同一条连线：MMP 由交付冲刺实现；箭头指向交付冲刺，两端 1..*。"
+    },
+    {
+      "id": "r_ds_implements_mvp",
+      "from": "delivery_sprints",
+      "to": "mvp",
+      "type": "realization",
+      "label_en": "↑ implements / implemented by ↓",
+      "label_zh": "↑ 实现 / 由……实现 ↓",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "cardinality": "1",
+      "description_zh": "交付冲刺也可直接实现 MVP；线从交付冲刺左缘向左、向上再向右接到 MVP 左缘，箭头向上指 MVP，仅在 MVP 端标 1（交付冲刺端未标基数）。"
+    },
+    {
+      "id": "r_maps_ds_wp",
+      "from": "delivery_sprints",
+      "to": "work_package",
+      "type": "maps_to",
+      "label_en": "maps to",
+      "label_zh": "映射到",
+      "explicit": true,
+      "line": "dotted",
+      "arrow": "none",
+      "cardinality": null,
+      "description_zh": "交付冲刺映射到工作包；斜体标签，细虚线，无箭头与基数。"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_agile_delivery",
+      "kind": "sequence",
+      "name_zh": "MVP→MMP→交付冲刺",
+      "steps": [
+        "mvp",
+        "mmp",
+        "delivery_sprints"
+      ],
+      "description_zh": "橙色链自上而下的交付演进：先做 MVP，验证假设后形成 MMP，再由交付冲刺实现；图中另有一条冲刺直接实现 MVP 的旁路线。"
+    }
+  ],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G248/fig2-2",
+      "relation": "variant_of",
+      "note_zh": "保留图 2-2 的全部架构实体与关系，增加 MVP、MMP、Delivery Sprints 及两条 maps to 虚线。"
+    },
+    {
+      "target": "G248/fig3-1",
+      "relation": "instance_of",
+      "note_zh": "蓝色部分的实体类型取自企业元模型，本图是其在过渡架构 + 敏捷交付场景中的子集。"
+    },
+    {
+      "target": "G20F/fig4-2",
+      "relation": "related",
+      "note_zh": "另一份指南中专门讲“过渡架构”的图，主题相同、画法不同。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "Delivery Sprints 直接实现 MVP 的旁路线只在 MVP 端标了 1，交付冲刺端没有基数；已按“1（仅 MVP 端）”记录。",
+      "两条 maps to 虚线均未标基数与箭头，只能判为无方向的概念映射。",
+      "“hypothesis proved MVP”是不完整英语（应为 hypothesis proved by MVP），按图原样转录，语义按“MMP 证明 MVP 假设”理解。",
+      "图右下有“copy”水印，不属于图内容。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 17 页图 2-3 截图（220 dpi）与 600 dpi 重渲染分块",
+      "英文 PDF 第 16–17 页正文",
+      "中文稿 G248e_构建块的选择方法.md 第 132–174 行",
+      "figs/zh/g248e_fig2-3_zh.png（中文化 PNG）",
+      "figs/g248e_fig2-3_en.png（英文原图 PNG）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G248e.pdf",
+    "pdf_sha256": "810df20478f65d8dfd969089f9c682ec268d0e3a9126e062bda5191c9017e19c",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G248/fig2-3.json",
+    "interpretation_sha256": "b0154e80f14aa1bf2087db7e24d5f3cfa9a0c03128c2b6cad3306bc2c8468990",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 17,
+        "text": "Figure 2-3: ERD of TOGAF Transition Architecture with MVP and MMP Concepts",
+        "bbox_pdf_points": [
+          48.24,
+          356.153,
+          422.452,
+          369.719
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 17,
+      "printed_page": 5,
+      "bbox_pdf_points": [
+        48.2,
+        36.0,
+        563.8,
+        351.4
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G248/fig2-3-p0017.png",
+      "image_sha256": "cac1a8a6a5aa74a11204778a5bab034dd75a242251b381a957255a93d5bad43f",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "cac1a8a6a5aa74a11204778a5bab034dd75a242251b381a957255a93d5bad43f",
+          "status": "extracted-unverified",
+          "text": "© becomes the next\nLt\naddressed by >\nLe\nBusiness\nAvailable Capability &\nGoal / Objective\n€ achieves\nImplemented Solution\nLt\n1.\nimpacts\nprovides\nLs\n1.\nchanged to >\nBaseline\nTarget\nArchitecture\n€ evolved from\nArchitecture\nLt\n‘maps to\nTransition\nMvP\nArchitecture\nLt\nimplements\n0.1\nhypothesis proved MVP\nimplemented by 1\nMMP\ndeployed in 7\nimplements\nimplemented by\n|\nLt\n4 implements\nimplemented by J\n1\n1\n‘maps to\nDelivery Sprints\nWork Package\nLe\n© The Open Group",
+          "words": [
+            {
+              "text": "©",
+              "confidence": 56.907673,
+              "bbox_pixels_xywh": [
+                524,
+                10,
+                11,
+                10
+              ]
+            },
+            {
+              "text": "becomes",
+              "confidence": 96.720116,
+              "bbox_pixels_xywh": [
+                543,
+                9,
+                52,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 95.985718,
+              "bbox_pixels_xywh": [
+                599,
+                9,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "next",
+              "confidence": 95.985718,
+              "bbox_pixels_xywh": [
+                623,
+                10,
+                25,
+                10
+              ]
+            },
+            {
+              "text": "Lt",
+              "confidence": 54.061962,
+              "bbox_pixels_xywh": [
+                343,
+                43,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "addressed",
+              "confidence": 93.529869,
+              "bbox_pixels_xywh": [
+                539,
+                41,
+                59,
+                10
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 92.524788,
+              "bbox_pixels_xywh": [
+                603,
+                41,
+                13,
+                13
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 92.524788,
+              "bbox_pixels_xywh": [
+                620,
+                41,
+                11,
+                11
+              ]
+            },
+            {
+              "text": "Le",
+              "confidence": 39.320484,
+              "bbox_pixels_xywh": [
+                789,
+                43,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 89.265358,
+              "bbox_pixels_xywh": [
+                208,
+                49,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "Available",
+              "confidence": 95.601723,
+              "bbox_pixels_xywh": [
+                846,
+                48,
+                61,
+                12
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 93.277771,
+              "bbox_pixels_xywh": [
+                913,
+                48,
+                67,
+                14
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 92.997643,
+              "bbox_pixels_xywh": [
+                985,
+                48,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "Goal",
+              "confidence": 93.150551,
+              "bbox_pixels_xywh": [
+                182,
+                68,
+                29,
+                12
+              ]
+            },
+            {
+              "text": "/",
+              "confidence": 93.150551,
+              "bbox_pixels_xywh": [
+                216,
+                68,
+                7,
+                14
+              ]
+            },
+            {
+              "text": "Objective",
+              "confidence": 95.846741,
+              "bbox_pixels_xywh": [
+                227,
+                68,
+                64,
+                15
+              ]
+            },
+            {
+              "text": "€",
+              "confidence": 88.464035,
+              "bbox_pixels_xywh": [
+                549,
+                65,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "achieves",
+              "confidence": 96.29837,
+              "bbox_pixels_xywh": [
+                569,
+                73,
+                49,
+                11
+              ]
+            },
+            {
+              "text": "Implemented",
+              "confidence": 94.687393,
+              "bbox_pixels_xywh": [
+                846,
+                68,
+                89,
+                15
+              ]
+            },
+            {
+              "text": "Solution",
+              "confidence": 96.790016,
+              "bbox_pixels_xywh": [
+                941,
+                68,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "Lt",
+              "confidence": 32.766273,
+              "bbox_pixels_xywh": [
+                202,
+                110,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "1.",
+              "confidence": 61.292511,
+              "bbox_pixels_xywh": [
+                934,
+                110,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "impacts",
+              "confidence": 22.229652,
+              "bbox_pixels_xywh": [
+                162,
+                134,
+                60,
+                13
+              ]
+            },
+            {
+              "text": "provides",
+              "confidence": 73.530594,
+              "bbox_pixels_xywh": [
+                934,
+                134,
+                49,
+                13
+              ]
+            },
+            {
+              "text": "Ls",
+              "confidence": 37.28561,
+              "bbox_pixels_xywh": [
+                202,
+                159,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "1.",
+              "confidence": 69.366005,
+              "bbox_pixels_xywh": [
+                934,
+                159,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "changed",
+              "confidence": 91.463898,
+              "bbox_pixels_xywh": [
+                388,
+                189,
+                48,
+                13
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 86.642395,
+              "bbox_pixels_xywh": [
+                440,
+                191,
+                12,
+                9
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 86.642395,
+              "bbox_pixels_xywh": [
+                457,
+                190,
+                11,
+                10
+              ]
+            },
+            {
+              "text": "Baseline",
+              "confidence": 96.865952,
+              "bbox_pixels_xywh": [
+                209,
+                200,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "Target",
+              "confidence": 83.84639,
+              "bbox_pixels_xywh": [
+                900,
+                199,
+                42,
+                14
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.891853,
+              "bbox_pixels_xywh": [
+                194,
+                220,
+                84,
+                12
+              ]
+            },
+            {
+              "text": "€",
+              "confidence": 86.349426,
+              "bbox_pixels_xywh": [
+                384,
+                216,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "evolved",
+              "confidence": 93.193092,
+              "bbox_pixels_xywh": [
+                408,
+                224,
+                44,
+                10
+              ]
+            },
+            {
+              "text": "from",
+              "confidence": 96.891502,
+              "bbox_pixels_xywh": [
+                456,
+                224,
+                28,
+                10
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.264473,
+              "bbox_pixels_xywh": [
+                879,
+                219,
+                83,
+                12
+              ]
+            },
+            {
+              "text": "Lt",
+              "confidence": 49.904228,
+              "bbox_pixels_xywh": [
+                605,
+                271,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "‘maps",
+              "confidence": 76.438835,
+              "bbox_pixels_xywh": [
+                382,
+                311,
+                31,
+                10
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 81.540039,
+              "bbox_pixels_xywh": [
+                417,
+                309,
+                11,
+                9
+              ]
+            },
+            {
+              "text": "Transition",
+              "confidence": 91.266296,
+              "bbox_pixels_xywh": [
+                555,
+                315,
+                67,
+                11
+              ]
+            },
+            {
+              "text": "MvP",
+              "confidence": 56.87122,
+              "bbox_pixels_xywh": [
+                221,
+                326,
+                31,
+                11
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.94841,
+              "bbox_pixels_xywh": [
+                547,
+                335,
+                84,
+                12
+              ]
+            },
+            {
+              "text": "Lt",
+              "confidence": 55.747231,
+              "bbox_pixels_xywh": [
+                556,
+                383,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "implements",
+              "confidence": 91.099915,
+              "bbox_pixels_xywh": [
+                32,
+                397,
+                69,
+                13
+              ]
+            },
+            {
+              "text": "0.1",
+              "confidence": 47.199417,
+              "bbox_pixels_xywh": [
+                208,
+                400,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "hypothesis",
+              "confidence": 95.030434,
+              "bbox_pixels_xywh": [
+                248,
+                386,
+                62,
+                13
+              ]
+            },
+            {
+              "text": "proved",
+              "confidence": 96.826202,
+              "bbox_pixels_xywh": [
+                314,
+                386,
+                40,
+                13
+              ]
+            },
+            {
+              "text": "MVP",
+              "confidence": 55.225788,
+              "bbox_pixels_xywh": [
+                358,
+                387,
+                27,
+                10
+              ]
+            },
+            {
+              "text": "implemented",
+              "confidence": 96.663803,
+              "bbox_pixels_xywh": [
+                12,
+                448,
+                74,
+                13
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.949783,
+              "bbox_pixels_xywh": [
+                91,
+                448,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 31.16437,
+              "bbox_pixels_xywh": [
+                109,
+                448,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "MMP",
+              "confidence": 82.205307,
+              "bbox_pixels_xywh": [
+                219,
+                448,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "deployed",
+              "confidence": 93.512543,
+              "bbox_pixels_xywh": [
+                937,
+                448,
+                53,
+                13
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 96.30587,
+              "bbox_pixels_xywh": [
+                995,
+                451,
+                9,
+                7
+              ]
+            },
+            {
+              "text": "7",
+              "confidence": 46.810474,
+              "bbox_pixels_xywh": [
+                1009,
+                447,
+                11,
+                13
+              ]
+            },
+            {
+              "text": "implements",
+              "confidence": 92.788864,
+              "bbox_pixels_xywh": [
+                485,
+                460,
+                69,
+                13
+              ]
+            },
+            {
+              "text": "implemented",
+              "confidence": 95.79232,
+              "bbox_pixels_xywh": [
+                608,
+                460,
+                77,
+                13
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 84.176132,
+              "bbox_pixels_xywh": [
+                689,
+                460,
+                14,
+                13
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 93.173737,
+              "bbox_pixels_xywh": [
+                590,
+                475,
+                1,
+                13
+              ]
+            },
+            {
+              "text": "Lt",
+              "confidence": 40.993458,
+              "bbox_pixels_xywh": [
+                211,
+                499,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 36.391064,
+              "bbox_pixels_xywh": [
+                144,
+                514,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "implements",
+              "confidence": 89.6819,
+              "bbox_pixels_xywh": [
+                163,
+                515,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "implemented",
+              "confidence": 96.716301,
+              "bbox_pixels_xywh": [
+                245,
+                515,
+                77,
+                13
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.913765,
+              "bbox_pixels_xywh": [
+                327,
+                515,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "J",
+              "confidence": 41.833462,
+              "bbox_pixels_xywh": [
+                345,
+                515,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 48.088188,
+              "bbox_pixels_xywh": [
+                209,
+                533,
+                20,
+                10
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 58.858494,
+              "bbox_pixels_xywh": [
+                556,
+                537,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "‘maps",
+              "confidence": 65.906006,
+              "bbox_pixels_xywh": [
+                388,
+                571,
+                32,
+                10
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 95.927269,
+              "bbox_pixels_xywh": [
+                424,
+                569,
+                11,
+                9
+              ]
+            },
+            {
+              "text": "Delivery",
+              "confidence": 96.548691,
+              "bbox_pixels_xywh": [
+                184,
+                586,
+                55,
+                14
+              ]
+            },
+            {
+              "text": "Sprints",
+              "confidence": 96.912338,
+              "bbox_pixels_xywh": [
+                243,
+                586,
+                46,
+                14
+              ]
+            },
+            {
+              "text": "Work",
+              "confidence": 96.764091,
+              "bbox_pixels_xywh": [
+                544,
+                586,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "Package",
+              "confidence": 95.43116,
+              "bbox_pixels_xywh": [
+                585,
+                586,
+                53,
+                15
+              ]
+            },
+            {
+              "text": "Le",
+              "confidence": 22.909517,
+              "bbox_pixels_xywh": [
+                693,
+                599,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "©",
+              "confidence": 92.487328,
+              "bbox_pixels_xywh": [
+                872,
+                616,
+                4,
+                1
+              ]
+            },
+            {
+              "text": "The",
+              "confidence": 92.487328,
+              "bbox_pixels_xywh": [
+                882,
+                609,
+                18,
+                8
+              ]
+            },
+            {
+              "text": "Open",
+              "confidence": 95.828484,
+              "bbox_pixels_xywh": [
+                905,
+                609,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Group",
+              "confidence": 96.78553,
+              "bbox_pixels_xywh": [
+                936,
+                609,
+                30,
+                10
+              ]
+            }
+          ],
+          "mean_word_confidence": 79.74,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

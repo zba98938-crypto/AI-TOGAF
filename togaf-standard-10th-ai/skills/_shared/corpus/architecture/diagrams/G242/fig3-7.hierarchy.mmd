@@ -1,0 +1,28 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["中心 ICT 设备插画（云、网络球、数据库、显示器、网络设备）"]
+  n1["Iteration 1"]
+  n2["Iteration 2"]
+  n3["Iteration 3"]
+  n4["Iteration 1"]
+  n5["Iteration 2"]
+  n6["Iteration 3"]
+  n7["Constraints on Uses"]
+  n8["Limit access with quota or dedicated group of users to high-consuming functions like, for example, streaming, mobile network, high volume storage, etc."]
+  n9["Constraints on Applications &amp; Developments"]
+  n10["Optimize energy consumption, rely on open library to limit software obsolescence, restrain the use of library/framework with high impact, choose low energy library/framework."]
+  n11["Constraints on Data"]
+  n12["Quota on data volumes at different level enterprise, business line, application, users, etc."]
+  n13["Constraints on Infrastructure"]
+  n14["Take into account environmental criteria on type of equipment purchased, restrain number of servers, number of virtual machine volume."]
+  n3 -.->|"分组"| n0
+  n1 -.->|"分组"| n2
+  n2 -.->|"分组"| n3
+  n7 -.->|"visual_containment_only"| n8
+  n9 -.->|"visual_containment_only"| n10
+  n11 -.->|"visual_containment_only"| n12
+  n13 -.->|"visual_containment_only"| n14
+  n7 -->|"治理范围: governs"| n0
+  n9 -->|"治理范围: governs"| n0
+  n11 -->|"治理范围: governs"| n0
+  n13 -->|"治理范围: governs"| n0

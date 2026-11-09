@@ -1,0 +1,424 @@
+# G184/fig9-2 · EA 能力模型的分解
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G184/fig9-2.md) · [JSON](../../architecture/diagrams/G184/fig9-2.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G184e.pdf`；SHA-256：`85fe5653767b184c3c8c9c1bef9f5738adbb2bf6661fb50ee95e72d16bc9f614`。
+
+## 原图 · PDF 第 83 页
+
+![英文原图](../assets/G184/fig9-2-p0083.png)
+
+PDF 坐标：`[48.2, 36.0, 563.8, 324.9]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+© The Open Group
+General Business Capabilities
+Performance
+Organization
+Leadership
+HR Management
+Model
+etc.
+Management
+Purpose Capabilities
+Develop Architecture
+Develop Architecture
+Develop Architecture
+(Consume Superior
+(Consume Superior
+(Consume Superior
+Architecture)
+Architecture)
+Architecture)
+Foundational Capabilities
+Architecture
+Architecture Contents
+EA Techniques
+Contents
+Governance
+(Template &
+Process Integration
+(Stakeholder, Risk,
+(Model)
+Repository)
+Trade-off, etc.)
+```
+
+## 概要（历史解释；局部修正见上）
+
+把 EA 能力模型分解为通用业务能力、四种目的能力与基础能力三组，并列出各组的具体能力。
+
+## 目的（历史解释；局部修正见上）
+
+回答“EA 能力由哪些能力/活动构成”：在 9.3 节用一张高层视图说明 EA 能力既有 EA 专有的目的能力，也有任何业务都需要的通用业务能力与共同的基础能力；团队结构、技能与共享职能的配置都要以此为依据。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+自上而下读三条蓝色横带。顶部“通用业务能力”带内是 5 个白框；中部“目的能力”带内是 4 个彩色列，从左到右为支持战略、支持组合、支持项目、支持解决方案交付，每列下方有 2 个白色子能力框；底部“基础能力”带内是 5 个白框。所有归属只由“框在带内/列内”表达，图中没有箭头。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 三类能力并列：通用业务能力（领导力、绩效管理、人力资源管理、组织模型、等）、目的能力、基础能力。
+- 目的能力有四列，对应四种架构目的：支持战略、支持组合、支持项目、支持解决方案交付；四列从左到右覆盖范围由宽到窄（背景知识，见图 3-2 的说明）。
+- 四列的子能力有共性也有差异：每列都有“开发架构”；第 2–4 列注明“消费上级架构”；第 1–2 列治理下级架构，第 3 列治理项目与设计，第 4 列支持采购。
+- 只有“支持战略”列的“开发架构”不注明消费上级架构，因为它是最高层目的；这正对应图 3-2 中四种目的逐级向下界定范围的逻辑（背景知识）。
+- 基础能力是跨目的的共同底座：架构内容（模型）、架构内容（模板与存储库）、治理、流程集成、EA 技术（利益相关者、风险、权衡等）。
+- 通用业务能力是任何业务都需要的共享职能（正文举例财务与预算、团队发展、风险管理、绩效管理），不是 EA 专有；多数企业由共享团队提供。
+- 顶部最后一个框与底部“EA 技术”括号中的“等”都表示开放列表，不是名为“等”的具体能力。
+- 图中没有连线，说明这是分类分解而非流程或依赖图；正文另述活动之间的相互关系，不能从本图读出先后顺序。
+
+## 层级（历史解释；局部修正见上）
+
+三层结构（目的能力部分到第三层）：三条横带（L1：通用业务能力 / 目的能力 / 基础能力）→ 带内的能力框（L2）。目的能力横带多一层：4 个彩色目的能力框（L2）各自包含 2 个白色子能力框（L3）。三条横带之上没有总框，整体（EA 能力模型）由三条横带共同表示。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有任何连线或箭头。上下堆叠表示三类能力的分类，左右排列表示同一类内的并列或目的范围由宽到窄；彩色列包住两个白框表示子能力归属。颜色只用于区分四种目的，没有图例，也不表示成熟度或差距。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要把三条横带读成时间顺序、成熟度阶段或 ADM 阶段；它们是能力类别。
+- 不要以为“支持战略”列少了“消费上级架构”是遗漏；它是最上层目的，没有更高的上级架构可消费。
+- 不要把“等”当作一个具体能力，也不要把“EA 技术”括号中的“等”当作省略了关键内容。
+- 不要把四种目的列的颜色读成热力图或差距编码；图中没有图例，颜色只作区分。
+- 不要把本图当作组织架构图；框是能力/活动，不是部门或岗位（正文明确本文档不讨论 EA 部门）。
+- 中文稿引用的 SVG 是结构忠实的重绘；同目录的 zh PNG 有英文残留叠字，不能作为理解依据。
+
+## 元素
+
+```json
+[
+  {
+    "id": "band_general",
+    "label_en": "General Business Capabilities",
+    "label_zh": "通用业务能力",
+    "type": "capability",
+    "parent": null,
+    "level": 1,
+    "order": 1,
+    "position": "顶部蓝色横带",
+    "description_zh": "任何业务都需要的通用能力，多为企业共享职能；本图列出 5 项（含“等”）。"
+  },
+  {
+    "id": "cap_leadership",
+    "label_en": "Leadership",
+    "label_zh": "领导力",
+    "type": "capability",
+    "parent": "band_general",
+    "level": 2,
+    "position": "顶部横带左一"
+  },
+  {
+    "id": "cap_performance",
+    "label_en": "Performance Management",
+    "label_zh": "绩效管理",
+    "type": "capability",
+    "parent": "band_general",
+    "level": 2,
+    "position": "顶部横带左二"
+  },
+  {
+    "id": "cap_hr",
+    "label_en": "HR Management",
+    "label_zh": "人力资源管理",
+    "type": "capability",
+    "parent": "band_general",
+    "level": 2,
+    "position": "顶部横带中"
+  },
+  {
+    "id": "cap_org_model",
+    "label_en": "Organization Model",
+    "label_zh": "组织模型",
+    "type": "capability",
+    "parent": "band_general",
+    "level": 2,
+    "position": "顶部横带右二"
+  },
+  {
+    "id": "cap_etc",
+    "label_en": "etc.",
+    "label_zh": "等（其他通用能力）",
+    "type": "note",
+    "parent": "band_general",
+    "level": 2,
+    "position": "顶部横带右一",
+    "description_zh": "开放列表占位，不是具体能力名称。"
+  },
+  {
+    "id": "band_purpose",
+    "label_en": "Purpose Capabilities",
+    "label_zh": "目的能力",
+    "type": "capability",
+    "parent": null,
+    "level": 1,
+    "order": 2,
+    "position": "中部蓝色横带",
+    "description_zh": "与 EA 能力所支持的目的直接相关的能力；含四种目的，从左到右范围由宽到窄。"
+  },
+  {
+    "id": "pur_strategy",
+    "label_en": "Architecture to Support Strategy",
+    "label_zh": "支持战略的架构",
+    "type": "capability",
+    "parent": "band_purpose",
+    "level": 2,
+    "order": 1,
+    "position": "中部横带第一列（黄色）",
+    "description_zh": "交付目标架构与长期变革路线图，通常跨越多个组合/项目群。"
+  },
+  {
+    "id": "strat_develop",
+    "label_en": "Develop Architecture",
+    "label_zh": "开发架构",
+    "type": "capability",
+    "parent": "pur_strategy",
+    "level": 3,
+    "position": "黄色列上框",
+    "description_zh": "本列唯一不注明“消费上级架构”的开发架构，因为支持战略是最上层目的。"
+  },
+  {
+    "id": "strat_govern",
+    "label_en": "Govern Subordinate Architecture",
+    "label_zh": "治理下级架构",
+    "type": "capability",
+    "parent": "pur_strategy",
+    "level": 3,
+    "position": "黄色列下框"
+  },
+  {
+    "id": "pur_portfolio",
+    "label_en": "Architecture to Support Portfolio",
+    "label_zh": "支持组合的架构",
+    "type": "capability",
+    "parent": "band_purpose",
+    "level": 2,
+    "order": 2,
+    "position": "中部横带第二列（绿色）",
+    "description_zh": "支持跨职能、多阶段、多项目的变革举措，通常跨越单个组合。"
+  },
+  {
+    "id": "port_develop",
+    "label_en": "Develop Architecture (Consume Superior Architecture)",
+    "label_zh": "开发架构（消费上级架构）",
+    "type": "capability",
+    "parent": "pur_portfolio",
+    "level": 3,
+    "position": "绿色列上框"
+  },
+  {
+    "id": "port_govern",
+    "label_en": "Govern Subordinate Architecture",
+    "label_zh": "治理下级架构",
+    "type": "capability",
+    "parent": "pur_portfolio",
+    "level": 3,
+    "position": "绿色列下框"
+  },
+  {
+    "id": "pur_projects",
+    "label_en": "Architecture to Support Projects",
+    "label_zh": "支持项目的架构",
+    "type": "capability",
+    "parent": "band_purpose",
+    "level": 2,
+    "order": 3,
+    "position": "中部横带第三列（橙色）",
+    "description_zh": "支持企业项目交付方法，通常跨越单个项目。"
+  },
+  {
+    "id": "proj_develop",
+    "label_en": "Develop Architecture (Consume Superior Architecture)",
+    "label_zh": "开发架构（消费上级架构）",
+    "type": "capability",
+    "parent": "pur_projects",
+    "level": 3,
+    "position": "橙色列上框"
+  },
+  {
+    "id": "proj_govern",
+    "label_en": "Govern Projects & Design",
+    "label_zh": "治理项目与设计",
+    "type": "capability",
+    "parent": "pur_projects",
+    "level": 3,
+    "position": "橙色列下框"
+  },
+  {
+    "id": "pur_solution",
+    "label_en": "Architecture to Support Solution Delivery",
+    "label_zh": "支持解决方案交付的架构",
+    "type": "capability",
+    "parent": "band_purpose",
+    "level": 2,
+    "order": 4,
+    "position": "中部横带第四列（紫红色）",
+    "description_zh": "通常是单个项目或其中的重要部分，定义变更如何设计与交付。"
+  },
+  {
+    "id": "sol_develop",
+    "label_en": "Develop Architecture (Consume Superior Architecture)",
+    "label_zh": "开发架构（消费上级架构）",
+    "type": "capability",
+    "parent": "pur_solution",
+    "level": 3,
+    "position": "紫红色列上框"
+  },
+  {
+    "id": "sol_procure",
+    "label_en": "Support Procurement",
+    "label_zh": "支持采购",
+    "type": "capability",
+    "parent": "pur_solution",
+    "level": 3,
+    "position": "紫红色列下框"
+  },
+  {
+    "id": "band_foundational",
+    "label_en": "Foundational Capabilities",
+    "label_zh": "基础能力",
+    "type": "capability",
+    "parent": null,
+    "level": 1,
+    "order": 3,
+    "position": "底部蓝色横带",
+    "description_zh": "不随目的变化、支撑各目的的公共 EA 能力；本图列出 5 项。"
+  },
+  {
+    "id": "found_contents_model",
+    "label_en": "Architecture Contents (Model)",
+    "label_zh": "架构内容（模型）",
+    "type": "capability",
+    "parent": "band_foundational",
+    "level": 2,
+    "position": "底部横带左一"
+  },
+  {
+    "id": "found_contents_repo",
+    "label_en": "Architecture Contents (Template & Repository)",
+    "label_zh": "架构内容（模板与存储库）",
+    "type": "capability",
+    "parent": "band_foundational",
+    "level": 2,
+    "position": "底部横带左二"
+  },
+  {
+    "id": "found_governance",
+    "label_en": "Governance",
+    "label_zh": "治理",
+    "type": "capability",
+    "parent": "band_foundational",
+    "level": 2,
+    "position": "底部横带中"
+  },
+  {
+    "id": "found_process_integration",
+    "label_en": "Process Integration",
+    "label_zh": "流程集成",
+    "type": "capability",
+    "parent": "band_foundational",
+    "level": 2,
+    "position": "底部横带右二"
+  },
+  {
+    "id": "found_ea_techniques",
+    "label_en": "EA Techniques (Stakeholder, Risk, Trade-off, etc.)",
+    "label_zh": "EA 技术（利益相关者、风险、权衡等）",
+    "type": "capability",
+    "parent": "band_foundational",
+    "level": 2,
+    "position": "底部横带右一"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "蓝色横带 + 白色粗体标题",
+    "meaning_zh": "一类能力（通用业务能力 / 目的能力 / 基础能力）",
+    "explicit": false
+  },
+  {
+    "symbol": "白色矩形框",
+    "meaning_zh": "一个具体能力/活动",
+    "explicit": false
+  },
+  {
+    "symbol": "彩色列（黄/绿/橙/紫红）",
+    "meaning_zh": "一种目的能力及其两个子能力；颜色仅作区分",
+    "explicit": false
+  },
+  {
+    "symbol": "框在横带/彩色列之内",
+    "meaning_zh": "该能力属于该类别/该目的",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "三条等宽蓝色横带自上而下堆叠：顶部横带高约 1/7，内含 5 个等宽白框；中部横带最高，标题下并排 4 个彩色列（黄、绿、橙、紫红），每列标题下 2 个白框；底部横带高约 1/7，内含 5 个等宽白框。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G184/fig3-2",
+    "relation": "detail_of",
+    "note_zh": "图 3-2 给出 EA 能力模型的三条能力横带与四种目的，本图把三条横带展开到具体能力项。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "三条横带之上没有总框；“EA 能力模型”是图题给出的整体，未作为元素补画。",
+    "正文把图中的方框称为“活动”（activities），而图题与模型称“能力”（capabilities）；元素类型按图题取 capability。",
+    "“Govern Projects & Design”“Support Procurement”“Process Integration”等中文译名由解析者拟定，中文稿未逐项给出对照；已尽量沿用图 3-2 与 SVG 的译法。",
+    "“支持战略的架构”在中文稿中写作“支持战略的架构开发”，SVG 写作“架构支持战略”；本分析采用与图 3-2 一致的名词形式。",
+    "顶部“等”与“EA 技术”括号内的“等”都是开放列表，未展开为具体能力。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 83 页图 9-2 截图与 3x3 放大分块",
+    "英文 PDF 第 82、83 页正文",
+    "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 859-876 行",
+    "figs/zh/g184e_fig9-2_zh.svg 源码与渲染",
+    "figs/zh/g184e_fig9-2_zh.png"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

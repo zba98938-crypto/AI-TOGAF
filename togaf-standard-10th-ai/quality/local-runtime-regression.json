@@ -1,0 +1,154 @@
+{
+  "schema_version": "local-runtime-regression/1",
+  "executed_at": "2026-11-08T09:58:57.048235+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "id": "invalid-level-99",
+      "passed": true,
+      "detail": "G249-LEVEL [OBS-A]: Proficiency must be an integer 1..4 or null"
+    },
+    {
+      "id": "invalid-level-0",
+      "passed": true,
+      "detail": "G249-LEVEL [OBS-A]: Proficiency must be an integer 1..4 or null"
+    },
+    {
+      "id": "invalid-level-True",
+      "passed": true,
+      "detail": "G249-LEVEL [OBS-A]: Proficiency must be an integer 1..4 or null"
+    },
+    {
+      "id": "invalid-level-2.5",
+      "passed": true,
+      "detail": "G249-LEVEL [OBS-A]: Proficiency must be an integer 1..4 or null"
+    },
+    {
+      "id": "missing-level-stays-unknown",
+      "passed": true,
+      "detail": "unknown preserved"
+    },
+    {
+      "id": "no-fabricated-official-column-chief",
+      "passed": true,
+      "detail": "G249-REF [REQ-SKILL-CH]: Unknown source role column"
+    },
+    {
+      "id": "no-fabricated-official-column-segment",
+      "passed": true,
+      "detail": "G249-REF [REQ-SKILL-CH]: Unknown source role column"
+    },
+    {
+      "id": "task-period-missing",
+      "passed": true,
+      "detail": "unresolved"
+    },
+    {
+      "id": "task-period-short",
+      "passed": true,
+      "detail": "not-covered"
+    },
+    {
+      "id": "task-period-covered",
+      "passed": true,
+      "detail": "covered-for-declared-task-periods"
+    },
+    {
+      "id": "task-period-bad",
+      "passed": true,
+      "detail": "G249-DATE [TASK-SOL:work_period.end]: Invalid ISO date"
+    },
+    {
+      "id": "task-period-reversed",
+      "passed": true,
+      "detail": "G249-DATE [TASK-SOL]: Task work period end precedes start"
+    },
+    {
+      "id": "course-does-not-prove-competence",
+      "passed": true,
+      "detail": "training cannot establish criterion"
+    },
+    {
+      "id": "unknown-workload-not-sufficient",
+      "passed": true,
+      "detail": "unresolved"
+    },
+    {
+      "id": "generic-projection-idempotent-seven-relations",
+      "passed": true,
+      "detail": {
+        "relationships": 7,
+        "idempotent": true
+      }
+    },
+    {
+      "id": "projection-rejects-incomplete-entity_ids",
+      "passed": true,
+      "detail": "assignment-projection-selection"
+    },
+    {
+      "id": "projection-rejects-incomplete-relationship_ids",
+      "passed": true,
+      "detail": "assignment-projection-selection"
+    },
+    {
+      "id": "projection-collision-rejected",
+      "passed": true,
+      "detail": "rejected conflicting task identity"
+    },
+    {
+      "id": "same-tier-coordination-without-reporting",
+      "passed": true,
+      "detail": "lateral guidance accepted with declared scope and evidence"
+    },
+    {
+      "id": "pdf-web-source-closure-and-current-query",
+      "passed": true,
+      "detail": {
+        "sources": [
+          {
+            "logical_path": "togaf-standard-10th/G249e.pdf",
+            "package_path": "sources/pdf/G249e.pdf",
+            "exists": true,
+            "sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da"
+          },
+          {
+            "logical_path": "../g226.pdf",
+            "package_path": "sources/pdf/g226.pdf",
+            "exists": true,
+            "sha256": "19cb2da0a2c4d18040ea56f23e045590e968093d1d81c3db476ed3ae145c84f0"
+          },
+          {
+            "logical_path": "../w242c.pdf",
+            "package_path": "sources/pdf/w242c.pdf",
+            "exists": true,
+            "sha256": "c45186cb30ce0f2930cd5b97714d7b3e91b796dfeb86b3608eb1414bee7a4431"
+          },
+          {
+            "logical_path": "fundamental/web-2025/volumes/06-ea-capability-and-governance/source.html",
+            "package_path": "fundamental/web-2025/volumes/06-ea-capability-and-governance/source.html",
+            "exists": true,
+            "sha256": "3415515f12a4b20d30950c98e0421bcf924526f84d9658cc47dfcea9cb4daab6"
+          }
+        ],
+        "web_hits": 8
+      }
+    }
+  ],
+  "counts": {
+    "checks": 20,
+    "passed": 20,
+    "failed": 0
+  },
+  "input_sha256": {
+    "maintenance/cases/omnichannel/role-skill-inputs.json": "611b436b1c167cff818e1c4ce3a1a4d7f620c5d46c047836c4678c9b221ef8e0",
+    "skills/_shared/scripts/g249_reasoning.py": "dd9cf766b167f685337bb5e1447d5382ca9386ef8412665882eefb9b630bfb3e",
+    "skills/_shared/scripts/assignment_projection.py": "fc7f878fbbc5f7e4110876aa01ca890bad80ebf48bd530c716adf9a22a503cd2",
+    "skills/_shared/scripts/validate.py": "cad9c2dd8385c0b19046947066c98abcfb88144b04380e04d0134dc7a693116f",
+    "skills/_shared/scripts/corpus_query.py": "b8f53690f51f62090999973c2b55dcd22bc73bcfa0d527c991d368136e2186e3"
+  },
+  "limits_zh": [
+    "只验证项目执行契约和已列反例，不验证人员行为真伪。",
+    "所有实际组织批准保持未授予。"
+  ]
+}

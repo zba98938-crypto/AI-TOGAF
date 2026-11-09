@@ -1,0 +1,237 @@
+{
+  "schema_version": "2.0",
+  "project": {
+    "id": "g249-omnichannel",
+    "name": "虚构全渠道订单履约改造",
+    "version": "1",
+    "context": {
+      "domains": [
+        "business",
+        "data",
+        "application",
+        "technology"
+      ],
+      "landscape": "segment",
+      "purpose": "project",
+      "abstraction": "logical",
+      "evolution": "target"
+    },
+    "is_example": true,
+    "approval_status": "candidate",
+    "implementation_status": "not-started"
+  },
+  "view": {
+    "id": "order-states",
+    "artifact_id": "data-lifecycle-diagram",
+    "profile_id": "compat-data-lifecycle-diagram",
+    "title": "订单受理、承诺与物流交接边界",
+    "context": {
+      "domains": [
+        "business",
+        "data",
+        "application",
+        "technology"
+      ],
+      "landscape": "segment",
+      "purpose": "project",
+      "abstraction": "logical",
+      "evolution": "target"
+    },
+    "entity_ids": [
+      "ORDER-PENDING",
+      "ORDER-CONFIRMED",
+      "ORDER-EXCEPTION",
+      "ORDER-FULFIL"
+    ],
+    "relationship_ids": [
+      "ORDER-CONFIRM",
+      "ORDER-EXCEPT",
+      "ORDER-TO-FULFIL"
+    ],
+    "analysis": "业务给定物流只接收已确认订单。中间状态和异常处理为候选；确认条件、保留期限及物流接口尚待明确。",
+    "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+  },
+  "computed_analyses": [],
+  "entities": [
+    {
+      "id": "ORDER-PENDING",
+      "type": "data_state",
+      "name": "订单已受理／待确认",
+      "attributes": {
+        "owner": "订单分段（候选责任）",
+        "retention": "保留期限待业务与法务确定",
+        "entry": "请求已记录；离线时需本地持久化",
+        "exit": "依据待确定的承诺规则确认或转异常"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-CONFIRMED",
+      "type": "data_state",
+      "name": "订单已确认",
+      "attributes": {
+        "owner": "订单分段（候选责任）",
+        "retention": "保留期限待定",
+        "entry": "库存与承诺条件已满足；详细规则待业务定义",
+        "exit": "交给物流履约或按变更政策处置"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-EXCEPTION",
+      "type": "data_state",
+      "name": "库存或同步异常待处理",
+      "attributes": {
+        "owner": "库存与门店联合责任待明确",
+        "retention": "保留至冲突处理与审计完成，时限待定",
+        "entry": "库存不足、重放冲突或恢复未对账",
+        "exit": "人工补偿或重新确认；规则待明确"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-FULFIL",
+      "type": "data_state",
+      "name": "允许物流履约的订单记录",
+      "attributes": {
+        "owner": "物流分段（来自工作范围）",
+        "retention": "保留期限待定",
+        "entry": "只接收已确认订单",
+        "exit": "履约结果回传；接口待调查"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "ORDER-CONFIRM",
+      "type": "transitions_to",
+      "source": "ORDER-PENDING",
+      "target": "ORDER-CONFIRMED",
+      "label": "满足待确定的库存与承诺条件",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-EXCEPT",
+      "type": "transitions_to",
+      "source": "ORDER-PENDING",
+      "target": "ORDER-EXCEPTION",
+      "label": "库存不足、重放冲突或未对账",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-TO-FULFIL",
+      "type": "transitions_to",
+      "source": "ORDER-CONFIRMED",
+      "target": "ORDER-FULFIL",
+      "label": "确认后才允许交付物流",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    }
+  ],
+  "sources": [
+    {
+      "id": "CASE-MANDATE",
+      "kind": "example",
+      "description": "虚构架构工作委托",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-mandate"
+    },
+    {
+      "id": "CASE-BASELINE",
+      "kind": "example",
+      "description": "虚构现状及未决要求",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-baseline"
+    },
+    {
+      "id": "CASE-CHANGE",
+      "kind": "example",
+      "description": "虚构离线门店销售新增约束",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-change"
+    },
+    {
+      "id": "CASE-REVIEW",
+      "kind": "example",
+      "description": "虚构项目分析约定",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-review"
+    },
+    {
+      "id": "CASE-PERSON",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-PERSON",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json"
+    },
+    {
+      "id": "CASE-EXPERT",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-EXPERT",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json"
+    },
+    {
+      "id": "CASE-ROLE-TARGET",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-ROLE-TARGET",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json"
+    },
+    {
+      "id": "g249-table-source",
+      "kind": "official",
+      "description": "G249 §5 Tables 5-1/5-2：参考等级与量表；不证明任何人员已具备能力",
+      "locator": "corpus/sources/pdf/G249e.pdf#page=27"
+    },
+    {
+      "id": "example-source",
+      "kind": "example",
+      "description": "虚构项目要求、辅导应用记录与复评计划；非实际人员评价",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GAP-CONSISTENCY",
+      "description": "库存一致性、承诺和恢复目标未明确，方案不能定优",
+      "impact": "接口、风险及试点进入条件未定",
+      "needed_input": "业务接受标准与服务水平"
+    },
+    {
+      "id": "GAP-STORE-ONLINE",
+      "description": "门店在线销售与中央库存的当前交互尚未调查",
+      "impact": "不能由线上订单接口推断门店在线行为",
+      "needed_input": "门店在线流程、接口与失败处理材料"
+    },
+    {
+      "id": "GAP-LOGISTICS-HANDOFF",
+      "description": "已确认订单交给物流的具体接口和责任未提供",
+      "impact": "只明确确认前不进入物流，交接规格待定",
+      "needed_input": "物流接收契约与责任方"
+    },
+    {
+      "id": "GAP-EXPERT-LEVEL",
+      "description": "原教学输入称专家4级但现有行为证据不足，当前等级保持未评价",
+      "impact": "不能仅凭专家头衔确认支持能力",
+      "needed_input": "任务相关的广泛经验、实际应用与评审证据"
+    }
+  ]
+}

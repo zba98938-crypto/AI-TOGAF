@@ -1,0 +1,200 @@
+{
+  "schema_version": "method-teaching-materials/1",
+  "method_id": "smart-objective-review",
+  "is_example": true,
+  "title": "双店预约错误率目标的结构与现实性边界",
+  "source": "G176 §9.1–9.3",
+  "decision": "填写5%到4%的目标能否证明改善已实现，扩大范围后能否沿用原现实性依据？",
+  "materials": [
+    [
+      "GOAL",
+      "业务目标为减少双店预约录入差错，目标5%到4%由虚构运营组提出。"
+    ],
+    [
+      "BASELINE",
+      "基线取同一双店抽样口径；没有全公司数据。"
+    ],
+    [
+      "PILOT",
+      "小样本组件与培训试点支持继续验证，尚不足以证明长期效果。"
+    ]
+  ],
+  "reasoning": [
+    "5%和4%是业务材料给出的基线与目标，不能由分析者自行填充。",
+    "SMART结构完整只表示字段可复核，现实性仍需责任人审阅。",
+    "从5%到4%是目标绝对下降1个百分点，不是已观察到改善。",
+    "扩为全国门店后原双店证据不覆盖新范围，必须撤下现实性支持并补证据。"
+  ],
+  "scenarios": {
+    "sufficient": {
+      "inputs": {
+        "source_ids": [
+          "GOAL",
+          "BASELINE",
+          "PILOT"
+        ],
+        "goals": [
+          {
+            "id": "GOAL-ERROR",
+            "statement": "减少试点预约录入错误",
+            "category": "user-productivity",
+            "business_goal_ref": "BUSINESS-RELIABILITY"
+          }
+        ],
+        "objectives": [
+          {
+            "id": "OBJ-ERROR",
+            "goal_id": "GOAL-ERROR",
+            "statement": "双店预约录入错误率从5%降至4%",
+            "scope": "双店试点同一抽样口径",
+            "measure": "录入错误事件/全部录入事件",
+            "unit": "%",
+            "baseline": 5,
+            "target": 4,
+            "owner": "虚构运营改进组",
+            "action": "统一预约字段并试点培训",
+            "realism_rationale": "同口径小样本试点支持继续验证，但不可外推全公司",
+            "realism_evidence": [
+              "PILOT"
+            ],
+            "due": "2026-12-31"
+          }
+        ]
+      },
+      "expected": {
+        "row_states": [
+          "structurally-smart-awaiting-review"
+        ],
+        "gap_reasons": []
+      },
+      "explanation": "结构齐全，效果与合理性待业务评审。"
+    },
+    "missing": {
+      "inputs": {
+        "source_ids": [
+          "GOAL",
+          "BASELINE",
+          "PILOT"
+        ],
+        "goals": [
+          {
+            "id": "GOAL-ERROR",
+            "statement": "减少试点预约录入错误",
+            "category": "user-productivity",
+            "business_goal_ref": "BUSINESS-RELIABILITY"
+          }
+        ],
+        "objectives": [
+          {
+            "id": "OBJ-ERROR",
+            "goal_id": "GOAL-ERROR",
+            "statement": "双店预约录入错误率从5%降至4%",
+            "scope": "双店试点同一抽样口径",
+            "measure": "录入错误事件/全部录入事件",
+            "unit": "%",
+            "target": 4,
+            "owner": "虚构运营改进组",
+            "action": "统一预约字段并试点培训",
+            "realism_rationale": "同口径小样本试点支持继续验证，但不可外推全公司",
+            "realism_evidence": [
+              "PILOT"
+            ],
+            "due": "2026-12-31"
+          }
+        ]
+      },
+      "expected": {
+        "row_states": [
+          "needs-input"
+        ],
+        "gap_reasons": [
+          "no-baseline"
+        ]
+      },
+      "explanation": "缺基线不能判断改进幅度，不按零补齐。"
+    },
+    "change": {
+      "inputs": {
+        "source_ids": [
+          "GOAL",
+          "BASELINE",
+          "PILOT"
+        ],
+        "goals": [
+          {
+            "id": "GOAL-ERROR",
+            "statement": "减少试点预约录入错误",
+            "category": "user-productivity",
+            "business_goal_ref": "BUSINESS-RELIABILITY"
+          }
+        ],
+        "objectives": [
+          {
+            "id": "OBJ-ERROR",
+            "goal_id": "GOAL-ERROR",
+            "statement": "双店预约录入错误率从5%降至4%",
+            "scope": "全国门店",
+            "measure": "录入错误事件/全部录入事件",
+            "unit": "%",
+            "baseline": 5,
+            "target": 4,
+            "owner": "虚构运营改进组",
+            "action": "统一预约字段并试点培训",
+            "realism_rationale": "",
+            "realism_evidence": [],
+            "due": "2026-12-31"
+          }
+        ]
+      },
+      "expected": {
+        "row_states": [
+          "needs-input"
+        ],
+        "gap_reasons": [
+          "smart-realistic-missing"
+        ]
+      },
+      "explanation": "目标扩为全国门店，撤回仅覆盖双店的现实性证据后重评。"
+    },
+    "counterexample": {
+      "inputs": {
+        "source_ids": [
+          "GOAL",
+          "BASELINE",
+          "PILOT"
+        ],
+        "goals": [
+          {
+            "id": "GOAL-ERROR",
+            "statement": "减少试点预约录入错误",
+            "category": "user-productivity",
+            "business_goal_ref": "BUSINESS-RELIABILITY"
+          }
+        ],
+        "objectives": [
+          {
+            "id": "OBJ-ERROR",
+            "goal_id": "GOAL-ABSENT",
+            "statement": "双店预约录入错误率从5%降至4%",
+            "scope": "双店试点同一抽样口径",
+            "measure": "录入错误事件/全部录入事件",
+            "unit": "%",
+            "baseline": 5,
+            "target": 4,
+            "owner": "虚构运营改进组",
+            "action": "统一预约字段并试点培训",
+            "realism_rationale": "同口径小样本试点支持继续验证，但不可外推全公司",
+            "realism_evidence": [
+              "PILOT"
+            ],
+            "due": "2026-12-31"
+          }
+        ]
+      },
+      "expected": {
+        "reject": "SMART-002"
+      },
+      "explanation": "目的没有已登记目标时拒绝悬空追溯。"
+    }
+  }
+}

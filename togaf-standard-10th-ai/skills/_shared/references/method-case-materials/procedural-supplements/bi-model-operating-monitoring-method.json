@@ -1,0 +1,89 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "bi-model-operating-monitoring-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 3,
+      "declared_step": "给每指标单位、窗口、证据与阈值来源，未知保持未知",
+      "new_fictional_input": "新虚构影子周样本五笔actual/predicted耗时分别(20,10),(20,5),(20,15),(20,0),(20,20)分钟；误差[10,15,5,20,0]；业务为本周样本提议15分钟阈值，标签质量和访问范围仍未知。",
+      "transformation": "逐条绝对差后排序取中位10；阈值来源/单位/周窗口分列，不改成准确率。",
+      "candidate_output": "observed median_absolute_error=10分钟、sample_count=5、threshold=15候选；仅该样本值可复算，阈值待裁决不授整体达标。",
+      "adverse_variant_expected": "无阈值批准即判生产达标或将10分钟改85%准确率，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 5,
+      "declared_step": "形成运行监控记录后再评审实际表现",
+      "new_fictional_input": "新虚构运行记录RUN-SUP-1在影子期作业失败触发stop-suggestions，人工接管；新v0.2只有重训文件、尚无版本测试与业务复核。",
+      "transformation": "保存故障/停止/人工处置时点和证据；监控观察与版本准入分开，review_result针对具体样本和规则。",
+      "candidate_output": "RUN-SUP-1保留停止事件，v0.2=awaiting-test-and-business-review，不自动投产；标签/安全缺口仍开。",
+      "adverse_variant_expected": "用训练完成恢复建议或让失败期继续输出客户承诺，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [],
+  "candidate_records": [
+    {
+      "id": "SAMPLE-SUP-1",
+      "actual_minutes": 20,
+      "predicted_minutes": 10,
+      "absolute_error_minutes": 10,
+      "approval_status": "candidate"
+    },
+    {
+      "id": "SAMPLE-SUP-2",
+      "actual_minutes": 20,
+      "predicted_minutes": 5,
+      "absolute_error_minutes": 15,
+      "approval_status": "candidate"
+    },
+    {
+      "id": "SAMPLE-SUP-3",
+      "actual_minutes": 20,
+      "predicted_minutes": 15,
+      "absolute_error_minutes": 5,
+      "approval_status": "candidate"
+    },
+    {
+      "id": "SAMPLE-SUP-4",
+      "actual_minutes": 20,
+      "predicted_minutes": 0,
+      "absolute_error_minutes": 20,
+      "approval_status": "candidate"
+    },
+    {
+      "id": "SAMPLE-SUP-5",
+      "actual_minutes": 20,
+      "predicted_minutes": 20,
+      "absolute_error_minutes": 0,
+      "approval_status": "candidate"
+    }
+  ],
+  "candidate_metric": {
+    "metric": "median_absolute_error",
+    "value": 10,
+    "unit": "minutes",
+    "sample_count": 5,
+    "window": "authored-shadow-week",
+    "threshold_proposal": 15,
+    "threshold_approval": "pending",
+    "production_acceptance": false
+  },
+  "candidate_events": [
+    {
+      "id": "RUN-SUP-1",
+      "event": "job-failed",
+      "action": "stop-suggestions; manual-takeover",
+      "next_version": "v0.2",
+      "version_test": "not-supplied",
+      "business_review": "pending",
+      "approval_status": "candidate"
+    }
+  ]
+}

@@ -1,0 +1,2068 @@
+{
+  "schema_version": "1.0",
+  "id": "G186/fig5-1",
+  "status": "done",
+  "doc": {
+    "code": "G186",
+    "title_zh": "实践者方法：按 TOGAF ADM 开发企业架构",
+    "title_en": "A Practitioners' Approach to Developing EA Following the TOGAF ADM",
+    "zh_md": "G186e_实践者方法_按TOGAF_ADM开发企业架构.md",
+    "en_pdf": "togaf-standard-10th/G186e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "5-1",
+    "title_en": "TOGAF Architecture Repository",
+    "title_zh": "TOGAF 架构存储库",
+    "section_en": "5.1. What to Expect in a Well-Run Architecture Repository & EA Landscape",
+    "section_zh": "5.1 运行良好的架构存储库与 EA 全景应具备什么",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        47
+      ],
+      "printed_page": 33,
+      "bboxes": [
+        [
+          61.1,
+          36.0,
+          550.9,
+          428.9
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        485
+      ],
+      "label_table_lines": [
+        489,
+        525
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g186e_fig5-1_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "0759ae851dac",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.985（≥0.9 通常为同一图）"
+      ]
+    },
+    {
+      "path": "figs/zh/g186e_fig5-1_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "e105e5b47830",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "左下“Architecture Requirements Repository”的标题被错译成“架构存储库”（应为“架构需求库”），与左上真正的架构存储库同名，导致两个不同分区被读成同一个",
+        "左下区域还叠印了一个巨大的“企业存储库”水印/错位文字，横跨需求库与治理库之间，原图没有",
+        "治理存储库中漏掉两个方框：“Decision Log（决策日志）”和“Calendar（日历）”，只剩合规评估、能力评估、项目组合、绩效度量四项",
+        "架构能力中漏掉“Skills Repository（技能库）”，第一个格子变成空白",
+        "“Standards adopted by the enterprise”被译成“标准中…采用企业”，语序错乱；“Reference models adopted by the enterprise”被译成“参考模型由…采用企业”，同样错乱",
+        "“Architecture Board”被写成“架构董事会”，并把“Architecture Board steers and manages the capability”译成“架构董事会引领并管理该能力”；董事会是错误译法，应为架构委员会",
+        "“Visibility and escalation”译为“可见性与升级”，escalation 在这里应译为“上报/逐级上报”，不是版本升级",
+        "参考库外框、治理库外框等多处边框缺失或错位，方框间距与原图不一致"
+      ]
+    },
+    {
+      "path": "G186e_实践者方法_按TOGAF_ADM开发企业架构.md#L489-L525",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "58d635095f97",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "标签表本身说明“未逐一列出各库之间的箭头说明”，因此 15 条箭头文字没有中文对照",
+        "“Business / Data / Application / Technology Standards”合并为一行“业务标准/数据标准/应用标准/技术标准”，与原图四个独立方框不完全对应，但译法正确",
+        "缺少“Compliance Assessments”在治理库中的位置说明（表中有该词，但未说明它属于治理库）"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "network",
+      "layered"
+    ],
+    "notation": "方框套方框的存储库分区图：外层企业存储库、内层架构存储库，各分区用不同底色区分，分区之间用带文字的箭头表示材料流向与治理关系",
+    "concepts": [
+      "architecture_repository",
+      "architecture_landscape",
+      "reference_model",
+      "architecture_governance",
+      "architecture_board",
+      "building_block"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "TOGAF 架构存储库的分区构成，以及架构全景、参考库、标准库、治理库与外部材料、架构委员会之间的流向。",
+    "purpose_zh": "作者用这张总览图告诉实践者：架构存储库不是一个文件夹，而是由元模型、架构全景、解决方案全景、参考库、标准库、需求库、治理库和架构能力组成的系统；实践者日常直接打交道的是架构全景、参考库、标准库、需求库以及治理库中的合规评估。",
+    "reading_guide_zh": "从左上进入：最外层浅灰是 Enterprise Repository，里面整块灰色是 Architecture Repository。先认颜色分区：绿色=元模型与架构能力，深蓝=架构全景/解决方案全景/参考库/标准库（内容库），品红=需求库与解决方案全景，紫色=治理库，灰色=外部参考模型/外部标准/架构委员会。然后顺着带文字的箭头读：元模型如何约束全景，全景如何产生参考架构与标准，外部材料如何被采纳，治理库如何治理全景与合规，架构委员会如何与治理库互动并管理架构能力。",
+    "key_points_zh": [
+      "架构存储库位于更宽的企业存储库之内；企业存储库还包括外部参考模型、外部标准与架构委员会等外部要素。",
+      "架构元模型由 Architecture Method（架构方法）与 Enterprise Metamodel（企业元模型）组成，它规定“全景中的制品按框架结构化”。",
+      "架构全景分三层：战略架构、分段架构、能力架构；它通过“Enables the enterprise”使能解决方案全景及其解决方案构建块。",
+      "参考库存放组织参考材料，标准库存放业务/数据/应用/技术四类标准；两者都从外部参考模型/外部标准“采纳”材料。",
+      "全景与内容库之间是双向的：全景中的最佳实践产生参考架构与标准；参考架构与标准又被企业采纳回全景（Adopted by the enterprise / Standards are complied with）。",
+      "标准库与参考库之间还有一条“Standards have reference implementations”，说明标准需要参考实现来落地。",
+      "治理存储库（决策日志、合规评估、能力评估、日历、项目组合、绩效度量）治理架构全景；标准库则向下指向治理库，表示合规以标准为依据。",
+      "架构需求库与治理库之间交换“Drivers for the enterprise”，与解决方案全景之间用虚线双向箭头表示“Business outcomes delivered”。",
+      "架构委员会在存储库之外，与治理库之间是双向的“Visibility and escalation”，并“steers and manages the capability”指向架构能力。"
+    ],
+    "hierarchy_zh": "三层包含：Enterprise Repository ⊃ Architecture Repository ⊃ 七个分区（架构元模型、架构全景、解决方案全景、参考库、标准库、架构需求库、治理存储库）+ 架构能力。每个分区内再列具体内容项（如战略/分段/能力架构，四类标准，六个治理项，三个能力项）。外部参考模型、外部标准、架构委员会不属于架构存储库，画在外侧。",
+    "line_semantics_zh": "共 15 条带文字的箭头：单箭头表示材料/影响的方向（如“Artifacts in the landscape are structured according to the framework”由元模型指向全景，“Enables the enterprise”由全景指向解决方案全景）；双向箭头表示持续交换（决策驱动、业务成果、可见性与上报）；虚线双向箭头只有“Business outcomes delivered”一条。被动语态的标签（The landscape is governed、Standards are complied with、Compliance is governed）要按标签读主语，箭头方向表示“受…作用”的一侧。",
+    "misreadings_zh": [
+      "不要把 Architecture Landscape 当成整个存储库；它只是七个分区之一，且只含战略/分段/能力三层架构。",
+      "不要把 Solutions Landscape 与 Architecture Landscape 混为一谈：前者放解决方案构建块，后者放架构。",
+      "“The landscape is governed”箭头由全景向下指入治理库，不要读成“全景治理治理库”；语义是全景受治理。",
+      "外部参考模型与外部标准画在架构存储库之外，它们不是存储库的内部库；架构委员会同样在外部。",
+      "治理库中的 Decision Log 与 Calendar、架构能力中的 Skills Repository 在中文 PNG 中被漏掉，不要据此认为原图没有这些项。",
+      "中文 PNG 把架构需求库标题误写成“架构存储库”，并把 Architecture Board 译成“架构董事会”；应以英文原图为准。",
+      "图中没有画 ADM 阶段或流程顺序；箭头表示材料与治理关系，不是时间顺序。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p46",
+        "summary_zh": "TOGAF 标准识别架构存储库中的广泛材料（如图 5-1）；作为实践者，你直接关心架构全景、参考库、标准库、架构需求库以及治理存储库中的合规评估，通常由建模分析工具与文件存储库实现。"
+      },
+      {
+        "source": "en_pdf p47",
+        "summary_zh": "高效的 EA 团队离不开建模与分析软件；随手草图不是建模，对 EA 全景没有实质贡献；不要把存储库管理与有效沟通混为一谈。"
+      },
+      {
+        "source": "zh_md L483",
+        "summary_zh": "TOGAF 标准识别架构存储库中的广泛材料；实践者直接关心架构全景、参考库、标准库、架构需求库以及治理存储库中的合规评估。"
+      },
+      {
+        "source": "zh_md L491",
+        "summary_zh": "中文稿的图内标签对照表列出企业存储库、架构存储库、各库及其内容项与外部要素的中文译名。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "大矩形套小矩形：外层浅灰 Enterprise Repository，内层灰色 Architecture Repository。内部左列自上而下为解决方案全景、架构需求库；中列为架构全景（三层堆叠）；右上为参考库、标准库；中下为治理存储库与架构能力；顶部为架构元模型。右侧外挂三个灰色块：外部参考模型、外部标准、架构委员会。"
+  },
+  "legend": [
+    {
+      "symbol": "绿色分区",
+      "meaning_zh": "元模型（架构方法/企业元模型）与架构能力（技能库/组织架构/架构章程）",
+      "explicit": false
+    },
+    {
+      "symbol": "深蓝色分区",
+      "meaning_zh": "内容库：架构全景、解决方案全景、参考库、标准库",
+      "explicit": false
+    },
+    {
+      "symbol": "品红色分区",
+      "meaning_zh": "架构需求库与解决方案全景（原图用同色系）",
+      "explicit": false
+    },
+    {
+      "symbol": "紫色分区",
+      "meaning_zh": "治理存储库",
+      "explicit": false
+    },
+    {
+      "symbol": "灰色外部块",
+      "meaning_zh": "不属于架构存储库的外部要素：外部参考模型、外部标准、架构委员会",
+      "explicit": false
+    },
+    {
+      "symbol": "带文字的箭头",
+      "meaning_zh": "材料流向、采纳、治理或双向交换；文字说明关系性质",
+      "explicit": false
+    },
+    {
+      "symbol": "虚线双向箭头",
+      "meaning_zh": "业务成果在解决方案全景与需求库之间持续交付",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "enterprise_repository",
+      "label_en": "Enterprise Repository",
+      "label_zh": "企业存储库",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "最外层浅灰大框",
+      "description_zh": "比架构存储库更大的企业级存储范围。"
+    },
+    {
+      "id": "architecture_repository",
+      "label_en": "Architecture Repository",
+      "label_zh": "架构存储库",
+      "type": "group",
+      "parent": "enterprise_repository",
+      "level": 1,
+      "position": "内部灰色大框",
+      "description_zh": "TOGAF 架构存储库本体，包含七个分区与架构能力。"
+    },
+    {
+      "id": "arch_metamodel",
+      "label_en": "Architecture Metamodel",
+      "label_zh": "架构元模型",
+      "type": "group",
+      "parent": "architecture_repository",
+      "level": 2,
+      "position": "顶部绿色横条",
+      "description_zh": "规定全景中的制品如何按框架结构化。"
+    },
+    {
+      "id": "arch_method",
+      "label_en": "Architecture Method",
+      "label_zh": "架构方法",
+      "type": "artifact",
+      "parent": "arch_metamodel",
+      "level": 3,
+      "position": "元模型左侧白框",
+      "description_zh": "架构方法。"
+    },
+    {
+      "id": "enterprise_metamodel",
+      "label_en": "Enterprise Metamodel",
+      "label_zh": "企业元模型",
+      "type": "artifact",
+      "parent": "arch_metamodel",
+      "level": 3,
+      "position": "元模型右侧白框",
+      "description_zh": "企业元模型。"
+    },
+    {
+      "id": "architecture_landscape",
+      "label_en": "Architecture Landscape",
+      "label_zh": "架构全景",
+      "type": "group",
+      "parent": "architecture_repository",
+      "level": 2,
+      "position": "中部深蓝框",
+      "description_zh": "战略、分段、能力三层架构的容器。"
+    },
+    {
+      "id": "strategic_architectures",
+      "label_en": "Strategic Architectures",
+      "label_zh": "战略架构",
+      "type": "architecture",
+      "parent": "architecture_landscape",
+      "level": 3,
+      "position": "架构全景上层",
+      "description_zh": "架构全景的第一层。"
+    },
+    {
+      "id": "segment_architectures",
+      "label_en": "Segment Architectures",
+      "label_zh": "分段架构",
+      "type": "architecture",
+      "parent": "architecture_landscape",
+      "level": 3,
+      "position": "架构全景中层",
+      "description_zh": "架构全景的第二层。"
+    },
+    {
+      "id": "capability_architectures",
+      "label_en": "Capability Architectures",
+      "label_zh": "能力架构",
+      "type": "architecture",
+      "parent": "architecture_landscape",
+      "level": 3,
+      "position": "架构全景下层",
+      "description_zh": "架构全景的第三层。"
+    },
+    {
+      "id": "solutions_landscape",
+      "label_en": "Solutions Landscape",
+      "label_zh": "解决方案全景",
+      "type": "group",
+      "parent": "architecture_repository",
+      "level": 2,
+      "position": "左侧品红框（上）",
+      "description_zh": "解决方案构建块的容器。"
+    },
+    {
+      "id": "solution_building_blocks",
+      "label_en": "Solution Building Blocks",
+      "label_zh": "解决方案构建块",
+      "type": "building_block",
+      "parent": "solutions_landscape",
+      "level": 3,
+      "position": "解决方案全景内部白框",
+      "description_zh": "已实现的解决方案构建块。"
+    },
+    {
+      "id": "reference_library",
+      "label_en": "Reference Library",
+      "label_zh": "参考库",
+      "type": "group",
+      "parent": "architecture_repository",
+      "level": 2,
+      "position": "右上深蓝框",
+      "description_zh": "参考模型、参考架构、模式等加速器材料。"
+    },
+    {
+      "id": "organization_reference_materials",
+      "label_en": "Organization Reference Materials",
+      "label_zh": "组织参考材料",
+      "type": "artifact",
+      "parent": "reference_library",
+      "level": 3,
+      "position": "参考库内部白框",
+      "description_zh": "组织可用的参考材料。"
+    },
+    {
+      "id": "standards_library",
+      "label_en": "Standards Library",
+      "label_zh": "标准库",
+      "type": "group",
+      "parent": "architecture_repository",
+      "level": 2,
+      "position": "右侧中部深蓝框",
+      "description_zh": "四类标准的容器。"
+    },
+    {
+      "id": "business_standards",
+      "label_en": "Business Standards",
+      "label_zh": "业务标准",
+      "type": "principle",
+      "parent": "standards_library",
+      "level": 3,
+      "order": 1,
+      "position": "标准库第一行",
+      "description_zh": "业务标准。"
+    },
+    {
+      "id": "data_standards",
+      "label_en": "Data Standards",
+      "label_zh": "数据标准",
+      "type": "principle",
+      "parent": "standards_library",
+      "level": 3,
+      "order": 2,
+      "position": "标准库第二行",
+      "description_zh": "数据标准。"
+    },
+    {
+      "id": "application_standards",
+      "label_en": "Application Standards",
+      "label_zh": "应用标准",
+      "type": "principle",
+      "parent": "standards_library",
+      "level": 3,
+      "order": 3,
+      "position": "标准库第三行",
+      "description_zh": "应用标准。"
+    },
+    {
+      "id": "technology_standards",
+      "label_en": "Technology Standards",
+      "label_zh": "技术标准",
+      "type": "principle",
+      "parent": "standards_library",
+      "level": 3,
+      "order": 4,
+      "position": "标准库第四行",
+      "description_zh": "技术标准。"
+    },
+    {
+      "id": "architecture_requirements_repository",
+      "label_en": "Architecture Requirements Repository",
+      "label_zh": "架构需求库",
+      "type": "group",
+      "parent": "architecture_repository",
+      "level": 2,
+      "position": "左下品红框",
+      "description_zh": "战略/分段/能力需求的容器。"
+    },
+    {
+      "id": "strategic_requirements",
+      "label_en": "Strategic Requirements",
+      "label_zh": "战略需求",
+      "type": "requirement",
+      "parent": "architecture_requirements_repository",
+      "level": 3,
+      "order": 1,
+      "position": "需求库第一行",
+      "description_zh": "战略层需求。"
+    },
+    {
+      "id": "segment_requirements",
+      "label_en": "Segment Requirements",
+      "label_zh": "分段需求",
+      "type": "requirement",
+      "parent": "architecture_requirements_repository",
+      "level": 3,
+      "order": 2,
+      "position": "需求库第二行",
+      "description_zh": "分段层需求。"
+    },
+    {
+      "id": "capability_requirements",
+      "label_en": "Capability Requirements",
+      "label_zh": "能力需求",
+      "type": "requirement",
+      "parent": "architecture_requirements_repository",
+      "level": 3,
+      "order": 3,
+      "position": "需求库第三行",
+      "description_zh": "能力层需求。"
+    },
+    {
+      "id": "governance_repository",
+      "label_en": "Governance Repository",
+      "label_zh": "治理存储库",
+      "type": "group",
+      "parent": "architecture_repository",
+      "level": 2,
+      "position": "中下紫色框",
+      "description_zh": "决策、合规、能力、日历、组合与绩效记录的容器。"
+    },
+    {
+      "id": "decision_log",
+      "label_en": "Decision Log",
+      "label_zh": "决策日志",
+      "type": "artifact",
+      "parent": "governance_repository",
+      "level": 3,
+      "order": 1,
+      "position": "治理库左上",
+      "description_zh": "记录决策。"
+    },
+    {
+      "id": "compliance_assessments",
+      "label_en": "Compliance Assessments",
+      "label_zh": "合规评估",
+      "type": "artifact",
+      "parent": "governance_repository",
+      "level": 3,
+      "order": 2,
+      "position": "治理库中上",
+      "description_zh": "合规性评估记录。"
+    },
+    {
+      "id": "capability_assessments",
+      "label_en": "Capability Assessments",
+      "label_zh": "能力评估",
+      "type": "artifact",
+      "parent": "governance_repository",
+      "level": 3,
+      "order": 3,
+      "position": "治理库右上",
+      "description_zh": "能力评估记录。"
+    },
+    {
+      "id": "calendar",
+      "label_en": "Calendar",
+      "label_zh": "日历",
+      "type": "artifact",
+      "parent": "governance_repository",
+      "level": 3,
+      "order": 4,
+      "position": "治理库左下",
+      "description_zh": "治理日程。"
+    },
+    {
+      "id": "project_portfolio",
+      "label_en": "Project Portfolio",
+      "label_zh": "项目组合",
+      "type": "artifact",
+      "parent": "governance_repository",
+      "level": 3,
+      "order": 5,
+      "position": "治理库中下",
+      "description_zh": "项目组合记录。"
+    },
+    {
+      "id": "performance_measurement",
+      "label_en": "Performance Measurement",
+      "label_zh": "绩效度量",
+      "type": "metric",
+      "parent": "governance_repository",
+      "level": 3,
+      "order": 6,
+      "position": "治理库右下",
+      "description_zh": "绩效度量。"
+    },
+    {
+      "id": "architecture_capability",
+      "label_en": "Architecture Capability",
+      "label_zh": "架构能力",
+      "type": "group",
+      "parent": "architecture_repository",
+      "level": 2,
+      "position": "底部绿色横条",
+      "description_zh": "支撑架构工作的组织能力。"
+    },
+    {
+      "id": "skills_repository",
+      "label_en": "Skills Repository",
+      "label_zh": "技能库",
+      "type": "artifact",
+      "parent": "architecture_capability",
+      "level": 3,
+      "order": 1,
+      "position": "架构能力左格",
+      "description_zh": "架构技能目录。"
+    },
+    {
+      "id": "organization_structure",
+      "label_en": "Organization Structure",
+      "label_zh": "组织架构",
+      "type": "organization_unit",
+      "parent": "architecture_capability",
+      "level": 3,
+      "order": 2,
+      "position": "架构能力中格",
+      "description_zh": "架构团队的组织结构。"
+    },
+    {
+      "id": "architecture_charter",
+      "label_en": "Architecture Charter",
+      "label_zh": "架构章程",
+      "type": "artifact",
+      "parent": "architecture_capability",
+      "level": 3,
+      "order": 3,
+      "position": "架构能力右格",
+      "description_zh": "架构能力的授权章程。"
+    },
+    {
+      "id": "external_reference_models",
+      "label_en": "External Reference Models",
+      "label_zh": "外部参考模型",
+      "type": "group",
+      "parent": null,
+      "level": 2,
+      "position": "存储库外右侧上部",
+      "description_zh": "来自企业外部的参考模型。"
+    },
+    {
+      "id": "external_standards",
+      "label_en": "External Standards",
+      "label_zh": "外部标准",
+      "type": "group",
+      "parent": null,
+      "level": 2,
+      "position": "存储库外右侧中部",
+      "description_zh": "来自企业外部的标准。"
+    },
+    {
+      "id": "architecture_board",
+      "label_en": "Architecture Board",
+      "label_zh": "架构委员会",
+      "type": "organization_unit",
+      "parent": null,
+      "level": 2,
+      "position": "存储库外右侧下部",
+      "description_zh": "治理架构工作的委员会，不属于架构存储库。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "arch_metamodel",
+      "to": "architecture_landscape",
+      "type": "governs",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Artifacts in the landscape are structured according to the framework",
+      "label_zh": "全景中的制品按框架结构化",
+      "description_zh": "从架构元模型底部向下的箭头，指入架构全景顶部。"
+    },
+    {
+      "from": "architecture_landscape",
+      "to": "reference_library",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Best practice creates reference architecture",
+      "label_zh": "最佳实践创建参考架构",
+      "description_zh": "由架构全景右侧指向参考库左侧。"
+    },
+    {
+      "from": "reference_library",
+      "to": "architecture_landscape",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Adopted by the enterprise",
+      "label_zh": "被企业采纳",
+      "description_zh": "参考库左侧指向架构全景右侧，与上一条方向相反，形成循环。"
+    },
+    {
+      "from": "architecture_landscape",
+      "to": "solutions_landscape",
+      "type": "serving",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Enables the enterprise",
+      "label_zh": "使能企业",
+      "description_zh": "由架构全景左侧指向解决方案全景右侧。"
+    },
+    {
+      "from": "architecture_landscape",
+      "to": "standards_library",
+      "type": "produces",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Best practice creates standards",
+      "label_zh": "最佳实践创建标准",
+      "description_zh": "由架构全景右下指向标准库左侧。"
+    },
+    {
+      "from": "standards_library",
+      "to": "architecture_landscape",
+      "type": "governs",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Standards are complied with",
+      "label_zh": "标准得到遵循",
+      "description_zh": "由标准库左侧指向架构全景右下。"
+    },
+    {
+      "from": "standards_library",
+      "to": "reference_library",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Standards have reference implementations",
+      "label_zh": "标准有参考实现",
+      "description_zh": "由标准库顶部向上的箭头指入参考库底部。"
+    },
+    {
+      "from": "external_reference_models",
+      "to": "reference_library",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Reference models adopted by the enterprise",
+      "label_zh": "参考模型被企业采纳",
+      "description_zh": "由外部参考模型左侧指向参考库右侧。"
+    },
+    {
+      "from": "external_standards",
+      "to": "standards_library",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Standards adopted by the enterprise",
+      "label_zh": "标准被企业采纳",
+      "description_zh": "由外部标准左侧发出的多条细线，分别指向业务/数据/应用/技术标准四行；主箭头落在标准库右侧。"
+    },
+    {
+      "from": "architecture_landscape",
+      "to": "governance_repository",
+      "type": "dependency",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "The landscape is governed",
+      "label_zh": "架构全景受治理",
+      "description_zh": "由架构全景底部向下指入治理存储库顶部；被动语态表示全景受治理库治理。"
+    },
+    {
+      "from": "standards_library",
+      "to": "governance_repository",
+      "type": "governs",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Compliance is governed",
+      "label_zh": "合规受治理",
+      "description_zh": "由标准库底部向下指入治理存储库的合规评估区域。"
+    },
+    {
+      "from": "governance_repository",
+      "to": "architecture_requirements_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "label_en": "Drivers for the enterprise",
+      "label_zh": "企业驱动因素",
+      "description_zh": "治理存储库与架构需求库之间的水平双向箭头，箭头在需求库右侧与治理库左侧各一个。"
+    },
+    {
+      "from": "solutions_landscape",
+      "to": "architecture_requirements_repository",
+      "type": "flow",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "both",
+      "label_en": "Business outcomes delivered",
+      "label_zh": "业务成果交付",
+      "description_zh": "解决方案全景底部与需求库顶部之间的竖直虚线双向箭头。"
+    },
+    {
+      "from": "governance_repository",
+      "to": "architecture_board",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "label_en": "Visibility and escalation",
+      "label_zh": "可见性与上报",
+      "description_zh": "治理库右侧（能力评估一行）与架构委员会左侧之间的水平双向箭头。"
+    },
+    {
+      "from": "architecture_board",
+      "to": "architecture_capability",
+      "type": "governs",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "label_en": "Architecture Board steers and manages the capability",
+      "label_zh": "架构委员会引领并管理架构能力",
+      "description_zh": "由架构委员会左侧指向架构能力右端（架构章程一行）。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "外部标准到标准库的多条细线在低分辨率下难以逐条确认终点；按“分别指向四类标准”记录为一条关系。",
+      "“Compliance is governed”箭头从标准库底部指向治理库顶部，具体落在合规评估一行还是治理库整体，图上无法精确判断。",
+      "“The landscape is governed”的箭头由全景向下指入治理库，但标签是被动语态；本分析按“全景受治理”记录为依赖关系。",
+      "原图没有图例，颜色分组（绿/蓝/品红/紫/灰）是解析者据色块与文字推断。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 47 页图 5-1 截图（220 dpi）及 3×3 放大分块、右侧局部 3 倍放大",
+      "英文 PDF 第 46–47 页正文",
+      "中文稿 G186e_实践者方法_按TOGAF_ADM开发企业架构.md 第 479–528 行及标签对照表 L489–L524",
+      "figs/g186e_fig5-1_en.png 与 figs/zh/g186e_fig5-1_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G186e.pdf",
+    "pdf_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G186/fig5-1.json",
+    "interpretation_sha256": "db66b3bb971eba3a046706ae885d496e48e2a598ac9303a0e46a8c7eac70c7e1",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 47,
+        "text": "Figure 5-1: TOGAF Architecture Repository",
+        "bbox_pdf_points": [
+          48.24,
+          433.616,
+          249.775,
+          447.182
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 47,
+      "printed_page": 33,
+      "bbox_pdf_points": [
+        61.1,
+        36.0,
+        550.9,
+        428.9
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G186/fig5-1-p0047.png",
+      "image_sha256": "4d2a44cfa2f9e6474a1a006f35dffc4993e20451d6f5b886334e6692988d5f29",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "4d2a44cfa2f9e6474a1a006f35dffc4993e20451d6f5b886334e6692988d5f29",
+          "status": "extracted-unverified",
+          "text": "Enterprise Repository\nFt\nArchitecture Metamodel\nArchitecture Repo:\nArtifacts in the\nlandscape are\nReference\nLibrary\nstructured according\nBest practic\nto the framework\ncreates\nReference\nreference\nmodels\nSolutions\nArchitecture\nitecture|\nLandscape\nLandscape\nadopted by\nExternal\nOrganization\nthe enterpris\nReference\nReference\nStrategic\nAdopted\nMaterials\nModels\nby the\nArchitectures\nenterprise\nSolution\nEnables the\nBuilding\nenterprise\nSegment\nStandards have\nBlocks\nArchitectures\nStandards\nreference\nare complied\nimplementations\n‘Standards\nCapability\nArchitectures\nLibrary\nStandards\nadopted by\nBusiness Standards\nthe enterprise\nExternal\nBusiness.\nBest\n‘outcomes\npractice\nData Standards\nStandards\ndelivered\ncreates\nstandards:\nApplication Standards\nArchitecture\nThe landscape\nTechnology Standards|\nements\nReq\nis governed\nRepository\nCompliance is governed\nDrivers,\nfor the\nGovernance Repository\nStrategic\nenter\nVisibility and\nRequirements\nesdalation\n>\nSegment\nArchitecture\nRequirements\nArchitecture\nBoard\nBoard steers\nArchitecture Capability\nand manages\nCapability\nthe capability\nRequirements",
+          "words": [
+            {
+              "text": "Enterprise",
+              "confidence": 96.50946,
+              "bbox_pixels_xywh": [
+                44,
+                14,
+                88,
+                17
+              ]
+            },
+            {
+              "text": "Repository",
+              "confidence": 96.409836,
+              "bbox_pixels_xywh": [
+                140,
+                14,
+                93,
+                18
+              ]
+            },
+            {
+              "text": "Ft",
+              "confidence": 4.498339,
+              "bbox_pixels_xywh": [
+                217,
+                56,
+                4,
+                3
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 93.293594,
+              "bbox_pixels_xywh": [
+                458,
+                53,
+                87,
+                11
+              ]
+            },
+            {
+              "text": "Metamodel",
+              "confidence": 86.095085,
+              "bbox_pixels_xywh": [
+                551,
+                53,
+                76,
+                11
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.282593,
+              "bbox_pixels_xywh": [
+                40,
+                56,
+                112,
+                15
+              ]
+            },
+            {
+              "text": "Repo:",
+              "confidence": 96.499542,
+              "bbox_pixels_xywh": [
+                159,
+                56,
+                46,
+                18
+              ]
+            },
+            {
+              "text": "Artifacts",
+              "confidence": 92.423279,
+              "bbox_pixels_xywh": [
+                355,
+                119,
+                49,
+                11
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 96.03463,
+              "bbox_pixels_xywh": [
+                408,
+                119,
+                10,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.673592,
+              "bbox_pixels_xywh": [
+                422,
+                119,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "landscape",
+              "confidence": 95.460747,
+              "bbox_pixels_xywh": [
+                355,
+                135,
+                62,
+                13
+              ]
+            },
+            {
+              "text": "are",
+              "confidence": 89.292915,
+              "bbox_pixels_xywh": [
+                421,
+                137,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "Reference",
+              "confidence": 95.770073,
+              "bbox_pixels_xywh": [
+                625,
+                126,
+                71,
+                11
+              ]
+            },
+            {
+              "text": "Library",
+              "confidence": 96.624985,
+              "bbox_pixels_xywh": [
+                636,
+                143,
+                49,
+                14
+              ]
+            },
+            {
+              "text": "structured",
+              "confidence": 92.619484,
+              "bbox_pixels_xywh": [
+                336,
+                150,
+                60,
+                11
+              ]
+            },
+            {
+              "text": "according",
+              "confidence": 90.115929,
+              "bbox_pixels_xywh": [
+                401,
+                150,
+                58,
+                13
+              ]
+            },
+            {
+              "text": "Best",
+              "confidence": 96.681564,
+              "bbox_pixels_xywh": [
+                495,
+                144,
+                27,
+                28
+              ]
+            },
+            {
+              "text": "practic",
+              "confidence": 6.92668,
+              "bbox_pixels_xywh": [
+                526,
+                154,
+                45,
+                5
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 95.27977,
+              "bbox_pixels_xywh": [
+                343,
+                157,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.95388,
+              "bbox_pixels_xywh": [
+                361,
+                165,
+                20,
+                11
+              ]
+            },
+            {
+              "text": "framework",
+              "confidence": 93.5,
+              "bbox_pixels_xywh": [
+                385,
+                165,
+                64,
+                11
+              ]
+            },
+            {
+              "text": "creates",
+              "confidence": 94.902901,
+              "bbox_pixels_xywh": [
+                512,
+                166,
+                44,
+                10
+              ]
+            },
+            {
+              "text": "Reference",
+              "confidence": 96.290085,
+              "bbox_pixels_xywh": [
+                797,
+                173,
+                61,
+                10
+              ]
+            },
+            {
+              "text": "reference",
+              "confidence": 91.86235,
+              "bbox_pixels_xywh": [
+                506,
+                180,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "models",
+              "confidence": 94.339462,
+              "bbox_pixels_xywh": [
+                807,
+                189,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "Solutions",
+              "confidence": 87.031502,
+              "bbox_pixels_xywh": [
+                102,
+                197,
+                64,
+                11
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 94.937599,
+              "bbox_pixels_xywh": [
+                373,
+                195,
+                88,
+                10
+              ]
+            },
+            {
+              "text": "itecture|",
+              "confidence": 11.326103,
+              "bbox_pixels_xywh": [
+                525,
+                195,
+                44,
+                11
+              ]
+            },
+            {
+              "text": "Landscape",
+              "confidence": 96.888748,
+              "bbox_pixels_xywh": [
+                98,
+                214,
+                73,
+                13
+              ]
+            },
+            {
+              "text": "Landscape",
+              "confidence": 96.447823,
+              "bbox_pixels_xywh": [
+                379,
+                211,
+                77,
+                12
+              ]
+            },
+            {
+              "text": "adopted",
+              "confidence": 96.523163,
+              "bbox_pixels_xywh": [
+                795,
+                204,
+                47,
+                12
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.976303,
+              "bbox_pixels_xywh": [
+                848,
+                204,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "External",
+              "confidence": 95.61039,
+              "bbox_pixels_xywh": [
+                899,
+                213,
+                58,
+                11
+              ]
+            },
+            {
+              "text": "Organization",
+              "confidence": 96.443428,
+              "bbox_pixels_xywh": [
+                619,
+                215,
+                83,
+                14
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 93.30603,
+              "bbox_pixels_xywh": [
+                787,
+                220,
+                17,
+                9
+              ]
+            },
+            {
+              "text": "enterpris",
+              "confidence": 92.934814,
+              "bbox_pixels_xywh": [
+                809,
+                220,
+                49,
+                12
+              ]
+            },
+            {
+              "text": "Reference",
+              "confidence": 96.917221,
+              "bbox_pixels_xywh": [
+                627,
+                232,
+                68,
+                11
+              ]
+            },
+            {
+              "text": "Reference",
+              "confidence": 96.942383,
+              "bbox_pixels_xywh": [
+                892,
+                230,
+                72,
+                11
+              ]
+            },
+            {
+              "text": "Strategic",
+              "confidence": 94.098747,
+              "bbox_pixels_xywh": [
+                388,
+                252,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "Adopted",
+              "confidence": 74.308105,
+              "bbox_pixels_xywh": [
+                512,
+                241,
+                50,
+                14
+              ]
+            },
+            {
+              "text": "Materials",
+              "confidence": 96.710815,
+              "bbox_pixels_xywh": [
+                631,
+                249,
+                59,
+                11
+              ]
+            },
+            {
+              "text": "Models",
+              "confidence": 61.604027,
+              "bbox_pixels_xywh": [
+                903,
+                246,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 95.563492,
+              "bbox_pixels_xywh": [
+                515,
+                252,
+                16,
+                26
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 95.855972,
+              "bbox_pixels_xywh": [
+                536,
+                257,
+                20,
+                13
+              ]
+            },
+            {
+              "text": "Architectures",
+              "confidence": 96.691917,
+              "bbox_pixels_xywh": [
+                374,
+                269,
+                87,
+                11
+              ]
+            },
+            {
+              "text": "enterprise",
+              "confidence": 91.336098,
+              "bbox_pixels_xywh": [
+                507,
+                272,
+                60,
+                14
+              ]
+            },
+            {
+              "text": "Solution",
+              "confidence": 84.663353,
+              "bbox_pixels_xywh": [
+                108,
+                306,
+                53,
+                11
+              ]
+            },
+            {
+              "text": "Enables",
+              "confidence": 91.806915,
+              "bbox_pixels_xywh": [
+                237,
+                309,
+                48,
+                10
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 90.946358,
+              "bbox_pixels_xywh": [
+                289,
+                309,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "Building",
+              "confidence": 94.036781,
+              "bbox_pixels_xywh": [
+                109,
+                323,
+                51,
+                14
+              ]
+            },
+            {
+              "text": "enterprise",
+              "confidence": 80.240639,
+              "bbox_pixels_xywh": [
+                242,
+                324,
+                60,
+                13
+              ]
+            },
+            {
+              "text": "Segment",
+              "confidence": 93.884293,
+              "bbox_pixels_xywh": [
+                388,
+                318,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "Standards",
+              "confidence": 96.042862,
+              "bbox_pixels_xywh": [
+                624,
+                331,
+                62,
+                11
+              ]
+            },
+            {
+              "text": "have",
+              "confidence": 90.535843,
+              "bbox_pixels_xywh": [
+                690,
+                331,
+                29,
+                11
+              ]
+            },
+            {
+              "text": "Blocks",
+              "confidence": 79.367142,
+              "bbox_pixels_xywh": [
+                113,
+                339,
+                43,
+                12
+              ]
+            },
+            {
+              "text": "Architectures",
+              "confidence": 96.529655,
+              "bbox_pixels_xywh": [
+                374,
+                334,
+                87,
+                12
+              ]
+            },
+            {
+              "text": "Standards",
+              "confidence": 96.948509,
+              "bbox_pixels_xywh": [
+                514,
+                346,
+                61,
+                11
+              ]
+            },
+            {
+              "text": "reference",
+              "confidence": 89.694725,
+              "bbox_pixels_xywh": [
+                643,
+                346,
+                57,
+                11
+              ]
+            },
+            {
+              "text": "are",
+              "confidence": 80.615791,
+              "bbox_pixels_xywh": [
+                505,
+                364,
+                20,
+                9
+              ]
+            },
+            {
+              "text": "complied",
+              "confidence": 93.332634,
+              "bbox_pixels_xywh": [
+                529,
+                362,
+                54,
+                13
+              ]
+            },
+            {
+              "text": "implementations",
+              "confidence": 88.231888,
+              "bbox_pixels_xywh": [
+                622,
+                362,
+                99,
+                13
+              ]
+            },
+            {
+              "text": "‘Standards",
+              "confidence": 80.234444,
+              "bbox_pixels_xywh": [
+                627,
+                385,
+                72,
+                11
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 96.058014,
+              "bbox_pixels_xywh": [
+                385,
+                383,
+                65,
+                15
+              ]
+            },
+            {
+              "text": "Architectures",
+              "confidence": 96.452377,
+              "bbox_pixels_xywh": [
+                374,
+                400,
+                87,
+                11
+              ]
+            },
+            {
+              "text": "Library",
+              "confidence": 96.727859,
+              "bbox_pixels_xywh": [
+                639,
+                402,
+                49,
+                14
+              ]
+            },
+            {
+              "text": "Standards",
+              "confidence": 81.460487,
+              "bbox_pixels_xywh": [
+                798,
+                405,
+                60,
+                10
+              ]
+            },
+            {
+              "text": "adopted",
+              "confidence": 83.123856,
+              "bbox_pixels_xywh": [
+                795,
+                420,
+                47,
+                12
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 94.150131,
+              "bbox_pixels_xywh": [
+                848,
+                420,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.451927,
+              "bbox_pixels_xywh": [
+                598,
+                426,
+                60,
+                12
+              ]
+            },
+            {
+              "text": "Standards",
+              "confidence": 90.945267,
+              "bbox_pixels_xywh": [
+                663,
+                426,
+                67,
+                12
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 86.809235,
+              "bbox_pixels_xywh": [
+                786,
+                436,
+                18,
+                9
+              ]
+            },
+            {
+              "text": "enterprise",
+              "confidence": 81.789375,
+              "bbox_pixels_xywh": [
+                809,
+                436,
+                60,
+                12
+              ]
+            },
+            {
+              "text": "External",
+              "confidence": 96.177711,
+              "bbox_pixels_xywh": [
+                899,
+                437,
+                58,
+                11
+              ]
+            },
+            {
+              "text": "Business.",
+              "confidence": 73.254044,
+              "bbox_pixels_xywh": [
+                64,
+                445,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "Best",
+              "confidence": 97.00499,
+              "bbox_pixels_xywh": [
+                524,
+                439,
+                26,
+                11
+              ]
+            },
+            {
+              "text": "‘outcomes",
+              "confidence": 59.683418,
+              "bbox_pixels_xywh": [
+                62,
+                461,
+                59,
+                10
+              ]
+            },
+            {
+              "text": "practice",
+              "confidence": 95.244453,
+              "bbox_pixels_xywh": [
+                513,
+                455,
+                47,
+                12
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.242638,
+              "bbox_pixels_xywh": [
+                613,
+                453,
+                30,
+                11
+              ]
+            },
+            {
+              "text": "Standards",
+              "confidence": 96.144394,
+              "bbox_pixels_xywh": [
+                649,
+                453,
+                67,
+                11
+              ]
+            },
+            {
+              "text": "Standards",
+              "confidence": 96.301506,
+              "bbox_pixels_xywh": [
+                892,
+                454,
+                72,
+                11
+              ]
+            },
+            {
+              "text": "delivered",
+              "confidence": 96.677505,
+              "bbox_pixels_xywh": [
+                64,
+                476,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "creates",
+              "confidence": 95.996147,
+              "bbox_pixels_xywh": [
+                514,
+                470,
+                45,
+                10
+              ]
+            },
+            {
+              "text": "standards:",
+              "confidence": 58.105068,
+              "bbox_pixels_xywh": [
+                507,
+                484,
+                60,
+                11
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 94.962135,
+              "bbox_pixels_xywh": [
+                591,
+                479,
+                73,
+                14
+              ]
+            },
+            {
+              "text": "Standards",
+              "confidence": 93.000443,
+              "bbox_pixels_xywh": [
+                669,
+                479,
+                67,
+                11
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 95.028259,
+              "bbox_pixels_xywh": [
+                92,
+                512,
+                84,
+                11
+              ]
+            },
+            {
+              "text": "The",
+              "confidence": 96.865425,
+              "bbox_pixels_xywh": [
+                373,
+                512,
+                23,
+                11
+              ]
+            },
+            {
+              "text": "landscape",
+              "confidence": 93.892967,
+              "bbox_pixels_xywh": [
+                400,
+                512,
+                62,
+                14
+              ]
+            },
+            {
+              "text": "Technology",
+              "confidence": 86.091263,
+              "bbox_pixels_xywh": [
+                590,
+                506,
+                75,
+                14
+              ]
+            },
+            {
+              "text": "Standards|",
+              "confidence": 92.501839,
+              "bbox_pixels_xywh": [
+                671,
+                505,
+                67,
+                12
+              ]
+            },
+            {
+              "text": "ements",
+              "confidence": 32.160816,
+              "bbox_pixels_xywh": [
+                132,
+                529,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "Req",
+              "confidence": 96.311775,
+              "bbox_pixels_xywh": [
+                87,
+                529,
+                26,
+                13
+              ]
+            },
+            {
+              "text": "is",
+              "confidence": 96.446083,
+              "bbox_pixels_xywh": [
+                379,
+                518,
+                13,
+                30
+              ]
+            },
+            {
+              "text": "governed",
+              "confidence": 96.825264,
+              "bbox_pixels_xywh": [
+                396,
+                527,
+                56,
+                14
+              ]
+            },
+            {
+              "text": "Repository",
+              "confidence": 96.928246,
+              "bbox_pixels_xywh": [
+                98,
+                545,
+                73,
+                13
+              ]
+            },
+            {
+              "text": "Compliance",
+              "confidence": 71.957451,
+              "bbox_pixels_xywh": [
+                626,
+                539,
+                71,
+                14
+              ]
+            },
+            {
+              "text": "is",
+              "confidence": 96.629639,
+              "bbox_pixels_xywh": [
+                702,
+                539,
+                9,
+                11
+              ]
+            },
+            {
+              "text": "governed",
+              "confidence": 95.367493,
+              "bbox_pixels_xywh": [
+                715,
+                539,
+                56,
+                14
+              ]
+            },
+            {
+              "text": "Drivers,",
+              "confidence": 69.944695,
+              "bbox_pixels_xywh": [
+                251,
+                563,
+                43,
+                11
+              ]
+            },
+            {
+              "text": "for",
+              "confidence": 96.697365,
+              "bbox_pixels_xywh": [
+                253,
+                578,
+                16,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.542564,
+              "bbox_pixels_xywh": [
+                273,
+                578,
+                18,
+                11
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 94.952515,
+              "bbox_pixels_xywh": [
+                463,
+                566,
+                85,
+                12
+              ]
+            },
+            {
+              "text": "Repository",
+              "confidence": 95.694191,
+              "bbox_pixels_xywh": [
+                554,
+                567,
+                77,
+                14
+              ]
+            },
+            {
+              "text": "Strategic",
+              "confidence": 90.59346,
+              "bbox_pixels_xywh": [
+                105,
+                580,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "enter",
+              "confidence": 22.631565,
+              "bbox_pixels_xywh": [
+                242,
+                594,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "Visibility",
+              "confidence": 95.817886,
+              "bbox_pixels_xywh": [
+                791,
+                582,
+                48,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 93.985031,
+              "bbox_pixels_xywh": [
+                844,
+                582,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "Requirements",
+              "confidence": 95.828194,
+              "bbox_pixels_xywh": [
+                89,
+                597,
+                91,
+                14
+              ]
+            },
+            {
+              "text": "esdalation",
+              "confidence": 56.906067,
+              "bbox_pixels_xywh": [
+                798,
+                597,
+                60,
+                10
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 71.231079,
+              "bbox_pixels_xywh": [
+                867,
+                611,
+                8,
+                7
+              ]
+            },
+            {
+              "text": "Segment",
+              "confidence": 96.762245,
+              "bbox_pixels_xywh": [
+                105,
+                641,
+                59,
+                15
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 95.58535,
+              "bbox_pixels_xywh": [
+                884,
+                645,
+                88,
+                11
+              ]
+            },
+            {
+              "text": "Requirements",
+              "confidence": 95.085548,
+              "bbox_pixels_xywh": [
+                89,
+                659,
+                91,
+                14
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 90.721237,
+              "bbox_pixels_xywh": [
+                792,
+                663,
+                71,
+                10
+              ]
+            },
+            {
+              "text": "Board",
+              "confidence": 96.821602,
+              "bbox_pixels_xywh": [
+                907,
+                662,
+                42,
+                11
+              ]
+            },
+            {
+              "text": "Board",
+              "confidence": 96.896095,
+              "bbox_pixels_xywh": [
+                790,
+                678,
+                34,
+                10
+              ]
+            },
+            {
+              "text": "steers",
+              "confidence": 84.640038,
+              "bbox_pixels_xywh": [
+                830,
+                679,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.750061,
+              "bbox_pixels_xywh": [
+                465,
+                693,
+                87,
+                11
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 96.611473,
+              "bbox_pixels_xywh": [
+                557,
+                692,
+                71,
+                15
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 95.260422,
+              "bbox_pixels_xywh": [
+                787,
+                693,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "manages",
+              "confidence": 87.512299,
+              "bbox_pixels_xywh": [
+                814,
+                696,
+                54,
+                9
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 93.034027,
+              "bbox_pixels_xywh": [
+                102,
+                707,
+                65,
+                14
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 95.27887,
+              "bbox_pixels_xywh": [
+                788,
+                709,
+                18,
+                9
+              ]
+            },
+            {
+              "text": "capability",
+              "confidence": 59.818649,
+              "bbox_pixels_xywh": [
+                811,
+                709,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Requirements",
+              "confidence": 94.629471,
+              "bbox_pixels_xywh": [
+                89,
+                724,
+                91,
+                14
+              ]
+            }
+          ],
+          "mean_word_confidence": 88.18,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

@@ -1,0 +1,472 @@
+# G21D/fig8-1 · 拟议的财政部门 L1–L3 要素的结构与内容概览
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G21D/fig8-1.md) · [JSON](../../architecture/diagrams/G21D/fig8-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G21De.pdf`；SHA-256：`220ead5fef846c52417b9b7a915ff4a64f327680b384c369840926b85958786a`。
+
+## 原图 · PDF 第 47 页
+
+![英文原图](../assets/G21D/fig8-1-p0047.png)
+
+PDF 坐标：`[74.0, 132.3, 538.0, 501.1]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+/
+P
+P
+.
+Revenue
+Strategic Finance
+Accounting and
+Reporting
+Finance Business
+Y
+Tax Office
+Policy Support
+Partnering
+Social Security
+Corporate and
+Finance Planning
+Y
+Business Planning
+and Performance /
+~ Accounting Standards —
+y
+Import Duty
+Strategic Risk
+Compliance
+)
+Tax and Revenue
+Financial Planning
+Compliance
+Investment Decisions
+)
+4
+Investment
+\
+Risk and Audit
+Management
+Cash Management
+Enterprise Risk
+y
+)
+~
+Shareholder of Owned >)
+(
+Subsidiaries
+)
+Internal Audit
+)
+-
+Pension Fund
+Management
+)
+The Open Group
+```
+
+## 概要（历史解释；局部修正见上）
+
+政府参考模型中“财政”部门的 L1–L3 分解：1 个部门、5 个功能、17 项服务（表 8-1 另列 2 项）。
+
+## 目的（历史解释；局部修正见上）
+
+第 8 章开篇用这张图概览“财政”部门（L1）下的功能（L2）与服务（L3），随后的表 8-1 逐项给出说明。它是图 1-1 三层结构在本部门的具体展开，与其余 10 个部门图采用同一模板，附录 A 第 50 页把它与图 7-1 汇总在同一页。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+最外层浅蓝色大框是 L1 部门，顶部白色粗体字是部门名称。框内五个白色圆角框是 L2 功能，排成两行：上排从左到右为收入、战略财务、会计与报告，下排为投资管理（在战略财务下方）和风险与审计（在会计与报告下方），左下角空白。每个功能框里自上而下排列的胶囊形小框是 L3 服务。五个功能框是同级的，下排框并不隶属于上方的框。图中没有连线或箭头，上下级关系完全由框的嵌套表达。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 本部门分为 5 个 L2 功能：收入（4 项服务）、战略财务（5 项）、会计与报告（3 项）、投资管理（3 项）、风险与审计（2 项），图中共 17 项 L3 服务。
+- 按表 8-1 的功能说明：收入是从国内外来源收取应付政府款项的活动；战略财务交付支持未来服务提供的长期财务战略，以及财务监控与控制；会计与报告识别、组织、分类、记录、汇总并沟通财务交易信息；投资管理处理金融资产与其他投资；风险与审计对受监管活动进行系统检查与审查，确保符合标准。
+- 图并不是本部门服务的完整清单：英文原文表 8-1 在投资管理下还列有“投资（Investments）”，在风险与审计下还列有“财务治理（Financial Governance）”，共 19 项服务；附录 A 第 50 页的同一面板也只有 17 项。需要完整清单时以表 8-1 为准。
+- 名称相近的服务要按说明区分：战略风险（分析风险敞口，确定确保活动持续的措施）与企业风险（识别并应对可能危及战略目标的潜在事件）；战略财务下的财务规划（评估长期财政需求、获取与分配资源、管理成本）与会计与报告下的财务规划与绩效（衡量政府金融资产与资本有效性的一组能力）。
+- 收入功能下的“社会保障”按表 8-1 是通过援助措施促进人口福利，与一般政府与地方服务部门客户运营下的同名服务（分配社会保障号码、管理保险计划，图 4-1）含义不同。
+- 与其他部门的分工：进口关税的征收在本部门，海关检查与清关在司法、治安与内政部门（图 7-1）；税务局负责税收体系管理与税收政策，向纳税人提供表单的“税务表单”在图 4-1 的客户服务下；养老基金管理是基金资产的投资与管理，养老金的发放在图 4-1 的客户运营下。
+- 战略财务下的“政策支持”说明为评估当前计划与政策的可持续性，与政策、绩效、人口与创新部门（图 10-1）“政策”功能的概述几乎相同。
+
+## 层级（历史解释；局部修正见上）
+
+三层严格树形：L1 部门“财政”（最外层框）→ 5 个 L2 功能（白色圆角框）→ 17 个 L3 服务（胶囊框）。每项服务只属于一个功能，对应图 1-1 中“部门—功能—服务”的组成关系。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有任何连线或箭头。服务框位于功能框内，表示该服务属于该功能；功能框位于部门框内，表示该功能属于本部门（图 1-1 用菱形组合线表示同样的组成关系）。元素清单用 parent/level 记录这种嵌套，因此关系清单为空。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 下排的投资管理、风险与审计是与上排同级的 L2 功能，不是战略财务、会计与报告的子功能；左下角空白也不表示缺少某个功能。
+- 不要据图认为本部门只有 17 项服务：表 8-1 另列“投资”“财务治理”两项。
+- 本图的“Social Security（社会保障）”与图 4-1 客户运营下的同名服务不是同一项。
+- “Corporate and Business Planning（公司/业务规划）”中的 Corporate 指机构层面的整体规划，不是商业公司的规划。
+- 图中写“Shareholder of Owned Subsidiaries”（单数），表 8-1 写作“Shareholders of Owned Subsidiaries”；元素按图记录。
+- 中文稿引用的中文化 PNG 字号混乱，不能用字号判断层级，应以框的嵌套为准。
+- 图框下方的浅灰色线条是 PDF 评估版水印的残影，不属于图的内容。
+
+## 元素
+
+```json
+[
+  {
+    "id": "l1_financial",
+    "label_en": "Financial",
+    "label_zh": "财政",
+    "type": "other",
+    "notation_type": "GRM L1 部门（Sector）",
+    "parent": null,
+    "level": 1,
+    "position": "最外层浅蓝色框，标题在顶部居中",
+    "description_zh": "GRM 第 1 层“部门”，即政府的一个业务领域；词表没有对应类型，故用 other。"
+  },
+  {
+    "id": "l2_revenue",
+    "label_en": "Revenue",
+    "label_zh": "收入",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_financial",
+    "level": 2,
+    "order": 1,
+    "position": "上排左",
+    "description_zh": "从国内外来源收取应付政府款项的活动（表 8-1）。"
+  },
+  {
+    "id": "l2_strategic_finance",
+    "label_en": "Strategic Finance",
+    "label_zh": "战略财务",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_financial",
+    "level": 2,
+    "order": 2,
+    "position": "上排中",
+    "description_zh": "交付支持未来服务提供的长期财务战略，以及财务监控与控制（表 8-1）。"
+  },
+  {
+    "id": "l2_accounting_reporting",
+    "label_en": "Accounting and Reporting",
+    "label_zh": "会计与报告",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_financial",
+    "level": 2,
+    "order": 3,
+    "position": "上排右",
+    "description_zh": "识别、组织、分类、记录、汇总并沟通财务交易信息（表 8-1）。"
+  },
+  {
+    "id": "l2_investment_management",
+    "label_en": "Investment Management",
+    "label_zh": "投资管理",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_financial",
+    "level": 2,
+    "order": 4,
+    "position": "下排中（战略财务下方）",
+    "description_zh": "金融资产与其他投资的处理（表 8-1）。表 8-1 在本功能下还列有“投资（Investments）”，图中未画。"
+  },
+  {
+    "id": "l2_risk_audit",
+    "label_en": "Risk and Audit",
+    "label_zh": "风险与审计",
+    "type": "function",
+    "notation_type": "GRM L2 功能（Function）",
+    "parent": "l1_financial",
+    "level": 2,
+    "order": 5,
+    "position": "下排右（会计与报告下方）",
+    "description_zh": "对受监管活动进行系统检查与审查，确保符合标准（表 8-1）。表 8-1 在本功能下还列有“财务治理（Financial Governance）”，图中未画。"
+  },
+  {
+    "id": "l3_tax_office",
+    "label_en": "Tax Office",
+    "label_zh": "税务局",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_revenue",
+    "level": 3,
+    "order": 1,
+    "description_zh": "管理税收体系，制定、维护与实施税收政策。"
+  },
+  {
+    "id": "l3_social_security",
+    "label_en": "Social Security",
+    "label_zh": "社会保障",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_revenue",
+    "level": 3,
+    "order": 2,
+    "description_zh": "通过援助措施促进人口福利，在生活不稳定时提供帮助并预防不稳定；与图 4-1 客户运营下的同名服务含义不同。"
+  },
+  {
+    "id": "l3_import_duty",
+    "label_en": "Import Duty",
+    "label_zh": "进口关税",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_revenue",
+    "level": 3,
+    "order": 3,
+    "description_zh": "由海关当局对进口及部分出口征税。"
+  },
+  {
+    "id": "l3_tax_revenue_compliance",
+    "label_en": "Tax and Revenue Compliance",
+    "label_zh": "税收与收入合规",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_revenue",
+    "level": 3,
+    "order": 4
+  },
+  {
+    "id": "l3_policy_support",
+    "label_en": "Policy Support",
+    "label_zh": "政策支持",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_strategic_finance",
+    "level": 3,
+    "order": 1,
+    "description_zh": "评估当前计划与政策的可持续性。"
+  },
+  {
+    "id": "l3_corporate_business_planning",
+    "label_en": "Corporate and Business Planning",
+    "label_zh": "公司/业务规划（机构与业务规划）",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_strategic_finance",
+    "level": 3,
+    "order": 2,
+    "description_zh": "审视内部能力并制定利用这些能力达成目标的战略；Corporate 指机构层面。中文稿译作“公司/业务规划”。"
+  },
+  {
+    "id": "l3_strategic_risk",
+    "label_en": "Strategic Risk",
+    "label_zh": "战略风险",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_strategic_finance",
+    "level": 3,
+    "order": 3,
+    "description_zh": "分析风险敞口，确定确保活动持续所需的措施。"
+  },
+  {
+    "id": "l3_financial_planning",
+    "label_en": "Financial Planning",
+    "label_zh": "财务规划",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_strategic_finance",
+    "level": 3,
+    "order": 4,
+    "description_zh": "评估政府长期财政需求，获取并分配资源、管理成本。"
+  },
+  {
+    "id": "l3_investment_decisions",
+    "label_en": "Investment Decisions",
+    "label_zh": "投资决策",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_strategic_finance",
+    "level": 3,
+    "order": 5,
+    "description_zh": "确定在投资机会上投入资本的地点与金额。"
+  },
+  {
+    "id": "l3_finance_business_partnering",
+    "label_en": "Finance Business Partnering",
+    "label_zh": "财务业务伙伴",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_accounting_reporting",
+    "level": 3,
+    "order": 1,
+    "description_zh": "管理有助于政府目标的业务伙伴关系。"
+  },
+  {
+    "id": "l3_finance_planning_performance",
+    "label_en": "Finance Planning and Performance",
+    "label_zh": "财务规划与绩效",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_accounting_reporting",
+    "level": 3,
+    "order": 2,
+    "description_zh": "衡量政府金融资产与资本有效性的一组能力；不同于战略财务下的“财务规划”。"
+  },
+  {
+    "id": "l3_accounting_standards_compliance",
+    "label_en": "Accounting Standards Compliance",
+    "label_zh": "会计准则合规",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_accounting_reporting",
+    "level": 3,
+    "order": 3
+  },
+  {
+    "id": "l3_cash_management",
+    "label_en": "Cash Management",
+    "label_zh": "现金管理",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_investment_management",
+    "level": 3,
+    "order": 1
+  },
+  {
+    "id": "l3_shareholder_owned_subsidiaries",
+    "label_en": "Shareholder of Owned Subsidiaries",
+    "label_zh": "自有子公司股权",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_investment_management",
+    "level": 3,
+    "order": 2,
+    "description_zh": "母体拥有或控制的子公司股份；表 8-1 写作复数 Shareholders，并在本项之前另列“投资（Investments）”。",
+    "attributes": {
+      "table_label_en": "Shareholders of Owned Subsidiaries"
+    }
+  },
+  {
+    "id": "l3_pension_fund_management",
+    "label_en": "Pension Fund Management",
+    "label_zh": "养老基金管理",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_investment_management",
+    "level": 3,
+    "order": 3,
+    "description_zh": "投资并管理养老基金资产。"
+  },
+  {
+    "id": "l3_enterprise_risk",
+    "label_en": "Enterprise Risk",
+    "label_zh": "企业风险",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_risk_audit",
+    "level": 3,
+    "order": 1,
+    "description_zh": "识别并应对可能危及战略目标的潜在事件；表 8-1 在本项之后另列“财务治理（Financial Governance）”。"
+  },
+  {
+    "id": "l3_internal_audit",
+    "label_en": "Internal Audit",
+    "label_zh": "内部审计",
+    "type": "service",
+    "notation_type": "GRM L3 服务（Service）",
+    "parent": "l2_risk_audit",
+    "level": 3,
+    "order": 2,
+    "description_zh": "就风险管理、治理与内部控制是否有效运行提供独立保证。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "浅蓝色大圆角框 + 顶部白色粗体标题",
+    "meaning_zh": "L1 部门（Sector）",
+    "explicit": false
+  },
+  {
+    "symbol": "白色圆角框 + 黑色粗体标题",
+    "meaning_zh": "L2 功能（Function），属于所在部门",
+    "explicit": false
+  },
+  {
+    "symbol": "白色胶囊形小框（细灰边）",
+    "meaning_zh": "L3 服务（Service），属于所在功能",
+    "explicit": false
+  },
+  {
+    "symbol": "框的嵌套",
+    "meaning_zh": "组成/归属关系，与图 1-1 中菱形组合线表达的“部门—功能—服务”关系相同",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "最外层浅蓝色圆角框（顶部居中为部门标题，版权署名在左下角）内，五个功能框排成两行：上排从左到右为收入（4 项）、战略财务（5 项）、会计与报告（3 项）；下排为投资管理（3 项，在战略财务下方）、风险与审计（2 项，在会计与报告下方），左下角空白。各框内服务自上而下单列排列。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G21D/fig1-1",
+    "relation": "detail_of",
+    "note_zh": "图 1-1 的三层结构（L1 部门—L2 功能—L3 服务）在“财政”部门的展开"
+  },
+  {
+    "target": "G21D/fig9-1",
+    "relation": "complements",
+    "note_zh": "同一模板的相邻部门概览（增长、住房与环境）；投资决策与投资管理在本图，资本项目与政府资产管理在图 9-1 的物业与特别项目下"
+  },
+  {
+    "target": "G21D/fig10-1",
+    "relation": "related",
+    "note_zh": "本图战略财务下“政策支持”的说明与图 10-1“政策”功能的概述几乎相同"
+  },
+  {
+    "target": "G21D/appA-p50",
+    "relation": "related",
+    "note_zh": "附录 A 第 50 页（PDF 第 70 页）原样收录本图，与图 7-1 同页"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "表 8-1 比图多出“投资”“财务治理”两项服务，原文没有说明是图漏画还是表新增；元素按图记录，差异写在 L2 元素说明中。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 47 页原图截图",
+    "英文 PDF 第 47–49 页正文（第 8 章开篇、表 8-1）及第 21–24 页（1.3–1.4 节）",
+    "英文 PDF 第 70 页附录 A 图示（同内容面板，用于复核标签与服务数）",
+    "中文稿 G21De_政府参考模型.md 第 735–800 行",
+    "figs/zh/g21de_fig8-1_zh.png（逐项对照）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

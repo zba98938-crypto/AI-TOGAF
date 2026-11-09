@@ -1,0 +1,2163 @@
+# TOGAF® Standard — Enterprise Architecture Capability and Governance
+
+原文保存及结构转换；未完成逐章深度语义审阅。
+
+[离线原貌](index.html) · [原始HTML](source.html) · [结构化正文](document.json)
+
+The Open Group Standard
+
+Copyright © 2005 - 2025, The Open Group All rights reserved.
+
+No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form
+or by any means, electronic, mechanical, photocopying, recording, or otherwise, without the prior permission of the copyright owners. Specifically, without such written permission, the use or incorporation of this publication, in whole or in part, is NOT PERMITTED for the purposes of training or developing large language models (LLMs) or any other generative artificial intelligence systems, or
+otherwise for the purposes of using, or in connection with the use of, such technologies, tools, or
+models to generate any data or content and/or to synthesize or combine with any other data or
+content.
+
+Any use of this publication for commercial purposes is subject to the terms of the Annual Commercial License relating to it. For further information, see www.opengroup.org/legal/licensing .
+
+The Open Group Standard TOGAF® Standard — Enterprise Architecture Capability and Governance ISBN: 1-947754-90-4 Document Number: C220
+
+Published by The Open Group, April 2022. Updated May 2025 to include Technical Corrigendum 1
+
+Comments relating to the material contained in this document may be submitted to: The Open Group, Apex Plaza, Forbury Road, Reading, Berkshire, RG1 1AX, United Kingdom or by electronic mail to: ogspecs@opengroup.org
+
+Built with asciidoctor , version 2.0.18.
+Backend: html5
+Build date: 2025-05-15 13:00:26 +0100
+
+## Preface
+
+### The Open Group
+
+The Open Group is a global consortium that enables the achievement of business objectives through technology standards and open source initiatives by fostering a culture of collaboration, inclusivity, and mutual respect among our diverse group of 900+ memberships. Our membership includes customers, systems and solutions suppliers, tool vendors, integrators, academics, and consultants across multiple industries.
+
+The mission of The Open Group is to drive the creation of Boundaryless Information Flow™ achieved by:
+
+<ul>
+<li>
+<p>Working with customers to capture, understand, and address current and emerging requirements, establish policies, and share best practices</p>
+</li>
+<li>
+<p>Working with suppliers, consortia, and standards bodies to develop consensus and facilitate interoperability, to evolve and integrate specifications and open source technologies</p>
+</li>
+<li>
+<p>Offering a comprehensive set of services to enhance the operational efficiency of consortia</p>
+</li>
+<li>
+<p>Developing and operating the industry’s premier certification service and encouraging procurement of certified products</p>
+</li>
+</ul>
+
+Further information on The Open Group is available at www.opengroup.org .
+
+The Open Group publishes a wide range of technical documentation, most of which is focused on development of standards and guides, but which also includes white papers, technical studies, certification and testing documentation, and business titles. Full details are available at www.opengroup.org/library .
+
+### The TOGAF ® Standard
+
+The TOGAF ® Standard is an open, industry consensus framework for Enterprise Architecture.
+
+It is a foundational framework, which means that it is applicable to the development of any kind of architecture in any context. This foundational framework is supplemented by The Open Group TOGAF Library, a publicly-accessible resource with an extensive and growing portfolio of guidance material, providing practical guidance in the application of the TOGAF framework in specific contexts; refer to: www.opengroup.org/togaf-library .
+
+### The TOGAF Documentation
+
+The TOGAF documentation consists of a set of documents:
+
+<ul>
+<li>
+<p>The TOGAF Standard, which describes the generally applicable approach to Enterprise and IT Architecture</p>
+</li>
+<li>
+<p>The TOGAF Library, a portfolio of additional guidance material, which supports the practical application of the TOGAF approach</p>
+</li>
+</ul>
+
+### This Document
+
+This document is the TOGAF® Standard — Enterprise Architecture Capability and Governance.
+
+It has been developed and approved by The Open Group.
+
+### Intended Audience
+
+The TOGAF Standard is intended for Enterprise Architects, Business Architects, IT Architects, Data Architects, Systems Architects, Solution Architects, and anyone responsible for the architecture function within an organization.
+
+## Trademarks
+
+ArchiMate, FACE, FACE logo, Future Airborne Capability Environment, Making Standards Work, Open Footprint, Open O logo, Open O and Check certification logo, Open Subsurface Data Universe, OSDU, SOSA, SOSA logo, The Open Group, TOGAF, UNIX, UNIXWARE, and X logo are registered trademarks and Boundaryless Information Flow, Build with Integrity Buy with Confidence, Commercial Aviation Reference Architecture, Dependability Through Assuredness, Digital Practitioner Body of Knowledge, DPBoK, EMMM, FHIM Profile Builder, FHIM logo, FPB, IT4IT, IT4IT logo, O-AA, O-DA, O-DEF, O-HERA, O-PAS, O-TTPS, O-VBA, Open Agile Architecture, Open FAIR, Open Process Automation, Open Trusted Technology Provider, Sensor Integration Simplified, and Sensor Open Systems Architecture are trademarks of The Open Group.
+
+COBIT is a registered trademark of the Information Systems Audit and Control Association (ISACA) and the IT Governance Institute.
+
+The Open Group acknowledges that there may be other company names and products that might be covered by trademark protection and advises the reader to verify them independently.
+
+## Acknowledgements
+
+The Open Group is grateful for the contribution of many individuals and organizations in the development of the TOGAF Standard. See the TOGAF Standard — Introduction and Core Concepts for details.
+
+## Referenced Documents
+
+Please refer to the TOGAF Standard — Introduction and Core Concepts, Appendix A for documents referenced in the TOGAF Standard.
+
+## 1. Introduction
+
+This chapter provides an introduction to the guidance provided in the TOGAF Standard — EA Capability and Governance (this document).
+
+In order to successfully operate an architecture function within an
+enterprise, it is necessary to put in place appropriate organization
+structures, processes, roles, responsibilities, and governance.
+
+Guidelines included within this document are as follows:
+
+<ul>
+<li>
+<p>Establishing an Architecture Capability (see <a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#chap02">Chapter 2, <em>Establishing an Architecture Capability</em></a>) provides guidelines on how to use the ADM to establish an Architecture Capability</p>
+</li>
+<li>
+<p>Architecture Governance (see <a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#chap03">Chapter 3, <em>Architecture Governance</em></a>) provides a framework and guidelines for Architecture Governance</p>
+</li>
+<li>
+<p>Architecture Board (see <a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#chap04">Chapter 4, <em>Architecture Board</em></a>) provides guidelines for establishing and operating an Enterprise Architecture Board</p>
+</li>
+<li>
+<p>Architecture Contracts (see <a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#chap05">Chapter 5, <em>Architecture Contracts</em></a>) provides guidelines for defining and using Architecture Contracts</p>
+</li>
+<li>
+<p>Architecture Compliance (see <a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#chap06">Chapter 6, <em>Architecture Compliance</em></a>) provides guidelines for ensuring project compliance to the architecture</p>
+</li>
+</ul>
+
+## 2. Establishing an Architecture Capability
+
+This chapter provides guidelines on how to use the ADM to establish an
+Architecture Capability.
+
+### 2.1. Overview
+
+As with any business capability, the establishment of an Enterprise
+Architecture Capability can be supported by the TOGAF Architecture
+Development Method (ADM). Successful use of the ADM will provide a
+customer-focused, value-adding, and sustainable architecture practice
+that enables the business, helps maximize the value of investments, and
+pro-actively identifies opportunities to gain business benefits and
+manage risk.
+
+Establishing a sustainable architecture practice within an organization
+can be achieved by adhering to the same approach that is used to
+establish any other capability — such as a Business Process Management
+(BPM) capability — within an organization. The ADM is an ideal method to
+be used to architect and govern the implementation of such a capability.
+Applying the ADM with the specific Architecture Vision to establish an
+architecture practice within the organization would achieve this
+objective.
+
+The establishment of the architecture practice should not be seen as a
+phase of an architecture project, or a one-off project, but rather as an
+ongoing discipline that provides the context, environment, and resources
+to govern and enable architecture delivery to the organization. As an
+architecture project is executed within this environment it might
+request a change to the architecture practice that would trigger another
+cycle of the ADM to extend the architecture practice.
+
+Implementing any capability within an organization would require the
+design of the four domain architectures: Business, Data, Application,
+and Technology. Establishing the architecture practice within an
+organization would therefore require the design of:
+
+<ul>
+<li>
+<p>The <strong>Business Architecture</strong> of the architecture practice that will
+highlight the Architecture Governance, architecture processes,
+architecture organizational structure, architecture information
+requirements, architecture products, etc.</p>
+</li>
+<li>
+<p>The <strong>Data Architecture</strong> that would define the structure of the
+organization’s Enterprise Continuum and Architecture Repository</p>
+</li>
+<li>
+<p>The <strong>Application Architecture</strong> specifying the functionality and/or
+applications services required to enable the architecture practice</p>
+</li>
+<li>
+<p>The <strong>Technology Architecture</strong> that depicts the architecture practice’s
+infrastructure requirements and deployment in support of the
+architecture applications and Enterprise Continuum</p>
+</li>
+</ul>
+
+The steps in establishing an architecture practice are explained below,
+against the context of the ADM phases. The reader should therefore refer
+to the relevant ADM phase in the TOGAF Standard — Architecture Development Method to understand the complete scope of
+each step. In this section, key aspects will be highlighted for each ADM
+phase that should be considered and are specific to establishing an
+architecture practice. The intent is therefore not to repeat each ADM
+phase description, but to guide the reader to apply each ADM phase
+within the context of establishing an architecture practice.
+
+### 2.2. Phase A: Architecture Vision
+
+The purpose of this phase within the context of establishing an
+architecture practice is to define or review the vision, stakeholders,
+and principles of the architecture practice. The focus in this phase
+would be on the architecture practice as a whole and not on a particular
+architecture project.
+
+The following should be considered in terms of understanding the steps
+in the context of establishing an architecture practice:
+
+<ul>
+<li>
+<p><strong>Establish the Project</strong>: this step should focus on performing the necessary procedures to secure recognition of the project, the endorsement of corporate management, and the support and commitment of the necessary line management</p>
+<div class="paragraph">
+<p>Include references to other management frameworks in use within the enterprise, explaining how this project relates to those frameworks.</p>
+</div>
+</li>
+<li>
+<p><strong>Identify Stakeholders and Concerns, Business Requirements, and
+Architecture Vision</strong>: this step generates the first, very high-level
+definitions of the baseline and target environments, from the
+perspectives of business information systems and technology, for the
+architecture practice</p>
+</li>
+<li>
+<p><strong>Identify Business Goals and Business Drivers</strong>: an understanding of the business goals and drivers is essential to align the architecture practice to the business</p>
+</li>
+<li>
+<p><strong>Define Scope</strong>: defining the scope of the architecture practice is a high-level project plan of what is scheduled to be addressed in terms of architecture for the next period</p>
+</li>
+<li>
+<p><strong>Define Constraints</strong>: the focus in this step is the enterprise-wide constraints that impact on all architecture projects</p>
+</li>
+<li>
+<p><strong>Review Architecture Principles, including Business Principles</strong>: the intent in this step is to define the principles that govern and guide the running of the architecture practice</p>
+<div class="paragraph">
+<p>Where Architecture Principles usually govern the architecture
+deliverables, the architecture practice principles address the
+architecture practice organization, content, tools, and process.</p>
+</div>
+</li>
+<li>
+<p><strong>Develop Statement of Architecture Work and Secure Approval</strong>: this
+step generates the architecture practice vision and scope</p>
+</li>
+</ul>
+
+Another step that can be considered during this phase is to conduct an architecture maturity assessment. Refer to the TOGAF ® Series Guide: Architecture Maturity Models for guidance on this topic.
+
+### 2.3. Phase B: Business Architecture
+
+Key areas of focus during this phase of establishing or refining the
+Business Architecture of the architecture practice are:
+
+<ul>
+<li>
+<p>An <strong>Architecture Ontology</strong> defining the architectural terms and
+definitions that will be used in the organization in order to establish a common understanding of these terms</p>
+</li>
+<li>
+<p>The <strong>Architecture Process</strong> where the ADM would form the base of the process and need to be customized to meet the organization’s
+requirements and architecture practice vision</p>
+<div class="paragraph">
+<p>Refer to the <a href="https://pubs.opengroup.org/togaf-standard/adm/chap01.html">TOGAF Standard — Architecture Development Method</a> for guidance on developing this process. The required Architecture Governance processes should be included in the
+overall architecture process.</p>
+</div>
+</li>
+<li>
+<p>The <strong>Architecture Viewpoints and Views</strong> that list all the viewpoints and views that should be addressed by the architecture practice</p>
+<div class="paragraph">
+<p>The identified architecture practice stakeholders would guide the
+development of this definition. One of the viewpoints to be included is the Architecture Governance viewpoint; refer to the
+<a href="https://pubs.opengroup.org/togaf-standard/architecture-content/chap01.html">TOGAF Standard — Architecture Content</a> for guidance on this output.</p>
+</div>
+</li>
+<li>
+<p>The <strong>Architecture Framework</strong> describing the various architecture
+deliverables that will be generated by the architecture practice, the inter-relationships and dependencies between the architecture
+deliverables, as well as the rules and guidelines governing the design of these deliverables</p>
+<div class="paragraph">
+<p>The defined architecture viewpoints and views should be used to guide the definition of the architecture framework. The
+<a href="https://pubs.opengroup.org/togaf-standard/adm/chap01.html">TOGAF Standard — Architecture Development Method</a>
+and the <a href="https://pubs.opengroup.org/togaf-standard/architecture-content/chap01.html">TOGAF Standard — Architecture Content</a> are useful references that will assist in describing the architecture framework.</p>
+</div>
+</li>
+<li>
+<p>The <strong>Architecture Accountability Matrix</strong> defining the roles in the architecture practice and allocating accountability of the roles to architecture deliverables and processes</p>
+<div class="paragraph">
+<p>This matrix would include the required Architecture Governance structures and roles. The <a href="https://pubs.opengroup.org/togaf-standard/adm/chap01.html">TOGAF Standard — Architecture Development Method</a>
+as well as <a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#chap04">Chapter 4, <em>Architecture Board</em></a>,
+<a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#chap03">Chapter 3, <em>Architecture Governance</em></a>, and
+the <a href="https://pubs.opengroup.org/togaf-standard/architecture-skills-framework/index.html">TOGAF<sup>®</sup> Series Guide: Architecture Skills Framework</a> would provide guidance on this output.</p>
+</div>
+</li>
+<li>
+<p>The <strong>Architecture Performance Metrics</strong> identifying and describing the metrics that will be used to monitor the performance of the architecture practice against its stated architecture practice vision and objectives</p>
+</li>
+<li>
+<p>The <strong>Architecture Governance Framework</strong> which is a specific view of the defined architecture process and Architecture Accountability Matrix</p>
+</li>
+</ul>
+
+### 2.4. Phase C: Data Architecture
+
+The Data Architecture of the architecture practice would specify and govern the structure of the organization’s Enterprise Continuum and Architecture Repository. The Data Architecture should be defined based on the architecture framework. The Data Architecture is sometimes referred to as the metamodel of the architecture practice.
+
+### 2.5. Phase C: Application Architecture
+
+The Application Architecture of the architecture practice defines the functionality required to generate, maintain, publish, distribute, and govern the architecture deliverables as defined in the architecture framework. A key focus should be on the modeling toolsets required for
+modeling, but it should not be the only focus. Refer to the TOGAF Standard — Architecture Development Method for guidance on selecting a toolset. Publishing the architecture
+deliverables to address specific views in the architecture framework would sometimes require specialized or customized functionality and should not be neglected.
+
+### 2.6. Phase D: Technology Architecture
+
+The Technology Architecture of the architecture practice should define technology infrastructure supporting the architecture practice.
+
+### 2.7. Phase E: Opportunities & Solutions
+
+A critical factor to consider during this phase of planning the establishment of the architecture practice is the organizational change that is required and how this will be achieved.
+
+### 2.8. Phase F: Migration Planning
+
+The focus should not only be on the Information Systems Architecture components in this phase, but include the Business Architecture. The adoption of the architecture process and framework will have a major impact on the overall establishment of the architecture practice in the
+organization.
+
+### 2.9. Phase G: Implementation Governance
+
+The implementation of the Business Architecture of the architecture practice should be the focus of this phase. Changing practices within the organization to adopt a more structured and disciplined approach will be a challenge and should be addressed by the appropriate
+organizational change techniques.
+
+### 2.10. Phase H: Architecture Change Management
+
+Changes to the architecture of the architecture practice should be managed by this phase. These changes are usually triggered during the execution of architecture projects. A typical change would be the requirement for a new architecture deliverable. This would impact on all
+the architecture domains of the architecture practice.
+
+### 2.11. Requirements Management
+
+Understanding and managing the requirements for the architecture practice is crucial. Requirements should be clearly articulated and align to the architecture practice vision.
+
+Additional guidance on how to construct an Enterprise Architecture Capability can be found in the TOGAF ® Series Guide: The TOGAF Leader’s Guide to Establishing and Evolving an EA Capability .
+
+## 3. Architecture Governance
+
+This chapter provides a framework and guidelines for Architecture Governance.
+
+### 3.1. Introduction
+
+This section describes the nature of governance, and the levels of
+governance.
+
+#### 3.1.1. Levels of Governance within the Enterprise
+
+Architecture Governance is the practice and orientation by which
+Enterprise Architectures and other architectures are managed and
+controlled at an enterprise-wide level.
+
+Architecture Governance typically does not operate in isolation, but
+within a hierarchy of governance structures, which, particularly in the
+larger enterprise, can include all of the following as distinct domains
+with their own disciplines and processes:
+
+<ul>
+<li>
+<p>Corporate Governance </p>
+</li>
+<li>
+<p>Technology Governance </p>
+</li>
+<li>
+<p>IT Governance </p>
+</li>
+<li>
+<p>Architecture Governance </p>
+</li>
+</ul>
+
+Each of these domains of governance may exist at multiple geographic
+levels — global, regional, and local — within the overall enterprise.
+
+Corporate governance is thus a broad topic, beyond the scope of an
+Enterprise Architecture framework such as the TOGAF framework.
+
+This and related subsections are focused on Architecture Governance; but
+they describe it in the context of enterprise-wide governance, because
+of the hierarchy of governance structures within which it typically
+operates, as explained above.
+
+In particular, this and following sections aim to:
+
+<ul>
+<li>
+<p>Provide an overview of the nature of governance as a discipline in its
+own right</p>
+</li>
+<li>
+<p>Describe the governance context in which Architecture Governance
+typically functions within the enterprise</p>
+</li>
+<li>
+<p>Describe a practical Architecture Governance Framework that can be
+adapted and applied, both for Enterprise Architecture and for other
+forms of IT architecture</p>
+</li>
+</ul>
+
+#### 3.1.2. Nature of Governance
+
+##### 3.1.2.1. Governance: A Generic Perspective
+
+Governance is essentially about ensuring that business is conducted
+properly. It is less about overt control and strict adherence to rules,
+and more about guidance and effective and equitable usage of resources
+to ensure sustainability of an organization’s strategic objectives.
+
+The following outlines the basic principles of corporate governance, as
+identified by the Organization for Economic Co-operation and Development
+(OECD):
+
+<ul>
+<li>
+<p>Focuses on the rights, roles, and equitable treatment of shareholders</p>
+</li>
+<li>
+<p>Disclosure and transparency and the responsibilities of the board</p>
+</li>
+<li>
+<p>Ensures:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sound strategic guidance of the organization</p>
+</li>
+<li>
+<p>Effective monitoring of management by the board</p>
+</li>
+<li>
+<p>Board accountability for the company and to the shareholders</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Responsibilities of the Board:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewing and guiding corporate strategy</p>
+</li>
+<li>
+<p>Setting and monitoring achievement of management’s performance
+objectives</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+
+Supporting this, the OECD considers a traditional view of governance as:
+“…​ the system by which business corporations are directed and
+controlled. The corporate governance structure specifies the
+distribution of rights and responsibilities among different participants
+in the corporation — such as the board, managers, shareholders, and
+other stakeholders — and spells out the rules and procedures for making
+decisions on corporate affairs. By doing this, it also provides the
+structure through which the company objectives are set, and the means of
+attaining those objectives and monitoring performance” (Source: OECD,
+2001).
+
+##### 3.1.2.2. Characteristics of Governance
+
+The following characteristics have been adapted from Corporate
+Governance (Naidoo, 2002) and are positioned here to highlight both the
+value and necessity for governance as an approach to be adopted within
+organizations and their dealings with all involved parties:
+
+Discipline
+
+All involved parties will have a commitment to adhere to procedures,
+processes, and authority structures established by the organization.
+
+Transparency
+
+All actions implemented and their decision support will be available for
+inspection by authorized organization and provider parties.
+
+Independence
+
+All processes, decision-making, and mechanisms used will be established
+so as to minimize or avoid potential conflicts of interest.
+
+Accountability
+
+Identifiable groups within the organization — e.g., governance boards
+who take actions or make decisions — are authorized and accountable for
+their actions.
+
+Responsibility
+
+Each contracted party is required to act responsibly to the organization
+and its stakeholders.
+
+Fairness
+
+All decisions taken, processes used, and their implementation will not
+be allowed to create unfair advantage to any one particular party.
+
+#### 3.1.3. Technology Governance
+
+Technology governance controls how an organization utilizes technology
+in the research, development, and production of its goods and services.
+Although it may include IT governance activities, it often has a broader
+scope.
+
+Technology governance is a key capability, requirement, and resource for
+most organizations because of the pervasiveness of technology across the
+organizational spectrum.
+
+Recent studies have shown that many organizations have a balance in
+favor of intangibles rather than tangibles that require management.
+Given that most of these intangibles are informational and digital
+assets, it is evident that businesses are becoming more reliant on IT:
+and the governance of IT — IT governance — is therefore becoming an even
+more important part of technology governance.
+
+These trends also highlight the dependencies of businesses on not only
+the information itself but also the processes, systems, and structures
+that create, deliver, and consume it. As the shift to increasing value
+through intangibles increases in many industry sectors, so risk
+management must be considered as key to understanding and moderating new
+challenges, threats, and opportunities.
+
+Not only are organizations increasingly dependent on IT for their
+operations and profitability, but also their reputation, brand, and
+ultimately their values are also dependent on that same information and
+supporting technology.
+
+#### 3.1.4. IT Governance
+
+IT governance provides the framework and structure that links IT
+resources and information to enterprise goals and strategies.
+Furthermore, IT governance institutionalizes best practices for
+planning, acquiring, implementing, and monitoring IT performance, to
+ensure that the enterprise’s IT assets support its business objectives.
+
+In recent years, IT governance has become integral to the effective
+governance of the modern enterprise. Businesses are increasingly
+dependent on IT to support critical business functions and processes;
+and to successfully gain competitive advantage, businesses need to
+manage effectively the complex technology that is pervasive throughout
+the organization in order to respond quickly and safely to business
+needs.
+
+In addition, regulatory environments around the world are increasingly
+mandating stricter enterprise control over information, driven by
+increasing reports of information system disasters and electronic fraud.
+The management of IT-related risk is now widely accepted as a key part
+of enterprise governance.
+
+It follows that an IT governance strategy, and an appropriate
+organization for implementing the strategy, must be established with the
+backing of executive management, clarifying who owns the enterprise’s IT
+resources, and, in particular, who has ultimate responsibility for their
+enterprise-wide integration.
+
+##### 3.1.4.1. An IT Controls Framework — COBIT
+
+As with corporate governance, IT governance is a broad topic, beyond the
+scope of an Enterprise Architecture framework such as the TOGAF
+framework. A good source of detailed information on IT governance is the
+COBIT ® framework (Control OBjectives for Information and related
+Technology). This is an open standard for control over IT, developed and
+promoted by the IT Governance Institute (ITGI), and published by the
+Information Systems Audit and Control Association (ISACA). COBIT controls
+may provide useful aides to running a compliance strategy.
+
+#### 3.1.5. Architecture Governance: Overview
+
+##### 3.1.5.1. Architecture Governance Characteristics
+
+Architecture Governance is the practice and orientation by which
+Enterprise Architectures and other architectures are managed and
+controlled at an enterprise-wide level. It includes the following:
+
+<ul>
+<li>
+<p>Implementing a system of controls over the creation and monitoring of
+all architectural components and activities, to ensure the effective
+introduction, implementation, and evolution of architectures within the
+organization</p>
+</li>
+<li>
+<p>Implementing a system to ensure compliance with internal and external
+standards and regulatory obligations</p>
+</li>
+<li>
+<p>Establishing processes that support effective management of the above
+processes within agreed parameters</p>
+</li>
+<li>
+<p>Developing practices that ensure accountability to a clearly
+identified stakeholder community, both inside and outside the
+organization</p>
+</li>
+</ul>
+
+##### 3.1.5.2. Architecture Governance as a Board-Level Responsibility
+
+This section aims to provide the impetus for opening up IT and
+Architecture Governance so that the business responsibilities associated
+with architecture activities and artifacts can be elucidated and
+managed.
+
+##### 3.1.5.3. The TOGAF Standard and Architecture Governance
+
+Phase G of the TOGAF ADM (see the TOGAF Standard — Architecture Development Method ) is dedicated to implementation
+governance, which concerns itself with the realization of the
+architecture through change projects. Implementation governance is just
+one aspect of Architecture Governance, which covers the management and
+control of all aspects of the development and evolution of Enterprise
+Architectures and other architectures within the enterprise.
+
+Architecture Governance needs to be supported by an Architecture
+Governance Framework (described in Section 3.2, “Architecture Governance Framework” ) which assists in identifying effective processes
+so that the business responsibilities associated with Architecture
+Governance can be elucidated, communicated, and managed effectively.
+
+### 3.2. Architecture Governance Framework
+
+This section describes a conceptual and organizational framework for
+Architecture Governance.
+
+As previously explained, Phase G of the TOGAF ADM (see the TOGAF Standard — Architecture Development Method ) is dedicated to implementation governance, which concerns
+itself with the realization of the architecture through change projects.
+
+Implementation governance is just one aspect of Architecture Governance,
+which covers the management and control of all aspects of the
+development and evolution of Enterprise Architectures and other
+architectures within the enterprise.
+
+Architecture Governance needs to be supported by an Architecture
+Governance Framework, described below. The governance framework
+described is a generic framework that can be adapted to the existing
+governance environment of an enterprise. It is intended to assist in
+identifying effective processes and organizational structures, so that
+the business responsibilities associated with Architecture Governance
+can be elucidated, communicated, and managed effectively.
+
+#### 3.2.1. Architecture Governance Framework — Conceptual Structure
+
+##### 3.2.1.1. Key Concepts
+
+Conceptually, Architecture Governance is an approach, a series of
+processes, a cultural orientation, and set of owned responsibilities
+that ensure the integrity and effectiveness of the organization’s
+architectures.
+
+The key concepts are illustrated in Figure 3-1 .
+
+![Architecture Governance Framework — Conceptual Structure](assets/004-50_concepts.png)
+
+Figure 3-1: Architecture Governance Framework — Conceptual Structure
+
+The split of process, content, and context are key to the support of the
+Architecture Governance initiative, by allowing the introduction of new
+governance material (legal, regulatory, standards-based, or legislative)
+without unduly impacting the processes. This content-agnostic approach
+ensures that the framework is flexible. The processes are typically
+independent of the content and implement a proven best practice approach
+to active governance.
+
+The Architecture Governance Framework is integral to the Enterprise
+Continuum, and manages all content relevant both to the architecture
+itself and to Architecture Governance processes.
+
+##### 3.2.1.2. Key Architecture Governance Processes
+
+Governance processes are required to identify, manage, audit, and
+disseminate all information related to architecture management,
+contracts, and implementation. These governance processes will be used
+to ensure that all architecture artifacts and contracts, principles, and
+Operational-Level Agreements (OLAs) are monitored on an ongoing basis
+with clear auditability of all decisions made.
+
+Policy Management and Take-On
+
+All architecture amendments, contracts, and supporting information must
+come under governance through a formal process in order to register,
+validate, ratify, manage, and publish new or updated content. These
+processes will ensure the orderly integration with existing governance
+content such that all relevant parties, documents, contracts, and
+supporting information are managed and audited.
+
+Compliance
+
+Compliance assessments against Service-Level Agreements (SLAs), OLAs,
+standards, and regulatory requirements will be implemented on an ongoing
+basis to ensure stability, conformance, and performance monitoring.
+These assessments will be reviewed and either accepted or rejected
+depending on the criteria defined within the governance framework.
+
+Dispensation (also known as Waiver)
+
+A Compliance Assessment can be rejected where the subject area (design,
+operational, service level, or technology) are not compliant. In this
+case, the subject area can:
+
+<ol class="arabic">
+<li>
+<p>Be adjusted or realigned in order to meet the compliance requirements</p>
+</li>
+<li>
+<p>Request a dispensation</p>
+</li>
+</ol>
+
+Where a Compliance Assessment is rejected, an alternate route to meeting
+interim conformance is provided through dispensations. These are granted
+for a given time period and a set of identified service and operational
+criteria that must be enforced during the lifespan of the dispensation.
+Dispensations are not granted indefinitely, but are used as a mechanism
+to ensure that service levels and operational levels are met while
+providing a level of flexibility in their implementation and timing. The
+time-bound nature of dispensations ensures that they are a major trigger
+in the compliance cycle.
+
+Monitoring and Reporting
+
+Performance management is required to ensure that both the operational
+and service elements are managed against an agreed set of criteria. This
+will include monitoring against SLAs and OLAs, feedback for adjustment,
+and reporting.
+
+Internal management information will be considered in Environment Management .
+
+Business Control
+
+Business Control relates to the processes invoked to ensure compliance
+with the organization’s business policies.
+
+Environment Management
+
+This identifies all the services required to ensure that the
+repository-based environment underpinning the governance framework is
+effective and efficient. This includes the physical and logical
+repository management, access, communication, training, and
+accreditation of all users.
+
+All architecture artifacts, service agreements, contracts, and
+supporting information must come under governance through a formal
+process in order to register, validate, ratify, manage, and publish new
+or updated content. These processes will ensure the orderly integration
+with existing governance content such that all relevant parties,
+documents, contracts, and supporting information are managed and
+audited.
+
+The governance environment will have a number of administrative
+processes defined in order to effect a managed service and process
+environment. These processes will include user management, internal SLAs
+(defined in order to control its own processes), and management
+information reporting.
+
+#### 3.2.2. Architecture Governance Framework — Organizational Structure
+
+##### 3.2.2.1. Overview
+
+Architecture Governance is the practice and orientation by which
+Enterprise Architectures and other architectures are managed and
+controlled. In order to ensure that this control is effective within the
+organization, it is necessary to have the correct organizational
+structures established to support all governance activities.
+
+An Architecture Governance structure for effectively implementing the
+approach described in this section will typically include the following
+levels, which may in practice involve a combination of existing IT
+governance processes, organizational structures, and capabilities. They
+will typically include the following:
+
+<ul>
+<li>
+<p>Global governance board</p>
+</li>
+<li>
+<p>Local governance board</p>
+</li>
+<li>
+<p>Design authorities</p>
+</li>
+<li>
+<p>Working parties</p>
+</li>
+</ul>
+
+The architecture organization illustrated in Figure 3-2 highlights the major structural elements required for an Architecture
+Governance initiative. While each enterprise will have differing
+requirements, it is expected that the basics of the organizational
+design shown in Figure 3-2 will be applicable and
+implementable in a wide variety of organizational types.
+
+![Architecture Governance Framework — Organizational Structure](assets/003-50_org.png)
+
+Figure 3-2: Architecture Governance Framework — Organizational Structure
+
+##### 3.2.2.2. Key Areas
+
+Figure 3-2 identifies three key areas of architecture
+management: Develop, Implement, and Deploy. Each of these is the
+responsibility of one or more groups within the organization, while the
+Enterprise Continuum is shown to support all activities and artifacts
+associated with the governance of the architectures throughout their
+lifecycle.
+
+The Develop responsibilities, processes, and structures are usually
+linked to the TOGAF ADM and its usage, while the Implement
+responsibilities, processes, and structures are typically linked to
+Phase G (see the TOGAF Standard — Architecture Development Method ).
+
+As mentioned above, the Architecture Governance Framework is integral to
+the Enterprise Continuum, and manages all content relevant both to the
+architectures themselves and to Architecture Governance processes.
+
+##### 3.2.2.3. Operational Benefits
+
+As illustrated in Figure 3-2 , the governance of the
+organization’s architectures provides not only direct control and guidance of their development and implementation, but also extends into
+the operations of the implemented architectures.
+
+The following benefits have been found to be derived through the
+continuing governance of architectures:
+
+<ul>
+<li>
+<p>Links IT processes, resources, and information to organizational
+strategies and objectives</p>
+</li>
+<li>
+<p>Integrates and institutionalizes IT best practices</p>
+</li>
+<li>
+<p>Aligns with industry frameworks such as COBIT (planning and
+organizing, acquiring and implementing, delivering and supporting, and
+monitoring IT performance)</p>
+</li>
+<li>
+<p>Enables the organization to take full advantage of its information,
+infrastructure, and hardware and software assets</p>
+</li>
+<li>
+<p>Protects the underlying digital assets of the organization</p>
+</li>
+<li>
+<p>Supports regulatory and best practice requirements such as
+auditability, security, responsibility, and accountability</p>
+</li>
+<li>
+<p>Promotes visible risk management</p>
+</li>
+</ul>
+
+These benefits position the TOGAF Architecture Governance Framework as
+an approach, a series of processes, a cultural orientation, and a set of
+owned responsibilities, that together ensure the integrity and
+effectiveness of the organization’s architectures.
+
+### 3.3. Architecture Governance in Practice
+
+This section provides practical guidelines for the effective
+implementation of Architecture Governance.
+
+#### 3.3.1. Architecture Governance — Key Success Factors
+
+It is important to consider the following to ensure a successful
+approach to Architecture Governance, and to the effective management of
+the Architecture Contract:
+
+<ul>
+<li>
+<p>Best practices for the submission, adoption, re-use, reporting, and
+retirement of architecture policies, procedures, roles, skills,
+organizational structures, and support services</p>
+</li>
+<li>
+<p>Organizational responsibilities and structures to support the
+Architecture Governance processes and reporting requirements</p>
+</li>
+<li>
+<p>Integration of tools and processes to facilitate the take-up of the
+processes, both procedurally and culturally</p>
+</li>
+<li>
+<p>Criteria for the control of the Architecture Governance processes,
+dispensations, compliance assessments, SLAs, and OLAs</p>
+</li>
+<li>
+<p>Internal and external requirements for the effectiveness, efficiency,
+confidentiality, integrity, availability, compliance, and reliability of
+all Architecture Governance-related information, services, and processes</p>
+</li>
+</ul>
+
+#### 3.3.2. Elements of an Effective Architecture Governance Strategy
+
+##### 3.3.2.1. Architecture Governance and Corporate Politics
+
+An Enterprise Architecture imposed without appropriate executive support
+and corporate political alignment is bound to fail. In order to succeed,
+the Enterprise Architecture must reflect the needs of the organization.
+Enterprise Architects, if they are not involved in the development of
+business strategy, must at least have a fundamental understanding of it
+and of the prevailing business issues facing the organization. It may
+even be necessary for them to be involved in the system deployment
+process and to ultimately own the investment and product selection
+decisions arising from the implementation of the Technology
+Architecture.
+
+There are three important elements of Architecture Governance strategy
+that relate particularly to the acceptance and success of architecture
+within the enterprise. While relevant and applicable in their own right
+apart from their role in governance, and therefore described separately,
+they also form an integral part of any effective Architecture Governance
+strategy.
+
+<ul>
+<li>
+<p>A cross-organizational Architecture Board (see <a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#chap04">Chapter 4, <em>Architecture Board</em></a>)
+must be established
+with the backing of executive management to oversee the implementation
+of the Enterprise Architecture Governance strategy</p>
+</li>
+<li>
+<p>A comprehensive set of Architecture Principles (see the
+<a href="https://pubs.opengroup.org/togaf-standard/adm-techniques/chap01.html">TOGAF Standard — ADM Techniques</a>)
+should be established to guide, inform, and support the way in which an
+organization sets about fulfilling its mission through the use of IT</p>
+</li>
+<li>
+<p>An Architecture Compliance strategy (see <a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#chap06">Chapter 6, <em>Architecture Compliance</em></a>)
+should be adopted — specific
+measures (more than just a statement of policy) to ensure compliance
+with the architecture, including Project Impact Assessments, a formal
+Architecture Compliance review process, and possibly including the
+involvement of the architecture team in product procurement</p>
+</li>
+</ul>
+
+## 4. Architecture Board
+
+This chapter provides guidelines for establishing and operating an Enterprise Architecture Board.
+
+### 4.1. Role
+
+A key element in a successful Architecture Governance strategy (see Chapter 3, Architecture Governance )
+is a cross-organization Architecture Board to oversee the implementation of the strategy. This body should be representative of all the key stakeholders in the architecture, and will typically comprise a group of
+executives responsible for the review and maintenance of the overall architecture.
+
+Architecture Boards may have global, regional, or business line scope.
+Particularly in larger enterprises, Architecture Boards typically
+comprise representatives from the organization at a minimum of two
+levels:
+
+<ul>
+<li>
+<p>Local (domain experts, line responsibility)</p>
+</li>
+<li>
+<p>Global (organization-wide responsibility)</p>
+</li>
+</ul>
+
+In such cases, each board will be established with identifiable and
+articulated:
+
+<ul>
+<li>
+<p>Responsibilities and decision-making capabilities</p>
+</li>
+<li>
+<p>Remit and authority limits</p>
+</li>
+</ul>
+
+### 4.2. Responsibilities
+
+The Architecture Board is typically made responsible, and accountable,
+for achieving some or all of the following goals:
+
+<ul>
+<li>
+<p>Providing the basis for all decision-making with regard to the
+architectures</p>
+</li>
+<li>
+<p>Consistency between sub-architectures</p>
+</li>
+<li>
+<p>Establishing targets for re-use of components</p>
+</li>
+<li>
+<p>Flexibility of the Enterprise Architecture:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To meet changing business needs</p>
+</li>
+<li>
+<p>To leverage new technologies</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enforcement of Architecture Compliance</p>
+</li>
+<li>
+<p>Improving the maturity level of architecture discipline within the
+organization</p>
+</li>
+<li>
+<p>Ensuring that the discipline of architecture-based development is
+adopted</p>
+</li>
+<li>
+<p>Supporting a visible escalation capability for out-of-bounds decisions</p>
+</li>
+</ul>
+
+Further responsibilities from an operational perspective should include:
+
+<ul>
+<li>
+<p>All aspects of monitoring and control of the Architecture Contract</p>
+</li>
+<li>
+<p>Meeting on a regular basis</p>
+</li>
+<li>
+<p>Ensuring the effective and consistent management and implementation of
+the architectures</p>
+</li>
+<li>
+<p>Resolving ambiguities, issues, or conflicts that have been escalated</p>
+</li>
+<li>
+<p>Providing advice, guidance, and information</p>
+</li>
+<li>
+<p>Ensuring compliance with the architectures, and granting dispensations
+that are in keeping with the technology strategy and objectives</p>
+</li>
+<li>
+<p>Considering policy (schedule, SLAs, etc.) changes where similar
+dispensations are requested and granted; e.g., new form of service
+requirement</p>
+</li>
+<li>
+<p>Ensuring that all information relevant to the implementation of the
+Architecture Contract is published under controlled conditions and made
+available to authorized parties</p>
+</li>
+<li>
+<p>Validation of reported service levels, cost savings, etc.</p>
+</li>
+</ul>
+
+From a governance perspective, the Architecture Board is also
+responsible for:
+
+<ul>
+<li>
+<p>The production of usable governance material and activities</p>
+</li>
+<li>
+<p>Providing a mechanism for the formal acceptance and approval of
+architecture through consensus and authorized publication</p>
+</li>
+<li>
+<p>Providing a fundamental control mechanism for ensuring the effective
+implementation of the architecture</p>
+</li>
+<li>
+<p>Establishing and maintaining the link between the implementation of
+the architecture, the architectural strategy and objectives embodied in
+the Enterprise Architecture, and the strategic objectives of the
+business</p>
+</li>
+<li>
+<p>Identifying divergence from the architecture and planning activities
+for realignment through dispensations or policy updates</p>
+</li>
+</ul>
+
+### 4.3. Setting Up the Architecture Board
+
+#### 4.3.1. Enterprise Architecture Sponsorship
+
+In many companies, the executive sponsor of the initial architecture
+effort is the CIO (or other senior executive). However, to gain broad
+corporate support, a sponsoring body has more influence. This sponsoring
+body is here called an Architecture Board, but the title is not
+important. Whatever the name, it is the executive-level group
+responsible for the review and maintenance of the strategic architecture
+and all of its sub-architectures.
+
+The Architecture Board is the sponsor of the architecture within the
+enterprise, but the Architecture Board itself needs an executive sponsor
+from the highest level of the corporation. This commitment must span the
+planning process and continue into the maintenance phase of the
+architecture project. In many companies that fail in an architecture
+planning effort, there is a notable lack of executive participation and
+encouragement for the project.
+
+A frequently overlooked source of Architecture Board members is the
+company’s Board of Directors. These individuals invariably have diverse
+knowledge about the business and its competition. Because they have a
+significant impact on the business vision and objectives, they may be
+successful in validating the alignment of IT strategies to business
+objectives.
+
+#### 4.3.2. Size of the Board
+
+The recommended size for an Architecture Board is four or five (and no
+more than ten) permanent members. In order to keep the Architecture
+Board to a reasonable size, while ensuring enterprise-wide
+representation on it over time, membership of the Architecture Board may
+be rotated, giving decision-making privileges and responsibilities to
+various senior managers. This may be required in any case, due to some
+Architecture Board members finding that time constraints prevent
+long-term active participation.
+
+An organization may set up its Architecture Board using representational
+means, such that each Board member is assigned a set of stakeholders to
+represent in the meetings. It is then incumbent upon Board members to
+meet with stakeholders to gain their views on the various agenda items.
+
+However, some continuity must exist on the Architecture Board, to
+prevent the corporate architecture from varying from one set of ideas to
+another. One technique for ensuring rotation with continuity is to have
+set terms for the members, and to have the terms expire at different
+times.
+
+In the ongoing architecture process following the initial architecture
+effort, the Architecture Board may be re-chartered. The executive
+sponsor will normally review the work of the Architecture Board and
+evaluate its effectiveness; if necessary, the Architecture Compliance
+review process is updated or changed.
+
+#### 4.3.3. Board Structure
+
+The TOGAF Architecture Governance Framework (see Section 3.2, “Architecture Governance Framework” )
+provides a generic organizational framework that positions the
+Architecture Board in the context of the broader governance structures
+of the enterprise. This structure identifies the major organizational
+groups and responsibilities, as well as the relationship between each
+group. This is a best practice structure, and may be subject to change
+depending on the organization’s form and existing structures.
+
+Consideration must be given to the size of the organization, its form,
+and how the IT functions are implemented. This will provide the basis
+for designing the Architecture Board structure within the context of the
+overall governance environment. In particular, consideration should be
+given to the concept of global ownership and local implementation, and
+the integration of new concepts and technologies from all areas
+implementing against architectures.
+
+The structure of the Architecture Board should reflect the form of the
+organization. The Architecture Governance structure required may well go
+beyond the generic structures outlined in the TOGAF Architecture
+Governance Framework; see Section 3.2, “Architecture Governance Framework” .
+The organization may need to define a
+combination of the IT governance process in place and the existing organizational structures and capabilities, which typically include the following types of body:
+
+<ul>
+<li>
+<p>Global governance board</p>
+</li>
+<li>
+<p>Local governance board</p>
+</li>
+<li>
+<p>Design authorities</p>
+</li>
+<li>
+<p>Working parties</p>
+</li>
+</ul>
+
+### 4.4. Operation of the Architecture Board
+
+This section describes the operation of the Architecture Board
+particularly from the governance perspective.
+
+#### 4.4.1. General
+
+Architecture Board meetings should be conducted within clearly identified agendas with explicit objectives, content coverage, and defined actions. In general, board meetings will be aligned with best practice, such as given in the COBIT framework; see Section 3.1.4.1, “An IT Controls Framework — COBIT” .
+
+These meetings will provide key direction in:
+
+<ul>
+<li>
+<p>Supporting the production of quality governance material and
+activities</p>
+</li>
+<li>
+<p>Providing a mechanism for formal acceptance through consensus and
+authorized publication</p>
+</li>
+<li>
+<p>Providing a fundamental control mechanism for ensuring the effective
+implementation of the architectures</p>
+</li>
+<li>
+<p>Establishing and maintaining the link between the implementation of
+the architectures and the stated strategy and objectives of the
+organization (business and IT)</p>
+</li>
+<li>
+<p>Identifying divergence from the contract and planning activities to
+realign with the contract through dispensations or policy updates</p>
+</li>
+</ul>
+
+#### 4.4.2. Preparation
+
+Each participant will receive an agenda and any supporting documentation
+— e.g., dispensation requests, performance management reports, etc. —
+and will be expected to be familiar with the contents of each.
+
+Where actions have been allocated to an individual, it is that person’s
+responsibility to report on progress against these.
+
+Each participant must confirm their availability and attendance at the
+Architecture Board meeting.
+
+#### 4.4.3. Agenda
+
+This section outlines the contents of an Architecture Board meeting
+agenda. Each agenda item is described in terms of its content only.
+
+##### 4.4.3.1. Minutes of Previous Meeting
+
+Minutes contain the details of previous Architecture Board meetings as
+per standard organizational protocol.
+
+##### 4.4.3.2. Requests for Change
+
+Items under this heading are normally change requests for amendments to
+architectures, principles, etc., but may also include business control
+with regard to Architecture Contracts; e.g., ensure that voice traffic
+to premium numbers, such as weather reports, is barred and data traffic
+to certain websites is controlled.
+
+Any request for change is made within agreed authority levels and
+parameters defined by the Architecture Contract.
+
+##### 4.4.3.3. Dispensations
+
+A dispensation is used as the mechanism to request a change to the
+existing architectures, contracts, principles, etc. outside of normal
+operating parameters; e.g., exclude provision of service to a
+subsidiary, request for unusual service levels for specific business
+reasons, deploy non-standard technology or products to support specific
+business initiatives.
+
+Dispensations are granted for a given time period and a set of
+identified services and operational criteria that must be enforced
+during the lifespan of the dispensation. Dispensations are not granted
+indefinitely, but are used as a mechanism to ensure that service levels
+and operational levels, etc. are met while providing a level flexibility
+in their implementation and timing. The time-bound nature of
+dispensations ensures that they are a trigger to the Architecture
+Compliance activity.
+
+##### 4.4.3.4. Compliance Assessments
+
+Compliance is assessed against SLAs, Operational-Level Agreements
+(OLAs), cost targets, and required architecture refreshes. These
+assessments will be reviewed and either accepted or rejected depending
+on the criteria defined within the Architecture Governance Framework.
+The Architecture Compliance assessment report will include details as
+described.
+
+##### 4.4.3.5. Dispute Resolution
+
+Disputes that have not been resolved through the Architecture Compliance
+and dispensation processes are identified here for further action and
+are documented through the Architecture Compliance assessments and
+dispensation documentation.
+
+##### 4.4.3.6. Architecture Strategy and Direction Documentation
+
+This describes the architecture strategies, direction, and priorities
+and will only be formulated by the global Architecture Board. It should
+take the form of standard architecture documentation.
+
+##### 4.4.3.7. Actions Assigned
+
+This is a report on the actions assigned at previous Architecture Board
+meetings. An action tracker is used to document and keep the status of
+all actions assigned during the Architecture Board meetings and should
+consist of at least the following information:
+
+<ul>
+<li>
+<p>Reference</p>
+</li>
+<li>
+<p>Priority</p>
+</li>
+<li>
+<p>Action description</p>
+</li>
+<li>
+<p>Action owner</p>
+</li>
+<li>
+<p>Action details</p>
+</li>
+<li>
+<p>Date raised</p>
+</li>
+<li>
+<p>Due date</p>
+</li>
+<li>
+<p>Status</p>
+</li>
+<li>
+<p>Type</p>
+</li>
+<li>
+<p>Resolution date</p>
+</li>
+</ul>
+
+##### 4.4.3.8. Contract Documentation Management
+
+This is a formal acceptance of updates and changes to architecture documentation for onward publication.
+
+##### 4.4.3.9. Any Other Business (AOB)
+
+Description of issues not directly covered under any of the above. These
+may not be described in the agenda but should be raised at the beginning
+of the meeting. Any supporting documentation must be managed as per all
+Architecture Governance documentation.
+
+##### 4.4.3.10. Schedule of Meetings
+
+All meeting dates should be detailed and published.
+
+## 5. Architecture Contracts
+
+This chapter provides guidelines for defining and using Architecture Contracts.
+
+### 5.1. Role
+
+Architecture Contracts are the joint agreements between development partners and sponsors on the deliverables, quality, and fitness-for-purpose of an architecture. Successful implementation of
+these agreements will be delivered through effective Architecture Governance; see Chapter 3, Architecture Governance .
+By implementing a governed approach to the management of contracts, the following will be ensured:
+
+<ul>
+<li>
+<p>A system of continuous monitoring to check integrity, changes, decision-making, and audit of all architecture-related activities within the organization</p>
+</li>
+<li>
+<p>Adherence to the principles, standards, and requirements of the existing or developing architectures</p>
+</li>
+<li>
+<p>Identification of risks in all aspects of the development and implementation of the architecture(s) covering the internal development against accepted standards, policies, technologies, and products as well
+as the operational aspects of the architectures such that the organization can continue its business within a resilient environment</p>
+</li>
+<li>
+<p>A set of processes and practices that ensure accountability, responsibility, and discipline with regard to the development and usage of all architectural artifacts</p>
+</li>
+<li>
+<p>A formal understanding of the governance organization responsible for the contract, their level of authority, and scope of the architecture under the governance of this body</p>
+</li>
+</ul>
+
+The traditional Architecture Contract is an agreement between the sponsor and the architecture function or Information Systems (IS) department. However, increasingly more services are being provided by
+systems integrators, applications providers, and service providers, co-ordinated through the architecture function or IS department. There is therefore a need for an Architecture Contract to establish joint agreements between all parties involved in the architecture development and delivery.
+
+Architecture Contracts may occur at various stages of the ADM; for example:
+
+<ul>
+<li>
+<p>The Statement of Architecture Work created in Phase A of the
+<a href="https://pubs.opengroup.org/togaf-standard/adm/chap01.html">TOGAF Standard — Architecture Development Method</a>
+is effectively an Architecture Contract between the architecting organization and the sponsor of the Enterprise Architecture (or the IT governance function)</p>
+</li>
+<li>
+<p>The development of one or more architecture domains (Business, Data, Application, Technology), and in some cases the oversight of the overall Enterprise Architecture, may be contracted out to systems integrators, applications providers, and/or service providers</p>
+<div class="paragraph">
+<p>Each of these arrangements will normally be governed by an Architecture Contract that defines the deliverables, quality, and fitness-for-purpose of the developed architecture, and the processes by which the partners
+in the architecture development will work together.</p>
+</div>
+</li>
+<li>
+<p>At the beginning of Phase G (Implementation Governance), between the architecture function and the function responsible for implementing the Enterprise Architecture defined in the preceding ADM phases; typically, this will be either the in-house systems development function, or a major contractor to whom the work is outsourced</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What is being “implemented” in Phase G of the ADM is the overall Enterprise Architecture</p>
+<div class="paragraph">
+<p>This will typically include the technology infrastructure (from Phase D), and also those enterprise applications and data management capabilities that have been defined in the Application Architecture and Data Architecture (from Phase C), either because they are enterprise-wide in scope, or because they are strategic in business
+terms, and therefore of enterprise-wide importance and visibility. However, it will typically not include non-strategic business applications, which business units will subsequently deploy on top of the technology infrastructure that is implemented as part of the
+Enterprise Architecture.</p>
+</div>
+</li>
+<li>
+<p>In larger-scale implementations, there may well be one Architecture Contract per implementation team in a program of implementation projects</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>When the finalized Architecture Definition Document is available (at the end of Phase F), an Architecture Contract will normally be drawn up between the architecting function (or the IT governance function,
+subsuming the architecting function) and the business users who will subsequently be building and
+deploying systems in the architected environment</p>
+</li>
+</ul>
+
+It is important to bear in mind in all these cases that the ultimate goal is not just an Enterprise Architecture, but a dynamic Enterprise Architecture; i.e., one that allows for flexible evolution in response to changing technology and business drivers, without unnecessary
+constraints. The Architecture Contract is crucial to enabling a dynamic Enterprise Architecture and is key to governing the implementation.
+
+Typical contents of these three kinds of Architecture Contract are explained below.
+
+### 5.2. Contents
+
+#### 5.2.1. Statement of Architecture Work
+
+The Statement of Architecture Work is created as a deliverable of Phase A, and is effectively an Architecture Contract between the architecting
+organization and the sponsor of the Enterprise Architecture (or the IT governance function, on behalf of the enterprise).
+
+The typical contents of a Statement of Architecture Work are as defined in the TOGAF Standard — Architecture Content .
+
+#### 5.2.2. Contract between Architecture Design and Development Partners
+
+This is a signed statement of intent on designing and developing the Enterprise Architecture, or significant parts of it, from partner organizations, including systems integrators, applications providers, and service providers.
+
+Increasingly, the development of one or more architecture domains (Business, Data, Application, Technology) may be contracted out, with the enterprise’s architecture function providing oversight of the overall Enterprise Architecture, and co-ordination and control of the
+overall effort. In some cases even this oversight role may be contracted out, although most enterprises prefer to retain that core responsibility in-house.
+
+Whatever the specifics of the contracting-out arrangements, the arrangements themselves will normally be governed by an Architecture Contract that defines the deliverables, quality, and fitness-for-purpose of the developed architecture, and the processes by which the partners in the architecture development will work together.
+
+Typical contents of an Architecture Design and Development Contract are:
+
+<ul>
+<li>
+<p>Introduction and background</p>
+</li>
+<li>
+<p>The nature of the agreement</p>
+</li>
+<li>
+<p>Scope of the architecture</p>
+</li>
+<li>
+<p>Architecture and strategic principles and requirements</p>
+</li>
+<li>
+<p>Conformance requirements</p>
+</li>
+<li>
+<p>Architecture development and management process and roles</p>
+</li>
+<li>
+<p>Target architecture measures</p>
+</li>
+<li>
+<p>Defined phases of deliverables</p>
+</li>
+<li>
+<p>Prioritized joint workplan</p>
+</li>
+<li>
+<p>Time window(s)</p>
+</li>
+<li>
+<p>Architecture delivery and business metrics</p>
+</li>
+</ul>
+
+The template for this contract will normally be defined as part of the Preliminary Phase of the ADM, if not existing already, and the specific contract will be defined at the appropriate stage of the ADM, depending
+on the particular work that is being contracted out.
+
+#### 5.2.3. Contract between Architecting Function and Business Stakeholders
+
+When the Implementation and Migration Plan has been agreed (at the end of Phase F), an Architecture Contract may be drawn up between the
+architecting function and the business stakeholders
+who will subsequently be building and deploying systems in the architected
+environment.
+
+A business stakeholder’s Architecture Contract may include:
+
+<ul>
+<li>
+<p>Introduction and background</p>
+</li>
+<li>
+<p>The nature of the agreement</p>
+</li>
+<li>
+<p>Scope</p>
+</li>
+<li>
+<p>Strategic requirements</p>
+</li>
+<li>
+<p>Architecture deliverables that meet the business requirements</p>
+</li>
+<li>
+<p>Conformance requirements</p>
+</li>
+<li>
+<p>Architecture adopters</p>
+</li>
+<li>
+<p>Time window</p>
+</li>
+<li>
+<p>Architecture business metrics</p>
+</li>
+<li>
+<p>SLA</p>
+</li>
+</ul>
+
+This contract is also used to manage changes to the Enterprise Architecture in Phase H.
+
+### 5.3. Relationship to Architecture Governance
+
+The Architecture Contract document produced in Phase G of the ADM figures prominently in the area of Architecture Governance, as explained in Chapter 3, Architecture Governance .
+
+In the context of Architecture Governance, the Architecture Contract is often used as a means of driving architecture change.
+
+In order to ensure that the Architecture Contract is effective and efficient, the following aspects of the governance framework may need to be introduced into Phase G:
+
+<ul>
+<li>
+<p>Simple processes</p>
+</li>
+<li>
+<p>People-centered authority</p>
+</li>
+<li>
+<p>Strong communication</p>
+</li>
+<li>
+<p>Timely responses and an effective escalation process</p>
+</li>
+<li>
+<p>Supporting organizational structures</p>
+</li>
+<li>
+<p>Status tracking of architecture implementation</p>
+</li>
+</ul>
+
+## 6. Architecture Compliance
+
+This chapter provides guidelines for ensuring project compliance to the
+architecture.
+
+### 6.1. Introduction
+
+Ensuring the compliance of individual projects with the Enterprise Architecture is an essential aspect of Architecture Governance; see Chapter 3, Architecture Governance .
+To this end, the IT governance function within an enterprise will normally define two complementary processes:
+
+<ul>
+<li>
+<p>The <strong>Architecture</strong> function will be required to prepare a series of Project Architectures; i.e., project-specific views of the Enterprise Architecture that illustrate how the Enterprise Architecture impacts on the major projects within the organization (see ADM Phases A to F)</p>
+</li>
+<li>
+<p>The <strong>Enterprise and IT Governance</strong> functions will define a formal Architecture Compliance review process (see <a href="https://pubs.opengroup.org/togaf-standard/capability-and-governance.single/togaf-standard-ea-capability-and-governance.html#tag_06_03">Section 6.3, “Architecture Compliance Reviews”</a>) for reviewing the compliance of all projects to the Enterprise Architecture</p>
+</li>
+</ul>
+
+Apart from defining formal processes, the Architecture Governance function (see Chapter 3, Architecture Governance )
+may also stipulate that the architecture function should extend beyond the role of architecture definition and standards selection, and participate also in the technology selection process, and even in the commercial
+relationships involved in external service provision and product purchases. This may help to minimize the opportunity for misinterpretation of the Enterprise Architecture, and maximize the value of centralized commercial negotiation.
+
+### 6.2. Terminology: The Meaning of Architecture Compliance
+
+A key relationship between the architecture and the implementation lies in the definitions of the terms “conformant”, “compliant”, etc. While terminology usage may differ between organizations, the concepts of
+levels of conformance illustrated in Figure 6-1 should prove useful in formulating an IT compliance strategy.
+
+![Levels of Architecture Conformance](assets/002-48_conformance.png)
+
+Figure 6-1: Levels of Architecture Conformance
+
+The phrase “in accordance with” in Figure 6-1 means:
+
+<ul>
+<li>
+<p>Supports the stated strategy and future directions</p>
+</li>
+<li>
+<p>Adheres to the stated standards (including syntax and semantic rules
+specified)</p>
+</li>
+<li>
+<p>Provides the stated functionality</p>
+</li>
+<li>
+<p>Adheres to the stated principles; for example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Open wherever possible and appropriate</p>
+</li>
+<li>
+<p>Re-use of component building blocks wherever possible and appropriate</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+
+### 6.3. Architecture Compliance Reviews
+
+An Architecture Compliance review is a scrutiny of the compliance of a
+specific project against established architectural criteria, spirit, and
+business objectives. A formal process for such reviews normally forms
+the core of an Enterprise Architecture Compliance strategy.
+
+#### 6.3.1. Purpose
+
+The goals of an Architecture Compliance review include some or all of
+the following:
+
+<ul>
+<li>
+<p>First and foremost, catch errors in the project architecture early, and thereby reduce the cost and risk of changes required later in the lifecycle</p>
+<div class="paragraph">
+<p>This in turn means that the overall project time is shortened, and that the business gets the bottom-line benefit of the architecture development faster.</p>
+</div>
+</li>
+<li>
+<p>Ensure the application of best practices to architecture work</p>
+</li>
+<li>
+<p>Provide an overview of the compliance of an architecture to mandated enterprise standards</p>
+</li>
+<li>
+<p>Identify where the standards themselves may require modification * Identify services that are currently application-specific but might be provided as part of the enterprise infrastructure</p>
+</li>
+<li>
+<p>Document strategies for collaboration, resource sharing, and other synergies across multiple architecture teams</p>
+</li>
+<li>
+<p>Take advantage of advances in technology</p>
+</li>
+<li>
+<p>Communicate to management the status of business and technical readiness of the project</p>
+</li>
+<li>
+<p>Identify key criteria for procurement activities; e.g., for inclusion in Commercial Off-The-Shelf (COTS) product Request for Information
+(RFI)/Request for Proposal (RFP) documents</p>
+</li>
+<li>
+<p>Identify and communicate significant architectural gaps to product and service providers</p>
+</li>
+</ul>
+
+Apart from the generic goals related to quality assurance outlined above, there are additional, more politically-oriented motivations for conducting Architecture Compliance reviews, which may be relevant in particular cases:
+
+<ul>
+<li>
+<p>The Architecture Compliance review can be a good way of deciding between architectural alternatives, since the business decision-makers typically involved in the review can guide decisions in terms of what is best for the business, as opposed to what is technically more pleasing
+or elegant</p>
+</li>
+<li>
+<p>The output of the Architecture Compliance review is one of the few measurable deliverables to the executive management to assist in decision-making</p>
+</li>
+<li>
+<p>Architecture reviews can serve as a way for the architecture organization to engage with development projects that might otherwise proceed without involvement of the architecture function</p>
+</li>
+<li>
+<p>Architecture reviews can demonstrate rapid and positive support to the enterprise business community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Enterprise Architecture and Architecture Compliance helps ensure the alignment of IT projects with business objectives</p>
+</li>
+<li>
+<p>Architects can sometimes be regarded as being deep into technical infrastructure and far removed from the core business</p>
+</li>
+<li>
+<p>Since an Architecture Compliance review tends to look primarily at the critical risk areas of a system, it often highlights the main risks for system owners</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+
+While compliance to architecture is required for development and implementation, non-compliance also provides a mechanism for highlighting:
+
+<ul>
+<li>
+<p>Areas to be addressed for realignment</p>
+</li>
+<li>
+<p>Areas for consideration for integration into the architectures as they are uncovered by the compliance processes</p>
+</li>
+</ul>
+
+The latter point identifies the ongoing change and adaptability of the architectures to requirements that may be driven by indiscipline, but also allows for changes to be registered by faster moving changes in the
+operational environment. Typically, dispensations (see Dispensation )
+will be used to highlight these changes and set in motion a process for registering, monitoring, and assessing the suitability of any changes required.
+
+#### 6.3.2. Timing
+
+Timing of compliance activities should be considered with regard to the
+development of the architectures themselves.
+
+Compliance reviews are held at appropriate project milestones or
+checkpoints in the project’s lifecycle. Specific checkpoints should be
+included as follows:
+
+<ul>
+<li>
+<p>Development of the architecture itself (ADM compliance)</p>
+</li>
+<li>
+<p>Implementation of the architecture(s) (architecture compliance)</p>
+</li>
+</ul>
+
+Architecture project timings for assessments should include:
+
+<ul>
+<li>
+<p>Project initiation</p>
+</li>
+<li>
+<p>Initial design</p>
+</li>
+<li>
+<p>Major design changes</p>
+</li>
+<li>
+<p><em>Ad hoc</em></p>
+</li>
+</ul>
+
+The Architecture Compliance review is typically targeted for a point in time when business requirements and the Enterprise Architecture are reasonably firm, and the project architecture is taking shape, well
+before its completion.
+
+The aim is to hold the review as soon as practical, at a stage when
+there is still time to correct any major errors or shortcomings, with
+the obvious proviso that there needs to have been some significant
+development of the project architecture in order for there to be
+something to review.
+
+Inputs to the Architecture Compliance review may come from other parts of the standard project lifecycle, which may have an impact on timing.
+
+#### 6.3.3. Governance and Personnel Scenarios
+
+In terms of the governance and conduct of the Architecture Compliance
+review, and the personnel involved, there are various possible
+scenarios:
+
+<ul>
+<li>
+<p>For smaller-scale projects, the review process could simply take the form of a series of questions that the project architects or project leaders pose to themselves, using the checklists provided below, perhaps
+collating the answers into some form of project report to management</p>
+<div class="paragraph">
+<p>The need to conduct such a process is normally included in overall
+enterprise-wide governance policies.</p>
+</div>
+</li>
+<li>
+<p>Where the project under review has not involved a practicing or
+full-time architect to date (for example, in an application-level
+project), the purpose of the review is typically to bring to bear the
+architectural expertise of an Enterprise Architecture function</p>
+<div class="paragraph">
+<p>In such a case, the Enterprise Architecture function would be
+organizing, leading, and conducting the review, with the involvement of
+business domain experts. In such a scenario, the review is not a
+substitute for the involvement of architects in a project, but it can be a supplement or a guide to their involvement. It is probable that a
+database will be necessary to manage the volume of data that would be produced in the analysis of a large system or set of systems.</p>
+</div>
+</li>
+<li>
+<p>In most cases, particularly in larger-scale projects, the architecture
+function will have been deeply involved in, and perhaps leading, the
+development project under review</p>
+<div class="paragraph">
+<p>(This is the typical TOGAF scenario.) In such cases, the review will be
+co-ordinated by the lead Enterprise Architect, who will assemble a team
+of business and technical domain experts for the review, and compile the
+answers to the questions posed during the review into some form of
+report. The questions will typically be posed during the review by the
+business and technical domain experts. Alternatively, the review might be led by a representative of an Architecture Board or some similar body
+with enterprise-wide responsibilities.</p>
+</div>
+</li>
+</ul>
+
+In all cases, the Architecture Compliance review process needs the
+backing of senior management, and will typically be mandated as part of corporate Architecture Governance policies; see Chapter 3, Architecture Governance ).
+Normally, the enterprise CIO or Enterprise Architecture Board (see Chapter 4, Architecture Board ).
+will mandate architecture reviews for all major projects, with subsequent annual reviews.
+
+### 6.4. Architecture Compliance Review Process
+
+#### 6.4.1. Overview
+
+The Architecture Compliance review process is illustrated in Figure 6-2 .
+
+![Architecture Compliance Review Process](assets/001-48_review.png)
+
+Figure 6-2: Architecture Compliance Review Process
+
+<dl>
+<dt class="hdlist1"><strong>Note:</strong></dt>
+<dd>
+<p>Another way to gain conformance checks in architecture is through the
+use of traceability in models and “drill-down” diagrams. In this
+technique, the Enterprise Architect creates a top-level view of an
+architecture which the Solution Architects further refine by tracing
+their elements to the Enterprise Architecture model. These refinements
+can be managed through so-called “drill-down” diagrams which contain
+all the refinement elements and their traceability. In this way,
+conformance can be reviewed and at least partially automated by tools
+(such as having a script that checks that all Enterprise Architecture
+elements have refinements in the Solution Architecture).</p>
+</dd>
+</dl>
+
+#### 6.4.2. Roles
+
+The main roles in the process are shown in Table 6-1 .
+
+<table class="tableblock frame-all grid-all stretch" id="tbl-roles">
+<caption class="title">Table 6-1:  Roles in the Architecture Compliance Process</caption>
+<colgroup>
+<col style="width: 5%;"/>
+<col style="width: 30%;"/>
+<col style="width: 35%;"/>
+<col style="width: 30%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>No.</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Role</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Responsibilities</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture Board</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To ensure that Enterprise Architectures are consistent and support overall business needs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sponsor and monitor architecture activities.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project Leader<br/>
+(or Project Board)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Responsible for the whole project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture Review<br/>
+Co-ordinator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To administer the whole architecture development and review process.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More likely to be business-oriented than technology-oriented.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lead Enterprise<br/>
+Architect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To ensure that the architecture is business and technically coherent and future-proof.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An appropriate architecture specialist.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One of the Lead Enterprise Architect’s assistants.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To ensure that business requirements are clearly expressed and understood.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manages that part of the organization that will depend on the success of the Enterprise Architecture.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Domain<br/>
+Expert</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To ensure that the processes to satisfy the business requirements are justified and understood.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Knows how the business domain operates; may also be the customer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project Principals</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To ensure that the architects have a sufficiently detailed understanding of the customer department’s processes. They can provide input to the business domain expert or to
+the architects.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Members of the customer’s organization who have input to the business requirements that the architecture is to address.</p></td>
+</tr>
+</tbody>
+</table>
+
+#### 6.4.3. Steps
+
+The main steps in the process are shown in Table 6-2 .
+
+<table class="tableblock frame-all grid-all stretch" id="tbl-steps">
+<caption class="title">Table 6-2:  Steps in the Architecture Compliance Process</caption>
+<colgroup>
+<col style="width: 5%;"/>
+<col style="width: 30%;"/>
+<col style="width: 35%;"/>
+<col style="width: 30%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>No.</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Action</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Notes</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Who</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request architecture<br/>
+review.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As mandated by governance policies and procedures.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anyone, whether IT or business-oriented, with an interest in or responsibility
+for the business area affected</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identify responsible part of organization and relevant project
+principals.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture Review<br/>
+Co-ordinator</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identify Lead Enterprise Architect and other architects.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture Review<br/>
+Co-ordinator</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determine scope of<br/>
+review.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identify which other business units/departments are involved.<br/>
+Understand where the system fits in the corporate architecture
+framework.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture Review<br/>
+Co-ordinator</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tailor checklists.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To address the business requirements.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lead
+Enterprise Architect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Schedule Architecture<br/>
+Review Meeting.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture Review Co-ordinator with collaboration
+of Lead Enterprise Architect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interview project<br/>
+principals.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>To get background and technical information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For internal project: in person</p>
+</li>
+<li>
+<p>For COTS: in person or via RFP</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use checklists.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lead Enterprise Architect and/or Architect, Project Leader, and
+Customers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Analyze completed<br/>
+checklists.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Review against corporate standards.<br/>
+Identify and resolve issues.<br/>
+Determine recommendations.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lead Enterprise Architect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepare Architecture<br/>
+Compliance review report.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">May involve supporting staff.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lead
+Enterprise Architect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Present review findings.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>To Customer</p>
+</li>
+<li>
+<p>To Architecture Board</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lead Enterprise Architect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accept review and<br/>
+sign off.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture Board<br/>
+and Customer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send assessment report/summary<br/>
+to Architecture Review Co-ordinator.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lead Enterprise Architect</p></td>
+</tr>
+</tbody>
+</table>
+
+### 6.5. Architecture Compliance Review Guidelines
+
+This section provides guidelines for Architecture Compliance reviews.
+
+#### 6.5.1. Tailoring the Checklists
+
+<ul>
+<li>
+<p>Focus on:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>High risk areas</p>
+</li>
+<li>
+<p>Expected (and emergent) differentiators</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For each question in the checklist, understand:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The question itself</p>
+</li>
+<li>
+<p>The principle behind it</p>
+</li>
+<li>
+<p>What to look for in the responses</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Ask subject experts for their views</p>
+</li>
+<li>
+<p>Fix the checklist questions for your use</p>
+</li>
+<li>
+<p>Bear in mind the need for feedback to the Architecture Board</p>
+</li>
+</ul>
+
+#### 6.5.2. Conducting Architecture Compliance Reviews
+
+<ul>
+<li>
+<p>Understand clearly the objectives of those soliciting the review; and
+stay on track and deliver what was asked for</p>
+<div class="paragraph">
+<p>For example, they
+typically want to know what is right or wrong with the system being
+architected; not what is right or wrong with the development methodology
+used, their own management structure, etc. It is easy to get off-track
+and discuss subjects that are interesting and perhaps worthwhile, but
+not what was solicited. If you can shed light and insight on technical
+approaches, but the discussion is not necessary for the review,
+volunteer to provide it after the review.</p>
+</div>
+</li>
+<li>
+<p>If it becomes obvious during the discussion that there are other
+issues that need to be addressed, which are outside the scope of the
+requested review, bring it up with the meeting chair afterwards</p>
+<div class="paragraph">
+<p>A plan
+for addressing the issues can then be developed in accordance with their
+degree of seriousness.</p>
+</div>
+</li>
+<li>
+<p>Stay “scientific”</p>
+<div class="paragraph">
+<p>Rather than: “We like to see large databases hosted
+on <em>ABC</em> rather than <em>XYZ</em>.”, say things like: “The downtime associated
+with <em>XYZ</em> database environments is much greater than on <em>ABC</em> database
+environments. Therefore we don’t recommend hosting type <em>M</em> and <em>N</em>
+systems in an <em>XYZ</em> environment.”</p>
+</div>
+</li>
+<li>
+<p>Ask “open” questions; i.e., questions that do not presume a particular
+answer</p>
+</li>
+<li>
+<p>There are often “hidden agendas” or controversial issues among those
+soliciting a review, which you probably won’t know up-front</p>
+<div class="paragraph">
+<p>A depersonalized approach to the discussions may help bridge the gaps of
+opinion rather than exacerbate them.</p>
+</div>
+</li>
+<li>
+<p>Treat those being interviewed with respect</p>
+<div class="paragraph">
+<p>They may not have built
+the system “the way it should be”, but they probably did the best they
+could under the circumstances in which they were placed.</p>
+</div>
+</li>
+<li>
+<p>Help the exercise become a learning experience for you and the
+presenters</p>
+</li>
+<li>
+<p>Reviews should include detailed assessment activities against the
+architectures and should ensure that the results are stored in the
+Enterprise Continuum</p>
+</li>
+</ul>
+
+For examples of questions that can be used in architecture compliance reviews, see The Open Group Guide: Architecture Compliance Review Checklists .
+

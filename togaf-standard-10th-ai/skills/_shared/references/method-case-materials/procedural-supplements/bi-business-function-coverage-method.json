@@ -1,0 +1,1779 @@
+{
+  "schema_version": "procedural-teaching-supplement/1",
+  "method_id": "bi-business-function-coverage-method",
+  "date": "2026-11-08",
+  "notice": "本轮新增虚构教学材料与作者候选转换结果。原案例缺输入版本保留；不证明真实企业事实、盲测Agent或人的验收。",
+  "steps": [
+    {
+      "position": 1,
+      "declared_step": "加载随技能携带的完整源表，保留参考分组/ID/出处",
+      "new_fictional_input": "新虚构练习加载G238表4-2全部54行，保留宏观/子功能、分组与原定位；本例另给用途待办管理与模型监控计划证据。",
+      "transformation": "来源行和本地判定分列，不将54行当同粒度评分项。",
+      "candidate_output": "54条source_row snapshot与54条assessment，源ID唯一完整。",
+      "adverse_variant_expected": "漏宏观行或复制子项凑54，应拒绝完整性声明。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 2,
+      "declared_step": "限定项目范围和时点，逐项寻找组织活动或实际应用功能证据",
+      "new_fictional_input": "新虚构范围两城维修试点2026年11月；U1/U2用途待办有责任人、更新记录与审核证据，模型准确性监控只计划2026-11-20试验。",
+      "transformation": "按具体定义映射用途管理源行，运行证据与计划分别取证，其他行保持unknown。",
+      "candidate_output": "仅G238-T4-2-04=evidenced-in-example，G238-T4-2-47=planned，其余52=unknown。",
+      "adverse_variant_expected": "按两个用途数推两已见行或计划监控计已见，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 3,
+      "declared_step": "区分已见、计划、未知和有理由不适用",
+      "new_fictional_input": "新虚构状态规则四类：evidenced-in-example需符合行定义产物；planned需负责人/时点/验收；unknown为未查；out-of-scope-with-reason须范围理由，仍不等机构不适用。",
+      "transformation": "按证据逐行判定；父组已见不继承给子功能，不计算成熟度。",
+      "candidate_output": "54行互斥四态；没有证据的不填0、不变不适用。",
+      "adverse_variant_expected": "顶层组一条证据自动传全子行，或unknown改不满足，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    },
+    {
+      "position": 5,
+      "declared_step": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+      "new_fictional_input": "新虚构业务负责人要求先访谈U1相关数据/模型监控条目，再其余；每未证实行记录负责团队、需证、下一复评触发，具体日期未承诺。",
+      "transformation": "逐行gap_action结合reference_name，不批量仅“待完善”；优先理由=U1关联而非ID大小。",
+      "candidate_output": "52条unknown各有候选补证行动和责任组；planned行有独立验收条件，仍candidate。",
+      "adverse_variant_expected": "删未知行以提高覆盖率，或没有行动责任就标缺口closed，应拒绝。",
+      "runtime_execution": "not-claimed-by-written-example",
+      "approval_status": "candidate"
+    }
+  ],
+  "accepted": false,
+  "origin": "new-fictional-teaching-materials",
+  "source_inputs": [
+    {
+      "path": "../../../capabilities.json",
+      "profile_id": "bi-business-function-coverage",
+      "reference_rows_sha256": "a383affa2818b46323c9bc1d9436fffee6f7d97dd562b911975cd7ac41c95e89",
+      "purpose": "reference row identities/definitions only; original profile business judgments are not copied as new evidence"
+    }
+  ],
+  "candidate_records": [
+    {
+      "reference_id": "G238-T4-2-01",
+      "reference_name": "定义战略与路线图",
+      "reference_group": "定义战略与路线图",
+      "reference_level": "macro",
+      "source_locator": "G238 表4-2 L465",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义战略与路线图”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-02",
+      "reference_name": "构建 BI 与分析战略",
+      "reference_group": "定义战略与路线图",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L466",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“构建 BI 与分析战略”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-03",
+      "reference_name": "构建路线图",
+      "reference_group": "定义战略与路线图",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L467",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“构建路线图”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-04",
+      "reference_name": "维护 BI 与分析用途待办列表",
+      "reference_group": "定义战略与路线图",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L468",
+      "coverage_status": "evidenced-in-example",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "{\"version\": \"SUP-BACKLOG-1\", \"owner\": \"试点分析负责人\", \"qualified_use_criteria\": \"业务责任、所需决策与验收可定位\", \"uses\": [{\"id\": \"U1\", \"decision\": \"缺件预警在调度前人工复核\", \"qualified\": true}, {\"id\": \"U2\", \"decision\": \"将月度趋势用于维修队规划\", \"qualified\": true}], \"update_record\": \"2026-11-06记录U2口径变更\", \"review_record\": \"2026-11-07责任人在本虚构材料中确认两项为合格用途\"}",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“维护 BI 与分析用途待办列表”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [
+        "SUP-G238-T4-2-04"
+      ],
+      "implementation_ref": "SUP-G238-T4-2-04"
+    },
+    {
+      "reference_id": "G238-T4-2-05",
+      "reference_name": "定义 KPI",
+      "reference_group": "定义战略与路线图",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L469",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义 KPI”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-06",
+      "reference_name": "识别并发展赞助",
+      "reference_group": "定义战略与路线图",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L470",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“识别并发展赞助”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-07",
+      "reference_name": "确保与相关战略一致（安全、可持续性等）",
+      "reference_group": "定义战略与路线图",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L471",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“确保与相关战略一致（安全、可持续性等）”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-08",
+      "reference_name": "设计与开发 BI 与分析价值链条",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "macro",
+      "source_locator": "G238 表4-2 L472",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计与开发 BI 与分析价值链条”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-09",
+      "reference_name": "定义 BI 与分析架构原则并确保方案一致性",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L473",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义 BI 与分析架构原则并确保方案一致性”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-10",
+      "reference_name": "设计基础设施与适配的存储空间",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L474",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计基础设施与适配的存储空间”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-11",
+      "reference_name": "依据用途建模并构建数据结构化（原始、仓库、业务视图）",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L475",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“依据用途建模并构建数据结构化（原始、仓库、业务视图）”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-12",
+      "reference_name": "定义并实施业务规则",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L476",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并实施业务规则”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-13",
+      "reference_name": "定义并实施技术规则",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L477",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并实施技术规则”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-14",
+      "reference_name": "定义并实施特定数据保护规则",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L478",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并实施特定数据保护规则”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-15",
+      "reference_name": "设计与开发数据管道",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L479",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计与开发数据管道”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-16",
+      "reference_name": "设计语义层",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L480",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计语义层”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-17",
+      "reference_name": "数据整理（Data Wrangling）",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L481",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“数据整理（Data Wrangling）”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-18",
+      "reference_name": "设计与构建高级分析模型",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L482",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计与构建高级分析模型”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-19",
+      "reference_name": "设计与构建工业化稳定报表",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L483",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计与构建工业化稳定报表”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-20",
+      "reference_name": "设计与构建即席报表",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L484",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计与构建即席报表”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-21",
+      "reference_name": "工业化并部署高级分析模型",
+      "reference_group": "设计与开发 BI 与分析价值链条",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L485",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“工业化并部署高级分析模型”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-22",
+      "reference_name": "为 BI 与分析提供必要数据源",
+      "reference_group": "为 BI 与分析提供必要数据源",
+      "reference_level": "macro",
+      "source_locator": "G238 表4-2 L486",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“为 BI 与分析提供必要数据源”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-23",
+      "reference_name": "识别相关数据源",
+      "reference_group": "为 BI 与分析提供必要数据源",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L487",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“识别相关数据源”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-24",
+      "reference_name": "识别并管理数据提供方",
+      "reference_group": "为 BI 与分析提供必要数据源",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L488",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“识别并管理数据提供方”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-25",
+      "reference_name": "设计并构建必要数据接口",
+      "reference_group": "为 BI 与分析提供必要数据源",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L489",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“设计并构建必要数据接口”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-26",
+      "reference_name": "治理与度量",
+      "reference_group": "治理与度量",
+      "reference_level": "macro",
+      "source_locator": "G238 表4-2 L490",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“治理与度量”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-27",
+      "reference_name": "定义治理组织与 RACI",
+      "reference_group": "治理与度量",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L491",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义治理组织与 RACI”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-28",
+      "reference_name": "定义并执行新数据源接入流程",
+      "reference_group": "治理与度量",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L492",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并执行新数据源接入流程”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-29",
+      "reference_name": "定义并执行成本优化原则",
+      "reference_group": "治理与度量",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L493",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并执行成本优化原则”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-30",
+      "reference_name": "定义并执行合规要求",
+      "reference_group": "治理与度量",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L494",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并执行合规要求”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-31",
+      "reference_name": "度量数据量",
+      "reference_group": "治理与度量",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L495",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“度量数据量”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-32",
+      "reference_name": "度量数据使用频率",
+      "reference_group": "治理与度量",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L496",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“度量数据使用频率”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-33",
+      "reference_name": "跟踪用途 ROI",
+      "reference_group": "治理与度量",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L497",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“跟踪用途 ROI”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-34",
+      "reference_name": "保护数据并确保合规",
+      "reference_group": "保护数据并确保合规",
+      "reference_level": "macro",
+      "source_locator": "G238 表4-2 L498",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“保护数据并确保合规”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-35",
+      "reference_name": "定义并管理数据访问",
+      "reference_group": "保护数据并确保合规",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L499",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并管理数据访问”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-36",
+      "reference_name": "审计平台安全与合规",
+      "reference_group": "保护数据并确保合规",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L500",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“审计平台安全与合规”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-37",
+      "reference_name": "定义匿名化需求与流程",
+      "reference_group": "保护数据并确保合规",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L501",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义匿名化需求与流程”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-38",
+      "reference_name": "检测并通知数据泄露",
+      "reference_group": "保护数据并确保合规",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L502",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“检测并通知数据泄露”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-39",
+      "reference_name": "支持处理数据可携带请求",
+      "reference_group": "保护数据并确保合规",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L503",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“支持处理数据可携带请求”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-40",
+      "reference_name": "定义并应用数据质量框架",
+      "reference_group": "定义并应用数据质量框架",
+      "reference_level": "standalone-high-function",
+      "source_locator": "G238 表4-2 L504",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“定义并应用数据质量框架”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-41",
+      "reference_name": "为 BI 与分析利用元数据管理",
+      "reference_group": "为 BI 与分析利用元数据管理",
+      "reference_level": "standalone-high-function",
+      "source_locator": "G238 表4-2 L505",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“为 BI 与分析利用元数据管理”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-42",
+      "reference_name": "运营平台",
+      "reference_group": "运营平台",
+      "reference_level": "macro",
+      "source_locator": "G238 表4-2 L506",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“运营平台”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-43",
+      "reference_name": "检测并管理事件",
+      "reference_group": "运营平台",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L507",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“检测并管理事件”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-44",
+      "reference_name": "检测并管理数据问题",
+      "reference_group": "运营平台",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L508",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“检测并管理数据问题”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-45",
+      "reference_name": "监控与控制成本",
+      "reference_group": "运营平台",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L509",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“监控与控制成本”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-46",
+      "reference_name": "监控与控制数据质量",
+      "reference_group": "运营平台",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L510",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“监控与控制数据质量”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-47",
+      "reference_name": "监控与控制模型准确性",
+      "reference_group": "运营平台",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L511",
+      "coverage_status": "planned",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "{\"owner\": \"模型运营负责人\", \"target_date\": \"2026-11-20\", \"acceptance\": \"固定标签样本、声明误差单位与阈值来源，保存一次部署模型准确性监控记录\", \"runtime_observation\": \"not-supplied\"}",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“监控与控制模型准确性”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [
+        "SUP-G238-T4-2-47"
+      ],
+      "implementation_ref": "SUP-G238-T4-2-47",
+      "plan_owner": "模型运营负责人",
+      "plan_date": "2026-11-20",
+      "plan_acceptance": "固定标签样本、声明误差单位与阈值来源，保存一次部署模型准确性监控记录"
+    },
+    {
+      "reference_id": "G238-T4-2-48",
+      "reference_name": "调度数据集成与管道",
+      "reference_group": "运营平台",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L512",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“调度数据集成与管道”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-49",
+      "reference_name": "授予访问",
+      "reference_group": "运营平台",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L513",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“授予访问”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-50",
+      "reference_name": "沟通与培训",
+      "reference_group": "沟通与培训",
+      "reference_level": "macro",
+      "source_locator": "G238 表4-2 L514",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“沟通与培训”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-51",
+      "reference_name": "培训最终用户使用 BI 与分析工具",
+      "reference_group": "沟通与培训",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L515",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“培训最终用户使用 BI 与分析工具”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-52",
+      "reference_name": "利用技术布道",
+      "reference_group": "沟通与培训",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L516",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“利用技术布道”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-53",
+      "reference_name": "活跃 BI 与分析用户与专家社区",
+      "reference_group": "沟通与培训",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L517",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“活跃 BI 与分析用户与专家社区”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    },
+    {
+      "reference_id": "G238-T4-2-54",
+      "reference_name": "就战略、业务与技术路线图开展沟通",
+      "reference_group": "沟通与培训",
+      "reference_level": "child",
+      "source_locator": "G238 表4-2 L518",
+      "coverage_status": "unknown",
+      "project_scope": "本轮明确新增虚构教学试点，2026年11月",
+      "project_evidence": "未取得该行定义要求的活动或运行证据",
+      "proposed_owner": "业务所有者与管家",
+      "gap_action": "取得并按本试点核对“就战略、业务与技术路线图开展沟通”的活动/功能证据；范围、时点与验收另记",
+      "next_review": "对应证据取得或范围变更时",
+      "approval_status": "candidate",
+      "evidence_ids": [],
+      "implementation_ref": "unknown"
+    }
+  ],
+  "registered_reference_profile": "bi-business-function-coverage",
+  "reference_rows": [
+    {
+      "entity_id": "BIC-B-G238-T4-2-01",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-01",
+        "reference_kind": "business_function",
+        "reference_name": "定义战略与路线图",
+        "reference_definition": "见 2.2 节。",
+        "reference_group": "定义战略与路线图",
+        "reference_level": "macro",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L465",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-02",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-02",
+        "reference_kind": "business_function",
+        "reference_name": "构建 BI 与分析战略",
+        "reference_definition": "围绕 BI 与分析构建业务与 IT 战略，明确目标与整体旅程。",
+        "reference_group": "定义战略与路线图",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L466",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-03",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-03",
+        "reference_kind": "business_function",
+        "reference_name": "构建路线图",
+        "reference_definition": "构建实施 BI 与分析战略的路线图。",
+        "reference_group": "定义战略与路线图",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L467",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-04",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-04",
+        "reference_kind": "business_function",
+        "reference_name": "维护 BI 与分析用途待办列表",
+        "reference_definition": "维护一份由 BI 与分析能力支持（或应支持）的合格业务用途清单。",
+        "reference_group": "定义战略与路线图",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L468",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-05",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-05",
+        "reference_kind": "business_function",
+        "reference_name": "定义 KPI",
+        "reference_definition": "定义用于展示 BI 与分析如何实现战略目标（定性/定量）的 KPI。",
+        "reference_group": "定义战略与路线图",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L469",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-06",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-06",
+        "reference_kind": "business_function",
+        "reference_name": "识别并发展赞助",
+        "reference_definition": "让业务与 IT 赞助人参与 BI 与分析治理。",
+        "reference_group": "定义战略与路线图",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L470",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-07",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-07",
+        "reference_kind": "business_function",
+        "reference_name": "确保与相关战略一致（安全、可持续性等）",
+        "reference_definition": "确保 BI 与分析的抱负与实现同组织各项政策一致（尤其是安全、合规与数字可持续性政策）。",
+        "reference_group": "定义战略与路线图",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L471",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-08",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-08",
+        "reference_kind": "business_function",
+        "reference_name": "设计与开发 BI 与分析价值链条",
+        "reference_definition": "见 2.2 节。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "macro",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L472",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-09",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-09",
+        "reference_kind": "business_function",
+        "reference_name": "定义 BI 与分析架构原则并确保方案一致性",
+        "reference_definition": "定义 BI 与分析架构原则，确保解决方案的一致性。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L473",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-10",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-10",
+        "reference_kind": "business_function",
+        "reference_name": "设计基础设施与适配的存储空间",
+        "reference_definition": "设计面向 BI 与分析的技术架构，包括按不同需求与用途（冷数据、热数据、敏感数据等）结构化相关存储空间。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L474",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-11",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-11",
+        "reference_kind": "business_function",
+        "reference_name": "依据用途建模并构建数据结构化（原始、仓库、业务视图）",
+        "reference_definition": "对数据建模并实施结构化，以支撑从原始数据到业务视图的整个价值链条。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L475",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-12",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-12",
+        "reference_kind": "business_function",
+        "reference_name": "定义并实施业务规则",
+        "reference_definition": "定义并实施与业务需求相关的规则（业务计算规则、业务数据有效性检查等）。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L476",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-13",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-13",
+        "reference_kind": "business_function",
+        "reference_name": "定义并实施技术规则",
+        "reference_definition": "定义并实施技术规则，通常为基础技术格式规则（如数据同质性、浮点格式等）。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L477",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-14",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-14",
+        "reference_kind": "business_function",
+        "reference_name": "定义并实施特定数据保护规则",
+        "reference_definition": "定义并实施特定数据保护规则，包括保留规则、合规自动化等。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L478",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-15",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-15",
+        "reference_kind": "business_function",
+        "reference_name": "设计与开发数据管道",
+        "reference_definition": "设计并开发从原始数据到业务视图的流程。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L479",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-16",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-16",
+        "reference_kind": "business_function",
+        "reference_name": "设计语义层",
+        "reference_definition": "设计语义层，使业务用户能方便地操作数据，例如用于即席/自助报表。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L480",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-17",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-17",
+        "reference_kind": "business_function",
+        "reference_name": "数据整理（Data Wrangling）",
+        "reference_definition": "探索数据、为分析目的可视化可用数据、构建首批样本机器学习模型（用于探索）。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L481",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-18",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-18",
+        "reference_kind": "business_function",
+        "reference_name": "设计与构建高级分析模型",
+        "reference_definition": "与业务共同确定需建模的事件或问题、目的及运营要求；设计并构建满足要求的高级分析模型，并依据要求评估模型。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L482",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-19",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-19",
+        "reference_kind": "business_function",
+        "reference_name": "设计与构建工业化稳定报表",
+        "reference_definition": "设计并构建稳定的周期性报表。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L483",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-20",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-20",
+        "reference_kind": "business_function",
+        "reference_name": "设计与构建即席报表",
+        "reference_definition": "设计并构建即席报表，例如以“自助”模式——通常由业务参与者（最终用户）直接完成。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L484",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-21",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-21",
+        "reference_kind": "business_function",
+        "reference_name": "工业化并部署高级分析模型",
+        "reference_definition": "把已验证的高级分析模型（如分类模型）投入运营，集成到相关业务流程（如用于优化），并建立监控与控制真实环境准确性的方式。",
+        "reference_group": "设计与开发 BI 与分析价值链条",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L485",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-22",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-22",
+        "reference_kind": "business_function",
+        "reference_name": "为 BI 与分析提供必要数据源",
+        "reference_definition": "见 2.2 节。",
+        "reference_group": "为 BI 与分析提供必要数据源",
+        "reference_level": "macro",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L486",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-23",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-23",
+        "reference_kind": "business_function",
+        "reference_name": "识别相关数据源",
+        "reference_definition": "制定实践与流程，快速、精确地识别给定用例的相关数据源并对其加以认证。",
+        "reference_group": "为 BI 与分析提供必要数据源",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L487",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-24",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-24",
+        "reference_kind": "business_function",
+        "reference_name": "识别并管理数据提供方",
+        "reference_definition": "管理与外部数据提供方的技术与业务关系。",
+        "reference_group": "为 BI 与分析提供必要数据源",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L488",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-25",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-25",
+        "reference_kind": "business_function",
+        "reference_name": "设计并构建必要数据接口",
+        "reference_definition": "设计并构建支撑 BI 与分析价值链的数据接口，例如从数据源向原始数据空间供数、使运营系统与 BI 分析能力计算的指标对齐等。",
+        "reference_group": "为 BI 与分析提供必要数据源",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L489",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-26",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-26",
+        "reference_kind": "business_function",
+        "reference_name": "治理与度量",
+        "reference_definition": "见 2.2 节。",
+        "reference_group": "治理与度量",
+        "reference_level": "macro",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L490",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-27",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-27",
+        "reference_kind": "business_function",
+        "reference_name": "定义治理组织与 RACI",
+        "reference_definition": "定义治理组织，尤其包括业务参与者、CDO 与 IT 团队在能力建设与运行中的角色。",
+        "reference_group": "治理与度量",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L491",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-28",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-28",
+        "reference_kind": "business_function",
+        "reference_name": "定义并执行新数据源接入流程",
+        "reference_definition": "定义数据接入流程：新数据源进入 BI 与分析范围时应做什么（新源认证、相关数据认证、加入元数据管理存储库、BI 与分析用途规格等）。",
+        "reference_group": "治理与度量",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L492",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-29",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-29",
+        "reference_kind": "business_function",
+        "reference_name": "定义并执行成本优化原则",
+        "reference_definition": "定义如何优化 BI 与分析能力成本（围绕组织、流程、技术平台实施与监控的优化原则等）。",
+        "reference_group": "治理与度量",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L493",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-30",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-30",
+        "reference_kind": "business_function",
+        "reference_name": "定义并执行合规要求",
+        "reference_definition": "定义并执行合规要求。",
+        "reference_group": "治理与度量",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L494",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-31",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-31",
+        "reference_kind": "business_function",
+        "reference_name": "度量数据量",
+        "reference_definition": "了解 BI 与分析所需数据量（有助于监控与控制成本、促进数字可持续性等）。",
+        "reference_group": "治理与度量",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L495",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-32",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-32",
+        "reference_kind": "business_function",
+        "reference_name": "度量数据使用频率",
+        "reference_definition": "了解哪些数据被使用、哪些使用不足；这是理解平台现有数据价值的关键信息。",
+        "reference_group": "治理与度量",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L496",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-33",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-33",
+        "reference_kind": "business_function",
+        "reference_name": "跟踪用途 ROI",
+        "reference_definition": "通过投资回报（ROI）的定义与计算，衡量 BI 与分析用途的价值。",
+        "reference_group": "治理与度量",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L497",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-34",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-34",
+        "reference_kind": "business_function",
+        "reference_name": "保护数据并确保合规",
+        "reference_definition": "见 2.2 节。",
+        "reference_group": "保护数据并确保合规",
+        "reference_level": "macro",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L498",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-35",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-35",
+        "reference_kind": "business_function",
+        "reference_name": "定义并管理数据访问",
+        "reference_definition": "定义、管理并控制数据的访问方式、途径与主体。",
+        "reference_group": "保护数据并确保合规",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L499",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-36",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-36",
+        "reference_kind": "business_function",
+        "reference_name": "审计平台安全与合规",
+        "reference_definition": "对 BI 与分析平台、流程、安全与合规建立定期审计。",
+        "reference_group": "保护数据并确保合规",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L500",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-37",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-37",
+        "reference_kind": "business_function",
+        "reference_name": "定义匿名化需求与流程",
+        "reference_definition": "定义数据匿名化/假名化的原因与方式。",
+        "reference_group": "保护数据并确保合规",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L501",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-38",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-38",
+        "reference_kind": "business_function",
+        "reference_name": "检测并通知数据泄露",
+        "reference_definition": "建立检测并通知潜在数据泄露的流程。",
+        "reference_group": "保护数据并确保合规",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L502",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-39",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-39",
+        "reference_kind": "business_function",
+        "reference_name": "支持处理数据可携带请求",
+        "reference_definition": "建立组织以支持数据可携带请求的处理。",
+        "reference_group": "保护数据并确保合规",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L503",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-40",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-40",
+        "reference_kind": "business_function",
+        "reference_name": "定义并应用数据质量框架",
+        "reference_definition": "为 BI 与分析应用数据质量框架。",
+        "reference_group": "定义并应用数据质量框架",
+        "reference_level": "standalone-high-function",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L504",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-41",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-41",
+        "reference_kind": "business_function",
+        "reference_name": "为 BI 与分析利用元数据管理",
+        "reference_definition": "在 BI 与分析数据价值链上应用元数据管理能力。",
+        "reference_group": "为 BI 与分析利用元数据管理",
+        "reference_level": "standalone-high-function",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L505",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-42",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-42",
+        "reference_kind": "business_function",
+        "reference_name": "运营平台",
+        "reference_definition": "见 2.2 节。",
+        "reference_group": "运营平台",
+        "reference_level": "macro",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L506",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-43",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-43",
+        "reference_kind": "business_function",
+        "reference_name": "检测并管理事件",
+        "reference_definition": "检测并管理 BI 与分析平台/工具上的事件。",
+        "reference_group": "运营平台",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L507",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-44",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-44",
+        "reference_kind": "business_function",
+        "reference_name": "检测并管理数据问题",
+        "reference_definition": "检测并管理数据问题（数据质量、数据管道问题等）。",
+        "reference_group": "运营平台",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L508",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-45",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-45",
+        "reference_kind": "business_function",
+        "reference_name": "监控与控制成本",
+        "reference_definition": "监控成本，尤其是云解决方案。",
+        "reference_group": "运营平台",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L509",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-46",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-46",
+        "reference_kind": "business_function",
+        "reference_name": "监控与控制数据质量",
+        "reference_definition": "监控 BI 与分析用例所用数据的质量。",
+        "reference_group": "运营平台",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L510",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-47",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-47",
+        "reference_kind": "business_function",
+        "reference_name": "监控与控制模型准确性",
+        "reference_definition": "监控已部署高级分析模型的准确性。",
+        "reference_group": "运营平台",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L511",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-48",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-48",
+        "reference_kind": "business_function",
+        "reference_name": "调度数据集成与管道",
+        "reference_definition": "管理 BI 与分析的所有调度任务（数据管道运行、集成等）。",
+        "reference_group": "运营平台",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L512",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-49",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-49",
+        "reference_kind": "business_function",
+        "reference_name": "授予访问",
+        "reference_definition": "按合规与安全政策处理访问请求/授予访问。",
+        "reference_group": "运营平台",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L513",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-50",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-50",
+        "reference_kind": "business_function",
+        "reference_name": "沟通与培训",
+        "reference_definition": "见 2.2 节。",
+        "reference_group": "沟通与培训",
+        "reference_level": "macro",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L514",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-51",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-51",
+        "reference_kind": "business_function",
+        "reference_name": "培训最终用户使用 BI 与分析工具",
+        "reference_definition": "组织培训，使每位业务与数据专家都能熟练开展 BI 与分析实践。",
+        "reference_group": "沟通与培训",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L515",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-52",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-52",
+        "reference_kind": "business_function",
+        "reference_name": "利用技术布道",
+        "reference_definition": "鼓励数据专家（数据科学家、数据工程师、数据管理者等）之间的知识资本化与经验回流，利用可复用材料。",
+        "reference_group": "沟通与培训",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L516",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-53",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-53",
+        "reference_kind": "business_function",
+        "reference_name": "活跃 BI 与分析用户与专家社区",
+        "reference_definition": "活跃用户社区（如 BI 与分析平台工具）与数据专家社区。",
+        "reference_group": "沟通与培训",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L517",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    },
+    {
+      "entity_id": "BIC-B-G238-T4-2-54",
+      "reference_attributes": {
+        "reference_id": "G238-T4-2-54",
+        "reference_kind": "business_function",
+        "reference_name": "就战略、业务与技术路线图开展沟通",
+        "reference_definition": "沟通 BI 与分析战略、价值、进行中/已完成的关键项目，以及业务与技术路线图；沟通能力对组织的影响。",
+        "reference_group": "沟通与培训",
+        "reference_level": "child",
+        "reference_scope": "源表分组；无额外应用范围规则",
+        "source_locator": "G238 表4-2 L518",
+        "reference_identity": "reference-only; coverage-assessment-is-project-record",
+        "source_uncertainty": "英语原版/原图未在本例复核；只据本地正文表"
+      }
+    }
+  ],
+  "fictional_input_records": [
+    {
+      "id": "SUP-G238-T4-2-04",
+      "kind": "authored-use-backlog",
+      "contents": {
+        "version": "SUP-BACKLOG-1",
+        "owner": "试点分析负责人",
+        "qualified_use_criteria": "业务责任、所需决策与验收可定位",
+        "uses": [
+          {
+            "id": "U1",
+            "decision": "缺件预警在调度前人工复核",
+            "qualified": true
+          },
+          {
+            "id": "U2",
+            "decision": "将月度趋势用于维修队规划",
+            "qualified": true
+          }
+        ],
+        "update_record": "2026-11-06记录U2口径变更",
+        "review_record": "2026-11-07责任人在本虚构材料中确认两项为合格用途"
+      }
+    },
+    {
+      "id": "SUP-G238-T4-2-47",
+      "kind": "authored-plan",
+      "contents": {
+        "owner": "模型运营负责人",
+        "target_date": "2026-11-20",
+        "acceptance": "固定标签样本、声明误差单位与阈值来源，保存一次部署模型准确性监控记录",
+        "runtime_observation": "not-supplied"
+      }
+    }
+  ]
+}

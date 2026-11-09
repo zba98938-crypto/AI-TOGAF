@@ -1,0 +1,370 @@
+# G206/fig2-1 · 网式组织图（Web-Styled Organigraph）
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G206/fig2-1.md) · [JSON](../../architecture/diagrams/G206/fig2-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G206e.pdf`；SHA-256：`5de1a634ef389e88b16b11454fdf96350ab33664468a0df2a6aed513e2270c35`。
+
+## 原图 · PDF 第 12 页
+
+![英文原图](../assets/G206/fig2-1-p0012.png)
+
+PDF 坐标：`[48.2, 395.2, 563.8, 663.2]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+‘ih
+Pa
+ae
+@
+e
+@°
+A/
+SNe,
+ae
+a8
+\f
+@
+=)
+\e
+```
+
+## 概要（历史解释；局部修正见上）
+
+无标签、无箭头的多中心关系网络，用渐变色簇与跨簇连线表达组织单元之间的协作关系。
+
+## 目的（历史解释；局部修正见上）
+
+作为第 2 章的概念插图，用 Mintzberg 与 Van der Heyden 的“网”意象说明：组织地图应把企业看作跨越法定边界的关系网络，而不是自上而下的汇报树。原图刻意不标名称，避免读者把注意力放在具体单元上。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+没有起点和终点。先看颜色的横向渐变（红—紫—蓝—青—绿），每一色段是一个关系较密的社群；再看带白色圆环的大节点，它们是各社群的连接中心；最后看跨色细线与浅蓝虚线圆圈，前者连接不同社群，后者圈出子群。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 全图没有任何文字标签、图例或箭头，是纯示意的关系网络，不是某个具体企业的模型。
+- 没有唯一顶层节点：多个带白色圆环的大节点各自向周围小节点辐射，呈多中心而非单根树。
+- 节点颜色从左到右由红渐变到绿，形成若干相邻社群；原图没有说明颜色代表什么。
+- 同色细线连接同色节点，少量跨色线把不同社群接起来，表达跨越正式边界与部门壁垒的协作。
+- 浅蓝虚线圆圈圈出若干子群（约 6 处），圆圈彼此重叠，暗示团队/协作小组的边界可以交叉。
+- 整张图直接对应正文的“网（web）”比喻：组织应被描述为关系与互动的网络，而不是聚焦人员和头衔的层级。
+
+## 层级（历史解释；局部修正见上）
+
+没有上下级。图为多中心网络：每个色簇内有一个或数个大节点作为连接中心，其余小节点围绕；色簇之间以少量桥接线相连。节点大小只表示连接度，不表示组织层级。
+
+## 线条含义（历史解释；局部修正见上）
+
+所有连线都是细实线，无箭头，表示无方向的工作关系；线色随所属色簇变化，线长与曲直无含义。浅蓝虚线圆圈不是连线，而是分组边界。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 节点大小不代表组织层级或规模，只是示意连接度/枢纽地位。
+- 颜色不是 TOGAF 组织单元类型的正式编码，原图没有图例。
+- 没有箭头，不能从图中读出汇报关系、流程方向或价值流向。
+- 中文稿 SVG 把图改成蓝、红、绿三色的简化网络，丢失紫/青簇、白环大节点与虚线分组圈，不能据它判断原图结构。
+- 中文稿 L119 的“示意性网络结构”说明是译者添加的解释，英文原图没有这段图注。
+
+## 元素
+
+```json
+[
+  {
+    "id": "comm_red",
+    "label_en": null,
+    "label_zh": "红色节点簇（最左侧）",
+    "type": "group",
+    "parent": null,
+    "level": null,
+    "position": "最左",
+    "description_zh": "由十余个红色/珊瑚色节点组成的社群，内部以红色细线相连。"
+  },
+  {
+    "id": "hub_red",
+    "label_en": null,
+    "label_zh": "红色簇中的大节点（带白色圆环）",
+    "type": "other",
+    "parent": "comm_red",
+    "level": null,
+    "position": "红色簇中上部",
+    "description_zh": "红色簇中半径最大的节点，白环加粗，向多个小节点辐射。"
+  },
+  {
+    "id": "comm_purple",
+    "label_en": null,
+    "label_zh": "紫色节点簇（左中）",
+    "type": "group",
+    "parent": null,
+    "level": null,
+    "position": "红色簇右侧",
+    "description_zh": "由暗红过渡到紫红的节点组成，是红与蓝之间的过渡社群。"
+  },
+  {
+    "id": "hub_purple",
+    "label_en": null,
+    "label_zh": "紫色簇中的大节点（带白色圆环）",
+    "type": "other",
+    "parent": "comm_purple",
+    "level": null,
+    "position": "紫色簇中部",
+    "description_zh": "紫色簇的连接中心，向上、向下各分出多条细线。"
+  },
+  {
+    "id": "comm_blue",
+    "label_en": null,
+    "label_zh": "蓝色节点簇（中央）",
+    "type": "group",
+    "parent": null,
+    "level": null,
+    "position": "中央偏左",
+    "description_zh": "全图最大的社群，含上下两个大节点群，分别被浅蓝虚线圆圈圈住。"
+  },
+  {
+    "id": "hub_blue",
+    "label_en": null,
+    "label_zh": "蓝色簇中的大节点（带白色圆环）",
+    "type": "other",
+    "parent": "comm_blue",
+    "level": null,
+    "position": "蓝色簇中下部",
+    "description_zh": "蓝色簇中半径最大的节点，连接上下两组蓝色节点。"
+  },
+  {
+    "id": "comm_teal",
+    "label_en": null,
+    "label_zh": "青色节点簇（中右）",
+    "type": "group",
+    "parent": null,
+    "level": null,
+    "position": "蓝色簇右侧",
+    "description_zh": "蓝绿过渡色的社群，与蓝色簇、绿色簇都有桥接线。"
+  },
+  {
+    "id": "hub_teal",
+    "label_en": null,
+    "label_zh": "青色簇中的大节点（带白色圆环）",
+    "type": "other",
+    "parent": "comm_teal",
+    "level": null,
+    "position": "青色簇中上部",
+    "description_zh": "青色簇的连接中心，向右分出多条线进入绿色簇。"
+  },
+  {
+    "id": "comm_green",
+    "label_en": null,
+    "label_zh": "绿色节点簇（最右侧）",
+    "type": "group",
+    "parent": null,
+    "level": null,
+    "position": "最右",
+    "description_zh": "由青绿到亮绿的节点组成，是全图最外侧的社群。"
+  },
+  {
+    "id": "hub_green",
+    "label_en": null,
+    "label_zh": "绿色簇中的大节点（带白色圆环）",
+    "type": "other",
+    "parent": "comm_green",
+    "level": null,
+    "position": "绿色簇中部",
+    "description_zh": "绿色簇的连接中心，向右侧与下方小节点辐射。"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "comm_red",
+    "to": "comm_purple",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "红色簇与紫色簇之间有多条跨色细线，无方向"
+  },
+  {
+    "from": "comm_purple",
+    "to": "comm_blue",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "紫色簇与蓝色簇之间的桥接线"
+  },
+  {
+    "from": "comm_blue",
+    "to": "comm_teal",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "蓝色簇与青色簇之间的桥接线"
+  },
+  {
+    "from": "comm_teal",
+    "to": "comm_green",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "青色簇与绿色簇之间的桥接线"
+  },
+  {
+    "from": "hub_red",
+    "to": "comm_red",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "大节点向本簇多个小节点辐射多条细线（未逐条列出）"
+  },
+  {
+    "from": "hub_purple",
+    "to": "comm_purple",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "大节点向本簇多个小节点辐射多条细线（未逐条列出）"
+  },
+  {
+    "from": "hub_blue",
+    "to": "comm_blue",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "大节点向本簇多个小节点辐射多条细线（未逐条列出）"
+  },
+  {
+    "from": "hub_teal",
+    "to": "comm_teal",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "大节点向本簇多个小节点辐射多条细线（未逐条列出）"
+  },
+  {
+    "from": "hub_green",
+    "to": "comm_green",
+    "type": "association",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "大节点向本簇多个小节点辐射多条细线（未逐条列出）"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "圆点大小",
+    "meaning_zh": "连接度/枢纽程度：越大表示与越多节点相连（推断）",
+    "explicit": false
+  },
+  {
+    "symbol": "节点外的白色圆环",
+    "meaning_zh": "高连接度的枢纽节点（推断）",
+    "explicit": false
+  },
+  {
+    "symbol": "红—紫—蓝—青—绿渐变色",
+    "meaning_zh": "不同的组织社群/单元类别，原图未给色标",
+    "explicit": false
+  },
+  {
+    "symbol": "同色细实线",
+    "meaning_zh": "同一社群内的工作关系",
+    "explicit": false
+  },
+  {
+    "symbol": "跨色细实线",
+    "meaning_zh": "跨越社群/组织边界的协作关系",
+    "explicit": false
+  },
+  {
+    "symbol": "浅蓝虚线圆圈",
+    "meaning_zh": "子群/团队边界（推断），圆圈之间可重叠",
+    "explicit": false
+  },
+  {
+    "symbol": "无箭头",
+    "meaning_zh": "关系无方向",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "free",
+  "description_zh": "横向铺开的无边界网络：最左为红色簇，向右依次过渡到紫、蓝、青、绿；各簇围绕一至数个大节点展开，浅蓝虚线圆圈散布其间，整体没有对称轴或明确边界。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G206/fig3-2",
+    "relation": "complements",
+    "note_zh": "图 2-1 给出抽象的“网”概念，图 3-2 用同一思想画出带名称、带图例的通用组织地图"
+  },
+  {
+    "target": "G206/fig3-1",
+    "relation": "contrasts_with",
+    "note_zh": "网式多中心网络与传统自上而下组织架构图形成直接对比，是第 2–3 章的主线"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "medium",
+  "uncertainties_zh": [
+    "原图无标签、无图例，颜色与虚线圆圈的确切含义只能由正文和图形推断",
+    "节点数与连线数未逐一点算：按画面估计约 60 个节点、数十条细线；分析只记录到“色簇—枢纽—桥接”的结构层，未逐条列出簇内每条边",
+    "红色簇与紫色簇、紫色簇与蓝色簇的边界是渐变的，色簇划分带有解析者主观成分",
+    "浅蓝虚线圆圈共约 6 处，位置与覆盖范围按目测描述",
+    "中文稿 SVG 仅 24 个节点、三色，与原图差异大，已判 not_equivalent"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 12 页原图（600 dpi 裁切）及 figctx 2x2 放大分块",
+    "英文 PDF 第 12 页正文",
+    "中文稿 G206e_组织映射.md 第 107–121 行",
+    "figs/g206_fig2-1.svg 源码"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

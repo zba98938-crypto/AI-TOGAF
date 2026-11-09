@@ -1,0 +1,550 @@
+{
+  "schema_version": "2.0",
+  "id": "G188/ex3-22",
+  "title": "示例 3-22：项目 A 的工作分解结构（WBS）图",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      801
+    ],
+    "label_table_lines": [
+      805,
+      829
+    ]
+  },
+  "reading": {
+    "purpose_zh": "示例演示“按交付物分解”的 WBS 做法：项目经理已有一份详细交付物清单，于是以最终目标为根，把工作分成项目管理、应用关系与数据流、能力映射、关键观察、改进建议五个分支，再落到可估算的交付物，作为后续定义活动、排进度和估算的基础。",
+    "reading_guide_zh": "从最上方根节点“评估当前应用组合并提出改进选项”向下读，五条肘形箭头指向五个二级分支，从左到右依次为项目管理、应用间的关系与数据流、映射应用能力、关键观察、改进建议。每个分支标题下方的竖线是工作包总线，总线向左（图中实际画法）分出箭头，挂接该分支的交付物；同一分支内自上而下是并列交付物，不是先后顺序。",
+    "key_points_zh": [
+      "WBS 按“交付物”而不是按“阶段”或“组织”分解：第二层是五类工作包/交付物组，第三层是具体交付物。",
+      "根节点就是项目 A 的总体目标：评估当前应用组合并提出改进选项（与表 2-1 的示例 A 一致）。",
+      "项目管理被作为 WBS 的一个分支（规划、监控与控制、报告与行政），与架构交付工作并列，提醒项目管理本身也要被计划和估算。",
+      "架构工作分成三条线：应用间关系与数据流、能力映射、关键观察；观察结果再汇入“改进建议”分支。",
+      "“映射应用能力”分支只有两项交付物（重叠识别、缺口识别），说明该分支范围较窄，不应擅自补成三项。",
+      "最右侧“改进建议”分支以“识别改进建议→识别举措并排定优先级→编制举措路线图”收束，对应从分析到可执行路线图的递进。",
+      "图中箭头只表示分解（父子），不表示交付物之间的先后依赖；同一分支内三项的上下顺序没有时间含义。"
+    ],
+    "hierarchy_zh": "三层：L1 根节点（项目 A 总体目标）；L2 五个分支（Project management、Relationships and data flows between applications、Mapping application capabilities、Key observations、Improvement recommendations）；L3 每个分支下的交付物（2–3 项）。分支之间并列，交付物之间并列，均无上下级交叉。",
+    "line_semantics_zh": "所有线都是分解线，不是流程线：根节点下方一条横线分出五条向下箭头到分支；每个分支标题下一条竖直总线，再用向左的肘形箭头接到各交付物。箭头方向表示“父→子（分解出）”，不表示工作先后或数据流。",
+    "misreadings_zh": [
+      "不要把五个分支理解为五个先后阶段；它们是并列的交付物类别。",
+      "不要把同一分支内交付物的上下顺序当成执行顺序；WBS 只表达范围分解。",
+      "不要把“项目管理”分支当作项目外的管理开销而忽略：它是 WBS 的正式组成部分，含规划、监控、报告三项交付物。",
+      "中文稿重绘 SVG 的箭头从方框中心指向左边缘，方向看似反了；应按原图理解为父节点分解到子交付物。",
+      "“映射应用能力”只有重叠与缺口两项，不要按其他分支的三项模式自行补全。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "wbs_root",
+      "label_en": "Assessment of current application portfolio and recommend improvement options",
+      "label_zh": "评估当前应用组合并提出改进选项",
+      "type": "artifact",
+      "parent": null,
+      "level": 1,
+      "position": "顶部中央"
+    },
+    {
+      "id": "wp_project_management",
+      "label_en": "Project management",
+      "label_zh": "项目管理",
+      "type": "artifact",
+      "parent": "wbs_root",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "wp_relationships",
+      "label_en": "Relationships and data flows between applications",
+      "label_zh": "应用间的关系与数据流",
+      "type": "artifact",
+      "parent": "wbs_root",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "wp_mapping",
+      "label_en": "Mapping application capabilities",
+      "label_zh": "映射应用能力",
+      "type": "artifact",
+      "parent": "wbs_root",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "wp_observations",
+      "label_en": "Key observations",
+      "label_zh": "关键观察",
+      "type": "artifact",
+      "parent": "wbs_root",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "wp_recommendations",
+      "label_en": "Improvement recommendations",
+      "label_zh": "改进建议",
+      "type": "artifact",
+      "parent": "wbs_root",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "d_planning",
+      "label_en": "Planning",
+      "label_zh": "规划",
+      "type": "artifact",
+      "parent": "wp_project_management",
+      "level": 3,
+      "order": 1
+    },
+    {
+      "id": "d_monitoring",
+      "label_en": "Monitoring & controlling",
+      "label_zh": "监控与控制",
+      "type": "artifact",
+      "parent": "wp_project_management",
+      "level": 3,
+      "order": 2
+    },
+    {
+      "id": "d_reporting",
+      "label_en": "Reporting & Administration",
+      "label_zh": "报告与行政",
+      "type": "artifact",
+      "parent": "wp_project_management",
+      "level": 3,
+      "order": 3
+    },
+    {
+      "id": "d_agree_list",
+      "label_en": "Agree list of applications",
+      "label_zh": "确认应用清单",
+      "type": "artifact",
+      "parent": "wp_relationships",
+      "level": 3,
+      "order": 1
+    },
+    {
+      "id": "d_relationships",
+      "label_en": "Analysis of relationships between applications",
+      "label_zh": "分析应用间关系",
+      "type": "artifact",
+      "parent": "wp_relationships",
+      "level": 3,
+      "order": 2
+    },
+    {
+      "id": "d_data_flow",
+      "label_en": "Analysis of data flow between applications",
+      "label_zh": "分析应用间数据流",
+      "type": "artifact",
+      "parent": "wp_relationships",
+      "level": 3,
+      "order": 3
+    },
+    {
+      "id": "d_overlaps",
+      "label_en": "Identification of overlaps between applications",
+      "label_zh": "识别应用间重叠",
+      "type": "artifact",
+      "parent": "wp_mapping",
+      "level": 3,
+      "order": 1
+    },
+    {
+      "id": "d_gaps",
+      "label_en": "Identification of application gaps",
+      "label_zh": "识别应用缺口",
+      "type": "artifact",
+      "parent": "wp_mapping",
+      "level": 3,
+      "order": 2
+    },
+    {
+      "id": "d_constraints",
+      "label_en": "Identification of key technological constraints",
+      "label_zh": "识别关键技术约束",
+      "type": "artifact",
+      "parent": "wp_observations",
+      "level": 3,
+      "order": 1
+    },
+    {
+      "id": "d_obs_relationship",
+      "label_en": "Observations from application relationship",
+      "label_zh": "应用关系观察",
+      "type": "artifact",
+      "parent": "wp_observations",
+      "level": 3,
+      "order": 2
+    },
+    {
+      "id": "d_obs_mapping",
+      "label_en": "Observations from mapping application capabilities",
+      "label_zh": "应用能力映射观察",
+      "type": "artifact",
+      "parent": "wp_observations",
+      "level": 3,
+      "order": 3
+    },
+    {
+      "id": "d_improvements",
+      "label_en": "Identification of improvement recommendations",
+      "label_zh": "识别改进建议",
+      "type": "artifact",
+      "parent": "wp_recommendations",
+      "level": 3,
+      "order": 1
+    },
+    {
+      "id": "d_initiatives",
+      "label_en": "Identification of initiatives along with prioritization",
+      "label_zh": "识别举措并排定优先级",
+      "type": "artifact",
+      "parent": "wp_recommendations",
+      "level": 3,
+      "order": 2
+    },
+    {
+      "id": "d_roadmap",
+      "label_en": "Preparation of initiatives roadmap",
+      "label_zh": "编制举措路线图",
+      "type": "artifact",
+      "parent": "wp_recommendations",
+      "level": 3,
+      "order": 3
+    }
+  ],
+  "relationships": [
+    {
+      "from": "wbs_root",
+      "to": "wp_project_management",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wbs_root",
+      "to": "wp_relationships",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wbs_root",
+      "to": "wp_mapping",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wbs_root",
+      "to": "wp_observations",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wbs_root",
+      "to": "wp_recommendations",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_project_management",
+      "to": "d_planning",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_project_management",
+      "to": "d_monitoring",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_project_management",
+      "to": "d_reporting",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_relationships",
+      "to": "d_agree_list",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_relationships",
+      "to": "d_relationships",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_relationships",
+      "to": "d_data_flow",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_mapping",
+      "to": "d_overlaps",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_mapping",
+      "to": "d_gaps",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_observations",
+      "to": "d_constraints",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_observations",
+      "to": "d_obs_relationship",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_observations",
+      "to": "d_obs_mapping",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_recommendations",
+      "to": "d_improvements",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_recommendations",
+      "to": "d_initiatives",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    },
+    {
+      "from": "wp_recommendations",
+      "to": "d_roadmap",
+      "type": "composition",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_wbs",
+      "title_zh": "项目 A 的 WBS 逐行转录",
+      "columns": [
+        "层级",
+        "父节点",
+        "节点标签（英文）",
+        "节点标签（中文）"
+      ],
+      "rows": [
+        [
+          "L1",
+          "—",
+          "Assessment of current application portfolio and recommend improvement options",
+          "评估当前应用组合并提出改进选项"
+        ],
+        [
+          "L2",
+          "L1",
+          "Project management",
+          "项目管理"
+        ],
+        [
+          "L3",
+          "Project management",
+          "Planning",
+          "规划"
+        ],
+        [
+          "L3",
+          "Project management",
+          "Monitoring & controlling",
+          "监控与控制"
+        ],
+        [
+          "L3",
+          "Project management",
+          "Reporting & Administration",
+          "报告与行政"
+        ],
+        [
+          "L2",
+          "L1",
+          "Relationships and data flows between applications",
+          "应用间的关系与数据流"
+        ],
+        [
+          "L3",
+          "Relationships and data flows between applications",
+          "Agree list of applications",
+          "确认应用清单"
+        ],
+        [
+          "L3",
+          "Relationships and data flows between applications",
+          "Analysis of relationships between applications",
+          "分析应用间关系"
+        ],
+        [
+          "L3",
+          "Relationships and data flows between applications",
+          "Analysis of data flow between applications",
+          "分析应用间数据流"
+        ],
+        [
+          "L2",
+          "L1",
+          "Mapping application capabilities",
+          "映射应用能力"
+        ],
+        [
+          "L3",
+          "Mapping application capabilities",
+          "Identification of overlaps between applications",
+          "识别应用间重叠"
+        ],
+        [
+          "L3",
+          "Mapping application capabilities",
+          "Identification of application gaps",
+          "识别应用缺口"
+        ],
+        [
+          "L2",
+          "L1",
+          "Key observations",
+          "关键观察"
+        ],
+        [
+          "L3",
+          "Key observations",
+          "Identification of key technological constraints",
+          "识别关键技术约束"
+        ],
+        [
+          "L3",
+          "Key observations",
+          "Observations from application relationship",
+          "应用关系观察"
+        ],
+        [
+          "L3",
+          "Key observations",
+          "Observations from mapping application capabilities",
+          "应用能力映射观察"
+        ],
+        [
+          "L2",
+          "L1",
+          "Improvement recommendations",
+          "改进建议"
+        ],
+        [
+          "L3",
+          "Improvement recommendations",
+          "Identification of improvement recommendations",
+          "识别改进建议"
+        ],
+        [
+          "L3",
+          "Improvement recommendations",
+          "Identification of initiatives along with prioritization",
+          "识别举措并排定优先级"
+        ],
+        [
+          "L3",
+          "Improvement recommendations",
+          "Preparation of initiatives roadmap",
+          "编制举措路线图"
+        ]
+      ],
+      "notes_zh": "共 1 个根、5 个分支、14 个交付物；层级与父子关系按原图箭头转录。"
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "深灰方框（根与分支）",
+      "meaning_zh": "项目目标与二级工作包/交付物组",
+      "explicit": false
+    },
+    {
+      "symbol": "浅灰方框（带阴影）",
+      "meaning_zh": "三级可交付成果",
+      "explicit": false
+    },
+    {
+      "symbol": "肘形箭头",
+      "meaning_zh": "父节点分解为子节点",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图分支标题为斜体深灰块、交付物为浅灰块，均无编号；WBS 编号（如 1.1）在原图中不存在，本分析未虚构编号。",
+      "中文稿 re绘 SVG 的箭头从框中心指向左边缘，方向与原图相反；本分析按原图记录为父→子。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 55 页原图截图（含 3x3 放大分块）",
+      "英文 PDF 第 54–55 页正文",
+      "中文稿 G188e_架构项目管理.md 第 779–830 行及图内标签对照表 L805–L829",
+      "figs/g188e_ex3-22_en.png 与 figs/zh/g188e_ex3-22_zh.svg"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G188/ex3-22",
+    "asset": "figs/g188e_ex3-22_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "05"
+  }
+}

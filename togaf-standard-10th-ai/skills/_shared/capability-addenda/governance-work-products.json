@@ -1,0 +1,3620 @@
+{
+  "schema_version": "2.1-addenda",
+  "notice": "正文候选能力增量。表结构是有出处的方法操作化，不宣称官方原表复刻。真实业务批准与独立业务验收待完成。",
+  "work_products": [
+    {
+      "id": "viewpoint-library",
+      "artifact_id": "viewpoint-library",
+      "name": "视角库",
+      "name_zh": "视角库",
+      "name_en": "Viewpoint Library",
+      "owner": "togaf-artifact-review",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G184 §8.2–8.4",
+        "G186 §6.3.1、§9.1.3、附录C表C-1"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "为完整利益相关者关注点选择哪些可复用构图规范？",
+      "stakeholders": [
+        "授权业务利益相关者",
+        "架构师",
+        "相关SME与实施负责人"
+      ],
+      "concerns": [
+        "为完整利益相关者关注点选择哪些可复用构图规范？",
+        "依据完整、同口径、责任和未决项清晰"
+      ],
+      "adm_phases": [
+        "Preliminary",
+        "A",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围和五维语境",
+        "原始访谈/计划/测量及定位",
+        "授权角色和适用目标版本"
+      ],
+      "optional_inputs": [
+        "既有模型、视图、参考规范和组织规则"
+      ],
+      "missing_input_policy": "逐项登记缺口；未知不等于否或零。缺授权、原口径、时点或关键证据时只能候选，不自动批准、通过或核算。",
+      "entity_types": [
+        "guide:viewpoint"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "concern",
+        "stakeholders",
+        "decision",
+        "construction",
+        "required_information",
+        "source_models",
+        "view_ids",
+        "gaps",
+        "selection_reason"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "视角名",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "concern": {
+          "meaning": "标准关注点",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "stakeholders": {
+          "meaning": "拥有架构决策权的利益相关者",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "decision": {
+          "meaning": "待支持的业务决定",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "construction": {
+          "meaning": "可重复构造视图的方法和筛选规则",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "required_information": {
+          "meaning": "必需对象、关系、属性、单位等",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "source_models": {
+          "meaning": "模型/版本引用",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "view_ids": {
+          "meaning": "实际视图实例ID；视角不是视图",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "gaps": {
+          "meaning": "缺信息及其影响",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "selection_reason": {
+          "meaning": "为何覆盖这组关注点",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:viewpoint": [
+          "concern",
+          "stakeholders",
+          "decision",
+          "construction",
+          "required_information",
+          "source_models",
+          "view_ids",
+          "gaps",
+          "selection_reason"
+        ]
+      },
+      "relation_semantics": "表内ID字段提供显式引用；同名或相邻不代表语义关系。无建模关系时不伪造traces_to。",
+      "analysis": [
+        "从业务原话区分关注点、决策与角色",
+        "明确每组问题需要哪些信息并查模型缺口",
+        "定义构造规则、筛选范围与状态",
+        "关联profile_id和多个实际view_id，检查关注点覆盖",
+        "缺信息单列，不以已有图名代替分析"
+      ],
+      "analysis_steps": [
+        "从业务原话区分关注点、决策与角色",
+        "明确每组问题需要哪些信息并查模型缺口",
+        "定义构造规则、筛选范围与状态",
+        "关联profile_id和多个实际view_id，检查关注点覆盖",
+        "缺信息单列，不以已有图名代替分析"
+      ],
+      "output": [
+        "结论与证据表",
+        "未决项与责任/下一动作",
+        "模型和实际view_id引用"
+      ],
+      "semantic_checks": [
+        "视角定义构造规范，view_id标识具体实例，两者不混同",
+        "每项授权关注点都有所需信息及构造规则",
+        "附录C是空白参考库，填入内容是项目分析而非原指南答案"
+      ],
+      "checks": [
+        "视角定义构造规范，view_id标识具体实例，两者不混同",
+        "每项授权关注点都有所需信息及构造规则",
+        "附录C是空白参考库，填入内容是项目分析而非原指南答案"
+      ],
+      "misreadings": [
+        "视角定义构造规范，view_id标识具体实例，两者不混同",
+        "每项授权关注点都有所需信息及构造规则",
+        "附录C是空白参考库，填入内容是项目分析而非原指南答案"
+      ],
+      "related_deliverables": [
+        "tailored-architecture-framework",
+        "architecture-repository"
+      ],
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-viewpoint-library-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：viewpoints",
+            "locator": "examples/addenda/governance/raw-business-materials.json#viewpoints"
+          }
+        ],
+        "entities": [
+          {
+            "id": "viewpoint-library-default-1",
+            "type": "guide:viewpoint",
+            "name": "组合成本与价值",
+            "attributes": {
+              "concern": "价值、变更成本、信心",
+              "stakeholders": [
+                "财务负责人"
+              ],
+              "decision": "是否为T1拨款",
+              "construction": "按工作包列三年成本和同单位月节省，单列区间与假设，不把成本直接当效用评分",
+              "required_information": [
+                "工作包/差距",
+                "成本币种与期间",
+                "工时单位、期间、范围",
+                "不确定性来源"
+              ],
+              "source_models": [
+                "model-budget-v2"
+              ],
+              "view_ids": [
+                "v-budget-options-T1"
+              ],
+              "gaps": [
+                "measure.uncertainty尚缺，不能形成确定投资结论"
+              ],
+              "selection_reason": "VP-01需要同口径预算比较"
+            },
+            "evidence": [
+              "src-viewpoint-library-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "viewpoint-library-default-2",
+            "type": "guide:viewpoint",
+            "name": "过渡可运营",
+            "attributes": {
+              "concern": "可行性、可靠性、控制",
+              "stakeholders": [
+                "运营负责人"
+              ],
+              "decision": "T1是否可独立上线",
+              "construction": "逐T1业务场景映射人员/流程/应用/数据、依赖和回退证据",
+              "required_information": [
+                "T1范围",
+                "进入退出条件",
+                "恢复/回退演练",
+                "关键外部依赖"
+              ],
+              "source_models": [
+                "model-transition-v2"
+              ],
+              "view_ids": [
+                "v-operability-T1"
+              ],
+              "gaps": [],
+              "selection_reason": "VP-02明确暂停T2仍须发运"
+            },
+            "evidence": [
+              "src-viewpoint-library-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "viewpoint-library-default-3",
+            "type": "guide:viewpoint",
+            "name": "签收信息用途与控制",
+            "attributes": {
+              "concern": "安全、控制、规格",
+              "stakeholders": [
+                "数据负责人"
+              ],
+              "decision": "签收信息用途是否被控制",
+              "construction": "按信息用途关联使用服务、约束、控制和验证证据；使用/修改分别标明",
+              "required_information": [
+                "information.purpose",
+                "uses/modifies",
+                "control.test_evidence"
+              ],
+              "source_models": [
+                "model-data-v2"
+              ],
+              "view_ids": [
+                "v-data-purpose-T1"
+              ],
+              "gaps": [],
+              "selection_reason": "VP-03要求可追溯使用范围"
+            },
+            "evidence": [
+              "src-viewpoint-library-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-viewpoint-library-default",
+          "artifact_id": "viewpoint-library",
+          "profile_id": "viewpoint-library-default",
+          "title": "云帆物流视角库",
+          "entity_ids": [
+            "viewpoint-library-default-1",
+            "viewpoint-library-default-2",
+            "viewpoint-library-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "从VP-01/02/03提取三组决策与关注点，复用成本/过渡/信息模型；成本缺少不确定性资料，预算视图只能作为待补草稿。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "viewpoints"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-and-modified-two-layout-table-executed",
+        "modification": "executed-with-observable-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/viewpoint-library.md",
+      "modification_example": {
+        "change": "新增客户负责人关注签收争议处理",
+        "expected": "增加争议关注点、证据链信息和专门视角；旧三项不自动覆盖"
+      },
+      "counterexample": {
+        "input": "只有图名“数据流图”，无关注点/所需信息",
+        "expected": "报告viewpoint-information-gap，不计完成视角"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "enterprise-framework-alignment-catalog",
+      "artifact_id": "enterprise-framework-alignment-catalog",
+      "name": "企业框架接触与承诺目录",
+      "name_zh": "企业框架接触与承诺目录",
+      "name_en": "Enterprise Framework Alignment Catalog",
+      "owner": "togaf-ea-capability",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G184 §7.1–7.2、§10.1、§13.1"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "EA应融入哪些已在使用的框架，在哪些接触点补位？",
+      "stakeholders": [
+        "授权业务利益相关者",
+        "架构师",
+        "相关SME与实施负责人"
+      ],
+      "concerns": [
+        "EA应融入哪些已在使用的框架，在哪些接触点补位？",
+        "依据完整、同口径、责任和未决项清晰"
+      ],
+      "adm_phases": [
+        "Preliminary",
+        "A",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围和五维语境",
+        "原始访谈/计划/测量及定位",
+        "授权角色和适用目标版本"
+      ],
+      "optional_inputs": [
+        "既有模型、视图、参考规范和组织规则"
+      ],
+      "missing_input_policy": "逐项登记缺口；未知不等于否或零。缺授权、原口径、时点或关键证据时只能候选，不自动批准、通过或核算。",
+      "entity_types": [
+        "guide:framework_touchpoint"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "framework",
+        "focus",
+        "commitment_evidence",
+        "actual_commitment",
+        "owner",
+        "touchpoint",
+        "ea_input",
+        "ea_output",
+        "gap",
+        "action"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "接触点名称",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "framework": {
+          "meaning": "框架/企业既有方法及版本",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "focus": {
+          "meaning": "规划、执行、治理等关注领域",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "commitment_evidence": {
+          "meaning": "实际使用记录而非口头声明",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "actual_commitment": {
+          "meaning": "证据支持的采用情况，不使用无依据分数",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "owner": {
+          "meaning": "流程负责人",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "touchpoint": {
+          "meaning": "双向接触事件及时点",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "ea_input": {
+          "meaning": "EA消费的信息",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "ea_output": {
+          "meaning": "EA交付的信息",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "gap": {
+          "meaning": "重叠/缺口",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "action": {
+          "meaning": "融入或补位动作",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:framework_touchpoint": [
+          "framework",
+          "focus",
+          "commitment_evidence",
+          "actual_commitment",
+          "owner",
+          "touchpoint",
+          "ea_input",
+          "ea_output",
+          "gap",
+          "action"
+        ]
+      },
+      "relation_semantics": "表内ID字段提供显式引用；同名或相邻不代表语义关系。无建模关系时不伪造traces_to。",
+      "analysis": [
+        "识别企业实际规划/执行/治理方法、版本与负责人",
+        "查批准、资源和连续使用记录区分口头承诺",
+        "按成果与信息交接映射接触点",
+        "识别已有成果复用、重叠和缺口",
+        "协商责任/时点/格式并更新EA路线"
+      ],
+      "analysis_steps": [
+        "识别企业实际规划/执行/治理方法、版本与负责人",
+        "查批准、资源和连续使用记录区分口头承诺",
+        "按成果与信息交接映射接触点",
+        "识别已有成果复用、重叠和缺口",
+        "协商责任/时点/格式并更新EA路线"
+      ],
+      "output": [
+        "结论与证据表",
+        "未决项与责任/下一动作",
+        "模型和实际view_id引用"
+      ],
+      "semantic_checks": [
+        "不把框架目录当企业已采用清单",
+        "承诺深度由证据叙述，不凭空创建评分",
+        "框架重叠不表示包含或优先级，优先级须组织规则"
+      ],
+      "checks": [
+        "不把框架目录当企业已采用清单",
+        "承诺深度由证据叙述，不凭空创建评分",
+        "框架重叠不表示包含或优先级，优先级须组织规则"
+      ],
+      "misreadings": [
+        "不把框架目录当企业已采用清单",
+        "承诺深度由证据叙述，不凭空创建评分",
+        "框架重叠不表示包含或优先级，优先级须组织规则"
+      ],
+      "related_deliverables": [
+        "tailored-architecture-framework",
+        "organization-model"
+      ],
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-enterprise-framework-alignment-catalog-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：frameworks",
+            "locator": "examples/addenda/governance/raw-business-materials.json#frameworks"
+          }
+        ],
+        "entities": [
+          {
+            "id": "enterprise-framework-alignment-catalog-default-1",
+            "type": "guide:framework_touchpoint",
+            "name": "项目拨款关卡",
+            "attributes": {
+              "framework": "企业PMO项目管理规程2026",
+              "focus": "规划与执行",
+              "commitment_evidence": "FW-01最近三次关卡记录",
+              "actual_commitment": "已在使用，证据为本虚构案例",
+              "owner": "PMO负责人",
+              "touchpoint": "章程批准前／月度例外会",
+              "ea_input": "范围、预算、资源与已知依赖",
+              "ea_output": "架构契约、工作包依赖及例外影响",
+              "gap": "关卡尚未引用具体view_id",
+              "action": "融入：在章程模板新增架构契约和视图版本引用"
+            },
+            "evidence": [
+              "src-enterprise-framework-alignment-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "enterprise-framework-alignment-catalog-default-2",
+            "type": "guide:framework_touchpoint",
+            "name": "风险季审",
+            "attributes": {
+              "framework": "企业ERM风险制度2026",
+              "focus": "治理与风险",
+              "commitment_evidence": "FW-02季度风险复核记录",
+              "actual_commitment": "已在使用",
+              "owner": "风险负责人",
+              "touchpoint": "候选目标、路线批准前及季度复评",
+              "ea_input": "风险偏好、风险登记、影响分析",
+              "ea_output": "架构风险、控制与价值不确定性",
+              "gap": "尚无架构风险移交字段",
+              "action": "补位：定义风险ID、架构状态、控制责任和回执，再由风险部承接"
+            },
+            "evidence": [
+              "src-enterprise-framework-alignment-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "enterprise-framework-alignment-catalog-default-3",
+            "type": "guide:framework_touchpoint",
+            "name": "COBIT采用声明",
+            "attributes": {
+              "framework": "COBIT，版本待核实",
+              "focus": "信息系统治理",
+              "commitment_evidence": "FW-03只有口头名称",
+              "actual_commitment": "声明但无实质承诺证据",
+              "owner": "未任命",
+              "touchpoint": "未建立",
+              "ea_input": "待获取采用范围/版本/负责人",
+              "ea_output": "待确认对齐需求",
+              "gap": "无法证明实际采用",
+              "action": "先核实；不得把参考框架名当已存在治理能力"
+            },
+            "evidence": [
+              "src-enterprise-framework-alignment-catalog-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-enterprise-framework-alignment-catalog-default",
+          "artifact_id": "enterprise-framework-alignment-catalog",
+          "profile_id": "enterprise-framework-alignment-catalog-default",
+          "title": "企业框架接触与承诺目录",
+          "entity_ids": [
+            "enterprise-framework-alignment-catalog-default-1",
+            "enterprise-framework-alignment-catalog-default-2",
+            "enterprise-framework-alignment-catalog-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "FW-01/02已有实际流程，EA分别融入拨款和补齐风险移交；FW-03只有术语承诺，保留未知而不赋成熟度分。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "frameworks"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-and-modified-two-layout-table-executed",
+        "modification": "executed-with-observable-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/enterprise-framework-alignment-catalog.md",
+      "modification_example": {
+        "change": "风险部门新增正式架构风险字段与月度回执",
+        "expected": "缺口关闭为已建立接触点，附使用证据；不改变COBIT未知状态"
+      },
+      "counterexample": {
+        "input": "因框架知名就标企业已采用",
+        "expected": "reject-unsupported-commitment"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "architecture-governance-checklist",
+      "artifact_id": "architecture-governance-checklist",
+      "name": "架构治理检查清单",
+      "name_zh": "架构治理检查清单",
+      "name_en": "Architecture Governance Checklist",
+      "owner": "togaf-artifact-review",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G184 §6.2",
+        "G186 §15.2.1表15-1、§15.2.2表15-2"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "目标能否批准，实施是否合理遵循目标且如何处理偏差？",
+      "stakeholders": [
+        "授权业务利益相关者",
+        "架构师",
+        "相关SME与实施负责人"
+      ],
+      "concerns": [
+        "目标能否批准，实施是否合理遵循目标且如何处理偏差？",
+        "依据完整、同口径、责任和未决项清晰"
+      ],
+      "adm_phases": [
+        "Preliminary",
+        "A",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围和五维语境",
+        "原始访谈/计划/测量及定位",
+        "授权角色和适用目标版本"
+      ],
+      "optional_inputs": [
+        "既有模型、视图、参考规范和组织规则"
+      ],
+      "missing_input_policy": "逐项登记缺口；未知不等于否或零。缺授权、原口径、时点或关键证据时只能候选，不自动批准、通过或核算。",
+      "entity_types": [
+        "guide:governance_check"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "subject",
+        "sequence",
+        "question",
+        "answer",
+        "evidence_refs",
+        "accountable_role",
+        "next_action",
+        "result",
+        "source_variant"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "检查项名称",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "subject": {
+          "meaning": "受评对象及精确版本",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "sequence": {
+          "meaning": "来源规定的检查顺序",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "question": {
+          "meaning": "检查问题",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "answer": {
+          "meaning": "yes/no/unknown/not-reached；后两者是项目缺口约定",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "对应原料和模型/视图证据",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "accountable_role": {
+          "meaning": "责任角色及决策权",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "next_action": {
+          "meaning": "按本问题分支采取的动作",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "result": {
+          "meaning": "本案例整体结论；不代表真实批准",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "source_variant": {
+          "meaning": "使用的指南和差异说明",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:governance_check": [
+          "subject",
+          "sequence",
+          "question",
+          "answer",
+          "evidence_refs",
+          "accountable_role",
+          "next_action",
+          "result",
+          "source_variant"
+        ]
+      },
+      "relation_semantics": "表内ID字段提供显式引用；同名或相邻不代表语义关系。无建模关系时不伪造traces_to。",
+      "analysis": [
+        "区分目标开发与实施变更两类治理对象",
+        "锁定对象版本、上层约束、原价值口径和角色权利",
+        "按来源顺序执行检查并引用证据",
+        "目标任一否/未知先补足；实施Q1为是时接受合理解释",
+        "不合规转影响评估和处置，批准不能由生成器或审计员代行"
+      ],
+      "analysis_steps": [
+        "区分目标开发与实施变更两类治理对象",
+        "锁定对象版本、上层约束、原价值口径和角色权利",
+        "按来源顺序执行检查并引用证据",
+        "目标任一否/未知先补足；实施Q1为是时接受合理解释",
+        "不合规转影响评估和处置，批准不能由生成器或审计员代行"
+      ],
+      "output": [
+        "结论与证据表",
+        "未决项与责任/下一动作",
+        "模型和实际view_id引用"
+      ],
+      "semantic_checks": [
+        "目标九问与实施七问独立；实施第一问为是会直接接受合规",
+        "SME确认事实、审计记录符合性、利益相关者批准目标和处置，不混淆角色",
+        "只有真实授权证据才能改变批准状态，示例所有状态保持候选",
+        "G184简版与G186详细分支有差异，引用具体版本"
+      ],
+      "checks": [
+        "目标九问与实施七问独立；实施第一问为是会直接接受合规",
+        "SME确认事实、审计记录符合性、利益相关者批准目标和处置，不混淆角色",
+        "只有真实授权证据才能改变批准状态，示例所有状态保持候选",
+        "G184简版与G186详细分支有差异，引用具体版本"
+      ],
+      "misreadings": [
+        "目标九问与实施七问独立；实施第一问为是会直接接受合规",
+        "SME确认事实、审计记录符合性、利益相关者批准目标和处置，不混淆角色",
+        "只有真实授权证据才能改变批准状态，示例所有状态保持候选",
+        "G184简版与G186详细分支有差异，引用具体版本"
+      ],
+      "related_deliverables": [
+        "compliance-assessment",
+        "architecture-contract"
+      ],
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-architecture-governance-checklist-target",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：target",
+            "locator": "examples/addenda/governance/raw-business-materials.json#target"
+          }
+        ],
+        "entities": [
+          {
+            "id": "architecture-governance-checklist-target-1",
+            "type": "guide:governance_check",
+            "name": "target Q1",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 1,
+              "question": "是否正确识别利益相关者？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-01"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-2",
+            "type": "guide:governance_check",
+            "name": "target Q2",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 2,
+              "question": "是否考虑上层约束与指导？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-01"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-3",
+            "type": "guide:governance_check",
+            "name": "target Q3",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 3,
+              "question": "适当SME是否同意事实和解释？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-02"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-4",
+            "type": "guide:governance_check",
+            "name": "target Q4",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 4,
+              "question": "约束/指导是否与视图及模型分析一致？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-02"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-5",
+            "type": "guide:governance_check",
+            "name": "target Q5",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 5,
+              "question": "视图是否回应关注点并与模型分析一致？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-02"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-6",
+            "type": "guide:governance_check",
+            "name": "target Q6",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 6,
+              "question": "利益相关者是否理解价值和实现不确定性？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-03"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-7",
+            "type": "guide:governance_check",
+            "name": "target Q7",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 7,
+              "question": "是否理解达成目标所需工作及风险？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-03"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-8",
+            "type": "guide:governance_check",
+            "name": "target Q8",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 8,
+              "question": "是否理解置信度限制？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-03"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-9",
+            "type": "guide:governance_check",
+            "name": "target Q9",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 9,
+              "question": "利益相关者是否批准视图？",
+              "answer": "unknown",
+              "evidence_refs": [
+                "TG-03"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "由利益相关者决定重做或取消；未批准不得发布为批准目标",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-architecture-governance-checklist-target",
+          "artifact_id": "architecture-governance-checklist",
+          "profile_id": "architecture-governance-checklist-target",
+          "title": "目标九问检查",
+          "entity_ids": [
+            "architecture-governance-checklist-target-1",
+            "architecture-governance-checklist-target-2",
+            "architecture-governance-checklist-target-3",
+            "architecture-governance-checklist-target-4",
+            "architecture-governance-checklist-target-5",
+            "architecture-governance-checklist-target-6",
+            "architecture-governance-checklist-target-7",
+            "architecture-governance-checklist-target-8",
+            "architecture-governance-checklist-target-9"
+          ],
+          "relationship_ids": [],
+          "analysis": "依来源顺序评估，目标Q9未知阻断批准；实施合理异步解法满足明确规格，不能因个人同步偏好判不合规。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "target"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-and-modified-two-layout-table-executed",
+        "modification": "executed-with-observable-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/architecture-governance-checklist.md",
+      "modification_example": {
+        "change": "实施样本由41秒改为93秒，Q1=no；Q2–6=yes，Q7=unknown",
+        "expected": "从合规转为待利益相关者处置批准，不自动豁免"
+      },
+      "counterexample": {
+        "input": "目标九问只给八项；或实施Q1=yes仍按个人偏好判失败",
+        "expected": "缺项被拒绝；合理解释路径保持合规"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "non-compliance-disposition",
+      "artifact_id": "non-compliance-disposition",
+      "name": "不合规影响与处置登记",
+      "name_zh": "不合规影响与处置登记",
+      "name_en": "Non Compliance Disposition",
+      "owner": "togaf-artifact-review",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G186 §15.2.2表15-2",
+        "G184 §6.2、§6.5"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "对已证实偏差应强制执行、临时豁免还是重审目标？",
+      "stakeholders": [
+        "授权业务利益相关者",
+        "架构师",
+        "相关SME与实施负责人"
+      ],
+      "concerns": [
+        "对已证实偏差应强制执行、临时豁免还是重审目标？",
+        "依据完整、同口径、责任和未决项清晰"
+      ],
+      "adm_phases": [
+        "Preliminary",
+        "A",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围和五维语境",
+        "原始访谈/计划/测量及定位",
+        "授权角色和适用目标版本"
+      ],
+      "optional_inputs": [
+        "既有模型、视图、参考规范和组织规则"
+      ],
+      "missing_input_policy": "逐项登记缺口；未知不等于否或零。缺授权、原口径、时点或关键证据时只能候选，不自动批准、通过或核算。",
+      "entity_types": [
+        "guide:noncompliance_disposition"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "subject",
+        "violated_spec",
+        "original_value_basis",
+        "evidence_refs",
+        "impact",
+        "options",
+        "recommendation",
+        "decision_owner",
+        "decision",
+        "expiry",
+        "review_date",
+        "review_owner",
+        "follow_up"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "处置事项",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "subject": {
+          "meaning": "实施对象与目标版本",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "violated_spec": {
+          "meaning": "违反的规格ID",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "original_value_basis": {
+          "meaning": "与批准目标一致的范围/期间/量测方法",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "偏差证据",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "impact": {
+          "meaning": "价值、风险和置信度影响",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "options": {
+          "meaning": "执行、临时豁免、变更目标三个选项及影响",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "recommendation": {
+          "meaning": "架构师候选建议",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "decision_owner": {
+          "meaning": "授权利益相关者",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "decision": {
+          "meaning": "已决定或待决定；与建议分开",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "expiry": {
+          "meaning": "临时豁免有效期",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "review_date": {
+          "meaning": "复评日",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "review_owner": {
+          "meaning": "复评责任人",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "follow_up": {
+          "meaning": "纠偏/复评/目标重批及其证据",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:noncompliance_disposition": [
+          "subject",
+          "violated_spec",
+          "original_value_basis",
+          "evidence_refs",
+          "impact",
+          "options",
+          "recommendation",
+          "decision_owner",
+          "decision",
+          "expiry",
+          "review_date",
+          "review_owner",
+          "follow_up"
+        ]
+      },
+      "relation_semantics": "表内ID字段提供显式引用；同名或相邻不代表语义关系。无建模关系时不伪造traces_to。",
+      "analysis": [
+        "核对目标约束是否确被违反而非实现偏好不同",
+        "按开发目标时同一价值/风险口径分析影响",
+        "请SME核实事实、列出三种处置及取舍",
+        "向授权利益相关者提交建议，记录其决定",
+        "临时豁免设置期限、复评责任与日期；执行需纠偏证据；改目标重走目标批准"
+      ],
+      "analysis_steps": [
+        "核对目标约束是否确被违反而非实现偏好不同",
+        "按开发目标时同一价值/风险口径分析影响",
+        "请SME核实事实、列出三种处置及取舍",
+        "向授权利益相关者提交建议，记录其决定",
+        "临时豁免设置期限、复评责任与日期；执行需纠偏证据；改目标重走目标批准"
+      ],
+      "output": [
+        "结论与证据表",
+        "未决项与责任/下一动作",
+        "模型和实际view_id引用"
+      ],
+      "semantic_checks": [
+        "永久豁免实质改变目标，必须转目标变更",
+        "更换指标/范围来获得通过会使评估失效",
+        "建议、批准和落实是三个独立事实"
+      ],
+      "checks": [
+        "永久豁免实质改变目标，必须转目标变更",
+        "更换指标/范围来获得通过会使评估失效",
+        "建议、批准和落实是三个独立事实"
+      ],
+      "misreadings": [
+        "永久豁免实质改变目标，必须转目标变更",
+        "更换指标/范围来获得通过会使评估失效",
+        "建议、批准和落实是三个独立事实"
+      ],
+      "related_deliverables": [
+        "compliance-assessment",
+        "change-request",
+        "architecture-contract"
+      ],
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-non-compliance-disposition-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：disposition",
+            "locator": "examples/addenda/governance/raw-business-materials.json#disposition"
+          }
+        ],
+        "entities": [
+          {
+            "id": "non-compliance-disposition-default-1",
+            "type": "guide:noncompliance_disposition",
+            "name": "签收延迟临时处置候选",
+            "attributes": {
+              "subject": "DELIVERY-API-v3 / TARGET-T1-v2",
+              "violated_spec": "SPEC-60S",
+              "original_value_basis": "城西站、同一业务日、签收可查询时延P95（秒）",
+              "evidence_refs": [
+                "NC-01",
+                "NC-02"
+              ],
+              "impact": "93秒超过60秒，晚送达风险；样本只覆盖城西站，其他站影响未评估",
+              "options": [
+                {
+                  "action": "enforce",
+                  "impact": "10工作日修复，延后上线，保留60秒目标"
+                },
+                {
+                  "action": "temporary-waiver",
+                  "impact": "30日人工查询补偿，仍有晚送达风险；目标保持60秒"
+                },
+                {
+                  "action": "change-target",
+                  "impact": "若改为120秒必须重新分析客户影响并重走目标批准，当前无足够证据"
+                }
+              ],
+              "recommendation": "temporary-waiver",
+              "decision_owner": "运营、数据、财务授权利益相关者",
+              "decision": "pending；尚不可执行",
+              "expiry": "2026-12-01",
+              "review_date": "2026-11-09",
+              "review_owner": "运营负责人",
+              "follow_up": "批准后方可开始豁免；每周一复评；到期未关闭重新升级，不永久续期"
+            },
+            "evidence": [
+              "src-non-compliance-disposition-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-non-compliance-disposition-default",
+          "artifact_id": "non-compliance-disposition",
+          "profile_id": "non-compliance-disposition-default",
+          "title": "不合规影响与处置登记",
+          "entity_ids": [
+            "non-compliance-disposition-default-1"
+          ],
+          "relationship_ids": [],
+          "analysis": "沿原P95/城西站口径分析三项选择，建议有期限豁免；尚未获得授权批准，不能把建议写作已豁免。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "disposition"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-and-modified-two-layout-table-executed",
+        "modification": "executed-with-observable-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/non-compliance-disposition.md",
+      "modification_example": {
+        "change": "把建议改为强制执行，计划10工作日修复",
+        "expected": "新增纠偏验证任务，豁免期限不再充当授权；目标60秒保持"
+      },
+      "counterexample": {
+        "input": "临时豁免没有到期日或复评责任",
+        "expected": "waiver-needs-expiry-review-owner拒绝完成"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "business-cycle-product-alignment",
+      "artifact_id": "business-cycle-product-alignment",
+      "name": "业务周期与工作产品时点",
+      "name_zh": "业务周期与工作产品时点",
+      "name_en": "Business Cycle Product Alignment",
+      "owner": "togaf-ea-capability",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G184 §4.3.2、§10.3、§11.4",
+        "G186 §4、§8.1、§11.2、§14"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "架构工作产品何时必须可用以影响业务决定？",
+      "stakeholders": [
+        "授权业务利益相关者",
+        "架构师",
+        "相关SME与实施负责人"
+      ],
+      "concerns": [
+        "架构工作产品何时必须可用以影响业务决定？",
+        "依据完整、同口径、责任和未决项清晰"
+      ],
+      "adm_phases": [
+        "Preliminary",
+        "A",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围和五维语境",
+        "原始访谈/计划/测量及定位",
+        "授权角色和适用目标版本"
+      ],
+      "optional_inputs": [
+        "既有模型、视图、参考规范和组织规则"
+      ],
+      "missing_input_policy": "逐项登记缺口；未知不等于否或零。缺授权、原口径、时点或关键证据时只能候选，不自动批准、通过或核算。",
+      "entity_types": [
+        "guide:cycle_product"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "business_event",
+        "decision",
+        "consumer",
+        "required_by",
+        "planned",
+        "actual",
+        "product_view_refs",
+        "dependency",
+        "status",
+        "recovery_action",
+        "rule_source"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "交付时点安排",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "business_event": {
+          "meaning": "业务/预算/发布/运营事件",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "decision": {
+          "meaning": "该事件需要作出的决定",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "consumer": {
+          "meaning": "消费架构成果的责任人",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "required_by": {
+          "meaning": "消费方需要日期",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "planned": {
+          "meaning": "计划提供日期",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "actual": {
+          "meaning": "实际交付日期或未知",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "product_view_refs": {
+          "meaning": "具体工作产品及view_id",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "dependency": {
+          "meaning": "前置输入/工作",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "status": {
+          "meaning": "准时/迟到/未知",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "recovery_action": {
+          "meaning": "晚交付时如何修正或披露决策缺口",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "rule_source": {
+          "meaning": "项目日历与日期依据",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:cycle_product": [
+          "business_event",
+          "decision",
+          "consumer",
+          "required_by",
+          "planned",
+          "actual",
+          "product_view_refs",
+          "dependency",
+          "status",
+          "recovery_action",
+          "rule_source"
+        ]
+      },
+      "relation_semantics": "表内ID字段提供显式引用；同名或相邻不代表语义关系。无建模关系时不伪造traces_to。",
+      "analysis": [
+        "访谈消费方确认业务事件、决定和最迟输入日期",
+        "将目的与所需工作产品/实际视图绑定",
+        "以输入依赖倒排完成与评审",
+        "比较计划/实际和消费期限，指出错过决策的后果",
+        "重排范围资源或显式告知未满足条件，不改原业务事实"
+      ],
+      "analysis_steps": [
+        "访谈消费方确认业务事件、决定和最迟输入日期",
+        "将目的与所需工作产品/实际视图绑定",
+        "以输入依赖倒排完成与评审",
+        "比较计划/实际和消费期限，指出错过决策的后果",
+        "重排范围资源或显式告知未满足条件，不改原业务事实"
+      ],
+      "output": [
+        "结论与证据表",
+        "未决项与责任/下一动作",
+        "模型和实际view_id引用"
+      ],
+      "semantic_checks": [
+        "ADM阶段顺序不决定业务消费时点",
+        "30天/季度是G186的实践建议，项目日期必须由实际日历确认",
+        "计划早于期限不证明实际已按时交付"
+      ],
+      "checks": [
+        "ADM阶段顺序不决定业务消费时点",
+        "30天/季度是G186的实践建议，项目日期必须由实际日历确认",
+        "计划早于期限不证明实际已按时交付"
+      ],
+      "misreadings": [
+        "ADM阶段顺序不决定业务消费时点",
+        "30天/季度是G186的实践建议，项目日期必须由实际日历确认",
+        "计划早于期限不证明实际已按时交付"
+      ],
+      "related_deliverables": [
+        "statement-of-work",
+        "implementation-migration-plan"
+      ],
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-business-cycle-product-alignment-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：cycle",
+            "locator": "examples/addenda/governance/raw-business-materials.json#cycle"
+          }
+        ],
+        "entities": [
+          {
+            "id": "business-cycle-product-alignment-default-1",
+            "type": "guide:cycle_product",
+            "name": "2027预算选项",
+            "attributes": {
+              "business_event": "2026-11-20预算会",
+              "decision": "T1拨款",
+              "consumer": "财务负责人",
+              "required_by": "2026-11-13",
+              "planned": "2026-11-16",
+              "actual": "unknown",
+              "product_view_refs": [
+                "v-budget-options-T1"
+              ],
+              "dependency": "成本估算、不确定性说明与主题工作包",
+              "status": "late：计划比消费期限晚3日",
+              "recovery_action": "安排11月12日候选评审；若未能提供则预算结论明确缺口",
+              "rule_source": "CY-01财务约定；日期不是TOGAF规定"
+            },
+            "evidence": [
+              "src-business-cycle-product-alignment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-cycle-product-alignment-default-2",
+            "type": "guide:cycle_product",
+            "name": "项目拨款准备",
+            "attributes": {
+              "business_event": "2026-12-04项目拨款会",
+              "decision": "范围/契约批准",
+              "consumer": "PMO与发起人",
+              "required_by": "2026-12-03",
+              "planned": "2026-12-02",
+              "actual": "unknown",
+              "product_view_refs": [
+                "v-contract-T1"
+              ],
+              "dependency": "预算、范围、依赖与规格",
+              "status": "timely：计划早于期限1日，尚无实际交付证据",
+              "recovery_action": "维持计划，核实前置输入",
+              "rule_source": "CY-02及项目确认的会前1日要求"
+            },
+            "evidence": [
+              "src-business-cycle-product-alignment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-cycle-product-alignment-default-3",
+            "type": "guide:cycle_product",
+            "name": "首月价值回顾",
+            "attributes": {
+              "business_event": "2027-02-10运营价值回顾",
+              "decision": "继续T2或调整路线",
+              "consumer": "组合负责人",
+              "required_by": "2027-02-10",
+              "planned": "2027-02-08",
+              "actual": "unknown",
+              "product_view_refs": [
+                "v-value-realization-assessment-default"
+              ],
+              "dependency": "T1首月运营测量与比较基线",
+              "status": "timely：计划早2日",
+              "recovery_action": "锁定数据口径与责任，不能以G合规报告替代",
+              "rule_source": "CY-03运营约定"
+            },
+            "evidence": [
+              "src-business-cycle-product-alignment-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-business-cycle-product-alignment-default",
+          "artifact_id": "business-cycle-product-alignment",
+          "profile_id": "business-cycle-product-alignment-default",
+          "title": "业务周期与工作产品时点",
+          "entity_ids": [
+            "business-cycle-product-alignment-default-1",
+            "business-cycle-product-alignment-default-2",
+            "business-cycle-product-alignment-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "把预算/拨款/价值回顾倒排到消费日期；发现组合选项计划迟3天，已有项目表未表达这一消费缺口，需调整。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "cycle"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-and-modified-two-layout-table-executed",
+        "modification": "executed-with-observable-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/business-cycle-product-alignment.md",
+      "modification_example": {
+        "change": "组合选项计划从11月16改为11月12",
+        "expected": "迟3天变提前1天；实际仍unknown"
+      },
+      "counterexample": {
+        "input": "无消费方期限，只写“阶段F完成”",
+        "expected": "missing-consumer-deadline拒绝准时判定"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "value-realization-assessment",
+      "artifact_id": "value-realization-assessment",
+      "name": "价值实现评估",
+      "name_zh": "价值实现评估",
+      "name_en": "Value Realization Assessment",
+      "owner": "togaf-ea-capability",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G184 §10.1.7、§10.1.9、§11.4",
+        "G186 §8.7、§10.4、§14、§15.2.3"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "目标价值是否实际实现，差距是否需要H阶段发起新工作？",
+      "stakeholders": [
+        "授权业务利益相关者",
+        "架构师",
+        "相关SME与实施负责人"
+      ],
+      "concerns": [
+        "目标价值是否实际实现，差距是否需要H阶段发起新工作？",
+        "依据完整、同口径、责任和未决项清晰"
+      ],
+      "adm_phases": [
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "范围和五维语境",
+        "原始访谈/计划/测量及定位",
+        "授权角色和适用目标版本"
+      ],
+      "optional_inputs": [
+        "既有模型、视图、参考规范和组织规则"
+      ],
+      "missing_input_policy": "逐项登记缺口；未知不等于否或零。缺授权、原口径、时点或关键证据时只能候选，不自动批准、通过或核算。",
+      "entity_types": [
+        "guide:value_observation"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "target_ref",
+        "beneficiary",
+        "baseline",
+        "expected",
+        "observed",
+        "unit",
+        "periods",
+        "scope",
+        "method",
+        "calculation_basis",
+        "finding",
+        "confounders",
+        "attribution",
+        "owner",
+        "next_review",
+        "compliance_link"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "价值指标",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "target_ref": {
+          "meaning": "目标/价值主张及版本",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "beneficiary": {
+          "meaning": "价值接收方",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "baseline": {
+          "meaning": "基线值",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "expected": {
+          "meaning": "目标值及期望改善",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "observed": {
+          "meaning": "实际值及证据",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "unit": {
+          "meaning": "带方向的单位/量表",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "periods": {
+          "meaning": "基线与实际期间",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "scope": {
+          "meaning": "比较范围及业务量",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "method": {
+          "meaning": "同口径测量方法",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "calculation_basis": {
+          "meaning": "明确声明的比较规则及计算",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "finding": {
+          "meaning": "已达/未达/待测；不得把合规当收益",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "confounders": {
+          "meaning": "同时变化的非架构因素",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "attribution": {
+          "meaning": "归因是否证实",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "owner": {
+          "meaning": "组合/运营价值责任人",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "next_review": {
+          "meaning": "下次价值复评",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "compliance_link": {
+          "meaning": "G实施合规引用与其证明边界",
+          "value_rule": "值可追溯到原材料；组织规则明确标项目规则；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:value_observation": [
+          "target_ref",
+          "beneficiary",
+          "baseline",
+          "expected",
+          "observed",
+          "unit",
+          "periods",
+          "scope",
+          "method",
+          "calculation_basis",
+          "finding",
+          "confounders",
+          "attribution",
+          "owner",
+          "next_review",
+          "compliance_link"
+        ]
+      },
+      "relation_semantics": "表内ID字段提供显式引用；同名或相邻不代表语义关系。无建模关系时不伪造traces_to。",
+      "analysis": [
+        "明确价值主张、接收方、责任人与观察期间",
+        "锁定同范围同单位的基线/目标和计算依据",
+        "收集运营实际及证据，识别同时发生变化",
+        "逐指标比较目标差距并解释不确定性与归因限制",
+        "由组合/运营持续复评，必要时创建H变更/新工作请求"
+      ],
+      "analysis_steps": [
+        "明确价值主张、接收方、责任人与观察期间",
+        "锁定同范围同单位的基线/目标和计算依据",
+        "收集运营实际及证据，识别同时发生变化",
+        "逐指标比较目标差距并解释不确定性与归因限制",
+        "由组合/运营持续复评，必要时创建H变更/新工作请求"
+      ],
+      "output": [
+        "结论与证据表",
+        "未决项与责任/下一动作",
+        "模型和实际view_id引用"
+      ],
+      "semantic_checks": [
+        "G检验实施合规，H检验价值持续性及新变化，不能互相替代",
+        "不同范围、业务量、期间口径须归一化有依据或保持不可比",
+        "没有来源或明确项目规则不得计算ROI、权重或宣称收益归因",
+        "实际未测不能用0代替；计划收益不等于已实现价值"
+      ],
+      "checks": [
+        "G检验实施合规，H检验价值持续性及新变化，不能互相替代",
+        "不同范围、业务量、期间口径须归一化有依据或保持不可比",
+        "没有来源或明确项目规则不得计算ROI、权重或宣称收益归因",
+        "实际未测不能用0代替；计划收益不等于已实现价值"
+      ],
+      "misreadings": [
+        "G检验实施合规，H检验价值持续性及新变化，不能互相替代",
+        "不同范围、业务量、期间口径须归一化有依据或保持不可比",
+        "没有来源或明确项目规则不得计算ROI、权重或宣称收益归因",
+        "实际未测不能用0代替；计划收益不等于已实现价值"
+      ],
+      "related_deliverables": [
+        "compliance-assessment",
+        "change-request",
+        "implementation-migration-plan"
+      ],
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-value-realization-assessment-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：value",
+            "locator": "examples/addenda/governance/raw-business-materials.json#value"
+          }
+        ],
+        "entities": [
+          {
+            "id": "value-realization-assessment-default-1",
+            "type": "guide:value_observation",
+            "name": "人工签收工时",
+            "attributes": {
+              "target_ref": "TARGET-T1-v2",
+              "beneficiary": "城西站运营与客户",
+              "baseline": 800,
+              "expected": {
+                "target": 500,
+                "improvement": 300
+              },
+              "observed": {
+                "actual": 620,
+                "improvement": 180,
+                "evidence": "VL-01"
+              },
+              "unit": {
+                "observation": "小时/月",
+                "difference": "小时/月"
+              },
+              "periods": {
+                "baseline": "2026-10",
+                "actual": "2027-01"
+              },
+              "scope": "城西站10000单/月，订单集合口径相同",
+              "method": "从工时日志/送达记录汇总；率指标为该月晚送单数/该月总单数；此计算是项目规则",
+              "calculation_basis": {
+                "rule": "越低越好；改善=基线-实际，目标差距=实际-目标；百分点不作百分比增长",
+                "remaining_gap": 120
+              },
+              "finding": "target-not-met",
+              "confounders": [
+                "同期运营排班优化"
+              ],
+              "attribution": "not-established；不能归功为EA独占收益",
+              "owner": "组合负责人会同运营负责人",
+              "next_review": "2027-03-10",
+              "compliance_link": "VL-03/G实施检查通过只证明规定实现项符合；H继续验证价值"
+            },
+            "evidence": [
+              "src-value-realization-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "value-realization-assessment-default-2",
+            "type": "guide:value_observation",
+            "name": "晚送率",
+            "attributes": {
+              "target_ref": "TARGET-T1-v2",
+              "beneficiary": "城西站运营与客户",
+              "baseline": 4,
+              "expected": {
+                "target": 2,
+                "improvement": 2
+              },
+              "observed": {
+                "actual": 2.8,
+                "improvement": 1.2,
+                "evidence": "VL-02"
+              },
+              "unit": {
+                "observation": "%",
+                "difference": "百分点"
+              },
+              "periods": {
+                "baseline": "2026-10",
+                "actual": "2027-01"
+              },
+              "scope": "城西站10000单/月，订单集合口径相同",
+              "method": "从工时日志/送达记录汇总；率指标为该月晚送单数/该月总单数；此计算是项目规则",
+              "calculation_basis": {
+                "rule": "越低越好；改善=基线-实际，目标差距=实际-目标；百分点不作百分比增长",
+                "remaining_gap": 0.8
+              },
+              "finding": "target-not-met",
+              "confounders": [
+                "同期运营排班优化"
+              ],
+              "attribution": "not-established；不能归功为EA独占收益",
+              "owner": "组合负责人会同运营负责人",
+              "next_review": "2027-03-10",
+              "compliance_link": "VL-03/G实施检查通过只证明规定实现项符合；H继续验证价值"
+            },
+            "evidence": [
+              "src-value-realization-assessment-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-value-realization-assessment-default",
+          "artifact_id": "value-realization-assessment",
+          "profile_id": "value-realization-assessment-default",
+          "title": "T1价值实现评估",
+          "entity_ids": [
+            "value-realization-assessment-default-1",
+            "value-realization-assessment-default-2"
+          ],
+          "relationship_ids": [],
+          "analysis": "工时改善180小时但离目标仍差120小时；晚送率改善1.2百分点但仍差0.8百分点。G合规通过不能改变两个未达成结论；排班变化阻止单独归因EA。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "value"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "worked-fictional-case",
+        "generation": "baseline-and-modified-two-layout-table-executed",
+        "modification": "executed-with-observable-result-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/value-realization-assessment.md",
+      "modification_example": {
+        "change": "人工签收实际工时620改为480且保持口径",
+        "expected": "观察改善320小时，目标超额20小时；归因仍未证实，晚送率仍未达成"
+      },
+      "counterexample": {
+        "input": "实际为全部站点而基线只有城西站",
+        "expected": "incomparable-measurement-scope；停止差额计算"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "viewpoint-library-default",
+      "artifact_id": "viewpoint-library",
+      "name": "云帆物流视角库",
+      "name_zh": "云帆物流视角库",
+      "owner": "togaf-artifact-review",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G184 §8.2–8.4",
+        "G186 §6.3.1、§9.1.3、附录C表C-1"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:viewpoint": [
+          "concern",
+          "stakeholders",
+          "decision",
+          "construction",
+          "required_information",
+          "source_models",
+          "view_ids",
+          "gaps",
+          "selection_reason"
+        ]
+      },
+      "entity_types": [
+        "guide:viewpoint"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "视角定义构造规范，view_id标识具体实例，两者不混同",
+        "每项授权关注点都有所需信息及构造规则",
+        "附录C是空白参考库，填入内容是项目分析而非原指南答案"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "viewpoint-library-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "正文工作产品的字段表；不冒称原图复刻。reference/adaptive均保留全部列语义。"
+      },
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-viewpoint-library-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：viewpoints",
+            "locator": "examples/addenda/governance/raw-business-materials.json#viewpoints"
+          }
+        ],
+        "entities": [
+          {
+            "id": "viewpoint-library-default-1",
+            "type": "guide:viewpoint",
+            "name": "组合成本与价值",
+            "attributes": {
+              "concern": "价值、变更成本、信心",
+              "stakeholders": [
+                "财务负责人"
+              ],
+              "decision": "是否为T1拨款",
+              "construction": "按工作包列三年成本和同单位月节省，单列区间与假设，不把成本直接当效用评分",
+              "required_information": [
+                "工作包/差距",
+                "成本币种与期间",
+                "工时单位、期间、范围",
+                "不确定性来源"
+              ],
+              "source_models": [
+                "model-budget-v2"
+              ],
+              "view_ids": [
+                "v-budget-options-T1"
+              ],
+              "gaps": [
+                "measure.uncertainty尚缺，不能形成确定投资结论"
+              ],
+              "selection_reason": "VP-01需要同口径预算比较"
+            },
+            "evidence": [
+              "src-viewpoint-library-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "viewpoint-library-default-2",
+            "type": "guide:viewpoint",
+            "name": "过渡可运营",
+            "attributes": {
+              "concern": "可行性、可靠性、控制",
+              "stakeholders": [
+                "运营负责人"
+              ],
+              "decision": "T1是否可独立上线",
+              "construction": "逐T1业务场景映射人员/流程/应用/数据、依赖和回退证据",
+              "required_information": [
+                "T1范围",
+                "进入退出条件",
+                "恢复/回退演练",
+                "关键外部依赖"
+              ],
+              "source_models": [
+                "model-transition-v2"
+              ],
+              "view_ids": [
+                "v-operability-T1"
+              ],
+              "gaps": [],
+              "selection_reason": "VP-02明确暂停T2仍须发运"
+            },
+            "evidence": [
+              "src-viewpoint-library-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "viewpoint-library-default-3",
+            "type": "guide:viewpoint",
+            "name": "签收信息用途与控制",
+            "attributes": {
+              "concern": "安全、控制、规格",
+              "stakeholders": [
+                "数据负责人"
+              ],
+              "decision": "签收信息用途是否被控制",
+              "construction": "按信息用途关联使用服务、约束、控制和验证证据；使用/修改分别标明",
+              "required_information": [
+                "information.purpose",
+                "uses/modifies",
+                "control.test_evidence"
+              ],
+              "source_models": [
+                "model-data-v2"
+              ],
+              "view_ids": [
+                "v-data-purpose-T1"
+              ],
+              "gaps": [],
+              "selection_reason": "VP-03要求可追溯使用范围"
+            },
+            "evidence": [
+              "src-viewpoint-library-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-viewpoint-library-default",
+          "artifact_id": "viewpoint-library",
+          "profile_id": "viewpoint-library-default",
+          "title": "云帆物流视角库",
+          "entity_ids": [
+            "viewpoint-library-default-1",
+            "viewpoint-library-default-2",
+            "viewpoint-library-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "从VP-01/02/03提取三组决策与关注点，复用成本/过渡/信息模型；成本缺少不确定性资料，预算视图只能作为待补草稿。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "viewpoints"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "enterprise-framework-alignment-catalog-default",
+      "artifact_id": "enterprise-framework-alignment-catalog",
+      "name": "企业框架接触与承诺目录",
+      "name_zh": "企业框架接触与承诺目录",
+      "owner": "togaf-ea-capability",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G184 §7.1–7.2、§10.1、§13.1"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:framework_touchpoint": [
+          "framework",
+          "focus",
+          "commitment_evidence",
+          "actual_commitment",
+          "owner",
+          "touchpoint",
+          "ea_input",
+          "ea_output",
+          "gap",
+          "action"
+        ]
+      },
+      "entity_types": [
+        "guide:framework_touchpoint"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "不把框架目录当企业已采用清单",
+        "承诺深度由证据叙述，不凭空创建评分",
+        "框架重叠不表示包含或优先级，优先级须组织规则"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "enterprise-framework-alignment-catalog-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "正文工作产品的字段表；不冒称原图复刻。reference/adaptive均保留全部列语义。"
+      },
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-enterprise-framework-alignment-catalog-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：frameworks",
+            "locator": "examples/addenda/governance/raw-business-materials.json#frameworks"
+          }
+        ],
+        "entities": [
+          {
+            "id": "enterprise-framework-alignment-catalog-default-1",
+            "type": "guide:framework_touchpoint",
+            "name": "项目拨款关卡",
+            "attributes": {
+              "framework": "企业PMO项目管理规程2026",
+              "focus": "规划与执行",
+              "commitment_evidence": "FW-01最近三次关卡记录",
+              "actual_commitment": "已在使用，证据为本虚构案例",
+              "owner": "PMO负责人",
+              "touchpoint": "章程批准前／月度例外会",
+              "ea_input": "范围、预算、资源与已知依赖",
+              "ea_output": "架构契约、工作包依赖及例外影响",
+              "gap": "关卡尚未引用具体view_id",
+              "action": "融入：在章程模板新增架构契约和视图版本引用"
+            },
+            "evidence": [
+              "src-enterprise-framework-alignment-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "enterprise-framework-alignment-catalog-default-2",
+            "type": "guide:framework_touchpoint",
+            "name": "风险季审",
+            "attributes": {
+              "framework": "企业ERM风险制度2026",
+              "focus": "治理与风险",
+              "commitment_evidence": "FW-02季度风险复核记录",
+              "actual_commitment": "已在使用",
+              "owner": "风险负责人",
+              "touchpoint": "候选目标、路线批准前及季度复评",
+              "ea_input": "风险偏好、风险登记、影响分析",
+              "ea_output": "架构风险、控制与价值不确定性",
+              "gap": "尚无架构风险移交字段",
+              "action": "补位：定义风险ID、架构状态、控制责任和回执，再由风险部承接"
+            },
+            "evidence": [
+              "src-enterprise-framework-alignment-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "enterprise-framework-alignment-catalog-default-3",
+            "type": "guide:framework_touchpoint",
+            "name": "COBIT采用声明",
+            "attributes": {
+              "framework": "COBIT，版本待核实",
+              "focus": "信息系统治理",
+              "commitment_evidence": "FW-03只有口头名称",
+              "actual_commitment": "声明但无实质承诺证据",
+              "owner": "未任命",
+              "touchpoint": "未建立",
+              "ea_input": "待获取采用范围/版本/负责人",
+              "ea_output": "待确认对齐需求",
+              "gap": "无法证明实际采用",
+              "action": "先核实；不得把参考框架名当已存在治理能力"
+            },
+            "evidence": [
+              "src-enterprise-framework-alignment-catalog-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-enterprise-framework-alignment-catalog-default",
+          "artifact_id": "enterprise-framework-alignment-catalog",
+          "profile_id": "enterprise-framework-alignment-catalog-default",
+          "title": "企业框架接触与承诺目录",
+          "entity_ids": [
+            "enterprise-framework-alignment-catalog-default-1",
+            "enterprise-framework-alignment-catalog-default-2",
+            "enterprise-framework-alignment-catalog-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "FW-01/02已有实际流程，EA分别融入拨款和补齐风险移交；FW-03只有术语承诺，保留未知而不赋成熟度分。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "frameworks"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "architecture-governance-checklist-target",
+      "artifact_id": "architecture-governance-checklist",
+      "name": "目标九问检查",
+      "name_zh": "目标九问检查",
+      "owner": "togaf-artifact-review",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G184 §6.2",
+        "G186 §15.2.1表15-1、§15.2.2表15-2"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:governance_check": [
+          "subject",
+          "sequence",
+          "question",
+          "answer",
+          "evidence_refs",
+          "accountable_role",
+          "next_action",
+          "result",
+          "source_variant"
+        ]
+      },
+      "entity_types": [
+        "guide:governance_check"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "目标九问与实施七问独立；实施第一问为是会直接接受合规",
+        "SME确认事实、审计记录符合性、利益相关者批准目标和处置，不混淆角色",
+        "只有真实授权证据才能改变批准状态，示例所有状态保持候选",
+        "G184简版与G186详细分支有差异，引用具体版本"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "architecture-governance-checklist-target",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "正文工作产品的字段表；不冒称原图复刻。reference/adaptive均保留全部列语义。"
+      },
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-architecture-governance-checklist-target",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：target",
+            "locator": "examples/addenda/governance/raw-business-materials.json#target"
+          }
+        ],
+        "entities": [
+          {
+            "id": "architecture-governance-checklist-target-1",
+            "type": "guide:governance_check",
+            "name": "target Q1",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 1,
+              "question": "是否正确识别利益相关者？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-01"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-2",
+            "type": "guide:governance_check",
+            "name": "target Q2",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 2,
+              "question": "是否考虑上层约束与指导？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-01"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-3",
+            "type": "guide:governance_check",
+            "name": "target Q3",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 3,
+              "question": "适当SME是否同意事实和解释？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-02"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-4",
+            "type": "guide:governance_check",
+            "name": "target Q4",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 4,
+              "question": "约束/指导是否与视图及模型分析一致？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-02"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-5",
+            "type": "guide:governance_check",
+            "name": "target Q5",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 5,
+              "question": "视图是否回应关注点并与模型分析一致？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-02"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-6",
+            "type": "guide:governance_check",
+            "name": "target Q6",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 6,
+              "question": "利益相关者是否理解价值和实现不确定性？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-03"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-7",
+            "type": "guide:governance_check",
+            "name": "target Q7",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 7,
+              "question": "是否理解达成目标所需工作及风险？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-03"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-8",
+            "type": "guide:governance_check",
+            "name": "target Q8",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 8,
+              "question": "是否理解置信度限制？",
+              "answer": "yes",
+              "evidence_refs": [
+                "TG-03"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "继续下一检查",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-target-9",
+            "type": "guide:governance_check",
+            "name": "target Q9",
+            "attributes": {
+              "subject": "TARGET-T1-v2",
+              "sequence": 9,
+              "question": "利益相关者是否批准视图？",
+              "answer": "unknown",
+              "evidence_refs": [
+                "TG-03"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "由利益相关者决定重做或取消；未批准不得发布为批准目标",
+              "result": "pending",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-target"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-architecture-governance-checklist-target",
+          "artifact_id": "architecture-governance-checklist",
+          "profile_id": "architecture-governance-checklist-target",
+          "title": "目标九问检查",
+          "entity_ids": [
+            "architecture-governance-checklist-target-1",
+            "architecture-governance-checklist-target-2",
+            "architecture-governance-checklist-target-3",
+            "architecture-governance-checklist-target-4",
+            "architecture-governance-checklist-target-5",
+            "architecture-governance-checklist-target-6",
+            "architecture-governance-checklist-target-7",
+            "architecture-governance-checklist-target-8",
+            "architecture-governance-checklist-target-9"
+          ],
+          "relationship_ids": [],
+          "analysis": "依来源顺序评估，目标Q9未知阻断批准；实施合理异步解法满足明确规格，不能因个人同步偏好判不合规。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "target"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "architecture-governance-checklist-implementation",
+      "artifact_id": "architecture-governance-checklist",
+      "name": "实施七问检查",
+      "name_zh": "实施七问检查",
+      "owner": "togaf-artifact-review",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G184 §6.2",
+        "G186 §15.2.1表15-1、§15.2.2表15-2"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:governance_check": [
+          "subject",
+          "sequence",
+          "question",
+          "answer",
+          "evidence_refs",
+          "accountable_role",
+          "next_action",
+          "result",
+          "source_variant"
+        ]
+      },
+      "entity_types": [
+        "guide:governance_check"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "目标九问与实施七问独立；实施第一问为是会直接接受合规",
+        "SME确认事实、审计记录符合性、利益相关者批准目标和处置，不混淆角色",
+        "只有真实授权证据才能改变批准状态，示例所有状态保持候选",
+        "G184简版与G186详细分支有差异，引用具体版本"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "architecture-governance-checklist-implementation",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "正文工作产品的字段表；不冒称原图复刻。reference/adaptive均保留全部列语义。"
+      },
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-architecture-governance-checklist-implementation",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：implementation",
+            "locator": "examples/addenda/governance/raw-business-materials.json#implementation"
+          }
+        ],
+        "entities": [
+          {
+            "id": "architecture-governance-checklist-implementation-1",
+            "type": "guide:governance_check",
+            "name": "implementation Q1",
+            "attributes": {
+              "subject": "DELIVERY-API-v3",
+              "sequence": 1,
+              "question": "变更是否合理解释目标架构约束与指导？",
+              "answer": "yes",
+              "evidence_refs": [
+                "IG-01"
+              ],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "合理解释即接受为合规；若仍有问题通过变更架构处理。否则进入影响评估",
+              "result": "compliant-reasonable-interpretation",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-implementation"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-implementation-2",
+            "type": "guide:governance_check",
+            "name": "implementation Q2",
+            "attributes": {
+              "subject": "DELIVERY-API-v3",
+              "sequence": 2,
+              "question": "SME是否同意影响评估的事实与解释？",
+              "answer": "not-reached",
+              "evidence_refs": [],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "合理解释已合规，本分支不需进入",
+              "result": "compliant-reasonable-interpretation",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-implementation"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-implementation-3",
+            "type": "guide:governance_check",
+            "name": "implementation Q3",
+            "attributes": {
+              "subject": "DELIVERY-API-v3",
+              "sequence": 3,
+              "question": "SME是否同意执行/临时豁免/变更目标建议？",
+              "answer": "not-reached",
+              "evidence_refs": [],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "合理解释已合规，本分支不需进入",
+              "result": "compliant-reasonable-interpretation",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-implementation"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-implementation-4",
+            "type": "guide:governance_check",
+            "name": "implementation Q4",
+            "attributes": {
+              "subject": "DELIVERY-API-v3",
+              "sequence": 4,
+              "question": "视图是否反映影响评估及支撑模型？",
+              "answer": "not-reached",
+              "evidence_refs": [],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "合理解释已合规，本分支不需进入",
+              "result": "compliant-reasonable-interpretation",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-implementation"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-implementation-5",
+            "type": "guide:governance_check",
+            "name": "implementation Q5",
+            "attributes": {
+              "subject": "DELIVERY-API-v3",
+              "sequence": 5,
+              "question": "利益相关者是否理解评估置信度局限？",
+              "answer": "not-reached",
+              "evidence_refs": [],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "合理解释已合规，本分支不需进入",
+              "result": "compliant-reasonable-interpretation",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-implementation"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-implementation-6",
+            "type": "guide:governance_check",
+            "name": "implementation Q6",
+            "attributes": {
+              "subject": "DELIVERY-API-v3",
+              "sequence": 6,
+              "question": "是否理解预期价值和不确定性变化？",
+              "answer": "not-reached",
+              "evidence_refs": [],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "合理解释已合规，本分支不需进入",
+              "result": "compliant-reasonable-interpretation",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-implementation"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "architecture-governance-checklist-implementation-7",
+            "type": "guide:governance_check",
+            "name": "implementation Q7",
+            "attributes": {
+              "subject": "DELIVERY-API-v3",
+              "sequence": 7,
+              "question": "利益相关者是否批准处置建议？",
+              "answer": "not-reached",
+              "evidence_refs": [],
+              "accountable_role": "架构师准备／SME核实；目标/豁免/执行由授权利益相关者决定",
+              "next_action": "合理解释已合规，本分支不需进入",
+              "result": "compliant-reasonable-interpretation",
+              "source_variant": "G186表15-1/15-2；G184 §6.2为简版。G186实施Q1=是直接接受合规，不能机械要求七个是。"
+            },
+            "evidence": [
+              "src-architecture-governance-checklist-implementation"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-architecture-governance-checklist-implementation",
+          "artifact_id": "architecture-governance-checklist",
+          "profile_id": "architecture-governance-checklist-implementation",
+          "title": "实施七问检查",
+          "entity_ids": [
+            "architecture-governance-checklist-implementation-1",
+            "architecture-governance-checklist-implementation-2",
+            "architecture-governance-checklist-implementation-3",
+            "architecture-governance-checklist-implementation-4",
+            "architecture-governance-checklist-implementation-5",
+            "architecture-governance-checklist-implementation-6",
+            "architecture-governance-checklist-implementation-7"
+          ],
+          "relationship_ids": [],
+          "analysis": "依来源顺序评估，目标Q9未知阻断批准；实施合理异步解法满足明确规格，不能因个人同步偏好判不合规。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "implementation"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "non-compliance-disposition-default",
+      "artifact_id": "non-compliance-disposition",
+      "name": "不合规影响与处置登记",
+      "name_zh": "不合规影响与处置登记",
+      "owner": "togaf-artifact-review",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G186 §15.2.2表15-2",
+        "G184 §6.2、§6.5"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:noncompliance_disposition": [
+          "subject",
+          "violated_spec",
+          "original_value_basis",
+          "evidence_refs",
+          "impact",
+          "options",
+          "recommendation",
+          "decision_owner",
+          "decision",
+          "expiry",
+          "review_date",
+          "review_owner",
+          "follow_up"
+        ]
+      },
+      "entity_types": [
+        "guide:noncompliance_disposition"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "永久豁免实质改变目标，必须转目标变更",
+        "更换指标/范围来获得通过会使评估失效",
+        "建议、批准和落实是三个独立事实"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "non-compliance-disposition-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "正文工作产品的字段表；不冒称原图复刻。reference/adaptive均保留全部列语义。"
+      },
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-non-compliance-disposition-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：disposition",
+            "locator": "examples/addenda/governance/raw-business-materials.json#disposition"
+          }
+        ],
+        "entities": [
+          {
+            "id": "non-compliance-disposition-default-1",
+            "type": "guide:noncompliance_disposition",
+            "name": "签收延迟临时处置候选",
+            "attributes": {
+              "subject": "DELIVERY-API-v3 / TARGET-T1-v2",
+              "violated_spec": "SPEC-60S",
+              "original_value_basis": "城西站、同一业务日、签收可查询时延P95（秒）",
+              "evidence_refs": [
+                "NC-01",
+                "NC-02"
+              ],
+              "impact": "93秒超过60秒，晚送达风险；样本只覆盖城西站，其他站影响未评估",
+              "options": [
+                {
+                  "action": "enforce",
+                  "impact": "10工作日修复，延后上线，保留60秒目标"
+                },
+                {
+                  "action": "temporary-waiver",
+                  "impact": "30日人工查询补偿，仍有晚送达风险；目标保持60秒"
+                },
+                {
+                  "action": "change-target",
+                  "impact": "若改为120秒必须重新分析客户影响并重走目标批准，当前无足够证据"
+                }
+              ],
+              "recommendation": "temporary-waiver",
+              "decision_owner": "运营、数据、财务授权利益相关者",
+              "decision": "pending；尚不可执行",
+              "expiry": "2026-12-01",
+              "review_date": "2026-11-09",
+              "review_owner": "运营负责人",
+              "follow_up": "批准后方可开始豁免；每周一复评；到期未关闭重新升级，不永久续期"
+            },
+            "evidence": [
+              "src-non-compliance-disposition-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-non-compliance-disposition-default",
+          "artifact_id": "non-compliance-disposition",
+          "profile_id": "non-compliance-disposition-default",
+          "title": "不合规影响与处置登记",
+          "entity_ids": [
+            "non-compliance-disposition-default-1"
+          ],
+          "relationship_ids": [],
+          "analysis": "沿原P95/城西站口径分析三项选择，建议有期限豁免；尚未获得授权批准，不能把建议写作已豁免。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "disposition"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "business-cycle-product-alignment-default",
+      "artifact_id": "business-cycle-product-alignment",
+      "name": "业务周期与工作产品时点",
+      "name_zh": "业务周期与工作产品时点",
+      "owner": "togaf-ea-capability",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G184 §4.3.2、§10.3、§11.4",
+        "G186 §4、§8.1、§11.2、§14"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:cycle_product": [
+          "business_event",
+          "decision",
+          "consumer",
+          "required_by",
+          "planned",
+          "actual",
+          "product_view_refs",
+          "dependency",
+          "status",
+          "recovery_action",
+          "rule_source"
+        ]
+      },
+      "entity_types": [
+        "guide:cycle_product"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "ADM阶段顺序不决定业务消费时点",
+        "30天/季度是G186的实践建议，项目日期必须由实际日历确认",
+        "计划早于期限不证明实际已按时交付"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "business-cycle-product-alignment-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "正文工作产品的字段表；不冒称原图复刻。reference/adaptive均保留全部列语义。"
+      },
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-business-cycle-product-alignment-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：cycle",
+            "locator": "examples/addenda/governance/raw-business-materials.json#cycle"
+          }
+        ],
+        "entities": [
+          {
+            "id": "business-cycle-product-alignment-default-1",
+            "type": "guide:cycle_product",
+            "name": "2027预算选项",
+            "attributes": {
+              "business_event": "2026-11-20预算会",
+              "decision": "T1拨款",
+              "consumer": "财务负责人",
+              "required_by": "2026-11-13",
+              "planned": "2026-11-16",
+              "actual": "unknown",
+              "product_view_refs": [
+                "v-budget-options-T1"
+              ],
+              "dependency": "成本估算、不确定性说明与主题工作包",
+              "status": "late：计划比消费期限晚3日",
+              "recovery_action": "安排11月12日候选评审；若未能提供则预算结论明确缺口",
+              "rule_source": "CY-01财务约定；日期不是TOGAF规定"
+            },
+            "evidence": [
+              "src-business-cycle-product-alignment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-cycle-product-alignment-default-2",
+            "type": "guide:cycle_product",
+            "name": "项目拨款准备",
+            "attributes": {
+              "business_event": "2026-12-04项目拨款会",
+              "decision": "范围/契约批准",
+              "consumer": "PMO与发起人",
+              "required_by": "2026-12-03",
+              "planned": "2026-12-02",
+              "actual": "unknown",
+              "product_view_refs": [
+                "v-contract-T1"
+              ],
+              "dependency": "预算、范围、依赖与规格",
+              "status": "timely：计划早于期限1日，尚无实际交付证据",
+              "recovery_action": "维持计划，核实前置输入",
+              "rule_source": "CY-02及项目确认的会前1日要求"
+            },
+            "evidence": [
+              "src-business-cycle-product-alignment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "business-cycle-product-alignment-default-3",
+            "type": "guide:cycle_product",
+            "name": "首月价值回顾",
+            "attributes": {
+              "business_event": "2027-02-10运营价值回顾",
+              "decision": "继续T2或调整路线",
+              "consumer": "组合负责人",
+              "required_by": "2027-02-10",
+              "planned": "2027-02-08",
+              "actual": "unknown",
+              "product_view_refs": [
+                "v-value-realization-assessment-default"
+              ],
+              "dependency": "T1首月运营测量与比较基线",
+              "status": "timely：计划早2日",
+              "recovery_action": "锁定数据口径与责任，不能以G合规报告替代",
+              "rule_source": "CY-03运营约定"
+            },
+            "evidence": [
+              "src-business-cycle-product-alignment-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-business-cycle-product-alignment-default",
+          "artifact_id": "business-cycle-product-alignment",
+          "profile_id": "business-cycle-product-alignment-default",
+          "title": "业务周期与工作产品时点",
+          "entity_ids": [
+            "business-cycle-product-alignment-default-1",
+            "business-cycle-product-alignment-default-2",
+            "business-cycle-product-alignment-default-3"
+          ],
+          "relationship_ids": [],
+          "analysis": "把预算/拨款/价值回顾倒排到消费日期；发现组合选项计划迟3天，已有项目表未表达这一消费缺口，需调整。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "cycle"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    },
+    {
+      "id": "value-realization-assessment-default",
+      "artifact_id": "value-realization-assessment",
+      "name": "T1价值实现评估",
+      "name_zh": "T1价值实现评估",
+      "owner": "togaf-ea-capability",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G184 §10.1.7、§10.1.9、§11.4",
+        "G186 §8.7、§10.4、§14、§15.2.3"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:value_observation": [
+          "target_ref",
+          "beneficiary",
+          "baseline",
+          "expected",
+          "observed",
+          "unit",
+          "periods",
+          "scope",
+          "method",
+          "calculation_basis",
+          "finding",
+          "confounders",
+          "attribution",
+          "owner",
+          "next_review",
+          "compliance_link"
+        ]
+      },
+      "entity_types": [
+        "guide:value_observation"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "G检验实施合规，H检验价值持续性及新变化，不能互相替代",
+        "不同范围、业务量、期间口径须归一化有依据或保持不可比",
+        "没有来源或明确项目规则不得计算ROI、权重或宣称收益归因",
+        "实际未测不能用0代替；计划收益不等于已实现价值"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "value-realization-assessment-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "正文工作产品的字段表；不冒称原图复刻。reference/adaptive均保留全部列语义。"
+      },
+      "example": {
+        "notice": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。",
+        "sources": [
+          {
+            "id": "src-value-realization-assessment-default",
+            "kind": "example",
+            "description": "虚构云帆物流案例；访谈、会议、测量与批准记录均为演示资料，不是实际业务证据。 原始材料组：value",
+            "locator": "examples/addenda/governance/raw-business-materials.json#value"
+          }
+        ],
+        "entities": [
+          {
+            "id": "value-realization-assessment-default-1",
+            "type": "guide:value_observation",
+            "name": "人工签收工时",
+            "attributes": {
+              "target_ref": "TARGET-T1-v2",
+              "beneficiary": "城西站运营与客户",
+              "baseline": 800,
+              "expected": {
+                "target": 500,
+                "improvement": 300
+              },
+              "observed": {
+                "actual": 620,
+                "improvement": 180,
+                "evidence": "VL-01"
+              },
+              "unit": {
+                "observation": "小时/月",
+                "difference": "小时/月"
+              },
+              "periods": {
+                "baseline": "2026-10",
+                "actual": "2027-01"
+              },
+              "scope": "城西站10000单/月，订单集合口径相同",
+              "method": "从工时日志/送达记录汇总；率指标为该月晚送单数/该月总单数；此计算是项目规则",
+              "calculation_basis": {
+                "rule": "越低越好；改善=基线-实际，目标差距=实际-目标；百分点不作百分比增长",
+                "remaining_gap": 120
+              },
+              "finding": "target-not-met",
+              "confounders": [
+                "同期运营排班优化"
+              ],
+              "attribution": "not-established；不能归功为EA独占收益",
+              "owner": "组合负责人会同运营负责人",
+              "next_review": "2027-03-10",
+              "compliance_link": "VL-03/G实施检查通过只证明规定实现项符合；H继续验证价值"
+            },
+            "evidence": [
+              "src-value-realization-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "value-realization-assessment-default-2",
+            "type": "guide:value_observation",
+            "name": "晚送率",
+            "attributes": {
+              "target_ref": "TARGET-T1-v2",
+              "beneficiary": "城西站运营与客户",
+              "baseline": 4,
+              "expected": {
+                "target": 2,
+                "improvement": 2
+              },
+              "observed": {
+                "actual": 2.8,
+                "improvement": 1.2,
+                "evidence": "VL-02"
+              },
+              "unit": {
+                "observation": "%",
+                "difference": "百分点"
+              },
+              "periods": {
+                "baseline": "2026-10",
+                "actual": "2027-01"
+              },
+              "scope": "城西站10000单/月，订单集合口径相同",
+              "method": "从工时日志/送达记录汇总；率指标为该月晚送单数/该月总单数；此计算是项目规则",
+              "calculation_basis": {
+                "rule": "越低越好；改善=基线-实际，目标差距=实际-目标；百分点不作百分比增长",
+                "remaining_gap": 0.8
+              },
+              "finding": "target-not-met",
+              "confounders": [
+                "同期运营排班优化"
+              ],
+              "attribution": "not-established；不能归功为EA独占收益",
+              "owner": "组合负责人会同运营负责人",
+              "next_review": "2027-03-10",
+              "compliance_link": "VL-03/G实施检查通过只证明规定实现项符合；H继续验证价值"
+            },
+            "evidence": [
+              "src-value-realization-assessment-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-value-realization-assessment-default",
+          "artifact_id": "value-realization-assessment",
+          "profile_id": "value-realization-assessment-default",
+          "title": "T1价值实现评估",
+          "entity_ids": [
+            "value-realization-assessment-default-1",
+            "value-realization-assessment-default-2"
+          ],
+          "relationship_ids": [],
+          "analysis": "工时改善180小时但离目标仍差120小时；晚送率改善1.2百分点但仍差0.8百分点。G合规通过不能改变两个未达成结论；排班变化阻止单独归因EA。",
+          "legend": "表格逐行记录；所有业务内容虚构。未知、未达到、未批准分别显示；ID用于稳定引用。"
+        },
+        "raw_input_group": "value"
+      },
+      "execution_evidence": "examples/addenda/governance/execution-audit.json"
+    }
+  ],
+  "default_profiles": {
+    "viewpoint-library": "viewpoint-library-default",
+    "enterprise-framework-alignment-catalog": "enterprise-framework-alignment-catalog-default",
+    "architecture-governance-checklist": "architecture-governance-checklist-target",
+    "non-compliance-disposition": "non-compliance-disposition-default",
+    "business-cycle-product-alignment": "business-cycle-product-alignment-default",
+    "value-realization-assessment": "value-realization-assessment-default"
+  },
+  "patches": [],
+  "source_conflicts": [
+    {
+      "id": "governance-q1-branch",
+      "refs": [
+        "G184 §6.2",
+        "G186 表15-2"
+      ],
+      "decision": "G184简版列七问且有全问强制说明；G186详细表规定Q1合理解释时直接判合规。本操作规范按G186的详细分支执行并保留两个来源，不把7是视为通用合格线。"
+    },
+    {
+      "id": "governance-auditor-role",
+      "refs": [
+        "G186 §15.2",
+        "G184 §6.5.1"
+      ],
+      "decision": "本地G186审计员段称合规决策归实施者，与角色标题和其他来源存在疑点；不从该句授予审计或目标批准权。实际权利必须来自组织授权。"
+    }
+  ],
+  "candidate_resolutions": {
+    "viewpoint-library": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "viewpoint-library"
+      ],
+      "profile_ids": [
+        "viewpoint-library-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "validate_viewpoint",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "viewpoint-library-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:viewpoint-library": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "viewpoint-library"
+      ],
+      "profile_ids": [
+        "viewpoint-library-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "validate_viewpoint",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "viewpoint-library-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "enterprise-framework-alignment-catalog": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "enterprise-framework-alignment-catalog"
+      ],
+      "profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "validate_framework",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:enterprise-framework-alignment-catalog": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "enterprise-framework-alignment-catalog"
+      ],
+      "profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "validate_framework",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "enterprise-framework-touchpoint-catalog": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "enterprise-framework-alignment-catalog"
+      ],
+      "profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "validate_framework",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:enterprise-framework-touchpoint-catalog": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "enterprise-framework-alignment-catalog"
+      ],
+      "profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "validate_framework",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "framework-commitment-assessment": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "enterprise-framework-alignment-catalog"
+      ],
+      "profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "validate_framework",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:framework-commitment-assessment": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "enterprise-framework-alignment-catalog"
+      ],
+      "profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "validate_framework",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "enterprise-framework-alignment-catalog-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "target-implementation-governance-checklists": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "architecture-governance-checklist"
+      ],
+      "profile_ids": [
+        "architecture-governance-checklist-target",
+        "architecture-governance-checklist-implementation"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "check_answers",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "architecture-governance-checklist-target",
+        "architecture-governance-checklist-implementation"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:target-implementation-governance-checklists": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "architecture-governance-checklist"
+      ],
+      "profile_ids": [
+        "architecture-governance-checklist-target",
+        "architecture-governance-checklist-implementation"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "check_answers",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "architecture-governance-checklist-target",
+        "architecture-governance-checklist-implementation"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "target-architecture-governance-checklist": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "architecture-governance-checklist"
+      ],
+      "profile_ids": [
+        "architecture-governance-checklist-target"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "check_answers",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "architecture-governance-checklist-target"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:target-architecture-governance-checklist": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "architecture-governance-checklist"
+      ],
+      "profile_ids": [
+        "architecture-governance-checklist-target"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "check_answers",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "architecture-governance-checklist-target"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "implementation-governance-checklist": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "architecture-governance-checklist"
+      ],
+      "profile_ids": [
+        "architecture-governance-checklist-implementation"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "check_answers",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "architecture-governance-checklist-implementation"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:implementation-governance-checklist": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "architecture-governance-checklist"
+      ],
+      "profile_ids": [
+        "architecture-governance-checklist-implementation"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "check_answers",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "architecture-governance-checklist-implementation"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "non-compliance-disposition": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "non-compliance-disposition"
+      ],
+      "profile_ids": [
+        "non-compliance-disposition-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "disposition",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "non-compliance-disposition-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:non-compliance-disposition": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "non-compliance-disposition"
+      ],
+      "profile_ids": [
+        "non-compliance-disposition-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "disposition",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "non-compliance-disposition-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "business-cycle-ea-alignment-timeline": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "business-cycle-product-alignment"
+      ],
+      "profile_ids": [
+        "business-cycle-product-alignment-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "timing",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "business-cycle-product-alignment-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:business-cycle-ea-alignment-timeline": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "business-cycle-product-alignment"
+      ],
+      "profile_ids": [
+        "business-cycle-product-alignment-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "timing",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "business-cycle-product-alignment-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "business-cycle-product-alignment": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "business-cycle-product-alignment"
+      ],
+      "profile_ids": [
+        "business-cycle-product-alignment-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "timing",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "business-cycle-product-alignment-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:business-cycle-product-alignment": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "business-cycle-product-alignment"
+      ],
+      "profile_ids": [
+        "business-cycle-product-alignment-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "timing",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "business-cycle-product-alignment-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "value-realization-assessment": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "value-realization-assessment"
+      ],
+      "profile_ids": [
+        "value-realization-assessment-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "value_row",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "value-realization-assessment-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:value-realization-assessment": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "value-realization-assessment"
+      ],
+      "profile_ids": [
+        "value-realization-assessment-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "value_row",
+        "entrypoint": "examples/addenda/governance/run_cases.py"
+      },
+      "case_evidence": "examples/addenda/governance/execution-audit.json",
+      "case_profile_ids": [
+        "value-realization-assessment-default"
+      ],
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "ea-point-of-view-register": {
+      "status": "pending",
+      "reason": "G184 §12观点经营记录未在本次6个工作产品中实现，不以视角库替代观点文档。"
+    }
+  }
+}

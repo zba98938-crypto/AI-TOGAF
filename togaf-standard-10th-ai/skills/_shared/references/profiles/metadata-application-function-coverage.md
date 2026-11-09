@@ -1,0 +1,8710 @@
+# 元数据应用功能—工具—资产覆盖评估表
+
+`profile_id`: metadata-application-function-coverage；`artifact_id`: metadata-asset-coverage；主责：[togaf-information-data](../../../togaf-information-data/SKILL.md)。
+
+来源：G234 §5.2 图5-2、表5-2 L641–664；G234 §4.3 图4-5（现有工作产品扩展关系）。
+
+## 构图与定义状态
+
+表示族：`catalog`；输出：`table`。规范版本：1.0。
+
+{
+  "id": "metadata-application-function-coverage",
+  "version": "1.0",
+  "source_verified": false,
+  "layout_notes": "按已核查的来源结构参数化；参考图与业务实例的验收分别进行。",
+  "structure_basis": "正文表5-2功能定义的项目覆盖评估表；不是图5-2参考功能地图复刻"
+}
+
+来源结构核实、输出可读性及业务正确性是独立验收。source_verified=false不能被成功生成或文件名覆盖。
+
+## 必需模型内容
+
+对象类型：g234:function-coverage, g234:metadata-tool, metadata_asset。关系类型：g234:coverage-of-asset, g234:tool-coverage-claim。
+
+```json
+{
+  "entities": {
+    "g234:function-coverage": [
+      "source_function_id",
+      "source_group",
+      "source_definition",
+      "project_scope",
+      "architecture_state",
+      "as_of",
+      "assessment",
+      "analysis_result",
+      "coverage_status"
+    ],
+    "g234:metadata-tool": [
+      "version",
+      "owner",
+      "evidence"
+    ],
+    "metadata_asset": [
+      "category",
+      "category_name",
+      "owner",
+      "evidence"
+    ]
+  },
+  "relationships": {}
+}
+```
+
+缺少模型内容时输出带ID的错误或缺口，不能静默改成通用流程图。
+
+## 检查与追溯
+
+- 源表每行有一个处置结果；遗漏为未知
+- 641八类创建对象需逐类资产或明确裁剪，原定义保留子项
+- 659必须区分事件、修改历史、来源、作者；历史存在不证明其余
+- 已实现须有逐资产/方面的通过观察，计划不提升为实现
+- 重复工具复用稳定ID，不重复计算源功能
+- 参考图/产品介绍不构成实施证据，不创建TOGAF分数或合格线
+- 不适用须有范围、理由与授权证据；批准状态另记
+
+每次生成记录对象、关系、必要属性如何表达；PNG/SVG与模型及渲染器版本同时保留。
+
+## 完整示例片段
+
+```json
+{
+  "notice": "虚构五馆联盟完整案例，源定义不是项目实施事实",
+  "sources": [
+    {
+      "id": "MCR-SCOPE",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 MCR-SCOPE",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#MCR-SCOPE"
+    },
+    {
+      "id": "MCR-ASSETS",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 MCR-ASSETS",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#MCR-ASSETS"
+    },
+    {
+      "id": "MCR-TOOLS",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 MCR-TOOLS",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#MCR-TOOLS"
+    },
+    {
+      "id": "MCR-RULE",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 MCR-RULE",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#MCR-RULE"
+    },
+    {
+      "id": "MCR-TAILOR",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 MCR-TAILOR",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#MCR-TAILOR"
+    },
+    {
+      "id": "MCR-PLAN",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 MCR-PLAN",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#MCR-PLAN"
+    },
+    {
+      "id": "MCR-UNKNOWN",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 MCR-UNKNOWN",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#MCR-UNKNOWN"
+    },
+    {
+      "id": "MCR-CHANGE",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 MCR-CHANGE",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#MCR-CHANGE"
+    },
+    {
+      "id": "OBS-641-A1-create",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A1-create",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A1-create"
+    },
+    {
+      "id": "OBS-641-A1-revise",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A1-revise",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A1-revise"
+    },
+    {
+      "id": "OBS-641-A1-delete",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A1-delete",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A1-delete"
+    },
+    {
+      "id": "OBS-641-A2-create",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A2-create",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A2-create"
+    },
+    {
+      "id": "OBS-641-A2-revise",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A2-revise",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A2-revise"
+    },
+    {
+      "id": "OBS-641-A2-delete",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A2-delete",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A2-delete"
+    },
+    {
+      "id": "OBS-641-A3-create",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A3-create",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A3-create"
+    },
+    {
+      "id": "OBS-641-A3-revise",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A3-revise",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A3-revise"
+    },
+    {
+      "id": "OBS-641-A3-delete",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A3-delete",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A3-delete"
+    },
+    {
+      "id": "OBS-641-A4-create",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A4-create",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A4-create"
+    },
+    {
+      "id": "OBS-641-A4-revise",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A4-revise",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A4-revise"
+    },
+    {
+      "id": "OBS-641-A4-delete",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A4-delete",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A4-delete"
+    },
+    {
+      "id": "OBS-641-A5-create",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A5-create",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A5-create"
+    },
+    {
+      "id": "OBS-641-A5-revise",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A5-revise",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A5-revise"
+    },
+    {
+      "id": "OBS-641-A5-delete",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A5-delete",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A5-delete"
+    },
+    {
+      "id": "OBS-641-A6-create",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A6-create",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A6-create"
+    },
+    {
+      "id": "OBS-641-A6-revise",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A6-revise",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A6-revise"
+    },
+    {
+      "id": "OBS-641-A6-delete",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A6-delete",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A6-delete"
+    },
+    {
+      "id": "OBS-641-A7-create",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A7-create",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A7-create"
+    },
+    {
+      "id": "OBS-641-A7-revise",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A7-revise",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A7-revise"
+    },
+    {
+      "id": "OBS-641-A7-delete",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A7-delete",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A7-delete"
+    },
+    {
+      "id": "OBS-641-A8-create",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A8-create",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A8-create"
+    },
+    {
+      "id": "OBS-641-A8-revise",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A8-revise",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A8-revise"
+    },
+    {
+      "id": "OBS-641-A8-delete",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-641-A8-delete",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-641-A8-delete"
+    },
+    {
+      "id": "OBS-642-A4-confidentiality",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-642-A4-confidentiality",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-642-A4-confidentiality"
+    },
+    {
+      "id": "OBS-642-A4-privacy",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-642-A4-privacy",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-642-A4-privacy"
+    },
+    {
+      "id": "OBS-642-A4-custom-classification",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-642-A4-custom-classification",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-642-A4-custom-classification"
+    },
+    {
+      "id": "OBS-643-A3-value-chain",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-643-A3-value-chain",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-643-A3-value-chain"
+    },
+    {
+      "id": "OBS-643-A3-lineage",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-643-A3-lineage",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-643-A3-lineage"
+    },
+    {
+      "id": "OBS-645-A8-execute-rule",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-645-A8-execute-rule",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-645-A8-execute-rule"
+    },
+    {
+      "id": "OBS-645-A8-capture-result",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-645-A8-capture-result",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-645-A8-capture-result"
+    },
+    {
+      "id": "OBS-646-A6-create-workflow",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-646-A6-create-workflow",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-646-A6-create-workflow"
+    },
+    {
+      "id": "OBS-646-A6-visualize-states",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-646-A6-visualize-states",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-646-A6-visualize-states"
+    },
+    {
+      "id": "OBS-646-A6-visualize-tasks",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-646-A6-visualize-tasks",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-646-A6-visualize-tasks"
+    },
+    {
+      "id": "OBS-647-A6-assign-task",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-647-A6-assign-task",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-647-A6-assign-task"
+    },
+    {
+      "id": "OBS-652-A7-accountability",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-652-A7-accountability",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-652-A7-accountability"
+    },
+    {
+      "id": "OBS-654-A1-multiple-criteria",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-654-A1-multiple-criteria",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-654-A1-multiple-criteria"
+    },
+    {
+      "id": "OBS-654-A1-full-text",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-654-A1-full-text",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-654-A1-full-text"
+    },
+    {
+      "id": "OBS-655-A4-create-normalized-values",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-655-A4-create-normalized-values",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-655-A4-create-normalized-values"
+    },
+    {
+      "id": "OBS-655-A4-maintain-reference-values",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-655-A4-maintain-reference-values",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-655-A4-maintain-reference-values"
+    },
+    {
+      "id": "OBS-656-A2-multiple-environments",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-656-A2-multiple-environments",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-656-A2-multiple-environments"
+    },
+    {
+      "id": "OBS-656-A2-per-environment-governance",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-656-A2-per-environment-governance",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-656-A2-per-environment-governance"
+    },
+    {
+      "id": "OBS-656-A2-per-environment-administration",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-656-A2-per-environment-administration",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-656-A2-per-environment-administration"
+    },
+    {
+      "id": "OBS-657-A3-create-permission",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-657-A3-create-permission",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-657-A3-create-permission"
+    },
+    {
+      "id": "OBS-657-A3-delete-permission",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-657-A3-delete-permission",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-657-A3-delete-permission"
+    },
+    {
+      "id": "OBS-657-A3-update-permission",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-657-A3-update-permission",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-657-A3-update-permission"
+    },
+    {
+      "id": "OBS-657-A3-users-groups",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-657-A3-users-groups",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-657-A3-users-groups"
+    },
+    {
+      "id": "OBS-657-A3-role-authorization",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-657-A3-role-authorization",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-657-A3-role-authorization"
+    },
+    {
+      "id": "OBS-659-A1-events",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-659-A1-events",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-659-A1-events"
+    },
+    {
+      "id": "OBS-659-A1-modification-history",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-659-A1-modification-history",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-659-A1-modification-history"
+    },
+    {
+      "id": "OBS-661-A2-metadata-query",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-661-A2-metadata-query",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-661-A2-metadata-query"
+    },
+    {
+      "id": "OBS-661-A2-metadata-query-CATALOG",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-661-A2-metadata-query-CATALOG",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-661-A2-metadata-query-CATALOG"
+    },
+    {
+      "id": "OBS-662-A2-bulk-import",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-662-A2-bulk-import",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-662-A2-bulk-import"
+    },
+    {
+      "id": "OBS-663-A2-bulk-export",
+      "kind": "example",
+      "description": "虚构五馆联盟原始业务/验收材料 OBS-663-A2-bulk-export",
+      "locator": "examples/addenda/metadata-application-function-coverage/raw-materials.json#OBS-663-A2-bulk-export"
+    },
+    {
+      "id": "G234-T52",
+      "kind": "local-translation",
+      "description": "随包G234表5-2；本地译文，官方定义核查单独记录",
+      "locator": "references/source-tables/metadata-functions.json"
+    }
+  ],
+  "entities": [
+    {
+      "id": "T-CATALOG",
+      "type": "g234:metadata-tool",
+      "name": "藏品目录工具",
+      "attributes": {
+        "version": "2.4",
+        "owner": "平台组",
+        "evidence": [
+          "MCR-TOOLS"
+        ]
+      },
+      "evidence": [
+        "MCR-TOOLS"
+      ],
+      "certainty": "assumed",
+      "version": "2.4"
+    },
+    {
+      "id": "T-QUALITY",
+      "type": "g234:metadata-tool",
+      "name": "质量执行器",
+      "attributes": {
+        "version": "1.8",
+        "owner": "质量组",
+        "evidence": [
+          "MCR-TOOLS"
+        ]
+      },
+      "evidence": [
+        "MCR-TOOLS"
+      ],
+      "certainty": "assumed",
+      "version": "1.8"
+    },
+    {
+      "id": "T-WORKFLOW",
+      "type": "g234:metadata-tool",
+      "name": "治理工作流",
+      "attributes": {
+        "version": "3.0",
+        "owner": "数据治理组",
+        "evidence": [
+          "MCR-TOOLS"
+        ]
+      },
+      "evidence": [
+        "MCR-TOOLS"
+      ],
+      "certainty": "assumed",
+      "version": "3.0"
+    },
+    {
+      "id": "T-GATEWAY",
+      "type": "g234:metadata-tool",
+      "name": "集成网关",
+      "attributes": {
+        "version": "1.2",
+        "owner": "集成组",
+        "evidence": [
+          "MCR-TOOLS"
+        ]
+      },
+      "evidence": [
+        "MCR-TOOLS"
+      ],
+      "certainty": "assumed",
+      "version": "1.2"
+    },
+    {
+      "id": "A1",
+      "type": "metadata_asset",
+      "name": "藏品术语表",
+      "attributes": {
+        "category": "category-1",
+        "category_name": "数据术语表",
+        "owner": "数据治理负责人",
+        "evidence": [
+          "MCR-ASSETS"
+        ]
+      },
+      "evidence": [
+        "MCR-ASSETS"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "A2",
+      "type": "metadata_asset",
+      "name": "藏品数据字典",
+      "attributes": {
+        "category": "category-2",
+        "category_name": "数据字典",
+        "owner": "数据治理负责人",
+        "evidence": [
+          "MCR-ASSETS"
+        ]
+      },
+      "evidence": [
+        "MCR-ASSETS"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "A3",
+      "type": "metadata_asset",
+      "name": "借展数据使用记录",
+      "attributes": {
+        "category": "category-3",
+        "category_name": "数据使用",
+        "owner": "数据治理负责人",
+        "evidence": [
+          "MCR-ASSETS"
+        ]
+      },
+      "evidence": [
+        "MCR-ASSETS"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "A4",
+      "type": "metadata_asset",
+      "name": "藏品分类",
+      "attributes": {
+        "category": "category-4",
+        "category_name": "数据分类",
+        "owner": "数据治理负责人",
+        "evidence": [
+          "MCR-ASSETS"
+        ]
+      },
+      "evidence": [
+        "MCR-ASSETS"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "A5",
+      "type": "metadata_asset",
+      "name": "数据规则与政策",
+      "attributes": {
+        "category": "category-5",
+        "category_name": "规则与政策",
+        "owner": "数据治理负责人",
+        "evidence": [
+          "MCR-ASSETS"
+        ]
+      },
+      "evidence": [
+        "MCR-ASSETS"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "A6",
+      "type": "metadata_asset",
+      "name": "数据问题及业务影响",
+      "attributes": {
+        "category": "category-6",
+        "category_name": "问题",
+        "owner": "数据治理负责人",
+        "evidence": [
+          "MCR-ASSETS"
+        ]
+      },
+      "evidence": [
+        "MCR-ASSETS"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "A7",
+      "type": "metadata_asset",
+      "name": "治理资产",
+      "attributes": {
+        "category": "category-7",
+        "category_name": "治理资产",
+        "owner": "数据治理负责人",
+        "evidence": [
+          "MCR-ASSETS"
+        ]
+      },
+      "evidence": [
+        "MCR-ASSETS"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "A8",
+      "type": "metadata_asset",
+      "name": "技术质量规则",
+      "attributes": {
+        "category": "category-8",
+        "category_name": "数据质量规则执行",
+        "owner": "数据治理负责人",
+        "evidence": [
+          "MCR-ASSETS"
+        ]
+      },
+      "evidence": [
+        "MCR-ASSETS"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-641",
+      "type": "g234:function-coverage",
+      "name": "元数据创建、修订与删除／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-641",
+        "source_group": "采集",
+        "source_definition": "创建并维护元数据对象，包括（但不限于）：<br>• **数据术语表**：业务数据对象、业务数据元素、业务术语、删除/保留日期<br>• **数据字典**：环境、应用（及相关技术）、数据集（数据库）、表、列<br>• **数据使用**：数据处理活动、数据接收方、数据传输、数据保护影响评估、数据提供方、数据访问与权限、指向外部文档参考的 URL 链接<br>• **数据分类**：数据保密性分类、数据隐私分类、业务价值分类、定义自定义元数据分类维度<br>• **规则与政策**：数据政策、业务数据质量规则<br>• **问题**：业务数据问题（含相关业务问题与业务影响）、按数据质量规则执行后报告的数据质量问题<br>• **治理资产**：元数据的逻辑分组，包括（但不限于）主题域（如保单、理赔、产品）、业务领域（如家庭、汽车、旅行、健康）、地理区域（如意大利、法国、西班牙、巴黎）；数据域，即两个或以上元数据分组的组合；数据管家、数据所有者、数据经理、数据隐私官、数据保管人、应用所有者<br>• **数据质量规则执行**：技术数据质量规则。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-641",
+          "function_id": "application-function-641",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "A6",
+            "A7",
+            "A8"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-641",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A5",
+                "A6",
+                "A7",
+                "A8"
+              ],
+              "facet_ids": [
+                "create",
+                "revise",
+                "delete"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-641-A1-create",
+                  "OBS-641-A1-revise",
+                  "OBS-641-A1-delete",
+                  "OBS-641-A2-create",
+                  "OBS-641-A2-revise",
+                  "OBS-641-A2-delete",
+                  "OBS-641-A3-create",
+                  "OBS-641-A3-revise",
+                  "OBS-641-A3-delete",
+                  "OBS-641-A4-create",
+                  "OBS-641-A4-revise",
+                  "OBS-641-A4-delete",
+                  "OBS-641-A5-create",
+                  "OBS-641-A5-revise",
+                  "OBS-641-A5-delete",
+                  "OBS-641-A6-create",
+                  "OBS-641-A6-revise",
+                  "OBS-641-A6-delete",
+                  "OBS-641-A7-create",
+                  "OBS-641-A7-revise",
+                  "OBS-641-A7-delete",
+                  "OBS-641-A8-create",
+                  "OBS-641-A8-revise",
+                  "OBS-641-A8-delete"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-641-A1-create",
+                    "asset_id": "A1",
+                    "facet_id": "create",
+                    "observed_behavior": "在A1记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A1-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A1-revise",
+                    "asset_id": "A1",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A1记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A1-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A1-delete",
+                    "asset_id": "A1",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A1记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A1-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A2-create",
+                    "asset_id": "A2",
+                    "facet_id": "create",
+                    "observed_behavior": "在A2记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A2-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A2-revise",
+                    "asset_id": "A2",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A2记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A2-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A2-delete",
+                    "asset_id": "A2",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A2记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A2-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A3-create",
+                    "asset_id": "A3",
+                    "facet_id": "create",
+                    "observed_behavior": "在A3记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A3-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A3-revise",
+                    "asset_id": "A3",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A3记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A3-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A3-delete",
+                    "asset_id": "A3",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A3记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A3-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A4-create",
+                    "asset_id": "A4",
+                    "facet_id": "create",
+                    "observed_behavior": "在A4记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A4-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A4-revise",
+                    "asset_id": "A4",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A4记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A4-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A4-delete",
+                    "asset_id": "A4",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A4记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A4-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A5-create",
+                    "asset_id": "A5",
+                    "facet_id": "create",
+                    "observed_behavior": "在A5记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A5-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A5-revise",
+                    "asset_id": "A5",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A5记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A5-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A5-delete",
+                    "asset_id": "A5",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A5记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A5-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A6-create",
+                    "asset_id": "A6",
+                    "facet_id": "create",
+                    "observed_behavior": "在A6记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A6-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A6-revise",
+                    "asset_id": "A6",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A6记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A6-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A6-delete",
+                    "asset_id": "A6",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A6记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A6-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A7-create",
+                    "asset_id": "A7",
+                    "facet_id": "create",
+                    "observed_behavior": "在A7记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A7-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A7-revise",
+                    "asset_id": "A7",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A7记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A7-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A7-delete",
+                    "asset_id": "A7",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A7记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A7-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A8-create",
+                    "asset_id": "A8",
+                    "facet_id": "create",
+                    "observed_behavior": "在A8记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A8-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A8-revise",
+                    "asset_id": "A8",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A8记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A8-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A8-delete",
+                    "asset_id": "A8",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A8记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A8-delete"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-641",
+          "function_id": "application-function-641",
+          "group": "采集",
+          "name": "元数据创建、修订与删除",
+          "declared_status": "implemented",
+          "source_definition": "创建并维护元数据对象，包括（但不限于）：<br>• **数据术语表**：业务数据对象、业务数据元素、业务术语、删除/保留日期<br>• **数据字典**：环境、应用（及相关技术）、数据集（数据库）、表、列<br>• **数据使用**：数据处理活动、数据接收方、数据传输、数据保护影响评估、数据提供方、数据访问与权限、指向外部文档参考的 URL 链接<br>• **数据分类**：数据保密性分类、数据隐私分类、业务价值分类、定义自定义元数据分类维度<br>• **规则与政策**：数据政策、业务数据质量规则<br>• **问题**：业务数据问题（含相关业务问题与业务影响）、按数据质量规则执行后报告的数据质量问题<br>• **治理资产**：元数据的逻辑分组，包括（但不限于）主题域（如保单、理赔、产品）、业务领域（如家庭、汽车、旅行、健康）、地理区域（如意大利、法国、西班牙、巴黎）；数据域，即两个或以上元数据分组的组合；数据管家、数据所有者、数据经理、数据隐私官、数据保管人、应用所有者<br>• **数据质量规则执行**：技术数据质量规则。",
+          "required_asset_ids": [
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "A6",
+            "A7",
+            "A8"
+          ],
+          "bindings": [
+            {
+              "id": "B-641",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A5",
+                "A6",
+                "A7",
+                "A8"
+              ],
+              "facet_ids": [
+                "create",
+                "revise",
+                "delete"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-641-A1-create",
+                  "OBS-641-A1-revise",
+                  "OBS-641-A1-delete",
+                  "OBS-641-A2-create",
+                  "OBS-641-A2-revise",
+                  "OBS-641-A2-delete",
+                  "OBS-641-A3-create",
+                  "OBS-641-A3-revise",
+                  "OBS-641-A3-delete",
+                  "OBS-641-A4-create",
+                  "OBS-641-A4-revise",
+                  "OBS-641-A4-delete",
+                  "OBS-641-A5-create",
+                  "OBS-641-A5-revise",
+                  "OBS-641-A5-delete",
+                  "OBS-641-A6-create",
+                  "OBS-641-A6-revise",
+                  "OBS-641-A6-delete",
+                  "OBS-641-A7-create",
+                  "OBS-641-A7-revise",
+                  "OBS-641-A7-delete",
+                  "OBS-641-A8-create",
+                  "OBS-641-A8-revise",
+                  "OBS-641-A8-delete"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-641-A1-create",
+                    "asset_id": "A1",
+                    "facet_id": "create",
+                    "observed_behavior": "在A1记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A1-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A1-revise",
+                    "asset_id": "A1",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A1记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A1-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A1-delete",
+                    "asset_id": "A1",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A1记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A1-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A2-create",
+                    "asset_id": "A2",
+                    "facet_id": "create",
+                    "observed_behavior": "在A2记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A2-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A2-revise",
+                    "asset_id": "A2",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A2记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A2-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A2-delete",
+                    "asset_id": "A2",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A2记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A2-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A3-create",
+                    "asset_id": "A3",
+                    "facet_id": "create",
+                    "observed_behavior": "在A3记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A3-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A3-revise",
+                    "asset_id": "A3",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A3记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A3-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A3-delete",
+                    "asset_id": "A3",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A3记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A3-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A4-create",
+                    "asset_id": "A4",
+                    "facet_id": "create",
+                    "observed_behavior": "在A4记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A4-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A4-revise",
+                    "asset_id": "A4",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A4记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A4-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A4-delete",
+                    "asset_id": "A4",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A4记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A4-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A5-create",
+                    "asset_id": "A5",
+                    "facet_id": "create",
+                    "observed_behavior": "在A5记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A5-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A5-revise",
+                    "asset_id": "A5",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A5记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A5-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A5-delete",
+                    "asset_id": "A5",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A5记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A5-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A6-create",
+                    "asset_id": "A6",
+                    "facet_id": "create",
+                    "observed_behavior": "在A6记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A6-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A6-revise",
+                    "asset_id": "A6",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A6记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A6-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A6-delete",
+                    "asset_id": "A6",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A6记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A6-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A7-create",
+                    "asset_id": "A7",
+                    "facet_id": "create",
+                    "observed_behavior": "在A7记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A7-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A7-revise",
+                    "asset_id": "A7",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A7记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A7-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A7-delete",
+                    "asset_id": "A7",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A7记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A7-delete"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A8-create",
+                    "asset_id": "A8",
+                    "facet_id": "create",
+                    "observed_behavior": "在A8记录上观察到创建元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A8-create"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A8-revise",
+                    "asset_id": "A8",
+                    "facet_id": "revise",
+                    "observed_behavior": "在A8记录上观察到修订元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A8-revise"
+                    ]
+                  },
+                  {
+                    "id": "OBS-641-A8-delete",
+                    "asset_id": "A8",
+                    "facet_id": "delete",
+                    "observed_behavior": "在A8记录上观察到删除元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-641-A8-delete"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "create",
+            "delete",
+            "revise"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A1",
+              "facet_id": "create",
+              "facet_name": "创建元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "delete",
+              "facet_name": "删除元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "revise",
+              "facet_name": "修订元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A2",
+              "facet_id": "create",
+              "facet_name": "创建元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A2",
+              "facet_id": "delete",
+              "facet_name": "删除元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A2",
+              "facet_id": "revise",
+              "facet_name": "修订元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "create",
+              "facet_name": "创建元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "delete",
+              "facet_name": "删除元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "revise",
+              "facet_name": "修订元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A4",
+              "facet_id": "create",
+              "facet_name": "创建元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A4",
+              "facet_id": "delete",
+              "facet_name": "删除元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A4",
+              "facet_id": "revise",
+              "facet_name": "修订元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A5",
+              "facet_id": "create",
+              "facet_name": "创建元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A5",
+              "facet_id": "delete",
+              "facet_name": "删除元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A5",
+              "facet_id": "revise",
+              "facet_name": "修订元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A6",
+              "facet_id": "create",
+              "facet_name": "创建元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A6",
+              "facet_id": "delete",
+              "facet_name": "删除元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A6",
+              "facet_id": "revise",
+              "facet_name": "修订元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A7",
+              "facet_id": "create",
+              "facet_name": "创建元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A7",
+              "facet_id": "delete",
+              "facet_name": "删除元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A7",
+              "facet_id": "revise",
+              "facet_name": "修订元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A8",
+              "facet_id": "create",
+              "facet_name": "创建元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A8",
+              "facet_id": "delete",
+              "facet_name": "删除元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A8",
+              "facet_id": "revise",
+              "facet_name": "修订元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-641",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-642",
+      "type": "g234:function-coverage",
+      "name": "元数据分类／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-642",
+        "source_group": "采集",
+        "source_definition": "对元数据分类的能力：数据保密性分类；数据隐私分类；定义自定义元数据分类维度。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-642",
+          "function_id": "application-function-642",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A4"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-642",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A4"
+              ],
+              "facet_ids": [
+                "confidentiality",
+                "privacy",
+                "custom-classification"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-642-A4-confidentiality",
+                  "OBS-642-A4-privacy",
+                  "OBS-642-A4-custom-classification"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-642-A4-confidentiality",
+                    "asset_id": "A4",
+                    "facet_id": "confidentiality",
+                    "observed_behavior": "在A4记录上观察到保密性分类；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-642-A4-confidentiality"
+                    ]
+                  },
+                  {
+                    "id": "OBS-642-A4-privacy",
+                    "asset_id": "A4",
+                    "facet_id": "privacy",
+                    "observed_behavior": "在A4记录上观察到隐私分类；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-642-A4-privacy"
+                    ]
+                  },
+                  {
+                    "id": "OBS-642-A4-custom-classification",
+                    "asset_id": "A4",
+                    "facet_id": "custom-classification",
+                    "observed_behavior": "在A4记录上观察到自定义分类维度；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-642-A4-custom-classification"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-642",
+          "function_id": "application-function-642",
+          "group": "采集",
+          "name": "元数据分类",
+          "declared_status": "implemented",
+          "source_definition": "对元数据分类的能力：数据保密性分类；数据隐私分类；定义自定义元数据分类维度。",
+          "required_asset_ids": [
+            "A4"
+          ],
+          "bindings": [
+            {
+              "id": "B-642",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A4"
+              ],
+              "facet_ids": [
+                "confidentiality",
+                "privacy",
+                "custom-classification"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-642-A4-confidentiality",
+                  "OBS-642-A4-privacy",
+                  "OBS-642-A4-custom-classification"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-642-A4-confidentiality",
+                    "asset_id": "A4",
+                    "facet_id": "confidentiality",
+                    "observed_behavior": "在A4记录上观察到保密性分类；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-642-A4-confidentiality"
+                    ]
+                  },
+                  {
+                    "id": "OBS-642-A4-privacy",
+                    "asset_id": "A4",
+                    "facet_id": "privacy",
+                    "observed_behavior": "在A4记录上观察到隐私分类；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-642-A4-privacy"
+                    ]
+                  },
+                  {
+                    "id": "OBS-642-A4-custom-classification",
+                    "asset_id": "A4",
+                    "facet_id": "custom-classification",
+                    "observed_behavior": "在A4记录上观察到自定义分类维度；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-642-A4-custom-classification"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "confidentiality",
+            "custom-classification",
+            "privacy"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A4",
+              "facet_id": "confidentiality",
+              "facet_name": "保密性分类",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-642",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A4",
+              "facet_id": "custom-classification",
+              "facet_name": "自定义分类维度",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-642",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A4",
+              "facet_id": "privacy",
+              "facet_name": "隐私分类",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-642",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-643",
+      "type": "g234:function-coverage",
+      "name": "元数据关联／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-643",
+        "source_group": "采集",
+        "source_definition": "链接元数据资产，以描述数据的完整价值链与数据血缘。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-643",
+          "function_id": "application-function-643",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A3"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-643",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A3"
+              ],
+              "facet_ids": [
+                "value-chain",
+                "lineage"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-643-A3-value-chain",
+                  "OBS-643-A3-lineage"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-643-A3-value-chain",
+                    "asset_id": "A3",
+                    "facet_id": "value-chain",
+                    "observed_behavior": "在A3记录上观察到完整数据价值链关联；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-643-A3-value-chain"
+                    ]
+                  },
+                  {
+                    "id": "OBS-643-A3-lineage",
+                    "asset_id": "A3",
+                    "facet_id": "lineage",
+                    "observed_behavior": "在A3记录上观察到数据血缘关联；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-643-A3-lineage"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-643",
+          "function_id": "application-function-643",
+          "group": "采集",
+          "name": "元数据关联",
+          "declared_status": "implemented",
+          "source_definition": "链接元数据资产，以描述数据的完整价值链与数据血缘。",
+          "required_asset_ids": [
+            "A3"
+          ],
+          "bindings": [
+            {
+              "id": "B-643",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A3"
+              ],
+              "facet_ids": [
+                "value-chain",
+                "lineage"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-643-A3-value-chain",
+                  "OBS-643-A3-lineage"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-643-A3-value-chain",
+                    "asset_id": "A3",
+                    "facet_id": "value-chain",
+                    "observed_behavior": "在A3记录上观察到完整数据价值链关联；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-643-A3-value-chain"
+                    ]
+                  },
+                  {
+                    "id": "OBS-643-A3-lineage",
+                    "asset_id": "A3",
+                    "facet_id": "lineage",
+                    "observed_behavior": "在A3记录上观察到数据血缘关联；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-643-A3-lineage"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "lineage",
+            "value-chain"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A3",
+              "facet_id": "lineage",
+              "facet_name": "数据血缘关联",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-643",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "value-chain",
+              "facet_name": "完整数据价值链关联",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-643",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-644",
+      "type": "g234:function-coverage",
+      "name": "元数据推断／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-644",
+        "source_group": "采集",
+        "source_definition": "通过自动化过程（如机器学习或人工智能（AI）算法）记录元数据；例如（但不限于）：自动处理可用数据以发现元数据关系；从模式中识别元数据（电子邮件、电话号码、信用卡等）；识别数据之间的关系（相同值、分布等）；从字典中识别元数据（公司名称、城市、名字、姓氏、同义词等）。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-644",
+          "function_id": "application-function-644",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "unknown",
+          "excluded_facets": [],
+          "bindings": []
+        },
+        "analysis_result": {
+          "id": "MC-644",
+          "function_id": "application-function-644",
+          "group": "采集",
+          "name": "元数据推断",
+          "declared_status": "unknown",
+          "source_definition": "通过自动化过程（如机器学习或人工智能（AI）算法）记录元数据；例如（但不限于）：自动处理可用数据以发现元数据关系；从模式中识别元数据（电子邮件、电话号码、信用卡等）；识别数据之间的关系（相同值、分布等）；从字典中识别元数据（公司名称、城市、名字、姓氏、同义词等）。",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "bindings": [],
+          "required_facets": [
+            "automated-recording"
+          ],
+          "excluded_facets": [],
+          "status": "unknown",
+          "cells": [
+            {
+              "asset_id": "A2",
+              "facet_id": "automated-recording",
+              "facet_name": "自动过程识别并记录元数据；示例算法不是强制清单",
+              "status": "unknown",
+              "binding_refs": []
+            }
+          ],
+          "gaps": [
+            {
+              "id": "MC-644:A2:automated-recording",
+              "reason": "no-supported-implementation-or-plan",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            }
+          ]
+        },
+        "coverage_status": "unknown"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-645",
+      "type": "g234:function-coverage",
+      "name": "数据质量规则执行／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-645",
+        "source_group": "采集",
+        "source_definition": "执行元数据存储库中定义的数据质量规则，并捕获其结果。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-645",
+          "function_id": "application-function-645",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A8"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-645",
+              "tool_id": "T-QUALITY",
+              "tool_version": "1.8",
+              "asset_ids": [
+                "A8"
+              ],
+              "facet_ids": [
+                "execute-rule",
+                "capture-result"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-645-A8-execute-rule",
+                  "OBS-645-A8-capture-result"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-645-A8-execute-rule",
+                    "asset_id": "A8",
+                    "facet_id": "execute-rule",
+                    "observed_behavior": "在A8记录上观察到执行存储库定义的质量规则；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-645-A8-execute-rule"
+                    ]
+                  },
+                  {
+                    "id": "OBS-645-A8-capture-result",
+                    "asset_id": "A8",
+                    "facet_id": "capture-result",
+                    "observed_behavior": "在A8记录上观察到捕获规则执行结果；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-645-A8-capture-result"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-645",
+          "function_id": "application-function-645",
+          "group": "采集",
+          "name": "数据质量规则执行",
+          "declared_status": "implemented",
+          "source_definition": "执行元数据存储库中定义的数据质量规则，并捕获其结果。",
+          "required_asset_ids": [
+            "A8"
+          ],
+          "bindings": [
+            {
+              "id": "B-645",
+              "tool_id": "T-QUALITY",
+              "tool_version": "1.8",
+              "asset_ids": [
+                "A8"
+              ],
+              "facet_ids": [
+                "execute-rule",
+                "capture-result"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-645-A8-execute-rule",
+                  "OBS-645-A8-capture-result"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-645-A8-execute-rule",
+                    "asset_id": "A8",
+                    "facet_id": "execute-rule",
+                    "observed_behavior": "在A8记录上观察到执行存储库定义的质量规则；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-645-A8-execute-rule"
+                    ]
+                  },
+                  {
+                    "id": "OBS-645-A8-capture-result",
+                    "asset_id": "A8",
+                    "facet_id": "capture-result",
+                    "observed_behavior": "在A8记录上观察到捕获规则执行结果；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-645-A8-capture-result"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "capture-result",
+            "execute-rule"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A8",
+              "facet_id": "capture-result",
+              "facet_name": "捕获规则执行结果",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-645",
+                  "tool_id": "T-QUALITY",
+                  "tool_version": "1.8",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A8",
+              "facet_id": "execute-rule",
+              "facet_name": "执行存储库定义的质量规则",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-645",
+                  "tool_id": "T-QUALITY",
+                  "tool_version": "1.8",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-646",
+      "type": "g234:function-coverage",
+      "name": "工作流校验／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-646",
+        "source_group": "治理",
+        "source_definition": "创建工作流，可视化状态与任务。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-646",
+          "function_id": "application-function-646",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A6"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-646",
+              "tool_id": "T-WORKFLOW",
+              "tool_version": "3.0",
+              "asset_ids": [
+                "A6"
+              ],
+              "facet_ids": [
+                "create-workflow",
+                "visualize-states",
+                "visualize-tasks"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-646-A6-create-workflow",
+                  "OBS-646-A6-visualize-states",
+                  "OBS-646-A6-visualize-tasks"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-646-A6-create-workflow",
+                    "asset_id": "A6",
+                    "facet_id": "create-workflow",
+                    "observed_behavior": "在A6记录上观察到创建工作流；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-646-A6-create-workflow"
+                    ]
+                  },
+                  {
+                    "id": "OBS-646-A6-visualize-states",
+                    "asset_id": "A6",
+                    "facet_id": "visualize-states",
+                    "observed_behavior": "在A6记录上观察到可视化状态；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-646-A6-visualize-states"
+                    ]
+                  },
+                  {
+                    "id": "OBS-646-A6-visualize-tasks",
+                    "asset_id": "A6",
+                    "facet_id": "visualize-tasks",
+                    "observed_behavior": "在A6记录上观察到可视化任务；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-646-A6-visualize-tasks"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-646",
+          "function_id": "application-function-646",
+          "group": "治理",
+          "name": "工作流校验",
+          "declared_status": "implemented",
+          "source_definition": "创建工作流，可视化状态与任务。",
+          "required_asset_ids": [
+            "A6"
+          ],
+          "bindings": [
+            {
+              "id": "B-646",
+              "tool_id": "T-WORKFLOW",
+              "tool_version": "3.0",
+              "asset_ids": [
+                "A6"
+              ],
+              "facet_ids": [
+                "create-workflow",
+                "visualize-states",
+                "visualize-tasks"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-646-A6-create-workflow",
+                  "OBS-646-A6-visualize-states",
+                  "OBS-646-A6-visualize-tasks"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-646-A6-create-workflow",
+                    "asset_id": "A6",
+                    "facet_id": "create-workflow",
+                    "observed_behavior": "在A6记录上观察到创建工作流；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-646-A6-create-workflow"
+                    ]
+                  },
+                  {
+                    "id": "OBS-646-A6-visualize-states",
+                    "asset_id": "A6",
+                    "facet_id": "visualize-states",
+                    "observed_behavior": "在A6记录上观察到可视化状态；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-646-A6-visualize-states"
+                    ]
+                  },
+                  {
+                    "id": "OBS-646-A6-visualize-tasks",
+                    "asset_id": "A6",
+                    "facet_id": "visualize-tasks",
+                    "observed_behavior": "在A6记录上观察到可视化任务；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-646-A6-visualize-tasks"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "create-workflow",
+            "visualize-states",
+            "visualize-tasks"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A6",
+              "facet_id": "create-workflow",
+              "facet_name": "创建工作流",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-646",
+                  "tool_id": "T-WORKFLOW",
+                  "tool_version": "3.0",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A6",
+              "facet_id": "visualize-states",
+              "facet_name": "可视化状态",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-646",
+                  "tool_id": "T-WORKFLOW",
+                  "tool_version": "3.0",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A6",
+              "facet_id": "visualize-tasks",
+              "facet_name": "可视化任务",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-646",
+                  "tool_id": "T-WORKFLOW",
+                  "tool_version": "3.0",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-647",
+      "type": "g234:function-coverage",
+      "name": "任务分配／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-647",
+        "source_group": "治理",
+        "source_definition": "向人员分配任务。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-647",
+          "function_id": "application-function-647",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A6"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-647",
+              "tool_id": "T-WORKFLOW",
+              "tool_version": "3.0",
+              "asset_ids": [
+                "A6"
+              ],
+              "facet_ids": [
+                "assign-task"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-647-A6-assign-task"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-647-A6-assign-task",
+                    "asset_id": "A6",
+                    "facet_id": "assign-task",
+                    "observed_behavior": "在A6记录上观察到把任务分配给人员；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-647-A6-assign-task"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-647",
+          "function_id": "application-function-647",
+          "group": "治理",
+          "name": "任务分配",
+          "declared_status": "implemented",
+          "source_definition": "向人员分配任务。",
+          "required_asset_ids": [
+            "A6"
+          ],
+          "bindings": [
+            {
+              "id": "B-647",
+              "tool_id": "T-WORKFLOW",
+              "tool_version": "3.0",
+              "asset_ids": [
+                "A6"
+              ],
+              "facet_ids": [
+                "assign-task"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-647-A6-assign-task"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-647-A6-assign-task",
+                    "asset_id": "A6",
+                    "facet_id": "assign-task",
+                    "observed_behavior": "在A6记录上观察到把任务分配给人员；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-647-A6-assign-task"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "assign-task"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A6",
+              "facet_id": "assign-task",
+              "facet_name": "把任务分配给人员",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-647",
+                  "tool_id": "T-WORKFLOW",
+                  "tool_version": "3.0",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-648",
+      "type": "g234:function-coverage",
+      "name": "影响分析／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-648",
+        "source_group": "治理",
+        "source_definition": "查看变更影响。（例如，如果我更改业务定义，有多少技术定义基于它？）",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-648",
+          "function_id": "application-function-648",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A1",
+            "A2"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "planned",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-648",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1",
+                "A2"
+              ],
+              "facet_ids": [
+                "view-change-impact"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "view-change-impact"
+                  },
+                  {
+                    "asset_id": "A2",
+                    "facet_id": "view-change-impact"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-648",
+          "function_id": "application-function-648",
+          "group": "治理",
+          "name": "影响分析",
+          "declared_status": "planned",
+          "source_definition": "查看变更影响。（例如，如果我更改业务定义，有多少技术定义基于它？）",
+          "required_asset_ids": [
+            "A1",
+            "A2"
+          ],
+          "bindings": [
+            {
+              "id": "B-648",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1",
+                "A2"
+              ],
+              "facet_ids": [
+                "view-change-impact"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "view-change-impact"
+                  },
+                  {
+                    "asset_id": "A2",
+                    "facet_id": "view-change-impact"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "view-change-impact"
+          ],
+          "excluded_facets": [],
+          "status": "planned",
+          "cells": [
+            {
+              "asset_id": "A1",
+              "facet_id": "view-change-impact",
+              "facet_name": "查看元数据变更的影响",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-648",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            },
+            {
+              "asset_id": "A2",
+              "facet_id": "view-change-impact",
+              "facet_name": "查看元数据变更的影响",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-648",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            }
+          ],
+          "gaps": [
+            {
+              "id": "MC-648:A1:view-change-impact",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-648:A2:view-change-impact",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            }
+          ]
+        },
+        "coverage_status": "planned"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-649",
+      "type": "g234:function-coverage",
+      "name": "元数据活动监控／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-649",
+        "source_group": "治理",
+        "source_definition": "报告元数据使用情况。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-649",
+          "function_id": "application-function-649",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A1"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "unknown",
+          "excluded_facets": [],
+          "bindings": []
+        },
+        "analysis_result": {
+          "id": "MC-649",
+          "function_id": "application-function-649",
+          "group": "治理",
+          "name": "元数据活动监控",
+          "declared_status": "unknown",
+          "source_definition": "报告元数据使用情况。",
+          "required_asset_ids": [
+            "A1"
+          ],
+          "bindings": [],
+          "required_facets": [
+            "report-usage"
+          ],
+          "excluded_facets": [],
+          "status": "unknown",
+          "cells": [
+            {
+              "asset_id": "A1",
+              "facet_id": "report-usage",
+              "facet_name": "报告元数据使用情况",
+              "status": "unknown",
+              "binding_refs": []
+            }
+          ],
+          "gaps": [
+            {
+              "id": "MC-649:A1:report-usage",
+              "reason": "no-supported-implementation-or-plan",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            }
+          ]
+        },
+        "coverage_status": "unknown"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-650",
+      "type": "g234:function-coverage",
+      "name": "数据合规报表／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-650",
+        "source_group": "报表",
+        "source_definition": "可视化端到端数据生命周期（数据起源、数据转换、数据传输、数据分类），以支持监管要求。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-650",
+          "function_id": "application-function-650",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A3"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "planned",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-650",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A3"
+              ],
+              "facet_ids": [
+                "origin",
+                "transformation",
+                "transfer",
+                "classification"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A3",
+                    "facet_id": "origin"
+                  },
+                  {
+                    "asset_id": "A3",
+                    "facet_id": "transformation"
+                  },
+                  {
+                    "asset_id": "A3",
+                    "facet_id": "transfer"
+                  },
+                  {
+                    "asset_id": "A3",
+                    "facet_id": "classification"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-650",
+          "function_id": "application-function-650",
+          "group": "报表",
+          "name": "数据合规报表",
+          "declared_status": "planned",
+          "source_definition": "可视化端到端数据生命周期（数据起源、数据转换、数据传输、数据分类），以支持监管要求。",
+          "required_asset_ids": [
+            "A3"
+          ],
+          "bindings": [
+            {
+              "id": "B-650",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A3"
+              ],
+              "facet_ids": [
+                "origin",
+                "transformation",
+                "transfer",
+                "classification"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A3",
+                    "facet_id": "origin"
+                  },
+                  {
+                    "asset_id": "A3",
+                    "facet_id": "transformation"
+                  },
+                  {
+                    "asset_id": "A3",
+                    "facet_id": "transfer"
+                  },
+                  {
+                    "asset_id": "A3",
+                    "facet_id": "classification"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "classification",
+            "origin",
+            "transfer",
+            "transformation"
+          ],
+          "excluded_facets": [],
+          "status": "planned",
+          "cells": [
+            {
+              "asset_id": "A3",
+              "facet_id": "classification",
+              "facet_name": "显示数据分类",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-650",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "origin",
+              "facet_name": "显示数据起源",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-650",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "transfer",
+              "facet_name": "显示数据传输",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-650",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "transformation",
+              "facet_name": "显示数据转换",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-650",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            }
+          ],
+          "gaps": [
+            {
+              "id": "MC-650:A3:classification",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-650:A3:origin",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-650:A3:transfer",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-650:A3:transformation",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            }
+          ]
+        },
+        "coverage_status": "planned"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-651",
+      "type": "g234:function-coverage",
+      "name": "数据文档报表／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-651",
+        "source_group": "报表",
+        "source_definition": "可视化存储库内的元数据完成情况；可视化元数据关联；度量元数据质量并在组织内共享。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-651",
+          "function_id": "application-function-651",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A1"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "planned",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-651",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1"
+              ],
+              "facet_ids": [
+                "completion",
+                "associations",
+                "quality",
+                "sharing"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "completion"
+                  },
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "associations"
+                  },
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "quality"
+                  },
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "sharing"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-651",
+          "function_id": "application-function-651",
+          "group": "报表",
+          "name": "数据文档报表",
+          "declared_status": "planned",
+          "source_definition": "可视化存储库内的元数据完成情况；可视化元数据关联；度量元数据质量并在组织内共享。",
+          "required_asset_ids": [
+            "A1"
+          ],
+          "bindings": [
+            {
+              "id": "B-651",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1"
+              ],
+              "facet_ids": [
+                "completion",
+                "associations",
+                "quality",
+                "sharing"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "completion"
+                  },
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "associations"
+                  },
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "quality"
+                  },
+                  {
+                    "asset_id": "A1",
+                    "facet_id": "sharing"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "associations",
+            "completion",
+            "quality",
+            "sharing"
+          ],
+          "excluded_facets": [],
+          "status": "planned",
+          "cells": [
+            {
+              "asset_id": "A1",
+              "facet_id": "associations",
+              "facet_name": "可视化元数据关联",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-651",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "completion",
+              "facet_name": "可视化元数据完成情况",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-651",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "quality",
+              "facet_name": "度量元数据质量",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-651",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "sharing",
+              "facet_name": "组织内共享结果",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-651",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            }
+          ],
+          "gaps": [
+            {
+              "id": "MC-651:A1:associations",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-651:A1:completion",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-651:A1:quality",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-651:A1:sharing",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            }
+          ]
+        },
+        "coverage_status": "planned"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-652",
+      "type": "g234:function-coverage",
+      "name": "数据问责报表／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-652",
+        "source_group": "报表",
+        "source_definition": "以报表能力可视化组织内谁对数据负责。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-652",
+          "function_id": "application-function-652",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A7"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-652",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A7"
+              ],
+              "facet_ids": [
+                "accountability"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-652-A7-accountability"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-652-A7-accountability",
+                    "asset_id": "A7",
+                    "facet_id": "accountability",
+                    "observed_behavior": "在A7记录上观察到可视化谁对数据负责；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-652-A7-accountability"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-652",
+          "function_id": "application-function-652",
+          "group": "报表",
+          "name": "数据问责报表",
+          "declared_status": "implemented",
+          "source_definition": "以报表能力可视化组织内谁对数据负责。",
+          "required_asset_ids": [
+            "A7"
+          ],
+          "bindings": [
+            {
+              "id": "B-652",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A7"
+              ],
+              "facet_ids": [
+                "accountability"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-652-A7-accountability"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-652-A7-accountability",
+                    "asset_id": "A7",
+                    "facet_id": "accountability",
+                    "observed_behavior": "在A7记录上观察到可视化谁对数据负责；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-652-A7-accountability"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "accountability"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A7",
+              "facet_id": "accountability",
+              "facet_name": "可视化谁对数据负责",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-652",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-653",
+      "type": "g234:function-coverage",
+      "name": "数据质量报表／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-653",
+        "source_group": "报表",
+        "source_definition": "按时间（历史与当前）度量数据质量，并在组织内共享。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-653",
+          "function_id": "application-function-653",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A8"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "planned",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-653",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A8"
+              ],
+              "facet_ids": [
+                "history",
+                "current",
+                "sharing"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A8",
+                    "facet_id": "history"
+                  },
+                  {
+                    "asset_id": "A8",
+                    "facet_id": "current"
+                  },
+                  {
+                    "asset_id": "A8",
+                    "facet_id": "sharing"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-653",
+          "function_id": "application-function-653",
+          "group": "报表",
+          "name": "数据质量报表",
+          "declared_status": "planned",
+          "source_definition": "按时间（历史与当前）度量数据质量，并在组织内共享。",
+          "required_asset_ids": [
+            "A8"
+          ],
+          "bindings": [
+            {
+              "id": "B-653",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A8"
+              ],
+              "facet_ids": [
+                "history",
+                "current",
+                "sharing"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A8",
+                    "facet_id": "history"
+                  },
+                  {
+                    "asset_id": "A8",
+                    "facet_id": "current"
+                  },
+                  {
+                    "asset_id": "A8",
+                    "facet_id": "sharing"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "current",
+            "history",
+            "sharing"
+          ],
+          "excluded_facets": [],
+          "status": "planned",
+          "cells": [
+            {
+              "asset_id": "A8",
+              "facet_id": "current",
+              "facet_name": "当前质量度量",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-653",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            },
+            {
+              "asset_id": "A8",
+              "facet_id": "history",
+              "facet_name": "历史质量度量",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-653",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            },
+            {
+              "asset_id": "A8",
+              "facet_id": "sharing",
+              "facet_name": "组织内共享结果",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-653",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            }
+          ],
+          "gaps": [
+            {
+              "id": "MC-653:A8:current",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-653:A8:history",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-653:A8:sharing",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            }
+          ]
+        },
+        "coverage_status": "planned"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-654",
+      "type": "g234:function-coverage",
+      "name": "元数据搜索／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-654",
+        "source_group": "报表",
+        "source_definition": "对元数据进行多条件搜索；对元数据进行全文搜索（类似 Google™）；带自动补全的元数据搜索。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-654",
+          "function_id": "application-function-654",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A1"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "unknown",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-654",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1"
+              ],
+              "facet_ids": [
+                "multiple-criteria",
+                "full-text"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-654-A1-multiple-criteria",
+                  "OBS-654-A1-full-text"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-654-A1-multiple-criteria",
+                    "asset_id": "A1",
+                    "facet_id": "multiple-criteria",
+                    "observed_behavior": "在A1记录上观察到多条件搜索；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-654-A1-multiple-criteria"
+                    ]
+                  },
+                  {
+                    "id": "OBS-654-A1-full-text",
+                    "asset_id": "A1",
+                    "facet_id": "full-text",
+                    "observed_behavior": "在A1记录上观察到全文搜索；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-654-A1-full-text"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-654",
+          "function_id": "application-function-654",
+          "group": "报表",
+          "name": "元数据搜索",
+          "declared_status": "unknown",
+          "source_definition": "对元数据进行多条件搜索；对元数据进行全文搜索（类似 Google™）；带自动补全的元数据搜索。",
+          "required_asset_ids": [
+            "A1"
+          ],
+          "bindings": [
+            {
+              "id": "B-654",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1"
+              ],
+              "facet_ids": [
+                "multiple-criteria",
+                "full-text"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-654-A1-multiple-criteria",
+                  "OBS-654-A1-full-text"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-654-A1-multiple-criteria",
+                    "asset_id": "A1",
+                    "facet_id": "multiple-criteria",
+                    "observed_behavior": "在A1记录上观察到多条件搜索；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-654-A1-multiple-criteria"
+                    ]
+                  },
+                  {
+                    "id": "OBS-654-A1-full-text",
+                    "asset_id": "A1",
+                    "facet_id": "full-text",
+                    "observed_behavior": "在A1记录上观察到全文搜索；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-654-A1-full-text"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "autocomplete",
+            "full-text",
+            "multiple-criteria"
+          ],
+          "excluded_facets": [],
+          "status": "unknown",
+          "cells": [
+            {
+              "asset_id": "A1",
+              "facet_id": "autocomplete",
+              "facet_name": "搜索自动补全",
+              "status": "unknown",
+              "binding_refs": []
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "full-text",
+              "facet_name": "全文搜索",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-654",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "multiple-criteria",
+              "facet_name": "多条件搜索",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-654",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": [
+            {
+              "id": "MC-654:A1:autocomplete",
+              "reason": "no-supported-implementation-or-plan",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            }
+          ]
+        },
+        "coverage_status": "unknown"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-655",
+      "type": "g234:function-coverage",
+      "name": "值列表管理（类别列表、代码列表等）／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-655",
+        "source_group": "参考数据管理",
+        "source_definition": "创建并维护规范化的值列表（类别列表、代码列表等）；管理参考数据（值列表）。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-655",
+          "function_id": "application-function-655",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A4"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-655",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A4"
+              ],
+              "facet_ids": [
+                "create-normalized-values",
+                "maintain-reference-values"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-655-A4-create-normalized-values",
+                  "OBS-655-A4-maintain-reference-values"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-655-A4-create-normalized-values",
+                    "asset_id": "A4",
+                    "facet_id": "create-normalized-values",
+                    "observed_behavior": "在A4记录上观察到创建规范化值列表；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-655-A4-create-normalized-values"
+                    ]
+                  },
+                  {
+                    "id": "OBS-655-A4-maintain-reference-values",
+                    "asset_id": "A4",
+                    "facet_id": "maintain-reference-values",
+                    "observed_behavior": "在A4记录上观察到维护参考值列表；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-655-A4-maintain-reference-values"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-655",
+          "function_id": "application-function-655",
+          "group": "参考数据管理",
+          "name": "值列表管理（类别列表、代码列表等）",
+          "declared_status": "implemented",
+          "source_definition": "创建并维护规范化的值列表（类别列表、代码列表等）；管理参考数据（值列表）。",
+          "required_asset_ids": [
+            "A4"
+          ],
+          "bindings": [
+            {
+              "id": "B-655",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A4"
+              ],
+              "facet_ids": [
+                "create-normalized-values",
+                "maintain-reference-values"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-655-A4-create-normalized-values",
+                  "OBS-655-A4-maintain-reference-values"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-655-A4-create-normalized-values",
+                    "asset_id": "A4",
+                    "facet_id": "create-normalized-values",
+                    "observed_behavior": "在A4记录上观察到创建规范化值列表；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-655-A4-create-normalized-values"
+                    ]
+                  },
+                  {
+                    "id": "OBS-655-A4-maintain-reference-values",
+                    "asset_id": "A4",
+                    "facet_id": "maintain-reference-values",
+                    "observed_behavior": "在A4记录上观察到维护参考值列表；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-655-A4-maintain-reference-values"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "create-normalized-values",
+            "maintain-reference-values"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A4",
+              "facet_id": "create-normalized-values",
+              "facet_name": "创建规范化值列表",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-655",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A4",
+              "facet_id": "maintain-reference-values",
+              "facet_name": "维护参考值列表",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-655",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-656",
+      "type": "g234:function-coverage",
+      "name": "环境管理／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-656",
+        "source_group": "管理",
+        "source_definition": "管理多个环境，每个环境有自己的治理（如工作流校验）与管理（如访问管理、数据库版本管理）设置。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-656",
+          "function_id": "application-function-656",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-656",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "multiple-environments",
+                "per-environment-governance",
+                "per-environment-administration"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-656-A2-multiple-environments",
+                  "OBS-656-A2-per-environment-governance",
+                  "OBS-656-A2-per-environment-administration"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-656-A2-multiple-environments",
+                    "asset_id": "A2",
+                    "facet_id": "multiple-environments",
+                    "observed_behavior": "在A2记录上观察到管理多个环境；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-656-A2-multiple-environments"
+                    ]
+                  },
+                  {
+                    "id": "OBS-656-A2-per-environment-governance",
+                    "asset_id": "A2",
+                    "facet_id": "per-environment-governance",
+                    "observed_behavior": "在A2记录上观察到每环境治理设置；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-656-A2-per-environment-governance"
+                    ]
+                  },
+                  {
+                    "id": "OBS-656-A2-per-environment-administration",
+                    "asset_id": "A2",
+                    "facet_id": "per-environment-administration",
+                    "observed_behavior": "在A2记录上观察到每环境管理设置；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-656-A2-per-environment-administration"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-656",
+          "function_id": "application-function-656",
+          "group": "管理",
+          "name": "环境管理",
+          "declared_status": "implemented",
+          "source_definition": "管理多个环境，每个环境有自己的治理（如工作流校验）与管理（如访问管理、数据库版本管理）设置。",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "bindings": [
+            {
+              "id": "B-656",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "multiple-environments",
+                "per-environment-governance",
+                "per-environment-administration"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-656-A2-multiple-environments",
+                  "OBS-656-A2-per-environment-governance",
+                  "OBS-656-A2-per-environment-administration"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-656-A2-multiple-environments",
+                    "asset_id": "A2",
+                    "facet_id": "multiple-environments",
+                    "observed_behavior": "在A2记录上观察到管理多个环境；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-656-A2-multiple-environments"
+                    ]
+                  },
+                  {
+                    "id": "OBS-656-A2-per-environment-governance",
+                    "asset_id": "A2",
+                    "facet_id": "per-environment-governance",
+                    "observed_behavior": "在A2记录上观察到每环境治理设置；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-656-A2-per-environment-governance"
+                    ]
+                  },
+                  {
+                    "id": "OBS-656-A2-per-environment-administration",
+                    "asset_id": "A2",
+                    "facet_id": "per-environment-administration",
+                    "observed_behavior": "在A2记录上观察到每环境管理设置；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-656-A2-per-environment-administration"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "multiple-environments",
+            "per-environment-administration",
+            "per-environment-governance"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A2",
+              "facet_id": "multiple-environments",
+              "facet_name": "管理多个环境",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-656",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A2",
+              "facet_id": "per-environment-administration",
+              "facet_name": "每环境管理设置",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-656",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A2",
+              "facet_id": "per-environment-governance",
+              "facet_name": "每环境治理设置",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-656",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-657",
+      "type": "g234:function-coverage",
+      "name": "访问管理／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-657",
+        "source_group": "管理",
+        "source_definition": "管理、创建、删除、更新元数据访问权限；创建用户与组，并根据角色授予元数据授权（包括批处理或用户角色）。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-657",
+          "function_id": "application-function-657",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A3"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-657",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A3"
+              ],
+              "facet_ids": [
+                "create-permission",
+                "delete-permission",
+                "update-permission",
+                "users-groups",
+                "role-authorization"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-657-A3-create-permission",
+                  "OBS-657-A3-delete-permission",
+                  "OBS-657-A3-update-permission",
+                  "OBS-657-A3-users-groups",
+                  "OBS-657-A3-role-authorization"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-657-A3-create-permission",
+                    "asset_id": "A3",
+                    "facet_id": "create-permission",
+                    "observed_behavior": "在A3记录上观察到创建访问权限；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-create-permission"
+                    ]
+                  },
+                  {
+                    "id": "OBS-657-A3-delete-permission",
+                    "asset_id": "A3",
+                    "facet_id": "delete-permission",
+                    "observed_behavior": "在A3记录上观察到删除访问权限；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-delete-permission"
+                    ]
+                  },
+                  {
+                    "id": "OBS-657-A3-update-permission",
+                    "asset_id": "A3",
+                    "facet_id": "update-permission",
+                    "observed_behavior": "在A3记录上观察到更新访问权限；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-update-permission"
+                    ]
+                  },
+                  {
+                    "id": "OBS-657-A3-users-groups",
+                    "asset_id": "A3",
+                    "facet_id": "users-groups",
+                    "observed_behavior": "在A3记录上观察到创建用户和组；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-users-groups"
+                    ]
+                  },
+                  {
+                    "id": "OBS-657-A3-role-authorization",
+                    "asset_id": "A3",
+                    "facet_id": "role-authorization",
+                    "observed_behavior": "在A3记录上观察到按角色授权，区分批处理/用户角色；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-role-authorization"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-657",
+          "function_id": "application-function-657",
+          "group": "管理",
+          "name": "访问管理",
+          "declared_status": "implemented",
+          "source_definition": "管理、创建、删除、更新元数据访问权限；创建用户与组，并根据角色授予元数据授权（包括批处理或用户角色）。",
+          "required_asset_ids": [
+            "A3"
+          ],
+          "bindings": [
+            {
+              "id": "B-657",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A3"
+              ],
+              "facet_ids": [
+                "create-permission",
+                "delete-permission",
+                "update-permission",
+                "users-groups",
+                "role-authorization"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-657-A3-create-permission",
+                  "OBS-657-A3-delete-permission",
+                  "OBS-657-A3-update-permission",
+                  "OBS-657-A3-users-groups",
+                  "OBS-657-A3-role-authorization"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-657-A3-create-permission",
+                    "asset_id": "A3",
+                    "facet_id": "create-permission",
+                    "observed_behavior": "在A3记录上观察到创建访问权限；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-create-permission"
+                    ]
+                  },
+                  {
+                    "id": "OBS-657-A3-delete-permission",
+                    "asset_id": "A3",
+                    "facet_id": "delete-permission",
+                    "observed_behavior": "在A3记录上观察到删除访问权限；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-delete-permission"
+                    ]
+                  },
+                  {
+                    "id": "OBS-657-A3-update-permission",
+                    "asset_id": "A3",
+                    "facet_id": "update-permission",
+                    "observed_behavior": "在A3记录上观察到更新访问权限；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-update-permission"
+                    ]
+                  },
+                  {
+                    "id": "OBS-657-A3-users-groups",
+                    "asset_id": "A3",
+                    "facet_id": "users-groups",
+                    "observed_behavior": "在A3记录上观察到创建用户和组；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-users-groups"
+                    ]
+                  },
+                  {
+                    "id": "OBS-657-A3-role-authorization",
+                    "asset_id": "A3",
+                    "facet_id": "role-authorization",
+                    "observed_behavior": "在A3记录上观察到按角色授权，区分批处理/用户角色；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-657-A3-role-authorization"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "create-permission",
+            "delete-permission",
+            "role-authorization",
+            "update-permission",
+            "users-groups"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A3",
+              "facet_id": "create-permission",
+              "facet_name": "创建访问权限",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-657",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "delete-permission",
+              "facet_name": "删除访问权限",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-657",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "role-authorization",
+              "facet_name": "按角色授权，区分批处理/用户角色",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-657",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "update-permission",
+              "facet_name": "更新访问权限",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-657",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A3",
+              "facet_id": "users-groups",
+              "facet_name": "创建用户和组",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-657",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-658",
+      "type": "g234:function-coverage",
+      "name": "国际化与本地化／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-658",
+        "source_group": "管理",
+        "source_definition": "提供使元数据管理工具适应不同语言和本地要求的手段。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-658",
+          "function_id": "application-function-658",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "not-applicable",
+          "excluded_facets": [],
+          "bindings": [],
+          "exclusion": {
+            "reason": "本期仅中文馆内平台，无其他语言/本地要求适配需求",
+            "authority": "数据治理负责人",
+            "scope": "2026Q4馆藏/借展项目；范围变更重审",
+            "evidence": [
+              "MCR-TAILOR"
+            ]
+          }
+        },
+        "analysis_result": {
+          "id": "MC-658",
+          "function_id": "application-function-658",
+          "group": "管理",
+          "name": "国际化与本地化",
+          "declared_status": "not-applicable",
+          "source_definition": "提供使元数据管理工具适应不同语言和本地要求的手段。",
+          "required_asset_ids": [],
+          "bindings": [],
+          "status": "not-applicable",
+          "exclusion": {
+            "reason": "本期仅中文馆内平台，无其他语言/本地要求适配需求",
+            "authority": "数据治理负责人",
+            "scope": "2026Q4馆藏/借展项目；范围变更重审",
+            "evidence": [
+              "MCR-TAILOR"
+            ]
+          },
+          "cells": [],
+          "gaps": []
+        },
+        "coverage_status": "not-applicable"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-659",
+      "type": "g234:function-coverage",
+      "name": "事件日志管理／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-659",
+        "source_group": "管理",
+        "source_definition": "记录系统中的任何事件。保留元数据修改的历史、来源与作者。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-659",
+          "function_id": "application-function-659",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A1"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "unknown",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-659",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1"
+              ],
+              "facet_ids": [
+                "events",
+                "modification-history"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-659-A1-events",
+                  "OBS-659-A1-modification-history"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-659-A1-events",
+                    "asset_id": "A1",
+                    "facet_id": "events",
+                    "observed_behavior": "在A1记录上观察到记录系统事件；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-659-A1-events"
+                    ]
+                  },
+                  {
+                    "id": "OBS-659-A1-modification-history",
+                    "asset_id": "A1",
+                    "facet_id": "modification-history",
+                    "observed_behavior": "在A1记录上观察到保留元数据修改历史；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-659-A1-modification-history"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-659",
+          "function_id": "application-function-659",
+          "group": "管理",
+          "name": "事件日志管理",
+          "declared_status": "unknown",
+          "source_definition": "记录系统中的任何事件。保留元数据修改的历史、来源与作者。",
+          "required_asset_ids": [
+            "A1"
+          ],
+          "bindings": [
+            {
+              "id": "B-659",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A1"
+              ],
+              "facet_ids": [
+                "events",
+                "modification-history"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-659-A1-events",
+                  "OBS-659-A1-modification-history"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-659-A1-events",
+                    "asset_id": "A1",
+                    "facet_id": "events",
+                    "observed_behavior": "在A1记录上观察到记录系统事件；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-659-A1-events"
+                    ]
+                  },
+                  {
+                    "id": "OBS-659-A1-modification-history",
+                    "asset_id": "A1",
+                    "facet_id": "modification-history",
+                    "observed_behavior": "在A1记录上观察到保留元数据修改历史；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-659-A1-modification-history"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "author",
+            "events",
+            "modification-history",
+            "provenance"
+          ],
+          "excluded_facets": [],
+          "status": "unknown",
+          "cells": [
+            {
+              "asset_id": "A1",
+              "facet_id": "author",
+              "facet_name": "保留修改作者",
+              "status": "unknown",
+              "binding_refs": []
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "events",
+              "facet_name": "记录系统事件",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-659",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "modification-history",
+              "facet_name": "保留元数据修改历史",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-659",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            },
+            {
+              "asset_id": "A1",
+              "facet_id": "provenance",
+              "facet_name": "保留修改来源",
+              "status": "unknown",
+              "binding_refs": []
+            }
+          ],
+          "gaps": [
+            {
+              "id": "MC-659:A1:author",
+              "reason": "no-supported-implementation-or-plan",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            },
+            {
+              "id": "MC-659:A1:provenance",
+              "reason": "no-supported-implementation-or-plan",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            }
+          ]
+        },
+        "coverage_status": "unknown"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-660",
+      "type": "g234:function-coverage",
+      "name": "数据库版本管理／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-660",
+        "source_group": "管理",
+        "source_definition": "支持元数据数据库的版本管理。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-660",
+          "function_id": "application-function-660",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "planned",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-660",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "database-version"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A2",
+                    "facet_id": "database-version"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-660",
+          "function_id": "application-function-660",
+          "group": "管理",
+          "name": "数据库版本管理",
+          "declared_status": "planned",
+          "source_definition": "支持元数据数据库的版本管理。",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "bindings": [
+            {
+              "id": "B-660",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "database-version"
+              ],
+              "status": "planned",
+              "plan": {
+                "owner": "数据治理负责人",
+                "target_date": "2026-12-15",
+                "milestone": "馆藏目录候选功能评审",
+                "scope": [
+                  {
+                    "asset_id": "A2",
+                    "facet_id": "database-version"
+                  }
+                ],
+                "evidence": [
+                  "MCR-PLAN"
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "database-version"
+          ],
+          "excluded_facets": [],
+          "status": "planned",
+          "cells": [
+            {
+              "asset_id": "A2",
+              "facet_id": "database-version",
+              "facet_name": "支持元数据数据库版本管理",
+              "status": "planned",
+              "binding_refs": [
+                {
+                  "binding_id": "B-660",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "planned",
+                  "claimed_status": "planned"
+                }
+              ]
+            }
+          ],
+          "gaps": [
+            {
+              "id": "MC-660:A2:database-version",
+              "reason": "planned-not-yet-implemented",
+              "action": "补齐对应范围的证据或明确裁剪；未知不计作已实现"
+            }
+          ]
+        },
+        "coverage_status": "planned"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-661",
+      "type": "g234:function-coverage",
+      "name": "元数据查询／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-661",
+        "source_group": "元数据集成",
+        "source_definition": "使用原生 SQL 或任何其他查询语言或接口（如 API）查询存储库中的元数据资产。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-661",
+          "function_id": "application-function-661",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-661",
+              "tool_id": "T-GATEWAY",
+              "tool_version": "1.2",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "metadata-query"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-661-A2-metadata-query"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-661-A2-metadata-query",
+                    "asset_id": "A2",
+                    "facet_id": "metadata-query",
+                    "observed_behavior": "在A2记录上观察到用SQL或其他语言/接口查询元数据资产；不要求两者并用；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-661-A2-metadata-query"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "id": "B-661-CATALOG",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "metadata-query"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-661-A2-metadata-query-CATALOG"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-661-A2-metadata-query-CATALOG",
+                    "asset_id": "A2",
+                    "facet_id": "metadata-query",
+                    "observed_behavior": "在A2记录上观察到用SQL或其他语言/接口查询元数据资产；不要求两者并用；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-661-A2-metadata-query-CATALOG"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-661",
+          "function_id": "application-function-661",
+          "group": "元数据集成",
+          "name": "元数据查询",
+          "declared_status": "implemented",
+          "source_definition": "使用原生 SQL 或任何其他查询语言或接口（如 API）查询存储库中的元数据资产。",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "bindings": [
+            {
+              "id": "B-661",
+              "tool_id": "T-GATEWAY",
+              "tool_version": "1.2",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "metadata-query"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-661-A2-metadata-query"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-661-A2-metadata-query",
+                    "asset_id": "A2",
+                    "facet_id": "metadata-query",
+                    "observed_behavior": "在A2记录上观察到用SQL或其他语言/接口查询元数据资产；不要求两者并用；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-661-A2-metadata-query"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "id": "B-661-CATALOG",
+              "tool_id": "T-CATALOG",
+              "tool_version": "2.4",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "metadata-query"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-661-A2-metadata-query-CATALOG"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-661-A2-metadata-query-CATALOG",
+                    "asset_id": "A2",
+                    "facet_id": "metadata-query",
+                    "observed_behavior": "在A2记录上观察到用SQL或其他语言/接口查询元数据资产；不要求两者并用；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-661-A2-metadata-query-CATALOG"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "metadata-query"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A2",
+              "facet_id": "metadata-query",
+              "facet_name": "用SQL或其他语言/接口查询元数据资产；不要求两者并用",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-661",
+                  "tool_id": "T-GATEWAY",
+                  "tool_version": "1.2",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                },
+                {
+                  "binding_id": "B-661-CATALOG",
+                  "tool_id": "T-CATALOG",
+                  "tool_version": "2.4",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-662",
+      "type": "g234:function-coverage",
+      "name": "批量导入／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-662",
+        "source_group": "元数据集成",
+        "source_definition": "从文件（如 CSV、JSON、XML）或通过应用接口（如 API）把多条元数据导入元数据存储库。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-662",
+          "function_id": "application-function-662",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-662",
+              "tool_id": "T-GATEWAY",
+              "tool_version": "1.2",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "bulk-import"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-662-A2-bulk-import"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-662-A2-bulk-import",
+                    "asset_id": "A2",
+                    "facet_id": "bulk-import",
+                    "observed_behavior": "在A2记录上观察到从文件或接口导入多条元数据；不要求每种格式；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-662-A2-bulk-import"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-662",
+          "function_id": "application-function-662",
+          "group": "元数据集成",
+          "name": "批量导入",
+          "declared_status": "implemented",
+          "source_definition": "从文件（如 CSV、JSON、XML）或通过应用接口（如 API）把多条元数据导入元数据存储库。",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "bindings": [
+            {
+              "id": "B-662",
+              "tool_id": "T-GATEWAY",
+              "tool_version": "1.2",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "bulk-import"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-662-A2-bulk-import"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-662-A2-bulk-import",
+                    "asset_id": "A2",
+                    "facet_id": "bulk-import",
+                    "observed_behavior": "在A2记录上观察到从文件或接口导入多条元数据；不要求每种格式；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-662-A2-bulk-import"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "bulk-import"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A2",
+              "facet_id": "bulk-import",
+              "facet_name": "从文件或接口导入多条元数据；不要求每种格式",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-662",
+                  "tool_id": "T-GATEWAY",
+                  "tool_version": "1.2",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-663",
+      "type": "g234:function-coverage",
+      "name": "批量导出／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-663",
+        "source_group": "元数据集成",
+        "source_definition": "以非专有文件格式（如 CSV）、通过 API 或任何其他应用接口从存储库导出多条元数据。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-663",
+          "function_id": "application-function-663",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "implemented",
+          "excluded_facets": [],
+          "bindings": [
+            {
+              "id": "B-663",
+              "tool_id": "T-GATEWAY",
+              "tool_version": "1.2",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "bulk-export"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-663-A2-bulk-export"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-663-A2-bulk-export",
+                    "asset_id": "A2",
+                    "facet_id": "bulk-export",
+                    "observed_behavior": "在A2记录上观察到用非专有文件格式或接口导出多条元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-663-A2-bulk-export"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "analysis_result": {
+          "id": "MC-663",
+          "function_id": "application-function-663",
+          "group": "元数据集成",
+          "name": "批量导出",
+          "declared_status": "implemented",
+          "source_definition": "以非专有文件格式（如 CSV）、通过 API 或任何其他应用接口从存储库导出多条元数据。",
+          "required_asset_ids": [
+            "A2"
+          ],
+          "bindings": [
+            {
+              "id": "B-663",
+              "tool_id": "T-GATEWAY",
+              "tool_version": "1.2",
+              "asset_ids": [
+                "A2"
+              ],
+              "facet_ids": [
+                "bulk-export"
+              ],
+              "status": "implemented",
+              "verification": {
+                "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                "observed_at": "2026-10-26",
+                "environment": "staging-museum",
+                "result": "pass",
+                "evidence": [
+                  "OBS-663-A2-bulk-export"
+                ],
+                "acceptance_observations": [
+                  {
+                    "id": "OBS-663-A2-bulk-export",
+                    "asset_id": "A2",
+                    "facet_id": "bulk-export",
+                    "observed_behavior": "在A2记录上观察到用非专有文件格式或接口导出多条元数据；仅此资产与功能方面。",
+                    "evidence": [
+                      "OBS-663-A2-bulk-export"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "required_facets": [
+            "bulk-export"
+          ],
+          "excluded_facets": [],
+          "status": "implemented",
+          "cells": [
+            {
+              "asset_id": "A2",
+              "facet_id": "bulk-export",
+              "facet_name": "用非专有文件格式或接口导出多条元数据",
+              "status": "implemented",
+              "binding_refs": [
+                {
+                  "binding_id": "B-663",
+                  "tool_id": "T-GATEWAY",
+                  "tool_version": "1.2",
+                  "status": "implemented",
+                  "claimed_status": "implemented"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        "coverage_status": "implemented"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    },
+    {
+      "id": "MC-664",
+      "type": "g234:function-coverage",
+      "name": "事件订阅／项目覆盖审查",
+      "attributes": {
+        "source_function_id": "application-function-664",
+        "source_group": "元数据集成",
+        "source_definition": "监听来自事件代理的一个或多个事件。",
+        "project_scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "assessment": {
+          "id": "MC-664",
+          "function_id": "application-function-664",
+          "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+          "required_asset_ids": [],
+          "owner": "数据治理负责人",
+          "requirement_evidence": [
+            "MCR-SCOPE",
+            "MCR-ASSETS",
+            "MCR-RULE"
+          ],
+          "declared_status": "not-applicable",
+          "excluded_facets": [],
+          "bindings": [],
+          "exclusion": {
+            "reason": "本期只有批量交换，没有事件代理",
+            "authority": "数据治理负责人",
+            "scope": "2026Q4馆藏/借展项目；范围变更重审",
+            "evidence": [
+              "MCR-TAILOR"
+            ]
+          }
+        },
+        "analysis_result": {
+          "id": "MC-664",
+          "function_id": "application-function-664",
+          "group": "元数据集成",
+          "name": "事件订阅",
+          "declared_status": "not-applicable",
+          "source_definition": "监听来自事件代理的一个或多个事件。",
+          "required_asset_ids": [],
+          "bindings": [],
+          "status": "not-applicable",
+          "exclusion": {
+            "reason": "本期只有批量交换，没有事件代理",
+            "authority": "数据治理负责人",
+            "scope": "2026Q4馆藏/借展项目；范围变更重审",
+            "evidence": [
+              "MCR-TAILOR"
+            ]
+          },
+          "cells": [],
+          "gaps": []
+        },
+        "coverage_status": "not-applicable"
+      },
+      "evidence": [
+        "G234-T52",
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "version": "1"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "MC-641-asset-A1",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-641",
+      "target": "A1",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-641"
+      }
+    },
+    {
+      "id": "MC-641-asset-A2",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-641",
+      "target": "A2",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-641"
+      }
+    },
+    {
+      "id": "MC-641-asset-A3",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-641",
+      "target": "A3",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-641"
+      }
+    },
+    {
+      "id": "MC-641-asset-A4",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-641",
+      "target": "A4",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-641"
+      }
+    },
+    {
+      "id": "MC-641-asset-A5",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-641",
+      "target": "A5",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-641"
+      }
+    },
+    {
+      "id": "MC-641-asset-A6",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-641",
+      "target": "A6",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-641"
+      }
+    },
+    {
+      "id": "MC-641-asset-A7",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-641",
+      "target": "A7",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-641"
+      }
+    },
+    {
+      "id": "MC-641-asset-A8",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-641",
+      "target": "A8",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-641"
+      }
+    },
+    {
+      "id": "B-641",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-641",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-641-A1-create",
+        "OBS-641-A1-revise",
+        "OBS-641-A1-delete",
+        "OBS-641-A2-create",
+        "OBS-641-A2-revise",
+        "OBS-641-A2-delete",
+        "OBS-641-A3-create",
+        "OBS-641-A3-revise",
+        "OBS-641-A3-delete",
+        "OBS-641-A4-create",
+        "OBS-641-A4-revise",
+        "OBS-641-A4-delete",
+        "OBS-641-A5-create",
+        "OBS-641-A5-revise",
+        "OBS-641-A5-delete",
+        "OBS-641-A6-create",
+        "OBS-641-A6-revise",
+        "OBS-641-A6-delete",
+        "OBS-641-A7-create",
+        "OBS-641-A7-revise",
+        "OBS-641-A7-delete",
+        "OBS-641-A8-create",
+        "OBS-641-A8-revise",
+        "OBS-641-A8-delete"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6",
+          "A7",
+          "A8"
+        ],
+        "facet_ids": [
+          "create",
+          "revise",
+          "delete"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-642-asset-A4",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-642",
+      "target": "A4",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-642"
+      }
+    },
+    {
+      "id": "B-642",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-642",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-642-A4-confidentiality",
+        "OBS-642-A4-privacy",
+        "OBS-642-A4-custom-classification"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A4"
+        ],
+        "facet_ids": [
+          "confidentiality",
+          "privacy",
+          "custom-classification"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-643-asset-A3",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-643",
+      "target": "A3",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-643"
+      }
+    },
+    {
+      "id": "B-643",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-643",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-643-A3-value-chain",
+        "OBS-643-A3-lineage"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A3"
+        ],
+        "facet_ids": [
+          "value-chain",
+          "lineage"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-644-asset-A2",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-644",
+      "target": "A2",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-644"
+      }
+    },
+    {
+      "id": "MC-645-asset-A8",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-645",
+      "target": "A8",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-645"
+      }
+    },
+    {
+      "id": "B-645",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-QUALITY",
+      "target": "MC-645",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-645-A8-execute-rule",
+        "OBS-645-A8-capture-result"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A8"
+        ],
+        "facet_ids": [
+          "execute-rule",
+          "capture-result"
+        ],
+        "tool_version": "1.8",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-646-asset-A6",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-646",
+      "target": "A6",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-646"
+      }
+    },
+    {
+      "id": "B-646",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-WORKFLOW",
+      "target": "MC-646",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-646-A6-create-workflow",
+        "OBS-646-A6-visualize-states",
+        "OBS-646-A6-visualize-tasks"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A6"
+        ],
+        "facet_ids": [
+          "create-workflow",
+          "visualize-states",
+          "visualize-tasks"
+        ],
+        "tool_version": "3.0",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-647-asset-A6",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-647",
+      "target": "A6",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-647"
+      }
+    },
+    {
+      "id": "B-647",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-WORKFLOW",
+      "target": "MC-647",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-647-A6-assign-task"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A6"
+        ],
+        "facet_ids": [
+          "assign-task"
+        ],
+        "tool_version": "3.0",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-648-asset-A1",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-648",
+      "target": "A1",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-648"
+      }
+    },
+    {
+      "id": "MC-648-asset-A2",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-648",
+      "target": "A2",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-648"
+      }
+    },
+    {
+      "id": "B-648",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-648",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "MCR-PLAN"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A1",
+          "A2"
+        ],
+        "facet_ids": [
+          "view-change-impact"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "planned"
+      }
+    },
+    {
+      "id": "MC-649-asset-A1",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-649",
+      "target": "A1",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-649"
+      }
+    },
+    {
+      "id": "MC-650-asset-A3",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-650",
+      "target": "A3",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-650"
+      }
+    },
+    {
+      "id": "B-650",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-650",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "MCR-PLAN"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A3"
+        ],
+        "facet_ids": [
+          "origin",
+          "transformation",
+          "transfer",
+          "classification"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "planned"
+      }
+    },
+    {
+      "id": "MC-651-asset-A1",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-651",
+      "target": "A1",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-651"
+      }
+    },
+    {
+      "id": "B-651",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-651",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "MCR-PLAN"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A1"
+        ],
+        "facet_ids": [
+          "completion",
+          "associations",
+          "quality",
+          "sharing"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "planned"
+      }
+    },
+    {
+      "id": "MC-652-asset-A7",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-652",
+      "target": "A7",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-652"
+      }
+    },
+    {
+      "id": "B-652",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-652",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-652-A7-accountability"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A7"
+        ],
+        "facet_ids": [
+          "accountability"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-653-asset-A8",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-653",
+      "target": "A8",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-653"
+      }
+    },
+    {
+      "id": "B-653",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-653",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "MCR-PLAN"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A8"
+        ],
+        "facet_ids": [
+          "history",
+          "current",
+          "sharing"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "planned"
+      }
+    },
+    {
+      "id": "MC-654-asset-A1",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-654",
+      "target": "A1",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-654"
+      }
+    },
+    {
+      "id": "B-654",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-654",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-654-A1-multiple-criteria",
+        "OBS-654-A1-full-text"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A1"
+        ],
+        "facet_ids": [
+          "multiple-criteria",
+          "full-text"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-655-asset-A4",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-655",
+      "target": "A4",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-655"
+      }
+    },
+    {
+      "id": "B-655",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-655",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-655-A4-create-normalized-values",
+        "OBS-655-A4-maintain-reference-values"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A4"
+        ],
+        "facet_ids": [
+          "create-normalized-values",
+          "maintain-reference-values"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-656-asset-A2",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-656",
+      "target": "A2",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-656"
+      }
+    },
+    {
+      "id": "B-656",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-656",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-656-A2-multiple-environments",
+        "OBS-656-A2-per-environment-governance",
+        "OBS-656-A2-per-environment-administration"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A2"
+        ],
+        "facet_ids": [
+          "multiple-environments",
+          "per-environment-governance",
+          "per-environment-administration"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-657-asset-A3",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-657",
+      "target": "A3",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-657"
+      }
+    },
+    {
+      "id": "B-657",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-657",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-657-A3-create-permission",
+        "OBS-657-A3-delete-permission",
+        "OBS-657-A3-update-permission",
+        "OBS-657-A3-users-groups",
+        "OBS-657-A3-role-authorization"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A3"
+        ],
+        "facet_ids": [
+          "create-permission",
+          "delete-permission",
+          "update-permission",
+          "users-groups",
+          "role-authorization"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-659-asset-A1",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-659",
+      "target": "A1",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-659"
+      }
+    },
+    {
+      "id": "B-659",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-659",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-659-A1-events",
+        "OBS-659-A1-modification-history"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A1"
+        ],
+        "facet_ids": [
+          "events",
+          "modification-history"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-660-asset-A2",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-660",
+      "target": "A2",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-660"
+      }
+    },
+    {
+      "id": "B-660",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-660",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "MCR-PLAN"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A2"
+        ],
+        "facet_ids": [
+          "database-version"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "planned"
+      }
+    },
+    {
+      "id": "MC-661-asset-A2",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-661",
+      "target": "A2",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-661"
+      }
+    },
+    {
+      "id": "B-661",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-GATEWAY",
+      "target": "MC-661",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-661-A2-metadata-query"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A2"
+        ],
+        "facet_ids": [
+          "metadata-query"
+        ],
+        "tool_version": "1.2",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "B-661-CATALOG",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-CATALOG",
+      "target": "MC-661",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-661-A2-metadata-query-CATALOG"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A2"
+        ],
+        "facet_ids": [
+          "metadata-query"
+        ],
+        "tool_version": "2.4",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-662-asset-A2",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-662",
+      "target": "A2",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-662"
+      }
+    },
+    {
+      "id": "B-662",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-GATEWAY",
+      "target": "MC-662",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-662-A2-bulk-import"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A2"
+        ],
+        "facet_ids": [
+          "bulk-import"
+        ],
+        "tool_version": "1.2",
+        "claimed_status": "implemented"
+      }
+    },
+    {
+      "id": "MC-663-asset-A2",
+      "type": "g234:coverage-of-asset",
+      "source": "MC-663",
+      "target": "A2",
+      "label": "本功能审查范围包含此元数据资产",
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-RULE"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "source_function_id": "application-function-663"
+      }
+    },
+    {
+      "id": "B-663",
+      "type": "g234:tool-coverage-claim",
+      "source": "T-GATEWAY",
+      "target": "MC-663",
+      "label": "工具在指定资产/功能方面上的覆盖声明，最终状态见审查结果",
+      "evidence": [
+        "OBS-663-A2-bulk-export"
+      ],
+      "certainty": "assumed",
+      "attributes": {
+        "asset_ids": [
+          "A2"
+        ],
+        "facet_ids": [
+          "bulk-export"
+        ],
+        "tool_version": "1.2",
+        "claimed_status": "implemented"
+      }
+    }
+  ],
+  "view": {
+    "id": "v-metadata-application-function-coverage",
+    "artifact_id": "metadata-asset-coverage",
+    "profile_id": "metadata-application-function-coverage",
+    "title": "五馆联盟元数据应用功能覆盖／1",
+    "context": {
+      "domains": [
+        "data",
+        "application"
+      ],
+      "landscape": "segment",
+      "purpose": "project",
+      "abstraction": "logical",
+      "evolution": "target"
+    },
+    "entity_ids": [
+      "T-CATALOG",
+      "T-QUALITY",
+      "T-WORKFLOW",
+      "T-GATEWAY",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "MC-641",
+      "MC-642",
+      "MC-643",
+      "MC-644",
+      "MC-645",
+      "MC-646",
+      "MC-647",
+      "MC-648",
+      "MC-649",
+      "MC-650",
+      "MC-651",
+      "MC-652",
+      "MC-653",
+      "MC-654",
+      "MC-655",
+      "MC-656",
+      "MC-657",
+      "MC-658",
+      "MC-659",
+      "MC-660",
+      "MC-661",
+      "MC-662",
+      "MC-663",
+      "MC-664"
+    ],
+    "relationship_ids": [
+      "MC-641-asset-A1",
+      "MC-641-asset-A2",
+      "MC-641-asset-A3",
+      "MC-641-asset-A4",
+      "MC-641-asset-A5",
+      "MC-641-asset-A6",
+      "MC-641-asset-A7",
+      "MC-641-asset-A8",
+      "B-641",
+      "MC-642-asset-A4",
+      "B-642",
+      "MC-643-asset-A3",
+      "B-643",
+      "MC-644-asset-A2",
+      "MC-645-asset-A8",
+      "B-645",
+      "MC-646-asset-A6",
+      "B-646",
+      "MC-647-asset-A6",
+      "B-647",
+      "MC-648-asset-A1",
+      "MC-648-asset-A2",
+      "B-648",
+      "MC-649-asset-A1",
+      "MC-650-asset-A3",
+      "B-650",
+      "MC-651-asset-A1",
+      "B-651",
+      "MC-652-asset-A7",
+      "B-652",
+      "MC-653-asset-A8",
+      "B-653",
+      "MC-654-asset-A1",
+      "B-654",
+      "MC-655-asset-A4",
+      "B-655",
+      "MC-656-asset-A2",
+      "B-656",
+      "MC-657-asset-A3",
+      "B-657",
+      "MC-659-asset-A1",
+      "B-659",
+      "MC-660-asset-A2",
+      "B-660",
+      "MC-661-asset-A2",
+      "B-661",
+      "B-661-CATALOG",
+      "MC-662-asset-A2",
+      "B-662",
+      "MC-663-asset-A2",
+      "B-663"
+    ],
+    "analysis": "逐源功能、项目资产和功能方面审核工具证据。修改仅新增事件日志来源/作者的测试，其他未核实功能保持原状态。计划、未知与不适用均可见，不计算覆盖率。",
+    "legend": "四态为项目操作规则；相同工具ID表示复用，关系表达审查范围或声明，不自动证明实现。",
+    "attributes": {
+      "analysis_ids": [
+        "metadata-coverage-analysis"
+      ]
+    }
+  },
+  "analyses": [
+    {
+      "id": "metadata-coverage-analysis",
+      "method_id": "metadata-application-coverage-review",
+      "inputs": {
+        "scope": "五馆联盟2026Q4馆藏目录与借展元数据",
+        "architecture_state": "candidate-2026Q4",
+        "as_of": "2026-10-28",
+        "owner": "数据治理负责人",
+        "scope_evidence": [
+          "MCR-SCOPE",
+          "MCR-RULE"
+        ],
+        "source_ids": [
+          "MCR-SCOPE",
+          "MCR-ASSETS",
+          "MCR-TOOLS",
+          "MCR-RULE",
+          "MCR-TAILOR",
+          "MCR-PLAN",
+          "MCR-UNKNOWN",
+          "MCR-CHANGE",
+          "OBS-641-A1-create",
+          "OBS-641-A1-revise",
+          "OBS-641-A1-delete",
+          "OBS-641-A2-create",
+          "OBS-641-A2-revise",
+          "OBS-641-A2-delete",
+          "OBS-641-A3-create",
+          "OBS-641-A3-revise",
+          "OBS-641-A3-delete",
+          "OBS-641-A4-create",
+          "OBS-641-A4-revise",
+          "OBS-641-A4-delete",
+          "OBS-641-A5-create",
+          "OBS-641-A5-revise",
+          "OBS-641-A5-delete",
+          "OBS-641-A6-create",
+          "OBS-641-A6-revise",
+          "OBS-641-A6-delete",
+          "OBS-641-A7-create",
+          "OBS-641-A7-revise",
+          "OBS-641-A7-delete",
+          "OBS-641-A8-create",
+          "OBS-641-A8-revise",
+          "OBS-641-A8-delete",
+          "OBS-642-A4-confidentiality",
+          "OBS-642-A4-privacy",
+          "OBS-642-A4-custom-classification",
+          "OBS-643-A3-value-chain",
+          "OBS-643-A3-lineage",
+          "OBS-645-A8-execute-rule",
+          "OBS-645-A8-capture-result",
+          "OBS-646-A6-create-workflow",
+          "OBS-646-A6-visualize-states",
+          "OBS-646-A6-visualize-tasks",
+          "OBS-647-A6-assign-task",
+          "OBS-652-A7-accountability",
+          "OBS-654-A1-multiple-criteria",
+          "OBS-654-A1-full-text",
+          "OBS-655-A4-create-normalized-values",
+          "OBS-655-A4-maintain-reference-values",
+          "OBS-656-A2-multiple-environments",
+          "OBS-656-A2-per-environment-governance",
+          "OBS-656-A2-per-environment-administration",
+          "OBS-657-A3-create-permission",
+          "OBS-657-A3-delete-permission",
+          "OBS-657-A3-update-permission",
+          "OBS-657-A3-users-groups",
+          "OBS-657-A3-role-authorization",
+          "OBS-659-A1-events",
+          "OBS-659-A1-modification-history",
+          "OBS-661-A2-metadata-query",
+          "OBS-661-A2-metadata-query-CATALOG",
+          "OBS-662-A2-bulk-import",
+          "OBS-663-A2-bulk-export"
+        ],
+        "evidence_records": [
+          {
+            "id": "MCR-SCOPE",
+            "kind": "scope"
+          },
+          {
+            "id": "MCR-ASSETS",
+            "kind": "asset-inventory"
+          },
+          {
+            "id": "MCR-TOOLS",
+            "kind": "tool-inventory"
+          },
+          {
+            "id": "MCR-RULE",
+            "kind": "project-rule"
+          },
+          {
+            "id": "MCR-TAILOR",
+            "kind": "tailoring"
+          },
+          {
+            "id": "MCR-PLAN",
+            "kind": "plan"
+          },
+          {
+            "id": "MCR-UNKNOWN",
+            "kind": "unverified"
+          },
+          {
+            "id": "MCR-CHANGE",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A1-create",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A1-revise",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A1-delete",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A2-create",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A2-revise",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A2-delete",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A3-create",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A3-revise",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A3-delete",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A4-create",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A4-revise",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A4-delete",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A5-create",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A5-revise",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A5-delete",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A6-create",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A6-revise",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A6-delete",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A7-create",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A7-revise",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A7-delete",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A8-create",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A8-revise",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-641-A8-delete",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-642-A4-confidentiality",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-642-A4-privacy",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-642-A4-custom-classification",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-643-A3-value-chain",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-643-A3-lineage",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-645-A8-execute-rule",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-645-A8-capture-result",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-646-A6-create-workflow",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-646-A6-visualize-states",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-646-A6-visualize-tasks",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-647-A6-assign-task",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-652-A7-accountability",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-654-A1-multiple-criteria",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-654-A1-full-text",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-655-A4-create-normalized-values",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-655-A4-maintain-reference-values",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-656-A2-multiple-environments",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-656-A2-per-environment-governance",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-656-A2-per-environment-administration",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-657-A3-create-permission",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-657-A3-delete-permission",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-657-A3-update-permission",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-657-A3-users-groups",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-657-A3-role-authorization",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-659-A1-events",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-659-A1-modification-history",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-661-A2-metadata-query",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-661-A2-metadata-query-CATALOG",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-662-A2-bulk-import",
+            "kind": "observation"
+          },
+          {
+            "id": "OBS-663-A2-bulk-export",
+            "kind": "observation"
+          }
+        ],
+        "tools": [
+          {
+            "id": "T-CATALOG",
+            "name": "藏品目录工具",
+            "version": "2.4",
+            "owner": "平台组",
+            "evidence": [
+              "MCR-TOOLS"
+            ]
+          },
+          {
+            "id": "T-QUALITY",
+            "name": "质量执行器",
+            "version": "1.8",
+            "owner": "质量组",
+            "evidence": [
+              "MCR-TOOLS"
+            ]
+          },
+          {
+            "id": "T-WORKFLOW",
+            "name": "治理工作流",
+            "version": "3.0",
+            "owner": "数据治理组",
+            "evidence": [
+              "MCR-TOOLS"
+            ]
+          },
+          {
+            "id": "T-GATEWAY",
+            "name": "集成网关",
+            "version": "1.2",
+            "owner": "集成组",
+            "evidence": [
+              "MCR-TOOLS"
+            ]
+          }
+        ],
+        "assets": [
+          {
+            "id": "A1",
+            "name": "藏品术语表",
+            "category": "category-1",
+            "category_name": "数据术语表",
+            "owner": "数据治理负责人",
+            "evidence": [
+              "MCR-ASSETS"
+            ]
+          },
+          {
+            "id": "A2",
+            "name": "藏品数据字典",
+            "category": "category-2",
+            "category_name": "数据字典",
+            "owner": "数据治理负责人",
+            "evidence": [
+              "MCR-ASSETS"
+            ]
+          },
+          {
+            "id": "A3",
+            "name": "借展数据使用记录",
+            "category": "category-3",
+            "category_name": "数据使用",
+            "owner": "数据治理负责人",
+            "evidence": [
+              "MCR-ASSETS"
+            ]
+          },
+          {
+            "id": "A4",
+            "name": "藏品分类",
+            "category": "category-4",
+            "category_name": "数据分类",
+            "owner": "数据治理负责人",
+            "evidence": [
+              "MCR-ASSETS"
+            ]
+          },
+          {
+            "id": "A5",
+            "name": "数据规则与政策",
+            "category": "category-5",
+            "category_name": "规则与政策",
+            "owner": "数据治理负责人",
+            "evidence": [
+              "MCR-ASSETS"
+            ]
+          },
+          {
+            "id": "A6",
+            "name": "数据问题及业务影响",
+            "category": "category-6",
+            "category_name": "问题",
+            "owner": "数据治理负责人",
+            "evidence": [
+              "MCR-ASSETS"
+            ]
+          },
+          {
+            "id": "A7",
+            "name": "治理资产",
+            "category": "category-7",
+            "category_name": "治理资产",
+            "owner": "数据治理负责人",
+            "evidence": [
+              "MCR-ASSETS"
+            ]
+          },
+          {
+            "id": "A8",
+            "name": "技术质量规则",
+            "category": "category-8",
+            "category_name": "数据质量规则执行",
+            "owner": "数据治理负责人",
+            "evidence": [
+              "MCR-ASSETS"
+            ]
+          }
+        ],
+        "assessments": [
+          {
+            "id": "MC-641",
+            "function_id": "application-function-641",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A1",
+              "A2",
+              "A3",
+              "A4",
+              "A5",
+              "A6",
+              "A7",
+              "A8"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-641",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A1",
+                  "A2",
+                  "A3",
+                  "A4",
+                  "A5",
+                  "A6",
+                  "A7",
+                  "A8"
+                ],
+                "facet_ids": [
+                  "create",
+                  "revise",
+                  "delete"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-641-A1-create",
+                    "OBS-641-A1-revise",
+                    "OBS-641-A1-delete",
+                    "OBS-641-A2-create",
+                    "OBS-641-A2-revise",
+                    "OBS-641-A2-delete",
+                    "OBS-641-A3-create",
+                    "OBS-641-A3-revise",
+                    "OBS-641-A3-delete",
+                    "OBS-641-A4-create",
+                    "OBS-641-A4-revise",
+                    "OBS-641-A4-delete",
+                    "OBS-641-A5-create",
+                    "OBS-641-A5-revise",
+                    "OBS-641-A5-delete",
+                    "OBS-641-A6-create",
+                    "OBS-641-A6-revise",
+                    "OBS-641-A6-delete",
+                    "OBS-641-A7-create",
+                    "OBS-641-A7-revise",
+                    "OBS-641-A7-delete",
+                    "OBS-641-A8-create",
+                    "OBS-641-A8-revise",
+                    "OBS-641-A8-delete"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-641-A1-create",
+                      "asset_id": "A1",
+                      "facet_id": "create",
+                      "observed_behavior": "在A1记录上观察到创建元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A1-create"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A1-revise",
+                      "asset_id": "A1",
+                      "facet_id": "revise",
+                      "observed_behavior": "在A1记录上观察到修订元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A1-revise"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A1-delete",
+                      "asset_id": "A1",
+                      "facet_id": "delete",
+                      "observed_behavior": "在A1记录上观察到删除元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A1-delete"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A2-create",
+                      "asset_id": "A2",
+                      "facet_id": "create",
+                      "observed_behavior": "在A2记录上观察到创建元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A2-create"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A2-revise",
+                      "asset_id": "A2",
+                      "facet_id": "revise",
+                      "observed_behavior": "在A2记录上观察到修订元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A2-revise"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A2-delete",
+                      "asset_id": "A2",
+                      "facet_id": "delete",
+                      "observed_behavior": "在A2记录上观察到删除元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A2-delete"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A3-create",
+                      "asset_id": "A3",
+                      "facet_id": "create",
+                      "observed_behavior": "在A3记录上观察到创建元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A3-create"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A3-revise",
+                      "asset_id": "A3",
+                      "facet_id": "revise",
+                      "observed_behavior": "在A3记录上观察到修订元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A3-revise"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A3-delete",
+                      "asset_id": "A3",
+                      "facet_id": "delete",
+                      "observed_behavior": "在A3记录上观察到删除元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A3-delete"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A4-create",
+                      "asset_id": "A4",
+                      "facet_id": "create",
+                      "observed_behavior": "在A4记录上观察到创建元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A4-create"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A4-revise",
+                      "asset_id": "A4",
+                      "facet_id": "revise",
+                      "observed_behavior": "在A4记录上观察到修订元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A4-revise"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A4-delete",
+                      "asset_id": "A4",
+                      "facet_id": "delete",
+                      "observed_behavior": "在A4记录上观察到删除元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A4-delete"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A5-create",
+                      "asset_id": "A5",
+                      "facet_id": "create",
+                      "observed_behavior": "在A5记录上观察到创建元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A5-create"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A5-revise",
+                      "asset_id": "A5",
+                      "facet_id": "revise",
+                      "observed_behavior": "在A5记录上观察到修订元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A5-revise"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A5-delete",
+                      "asset_id": "A5",
+                      "facet_id": "delete",
+                      "observed_behavior": "在A5记录上观察到删除元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A5-delete"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A6-create",
+                      "asset_id": "A6",
+                      "facet_id": "create",
+                      "observed_behavior": "在A6记录上观察到创建元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A6-create"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A6-revise",
+                      "asset_id": "A6",
+                      "facet_id": "revise",
+                      "observed_behavior": "在A6记录上观察到修订元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A6-revise"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A6-delete",
+                      "asset_id": "A6",
+                      "facet_id": "delete",
+                      "observed_behavior": "在A6记录上观察到删除元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A6-delete"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A7-create",
+                      "asset_id": "A7",
+                      "facet_id": "create",
+                      "observed_behavior": "在A7记录上观察到创建元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A7-create"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A7-revise",
+                      "asset_id": "A7",
+                      "facet_id": "revise",
+                      "observed_behavior": "在A7记录上观察到修订元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A7-revise"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A7-delete",
+                      "asset_id": "A7",
+                      "facet_id": "delete",
+                      "observed_behavior": "在A7记录上观察到删除元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A7-delete"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A8-create",
+                      "asset_id": "A8",
+                      "facet_id": "create",
+                      "observed_behavior": "在A8记录上观察到创建元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A8-create"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A8-revise",
+                      "asset_id": "A8",
+                      "facet_id": "revise",
+                      "observed_behavior": "在A8记录上观察到修订元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A8-revise"
+                      ]
+                    },
+                    {
+                      "id": "OBS-641-A8-delete",
+                      "asset_id": "A8",
+                      "facet_id": "delete",
+                      "observed_behavior": "在A8记录上观察到删除元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-641-A8-delete"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-642",
+            "function_id": "application-function-642",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A4"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-642",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A4"
+                ],
+                "facet_ids": [
+                  "confidentiality",
+                  "privacy",
+                  "custom-classification"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-642-A4-confidentiality",
+                    "OBS-642-A4-privacy",
+                    "OBS-642-A4-custom-classification"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-642-A4-confidentiality",
+                      "asset_id": "A4",
+                      "facet_id": "confidentiality",
+                      "observed_behavior": "在A4记录上观察到保密性分类；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-642-A4-confidentiality"
+                      ]
+                    },
+                    {
+                      "id": "OBS-642-A4-privacy",
+                      "asset_id": "A4",
+                      "facet_id": "privacy",
+                      "observed_behavior": "在A4记录上观察到隐私分类；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-642-A4-privacy"
+                      ]
+                    },
+                    {
+                      "id": "OBS-642-A4-custom-classification",
+                      "asset_id": "A4",
+                      "facet_id": "custom-classification",
+                      "observed_behavior": "在A4记录上观察到自定义分类维度；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-642-A4-custom-classification"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-643",
+            "function_id": "application-function-643",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A3"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-643",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A3"
+                ],
+                "facet_ids": [
+                  "value-chain",
+                  "lineage"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-643-A3-value-chain",
+                    "OBS-643-A3-lineage"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-643-A3-value-chain",
+                      "asset_id": "A3",
+                      "facet_id": "value-chain",
+                      "observed_behavior": "在A3记录上观察到完整数据价值链关联；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-643-A3-value-chain"
+                      ]
+                    },
+                    {
+                      "id": "OBS-643-A3-lineage",
+                      "asset_id": "A3",
+                      "facet_id": "lineage",
+                      "observed_behavior": "在A3记录上观察到数据血缘关联；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-643-A3-lineage"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-644",
+            "function_id": "application-function-644",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A2"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "unknown",
+            "excluded_facets": [],
+            "bindings": []
+          },
+          {
+            "id": "MC-645",
+            "function_id": "application-function-645",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A8"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-645",
+                "tool_id": "T-QUALITY",
+                "tool_version": "1.8",
+                "asset_ids": [
+                  "A8"
+                ],
+                "facet_ids": [
+                  "execute-rule",
+                  "capture-result"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-645-A8-execute-rule",
+                    "OBS-645-A8-capture-result"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-645-A8-execute-rule",
+                      "asset_id": "A8",
+                      "facet_id": "execute-rule",
+                      "observed_behavior": "在A8记录上观察到执行存储库定义的质量规则；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-645-A8-execute-rule"
+                      ]
+                    },
+                    {
+                      "id": "OBS-645-A8-capture-result",
+                      "asset_id": "A8",
+                      "facet_id": "capture-result",
+                      "observed_behavior": "在A8记录上观察到捕获规则执行结果；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-645-A8-capture-result"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-646",
+            "function_id": "application-function-646",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A6"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-646",
+                "tool_id": "T-WORKFLOW",
+                "tool_version": "3.0",
+                "asset_ids": [
+                  "A6"
+                ],
+                "facet_ids": [
+                  "create-workflow",
+                  "visualize-states",
+                  "visualize-tasks"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-646-A6-create-workflow",
+                    "OBS-646-A6-visualize-states",
+                    "OBS-646-A6-visualize-tasks"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-646-A6-create-workflow",
+                      "asset_id": "A6",
+                      "facet_id": "create-workflow",
+                      "observed_behavior": "在A6记录上观察到创建工作流；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-646-A6-create-workflow"
+                      ]
+                    },
+                    {
+                      "id": "OBS-646-A6-visualize-states",
+                      "asset_id": "A6",
+                      "facet_id": "visualize-states",
+                      "observed_behavior": "在A6记录上观察到可视化状态；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-646-A6-visualize-states"
+                      ]
+                    },
+                    {
+                      "id": "OBS-646-A6-visualize-tasks",
+                      "asset_id": "A6",
+                      "facet_id": "visualize-tasks",
+                      "observed_behavior": "在A6记录上观察到可视化任务；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-646-A6-visualize-tasks"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-647",
+            "function_id": "application-function-647",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A6"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-647",
+                "tool_id": "T-WORKFLOW",
+                "tool_version": "3.0",
+                "asset_ids": [
+                  "A6"
+                ],
+                "facet_ids": [
+                  "assign-task"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-647-A6-assign-task"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-647-A6-assign-task",
+                      "asset_id": "A6",
+                      "facet_id": "assign-task",
+                      "observed_behavior": "在A6记录上观察到把任务分配给人员；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-647-A6-assign-task"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-648",
+            "function_id": "application-function-648",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A1",
+              "A2"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "planned",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-648",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A1",
+                  "A2"
+                ],
+                "facet_ids": [
+                  "view-change-impact"
+                ],
+                "status": "planned",
+                "plan": {
+                  "owner": "数据治理负责人",
+                  "target_date": "2026-12-15",
+                  "milestone": "馆藏目录候选功能评审",
+                  "scope": [
+                    {
+                      "asset_id": "A1",
+                      "facet_id": "view-change-impact"
+                    },
+                    {
+                      "asset_id": "A2",
+                      "facet_id": "view-change-impact"
+                    }
+                  ],
+                  "evidence": [
+                    "MCR-PLAN"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-649",
+            "function_id": "application-function-649",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A1"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "unknown",
+            "excluded_facets": [],
+            "bindings": []
+          },
+          {
+            "id": "MC-650",
+            "function_id": "application-function-650",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A3"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "planned",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-650",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A3"
+                ],
+                "facet_ids": [
+                  "origin",
+                  "transformation",
+                  "transfer",
+                  "classification"
+                ],
+                "status": "planned",
+                "plan": {
+                  "owner": "数据治理负责人",
+                  "target_date": "2026-12-15",
+                  "milestone": "馆藏目录候选功能评审",
+                  "scope": [
+                    {
+                      "asset_id": "A3",
+                      "facet_id": "origin"
+                    },
+                    {
+                      "asset_id": "A3",
+                      "facet_id": "transformation"
+                    },
+                    {
+                      "asset_id": "A3",
+                      "facet_id": "transfer"
+                    },
+                    {
+                      "asset_id": "A3",
+                      "facet_id": "classification"
+                    }
+                  ],
+                  "evidence": [
+                    "MCR-PLAN"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-651",
+            "function_id": "application-function-651",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A1"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "planned",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-651",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A1"
+                ],
+                "facet_ids": [
+                  "completion",
+                  "associations",
+                  "quality",
+                  "sharing"
+                ],
+                "status": "planned",
+                "plan": {
+                  "owner": "数据治理负责人",
+                  "target_date": "2026-12-15",
+                  "milestone": "馆藏目录候选功能评审",
+                  "scope": [
+                    {
+                      "asset_id": "A1",
+                      "facet_id": "completion"
+                    },
+                    {
+                      "asset_id": "A1",
+                      "facet_id": "associations"
+                    },
+                    {
+                      "asset_id": "A1",
+                      "facet_id": "quality"
+                    },
+                    {
+                      "asset_id": "A1",
+                      "facet_id": "sharing"
+                    }
+                  ],
+                  "evidence": [
+                    "MCR-PLAN"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-652",
+            "function_id": "application-function-652",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A7"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-652",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A7"
+                ],
+                "facet_ids": [
+                  "accountability"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-652-A7-accountability"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-652-A7-accountability",
+                      "asset_id": "A7",
+                      "facet_id": "accountability",
+                      "observed_behavior": "在A7记录上观察到可视化谁对数据负责；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-652-A7-accountability"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-653",
+            "function_id": "application-function-653",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A8"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "planned",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-653",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A8"
+                ],
+                "facet_ids": [
+                  "history",
+                  "current",
+                  "sharing"
+                ],
+                "status": "planned",
+                "plan": {
+                  "owner": "数据治理负责人",
+                  "target_date": "2026-12-15",
+                  "milestone": "馆藏目录候选功能评审",
+                  "scope": [
+                    {
+                      "asset_id": "A8",
+                      "facet_id": "history"
+                    },
+                    {
+                      "asset_id": "A8",
+                      "facet_id": "current"
+                    },
+                    {
+                      "asset_id": "A8",
+                      "facet_id": "sharing"
+                    }
+                  ],
+                  "evidence": [
+                    "MCR-PLAN"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-654",
+            "function_id": "application-function-654",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A1"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "unknown",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-654",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A1"
+                ],
+                "facet_ids": [
+                  "multiple-criteria",
+                  "full-text"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-654-A1-multiple-criteria",
+                    "OBS-654-A1-full-text"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-654-A1-multiple-criteria",
+                      "asset_id": "A1",
+                      "facet_id": "multiple-criteria",
+                      "observed_behavior": "在A1记录上观察到多条件搜索；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-654-A1-multiple-criteria"
+                      ]
+                    },
+                    {
+                      "id": "OBS-654-A1-full-text",
+                      "asset_id": "A1",
+                      "facet_id": "full-text",
+                      "observed_behavior": "在A1记录上观察到全文搜索；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-654-A1-full-text"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-655",
+            "function_id": "application-function-655",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A4"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-655",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A4"
+                ],
+                "facet_ids": [
+                  "create-normalized-values",
+                  "maintain-reference-values"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-655-A4-create-normalized-values",
+                    "OBS-655-A4-maintain-reference-values"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-655-A4-create-normalized-values",
+                      "asset_id": "A4",
+                      "facet_id": "create-normalized-values",
+                      "observed_behavior": "在A4记录上观察到创建规范化值列表；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-655-A4-create-normalized-values"
+                      ]
+                    },
+                    {
+                      "id": "OBS-655-A4-maintain-reference-values",
+                      "asset_id": "A4",
+                      "facet_id": "maintain-reference-values",
+                      "observed_behavior": "在A4记录上观察到维护参考值列表；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-655-A4-maintain-reference-values"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-656",
+            "function_id": "application-function-656",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A2"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-656",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A2"
+                ],
+                "facet_ids": [
+                  "multiple-environments",
+                  "per-environment-governance",
+                  "per-environment-administration"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-656-A2-multiple-environments",
+                    "OBS-656-A2-per-environment-governance",
+                    "OBS-656-A2-per-environment-administration"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-656-A2-multiple-environments",
+                      "asset_id": "A2",
+                      "facet_id": "multiple-environments",
+                      "observed_behavior": "在A2记录上观察到管理多个环境；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-656-A2-multiple-environments"
+                      ]
+                    },
+                    {
+                      "id": "OBS-656-A2-per-environment-governance",
+                      "asset_id": "A2",
+                      "facet_id": "per-environment-governance",
+                      "observed_behavior": "在A2记录上观察到每环境治理设置；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-656-A2-per-environment-governance"
+                      ]
+                    },
+                    {
+                      "id": "OBS-656-A2-per-environment-administration",
+                      "asset_id": "A2",
+                      "facet_id": "per-environment-administration",
+                      "observed_behavior": "在A2记录上观察到每环境管理设置；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-656-A2-per-environment-administration"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-657",
+            "function_id": "application-function-657",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A3"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-657",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A3"
+                ],
+                "facet_ids": [
+                  "create-permission",
+                  "delete-permission",
+                  "update-permission",
+                  "users-groups",
+                  "role-authorization"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-657-A3-create-permission",
+                    "OBS-657-A3-delete-permission",
+                    "OBS-657-A3-update-permission",
+                    "OBS-657-A3-users-groups",
+                    "OBS-657-A3-role-authorization"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-657-A3-create-permission",
+                      "asset_id": "A3",
+                      "facet_id": "create-permission",
+                      "observed_behavior": "在A3记录上观察到创建访问权限；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-657-A3-create-permission"
+                      ]
+                    },
+                    {
+                      "id": "OBS-657-A3-delete-permission",
+                      "asset_id": "A3",
+                      "facet_id": "delete-permission",
+                      "observed_behavior": "在A3记录上观察到删除访问权限；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-657-A3-delete-permission"
+                      ]
+                    },
+                    {
+                      "id": "OBS-657-A3-update-permission",
+                      "asset_id": "A3",
+                      "facet_id": "update-permission",
+                      "observed_behavior": "在A3记录上观察到更新访问权限；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-657-A3-update-permission"
+                      ]
+                    },
+                    {
+                      "id": "OBS-657-A3-users-groups",
+                      "asset_id": "A3",
+                      "facet_id": "users-groups",
+                      "observed_behavior": "在A3记录上观察到创建用户和组；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-657-A3-users-groups"
+                      ]
+                    },
+                    {
+                      "id": "OBS-657-A3-role-authorization",
+                      "asset_id": "A3",
+                      "facet_id": "role-authorization",
+                      "observed_behavior": "在A3记录上观察到按角色授权，区分批处理/用户角色；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-657-A3-role-authorization"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-658",
+            "function_id": "application-function-658",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "not-applicable",
+            "excluded_facets": [],
+            "bindings": [],
+            "exclusion": {
+              "reason": "本期仅中文馆内平台，无其他语言/本地要求适配需求",
+              "authority": "数据治理负责人",
+              "scope": "2026Q4馆藏/借展项目；范围变更重审",
+              "evidence": [
+                "MCR-TAILOR"
+              ]
+            }
+          },
+          {
+            "id": "MC-659",
+            "function_id": "application-function-659",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A1"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "unknown",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-659",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A1"
+                ],
+                "facet_ids": [
+                  "events",
+                  "modification-history"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-659-A1-events",
+                    "OBS-659-A1-modification-history"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-659-A1-events",
+                      "asset_id": "A1",
+                      "facet_id": "events",
+                      "observed_behavior": "在A1记录上观察到记录系统事件；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-659-A1-events"
+                      ]
+                    },
+                    {
+                      "id": "OBS-659-A1-modification-history",
+                      "asset_id": "A1",
+                      "facet_id": "modification-history",
+                      "observed_behavior": "在A1记录上观察到保留元数据修改历史；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-659-A1-modification-history"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-660",
+            "function_id": "application-function-660",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A2"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "planned",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-660",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A2"
+                ],
+                "facet_ids": [
+                  "database-version"
+                ],
+                "status": "planned",
+                "plan": {
+                  "owner": "数据治理负责人",
+                  "target_date": "2026-12-15",
+                  "milestone": "馆藏目录候选功能评审",
+                  "scope": [
+                    {
+                      "asset_id": "A2",
+                      "facet_id": "database-version"
+                    }
+                  ],
+                  "evidence": [
+                    "MCR-PLAN"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-661",
+            "function_id": "application-function-661",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A2"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-661",
+                "tool_id": "T-GATEWAY",
+                "tool_version": "1.2",
+                "asset_ids": [
+                  "A2"
+                ],
+                "facet_ids": [
+                  "metadata-query"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-661-A2-metadata-query"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-661-A2-metadata-query",
+                      "asset_id": "A2",
+                      "facet_id": "metadata-query",
+                      "observed_behavior": "在A2记录上观察到用SQL或其他语言/接口查询元数据资产；不要求两者并用；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-661-A2-metadata-query"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "B-661-CATALOG",
+                "tool_id": "T-CATALOG",
+                "tool_version": "2.4",
+                "asset_ids": [
+                  "A2"
+                ],
+                "facet_ids": [
+                  "metadata-query"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-661-A2-metadata-query-CATALOG"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-661-A2-metadata-query-CATALOG",
+                      "asset_id": "A2",
+                      "facet_id": "metadata-query",
+                      "observed_behavior": "在A2记录上观察到用SQL或其他语言/接口查询元数据资产；不要求两者并用；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-661-A2-metadata-query-CATALOG"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-662",
+            "function_id": "application-function-662",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A2"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-662",
+                "tool_id": "T-GATEWAY",
+                "tool_version": "1.2",
+                "asset_ids": [
+                  "A2"
+                ],
+                "facet_ids": [
+                  "bulk-import"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-662-A2-bulk-import"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-662-A2-bulk-import",
+                      "asset_id": "A2",
+                      "facet_id": "bulk-import",
+                      "observed_behavior": "在A2记录上观察到从文件或接口导入多条元数据；不要求每种格式；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-662-A2-bulk-import"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-663",
+            "function_id": "application-function-663",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [
+              "A2"
+            ],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "implemented",
+            "excluded_facets": [],
+            "bindings": [
+              {
+                "id": "B-663",
+                "tool_id": "T-GATEWAY",
+                "tool_version": "1.2",
+                "asset_ids": [
+                  "A2"
+                ],
+                "facet_ids": [
+                  "bulk-export"
+                ],
+                "status": "implemented",
+                "verification": {
+                  "method": "按馆方逐资产/逐功能验收清单观察并记录",
+                  "observed_at": "2026-10-26",
+                  "environment": "staging-museum",
+                  "result": "pass",
+                  "evidence": [
+                    "OBS-663-A2-bulk-export"
+                  ],
+                  "acceptance_observations": [
+                    {
+                      "id": "OBS-663-A2-bulk-export",
+                      "asset_id": "A2",
+                      "facet_id": "bulk-export",
+                      "observed_behavior": "在A2记录上观察到用非专有文件格式或接口导出多条元数据；仅此资产与功能方面。",
+                      "evidence": [
+                        "OBS-663-A2-bulk-export"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "MC-664",
+            "function_id": "application-function-664",
+            "coverage_scope": "本期馆藏/借展元数据，仅所列资产及源语义方面；不推及全部数据或所有产品功能",
+            "required_asset_ids": [],
+            "owner": "数据治理负责人",
+            "requirement_evidence": [
+              "MCR-SCOPE",
+              "MCR-ASSETS",
+              "MCR-RULE"
+            ],
+            "declared_status": "not-applicable",
+            "excluded_facets": [],
+            "bindings": [],
+            "exclusion": {
+              "reason": "本期只有批量交换，没有事件代理",
+              "authority": "数据治理负责人",
+              "scope": "2026Q4馆藏/借展项目；范围变更重审",
+              "evidence": [
+                "MCR-TAILOR"
+              ]
+            }
+          }
+        ]
+      },
+      "evidence": [
+        "MCR-SCOPE",
+        "MCR-ASSETS",
+        "MCR-TOOLS",
+        "MCR-RULE",
+        "MCR-TAILOR",
+        "MCR-PLAN",
+        "MCR-UNKNOWN",
+        "MCR-CHANGE",
+        "OBS-641-A1-create",
+        "OBS-641-A1-revise",
+        "OBS-641-A1-delete",
+        "OBS-641-A2-create",
+        "OBS-641-A2-revise",
+        "OBS-641-A2-delete",
+        "OBS-641-A3-create",
+        "OBS-641-A3-revise",
+        "OBS-641-A3-delete",
+        "OBS-641-A4-create",
+        "OBS-641-A4-revise",
+        "OBS-641-A4-delete",
+        "OBS-641-A5-create",
+        "OBS-641-A5-revise",
+        "OBS-641-A5-delete",
+        "OBS-641-A6-create",
+        "OBS-641-A6-revise",
+        "OBS-641-A6-delete",
+        "OBS-641-A7-create",
+        "OBS-641-A7-revise",
+        "OBS-641-A7-delete",
+        "OBS-641-A8-create",
+        "OBS-641-A8-revise",
+        "OBS-641-A8-delete",
+        "OBS-642-A4-confidentiality",
+        "OBS-642-A4-privacy",
+        "OBS-642-A4-custom-classification",
+        "OBS-643-A3-value-chain",
+        "OBS-643-A3-lineage",
+        "OBS-645-A8-execute-rule",
+        "OBS-645-A8-capture-result",
+        "OBS-646-A6-create-workflow",
+        "OBS-646-A6-visualize-states",
+        "OBS-646-A6-visualize-tasks",
+        "OBS-647-A6-assign-task",
+        "OBS-652-A7-accountability",
+        "OBS-654-A1-multiple-criteria",
+        "OBS-654-A1-full-text",
+        "OBS-655-A4-create-normalized-values",
+        "OBS-655-A4-maintain-reference-values",
+        "OBS-656-A2-multiple-environments",
+        "OBS-656-A2-per-environment-governance",
+        "OBS-656-A2-per-environment-administration",
+        "OBS-657-A3-create-permission",
+        "OBS-657-A3-delete-permission",
+        "OBS-657-A3-update-permission",
+        "OBS-657-A3-users-groups",
+        "OBS-657-A3-role-authorization",
+        "OBS-659-A1-events",
+        "OBS-659-A1-modification-history",
+        "OBS-661-A2-metadata-query",
+        "OBS-661-A2-metadata-query-CATALOG",
+        "OBS-662-A2-bulk-import",
+        "OBS-663-A2-bulk-export"
+      ]
+    }
+  ],
+  "extensions": {
+    "relationship_types": {
+      "g234:coverage-of-asset": {
+        "source_types": [
+          "g234:function-coverage"
+        ],
+        "target_types": [
+          "metadata_asset"
+        ],
+        "meaning": "功能覆盖审查所要求的资产；不表示资产实现软件功能"
+      },
+      "g234:tool-coverage-claim": {
+        "source_types": [
+          "g234:metadata-tool"
+        ],
+        "target_types": [
+          "g234:function-coverage"
+        ],
+        "meaning": "工具在明确版本、资产及功能方面的覆盖声明；需读取审查结果，关系存在不自动等于已实现"
+      }
+    }
+  }
+}
+```
+
+## 生成
+
+```sh
+python "$TOGAF_SKILLS/_shared/scripts/generate.py" model.json --profile metadata-application-function-coverage --layout reference --out output/reference --render
+python "$TOGAF_SKILLS/_shared/scripts/generate.py" model.json --profile metadata-application-function-coverage --layout adaptive --out output/adaptive --render
+```
+
+用`--view`精确选择实例；文件按view_id命名，交付物引用实际视图。

@@ -1,0 +1,42 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Risk context"]
+  n1["Negative outcomes"]
+  n2["Positive outcomes"]
+  n3["Assets at risk"]
+  n4["Threats"]
+  n5["Opportunities"]
+  n6["Likelihood of threat materialising"]
+  n7["Likelihood of weakness exploited"]
+  n8["%"]
+  n9["Asset value"]
+  n10["Negative impact value"]
+  n11["€"]
+  n12["Loss event"]
+  n13["Asset value"]
+  n14["Positive impact value"]
+  n15["€"]
+  n16["Likelihood of opportunity materialising"]
+  n17["Likelihood of strength exploited"]
+  n18["%"]
+  n19["Beneficial event"]
+  n20["威胁侧概率列（无名底色框）"]
+  n21["威胁侧价值列（无名底色框）"]
+  n22["机会侧价值列（无名底色框）"]
+  n23["机会侧概率列（无名底色框）"]
+  n20 -.->|"分组"| n6
+  n20 -.->|"分组"| n7
+  n20 -.->|"分组"| n8
+  n21 -.->|"分组"| n9
+  n21 -.->|"分组"| n10
+  n21 -.->|"分组"| n11
+  n22 -.->|"分组"| n13
+  n22 -.->|"分组"| n14
+  n22 -.->|"分组"| n15
+  n23 -.->|"分组"| n16
+  n23 -.->|"分组"| n17
+  n23 -.->|"分组"| n18
+  n4 -.->|"分组"| n20
+  n4 -.->|"分组"| n21
+  n5 -.->|"分组"| n22
+  n5 -.->|"分组"| n23

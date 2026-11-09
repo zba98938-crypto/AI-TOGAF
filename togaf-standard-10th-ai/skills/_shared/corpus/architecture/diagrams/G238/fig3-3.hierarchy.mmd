@@ -1,0 +1,43 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Business Intelligence &amp; Analytics Data Platforms"]
+  n1["Transactional Application #1"]
+  n2["Transactional Application #2"]
+  n3["Transactional Application Including Embedded BI &amp; Analytic Capabilities"]
+  n4["Connected Devices, Open Data, Log, ..."]
+  n5["Enterprise Data Warehouse"]
+  n6["New Generation BI &amp; Analytics Data Platforms"]
+  n7["Data Mart #1"]
+  n8["Data Mart #2"]
+  n9["Application #1"]
+  n10["Data Mart #3"]
+  n11["Application #2"]
+  n12["Application #3"]
+  n13["RDBMS"]
+  n14["RDBMS"]
+  n15["RDBMS"]
+  n16["Other"]
+  n17["RDBMS"]
+  n18["RDBMS"]
+  n19["RDBMS"]
+  n20["RDBMS"]
+  n21["RDBMS or NoSQL"]
+  n22["RDBMS or NoSQL"]
+  n0 -.->|"分组"| n5
+  n0 -.->|"分组"| n6
+  n0 -.->|"分组"| n7
+  n0 -.->|"分组"| n8
+  n0 -.->|"分组"| n9
+  n0 -.->|"分组"| n10
+  n0 -.->|"分组"| n11
+  n0 -.->|"分组"| n12
+  n1 -.->|"application_encapsulation"| n13
+  n2 -.->|"application_encapsulation"| n14
+  n3 -.->|"application_encapsulation"| n15
+  n3 -.->|"application_encapsulation"| n16
+  n7 -.->|"visual_containment_only"| n17
+  n8 -.->|"visual_containment_only"| n18
+  n9 -.->|"application_encapsulation"| n19
+  n10 -.->|"visual_containment_only"| n20
+  n11 -.->|"application_encapsulation"| n21
+  n12 -.->|"application_encapsulation"| n22

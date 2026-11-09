@@ -1,0 +1,345 @@
+{
+  "schema_version": "1.0",
+  "id": "G186/fig3-2",
+  "status": "done",
+  "doc": {
+    "code": "G186",
+    "title_zh": "实践者方法：按 TOGAF ADM 开发企业架构",
+    "title_en": "A Practitioners' Approach to Developing EA Following the TOGAF ADM",
+    "zh_md": "G186e_实践者方法_按TOGAF_ADM开发企业架构.md",
+    "en_pdf": "togaf-standard-10th/G186e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-2",
+    "title_en": "EA Landscape with an Architecture Project",
+    "title_zh": "带一个架构项目的 EA 全景",
+    "section_en": "3.2.1. Introduction to the EA Landscape",
+    "section_zh": "3.2.1 EA 全景简介",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        29
+      ],
+      "printed_page": 15,
+      "bboxes": [
+        [
+          151.3,
+          36.0,
+          460.7,
+          271.8
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        199
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g186_fig3-2.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "c0a3c4721ae2",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "原图与图 3-1 相同的立方体，内部嵌入一个红色半透明小立方体表示架构项目覆盖的切片，除三条轴外没有任何文字标签；SVG 改成四个方框（EA 全景 / 架构项目切片 / 更高层架构 / 产出）加三条连线，立方体与切片的几何关系完全丢失",
+        "原图的关键信息是“切片在每条轴上只占一段、并且不触及上下边界”（不在最粗/最细层、不覆盖全部时期与主题）；SVG 只用“特定广度/特定规划期/特定详细程度”三条文字，读者看不到“不在边界”这一点",
+        "SVG 新增“更高层架构（约束与指导：目标/过渡/现状）”和“产出（填充/替换/重申全景内容）”两个方框，原图没有这两个框，也没有从切片指向它们的箭头",
+        "SVG 用“细节：战略/分段/能力”解释 Detail，但正文的 Detail 指详细程度，战略/分段/能力是架构层级，容易把两个维度混为一谈",
+        "SVG 还增加了“时效：候选/批准/实现”和结尾结论“批准后约束后续所有 EA 开发”，均非图 3-2 的画面内容"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "infographic",
+      "other"
+    ],
+    "notation": "三维立方体示意图 + 内部半透明高亮块：以体积表示 EA 全景，以嵌套小块表示一个架构项目覆盖的子体积",
+    "concepts": [
+      "architecture_landscape",
+      "architecture_levels",
+      "baseline_target_gap",
+      "transition_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "在 EA 全景立方体内部，用一块红色半透明小立方体标出单个架构项目覆盖的范围。",
+    "purpose_zh": "把图 3-1 的抽象体积落到一个具体架构项目上：项目不是整个全景，而是在广度、规划期、详细程度三个方向上各取一段的一个子体积；作者用这张图说明“架构工作请求”为何必须界定范围，以及项目产出只是填充/刷新全景的一部分。",
+    "reading_guide_zh": "先把它看成图 3-1 的同一个立方体：外框是 EA 全景，三条粗箭头仍是 Breadth (Subject)、Time、Detail。再看悬浮在内部的红色半透明小块，它就是这一个架构项目的切片。比较切片与外框在三条轴上的位置：切片在每条轴上都只占中间一段，四周都留有未覆盖的空间。图中没有文字标注这个红块，它的含义来自图题和正文。",
+    "key_points_zh": [
+      "红色切片只覆盖 EA 全景的一部分：不是全部主题、不是全部时期、也不是最粗或最细的所有层级。",
+      "切片在三条轴上都“内缩”，不贴外框边界；正文明确说示例不覆盖最粗或最细的层，也不覆盖所有时期或主题。",
+      "架构项目的产出是填充、替换或重申 EA 全景中这一块的内容，而不是重画整个全景。",
+      "切片内的所有工作都受更高层架构约束；更高层架构可能是未实现的目标、未实现的过渡，或已实现的现状。",
+      "若更高层架构没有显式变更，现状通常仍然有效；项目不能自行假定上层已变。",
+      "范围之外的工作可能有趣、未来也可能需要，但不属于本次架构举措；TTM 取决于是否守住广度、时间、详细程度三条边界。",
+      "立方体与切片都是示意：正文说真实情形更像海胆，尖刺伸向四面八方，而不是整齐的方块。"
+    ],
+    "hierarchy_zh": "视觉上是“外立方体 ⊃ 内部红色切片”的包含关系：外层是 EA 全景（全部潜在架构），内层是一个架构项目的覆盖范围。三条轴是外层立方体的维度，不是切片的子元素；图中没有画出更高层架构或产出的独立框。",
+    "line_semantics_zh": "图中只有三条粗箭头轴（与图 3-1 相同），没有连接两个框的语义线。项目与全景的关系完全由“小块位于大块内部”这一空间包含表达；切片与外框之间的空白表示未覆盖的范围。",
+    "misreadings_zh": [
+      "不要把红色小块读成“解决方案”“现状”或“目标状态”；它只表示一个架构项目的覆盖范围，颜色没有状态含义。",
+      "不要以为切片贴着外框：它在三条轴上都留有未覆盖的层与时段，这正是本图要强调的。",
+      "不要从红块的大小推算项目工作量或预算；图没有刻度。",
+      "原图没有任何文字说明红块，必须结合图题与正文，否则容易把内部小块误认成“目标架构”。",
+      "中文稿当前引用的 figs/g186_fig3-2.svg 已把立方体换成流程框，不能据它理解“切片在体积中的位置”。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p29",
+        "summary_zh": "架构项目只覆盖 EA 全景的特定部分——由广度、规划期与详细程度界定；示例不覆盖最粗或最细的层，也不覆盖所有时期或主题；项目将填充或刷新全景的一部分，并受更高层架构约束。"
+      },
+      {
+        "source": "en_pdf p29",
+        "summary_zh": "更高层架构可能以未实现的目标、未实现的过渡或已实现的现状存在；若更高层架构没有显式变更，现状很可能仍然有效；架构工作请求界定了当前项目的范围。"
+      },
+      {
+        "source": "zh_md L201",
+        "summary_zh": "从图 3-2 看，架构项目覆盖 EA 全景的特定部分，范围内可能已有先前工作；示例不覆盖最粗或最细的层，也不覆盖所有时期或主题。"
+      },
+      {
+        "source": "zh_md L205",
+        "summary_zh": "架构工作请求作为阶段 A 入口，界定当前架构项目；其实质产出是填充、替换或重申 EA 全景内容，获批后治理后续所有 EA 工作。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "free",
+    "description_zh": "与图 3-1 相同的立方体与三条粗箭头；立方体内部中央偏左悬浮一个红色半透明小立方体（切片），四周留白；无标题、无标签、无图例。"
+  },
+  "legend": [
+    {
+      "symbol": "大型半透明立方体（浅灰）",
+      "meaning_zh": "EA 全景（全部潜在架构）",
+      "explicit": false
+    },
+    {
+      "symbol": "红色半透明小立方体",
+      "meaning_zh": "一个架构项目覆盖的切片（广度 × 规划期 × 详细程度的子范围）",
+      "explicit": false
+    },
+    {
+      "symbol": "粗黑箭头",
+      "meaning_zh": "三个维度的坐标轴，箭头指向维度增大的方向",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "ea_landscape_volume",
+      "label_en": null,
+      "label_zh": "EA 全景（外层立方体）",
+      "type": "architecture",
+      "parent": null,
+      "level": 0,
+      "position": "外层大立方体",
+      "description_zh": "原图未标注；由与图 3-1 相同的立方体和图题可知其为 EA 全景。"
+    },
+    {
+      "id": "project_slice",
+      "label_en": null,
+      "label_zh": "架构项目切片（红色小块）",
+      "type": "architecture",
+      "parent": "ea_landscape_volume",
+      "level": 1,
+      "position": "大立方体内部中央偏左",
+      "description_zh": "一个架构项目覆盖的子体积，在三条轴上各占一段；原图无文字标签。"
+    },
+    {
+      "id": "dim_breadth",
+      "label_en": "Breadth (Subject)",
+      "label_zh": "广度（主题）",
+      "type": "concept",
+      "notation_type": "axis",
+      "parent": null,
+      "position": "上边缘，箭头向右上",
+      "description_zh": "主题范围维度。"
+    },
+    {
+      "id": "dim_time",
+      "label_en": "Time",
+      "label_zh": "时间",
+      "type": "concept",
+      "notation_type": "axis",
+      "parent": null,
+      "position": "顶面，箭头斜向右前",
+      "description_zh": "规划期维度；本图只写 Time，未加 Planning Horizon。"
+    },
+    {
+      "id": "dim_detail",
+      "label_en": "Detail",
+      "label_zh": "详细程度",
+      "type": "concept",
+      "notation_type": "axis",
+      "parent": null,
+      "position": "左前竖边，箭头向下",
+      "description_zh": "详细程度维度。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "ea_landscape_volume",
+      "to": "project_slice",
+      "type": "composition",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "切片位于立方体内部，表示项目只覆盖全景的一个子体积；原图没有画连线。"
+    },
+    {
+      "from": "ea_landscape_volume",
+      "to": "dim_breadth",
+      "type": "other",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "label_en": "Breadth (Subject)",
+      "label_zh": "广度（主题）",
+      "description_zh": "沿上边缘向右上的轴箭头。"
+    },
+    {
+      "from": "ea_landscape_volume",
+      "to": "dim_time",
+      "type": "other",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "label_en": "Time",
+      "label_zh": "时间",
+      "description_zh": "斜穿顶面的轴箭头，箭头末端落在红色切片附近。"
+    },
+    {
+      "from": "ea_landscape_volume",
+      "to": "dim_detail",
+      "type": "other",
+      "explicit": true,
+      "line": "thick",
+      "arrow": "forward",
+      "label_en": "Detail",
+      "label_zh": "详细程度",
+      "description_zh": "沿左前竖边向下的轴箭头。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "红色切片内部可见两条水平接缝，可能是 3D 渲染的分层，也可能是表示多个详细层级；原图无标签，无法确定。",
+      "切片在三条轴上的精确起止位置无法量化；只能判断它内缩、未触及外框边界。",
+      "原图没有标出更高层架构或“产出”，这两层含义只能从正文补足。",
+      "Time 轴箭头穿入红色切片，是透视遮挡还是刻意表达“项目处于该时段”无法区分。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 29 页图 3-2 截图（220 dpi）及 2×2 放大分块、切片局部 3 倍放大",
+      "英文 PDF 第 29 页正文",
+      "中文稿 G186e_实践者方法_按TOGAF_ADM开发企业架构.md 第 197–205 行",
+      "figs/g186_fig3-2.svg 的文本与结构"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G186e.pdf",
+    "pdf_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G186/fig3-2.json",
+    "interpretation_sha256": "268331d7dcf0517d262de6305447dcfa6dfe6868ea0d29469bc8803b280227c3",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 29,
+        "text": "Figure 3-2: EA Landscape with an Architecture Project",
+        "bbox_pdf_points": [
+          48.24,
+          276.508,
+          302.613,
+          290.074
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 29,
+      "printed_page": 15,
+      "bbox_pdf_points": [
+        151.3,
+        36.0,
+        460.7,
+        271.8
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G186/fig3-2-p0029.png",
+      "image_sha256": "17ea7b8ba7e6e3d5dfebf99eacb8df8658cdfccb650d2533999960161d88b368",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "17ea7b8ba7e6e3d5dfebf99eacb8df8658cdfccb650d2533999960161d88b368",
+          "status": "extracted-unverified",
+          "text": "0\"\noe\noO",
+          "words": [
+            {
+              "text": "0\"",
+              "confidence": 38.895741,
+              "bbox_pixels_xywh": [
+                128,
+                67,
+                13,
+                13
+              ]
+            },
+            {
+              "text": "oe",
+              "confidence": 57.000679,
+              "bbox_pixels_xywh": [
+                97,
+                72,
+                32,
+                22
+              ]
+            },
+            {
+              "text": "oO",
+              "confidence": 26.210094,
+              "bbox_pixels_xywh": [
+                106,
+                96,
+                29,
+                24
+              ]
+            }
+          ],
+          "mean_word_confidence": 40.7,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

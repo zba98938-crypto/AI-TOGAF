@@ -1,0 +1,623 @@
+{
+  "schema_version": "method-teaching-materials/1",
+  "method_id": "architecture-role-catalog-review",
+  "is_example": true,
+  "title": "预约试点中的角色、指导关系与任期",
+  "source": "G249 §4、§4.1–4.4",
+  "decision": "林某的分析岗位是否因此成为企业架构管理岗位，以及月底之后能否继续视为当前任务授权？",
+  "materials": [
+    [
+      "MANDATE",
+      "企业、履约分段、双店解决方案分别承担接口决定责任；企业角色向分段提供专业指导，没有人事汇报声明。"
+    ],
+    [
+      "KPI-POLICY",
+      "虚构实践负责人采用11月100%决定条目带评审依据的过程目标；它不是人员能力或绩效评级。"
+    ],
+    [
+      "ASSIGNMENT",
+      "林某的岗位为分析师，11月1日至30日承担预约接口审查任务；没有12月续期材料。"
+    ]
+  ],
+  "reasoning": [
+    "专业指导只覆盖预约接口，不推出人事管理关系。",
+    "岗位、角色和任务以三个独立引用保存；一条任务分配不构成胜任认证。",
+    "目标100%来自本项目材料；不是把G249示例3/5搬成企业目标。",
+    "11月8日属于授权期，12月1日不属于；任期变化与角色定义是否齐全分开判断。"
+  ],
+  "scenarios": {
+    "sufficient": {
+      "inputs": {
+        "source_ids": [
+          "MANDATE",
+          "KPI-POLICY",
+          "ASSIGNMENT"
+        ],
+        "as_of": "2026-11-08",
+        "roles": [
+          {
+            "id": "EA",
+            "name": "全渠道预约架构角色",
+            "tier": "enterprise",
+            "scope": "全渠道预约",
+            "segment_scope": "全渠道预约",
+            "primary_responsibility": "界定全渠道预约的变更与接口责任",
+            "activities": [
+              "维护全渠道预约的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "EA-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ],
+            "relationships": [
+              {
+                "id": "GUIDANCE",
+                "type": "architecture_guidance",
+                "target": "SEG",
+                "scope": "预约接口一致性",
+                "evidence": [
+                  "MANDATE"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "SEG",
+            "name": "门店履约架构角色",
+            "tier": "segment",
+            "scope": "门店履约",
+            "segment_scope": "门店履约",
+            "primary_responsibility": "界定门店履约的变更与接口责任",
+            "activities": [
+              "维护门店履约的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "SEG-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ],
+            "assignments": [
+              {
+                "id": "ASSIGN",
+                "person_ref": "PERSON-LIN",
+                "job_ref": "JOB-ANALYST",
+                "task_refs": [
+                  "REVIEW-RESERVATION"
+                ],
+                "authority": "虚构实践负责人",
+                "valid_from": "2026-11-01",
+                "valid_until": "2026-11-30",
+                "evidence": [
+                  "ASSIGNMENT"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "SOL",
+            "name": "双店预约试点架构角色",
+            "tier": "solution",
+            "scope": "双店预约试点",
+            "segment_scope": "双店预约试点",
+            "primary_responsibility": "界定双店预约试点的变更与接口责任",
+            "activities": [
+              "维护双店预约试点的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "SOL-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "gap_reasons": [],
+        "row_states": [
+          "defined-awaiting-hr-and-governance-review",
+          "defined-awaiting-hr-and-governance-review",
+          "defined-awaiting-hr-and-governance-review"
+        ]
+      },
+      "explanation": "字段齐全只允许进入人力与治理评审。"
+    },
+    "missing": {
+      "inputs": {
+        "source_ids": [
+          "MANDATE",
+          "KPI-POLICY",
+          "ASSIGNMENT"
+        ],
+        "as_of": "2026-11-08",
+        "roles": [
+          {
+            "id": "EA",
+            "name": "全渠道预约架构角色",
+            "tier": "enterprise",
+            "scope": "全渠道预约",
+            "segment_scope": "全渠道预约",
+            "primary_responsibility": "界定全渠道预约的变更与接口责任",
+            "activities": [
+              "维护全渠道预约的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "EA-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ],
+            "relationships": [
+              {
+                "id": "GUIDANCE",
+                "type": "architecture_guidance",
+                "target": "SEG",
+                "scope": "预约接口一致性",
+                "evidence": [
+                  "MANDATE"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "SEG",
+            "name": "门店履约架构角色",
+            "tier": "segment",
+            "scope": "门店履约",
+            "segment_scope": "门店履约",
+            "primary_responsibility": "界定门店履约的变更与接口责任",
+            "activities": [
+              "维护门店履约的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "SEG-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ],
+            "assignments": [
+              {
+                "id": "ASSIGN",
+                "person_ref": "PERSON-LIN",
+                "job_ref": "JOB-ANALYST",
+                "task_refs": [
+                  "REVIEW-RESERVATION"
+                ],
+                "authority": "虚构实践负责人",
+                "valid_from": "2026-11-01",
+                "valid_until": "2026-11-30",
+                "evidence": [
+                  "ASSIGNMENT"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "SOL",
+            "name": "双店预约试点架构角色",
+            "tier": "solution",
+            "scope": "双店预约试点",
+            "segment_scope": "双店预约试点",
+            "primary_responsibility": "界定双店预约试点的变更与接口责任",
+            "activities": [
+              "维护双店预约试点的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "SOL-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "gap_ids": [
+          "SEG-KPI:measurement_source"
+        ],
+        "row_states": [
+          "defined-awaiting-hr-and-governance-review",
+          "needs-input",
+          "defined-awaiting-hr-and-governance-review"
+        ]
+      },
+      "explanation": "删除KPI取数来源，不能用目标值代替观察口径。"
+    },
+    "change": {
+      "inputs": {
+        "source_ids": [
+          "MANDATE",
+          "KPI-POLICY",
+          "ASSIGNMENT"
+        ],
+        "as_of": "2026-12-01",
+        "roles": [
+          {
+            "id": "EA",
+            "name": "全渠道预约架构角色",
+            "tier": "enterprise",
+            "scope": "全渠道预约",
+            "segment_scope": "全渠道预约",
+            "primary_responsibility": "界定全渠道预约的变更与接口责任",
+            "activities": [
+              "维护全渠道预约的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "EA-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ],
+            "relationships": [
+              {
+                "id": "GUIDANCE",
+                "type": "architecture_guidance",
+                "target": "SEG",
+                "scope": "预约接口一致性",
+                "evidence": [
+                  "MANDATE"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "SEG",
+            "name": "门店履约架构角色",
+            "tier": "segment",
+            "scope": "门店履约",
+            "segment_scope": "门店履约",
+            "primary_responsibility": "界定门店履约的变更与接口责任",
+            "activities": [
+              "维护门店履约的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "SEG-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ],
+            "assignments": [
+              {
+                "id": "ASSIGN",
+                "person_ref": "PERSON-LIN",
+                "job_ref": "JOB-ANALYST",
+                "task_refs": [
+                  "REVIEW-RESERVATION"
+                ],
+                "authority": "虚构实践负责人",
+                "valid_from": "2026-11-01",
+                "valid_until": "2026-11-30",
+                "evidence": [
+                  "ASSIGNMENT"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "SOL",
+            "name": "双店预约试点架构角色",
+            "tier": "solution",
+            "scope": "双店预约试点",
+            "segment_scope": "双店预约试点",
+            "primary_responsibility": "界定双店预约试点的变更与接口责任",
+            "activities": [
+              "维护双店预约试点的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "SOL-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "gap_ids": [
+          "ASSIGN:period"
+        ]
+      },
+      "explanation": "复核日改到12月1日，11月任务分配不再是当前授权。"
+    },
+    "counterexample": {
+      "inputs": {
+        "source_ids": [
+          "MANDATE",
+          "KPI-POLICY",
+          "ASSIGNMENT"
+        ],
+        "as_of": "2026-11-08",
+        "roles": [
+          {
+            "id": "EA",
+            "name": "全渠道预约架构角色",
+            "tier": "enterprise",
+            "scope": "全渠道预约",
+            "segment_scope": "全渠道预约",
+            "primary_responsibility": "界定全渠道预约的变更与接口责任",
+            "activities": [
+              "维护全渠道预约的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "EA-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ],
+            "relationships": [
+              {
+                "id": "GUIDANCE",
+                "type": "architecture_guidance",
+                "target": "NOT-A-ROLE",
+                "scope": "预约接口一致性",
+                "evidence": [
+                  "MANDATE"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "SEG",
+            "name": "门店履约架构角色",
+            "tier": "segment",
+            "scope": "门店履约",
+            "segment_scope": "门店履约",
+            "primary_responsibility": "界定门店履约的变更与接口责任",
+            "activities": [
+              "维护门店履约的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "SEG-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ],
+            "assignments": [
+              {
+                "id": "ASSIGN",
+                "person_ref": "PERSON-LIN",
+                "job_ref": "JOB-ANALYST",
+                "task_refs": [
+                  "REVIEW-RESERVATION"
+                ],
+                "authority": "虚构实践负责人",
+                "valid_from": "2026-11-01",
+                "valid_until": "2026-11-30",
+                "evidence": [
+                  "ASSIGNMENT"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "SOL",
+            "name": "双店预约试点架构角色",
+            "tier": "solution",
+            "scope": "双店预约试点",
+            "segment_scope": "双店预约试点",
+            "primary_responsibility": "界定双店预约试点的变更与接口责任",
+            "activities": [
+              "维护双店预约试点的接口决定"
+            ],
+            "key_stakeholders": [
+              "运营负责人"
+            ],
+            "evidence": [
+              "MANDATE"
+            ],
+            "kpis": [
+              {
+                "id": "SOL-KPI",
+                "measure": "带评审依据的接口决定比例",
+                "target": 100,
+                "target_origin": "project-adopted",
+                "unit": "%",
+                "measurement_period": "2026年11月",
+                "measurement_source": "决定登记册",
+                "owner": "架构实践负责人",
+                "formula_or_rule": "有评审依据条数/全部决定条数×100",
+                "adopted_by": "虚构实践负责人",
+                "evidence": [
+                  "KPI-POLICY"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "reject": "ROLE-REL"
+      },
+      "explanation": "把专业指导指向未登记角色，拒绝悬空关系。"
+    }
+  }
+}

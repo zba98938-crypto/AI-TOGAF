@@ -1,0 +1,621 @@
+# G234/fig4-3 · 元数据质量保障方法
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G234/fig4-3.md) · [JSON](../../architecture/diagrams/G234/fig4-3.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G234e.pdf`；SHA-256：`34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7`。
+
+## 原图 · PDF 第 25 页
+
+![英文原图](../assets/G234/fig4-3-p0025.png)
+
+PDF 坐标：`[61.1, 36.0, 550.9, 308.4]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+ae
+ie
+Ye Normative
+Yn Gam N\
+Precision
+‘Approach
+Sourcing
+Approach
+Completeness
+Accuracy
+Integrity
+Consistency
+ @-@_
+Standard-Based
+Collaboration-Based Metadata
+eated by a few, then pul
+blished
+ren
+onl
+ati
+dby many, edited by many
+Stati
+lift
+mé
+em
+at
+eventual
+tency
+System of reference (quality, reporting)
+‘Crowd sourcing’ metadata collection
+Metadata
+Metadata
+Repository
+cl
+&&
+Repository
+Read
+Request:
+Creation,
+dl
+Bh 858
+Medication
+22% 22% RaQ
+‘Consumers
+Communities ofContibutors
+\|
+```
+
+## 概要（历史解释；局部修正见上）
+
+规范式与众包式两种元数据质量保障模式，在质量目标、创建方式和存储库使用流程上正相反。
+
+## 目的（历史解释；局部修正见上）
+
+第 4.2.2 节说明元数据质量由流程与校验工作流保障，而流程可随元数据范围而异；本图把两种模式的取舍一次对照清楚，供架构师按元数据范围选型。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+左右两列对照读。每列自上而下：圆形方法图标 → 斜箭头指向的质量目标 → 青色模式卡（名称 + 两条特征）→ 场景标题 → 底部小型流程图。先读上半部理解“追求什么质量、由谁创建”，再读下半部理解“谁写、谁读、变更如何回流”。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 规范式追求精确（Precision）、准确（Accuracy）、完整（Integrity）、一致（Consistency）；众包式追求完备（Completeness）与及时（Timeliness）。
+- 规范式：由少数人创建、以只读方式发布、静态、通过变更生命周期管理；定位是“质量与报表的参考系统”。
+- 众包式：多人创建、多人编辑、动态、最终一致；定位是“众包式元数据采集”。
+- 规范式流程是一个闭环：中央团队创建/修改 → 元数据存储库 → 消费者只读 → 消费者提出变更请求 → 中央团队处理。
+- 众包式流程没有中央审批：贡献者社区直接创建/修改存储库，同时从存储库读取。
+- 两种模式不是二选一，正文明确可按元数据范围分别采用；图中用左右并列而非箭头连接，正表示它们是可并存的选项。
+
+## 层级（历史解释；局部修正见上）
+
+两个并列模式（规范式 / 众包式）。每个模式内部：质量目标 → 方法圆 → 模式卡（特征）→ 场景 → 流程角色（存储库、团队/社区、消费者）。
+
+## 线条含义（历史解释；局部修正见上）
+
+斜箭头把左侧质量属性指向方法圆，表示该模式追求这些质量；底部细箭头表示创建/修改与读取的流向，消费者到变更请求再到中央团队的折线表示反馈回路。橙色下划线只是分隔线，不是箭头。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 不要以为众包式不追求质量；它用完备性与及时性替代精确性与一致性，是不同质量目标的取舍。
+- “System of reference (quality, reporting)”不是某个外部系统名，而是说该模式下的存储库是质量与报表的权威参考。
+- 不要把底部两组流程看成同一套角色的两种画法：左边有中央团队与消费者，右边只有贡献者社区。
+- 中文稿 SVG 只列要点，丢失了读写流程，不能据它判断谁创建、谁只读。
+
+## 元素
+
+```json
+[
+  {
+    "id": "normative_approach",
+    "label_en": "Normative Approach",
+    "label_zh": "规范式方法",
+    "type": "concept",
+    "parent": null,
+    "level": 1,
+    "position": "左上圆形",
+    "description_zh": "以规则与校验保证元数据质量的方法。"
+  },
+  {
+    "id": "crowd_sourcing_approach",
+    "label_en": "Crowd-Sourcing Approach",
+    "label_zh": "众包式方法",
+    "type": "concept",
+    "parent": null,
+    "level": 1,
+    "position": "右上圆形"
+  },
+  {
+    "id": "grp_quality_normative",
+    "label_zh": "规范式质量目标",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "position": "左外侧",
+    "description_zh": "Precision、Accuracy、Integrity、Consistency 四个标签组成，原图无组框。"
+  },
+  {
+    "id": "grp_quality_crowd",
+    "label_zh": "众包式质量目标",
+    "type": "group",
+    "parent": null,
+    "level": 1,
+    "position": "右外侧",
+    "description_zh": "Completeness 与 Timeliness 两个标签组成，原图无组框。"
+  },
+  {
+    "id": "q_precision",
+    "label_en": "Precision",
+    "label_zh": "精确性",
+    "type": "metric",
+    "parent": "grp_quality_normative",
+    "level": 2,
+    "position": "左外侧第一行"
+  },
+  {
+    "id": "q_accuracy",
+    "label_en": "Accuracy",
+    "label_zh": "准确性",
+    "type": "metric",
+    "parent": "grp_quality_normative",
+    "level": 2,
+    "position": "左外侧第二行"
+  },
+  {
+    "id": "q_integrity",
+    "label_en": "Integrity",
+    "label_zh": "完整性",
+    "type": "metric",
+    "parent": "grp_quality_normative",
+    "level": 2,
+    "position": "左外侧第三行"
+  },
+  {
+    "id": "q_consistency",
+    "label_en": "Consistency",
+    "label_zh": "一致性",
+    "type": "metric",
+    "parent": "grp_quality_normative",
+    "level": 2,
+    "position": "左外侧第四行"
+  },
+  {
+    "id": "q_completeness",
+    "label_en": "Completeness",
+    "label_zh": "完备性",
+    "type": "metric",
+    "parent": "grp_quality_crowd",
+    "level": 2,
+    "position": "右外侧第一行"
+  },
+  {
+    "id": "q_timeliness",
+    "label_en": "Timeliness",
+    "label_zh": "及时性",
+    "type": "metric",
+    "parent": "grp_quality_crowd",
+    "level": 2,
+    "position": "右外侧第二行"
+  },
+  {
+    "id": "standard_based",
+    "label_en": "Standard-Based",
+    "label_zh": "基于标准的",
+    "type": "concept",
+    "parent": null,
+    "level": 1,
+    "position": "左青色卡标题"
+  },
+  {
+    "id": "std_created",
+    "label_en": "Created by a few, then published as read-only",
+    "label_zh": "由少数人创建，随后以只读方式发布",
+    "type": "note",
+    "parent": null,
+    "level": 2,
+    "position": "左青色卡第二行"
+  },
+  {
+    "id": "std_static",
+    "label_en": "Static, change lifecycle management",
+    "label_zh": "静态，变更生命周期管理",
+    "type": "note",
+    "parent": null,
+    "level": 2,
+    "position": "左青色卡第三行"
+  },
+  {
+    "id": "collaboration_based",
+    "label_en": "Collaboration-Based Metadata",
+    "label_zh": "基于协作的元数据",
+    "type": "concept",
+    "parent": null,
+    "level": 1,
+    "position": "右青色卡标题"
+  },
+  {
+    "id": "collab_created",
+    "label_en": "Created by many, edited by many",
+    "label_zh": "由多人创建、由多人编辑",
+    "type": "note",
+    "parent": null,
+    "level": 2,
+    "position": "右青色卡第二行"
+  },
+  {
+    "id": "collab_dynamic",
+    "label_en": "Dynamic, eventual consistency",
+    "label_zh": "动态，最终一致性",
+    "type": "note",
+    "parent": null,
+    "level": 2,
+    "position": "右青色卡第三行"
+  },
+  {
+    "id": "system_of_reference",
+    "label_en": "System of reference (quality, reporting)",
+    "label_zh": "参考系统（质量、报告）",
+    "type": "note",
+    "parent": null,
+    "level": 1,
+    "position": "左下场景标题"
+  },
+  {
+    "id": "crowd_collection",
+    "label_en": "'Crowd sourcing' metadata collection",
+    "label_zh": "“众包”元数据采集",
+    "type": "note",
+    "parent": null,
+    "level": 1,
+    "position": "右下场景标题"
+  },
+  {
+    "id": "repo_standard",
+    "label_en": "Metadata Repository",
+    "label_zh": "元数据存储库",
+    "type": "artifact",
+    "parent": null,
+    "level": 2,
+    "position": "左下流程，方框"
+  },
+  {
+    "id": "central_team",
+    "label_en": "Central Team",
+    "label_zh": "中央团队",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "左下流程，右上"
+  },
+  {
+    "id": "btn_create_standard",
+    "label_en": "Create, Modify",
+    "label_zh": "创建、修改",
+    "type": "process",
+    "parent": null,
+    "level": 2,
+    "position": "中央团队与存储库之间的蓝色小框"
+  },
+  {
+    "id": "btn_read_standard",
+    "label_en": "Read",
+    "label_zh": "读取",
+    "type": "process",
+    "parent": null,
+    "level": 2,
+    "position": "存储库下方小框"
+  },
+  {
+    "id": "consumers",
+    "label_en": "Consumers",
+    "label_zh": "消费者",
+    "type": "role",
+    "parent": null,
+    "level": 2,
+    "position": "左下流程底部"
+  },
+  {
+    "id": "change_request",
+    "label_en": "Change Request: Creation, Modification",
+    "label_zh": "变更请求：创建、修改",
+    "type": "artifact",
+    "parent": null,
+    "level": 2,
+    "position": "左下流程，云朵气泡"
+  },
+  {
+    "id": "repo_crowd",
+    "label_en": "Metadata Repository",
+    "label_zh": "元数据存储库",
+    "type": "artifact",
+    "parent": null,
+    "level": 2,
+    "position": "右下流程，方框"
+  },
+  {
+    "id": "btn_read_crowd",
+    "label_en": "Read",
+    "label_zh": "读取",
+    "type": "process",
+    "parent": null,
+    "level": 2,
+    "position": "存储库下方小框"
+  },
+  {
+    "id": "btn_create_crowd",
+    "label_en": "Create, Modify",
+    "label_zh": "创建、修改",
+    "type": "process",
+    "parent": null,
+    "level": 2,
+    "position": "社区与存储库之间的蓝色小框"
+  },
+  {
+    "id": "communities",
+    "label_en": "Communities of Contributors",
+    "label_zh": "贡献者社区",
+    "type": "organization_unit",
+    "parent": null,
+    "level": 2,
+    "position": "右下流程底部"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "grp_quality_normative",
+    "to": "normative_approach",
+    "type": "influence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "一组质量属性整体用一条斜箭头指向方法圆。"
+  },
+  {
+    "from": "grp_quality_crowd",
+    "to": "crowd_sourcing_approach",
+    "type": "influence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "一组质量属性整体用一条斜箭头指向众包式方法圆。"
+  },
+  {
+    "from": "normative_approach",
+    "to": "standard_based",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "圆形图标压在模式卡上缘，表示该方法是 Standard-Based。"
+  },
+  {
+    "from": "crowd_sourcing_approach",
+    "to": "collaboration_based",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "圆形图标压在模式卡上缘，表示该方法是 Collaboration-Based Metadata。"
+  },
+  {
+    "from": "standard_based",
+    "to": "system_of_reference",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "橙色横线下方是场景标题，无箭头。"
+  },
+  {
+    "from": "collaboration_based",
+    "to": "crowd_collection",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "橙色横线下方是场景标题，无箭头。"
+  },
+  {
+    "from": "system_of_reference",
+    "to": "repo_standard",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "场景标题统领其下的存储库流程。"
+  },
+  {
+    "from": "crowd_collection",
+    "to": "repo_crowd",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "场景标题统领其下的存储库流程。"
+  },
+  {
+    "from": "central_team",
+    "to": "repo_standard",
+    "type": "flow",
+    "label_en": "Create, Modify",
+    "label_zh": "创建、修改",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "repo_standard",
+    "to": "consumers",
+    "type": "flow",
+    "label_en": "Read",
+    "label_zh": "读取",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "consumers",
+    "to": "change_request",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "消费者到变更请求气泡的连线，无箭头。"
+  },
+  {
+    "from": "change_request",
+    "to": "central_team",
+    "type": "flow",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "变更请求回到中央团队处理。"
+  },
+  {
+    "from": "repo_crowd",
+    "to": "communities",
+    "type": "flow",
+    "label_en": "Read",
+    "label_zh": "读取",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "communities",
+    "to": "repo_crowd",
+    "type": "flow",
+    "label_en": "Create, Modify",
+    "label_zh": "创建、修改",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_normative",
+    "kind": "cycle",
+    "name_zh": "规范式元数据生命周期",
+    "steps": [
+      "central_team",
+      "repo_standard",
+      "consumers",
+      "change_request",
+      "central_team"
+    ],
+    "description_zh": "中央团队创建/修改，消费者只读；变更请求回流到中央团队。"
+  },
+  {
+    "id": "f_crowd",
+    "kind": "cycle",
+    "name_zh": "众包式元数据采集循环",
+    "steps": [
+      "communities",
+      "repo_crowd",
+      "communities"
+    ],
+    "description_zh": "贡献者社区直接写入并读取存储库，没有中央审批环节。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "圆形图标（法槌 / 人群网络）",
+    "meaning_zh": "两种方法：规范式（规则与裁定）、众包式（多人协作）",
+    "explicit": false
+  },
+  {
+    "symbol": "斜箭头",
+    "meaning_zh": "该方法追求的质量属性",
+    "explicit": false
+  },
+  {
+    "symbol": "青色模式卡",
+    "meaning_zh": "方法名称与创建/变更特征",
+    "explicit": false
+  },
+  {
+    "symbol": "橙色横线",
+    "meaning_zh": "模式卡与下方场景标题的分隔",
+    "explicit": false
+  },
+  {
+    "symbol": "人物图标 + 方框",
+    "meaning_zh": "承担创建/修改或读取的角色",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "free",
+  "description_zh": "左右两列对称：每列上方圆形方法图标，斜向箭头从外侧指向圆；中部青色模式卡；下方场景标题；最下方是存储库与角色组成的小流程。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G234/fig4-2",
+    "relation": "follows",
+    "note_zh": "先收集需求（图 4-2），再选择保障质量的流程模式（图 4-3）"
+  },
+  {
+    "target": "G234/fig4-4",
+    "relation": "precedes",
+    "note_zh": "两种质量流程模式最终落到图 4-4 的 IT 方案流程组件中"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "消费者到变更请求的连线在原图中无箭头，按“提出请求”的隐含方向记录。",
+    "左侧四条质量属性与圆之间只有一条斜箭头，无法判断原意是四项分别影响还是整体影响，本分析按整体影响记录。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 25 页原图截图（2x2 与 3x3 放大分块）",
+    "英文 PDF 第 24 页正文（4.2.2 节）",
+    "中文稿 G234e_信息架构_元数据管理.md 第 253–256 行",
+    "figs/g234_fig4-3.svg 源码"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

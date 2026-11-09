@@ -1,0 +1,460 @@
+{
+  "schema_version": "2.0",
+  "id": "G233/fig3-1",
+  "title": "ArchiMate 业务能力元素与关系",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      139
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "为整本指南规定最小的 ArchiMate 元素集与合法关系集。作者在第 3 章开头指出：业务能力规划只需要 ArchiMate 的一个子集，先用这张图把“战略—价值流—能力—能力实例—落地要素”的语义固定下来，后续能力目录、价值流映射与实例模型都复用它；表 3-1 再逐元素解释这些元素在能力规划中的用法。",
+    "reading_guide_zh": "从上往下、从中间向两侧读。上方：Stakeholder 接收 Value、受益于 Value Stream；Value Stream 提出 Value、达成 Goal，Value 由 Outcome 度量。中轴：Business Event 触发 Value Stream，Value Stream 包含 Value Stream Stage，Business Capability 以带箭头的 Enables 支撑阶段。右侧目标链：Goal 导致 Outcome，Capability 交付 Outcome。下方落地链：Business Capability Instance 以空心三角“实例化”Business Capability，并被 Business Process 使能、由 Resource 服务、与 Application Process 对齐。左下：Business Object 对齐能力，并由应用组件内的 Data Object 表示；业务角色使用应用组件、在业务流程中活动。无箭头连线按标签的语法主语→宾语理解。",
+    "key_points_zh": [
+      "全图用四种底色区分 ArchiMate 层：紫=动机（Stakeholder、Value、Goal、Outcome），黄=业务（Event、Object、Role、Process），沙=战略（Value Stream、Stage、Capability、Capability Instance、Resource），青=应用（Application Component、Data Object、Application Process）。",
+      "Business Capability 是枢纽：向上用 Enables 支撑 Value Stream Stage（全图唯一带普通箭头的线），向下用 Instantiates 由 Business Capability Instance 实现（空心三角，方向为实例→能力）。",
+      "“实例化”是能力从“做什么”变成“怎么做”的关键：能力实例再挂上 Business Role、Application Component、Business Object/Data Object、Business Process 与 Resource，这些要素才使能力可交付成果。",
+      "价值流是分层的：Value Stream Contains Value Stream Stage；阶段是“Is value item for”Value 的增量单位；价值最终由 Outcome 度量，而不是由活动量度量。",
+      "目标与成果是两种元素：Goal 是意图，Outcome 是结果；Value Stream Achieves Goal、Goal Results in Outcome、Value Measured by Outcome，Capability Delivers Outcome。",
+      "Business Event 触发 Value Stream；表 3-1 补充说明业务事件至少触发价值流，也可触发单个价值流阶段，本图只画了触发整条价值流。",
+      "Business Object 与 Data Object 不是一回事：前者是业务域概念对象（黄），后者是应用组件内为自动化处理而结构化的数据（青），两者以 Represented by 相连。",
+      "全图只有两处箭头，其余关系靠标签措辞定向；图中没有时间轴，Value Stream 与 Stage 是包含关系而非先后步骤。"
+    ],
+    "hierarchy_zh": "三条层级链。价值流链：Value Stream → Value Stream Stage（由 Contains 表达，视觉上并未嵌套）。能力链：Business Capability → Business Capability Instance（实例是能力的特化/实例，箭头由实例指向能力）。应用链：Application Component 视觉上包含 Data Object 与 Application Process。业务能力与价值流阶段之间是“使能”关系，不是上下级；Stakeholder、Goal、Outcome 等是同一层的关联元素。",
+    "line_semantics_zh": "实线无箭头＝ArchiMate 关联，方向按标签读：Receives、Benefits from、Proposes、Achieves、Contains、Is value item for、Triggers、Aligned to、Represented by、Delivers、Served by、Enabled by、Activities in、Used by、Results in、Measured by。唯一带普通实心箭头的是 Business Capability → Value Stream Stage 的 Enables；唯一带空心三角的是 Business Capability Instance → Business Capability 的 Instantiates（画法类似 UML 泛化，语义是实例化）。",
+    "misreadings_zh": [
+      "不要把它当流程顺序图：Value Stream 与 Stage 是包含关系，图中没有时间轴，也没有阶段顺序。",
+      "不要把 Business Capability Instance 当成“二级能力/子能力”；它是同一能力的一次具体实现，元素类型仍是能力。",
+      "不要因为 Instantiates 用空心三角就理解成“继承/特化”；标签写明是实例化，方向是实例→能力。",
+      "不要把所有无箭头连线都当成双向关联：多数标签有明确的主谓方向（如 Event Triggers Value Stream），应按标签读。",
+      "中文稿第 3.1 节引用的 figs/g233_fig3-1.svg 只是 12 个名词框加装饰线，既缺元素也缺全部关系，不能据它理解本图；必须以英文原图为准。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "stakeholder",
+      "label_en": "Stakeholder",
+      "label_zh": "利益相关者",
+      "type": "stakeholder",
+      "parent": null,
+      "position": "顶部中央偏左（紫）",
+      "notation_type": "ArchiMate Stakeholder"
+    },
+    {
+      "id": "value",
+      "label_en": "Value",
+      "label_zh": "价值",
+      "type": "goal",
+      "parent": null,
+      "position": "右上（紫椭圆）",
+      "notation_type": "ArchiMate Value",
+      "description_zh": "价值流提出、由成果度量的相对价值/效用。"
+    },
+    {
+      "id": "goal",
+      "label_en": "Goal",
+      "label_zh": "目标",
+      "type": "goal",
+      "parent": null,
+      "position": "右中上（紫八边形）",
+      "notation_type": "ArchiMate Goal"
+    },
+    {
+      "id": "outcome",
+      "label_en": "Outcome",
+      "label_zh": "成果",
+      "type": "goal",
+      "parent": null,
+      "position": "右下（紫八边形）",
+      "notation_type": "ArchiMate Outcome"
+    },
+    {
+      "id": "value_stream",
+      "label_en": "Value Stream",
+      "label_zh": "价值流",
+      "type": "value_stream",
+      "parent": null,
+      "position": "中上（沙色）",
+      "notation_type": "ArchiMate Value Stream"
+    },
+    {
+      "id": "value_stream_stage",
+      "label_en": "Value Stream Stage",
+      "label_zh": "价值流阶段",
+      "type": "value_stream_stage",
+      "parent": null,
+      "position": "中部（沙色）",
+      "notation_type": "ArchiMate Value Stream Stage",
+      "description_zh": "由 Contains 连线表示它是价值流的组成部分，视觉上未被价值流框包裹。"
+    },
+    {
+      "id": "business_capability",
+      "label_en": "Business Capability",
+      "label_zh": "业务能力",
+      "type": "capability",
+      "parent": null,
+      "position": "中央（沙色）",
+      "level": 1,
+      "notation_type": "ArchiMate Business Capability"
+    },
+    {
+      "id": "business_capability_instance",
+      "label_en": "Business Capability Instance",
+      "label_zh": "业务能力实例",
+      "type": "capability",
+      "parent": null,
+      "position": "下方中部（沙色）",
+      "notation_type": "ArchiMate Business Capability",
+      "description_zh": "同一业务能力的一次具体实现，不是子能力。"
+    },
+    {
+      "id": "business_event",
+      "label_en": "Business Event",
+      "label_zh": "业务事件",
+      "type": "event",
+      "parent": null,
+      "position": "左上（黄）",
+      "notation_type": "ArchiMate Business Event"
+    },
+    {
+      "id": "business_object",
+      "label_en": "Business Object",
+      "label_zh": "业务对象",
+      "type": "data",
+      "parent": null,
+      "position": "左中（黄）",
+      "notation_type": "ArchiMate Business Object"
+    },
+    {
+      "id": "application_component",
+      "label_en": "Application Component",
+      "label_zh": "应用组件",
+      "type": "application",
+      "parent": null,
+      "position": "左下（青色大框）",
+      "notation_type": "ArchiMate Application Component"
+    },
+    {
+      "id": "data_object",
+      "label_en": "Data Object",
+      "label_zh": "数据对象",
+      "type": "data",
+      "parent": "application_component",
+      "position": "应用组件内上方（白框）",
+      "notation_type": "ArchiMate Data Object"
+    },
+    {
+      "id": "application_process",
+      "label_en": "Application Process",
+      "label_zh": "应用过程",
+      "type": "process",
+      "parent": "application_component",
+      "position": "应用组件内下方（青框）",
+      "notation_type": "ArchiMate Application Process"
+    },
+    {
+      "id": "resource",
+      "label_en": "Resource",
+      "label_zh": "资源",
+      "type": "resource",
+      "parent": null,
+      "position": "右下（沙色）",
+      "notation_type": "ArchiMate Resource"
+    },
+    {
+      "id": "business_process",
+      "label_en": "Business Process",
+      "label_zh": "业务流程",
+      "type": "process",
+      "parent": null,
+      "position": "底部中央（黄）",
+      "notation_type": "ArchiMate Business Process"
+    },
+    {
+      "id": "business_role",
+      "label_en": "Business Role",
+      "label_zh": "业务角色",
+      "type": "role",
+      "parent": null,
+      "position": "左下底部（黄）",
+      "notation_type": "ArchiMate Business Role"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "stakeholder",
+      "to": "value_stream",
+      "type": "association",
+      "label_en": "Benefits from",
+      "label_zh": "受益于",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "利益相关者从价值流获得收益；无箭头，方向按标签。"
+    },
+    {
+      "from": "stakeholder",
+      "to": "value",
+      "type": "association",
+      "label_en": "Receives",
+      "label_zh": "接收",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "利益相关者接收价值；无箭头。"
+    },
+    {
+      "from": "value_stream",
+      "to": "value",
+      "type": "association",
+      "label_en": "Proposes",
+      "label_zh": "提出",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "价值流提出/交付价值；标签靠近价值流一侧，无箭头。"
+    },
+    {
+      "from": "value_stream",
+      "to": "goal",
+      "type": "association",
+      "label_en": "Achieves",
+      "label_zh": "达成",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "价值流达成目标；无箭头。"
+    },
+    {
+      "from": "value_stream",
+      "to": "value_stream_stage",
+      "type": "composition",
+      "label_en": "Contains",
+      "label_zh": "包含",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "价值流由阶段组成；竖向无箭头连线。"
+    },
+    {
+      "from": "value_stream_stage",
+      "to": "value",
+      "type": "association",
+      "label_en": "Is value item for",
+      "label_zh": "是……的价值项",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "斜线从价值流阶段穿过 Goal 框画到 Value 椭圆，端点不是 Goal；按画面记为阶段→价值。"
+    },
+    {
+      "from": "business_event",
+      "to": "value_stream",
+      "type": "triggering",
+      "label_en": "Triggers",
+      "label_zh": "触发",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务事件触发价值流；无箭头。"
+    },
+    {
+      "from": "business_capability",
+      "to": "value_stream_stage",
+      "type": "serving",
+      "label_en": "Enables",
+      "label_zh": "使能",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "全图唯一带普通箭头的连线，箭头由业务能力指向价值流阶段。"
+    },
+    {
+      "from": "business_capability_instance",
+      "to": "business_capability",
+      "type": "specialization",
+      "label_en": "Instantiates",
+      "label_zh": "实例化",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "空心三角指向业务能力，语义是能力实例实现/实例化该能力，不是继承子类。"
+    },
+    {
+      "from": "business_capability",
+      "to": "outcome",
+      "type": "produces",
+      "label_en": "Delivers",
+      "label_zh": "交付",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务能力交付成果；无箭头。"
+    },
+    {
+      "from": "business_object",
+      "to": "business_capability",
+      "type": "maps_to",
+      "label_en": "Aligned to",
+      "label_zh": "对齐于",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务对象对齐（可分配给）一个或多个业务能力；无箭头。"
+    },
+    {
+      "from": "business_object",
+      "to": "data_object",
+      "type": "maps_to",
+      "label_en": "Represented by",
+      "label_zh": "表示为",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务对象在应用组件中表示为数据对象；无箭头。"
+    },
+    {
+      "from": "application_process",
+      "to": "business_capability_instance",
+      "type": "maps_to",
+      "label_en": "Aligned to",
+      "label_zh": "对齐于",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "应用过程与能力实例对齐；无箭头。"
+    },
+    {
+      "from": "resource",
+      "to": "business_capability_instance",
+      "type": "serving",
+      "label_en": "Served by",
+      "label_zh": "由……服务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "资源为能力实例提供支撑；图上用被动语态 Served by，无箭头。"
+    },
+    {
+      "from": "business_capability_instance",
+      "to": "business_process",
+      "type": "serving",
+      "label_en": "Enabled by",
+      "label_zh": "由……使能",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务流程在能力实例语境中实现结果，能力实例使能流程；无箭头。"
+    },
+    {
+      "from": "business_role",
+      "to": "business_process",
+      "type": "assignment",
+      "label_en": "Activities in",
+      "label_zh": "在……中活动",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务角色在业务流程中执行行为；无箭头。"
+    },
+    {
+      "from": "business_role",
+      "to": "application_component",
+      "type": "access",
+      "label_en": "Used by",
+      "label_zh": "被……使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "应用组件被业务角色使用；图上为被动语态，无箭头。"
+    },
+    {
+      "from": "goal",
+      "to": "outcome",
+      "type": "produces",
+      "label_en": "Results in",
+      "label_zh": "导致",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "目标导致成果；无箭头。"
+    },
+    {
+      "from": "value",
+      "to": "outcome",
+      "type": "association",
+      "label_en": "Measured by",
+      "label_zh": "由……度量",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "价值由成果度量；无箭头。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "紫色框/八边形/椭圆",
+      "meaning_zh": "动机层元素：Stakeholder、Value、Goal、Outcome",
+      "explicit": false
+    },
+    {
+      "symbol": "黄色框",
+      "meaning_zh": "业务层元素：Business Event、Business Object、Business Role、Business Process",
+      "explicit": false
+    },
+    {
+      "symbol": "沙色框",
+      "meaning_zh": "能力与价值流元素：Value Stream、Value Stream Stage、Business Capability、Business Capability Instance、Resource",
+      "explicit": false
+    },
+    {
+      "symbol": "青色框",
+      "meaning_zh": "应用层元素：Application Component 及其内部的 Data Object、Application Process",
+      "explicit": false
+    },
+    {
+      "symbol": "框右上角小图标",
+      "meaning_zh": "ArchiMate 元素类型图标（能力网格、价值流 V 形、目标靶心、成果靶心带箭头、利益相关者双人等）",
+      "explicit": false
+    },
+    {
+      "symbol": "空心三角箭头",
+      "meaning_zh": "实例化（Instantiates）：Business Capability Instance → Business Capability",
+      "explicit": false
+    },
+    {
+      "symbol": "普通实心箭头",
+      "meaning_zh": "使能（Enables）：Business Capability → Value Stream Stage",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "16 个元素与 19 条关系均清晰可辨；但除 Enables、Instantiates 外都没有箭头，关系方向按标签语法推定。",
+      "“Proposes”的主语存在歧义（价值流提出价值，还是价值向价值流提出主张），本文按“价值流提出价值”记录。",
+      "“Is value item for”斜线穿过 Goal 框并终止于 Value 椭圆；若按正文语境理解“阶段的价值项服务于目标”，语义对象应为 Goal，但按画面端点记为 Value。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 19 页图 3-1 截图（figctx 裁剪）及 2×2、3×3 放大分块",
+      "英文 PDF 第 18–19 页正文与表 3-1",
+      "中文稿 G233e_业务能力规划.md 第 136–169 行（含表 3-1）",
+      "figs/g233_fig3-1.svg 源码（12 个文本框与 12 条无标签连线）"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G233/fig3-1",
+    "asset": "figs/g233_fig3-1.svg",
+    "kind": "zh_redraw_svg",
+    "status": "visual-structure-triage-only",
+    "sheet": "14"
+  }
+}

@@ -1,0 +1,32 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["架构层级金字塔"]
+  n1["Enterprise Level"]
+  n2["Segment Level"]
+  n3["Capability/Product Level"]
+  n4["More Agile, More Detailed"]
+  n5["Longer Iterations and Releases"]
+  n6["Backlog"]
+  n7["Iterations"]
+  n8["Deliverable(s)"]
+  n9["Backlog"]
+  n10["Iterations"]
+  n11["Deliverable(s)"]
+  n12["Backlog"]
+  n13["Iterations"]
+  n14["Deliverable(s)"]
+  n15["Guides"]
+  n16["Guides"]
+  n17["Product Development/Engineering Lines"]
+  n6 -->|"消费"| n7
+  n7 -->|"产生/交付"| n8
+  n8 -->|"guides"| n10
+  n9 -->|"消费"| n10
+  n10 -->|"产生/交付"| n11
+  n11 -->|"guides"| n13
+  n12 -->|"消费"| n13
+  n13 -->|"产生/交付"| n14
+  n14 -->|"流动"| n17
+  n7 -->|"迭代"| n7
+  n10 -->|"迭代"| n10
+  n13 -->|"迭代"| n13

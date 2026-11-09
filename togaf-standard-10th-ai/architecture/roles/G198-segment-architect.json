@@ -1,0 +1,98 @@
+{
+  "schema_version": "architecture-role/1",
+  "id": "G198:role:segment-architect",
+  "source_guide": "G198",
+  "label_en": "Segment Architect",
+  "label_zh": "分段架构师",
+  "scope_zh": "特定业务问题或组织/域",
+  "content_role": "source-grounded-role-analysis",
+  "role_definition": [
+    {
+      "text_zh": "负责特定业务问题或组织的架构设计与文档，把详细技术方案连接到整体架构全景。",
+      "evidence": {
+        "document_id": "G198",
+        "pdf_page": 22,
+        "quote_en": "specific business problems or organizations",
+        "source_path": "togaf-standard-10th/G198e.pdf",
+        "source_sha256": "d5c636f7a991605dccfd7e81374261426af82c12cf918b128d3bd7ed4b3edb65",
+        "markdown_path": "documents/G198.md#page-22"
+      },
+      "assertion_type": "source-grounded-analysis"
+    }
+  ],
+  "responsibilities": [
+    {
+      "text_zh": "复用其他架构师输出，并在给定业务域内形成企业级业务解决方案。",
+      "evidence": {
+        "document_id": "G198",
+        "pdf_page": 22,
+        "quote_en": "re-uses the output from all other architects",
+        "source_path": "togaf-standard-10th/G198e.pdf",
+        "source_sha256": "d5c636f7a991605dccfd7e81374261426af82c12cf918b128d3bd7ed4b3edb65",
+        "markdown_path": "documents/G198.md#page-22"
+      },
+      "assertion_type": "source-grounded-analysis"
+    }
+  ],
+  "decision_authority": [],
+  "requirements": [
+    {
+      "text_zh": "技能与EA相近，但不要求理解整个企业全部业务和IT；通常仍需理解各架构域。",
+      "evidence": {
+        "document_id": "G198",
+        "pdf_page": 23,
+        "quote_en": "do not have to understand the whole enterprise",
+        "source_path": "togaf-standard-10th/G198e.pdf",
+        "source_sha256": "d5c636f7a991605dccfd7e81374261426af82c12cf918b128d3bd7ed4b3edb65",
+        "markdown_path": "documents/G198.md#page-23"
+      },
+      "assertion_type": "source-grounded-analysis"
+    }
+  ],
+  "inputs_outputs": [],
+  "collaboration": [],
+  "potential_kpis": [],
+  "source_material": [],
+  "skills": [],
+  "relationships": [
+    {
+      "id": "role-rel-014",
+      "from": "G198:role:enterprise-architect",
+      "to": "G198:role:segment-architect",
+      "predicate": "may_lead_architecture_team",
+      "assertion_type": "source-explicit",
+      "is_hr_reporting_line": false,
+      "meaning_zh": "特定项目群可由EA领导分段/解决方案架构团队，原文often不是通用组织定律。",
+      "evidence": {
+        "document_id": "G198",
+        "pdf_page": 22,
+        "quote_en": "often leads a group",
+        "source_path": "togaf-standard-10th/G198e.pdf",
+        "source_sha256": "d5c636f7a991605dccfd7e81374261426af82c12cf918b128d3bd7ed4b3edb65",
+        "markdown_path": "documents/G198.md#page-22"
+      }
+    },
+    {
+      "id": "role-rel-016",
+      "from": "G198:role:solution-architect",
+      "to": "G198:role:segment-architect",
+      "predicate": "shields_implementation_detail",
+      "assertion_type": "source-explicit",
+      "is_hr_reporting_line": false,
+      "meaning_zh": "解决方案角色屏蔽不必要实现细节，保持分层抽象。",
+      "evidence": {
+        "document_id": "G198",
+        "pdf_page": 23,
+        "quote_en": "shield the Enterprise/Segment Architect",
+        "source_path": "togaf-standard-10th/G198e.pdf",
+        "source_sha256": "d5c636f7a991605dccfd7e81374261426af82c12cf918b128d3bd7ed4b3edb65",
+        "markdown_path": "documents/G198.md#page-23"
+      }
+    }
+  ],
+  "hierarchy_notice_zh": "架构领导/治理、专业范围或协作关系不自动表示人事直属汇报；岗位、角色、任务分别建模。",
+  "qualification_notice_zh": "学历、工作年限、认证、法定签字权等未在相应证据给出时保持未规定，不能从技能等级推造。",
+  "matrix_status": "not-specified-for-this-role",
+  "assessment_status": "reference-expectation-not-an-assessment-of-any-person",
+  "analysis_zh": "文本定义角色；G198数值矩阵没有这一名称的独立列。Enterprise Architecture Manager不能仅因名称相近而自动视为Enterprise Architect；也不生成合成数值列。"
+}

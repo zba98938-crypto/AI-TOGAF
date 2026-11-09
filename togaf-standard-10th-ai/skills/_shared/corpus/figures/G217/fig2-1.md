@@ -1,0 +1,491 @@
+# G217/fig2-1 · 文档化矩阵示例（系统成熟度 × 架构描述正式度）
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G217/fig2-1.md) · [JSON](../../architecture/diagrams/G217/fig2-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G217e.pdf`；SHA-256：`ad38b0c9563a3558532e7ffd7f4e84e0ab82d29fc86f53bc08d583b604738488`。
+
+## 原图 · PDF 第 26 页
+
+![英文原图](../assets/G217/fig2-1-p0026.png)
+
+PDF 坐标：`[48.2, 36.0, 563.8, 325.7]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+tA
+AD
+leasul
+~
+Novel ------==- Established
+Rom 0
+```
+
+## 概要（历史解释；局部修正见上）
+
+用系统成熟度与描述正式度两个维度定位架构文档，取“刚好足够、恰好及时”的对角带。
+
+## 目的（历史解释；局部修正见上）
+
+说明架构师要按对象成熟度调节文档正式度：既不要对尚未验证的想法强求完整架构，也不要让复杂的老系统停留在口头/非正式描述；为 2.4 节“敏捷交付也需要架构”的论点提供一张可定位每份架构描述的坐标图。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+先读纵轴：下端是 Formally Described（正式描述），上端是 Informally Described（非正式描述），箭头朝上表示越往上越不正式；再读横轴：左端 Novel（新颖），右端 Established（成熟/既定），箭头向右。细十字线把画布分成四象限，两块斜线三角标出应避免的极端角。最后看三组弧形箭头：左上是 Check 与 Do 的往返小循环，中心是 Plan→Do→Check→Act 的完整 PDCA，右下是 Define→Measure→Analyze→Improve→Control 的受控改进循环。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 两个维度是“架构描述有多正式/完整”（纵轴）与“系统/产品有多成熟、多既定”（横轴）；正文强调正式度是独立于架构演进状态、用来衡量完整性/健全性/稳健性的量。
+- 左下斜线角：对象还很新颖，却要求正式而完整的架构描述 → 对应正文的“对每个潜在系统、产品或想法都提出架构强制要求”，即架构过度。
+- 右上斜线角：系统已经成熟，却只有非正式描述 → 对应正文的“系统（及其架构）复杂却没有文档”，即架构不足。
+- 未加斜线的左上→右下对角带表示随成熟度提高逐步增加正式度，也就是正文的“做刚好的架构，在刚好的时间”。
+- 左上象限只有 Check 与 Do 两个方向相反的箭头，表示新颖/非正式阶段的高频小步循环；中心恰好落在四象限交点上的完整 PDCA，表示从探索走向既定时的闭环；右下象限是 Define→Measure→Analyze→Improve→Control 的受控改进循环（循环含义为读图推断，正文未解释这些箭头）。
+- 图内没有象限文字、图例或刻度，四象限的含义完全由两条轴、细十字线和斜线阴影的位置表达。
+- 三组循环彼此独立，不构成一条跨象限的大流程；“Check/Do”在图中出现两次，分属左上小循环与中心 PDCA。
+
+## 层级（历史解释；局部修正见上）
+
+两层：外层是纵轴（描述正式度）与横轴（系统成熟度）构成的四象限画布；象限内放置循环步骤标签。斜线三角形是象限内的应避免角区，不是独立层级，也不代表第四个维度。
+
+## 线条含义（历史解释；局部修正见上）
+
+两条轴各带一个箭头，只表示“更非正式”和“更成熟”的方向；细实线十字仅分隔象限，没有语义方向；彩色弧形箭头表示各自循环的顺时针顺序；斜线填充不是连线，表示应避免的区域。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 两轴不是“充分性 × 正式度”：中文稿重绘 SVG 把横轴写成“正式度/完整性”、纵轴写成“充分性”，与原图的 Novel/Established、Informally/Formally Described 不符。
+- 斜线区不是重点区或目标区，而是两个应避免的极端；目标是未加阴影的对角带。
+- 纵轴方向反常：越往上越不正式，不能按习惯把上方当作更正式。
+- 三组箭头不是一条从左上到右下的流程，它们各自闭环，且没有跨象限连接。
+- 把 Check/Do 当成重复标注是误读：一处属于左上小循环，一处属于中心 PDCA。
+- 中文稿标题“架构描述的‘充分性 × 正式度’矩阵”沿用了重绘资产的错误轴名，不能据此理解原图。
+
+## 元素
+
+```json
+[
+  {
+    "id": "ax_informal",
+    "label_en": "Informally Described",
+    "label_zh": "非正式描述",
+    "type": "concept",
+    "parent": null,
+    "position": "纵轴顶端（左上）",
+    "description_zh": "纵轴的上端标签。"
+  },
+  {
+    "id": "ax_formal",
+    "label_en": "Formally Described",
+    "label_zh": "正式描述",
+    "type": "concept",
+    "parent": null,
+    "position": "纵轴底端（左下）",
+    "description_zh": "纵轴的下端标签；与上端共同构成描述正式度维度。"
+  },
+  {
+    "id": "ax_novel",
+    "label_en": "Novel",
+    "label_zh": "新颖",
+    "type": "concept",
+    "parent": null,
+    "position": "横轴左端",
+    "description_zh": "系统成熟度维度的低端。"
+  },
+  {
+    "id": "ax_established",
+    "label_en": "Established",
+    "label_zh": "既定/成熟",
+    "type": "concept",
+    "parent": null,
+    "position": "横轴右端",
+    "description_zh": "系统成熟度维度的高端。"
+  },
+  {
+    "id": "q_tl",
+    "label_en": null,
+    "label_zh": "左上象限（新颖 + 非正式描述）",
+    "type": "group",
+    "parent": null,
+    "position": "左上",
+    "description_zh": "没有斜线；内含 Check 与 Do 两个反向箭头。"
+  },
+  {
+    "id": "q_tr",
+    "label_en": null,
+    "label_zh": "右上象限（成熟 + 非正式描述；含斜线角区）",
+    "type": "group",
+    "parent": null,
+    "position": "右上",
+    "description_zh": "右上角被斜线三角覆盖，对应“复杂却无文档/架构不足”。"
+  },
+  {
+    "id": "q_bl",
+    "label_en": null,
+    "label_zh": "左下象限（新颖 + 正式描述；含斜线角区）",
+    "type": "group",
+    "parent": null,
+    "position": "左下",
+    "description_zh": "左下角被斜线三角覆盖，对应“对每个想法都要求架构/架构过度”。"
+  },
+  {
+    "id": "q_br",
+    "label_en": null,
+    "label_zh": "右下象限（成熟 + 正式描述）",
+    "type": "group",
+    "parent": null,
+    "position": "右下",
+    "description_zh": "没有斜线；内含 Define→Measure→Analyze→Improve→Control 循环。"
+  },
+  {
+    "id": "tl_check",
+    "label_en": "Check",
+    "label_zh": "检查",
+    "type": "phase",
+    "parent": "q_tl",
+    "position": "左上象限中部偏左",
+    "description_zh": "与 Do 构成往返小循环的起点标签。"
+  },
+  {
+    "id": "tl_do",
+    "label_en": "Do",
+    "label_zh": "执行",
+    "type": "phase",
+    "parent": "q_tl",
+    "position": "左上象限中部偏右"
+  },
+  {
+    "id": "pdca_plan",
+    "label_en": "Plan",
+    "label_zh": "计划",
+    "type": "phase",
+    "parent": null,
+    "position": "中心交点右上方",
+    "description_zh": "中心 PDCA 循环的顶部步骤。"
+  },
+  {
+    "id": "pdca_do",
+    "label_en": "Do",
+    "label_zh": "执行",
+    "type": "phase",
+    "parent": null,
+    "position": "中心交点右下方"
+  },
+  {
+    "id": "pdca_check",
+    "label_en": "Check",
+    "label_zh": "检查",
+    "type": "phase",
+    "parent": null,
+    "position": "中心交点左下方"
+  },
+  {
+    "id": "pdca_act",
+    "label_en": "Act",
+    "label_zh": "处理/改进",
+    "type": "phase",
+    "parent": null,
+    "position": "中心交点左上方"
+  },
+  {
+    "id": "ci_define",
+    "label_en": "Define",
+    "label_zh": "定义",
+    "type": "phase",
+    "parent": "q_br",
+    "position": "右下象限右上"
+  },
+  {
+    "id": "ci_measure",
+    "label_en": "Measure",
+    "label_zh": "测量",
+    "type": "phase",
+    "parent": "q_br",
+    "position": "右下象限右侧"
+  },
+  {
+    "id": "ci_analyze",
+    "label_en": "Analyze",
+    "label_zh": "分析",
+    "type": "phase",
+    "parent": "q_br",
+    "position": "右下象限底部偏右"
+  },
+  {
+    "id": "ci_improve",
+    "label_en": "Improve",
+    "label_zh": "改进",
+    "type": "phase",
+    "parent": "q_br",
+    "position": "右下象限中部偏左"
+  },
+  {
+    "id": "ci_control",
+    "label_en": "Control",
+    "label_zh": "控制",
+    "type": "phase",
+    "parent": "q_br",
+    "position": "右下象限顶部偏左"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "id": "r_axis_y",
+    "from": "ax_formal",
+    "to": "ax_informal",
+    "type": "other",
+    "label_en": null,
+    "label_zh": "纵轴方向：越往上越不正式",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "纵轴箭头自下而上。"
+  },
+  {
+    "id": "r_axis_x",
+    "from": "ax_novel",
+    "to": "ax_established",
+    "type": "other",
+    "label_zh": "横轴方向：由新颖到既定",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "横轴箭头自左向右。"
+  },
+  {
+    "id": "r_tl_1",
+    "from": "tl_check",
+    "to": "tl_do",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "左上绿色箭头向右，从 Check 指向 Do。"
+  },
+  {
+    "id": "r_tl_2",
+    "from": "tl_do",
+    "to": "tl_check",
+    "type": "iteration",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "左上橙色箭头向左，从 Do 返回 Check。"
+  },
+  {
+    "id": "r_pdca_1",
+    "from": "pdca_act",
+    "to": "pdca_plan",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "顶部蓝色箭头向右，由 Act 指向 Plan。"
+  },
+  {
+    "id": "r_pdca_2",
+    "from": "pdca_plan",
+    "to": "pdca_do",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "右侧橙色箭头向下，由 Plan 指向 Do。"
+  },
+  {
+    "id": "r_pdca_3",
+    "from": "pdca_do",
+    "to": "pdca_check",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "底部绿色箭头向左，由 Do 指向 Check。"
+  },
+  {
+    "id": "r_pdca_4",
+    "from": "pdca_check",
+    "to": "pdca_act",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "左侧紫色箭头向上，由 Check 指向 Act。"
+  },
+  {
+    "id": "r_ci_1",
+    "from": "ci_control",
+    "to": "ci_define",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "深青色箭头向右，由 Control 指向 Define。"
+  },
+  {
+    "id": "r_ci_2",
+    "from": "ci_define",
+    "to": "ci_measure",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "橙色箭头向下，由 Define 指向 Measure。"
+  },
+  {
+    "id": "r_ci_3",
+    "from": "ci_measure",
+    "to": "ci_analyze",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "绿色箭头向左上，由 Measure 指向 Analyze。"
+  },
+  {
+    "id": "r_ci_4",
+    "from": "ci_analyze",
+    "to": "ci_improve",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "紫色箭头向左上，由 Analyze 指向 Improve。"
+  },
+  {
+    "id": "r_ci_5",
+    "from": "ci_improve",
+    "to": "ci_control",
+    "type": "sequence",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "蓝色箭头向上，由 Improve 指向 Control。"
+  }
+]
+```
+
+## 有序流程
+
+```json
+[
+  {
+    "id": "f_tl",
+    "kind": "cycle",
+    "name_zh": "左上 Check⇄Do 小循环",
+    "steps": [
+      "tl_check",
+      "tl_do"
+    ],
+    "loop_type": "reinforcing",
+    "description_zh": "新颖/非正式阶段的快速往返。"
+  },
+  {
+    "id": "f_pdca",
+    "kind": "cycle",
+    "name_zh": "中心 PDCA 循环",
+    "steps": [
+      "pdca_plan",
+      "pdca_do",
+      "pdca_check",
+      "pdca_act"
+    ],
+    "loop_type": "reinforcing",
+    "description_zh": "跨象限交点的完整计划—执行—检查—处理闭环。"
+  },
+  {
+    "id": "f_ci",
+    "kind": "cycle",
+    "name_zh": "右下受控改进循环",
+    "steps": [
+      "ci_define",
+      "ci_measure",
+      "ci_analyze",
+      "ci_improve",
+      "ci_control"
+    ],
+    "loop_type": "reinforcing",
+    "description_zh": "成熟且正式描述区域的持续改进闭环。"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "纵轴下端 Formally Described、上端 Informally Described，箭头向上",
+    "meaning_zh": "描述正式度维度；越往上描述越不正式",
+    "explicit": true
+  },
+  {
+    "symbol": "横轴左端 Novel、右端 Established，箭头向右",
+    "meaning_zh": "系统成熟度维度；从左到右由新颖走向既定",
+    "explicit": true
+  },
+  {
+    "symbol": "灰色斜线填充的直角三角形",
+    "meaning_zh": "应避免的极端角区（左下：过度正式；右上：描述不足）",
+    "explicit": false
+  },
+  {
+    "symbol": "彩色弧形箭头（绿/橙/蓝/紫/深青）",
+    "meaning_zh": "循环步骤的推进方向，不是数据流",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "grid",
+  "description_zh": "粗青色的 L 形外轴在左/下，细青色十字线在画布中部；四个象限中，左下与右上角各有一块斜线三角；三组弧形箭头分别位于左上象限、画布中心交点和右下象限。"
+}
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "medium",
+  "uncertainties_zh": [
+    "正文只解释了两个极端和“刚好足够、恰好及时”，没有解释三组循环箭头；它们的含义（不同成熟度下的迭代节律）是按位置和箭头方向推断的。",
+    "斜线三角只覆盖两个象限的极端角，不覆盖整个象限；图内没有文字说明具体边界。",
+    "四象限没有任何文字标签，象限名称由轴标签组合而来。",
+    "纵轴方向（下方为正式、上方为非正式）依据轴端文字，与常见画法相反，容易误读。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 26 页 500 dpi 渲染与 figctx 220 dpi 截图",
+    "fig2-1_p26_1.png 及 2×2 放大分块 z11/z12/z21/z22",
+    "英文 PDF 第 26 页正文与图题（Figure 2-1）",
+    "中文稿 G217e_在数字企业中使用TOGAF标准.md 第 205–216 行",
+    "figs/g217_fig2-1.svg 源码"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

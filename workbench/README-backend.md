@@ -1,0 +1,107 @@
+# 本地工作台后端
+
+在仓库根目录运行：
+
+```sh
+python3 -B workbench/server.py --port 8765 --data-dir output/workbench-data
+```
+
+浏览器访问 `http://127.0.0.1:8765`。静态文件仅从 `workbench/web/` 提供。
+服务本身只用 Python 标准库；模型校验/生成复用现有
+`togaf-standard-10th-ai/skills/_shared/scripts/{registry,profile_examples,validate,generate}.py` 及当前 Python 环境中已准备的依赖。
+不会安装依赖、调用模型 API、读取远程来源或修改共享 skills/历史成果。
+
+## 数据与语义
+
+- `--data-dir` 下建立 `workbench.sqlite3`、SQLite WAL、锁文件及 `jobs/<job-id>/`。
+  默认路径是新的 `output/workbench-data`，不要将历史成果目录指定为工作目录。
+  同一工作目录只允许一个服务实例，单实例可服务多个浏览器标签。
+- 版本是不可变快照；`id`/`version_hash` 是 model、layout、parent、created_at、message
+  规范 JSON 的 SHA-256。`model_hash` 只对模型内容计算。重复保存或回滚仍产生新版本。
+- 创建项目时，省略 model 则使用所选 registry 模板经 `normalize_example` 包装；默认
+  `trust-framework-default`。不将项目显示名称写回模型，不推断批准、不自动修复业务内容。
+  示例仍保留虚构示例/候选状态。
+- 结构与已编码业务约束错误阻止创建、保存和生成（422）；警告保留。
+  不存在“自动满足全部业务要求”的默认规则；`valid` 仅表示没有校验 error。
+- layout 是前端编辑布局元数据，完整保存、版本化和对比；不会被解释为业务关系。
+  生成器仍使用其自身 reference/adaptive 布局，原编辑布局另导出 `workbench-layout.json`。
+- 评审状态按版本独立：`draft → in_review → accepted | changes_requested`。
+  只有 `submit` 可以使 draft 进入评审；接受/退回只能从 in_review 发生。
+  comment 不改变状态，可随时追加；终态如需修改应新建版本。
+  accept 会重新校验该版本；旧版本接受不会接受新 head。
+  作者只是本地声明身份，不是登录认证、电子签名、专业批准或正式合规结论。
+  评审事件永不改变 model 内的 approval/implementation 状态。
+
+## HTTP API
+
+所有写入使用 `Content-Type: application/json`。成功返回 JSON 对象；错误为
+`{"error":"code","message":"说明","issues":[]}`（issues 按需出现）。
+
+| 方法与路径 | 请求 / 响应 |
+| --- | --- |
+| GET `/api/health` | `{status:"ok",local_only:true,notice}` |
+| GET `/api/catalog` | `{templates:[{id,name}],artifacts,deliverables,profiles,analysis_methods,notice}` |
+| GET `/api/projects` | `{projects:[{id,name,head_version,created_at,updated_at}]}` |
+| POST `/api/projects` | `{name,model?,template?}` → 201 项目详情 |
+| GET `/api/projects/:id` | 项目详情 |
+| POST `/api/projects/:id/versions` | `{base_version,model,layout?,message?}` → 201 更新的项目详情 |
+| GET `/api/projects/:id/versions/:version` | `{id,version_hash,project_id,parent,model,layout,model_hash,validation,created_at,message,review_state}` |
+| POST `/api/validate` | `{model}` → `{issues,valid}`；无效模型仍为 200/valid=false |
+| GET `/api/projects/:id/diff?from=…&to=…` | `{from,to,changes:[{group,id,kind,before,after}]}` |
+| POST `/api/projects/:id/reviews` | `{version,action,author,comment?}` → 201 事件，含 state/version_hash |
+| POST `/api/projects/:id/generate` | `{version,render?:false}` → 202 持久化 queued 任务 |
+| GET `/api/jobs/:id` | 任务详情 |
+| GET `/api/jobs/:id/files/*` | 成功任务输出附件；其他状态 409 |
+
+项目详情包含 `{id,name,head_version,created_at,updated_at,model,layout,validation,
+versions,reviews,review_states,review_state,jobs,notice}`。versions 是不含 model/layout
+的元数据列表；reviews 和 jobs 包含所有历史事件/任务。
+validation 为 `{issues,valid}`，issue 保持原校验器的 `{level,code,id,message}`。
+jobs 含 `{id,project_id,version,version_hash,status,render,created_at,started_at,finished_at,
+outputs:[{name,url}],error,notice}`。客户端可轮询直到 succeeded/failed。
+
+保存时 base_version 必须等于当前 head，否则 409，不覆盖或自动合并。
+模型校验失败为 422；非法评审转换为 409；未知资源为 404；非法输入为 400。
+Diff 对全部顶级字段比较，含 project/sources/extensions 等；ID 对象数组按 ID 比较，
+顺序变化另列 `$order`；layout 单独列出。kind 为 added/removed/modified。
+字段缺失的一端用 null，未改动字段不列出。
+
+## 后台生成与恢复
+
+固定入口的本地 Python 子进程调用 `generate(..., all_items=True, strict=True)`，
+不拼接 shell、不传递 API 密钥环境变量。默认不生成 PNG；render=true 使用既有离线
+Node/resvg 渲染链，缺失本地依赖或表达检查错误都会使任务 failed，不会伪报通过。
+任务成功还须检查生成 manifest、运行依赖稳定性及输出 SHA-256。
+
+最多一个生成子进程同时执行；跨进程文件信号量由子进程继承，即使服务异常退出也不会
+与重启后的生成重叠。默认超时 180 秒，可用 `--job-timeout` 调整；超时杀死整个生成进程组。
+子进程自己也设置截止时间，防止服务消失后永久残留。
+重启将上次 running 标记 failed（结果不计成功），queued 自动继续。
+失败任务仍保留记录、input.json、layout.json、generation.log 和不完整输出用于本机诊断，
+但 HTTP 不提供失败任务的文件下载。不会自动重试失败任务，需用户重新生成。
+
+## 安全边界
+
+- 默认只绑定 127.0.0.1，拒绝非 loopback；可显式使用 localhost/::1。
+  对 Host 端口/loopback、Origin 同源、Sec-Fetch-Site 检查，不启用 CORS；
+  JSON Content-Type 和拒绝预检防跨域写入。无 Origin 的本机 CLI 请求可以使用。
+- 写入请求最多 8 MiB；不接受重复 JSON 键、非有限数、Transfer-Encoding、非对象请求。
+- 静态与下载逐级 `O_NOFOLLOW` 打开，不接受路径穿越、反斜线、符号链接或非普通文件。
+  共享 skills、SQLite、原始日志等不会被映射为 HTTP 静态目录。
+  输出以附件响应，设置 nosniff 和 sandbox CSP；前端脚本必须外链至同源文件。
+- Python 生成进程审计钩子拒绝网络连接及任务目录外写入，仅允许固定的离线 renderer 子进程。
+  不读取来源 URI、不执行模型内提供的命令，也不开放外网代理/下载接口。
+  这是受信任本机用户的离线工具，不是 OS 级沙箱或多租户服务；同机恶意程序/文件系统
+  管理员仍可改写数据，勿暴露端口、勿以高权限运行、勿将身份声明视作认证。
+- 当前适用于 macOS/Linux（使用 POSIX 文件锁、进程组、O_NOFOLLOW）。
+  没有用户管理、删除、迁移、云同步、审计签名或自动数据清理；备份请停服后复制整个 data-dir。
+
+## 验证
+
+```sh
+python3 -B -m unittest discover -s tests -p test_workbench.py -v
+```
+
+测试使用临时目录、真实随机端口 HTTP 服务和真实生成子进程，不依赖历史 output。
+覆盖项目、校验、并发保存/冲突、不可变快照、字段差异、版本绑定评审、任务成功/失败/超时/
+重启恢复，以及 Host/Origin/请求体/路径/符号链接保护。失败场景会产生预期 WARNING 日志。

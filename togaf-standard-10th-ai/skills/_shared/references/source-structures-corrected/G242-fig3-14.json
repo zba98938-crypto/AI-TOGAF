@@ -1,0 +1,432 @@
+{
+  "schema_version": "2.0",
+  "id": "G242/fig3-14",
+  "title": "AXA 企业架构治理委员会中数字可持续性评审的模板",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      1455
+    ],
+    "label_table_lines": [
+      1459,
+      1485
+    ]
+  },
+  "reading": {
+    "purpose_zh": "示范企业架构治理委员会如何把环境议题纳入架构评审：不只问“业务价值”，还要求申报业务正向环境影响、目标架构的碳足迹增减（分范围 2/范围 3 服务/IT 设备制造，分两年），以及已研究过的五类减排手段。它把定性判断与定量核算放在同一页，便于委员会横向比较方案。",
+    "reading_guide_zh": "自上而下三块。第一块“环境业务正向影响”：三项各选 YES/NO，选中项为深色；本例度量环境影响=YES、降低业务影响=NO、培训业务=YES。第二块“IT 碳足迹”：先选 Increase/Decrease（本例 Increase），再填表——行是投入（新增资源）、产出（退役资源）、平衡（投入−产出），列是 Total、第 1 年（范围 2/范围 3 服务/IT 设备制造）、第 2 年（范围 2/范围 3 服务/IT 设备制造）。右侧 Comment 为空白备注。第三块列出五类减排手段，本例全部勾 YES。",
+    "key_points_zh": [
+      "模板把“环境影响”分成两类：对业务的正向影响（度量、降低、培训）与 IT 自身的碳足迹（增加/减少），前者定性、后者定量。",
+      "碳足迹按范围拆分：范围 2（用电）、范围 3 服务、IT 设备制造（范围 3），并分第 1 年/第 2 年，体现“制造排放一次发生、使用排放逐年发生”的差别。",
+      "投入/产出/平衡三行是关键：新增资源 884、退役资源 987，平衡 −103（净减少），说明目标架构通过退役旧资产抵消新增。",
+      "本例业务影响只承诺“度量”和“培训”，未承诺“降低业务环境影响”（NO），但 IT 侧承诺净减排并采用全部五类手段——这种“IT 先做、业务待跟进”的组合正是评审要讨论的点。",
+      "五类手段覆盖开发、设备、采购、数据、用户行为，与正文 3.5/3.6/3.7 各节一一对应。",
+      "原图无 Year 1 Total；第 1 年 69+224+590=883，与印刷 Total 884 差 1；Scope 2 的 69−460=−391，与印刷净值 −390 差 1。保留原值，不推定原因。",
+      "“Sustain the Organization Climate Transition / IT Contribution”表明该模板把 IT 定位为组织气候转型的贡献者，而非独立议题。"
+    ],
+    "hierarchy_zh": "三层：最外层是“支撑组织气候转型”下的“IT 贡献”；中层是三个区块（业务正向影响、IT 碳足迹、减排手段）；最内层是各判断项、表格行列与手段框。没有上下级连线，区块之间是并列的评审维度。",
+    "line_semantics_zh": "图中没有连接线或箭头。语义靠区块顺序与控件状态表达：深色按钮=已选，白色按钮=未选；表格的 Year 1/Year 2 表头合并单元格形成两级列分组；绿色细框是输入框。",
+    "misreadings_zh": [
+      "深色 YES/NO 是“已选”，不是“强调”；第二个影响项深色的是 NO，不要读成 YES（中文重绘 SVG 恰好画反了）。",
+      "碳足迹表的“Increase”选中表示目标架构会使 IT 碳足迹增加，但表内平衡为 −103（净减少）；两者并不矛盾——前者是相对基线方向的判断，后者是投入/退役相抵的结果，评审时需一起看。",
+      "“Total”列（884/987/−103）是全行合计。第 1 年没有单独 Total 列；原图有两处 1 单位算术差异，不能将错列归咎于原图。",
+      "“IN / OUT”是新增资源与退役资源，不是现金流入流出；“BALANCE (IN-OUT)”是排放盈亏，不是财务平衡。",
+      "第 1 年“IT equipments build - Scope 3”为 0，不等于制造排放为零，而是本方案第 1 年没有新增设备制造（新增可能落在其他列或未填）。",
+      "英文 PDF 第 77 页正文把“数字可持续性评审模板”的示例写成“Figure 3-13 shows…”，而模板实际是图 3-14；这是原文的交叉引用笔误，不要把图 3-13（决策仓库）误认为模板。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "title",
+      "label_en": "Sustain the Organization Climate Transition",
+      "label_zh": "支撑组织气候转型",
+      "type": "goal",
+      "parent": null,
+      "level": 1,
+      "position": "左上大标题，深蓝粗体"
+    },
+    {
+      "id": "subtitle",
+      "label_en": "IT Contribution",
+      "label_zh": "IT 贡献",
+      "type": "note",
+      "parent": "title",
+      "level": 2,
+      "position": "标题下方，蓝色"
+    },
+    {
+      "id": "band_positive",
+      "label_en": "Environmental Business Positive Impacts – Target Architecture will help business to:",
+      "label_zh": "环境业务正向影响——目标架构将帮助业务：",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第一条灰色横带"
+    },
+    {
+      "id": "impact_measure",
+      "label_en": "Measure an Environmental Impact",
+      "label_zh": "度量环境影响",
+      "type": "requirement",
+      "parent": "band_positive",
+      "level": 2,
+      "order": 1,
+      "position": "第 1 个灰底判断项，YES 选中"
+    },
+    {
+      "id": "impact_reduce",
+      "label_en": "Reduce a Business Environmental Impact",
+      "label_zh": "降低业务环境影响",
+      "type": "requirement",
+      "parent": "band_positive",
+      "level": 2,
+      "order": 2,
+      "position": "第 2 个灰底判断项，NO 选中"
+    },
+    {
+      "id": "impact_train",
+      "label_en": "Train Business About Environmental & Climate Change",
+      "label_zh": "就环境与气候变化培训业务",
+      "type": "requirement",
+      "parent": "band_positive",
+      "level": 2,
+      "order": 3,
+      "position": "第 3 个灰底判断项，YES 选中"
+    },
+    {
+      "id": "explain_measure",
+      "label_en": "If yes, explain how (new functions to do so)",
+      "label_zh": "若是，说明如何实现（为此新增的功能）",
+      "type": "note",
+      "parent": "impact_measure",
+      "level": 3,
+      "position": "判断项下方输入框，斜体"
+    },
+    {
+      "id": "explain_reduce",
+      "label_en": "If yes, explain how, and evaluate gain with targeted reduction",
+      "label_zh": "若是，说明如何实现，并评估目标减排带来的收益",
+      "type": "note",
+      "parent": "impact_reduce",
+      "level": 3,
+      "position": "判断项下方输入框，斜体"
+    },
+    {
+      "id": "explain_train",
+      "label_en": "If yes, explain how, and evaluate gain with targeted reduction",
+      "label_zh": "若是，说明如何实现，并评估目标减排带来的收益",
+      "type": "note",
+      "parent": "impact_train",
+      "level": 3,
+      "position": "判断项下方输入框，斜体"
+    },
+    {
+      "id": "band_carbon",
+      "label_en": "IT Carbon Footprint (a) – Target Architecture will:",
+      "label_zh": "IT 碳足迹（a）——目标架构将：",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第二条灰色横带"
+    },
+    {
+      "id": "toggle_increase",
+      "label_en": "Increase",
+      "label_zh": "增加",
+      "type": "note",
+      "parent": "band_carbon",
+      "level": 2,
+      "position": "横带右端，深色选中"
+    },
+    {
+      "id": "toggle_decrease",
+      "label_en": "Decrease",
+      "label_zh": "减少",
+      "type": "note",
+      "parent": "band_carbon",
+      "level": 2,
+      "position": "增加右侧，白色未选"
+    },
+    {
+      "id": "comment",
+      "label_en": "Comment",
+      "label_zh": "备注",
+      "type": "note",
+      "parent": "band_carbon",
+      "level": 2,
+      "position": "碳足迹表右侧大白框，斜体"
+    },
+    {
+      "id": "band_minimize",
+      "label_en": "Target Architecture Was Studied to Minimize IT Environmental Impact, Thanks To:",
+      "label_zh": "为最小化 IT 环境影响，目标架构研究了以下手段：",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第三条灰色横带"
+    },
+    {
+      "id": "lever_dev",
+      "label_en": "Take into account environmental impact in software or data science developments",
+      "label_zh": "在软件或数据科学开发中考虑环境影响",
+      "type": "process",
+      "parent": "band_minimize",
+      "level": 2,
+      "order": 1,
+      "position": "第 1 个蓝框，YES 选中"
+    },
+    {
+      "id": "lever_equipment",
+      "label_en": "Improve technical equipment regarding energy efficiency, carbon footprint, and increased equipment's life time",
+      "label_zh": "提升技术设备的能效与碳足迹表现，并延长设备使用寿命",
+      "type": "process",
+      "parent": "band_minimize",
+      "level": 2,
+      "order": 2,
+      "position": "第 2 个蓝框，YES 选中"
+    },
+    {
+      "id": "lever_procurement",
+      "label_en": "Include environmental criteria in the process to select solution providers (RFI, RFP, ...)",
+      "label_zh": "在选择解决方案提供方的流程（RFI、RFP……）中纳入环境标准",
+      "type": "process",
+      "parent": "band_minimize",
+      "level": 2,
+      "order": 3,
+      "position": "第 3 个蓝框，YES 选中"
+    },
+    {
+      "id": "lever_data",
+      "label_en": "Ensure to minimize data volumes increase along time (Data Minimization)",
+      "label_zh": "确保随时间推移最小化数据量增长（数据最小化）",
+      "type": "process",
+      "parent": "band_minimize",
+      "level": 2,
+      "order": 4,
+      "position": "第 4 个蓝框，YES 选中"
+    },
+    {
+      "id": "lever_users",
+      "label_en": "Propose to end users functions to help them to have low carbon behavior in their IT usage",
+      "label_zh": "向最终用户提供功能，帮助其在 IT 使用中采取低碳行为",
+      "type": "process",
+      "parent": "band_minimize",
+      "level": 2,
+      "order": 5,
+      "position": "第 5 个蓝框，YES 选中"
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_carbon_footprint",
+      "title_zh": "IT 碳足迹表（按原图逐格转录，单位 kgCO2e）",
+      "columns": [
+        "项目",
+        "Total",
+        "Year 1 · Scope 2 KgCO2e",
+        "Year 1 · Scope 3 service kgCO2e",
+        "Year 1 · IT equipments build - Scope 3 KgCO2e",
+        "Year 2 · Scope 2 KgCO2e",
+        "Year 2 · Scope 3 service kgCO2e",
+        "Year 2 · IT equipments build - Scope 3 KgCO2e"
+      ],
+      "rows": [
+        [
+          "IN : Added Resources",
+          "884",
+          "69",
+          "224",
+          "590",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "OUT : Decommissioned Resources",
+          "987",
+          "460",
+          "0",
+          "527",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "BALANCE (IN-OUT)",
+          "-103",
+          "-390",
+          "224",
+          "63",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "cell_legend": [
+        "绿色表头：第 1 年",
+        "黄色表头：第 2 年",
+        "Total 列：整行合计",
+        "BALANCE：投入减产出（负值=净减排）"
+      ],
+      "notes_zh": "英文原图只有一个 Total 列；Year 1 的 69、224、590 分别是 Scope 2、Scope 3 服务、设备制造 Scope 3。印刷新增总量 884 与分项和 883 差 1；Scope 2 印刷净值 -390 与 69-460=-391 差 1。保留原值及差异，不推定舍入原因。"
+    },
+    {
+      "id": "t_form_answers",
+      "title_zh": "评审表单的判断项与选中状态",
+      "columns": [
+        "区块",
+        "条目",
+        "选中",
+        "说明/备注"
+      ],
+      "rows": [
+        [
+          "环境业务正向影响",
+          "Measure an Environmental Impact",
+          "YES",
+          "If yes, explain how (new functions to do so)"
+        ],
+        [
+          "环境业务正向影响",
+          "Reduce a Business Environmental Impact",
+          "NO",
+          "If yes, explain how, and evaluate gain with targeted reduction"
+        ],
+        [
+          "环境业务正向影响",
+          "Train Business About Environmental & Climate Change",
+          "YES",
+          "If yes, explain how, and evaluate gain with targeted reduction"
+        ],
+        [
+          "IT 碳足迹",
+          "Target Architecture will: Increase / Decrease",
+          "Increase",
+          "右侧 Comment 框为空"
+        ],
+        [
+          "减排手段",
+          "Take into account environmental impact in software or data science developments",
+          "YES",
+          ""
+        ],
+        [
+          "减排手段",
+          "Improve technical equipment regarding energy efficiency, carbon footprint, and increased equipment's life time",
+          "YES",
+          ""
+        ],
+        [
+          "减排手段",
+          "Include environmental criteria in the process to select solution providers (RFI, RFP, ...)",
+          "YES",
+          ""
+        ],
+        [
+          "减排手段",
+          "Ensure to minimize data volumes increase along time (Data Minimization)",
+          "YES",
+          ""
+        ],
+        [
+          "减排手段",
+          "Propose to end users functions to help them to have low carbon behavior in their IT usage",
+          "YES",
+          ""
+        ]
+      ],
+      "cell_legend": [
+        "深色按钮=已选；白色按钮=未选"
+      ],
+      "notes_zh": "选中状态按原图按钮填充色判读：度量=YES、降低=NO、培训=YES、Increase=选中、五个手段均=YES。"
+    }
+  ],
+  "legend": [
+    {
+      "symbol": "深色（深蓝）YES/NO 按钮",
+      "meaning_zh": "已选中的答案",
+      "explicit": false
+    },
+    {
+      "symbol": "白色 YES/NO 按钮",
+      "meaning_zh": "未选中的答案",
+      "explicit": false
+    },
+    {
+      "symbol": "灰色横带",
+      "meaning_zh": "区块标题",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色细边框",
+      "meaning_zh": "可填写的输入/说明区",
+      "explicit": false
+    },
+    {
+      "symbol": "表头绿色/黄色底",
+      "meaning_zh": "第 1 年 / 第 2 年分组",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "碳足迹表只有一个 Total 列；第 1 年分项和与印刷总量、Scope 2 净值各差 1，原因未知。",
+      "“IT Carbon Footprint (a)”中的“(a)”脚注标记在图内没有对应脚注。",
+      "“Increase”被选中但平衡为净减少，二者关系需结合评审语境理解，图中未说明。",
+      "底部有一个无标签的空白说明框，未纳入元素（无可见文字）。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 77 页（印刷页 59）原图截图、600 dpi 局部放大与 2×2/3×3 分块",
+      "英文 PDF 第 77 页正文",
+      "中文稿 G242e_环境可持续的信息系统.md 第 1431–1484 行",
+      "figs/zh/g242_fig3-14_zh.svg 源码、figs/zh/g242_fig3-14_zh.png、figs/g242_fig3-14_en.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [
+    {
+      "id": "source-g242-fig3-14",
+      "figure_id": "G242/fig3-14",
+      "status": "observed-conflict",
+      "description": "JSON把新增总量884和年度分项69、224、590误读；原图分项和883与总量884有1单位差异，Scope2净值也存在1单位差异。",
+      "evidence": [
+        "G242 §3.8–3.9",
+        "figs/g242_fig3-14_en.png",
+        "figs/ai/G242/fig3-14.json"
+      ],
+      "resolution": "保存原值、列头、算术差异及可能舍入；不得静默更正或认定选项矛盾已消解。"
+    }
+  ],
+  "detailed_observation": {
+    "figure_id": "G242/fig3-14",
+    "review_date": "2026-11-01",
+    "review_kind": "MD-body + actual image + JSON",
+    "status": "conflicting",
+    "note_zh": "实际新增总数884，Year1分项69+224+590=883；JSON误把69当Year1总计。净值-390与69-460=-391仍差1，保留印刷与计算值。",
+    "source_md": "G242e_环境可持续的信息系统.md",
+    "assets_opened": [
+      "figs/g242_fig3-14_en.png"
+    ],
+    "limit": "仅证明所列观察；未据此声明全图所有字段或全部来源图已逐项复核。"
+  },
+  "visual_structure_review": {
+    "id": "G242/fig3-14",
+    "asset": "figs/g242_fig3-14_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "18"
+  },
+  "supersession": {
+    "status": "corrected-derived-interpretation-not-original",
+    "historical_portable_path": "references/source-structures/G242-fig3-14.json",
+    "historical_portable_sha256": "44764c9f5bc67fb47064cbf35c7507f51b6c67473e23106dc586aea69cb9125c",
+    "historical_source_package_path": "reviews/source-package-2026-11-02/interpretations/G242-fig3-14.json",
+    "priority_visual_review": "reviews/source-visual-priority-2026-11-02.json",
+    "correction_basis": "reviews/source-audit-corrections.json",
+    "not_definition_acceptance": true
+  }
+}

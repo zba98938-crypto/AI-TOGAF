@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1180" viewBox="0 0 1200 1180" font-family="Hiragino Sans GB, PingFang SC, sans-serif">
+  <rect width="1200" height="1180" fill="#ffffff"/>
+
+  <defs>
+    <marker id="causalArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#2B4C9B"/>
+    </marker>
+  </defs>
+
+  <!-- 因果连接 -->
+  <g fill="none" stroke="#2B4C9B" stroke-width="1.7">
+    <!-- 数字使用 ↔ 依赖化石能源的业务 -->
+    <path d="M430 470 C390 380 380 250 397 144" marker-end="url(#causalArrow)"/>
+    <path d="M470 142 C500 280 500 380 486 470" marker-end="url(#causalArrow)"/>
+
+    <!-- 数字使用 ↔ 再生生物圈的业务 -->
+    <path d="M365 478 C300 420 235 382 202 346" marker-end="url(#causalArrow)"/>
+    <path d="M200 310 C260 455 300 500 355 505" marker-end="url(#causalArrow)"/>
+
+    <!-- 数字使用 ↔ 基础设施 -->
+    <path d="M545 487 C650 405 730 405 790 490" marker-end="url(#causalArrow)"/>
+    <path d="M790 512 C700 600 600 600 545 522" marker-end="url(#causalArrow)"/>
+
+    <!-- 基础设施 → 污染 -->
+    <path d="M970 488 L1000 462" marker-end="url(#causalArrow)"/>
+
+    <!-- 依赖化石能源的业务 → 污染；再生生物圈的业务 → 污染 -->
+    <path d="M550 108 C780 140 930 280 1042 392" marker-end="url(#causalArrow)"/>
+    <path d="M170 280 C130 180 160 70 300 45 C500 5 780 5 940 150 C1000 205 1040 300 1070 392" marker-end="url(#causalArrow)"/>
+
+    <!-- 基础设施 → 数字成本 -->
+    <path d="M850 534 C800 650 730 740 690 790" marker-end="url(#causalArrow)"/>
+
+    <!-- 数字性能 → 基础设施、数字成本 -->
+    <path d="M930 760 L897 538" marker-end="url(#causalArrow)"/>
+    <path d="M890 800 L722 806" marker-end="url(#causalArrow)"/>
+
+    <!-- 能源与金属价格 → 数字成本 -->
+    <path d="M420 829 L558 829" marker-end="url(#causalArrow)"/>
+
+    <!-- 数字成本 → 数字使用 -->
+    <path d="M590 790 C560 700 530 620 526 536" marker-end="url(#causalArrow)"/>
+
+    <!-- 数字成本 ↔ 数字利润空间 -->
+    <path d="M605 850 C600 900 600 930 600 958" marker-end="url(#causalArrow)"/>
+    <path d="M675 960 C680 920 680 890 678 852" marker-end="url(#causalArrow)"/>
+
+    <!-- 数字利润空间 → 数字投资 → 数字性能 → 数字利润空间 -->
+    <path d="M725 985 L963 980" marker-end="url(#causalArrow)"/>
+    <path d="M1040 950 L1007 820" marker-end="url(#causalArrow)"/>
+    <path d="M925 818 L727 965" marker-end="url(#causalArrow)"/>
+
+    <!-- 成瘾性算法、数字充足性 → 数字使用 -->
+    <path d="M220 660 L390 536" marker-end="url(#causalArrow)"/>
+    <path d="M340 675 L455 536" marker-end="url(#causalArrow)"/>
+  </g>
+
+  <!-- 正负号 -->
+  <g font-size="16" font-weight="bold" fill="#2B4C9B">
+    <text x="371" y="200">+</text>
+    <text x="516" y="450">+</text>
+    <text x="214" y="358">+</text>
+    <text x="336" y="492">+</text>
+    <text x="770" y="452">+</text>
+    <text x="568" y="548">+</text>
+    <text x="985" y="450">+</text>
+    <text x="1012" y="370">+</text>
+    <text x="1092" y="370">−</text>
+    <text x="708" y="742">+</text>
+    <text x="902" y="608">−</text>
+    <text x="796" y="790">−</text>
+    <text x="480" y="815">+</text>
+    <text x="548" y="590">−</text>
+    <text x="620" y="915">+</text>
+    <text x="692" y="915">+</text>
+    <text x="838" y="968">+</text>
+    <text x="1028" y="880">+</text>
+    <text x="748" y="946">+</text>
+    <text x="380" y="556">+</text>
+    <text x="466" y="562">−</text>
+  </g>
+
+  <!-- 反馈回路标记 -->
+  <g font-size="13" font-weight="bold" fill="#33465B" text-anchor="middle">
+    <circle cx="675" cy="468" r="27" fill="#FFFFFF" stroke="#5A6B7B" stroke-width="1.4"/>
+    <text x="675" y="473">R1</text>
+    <circle cx="675" cy="660" r="27" fill="#FFFFFF" stroke="#5A6B7B" stroke-width="1.4"/>
+    <text x="675" y="665">B1</text>
+    <circle cx="870" cy="925" r="27" fill="#FFFFFF" stroke="#5A6B7B" stroke-width="1.4"/>
+    <text x="870" y="930">R2</text>
+  </g>
+
+  <!-- 变量节点 -->
+  <g stroke="#17334F" stroke-width="1.8">
+    <rect x="300" y="70" width="250" height="72" rx="9" fill="#EEF3F8"/>
+    <rect x="25" y="280" width="175" height="66" rx="9" fill="#EEF3F8"/>
+    <rect x="355" y="470" width="190" height="64" rx="9" fill="#DFEAF4"/>
+    <rect x="790" y="470" width="180" height="64" rx="9" fill="#DFEAF4"/>
+    <rect x="1000" y="390" width="190" height="110" rx="9" fill="#F3F0F7"/>
+    <rect x="70" y="640" width="150" height="58" rx="9" fill="#EEF3F8"/>
+    <rect x="265" y="675" width="150" height="58" rx="9" fill="#EEF3F8"/>
+    <rect x="240" y="800" width="180" height="58" rx="9" fill="#EEF3F8"/>
+    <rect x="560" y="790" width="160" height="60" rx="9" fill="#EEF3F8"/>
+    <rect x="545" y="960" width="180" height="58" rx="9" fill="#EEF3F8"/>
+    <rect x="890" y="760" width="180" height="58" rx="9" fill="#EEF3F8"/>
+    <rect x="965" y="950" width="165" height="58" rx="9" fill="#EEF3F8"/>
+  </g>
+
+  <g font-size="13" fill="#17334F" text-anchor="middle">
+    <text x="425" y="100">依赖化石能源与</text>
+    <text x="425" y="122">非可再生能源的业务</text>
+    <text x="112" y="306">再生生物圈的</text>
+    <text x="112" y="328">业务</text>
+    <text x="450" y="497" font-size="14" font-weight="bold">数字使用</text>
+    <text x="880" y="497" font-size="14" font-weight="bold">基础设施</text>
+    <text x="1095" y="428">污染（CO₂、废弃物……）</text>
+    <text x="1095" y="452">能源消耗、</text>
+    <text x="1095" y="476">金属开采</text>
+    <text x="145" y="665">成瘾性算法</text>
+    <text x="340" y="700">数字充足性</text>
+    <text x="330" y="825">能源与金属价格</text>
+    <text x="640" y="817">数字成本</text>
+    <text x="635" y="986">数字利润空间</text>
+    <text x="980" y="786">数字性能</text>
+    <text x="1047" y="976">数字投资</text>
+  </g>
+
+  <!-- 图例 -->
+  <rect x="40" y="1030" width="1120" height="132" rx="8" fill="#F7F9FB" stroke="#DCE3EA"/>
+  <text x="60" y="1056" font-size="14" font-weight="bold" fill="#17334F">图例</text>
+  <g font-size="12.5" fill="#33465B">
+    <text x="60" y="1082">因果连接 A → B：A 的变化触发 B 的变化</text>
+    <text x="60" y="1106">＋（正）：A 增加导致 B 增加；－（负）：A 增加导致 B 减少</text>
+    <text x="60" y="1130">反馈回路：输出变量反过来影响输入变量</text>
+    <text x="60" y="1154">R：增强型反馈回路，导致指数动态；B：平衡型反馈回路，导致平衡动态</text>
+  </g>
+</svg>

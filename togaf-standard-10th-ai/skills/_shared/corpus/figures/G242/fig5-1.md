@@ -1,0 +1,702 @@
+# G242/fig5-1 · 数字可持续性参考模型（详细版）（来源：The Shift Project Lean-ICT 工作组）
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G242/fig5-1.md) · [JSON](../../architecture/diagrams/G242/fig5-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G242e.pdf`；SHA-256：`517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19`。
+
+## 原图 · PDF 第 91 页
+
+![英文原图](../assets/G242/fig5-1-p0091.png)
+
+PDF 坐标：`[74.0, 255.5, 538.0, 608.1]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+‘© The Open Group
+é
+Deploying a sustainable Information System policy
+Developing & Rolling Out a Sustainable Information System Strategy
+A
+Formalize ()
+Nominate a Sponsor from (2)
+‘Align CSR Business, and ict)
+Set Overall and
+Check the
+Build and launch the
+the Risks
+Function-level
+Business
+transformation
+Executive Management
+Departments
+Goals
+Model
+program
+Engaging with Customers, (0)
+Architecting & Building a Sustainable Information System
+A
+Measuring the
+Providers, Partners, and
+Environmental
+Authorities towards Sustainable
+State the Vision of a Sustainable Information System
+ia)
+Impact of the
+Solutions and Services
+Information System
+‘A dual use-
+Reshape Business Architecture
+A
+a
+from Cradle to
+based an
+Agile
+‘Ask Service Providers for End-to-End
+infrastructure
+methodologies for
+Grave
+Environmental Footprint Transparency
+based
+Reshape the Application Architecture
+a)
+‘sustanabilty
+architecture
+Build and share)
+Reshape data achitecure to reduce data volume) sustainable A
+Information System
+‘Adapt the Selection Criteria for Calls 6)
+‘approach to
+Carbon Footprint
+drive
+software
+‘Measures from
+Tenders and Contracts with Suppliers
+transformation
+Reshape technical architecture
+A
+development
+Cradle to Grave
+‘and Partners.
+Operating a Sustainable Information System
+A
+Develop activities to”)
+Define the Procurement Strategy (A
+‘measure the
+Manage
+Supportthe A
+Monitor
+Aa
+Load shedding for (3)
+Information System
+Digital
+Increase in
+Digital
+data centers on
+Environmental
+Equipment
+Usage Period of
+Consumption
+Interruptible demand
+impact
+Comply and Go Beyond the Regulatch
+Inventories
+Environmental Reporting Requested by
+Digital
+of electricity operator
+‘Authorities
+Equipment
+Provide to involved ()
+Involve Customers in the Goal of (A)
+Developing a Sustainable Digital Culture
+a
+stakeholders a
+Digital Sustainability
+Organize and Manage the Cultural
+A
+Encourage frugal & regenerative
+measure of their
+‘Transformation
+innovation
+‘environmental
+Influence the Market, Capitalize on()
+impact
+Knowledge by Contributing to
+A
+Develop Digital Sustainabilty Awareness,
+Public Papers
+Roll out a comminication plan
+‘Manage Skills, Train People
+Governing the Transition Towards a Sustainable Information System
+A
+Define Governance)
+Animate A)
+Evaluate sustainable (9)
+Ensure that objectives are (9)
+‘Assess the maturity of the)
+Principles and
+Governance
+reached, coordinate initiatives
+lity “Provide a sustainable
+ideas
+Organization
+Committees
+‘and decision-making
+information system”
+```
+
+## 概要（历史解释；局部修正见上）
+
+把“部署可持续信息系统政策”拆成七个功能组、三十六个业务功能的详细参考模型。
+
+## 目的（历史解释；局部修正见上）
+
+把第 3 章散落在 3.3–3.9 节的做法收拢成一张可操作的业务功能地图：组织可以据此盘点自己已做、未做与成熟度，也可作为跨企业比较的框架；每个功能在表 5-1 中有详细说明。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+从外到内读：最外层“部署可持续信息系统政策”是总能力；内部七个米黄大框是功能组，按“战略（顶部）—生态互动（左）—架构与构建（中上）—运营（中）—文化（中下）—度量（右）—治理（底部）”排布；每个功能组内的白框是具体业务功能。没有箭头，层级与归属只靠框的嵌套；每个框右上角的房屋形小图标表示“这是一个业务功能”。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 模型是三层：总能力（1）→ 功能组（7）→ 业务功能（36）；七个组分别是战略、生态互动、架构与构建、运营、文化、度量、治理。
+- 战略组（6 项）是入口：将风险正式化、从高管层任命发起人、对齐 CSR/业务/ICT、设定总体与职能级目标、检查业务模式、构建并启动转型计划。
+- 生态互动组（6 项）对应 3.7 节：要求提供方端到端透明、调整招标与合同选择标准、定义采购战略、合规并超越监管报告、让客户参与、影响市场并贡献公开文章。
+- 架构与构建组（8 项）最重：陈述愿景、以“用途+基础设施”双重方法驱动转型、重塑业务/应用/数据/技术四层架构，另加面向可持续性的敏捷方法与可持续软件开发。
+- 运营组（4 项）关注资产与用电：管理设备清单、延长使用期限、监控数字消费、应电网要求对数据中心可中断削峰。
+- 文化与度量两组是支撑：文化组（4 项）做文化转型、节俭与再生式创新、沟通计划、意识与培训；度量组（3 项）做摇篮到坟墓的碳足迹、度量活动、向利益相关者提供其影响度量。
+- 治理组（5 项）在底部横贯全宽：定义治理原则与组织、推动治理委员会、确保目标达成并协调举措与决策、评估“提供可持续信息系统”能力成熟度、评估可持续想法。
+- 三十六个功能不是流程步骤，而是能力清单：可并行建设、可单独评估成熟度，组与组之间没有先后箭头。
+
+## 层级（历史解释；局部修正见上）
+
+三层：L0“部署可持续信息系统政策”；L1 七个功能组；L2 三十六个业务功能。功能组在版式上分区（顶部/左/中/右/底部），但都直接隶属于 L0，组与组之间是并列关系而非上下级。
+
+## 线条含义（历史解释；局部修正见上）
+
+全图没有连线或箭头。层级只由矩形嵌套表达：外框包住七个组框，组框包住功能框。每个框右上角的房屋形图标是“业务功能”的记法标记，不是链接点。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 七个功能组不是七个阶段，没有先后顺序；顶部的“战略”是入口，但其余组可并行推进。
+- “治理”组虽然画在底部横贯全宽，不代表它是最后一步或只属于高层；它是对其余六组的持续治理。
+- “架构与构建”组里的“Agile methodologies for sustainability”“Sustainable software development”是两个并列功能，不是“架构方法”的子步骤。
+- “Measuring the Environmental Impact…”组只有 3 个功能，不代表度量不重要；其详细活动在 3.6 节与图 3-10、3-11 展开。
+- 每个框右上角的房屋形小图标不是“主页/返回”按钮，而是业务功能标记；中文重绘 SVG 省略了该图标，不能据此认为原图没有标记。
+- 中文稿当前引用的 PNG 有多处中英混排与小字挤压，不能据其字号判断某功能不重要。
+
+## 元素
+
+```json
+[
+  {
+    "id": "deploy_policy",
+    "label_en": "Deploying a sustainable Information System policy",
+    "label_zh": "部署可持续信息系统政策",
+    "type": "capability",
+    "parent": null,
+    "level": 0,
+    "position": "最外层米黄大框，标题在顶部"
+  },
+  {
+    "id": "g_strategy",
+    "label_en": "Developing & Rolling Out a Sustainable Information System Strategy",
+    "label_zh": "制定并推展可持续信息系统战略",
+    "type": "function",
+    "parent": "deploy_policy",
+    "level": 1,
+    "order": 1,
+    "position": "顶部整行"
+  },
+  {
+    "id": "f_formalize_risks",
+    "label_en": "Formalize the Risks",
+    "label_zh": "将风险正式化",
+    "type": "function",
+    "parent": "g_strategy",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "f_nominate_sponsor",
+    "label_en": "Nominate a Sponsor from Executive Management",
+    "label_zh": "从高管层任命发起人",
+    "type": "function",
+    "parent": "g_strategy",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "f_align_csr",
+    "label_en": "Align CSR, Business, and ICT Departments",
+    "label_zh": "对齐 CSR、业务与 ICT 部门",
+    "type": "function",
+    "parent": "g_strategy",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "f_set_goals",
+    "label_en": "Set Overall and Function-level Goals",
+    "label_zh": "设定总体与职能级目标",
+    "type": "function",
+    "parent": "g_strategy",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "f_check_model",
+    "label_en": "Check the Business Model",
+    "label_zh": "检查业务模式",
+    "type": "function",
+    "parent": "g_strategy",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "f_build_program",
+    "label_en": "Build and launch the transformation program",
+    "label_zh": "构建并启动转型计划",
+    "type": "function",
+    "parent": "g_strategy",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "g_engage",
+    "label_en": "Engaging with Customers, Providers, Partners, and Authorities towards Sustainable Solutions and Services",
+    "label_zh": "与客户、提供方、伙伴及主管部门互动，共同实现可持续的解决方案与服务",
+    "type": "function",
+    "parent": "deploy_policy",
+    "level": 1,
+    "order": 2,
+    "position": "左列竖排"
+  },
+  {
+    "id": "f_provider_transparency",
+    "label_en": "Ask Service Providers for End-to-End Environmental Footprint Transparency",
+    "label_zh": "要求服务提供方提供端到端环境足迹透明度",
+    "type": "function",
+    "parent": "g_engage",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "f_selection_criteria",
+    "label_en": "Adapt the Selection Criteria for Calls for Tenders and Contracts with Suppliers and Partners",
+    "label_zh": "调整招标与合同的选择标准",
+    "type": "function",
+    "parent": "g_engage",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "f_procurement",
+    "label_en": "Define the Procurement Strategy",
+    "label_zh": "定义采购战略",
+    "type": "function",
+    "parent": "g_engage",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "f_regulatory",
+    "label_en": "Comply and Go Beyond the Regulatory Environmental Reporting Requested by Authorities",
+    "label_zh": "遵守并超越主管部门要求的监管环境报告",
+    "type": "function",
+    "parent": "g_engage",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "f_involve_customers",
+    "label_en": "Involve Customers in the Goal of Digital Sustainability",
+    "label_zh": "让客户参与数字可持续目标",
+    "type": "function",
+    "parent": "g_engage",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "f_influence_market",
+    "label_en": "Influence the Market, Capitalize on Knowledge by Contributing to Public Papers",
+    "label_zh": "影响市场，通过贡献公开文章积累知识",
+    "type": "function",
+    "parent": "g_engage",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "g_architect",
+    "label_en": "Architecting & Building a Sustainable Information System",
+    "label_zh": "架构并构建可持续信息系统",
+    "type": "function",
+    "parent": "deploy_policy",
+    "level": 1,
+    "order": 3,
+    "position": "中列上部"
+  },
+  {
+    "id": "f_state_vision",
+    "label_en": "State the Vision of a Sustainable Information System",
+    "label_zh": "陈述可持续信息系统的愿景",
+    "type": "function",
+    "parent": "g_architect",
+    "level": 2,
+    "order": 1,
+    "position": "组内顶部横条"
+  },
+  {
+    "id": "f_dual_approach",
+    "label_en": "A dual use- and infrastructure-based architecture approach to drive transformation",
+    "label_zh": "以基于用途与基于基础设施的双重架构方法驱动转型",
+    "type": "function",
+    "parent": "g_architect",
+    "level": 2,
+    "order": 2,
+    "position": "组内左侧竖框"
+  },
+  {
+    "id": "f_business_arch",
+    "label_en": "Reshape Business Architecture",
+    "label_zh": "重塑业务架构",
+    "type": "function",
+    "parent": "g_architect",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "f_app_arch",
+    "label_en": "Reshape the Application Architecture",
+    "label_zh": "重塑应用架构",
+    "type": "function",
+    "parent": "g_architect",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "f_data_arch",
+    "label_en": "Reshape data architecture to reduce data volumes",
+    "label_zh": "重塑数据架构以减少数据量",
+    "type": "function",
+    "parent": "g_architect",
+    "level": 2,
+    "order": 5
+  },
+  {
+    "id": "f_tech_arch",
+    "label_en": "Reshape technical architecture",
+    "label_zh": "重塑技术架构",
+    "type": "function",
+    "parent": "g_architect",
+    "level": 2,
+    "order": 6
+  },
+  {
+    "id": "f_agile",
+    "label_en": "Agile methodologies for sustainability",
+    "label_zh": "面向可持续性的敏捷方法",
+    "type": "function",
+    "parent": "g_architect",
+    "level": 2,
+    "order": 7,
+    "position": "组内右侧上框"
+  },
+  {
+    "id": "f_sustainable_sw",
+    "label_en": "Sustainable software development",
+    "label_zh": "可持续软件开发",
+    "type": "function",
+    "parent": "g_architect",
+    "level": 2,
+    "order": 8,
+    "position": "组内右侧下框"
+  },
+  {
+    "id": "g_operate",
+    "label_en": "Operating a Sustainable Information System",
+    "label_zh": "运营可持续信息系统",
+    "type": "function",
+    "parent": "deploy_policy",
+    "level": 1,
+    "order": 4,
+    "position": "中列中部"
+  },
+  {
+    "id": "f_inventories",
+    "label_en": "Manage Digital Equipment Inventories",
+    "label_zh": "管理数字设备清单",
+    "type": "function",
+    "parent": "g_operate",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "f_usage_period",
+    "label_en": "Support the Increase in Usage Period of Digital Equipment",
+    "label_zh": "支持延长数字设备使用期限",
+    "type": "function",
+    "parent": "g_operate",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "f_monitor",
+    "label_en": "Monitor Digital Consumption",
+    "label_zh": "监控数字消费",
+    "type": "function",
+    "parent": "g_operate",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "f_load_shedding",
+    "label_en": "Load shedding for data centers on interruptible demand of electricity operator",
+    "label_zh": "应电网运营方要求对数据中心可中断削峰",
+    "type": "function",
+    "parent": "g_operate",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "g_culture",
+    "label_en": "Developing a Sustainable Digital Culture",
+    "label_zh": "发展可持续数字文化",
+    "type": "function",
+    "parent": "deploy_policy",
+    "level": 1,
+    "order": 5,
+    "position": "中列下部"
+  },
+  {
+    "id": "f_cultural_change",
+    "label_en": "Organize and Manage the Cultural Transformation",
+    "label_zh": "组织并管理文化转型",
+    "type": "function",
+    "parent": "g_culture",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "f_frugal",
+    "label_en": "Encourage frugal & regenerative innovation",
+    "label_zh": "鼓励节俭与再生式创新",
+    "type": "function",
+    "parent": "g_culture",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "f_communication",
+    "label_en": "Roll out a communication plan",
+    "label_zh": "推展沟通计划",
+    "type": "function",
+    "parent": "g_culture",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "f_awareness",
+    "label_en": "Develop Digital Sustainability Awareness, Manage Skills, Train People",
+    "label_zh": "培养数字可持续性意识、管理技能、培训人员",
+    "type": "function",
+    "parent": "g_culture",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "g_measure",
+    "label_en": "Measuring the Environmental Impact of the Information System from Cradle to Grave",
+    "label_zh": "从摇篮到坟墓度量信息系统环境影响",
+    "type": "function",
+    "parent": "deploy_policy",
+    "level": 1,
+    "order": 6,
+    "position": "右列竖排"
+  },
+  {
+    "id": "f_carbon_measure",
+    "label_en": "Build and Share Information System Carbon Footprint Measures from Cradle to Grave",
+    "label_zh": "建立并共享从摇篮到坟墓的信息系统碳足迹度量",
+    "type": "function",
+    "parent": "g_measure",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "f_measure_activities",
+    "label_en": "Develop activities to measure the Information System Environmental impact",
+    "label_zh": "开展度量信息系统环境影响的活动",
+    "type": "function",
+    "parent": "g_measure",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "f_stakeholder_measure",
+    "label_en": "Provide to involved stakeholders a measure of their environmental impact",
+    "label_zh": "向各利益相关者提供其环境影响的度量",
+    "type": "function",
+    "parent": "g_measure",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "g_govern",
+    "label_en": "Governing the Transition Towards a Sustainable Information System",
+    "label_zh": "治理向可持续信息系统转型",
+    "type": "function",
+    "parent": "deploy_policy",
+    "level": 1,
+    "order": 7,
+    "position": "底部整行"
+  },
+  {
+    "id": "f_governance_principles",
+    "label_en": "Define Governance Principles and Organization",
+    "label_zh": "定义治理原则与组织",
+    "type": "function",
+    "parent": "g_govern",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "f_animate_committees",
+    "label_en": "Animate Governance Committees",
+    "label_zh": "推动治理委员会运作",
+    "type": "function",
+    "parent": "g_govern",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "f_objectives",
+    "label_en": "Ensure that objectives are reached, coordinate initiatives and decision-making",
+    "label_zh": "确保目标达成，协调举措与决策",
+    "type": "function",
+    "parent": "g_govern",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "f_maturity",
+    "label_en": "Assess the maturity of the capability \"Provide a sustainable information system\"",
+    "label_zh": "评估“提供可持续信息系统”能力的成熟度",
+    "type": "function",
+    "parent": "g_govern",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "f_evaluate_ideas",
+    "label_en": "Evaluate sustainable ideas",
+    "label_zh": "评估可持续想法",
+    "type": "function",
+    "parent": "g_govern",
+    "level": 2,
+    "order": 5
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "房屋形小图标（框右上角）",
+    "meaning_zh": "业务功能标记（每个功能框与功能组标题右上角各一个）",
+    "explicit": false
+  },
+  {
+    "symbol": "米黄大框",
+    "meaning_zh": "功能组（L1）",
+    "explicit": false
+  },
+  {
+    "symbol": "白底圆角小框",
+    "meaning_zh": "业务功能（L2）",
+    "explicit": false
+  },
+  {
+    "symbol": "外层大框",
+    "meaning_zh": "总能力“部署可持续信息系统政策”（L0）",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "grid",
+  "description_zh": "外层大框；顶部整行“战略”组（6 框）；其下三列：左列“生态互动”组（6 框竖排）、中列上“架构与构建”（8 框：愿景横条+双方法左栏+四层架构+敏捷/软件两框）、中列中“运营”（4 框）、中列下“文化”（4 框）、右列“度量”（3 框竖排）；底部整行“治理”组（5 框）。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G242/fig3-1",
+    "relation": "detail_of",
+    "note_zh": "图 3-1 是同一参考模型的高层版（七个高层业务功能），本图是其详细版，把七个功能组展开为三十六项业务功能。"
+  },
+  {
+    "target": "G242/fig3-16",
+    "relation": "related",
+    "note_zh": "本图“定义治理原则与组织”功能的输出即图 3-16 的九条治理原则。"
+  },
+  {
+    "target": "G242/fig3-12",
+    "relation": "related",
+    "note_zh": "本图“与客户、提供方、伙伴及主管部门互动”功能组，展开的是图 3-12 所示的生态系统互动。"
+  },
+  {
+    "target": "G242/fig3-11",
+    "relation": "related",
+    "note_zh": "本图“从摇篮到坟墓度量”功能组对应图 3-11 的三层度量与图 3-10 的年度核算。"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "框右上角的房屋形小图标的准确含义（业务功能/构建块标记）图中未给图例，按 TOGAF 系列指南的业务功能标记理解。",
+    "组内功能的排列顺序未标注编号，按从左到右、从上到下的阅读顺序记录 order。",
+    "外框右上角的网格状小图标含义不明（疑为参考模型/矩阵标记），未纳入元素。",
+    "原图“Deploying a sustainable Information System policy”中 Information System 首字母大写、其余小写，已按原样记录。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 91 页（印刷页 73）原图截图与 3×3 放大分块",
+    "英文 PDF 第 91–92 页正文（含表 5-1 开头）",
+    "中文稿 G242e_环境可持续的信息系统.md 第 1810–1854 行",
+    "figs/zh/g242_fig5-1_zh.svg 源码、figs/zh/g242_fig5-1_zh.png、figs/g242_fig5-1_en.png"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

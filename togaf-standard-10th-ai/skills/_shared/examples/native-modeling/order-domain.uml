@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 虚构教学示例 / 候选设计；未获真实业务批准或完整语言认证。 -->
+<uml:Model xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmi:version="2.5.1" xmi:id="MODEL" name="订单领域模型">
+ <packagedElement xmi:type="uml:PrimitiveType" xmi:id="INTEGER" name="Integer"/>
+ <packagedElement xmi:type="uml:PrimitiveType" xmi:id="STRING" name="String"/>
+ <packagedElement xmi:type="uml:Package" xmi:id="DOMAIN" name="订单域">
+  <packagedElement xmi:type="uml:Class" xmi:id="ENTITY" name="Entity" isAbstract="true"><ownedAttribute xmi:id="ENTITY_ID" name="id" visibility="protected" type="STRING" isReadOnly="true"/></packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ORDER" name="Order">
+   <ownedAttribute xmi:id="ORDER_STATUS" name="status" visibility="private" type="STRING"/>
+   <ownedAttribute xmi:id="ORDER_TOTAL" name="total" visibility="private" type="INTEGER"/>
+   <ownedOperation xmi:id="ORDER_CREATE" name="create" visibility="public" isStatic="true"><ownedParameter xmi:id="ORDER_CREATE_QTY" name="quantity" direction="in" type="INTEGER"/><ownedParameter xmi:id="ORDER_CREATE_RESULT" direction="return" type="ORDER"/></ownedOperation>
+   <generalization xmi:id="ORDER_IS_ENTITY" general="ENTITY"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="LINE" name="OrderLine"><ownedAttribute xmi:id="LINE_QTY" name="quantity" visibility="private" type="INTEGER"/><generalization xmi:id="LINE_IS_ENTITY" general="ENTITY"/></packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ORDER_LINES" name="包含明细" memberEnd="END_ORDER END_LINE">
+   <ownedEnd xmi:id="END_ORDER" name="order" type="ORDER" association="ORDER_LINES" aggregation="none"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="END_ORDER_LOWER" value="1"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="END_ORDER_UPPER" value="1"/></ownedEnd>
+   <ownedEnd xmi:id="END_LINE" name="lines" type="LINE" association="ORDER_LINES" aggregation="none"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="END_LINE_LOWER" value="0"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="END_LINE_UPPER" value="*"/></ownedEnd>
+  </packagedElement>
+ </packagedElement>
+</uml:Model>

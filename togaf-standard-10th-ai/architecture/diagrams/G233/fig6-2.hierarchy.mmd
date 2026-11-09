@@ -1,0 +1,54 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Acquire Retail Product Online Value Stream"]
+  n1["Customer arrives at store"]
+  n2["Customer"]
+  n3["Browse Online Store"]
+  n4["Select Product(s)"]
+  n5["Review Basket"]
+  n6["Purchase Products"]
+  n7["Deliver Products"]
+  n8["Store Layout Management"]
+  n9["Catalog Products"]
+  n10["Identity Management"]
+  n11["Basket Management"]
+  n12["Inventory Management"]
+  n13["Delivery Management"]
+  n14["Payment Processing"]
+  n15["Warehouse Order Fulfillment Value Stream"]
+  n16["Customer successfully acquires retail product"]
+  n17["Catalog Products"]
+  n18["Basket Management"]
+  n19["Identity Management"]
+  n20["Basket Management"]
+  n21["Identity Management"]
+  n22["Delivery Management"]
+  n23["Inventory Management"]
+  n0 -.->|"visual_containment_only"| n1
+  n0 -.->|"visual_containment_only"| n2
+  n0 -.->|"value_stream_decomposition"| n3
+  n0 -.->|"value_stream_decomposition"| n4
+  n0 -.->|"value_stream_decomposition"| n5
+  n0 -.->|"value_stream_decomposition"| n6
+  n0 -.->|"value_stream_decomposition"| n7
+  n3 -.->|"visual_containment_only"| n8
+  n3 -.->|"visual_containment_only"| n9
+  n3 -.->|"visual_containment_only"| n10
+  n4 -.->|"visual_containment_only"| n11
+  n4 -.->|"visual_containment_only"| n12
+  n6 -.->|"visual_containment_only"| n13
+  n6 -.->|"visual_containment_only"| n14
+  n7 -.->|"visual_containment_only"| n15
+  n0 -.->|"visual_containment_only"| n16
+  n4 -.->|"visual_containment_only"| n17
+  n5 -.->|"visual_containment_only"| n18
+  n5 -.->|"visual_containment_only"| n19
+  n6 -.->|"visual_containment_only"| n20
+  n6 -.->|"visual_containment_only"| n21
+  n7 -.->|"visual_containment_only"| n22
+  n7 -.->|"visual_containment_only"| n23
+  n0 -->|"语义组成: composition"| n3
+  n0 -->|"语义组成: composition"| n4
+  n0 -->|"语义组成: composition"| n5
+  n0 -->|"语义组成: composition"| n6
+  n0 -->|"语义组成: composition"| n7

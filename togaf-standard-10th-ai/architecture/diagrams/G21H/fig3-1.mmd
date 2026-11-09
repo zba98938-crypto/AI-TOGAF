@@ -1,0 +1,41 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Digital Practices"]
+  n1["Customer Focus"]
+  n2["Digital Enterprise"]
+  n3["Strategy Domain (Why)"]
+  n4["Strategic Context"]
+  n5["Business Motivation"]
+  n6["Business Services and Products"]
+  n7["Structural Domain (What)"]
+  n8["Ecosystem and Business Model"]
+  n9["Operating Model"]
+  n10["Business Capability Model"]
+  n11["Operational Domain (How)"]
+  n12["Business Operating Environment"]
+  n13["Digital Enablement"]
+  n2 -->|"影响"| n1
+  n1 -->|"影响"| n4
+  n1 -->|"影响"| n5
+  n1 -->|"影响"| n6
+  n2 -->|"影响"| n8
+  n2 -->|"影响"| n12
+  n2 -->|"影响"| n13
+  n8 <-->|"关联"| n9
+  n9 <-->|"关联"| n10
+  n8 -->|"支撑/服务"| n6
+  n9 -->|"支撑/服务"| n6
+  n10 -->|"支撑/服务"| n6
+  n12 -->|"支撑/服务"| n8
+  n12 -->|"支撑/服务"| n9
+  n12 -->|"支撑/服务"| n10
+  n0 -.->|"分组"| n1
+  n0 -.->|"分组"| n2
+  n3 -.->|"分组"| n4
+  n3 -.->|"分组"| n5
+  n3 -.->|"分组"| n6
+  n7 -.->|"分组"| n8
+  n7 -.->|"分组"| n9
+  n7 -.->|"分组"| n10
+  n11 -.->|"分组"| n12
+  n11 -.->|"分组"| n13

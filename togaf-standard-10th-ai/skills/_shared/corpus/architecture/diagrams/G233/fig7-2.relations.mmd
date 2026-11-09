@@ -1,0 +1,27 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Incentive Management"]
+  n1["CRM Application"]
+  n2["Store Promotion"]
+  n3["Online Store"]
+  n4["Store Promotion"]
+  n5["Online Store Incentive Management Integration with CRM"]
+  n6["Legacy Warehouse Management Application"]
+  n7["Retire Application"]
+  n8["Modern Warehouse Management Application"]
+  n9["Add Legacy Warehouse Application Inventory"]
+  n10["Delivery Management"]
+  n11["Customer"]
+  n12["Delivery Driver"]
+  n13["Confirm Package Delivery"]
+  n14["Shipping Company Tracking Application"]
+  n15["Notify customer of shipping progress"]
+  n16["Signature Pad"]
+  n17["Signature Pad application enhancement"]
+  n3 -->|"访问"| n2
+  n16 -->|"流动"| n14
+  n5 -.->|"变化影响"| n3
+  n9 -.->|"变化影响"| n8
+  n17 -.->|"变化影响"| n16
+  n5 -.->|"变化影响"| n1
+  n7 -.->|"依赖"| n9

@@ -1,0 +1,1330 @@
+{
+  "schema_version": "1.0",
+  "id": "G238/fig3-2",
+  "status": "done",
+  "doc": {
+    "code": "G238",
+    "title_zh": "信息架构——商业智能与分析",
+    "title_en": "Information Architecture — BI & Analytics",
+    "zh_md": "G238e_信息架构_商业智能与分析.md",
+    "en_pdf": "togaf-standard-10th/G238e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-2",
+    "title_en": "Step 2 – Introduction of the New Generation Platform",
+    "title_zh": "步骤 2——引入新一代平台",
+    "section_en": "3.2.2 Step 2",
+    "section_zh": "3.2.2 步骤 2",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        20
+      ],
+      "printed_page": 10,
+      "bboxes": [
+        [
+          48.2,
+          90.1,
+          563.8,
+          448.2
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        240
+      ],
+      "label_table_lines": [
+        244,
+        268
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g238e_fig3-2_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": false,
+      "sha1": "b40b1db75b10",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.986（≥0.9 通常为同一图）",
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.986，元素、箭头、图例与配色一致。"
+      ]
+    },
+    {
+      "path": "figs/zh/g238e_fig3-2_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": true,
+      "sha1": "eca9ae393b8c",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "第三个事务型应用框损坏：只剩左右两条竖边，上下边框与浅蓝底色缺失，框内“含内嵌 BI 与分析能力的事务型应用”被缩成很小的字且不居中，看上去像一块空白区域而不是一个应用。",
+        "“应用 #2”标签被画成白色，落在浅灰底上几乎不可见（原图为深蓝色字），读者会以为该框没有标签。",
+        "图例“出站流 Outbound Flow”的箭头丢失，只剩一段短横线，无法与入站流图例区分线型。",
+        "各圆柱内的“关系型数据库（RDBMS）”被缩到极小，几乎不可读。",
+        "“互联设备、开放数据、日志等”框的左右两侧出现原图没有的浅蓝色竖条，像是选中高亮，破坏目标架构的橙色边框语义。",
+        "新一代平台与企业数据仓库框内文字比原图小，视觉层级被削弱；其余 13 条箭头的方向、起止与橙/蓝配色均与原图一致。"
+      ]
+    },
+    {
+      "path": "G238e_信息架构_商业智能与分析.md#L244-L268",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "e516bf908389",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "20 条对照覆盖图内全部可见标签（含 New Generation…、RDBMS or NoSQL、Connected Devices…），英文与原图一致。",
+        "译法与图 3-1 保持一致；未发现错译。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "network",
+      "flow"
+    ],
+    "notation": "非正式数据架构图：蓝框=现状元素、橙框=目标元素；圆柱=数据存储；灰色/橙色虚线箭头=入站流，灰色/橙色实线箭头=出站流；大虚线框=平台范围。",
+    "concepts": [
+      "bi_analytics",
+      "data_architecture",
+      "data_integration",
+      "transition_architecture",
+      "baseline_target_gap"
+    ],
+    "adm_phases": [
+      "adm_phase_f"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "过渡步骤 2：保留数仓，新增新一代平台承接新数据源，并向新集市/应用供数。",
+    "purpose_zh": "展示从现状走向目标的第一步：在不拆除企业数据仓库的前提下引入新一代平台，用它处理数仓无法覆盖的新数据源（日志、联网设备等），同时让部分新集市/应用先跑起来，暴露“历史数据双份存储、新平台不存原始数据、血缘困难”等过渡期缺口（表 3-3）。",
+    "reading_guide_zh": "先看左右两侧的状态：左侧三个事务型应用与中央企业数据仓库仍是蓝框（现状），下方新增的 New Generation BI & Analytics Data Platforms 是橙框（目标）。灰色虚线箭头从三个事务型应用进入数仓；橙色实线箭头从数仓向下进入新平台（清洗数据），再从新平台指向右侧 Data Mart #3、Application #2、Application #3。左下的 Connected Devices, Open Data, Log 通过橙色虚线入站流进入新平台。注意 Data Mart #3 同时收到来自数仓和新平台的两条橙色实线箭头。",
+    "key_points_zh": [
+      "企业数据仓库仍是现状核心（蓝框），新一代平台是新增目标元素（橙框）；两者并存，尚未替换。",
+      "数仓→新平台是一条橙色实线出站流，表示数仓把清洗后的数据提供给新平台——这是新平台原本拿不到的数据（正文 p20）。",
+      "新平台通过橙色虚线入站流接收 Connected Devices、Open Data、Log 等新数据源，并接收 Application #3 回写的入站流（应用产生的新数据经摄取进入平台以保留历史）。",
+      "Data Mart #3 是双供数的典型：同时收到数仓（上）与新平台（下）两条橙色实线箭头，对应正文“部分需快速交付的集市同时由数仓与新平台供数”。",
+      "Data Mart #1、Data Mart #2、Application #1 仍只由数仓供数（灰色实线），尚未切换。",
+      "新平台向 Data Mart #3、Application #2、Application #3 供数；后两者的存储标为 RDBMS 或 NoSQL，说明新用例不一定落在关系型库。",
+      "过渡期代价写在表 3-3：历史数据双份存储、新平台不保存来自数仓的原始数据、原始数据缺失导致数据血缘困难。"
+    ],
+    "hierarchy_zh": "两层：平台范围容器（大虚线框）包含企业数据仓库、新一代平台、Data Mart #1/#2/#3、Application #1/#2/#3；三个事务型应用与 Connected Devices 在容器之外。每个应用/集市旁的圆柱是其本地存储，不是独立层级。两个平台（数仓与新平台）是并列关系，不是上下级。",
+    "line_semantics_zh": "灰色虚线箭头=现状入站流；橙色虚线箭头=目标入站流（新数据源、应用回写）；灰色实线箭头=现状出站流；橙色实线箭头=目标出站流（数仓→新平台、新平台→新集市/应用、数仓→新集市）。箭头指向数据接收方。图例只说明实线/虚线与蓝/橙框架，箭头颜色随所连接元素的现状/目标状态而变化，未单独列图例。",
+    "misreadings_zh": [
+      "不要把 Data Mart #3 的两条入站箭头读成重复或错误：它刻意表示同时由企业数仓与新平台供数。",
+      "不要把 Application #3 → 新平台的虚线箭头读成“平台依赖应用”；它是入站流，表示应用产生的新数据被摄取回平台保留历史。",
+      "不要因为新平台出现就认为数仓已被替换：本步骤中数仓仍是蓝框现状元素，且继续向 DM#1/#2/App#1 供数。",
+      "不要把橙色理解为“可选/未来才用”：橙色是目标架构元素，在本过渡步骤中已经存在并承担新数据源用例。",
+      "不要忽视 Application #2/#3 的存储标注“RDBMS or NoSQL”：它们与原 RDBMS 集市不是同一种存储形态。",
+      "中文稿引用的中文化 PNG 把第三个事务型应用框画坏、把“应用 #2”文字变成白色，容易让人误判元素缺失。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p20",
+        "summary_zh": "步骤 2 引入新一代 BI & Analytics 数据平台：数仓向新平台提供清洗数据；新平台处理新数据源（应用日志、联网设备）；Data Mart #3 同时由数仓与新平台供数；应用产生的新数据可经摄取进入新平台保留历史。"
+      },
+      {
+        "source": "en_pdf p21",
+        "summary_zh": "表 3-3 列出步骤 2 的收益与缺失能力：历史数据双份存储、没有分析单一事实来源、新平台不存原始数据、数据血缘困难。"
+      },
+      {
+        "source": "zh_md L269",
+        "summary_zh": "中文稿逐条转述图 3-2 的四点：数仓供清洗数据、新平台处理新数据源、数据集市 #3 双供数、新用例利用平台历史数据。"
+      },
+      {
+        "source": "zh_md L279",
+        "summary_zh": "中文稿表 3-3 的缺失能力：历史数据双份存储、新平台不存来自数仓的原始数据、因原始数据缺失导致血缘困难。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "左侧自上而下：三个事务型应用（蓝，各带 RDBMS，第三个另带 Other）、Connected Devices/Open Data/Log（橙框）。中央：上方企业数据仓库（蓝框灰底）、下方新一代平台（橙框灰底），两者以橙色实线箭头相连。右侧自上而下：Data Mart #1、Data Mart #2、Application #1（蓝框），Data Mart #3、Application #2、Application #3（橙框），各带圆柱。大虚线框包住数仓、新平台与右侧六个消费方。"
+  },
+  "legend": [
+    {
+      "symbol": "灰色/橙色虚线 + 箭头",
+      "meaning_zh": "入站流 Inbound Flow",
+      "explicit": true
+    },
+    {
+      "symbol": "灰色/橙色实线 + 箭头",
+      "meaning_zh": "出站流 Outbound Flow",
+      "explicit": true
+    },
+    {
+      "symbol": "蓝色边框方框",
+      "meaning_zh": "现状架构 As-Is Architecture",
+      "explicit": true
+    },
+    {
+      "symbol": "橙色边框方框",
+      "meaning_zh": "目标架构 To-Be Architecture",
+      "explicit": true
+    },
+    {
+      "symbol": "圆柱",
+      "meaning_zh": "RDBMS（或 RDBMS/NoSQL）数据存储，紧贴宿主",
+      "explicit": false
+    },
+    {
+      "symbol": "深蓝点线大框",
+      "meaning_zh": "BI & Analytics 数据平台范围",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "platform_scope",
+      "label_en": "Business Intelligence & Analytics Data Platforms",
+      "label_zh": "商业智能与分析数据平台",
+      "type": "group",
+      "parent": null,
+      "level": 0,
+      "position": "大虚线框",
+      "description_zh": "平台范围边界。"
+    },
+    {
+      "id": "txn_app_1",
+      "label_en": "Transactional Application #1",
+      "label_zh": "事务型应用 #1",
+      "type": "application",
+      "parent": null,
+      "level": 1,
+      "position": "左上",
+      "description_zh": "蓝框=现状；自带 RDBMS。"
+    },
+    {
+      "id": "txn_app_2",
+      "label_en": "Transactional Application #2",
+      "label_zh": "事务型应用 #2",
+      "type": "application",
+      "parent": null,
+      "level": 1,
+      "position": "左中",
+      "description_zh": "蓝框=现状；自带 RDBMS。"
+    },
+    {
+      "id": "txn_app_bi",
+      "label_en": "Transactional Application Including Embedded BI & Analytic Capabilities",
+      "label_zh": "含内嵌 BI 与分析能力的事务型应用",
+      "type": "application",
+      "parent": null,
+      "level": 1,
+      "position": "左下",
+      "description_zh": "蓝框=现状；RDBMS+Other 两个存储。"
+    },
+    {
+      "id": "connected_devices",
+      "label_en": "Connected Devices, Open Data, Log, ...",
+      "label_zh": "互联设备、开放数据、日志等",
+      "type": "data",
+      "parent": null,
+      "level": 1,
+      "position": "左下，Connected 区",
+      "description_zh": "橙框=目标；新数据源，原图中没有对应实体框。"
+    },
+    {
+      "id": "edw",
+      "label_en": "Enterprise Data Warehouse",
+      "label_zh": "企业数据仓库",
+      "type": "data",
+      "parent": "platform_scope",
+      "level": 1,
+      "position": "中央上",
+      "description_zh": "蓝框灰底；现状唯一的历史数据仓库。"
+    },
+    {
+      "id": "ng_platform",
+      "label_en": "New Generation BI & Analytics Data Platforms",
+      "label_zh": "新一代 BI 与分析数据平台",
+      "type": "application",
+      "parent": "platform_scope",
+      "level": 1,
+      "position": "中央下",
+      "description_zh": "橙框灰底；目标平台，处理新数据源与新用例。"
+    },
+    {
+      "id": "data_mart_1",
+      "label_en": "Data Mart #1",
+      "label_zh": "数据集市 #1",
+      "type": "data",
+      "parent": "platform_scope",
+      "level": 1,
+      "position": "右上",
+      "description_zh": "蓝框；仍只由数仓供数。"
+    },
+    {
+      "id": "data_mart_2",
+      "label_en": "Data Mart #2",
+      "label_zh": "数据集市 #2",
+      "type": "data",
+      "parent": "platform_scope",
+      "level": 1,
+      "position": "右中上",
+      "description_zh": "蓝框；仍只由数仓供数。"
+    },
+    {
+      "id": "app_1",
+      "label_en": "Application #1",
+      "label_zh": "应用 #1",
+      "type": "application",
+      "parent": "platform_scope",
+      "level": 1,
+      "position": "右中",
+      "description_zh": "蓝框；仍只由数仓供数。"
+    },
+    {
+      "id": "data_mart_3",
+      "label_en": "Data Mart #3",
+      "label_zh": "数据集市 #3",
+      "type": "data",
+      "parent": "platform_scope",
+      "level": 1,
+      "position": "右下上",
+      "description_zh": "橙框；同时由数仓与新平台供数。"
+    },
+    {
+      "id": "app_2",
+      "label_en": "Application #2",
+      "label_zh": "应用 #2",
+      "type": "application",
+      "parent": "platform_scope",
+      "level": 1,
+      "position": "右下中",
+      "description_zh": "橙框；由新平台供数，存储为 RDBMS。"
+    },
+    {
+      "id": "app_3",
+      "label_en": "Application #3",
+      "label_zh": "应用 #3",
+      "type": "application",
+      "parent": "platform_scope",
+      "level": 1,
+      "position": "右下",
+      "description_zh": "橙框；由新平台供数，并把新产生的数据回写给新平台。"
+    },
+    {
+      "id": "db_txn_1",
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "事务型应用 #1 左侧"
+    },
+    {
+      "id": "db_txn_2",
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "事务型应用 #2 左侧"
+    },
+    {
+      "id": "db_txn_bi",
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "内嵌 BI 应用左侧上"
+    },
+    {
+      "id": "db_other_bi",
+      "label_en": "Other",
+      "label_zh": "其他",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "内嵌 BI 应用左侧下"
+    },
+    {
+      "id": "db_dm_1",
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "Data Mart #1 右侧"
+    },
+    {
+      "id": "db_dm_2",
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "Data Mart #2 右侧"
+    },
+    {
+      "id": "db_app_1",
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "Application #1 右侧"
+    },
+    {
+      "id": "db_dm_3",
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "Data Mart #3 右侧",
+      "description_zh": "橙框圆柱=目标。"
+    },
+    {
+      "id": "db_app_2",
+      "label_en": "RDBMS",
+      "label_zh": "关系型数据库（RDBMS）",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "Application #2 右侧",
+      "description_zh": "橙框圆柱=目标。"
+    },
+    {
+      "id": "db_app_3",
+      "label_en": "RDBMS or NoSQL",
+      "label_zh": "关系型数据库或 NoSQL",
+      "type": "data",
+      "parent": null,
+      "level": 2,
+      "position": "Application #3 右侧",
+      "description_zh": "橙框圆柱=目标。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "txn_app_1",
+      "to": "edw",
+      "type": "flow",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "灰色虚线。"
+    },
+    {
+      "from": "txn_app_2",
+      "to": "edw",
+      "type": "flow",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "灰色虚线。"
+    },
+    {
+      "from": "txn_app_bi",
+      "to": "edw",
+      "type": "flow",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "灰色虚线。"
+    },
+    {
+      "from": "connected_devices",
+      "to": "ng_platform",
+      "type": "flow",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "橙色虚线；新数据源进入新平台。"
+    },
+    {
+      "from": "edw",
+      "to": "data_mart_1",
+      "type": "flow",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "灰色实线。"
+    },
+    {
+      "from": "edw",
+      "to": "data_mart_2",
+      "type": "flow",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "灰色实线。"
+    },
+    {
+      "from": "edw",
+      "to": "app_1",
+      "type": "flow",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "灰色实线。"
+    },
+    {
+      "from": "edw",
+      "to": "ng_platform",
+      "type": "flow",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "橙色实线，垂直向下；数仓向新平台提供清洗数据。"
+    },
+    {
+      "from": "edw",
+      "to": "data_mart_3",
+      "type": "flow",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "橙色实线，从数仓右下方进入 Data Mart #3 的上方箭头。"
+    },
+    {
+      "from": "ng_platform",
+      "to": "data_mart_3",
+      "type": "flow",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "橙色实线；Data Mart #3 因此双供数。"
+    },
+    {
+      "from": "ng_platform",
+      "to": "app_2",
+      "type": "flow",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "橙色实线。"
+    },
+    {
+      "from": "ng_platform",
+      "to": "app_3",
+      "type": "flow",
+      "label_en": "Outbound Flow",
+      "label_zh": "出站流",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "橙色实线。"
+    },
+    {
+      "from": "app_3",
+      "to": "ng_platform",
+      "type": "flow",
+      "label_en": "Inbound Flow",
+      "label_zh": "入站流",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "forward",
+      "description_zh": "橙色虚线，箭头指向新平台；应用产生的新数据经摄取回写平台。"
+    },
+    {
+      "from": "txn_app_1",
+      "to": "db_txn_1",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "圆柱紧贴宿主，原图未画线。"
+    },
+    {
+      "from": "txn_app_2",
+      "to": "db_txn_2",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "txn_app_bi",
+      "to": "db_txn_bi",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "txn_app_bi",
+      "to": "db_other_bi",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "data_mart_1",
+      "to": "db_dm_1",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "data_mart_2",
+      "to": "db_dm_2",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "app_1",
+      "to": "db_app_1",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "data_mart_3",
+      "to": "db_dm_3",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "app_2",
+      "to": "db_app_2",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    },
+    {
+      "from": "app_3",
+      "to": "db_app_3",
+      "type": "access",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G238/fig3-3",
+      "relation": "precedes",
+      "note_zh": "步骤 3 让新平台成长、取代暂存区/ODS，并有更多集市/应用切换供数。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "箭头颜色（灰/橙）在原图图例中没有单独说明，本分析按“现状流/目标流”解释；图例只规定实线=出站、虚线=入站。",
+      "Connected Devices 框内的“...”在原图是省略号，未列出全部数据源类型。",
+      "中文稿中文化 PNG 的第三个事务型应用框绘制损坏，本分析以英文原图为准。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 20 页图 3-2 截图与 3×3 放大分块",
+      "英文 PDF 第 20–21 页步骤 2 正文与表 3-3",
+      "中文稿 G238e_信息架构_商业智能与分析.md 第 240–280 行",
+      "figs/zh/g238e_fig3-2_zh.png、figs/g238e_fig3-2_en.png（相似度 0.986）"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G238e.pdf",
+    "pdf_sha256": "87e00e009377a887627417ceffc28b1f480bfaf57c9c84ee6f8757cc5c1c9444",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G238/fig3-2.json",
+    "interpretation_sha256": "948486902569a95af0c4ef7626f3ceabac993f69696b18638ee0a65bad2cf51b",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 20,
+        "text": "Figure 3-2: Step 2 – Introduction of the New Generation Platform",
+        "bbox_pdf_points": [
+          48.24,
+          452.941,
+          349.615,
+          466.507
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 20,
+      "printed_page": 10,
+      "bbox_pdf_points": [
+        48.2,
+        90.1,
+        563.8,
+        448.2
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G238/fig3-2-p0020.png",
+      "image_sha256": "1cafd3ef90c480e5fa94ce7d6dd1e2f628eee228ad8bf5182112d1ff5f7cd03b",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "1cafd3ef90c480e5fa94ce7d6dd1e2f628eee228ad8bf5182112d1ff5f7cd03b",
+          "status": "extracted-unverified",
+          "text": "on\nBusiness Intelligence & Analytics Data Platforms\n—\nData Mart #1\nEnterprise\nData Mart #2\nData\nWarehouse\nTransactional\nApplication\nApplication #4\nIncluding\nEmbedded\nBI & Analytic\nCapabilities\nData Mart #3 | Rosms\nConnected\nDevices, Open\nNew Generation\nApplication #2, RDBMS\nData, Log,\nBI & Analytics\nData Platforms\n—>\nInbound Flow\nApplication #3, Rosms\nOutbound Flow\nor NoSQL.\nAs-Is Architecture\nTo-Be Architecture",
+          "words": [
+            {
+              "text": "on",
+              "confidence": 44.542236,
+              "bbox_pixels_xywh": [
+                290,
+                5,
+                12,
+                6
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.068306,
+              "bbox_pixels_xywh": [
+                389,
+                22,
+                100,
+                16
+              ]
+            },
+            {
+              "text": "Intelligence",
+              "confidence": 93.291267,
+              "bbox_pixels_xywh": [
+                498,
+                22,
+                124,
+                21
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.272934,
+              "bbox_pixels_xywh": [
+                631,
+                21,
+                15,
+                17
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 96.838631,
+              "bbox_pixels_xywh": [
+                653,
+                22,
+                101,
+                21
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.998589,
+              "bbox_pixels_xywh": [
+                763,
+                22,
+                47,
+                16
+              ]
+            },
+            {
+              "text": "Platforms",
+              "confidence": 96.218208,
+              "bbox_pixels_xywh": [
+                819,
+                21,
+                103,
+                17
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 73.018028,
+              "bbox_pixels_xywh": [
+                32,
+                99,
+                62,
+                6
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.887741,
+              "bbox_pixels_xywh": [
+                785,
+                131,
+                42,
+                14
+              ]
+            },
+            {
+              "text": "Mart",
+              "confidence": 96.192421,
+              "bbox_pixels_xywh": [
+                835,
+                131,
+                40,
+                14
+              ]
+            },
+            {
+              "text": "#1",
+              "confidence": 71.633064,
+              "bbox_pixels_xywh": [
+                881,
+                130,
+                20,
+                15
+              ]
+            },
+            {
+              "text": "Enterprise",
+              "confidence": 96.337105,
+              "bbox_pixels_xywh": [
+                435,
+                200,
+                111,
+                21
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.68763,
+              "bbox_pixels_xywh": [
+                785,
+                212,
+                42,
+                15
+              ]
+            },
+            {
+              "text": "Mart",
+              "confidence": 96.55011,
+              "bbox_pixels_xywh": [
+                835,
+                212,
+                41,
+                15
+              ]
+            },
+            {
+              "text": "#2",
+              "confidence": 96.55011,
+              "bbox_pixels_xywh": [
+                881,
+                212,
+                22,
+                15
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.912079,
+              "bbox_pixels_xywh": [
+                467,
+                227,
+                47,
+                17
+              ]
+            },
+            {
+              "text": "Warehouse",
+              "confidence": 96.790504,
+              "bbox_pixels_xywh": [
+                428,
+                255,
+                124,
+                17
+              ]
+            },
+            {
+              "text": "Transactional",
+              "confidence": 96.074265,
+              "bbox_pixels_xywh": [
+                112,
+                281,
+                129,
+                16
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 96.466461,
+              "bbox_pixels_xywh": [
+                122,
+                306,
+                109,
+                19
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 96.781113,
+              "bbox_pixels_xywh": [
+                775,
+                293,
+                108,
+                19
+              ]
+            },
+            {
+              "text": "#4",
+              "confidence": 70.367287,
+              "bbox_pixels_xywh": [
+                890,
+                293,
+                20,
+                15
+              ]
+            },
+            {
+              "text": "Including",
+              "confidence": 95.932991,
+              "bbox_pixels_xywh": [
+                133,
+                330,
+                88,
+                19
+              ]
+            },
+            {
+              "text": "Embedded",
+              "confidence": 96.337677,
+              "bbox_pixels_xywh": [
+                127,
+                354,
+                101,
+                15
+              ]
+            },
+            {
+              "text": "BI",
+              "confidence": 92.601852,
+              "bbox_pixels_xywh": [
+                116,
+                378,
+                18,
+                15
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 89.614296,
+              "bbox_pixels_xywh": [
+                141,
+                378,
+                14,
+                15
+              ]
+            },
+            {
+              "text": "Analytic",
+              "confidence": 96.492165,
+              "bbox_pixels_xywh": [
+                160,
+                378,
+                79,
+                19
+              ]
+            },
+            {
+              "text": "Capabilities",
+              "confidence": 96.620697,
+              "bbox_pixels_xywh": [
+                121,
+                402,
+                112,
+                19
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.735985,
+              "bbox_pixels_xywh": [
+                785,
+                423,
+                42,
+                15
+              ]
+            },
+            {
+              "text": "Mart",
+              "confidence": 96.361061,
+              "bbox_pixels_xywh": [
+                835,
+                419,
+                40,
+                28
+              ]
+            },
+            {
+              "text": "#3",
+              "confidence": 92.554665,
+              "bbox_pixels_xywh": [
+                883,
+                423,
+                20,
+                15
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 81.507118,
+              "bbox_pixels_xywh": [
+                911,
+                419,
+                6,
+                28
+              ]
+            },
+            {
+              "text": "Rosms",
+              "confidence": 25.416307,
+              "bbox_pixels_xywh": [
+                922,
+                432,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "Connected",
+              "confidence": 96.585724,
+              "bbox_pixels_xywh": [
+                117,
+                488,
+                103,
+                16
+              ]
+            },
+            {
+              "text": "Devices,",
+              "confidence": 96.422859,
+              "bbox_pixels_xywh": [
+                101,
+                512,
+                79,
+                19
+              ]
+            },
+            {
+              "text": "Open",
+              "confidence": 96.91198,
+              "bbox_pixels_xywh": [
+                187,
+                512,
+                50,
+                20
+              ]
+            },
+            {
+              "text": "New",
+              "confidence": 96.441948,
+              "bbox_pixels_xywh": [
+                413,
+                518,
+                42,
+                15
+              ]
+            },
+            {
+              "text": "Generation",
+              "confidence": 96.765068,
+              "bbox_pixels_xywh": [
+                462,
+                517,
+                105,
+                16
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 96.546844,
+              "bbox_pixels_xywh": [
+                775,
+                521,
+                108,
+                18
+              ]
+            },
+            {
+              "text": "#2,",
+              "confidence": 67.717003,
+              "bbox_pixels_xywh": [
+                891,
+                521,
+                20,
+                15
+              ]
+            },
+            {
+              "text": "RDBMS",
+              "confidence": 36.377533,
+              "bbox_pixels_xywh": [
+                922,
+                521,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "Data,",
+              "confidence": 96.200516,
+              "bbox_pixels_xywh": [
+                108,
+                537,
+                48,
+                18
+              ]
+            },
+            {
+              "text": "Log,",
+              "confidence": 96.916199,
+              "bbox_pixels_xywh": [
+                163,
+                537,
+                41,
+                19
+              ]
+            },
+            {
+              "text": "BI",
+              "confidence": 86.689957,
+              "bbox_pixels_xywh": [
+                426,
+                545,
+                16,
+                15
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 86.689957,
+              "bbox_pixels_xywh": [
+                449,
+                544,
+                15,
+                16
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 94.434921,
+              "bbox_pixels_xywh": [
+                470,
+                544,
+                86,
+                20
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.879967,
+              "bbox_pixels_xywh": [
+                420,
+                572,
+                42,
+                16
+              ]
+            },
+            {
+              "text": "Platforms",
+              "confidence": 96.84977,
+              "bbox_pixels_xywh": [
+                470,
+                571,
+                91,
+                17
+              ]
+            },
+            {
+              "text": "—>",
+              "confidence": 68.564438,
+              "bbox_pixels_xywh": [
+                9,
+                591,
+                44,
+                20
+              ]
+            },
+            {
+              "text": "Inbound",
+              "confidence": 96.36805,
+              "bbox_pixels_xywh": [
+                88,
+                597,
+                66,
+                13
+              ]
+            },
+            {
+              "text": "Flow",
+              "confidence": 96.709518,
+              "bbox_pixels_xywh": [
+                161,
+                597,
+                38,
+                13
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 96.549095,
+              "bbox_pixels_xywh": [
+                775,
+                618,
+                108,
+                19
+              ]
+            },
+            {
+              "text": "#3,",
+              "confidence": 84.906853,
+              "bbox_pixels_xywh": [
+                891,
+                618,
+                20,
+                15
+              ]
+            },
+            {
+              "text": "Rosms",
+              "confidence": 23.880081,
+              "bbox_pixels_xywh": [
+                927,
+                621,
+                45,
+                9
+              ]
+            },
+            {
+              "text": "Outbound",
+              "confidence": 95.635681,
+              "bbox_pixels_xywh": [
+                88,
+                631,
+                80,
+                13
+              ]
+            },
+            {
+              "text": "Flow",
+              "confidence": 95.635681,
+              "bbox_pixels_xywh": [
+                176,
+                631,
+                37,
+                12
+              ]
+            },
+            {
+              "text": "or",
+              "confidence": 79.27729,
+              "bbox_pixels_xywh": [
+                920,
+                639,
+                13,
+                7
+              ]
+            },
+            {
+              "text": "NoSQL.",
+              "confidence": 37.800064,
+              "bbox_pixels_xywh": [
+                937,
+                636,
+                43,
+                10
+              ]
+            },
+            {
+              "text": "As-Is",
+              "confidence": 58.508739,
+              "bbox_pixels_xywh": [
+                87,
+                662,
+                41,
+                13
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 96.900742,
+              "bbox_pixels_xywh": [
+                134,
+                662,
+                99,
+                13
+              ]
+            },
+            {
+              "text": "To-Be",
+              "confidence": 92.986938,
+              "bbox_pixels_xywh": [
+                87,
+                695,
+                48,
+                12
+              ]
+            },
+            {
+              "text": "Architecture",
+              "confidence": 95.437225,
+              "bbox_pixels_xywh": [
+                140,
+                695,
+                101,
+                12
+              ]
+            }
+          ],
+          "mean_word_confidence": 87.07,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

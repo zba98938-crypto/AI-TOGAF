@@ -1,0 +1,5137 @@
+# 架构工作与人员配置证据审查
+
+`profile_id`: architecture-work-assignment-review；`artifact_id`: architecture-role-catalog。
+
+来源：G249 §3–6；操作输入与审查规则为项目约定。字段与运行时检查为项目约定。
+
+表示族：`catalog`。同一架构模型的任务、要求、人员证据、容量与发展计划的确定性审查。
+
+## 必需模型内容
+
+```json
+{
+  "guide:g249-assessment-context": [
+    "assessment_inputs"
+  ]
+}
+```
+
+## 检查
+
+- 完整输入绑定共享模型快照；模型变更需重评
+- 缺证据输出未决项；不将文件生成成功视为业务批准
+
+## 完整示例片段
+
+示例不代表真实人员评价、业务批准或原图复刻。
+
+```json
+{
+  "sources": [
+    {
+      "id": "CASE-MANDATE",
+      "kind": "example",
+      "description": "虚构架构工作委托",
+      "locator": "examples/g249-omnichannel/raw-business-materials.md#case-mandate"
+    },
+    {
+      "id": "CASE-BASELINE",
+      "kind": "example",
+      "description": "虚构现状及未决要求",
+      "locator": "examples/g249-omnichannel/raw-business-materials.md#case-baseline"
+    },
+    {
+      "id": "CASE-CHANGE",
+      "kind": "example",
+      "description": "虚构离线门店销售新增约束",
+      "locator": "examples/g249-omnichannel/raw-business-materials.md#case-change"
+    },
+    {
+      "id": "CASE-REVIEW",
+      "kind": "example",
+      "description": "虚构项目分析约定",
+      "locator": "examples/g249-omnichannel/raw-business-materials.md#case-review"
+    },
+    {
+      "id": "CASE-PERSON",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-PERSON",
+      "locator": "examples/g249-omnichannel/role-skill-inputs.json"
+    },
+    {
+      "id": "CASE-EXPERT",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-EXPERT",
+      "locator": "examples/g249-omnichannel/role-skill-inputs.json"
+    },
+    {
+      "id": "CASE-ROLE-TARGET",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-ROLE-TARGET",
+      "locator": "examples/g249-omnichannel/role-skill-inputs.json"
+    },
+    {
+      "id": "g249-table-source",
+      "kind": "official",
+      "description": "G249 §5 Tables 5-1/5-2：参考等级与量表；不证明任何人员已具备能力",
+      "locator": "https://pubs.opengroup.org/togaf-standard/architecture-roles-and-skills/Architecture-Roles-and-Skills.html#chap05"
+    },
+    {
+      "id": "example-source",
+      "kind": "example",
+      "description": "虚构项目要求、辅导应用记录与复评计划；非实际人员评价"
+    }
+  ],
+  "entities": [
+    {
+      "id": "CAP-FULFIL",
+      "type": "capability",
+      "name": "全渠道履约",
+      "attributes": {
+        "definition": "跨渠道协调订单、库存与交付",
+        "level": 1,
+        "category": "核心"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "CAP-ORDER",
+      "type": "capability",
+      "name": "订单承诺",
+      "attributes": {
+        "definition": "记录并管理订单受理与履约承诺",
+        "level": 2,
+        "category": "核心"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "CAP-RESERVE",
+      "type": "capability",
+      "name": "库存预占",
+      "attributes": {
+        "definition": "在明确的一致性与承诺规则下协调可售库存",
+        "level": 2,
+        "category": "核心"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "CAP-LOGISTICS",
+      "type": "capability",
+      "name": "物流履约",
+      "attributes": {
+        "definition": "依据确认订单安排交付",
+        "level": 2,
+        "category": "核心"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "APP-ORDER",
+      "type": "application",
+      "name": "线上订单应用",
+      "attributes": {
+        "version": "候选v1",
+        "owner": "订单分段",
+        "lifecycle": "候选目标",
+        "criticality": "待业务评价",
+        "cost": "待估算"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "APP-STORE",
+      "type": "application",
+      "name": "门店销售应用",
+      "attributes": {
+        "version": "候选v1",
+        "owner": "门店运营",
+        "lifecycle": "候选目标",
+        "criticality": "待业务评价",
+        "cost": "待估算"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "APP-STOCK",
+      "type": "application",
+      "name": "库存服务",
+      "attributes": {
+        "version": "候选v1",
+        "owner": "库存分段",
+        "lifecycle": "候选目标",
+        "criticality": "待业务评价",
+        "cost": "待估算"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "IF-RESERVE",
+      "type": "interface",
+      "name": "中央库存预占接口",
+      "attributes": {
+        "protocol": "候选 HTTPS 请求/响应",
+        "payload": "订单标识、商品、数量；一致性规则待明确",
+        "version": "候选v1"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "IF-EVENT",
+      "type": "interface",
+      "name": "订单事件处理接口",
+      "attributes": {
+        "protocol": "候选异步事件",
+        "payload": "事件标识、订单标识、数量；幂等与补偿策略待验证",
+        "version": "候选v1"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "REQ-CONSISTENCY",
+      "type": "requirement",
+      "name": "库存一致性与承诺标准待明确",
+      "attributes": {
+        "statement": "需业务确定超卖容忍、受理与最终承诺的界限及恢复目标",
+        "owner": "库存业务负责人",
+        "priority": "待排序",
+        "status": "needs-input",
+        "acceptance": "待提供业务接受标准"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "WP-ONLINE",
+      "type": "work_package",
+      "name": "在线试点准备",
+      "attributes": {
+        "owner": "方案团队",
+        "start": "2026-11-09",
+        "end": "2026-11-20",
+        "status": "候选；日期仅教学计划"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "TRANS-ONLINE",
+      "type": "transition",
+      "name": "受控在线试点",
+      "attributes": {
+        "definition": "保留在线同步与异步两种候选，等待业务一致性要求",
+        "operating_conditions": {
+          "operations": "试点值守及人工异常处理",
+          "data_consistency": "待业务定义",
+          "dependencies": "接口验证及库存业务接受标准",
+          "controls": "重复请求识别与审计待验证",
+          "rollback": "停止新试点订单，保留存量记录并对账"
+        },
+        "ordinal": 1,
+        "start": "2026-11-09",
+        "end": "2026-11-20"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "RISK-STOCK",
+      "type": "risk_treatment",
+      "name": "库存冲突风险处理",
+      "attributes": {
+        "risk": "并发与延迟可能导致库存承诺冲突",
+        "action": "明确一致性政策并演练重复事件与库存不足",
+        "owner": "库存分段架构师",
+        "due_date": "2026-11-20",
+        "control": "候选幂等、冲突检测和人工补偿",
+        "expected_residual": "待演练，不填概率或残余风险分数",
+        "start": "2026-11-09",
+        "end": "2026-11-20"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-PENDING",
+      "type": "data_state",
+      "name": "订单已受理／待确认",
+      "attributes": {
+        "owner": "订单分段（候选责任）",
+        "retention": "保留期限待业务与法务确定",
+        "entry": "请求已记录；离线时需本地持久化",
+        "exit": "依据待确定的承诺规则确认或转异常"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-CONFIRMED",
+      "type": "data_state",
+      "name": "订单已确认",
+      "attributes": {
+        "owner": "订单分段（候选责任）",
+        "retention": "保留期限待定",
+        "entry": "库存与承诺条件已满足；详细规则待业务定义",
+        "exit": "交给物流履约或按变更政策处置"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-EXCEPTION",
+      "type": "data_state",
+      "name": "库存或同步异常待处理",
+      "attributes": {
+        "owner": "库存与门店联合责任待明确",
+        "retention": "保留至冲突处理与审计完成，时限待定",
+        "entry": "库存不足、重放冲突或恢复未对账",
+        "exit": "人工补偿或重新确认；规则待明确"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-FULFIL",
+      "type": "data_state",
+      "name": "允许物流履约的订单记录",
+      "attributes": {
+        "owner": "物流分段（来自工作范围）",
+        "retention": "保留期限待定",
+        "entry": "只接收已确认订单",
+        "exit": "履约结果回传；接口待调查"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "DELIVERY-NOTE",
+      "type": "guide:solution-delivery-notebook",
+      "name": "方案备选与需求、规格、风险配对",
+      "attributes": {
+        "work_package_id": "WP-ONLINE",
+        "solution_concept_ref": "interface-network",
+        "implementation_strategy": "受控试点；先明确接受条件和异常责任，再验证接口并决定是否进入候选运营状态",
+        "stakeholders": [
+          {
+            "id": "SH-OPS",
+            "name": "门店运营",
+            "requirement_ids": [
+              "REQ-CONSISTENCY"
+            ]
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-CONSISTENCY",
+            "statement": "需业务确定超卖容忍、受理与最终承诺的界限及恢复目标",
+            "stakeholder_ids": [
+              "SH-OPS"
+            ]
+          }
+        ],
+        "specifications": [
+          {
+            "id": "SPEC-ONLINE",
+            "requirement_id": "REQ-CONSISTENCY",
+            "statement": "候选A：销售确认前同步预占；候选B：事件受理与异步库存处理。没有一致性标准，无法定优。",
+            "spec_type": "候选接口与业务契约",
+            "applies_to": "APP-ORDER / APP-STOCK"
+          }
+        ],
+        "risks": [
+          {
+            "id": "RISK-STOCK",
+            "description": "并发与延迟可能导致库存承诺冲突"
+          }
+        ],
+        "controls": [
+          {
+            "id": "CTRL-STOCK",
+            "risk_id": "RISK-STOCK",
+            "statement": "候选幂等、冲突检测和人工补偿",
+            "applies_to": "APP-STOCK"
+          }
+        ],
+        "gaps": [
+          {
+            "id": "GAP-CONSISTENCY",
+            "description": "缺库存一致性、承诺、恢复与业务接受标准；候选控制尚未验证",
+            "in_scope": true
+          }
+        ],
+        "architecture_summary": {
+          "business": {
+            "view_ids": [
+              "capability-map",
+              "requirements"
+            ]
+          },
+          "information": {
+            "view_ids": [
+              "order-states"
+            ],
+            "status": "needs-input",
+            "reason": "已表达订单受理、确认、异常及物流交接状态；完整数据模型、保留政策与业务接受标准仍待展开，不能据此声称数据架构充分"
+          },
+          "application": {
+            "view_ids": [
+              "application-catalog",
+              "interface-network"
+            ]
+          },
+          "infrastructure": {
+            "status": "needs-input",
+            "reason": "部署拓扑和容量未提供，本例只表达逻辑接口候选；上线前仍需基础设施分析"
+          },
+          "security": {
+            "status": "needs-input",
+            "reason": "安全与隐私要求未提供，保留待评审输入；不宣称安全充分"
+          }
+        },
+        "decision_agenda": [
+          {
+            "id": "DEC-STRATEGY",
+            "role_ref": "ROLE-CHIEF",
+            "question": "先受控试点还是扩大渠道承诺范围？",
+            "goal": "打通线上订单、门店库存和物流履约",
+            "options": [
+              "先在线试点后评估离线",
+              "并行验证在线与离线方案"
+            ],
+            "tradeoff": "并行可提前暴露离线风险但增加设计、门店改造与运行投入；成本收益未估算",
+            "needed_input": [
+              "渠道价值/服务目标",
+              "预算与人员工作量",
+              "库存风险接受者"
+            ],
+            "status": "pending-decision",
+            "evidence": [
+              "CASE-MANDATE",
+              "CASE-BASELINE"
+            ]
+          },
+          {
+            "id": "DEC-CROSS-SEGMENT",
+            "role_ref": "ROLE-EA",
+            "question": "订单、库存、物流之间由谁承诺和接受风险？",
+            "proposed_boundary": "订单区分受理与最终确认；库存提供承诺条件；物流仅使用已确认订单；异常与恢复责任待确认",
+            "needed_input": [
+              "一致性与承诺政策",
+              "跨分段责任接受记录",
+              "门店在线调用与物流交接契约"
+            ],
+            "status": "pending-decision",
+            "evidence": [
+              "CASE-MANDATE",
+              "CASE-BASELINE"
+            ]
+          },
+          {
+            "id": "DEC-STOCK",
+            "role_ref": "ROLE-SEG",
+            "question": "允许怎样的库存、断连及恢复行为？",
+            "proposed_boundary": "待确认记录与可履约记录分开；冲突进入异常处理，不把异步等同于避免超卖",
+            "needed_input": [
+              "超卖容忍",
+              "本地额度",
+              "恢复目标及对账责任"
+            ],
+            "status": "pending-decision",
+            "evidence": [
+              "CASE-BASELINE"
+            ]
+          }
+        ]
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ROLE-CHIEF",
+      "type": "guide:architecture-role",
+      "name": "首席架构师",
+      "attributes": {
+        "tier": "chief",
+        "scope": "战略与运营语境",
+        "primary_responsibility": "跨业务决策议程和未决项",
+        "definition": "本次任务角色：战略优先与业务承诺边界"
+      },
+      "evidence": [
+        "CASE-MANDATE"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ROLE-EA",
+      "type": "guide:architecture-role",
+      "name": "企业架构师",
+      "attributes": {
+        "tier": "enterprise",
+        "scope": "跨订单、库存和门店能力",
+        "primary_responsibility": "跨域接口原则与协作边界",
+        "definition": "本次任务角色：跨分段互操作原则"
+      },
+      "evidence": [
+        "CASE-MANDATE"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ROLE-SEG",
+      "type": "guide:architecture-role",
+      "name": "库存分段架构师",
+      "attributes": {
+        "tier": "segment",
+        "scope": "库存业务/数据",
+        "primary_responsibility": "库存状态和服务责任待决清单",
+        "definition": "本次任务角色：库存语义与运营条件"
+      },
+      "evidence": [
+        "CASE-MANDATE"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ROLE-SOL",
+      "type": "guide:architecture-role",
+      "name": "履约解决方案架构师",
+      "attributes": {
+        "tier": "solution",
+        "scope": "库存预占与异步接口",
+        "primary_responsibility": "接口契约、失败恢复与验证场景",
+        "definition": "本次任务角色：预占接口候选比较"
+      },
+      "evidence": [
+        "CASE-MANDATE"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "SKILL-1",
+      "type": "skill",
+      "name": "Strategic Planning",
+      "attributes": {
+        "skill_id": "G249:skill:business:strategic-planning",
+        "category": "Business",
+        "subskill": "Strategic Planning"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "SKILL-2",
+      "type": "skill",
+      "name": "Generic Integration and Interoperability",
+      "attributes": {
+        "skill_id": "G249:skill:architecture:generic-integration-and-interoperability",
+        "category": "Architecture",
+        "subskill": "Generic Integration and Interoperability"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "SKILL-3",
+      "type": "skill",
+      "name": "Operational Data",
+      "attributes": {
+        "skill_id": "G249:skill:data:operational-data",
+        "category": "Data",
+        "subskill": "Operational Data"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "SKILL-4",
+      "type": "skill",
+      "name": "Integration and Interoperability",
+      "attributes": {
+        "skill_id": "G249:skill:application:integration-and-interoperability",
+        "category": "Application",
+        "subskill": "Integration and Interoperability"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "DEV-A",
+      "type": "skill_development",
+      "name": "异常接口分析实践与复评",
+      "attributes": {
+        "person": "PERSON-A",
+        "role": "ROLE-SOL",
+        "skill_id": "G249:skill:application:integration-and-interoperability",
+        "task_refs": [
+          "TASK-SOL"
+        ],
+        "requirement_refs": [
+          "REQ-SKILL-SOL"
+        ],
+        "current_proficiency": null,
+        "target_proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_gap": "尚缺独立完成异常接口设计并经评审的证据，不宣称能力已经判为2级",
+        "action": "在专家支持下补重复请求、库存不足及补偿场景；独立完成设计后提交评审",
+        "owner": "虚构方案负责人",
+        "due": "2026-11-30",
+        "success_criteria": [
+          "独立完成异常接口设计并经评审"
+        ],
+        "reassessment": {
+          "assessor": "虚构独立专业评审人",
+          "due_on": "2026-11-30",
+          "criteria": [
+            "独立完成异常接口设计并经评审"
+          ],
+          "status": "planned",
+          "evidence": []
+        },
+        "history": [
+          {
+            "observed_on": "2026-11-05",
+            "assessment_ref": "OBS-A",
+            "proficiency": null,
+            "evidence": [
+              "CASE-PERSON"
+            ],
+            "status": "evidence_insufficient",
+            "rationale": "缺少三级实操评审证据；无二级评级依据，保留未知。"
+          }
+        ],
+        "start": "2026-11-07",
+        "end": "2026-11-30",
+        "evidence": [
+          "CASE-PERSON",
+          "CASE-ROLE-TARGET"
+        ],
+        "current_assessment_state": "evidence_insufficient"
+      },
+      "evidence": [
+        "CASE-PERSON",
+        "CASE-ROLE-TARGET"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "G249-ASSESSMENT-CONTEXT",
+      "type": "guide:g249-assessment-context",
+      "name": "架构工作、角色与技能配置",
+      "attributes": {
+        "assessment_inputs": {
+          "source_ids": [
+            "CASE-MANDATE",
+            "CASE-BASELINE",
+            "CASE-REVIEW",
+            "CASE-PERSON",
+            "CASE-EXPERT",
+            "CASE-ROLE-TARGET",
+            "CASE-CHANGE",
+            "g249-table-source",
+            "example-source"
+          ],
+          "scope": "虚构全渠道履约：在线库存预占与异步处理候选；业务一致性及工作量未定",
+          "as_of": "2026-11-07",
+          "mandate": {
+            "id": "MANDATE-STOCK",
+            "scope": "全渠道订单履约改造的候选架构分析",
+            "decision_owner": "架构委员会与库存业务负责人",
+            "evidence": [
+              "CASE-MANDATE"
+            ]
+          },
+          "roles": [
+            {
+              "id": "ROLE-CHIEF",
+              "name": "首席架构师",
+              "tier": "chief",
+              "scope": "战略与运营语境",
+              "evidence": [
+                "CASE-MANDATE"
+              ]
+            },
+            {
+              "id": "ROLE-EA",
+              "name": "企业架构师",
+              "tier": "enterprise",
+              "scope": "跨订单、库存和门店能力",
+              "evidence": [
+                "CASE-MANDATE"
+              ]
+            },
+            {
+              "id": "ROLE-SEG",
+              "name": "库存分段架构师",
+              "tier": "segment",
+              "scope": "库存业务/数据",
+              "evidence": [
+                "CASE-MANDATE"
+              ]
+            },
+            {
+              "id": "ROLE-SOL",
+              "name": "履约解决方案架构师",
+              "tier": "solution",
+              "scope": "库存预占与异步接口",
+              "evidence": [
+                "CASE-MANDATE"
+              ]
+            }
+          ],
+          "tasks": [
+            {
+              "id": "TASK-CH",
+              "scope": "战略优先与业务承诺边界",
+              "decision": "明确先试点还是扩大承诺范围；不代业务定义超卖容忍",
+              "outcome": "跨业务决策议程和未决项",
+              "role_refs": [
+                "ROLE-CHIEF"
+              ],
+              "required_skill_ids": [
+                "G249:skill:business:strategic-planning"
+              ],
+              "method_ids": [
+                "architecture-backlog-trace-review"
+              ],
+              "artifact_ids": [
+                "business-capability-map",
+                "transition-architecture-model",
+                "solution-delivery-notebook"
+              ],
+              "evidence": [
+                "CASE-BASELINE",
+                "CASE-REVIEW"
+              ],
+              "workload_hours": null,
+              "model_object_refs": [
+                "CAP-FULFIL",
+                "CAP-ORDER",
+                "CAP-RESERVE",
+                "CAP-LOGISTICS",
+                "TRANS-ONLINE",
+                "RISK-STOCK",
+                "ROLE-CHIEF",
+                "SKILL-1",
+                "SKILL-2",
+                "SKILL-3",
+                "SKILL-4",
+                "DEV-A",
+                "ORDER-PENDING",
+                "ORDER-CONFIRMED",
+                "ORDER-EXCEPTION",
+                "ORDER-FULFIL",
+                "DELIVERY-NOTE"
+              ],
+              "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。"
+            },
+            {
+              "id": "TASK-EA",
+              "scope": "跨分段互操作原则",
+              "decision": "确定订单、库存与门店之间的责任和约束",
+              "outcome": "跨域接口原则与协作边界",
+              "role_refs": [
+                "ROLE-EA"
+              ],
+              "required_skill_ids": [
+                "G249:skill:architecture:generic-integration-and-interoperability"
+              ],
+              "method_ids": [
+                "domain-architecture-alignment-review"
+              ],
+              "artifact_ids": [
+                "business-capability-map",
+                "application-portfolio-catalog",
+                "solution-delivery-notebook"
+              ],
+              "evidence": [
+                "CASE-BASELINE",
+                "CASE-REVIEW"
+              ],
+              "workload_hours": null,
+              "model_object_refs": [
+                "CAP-FULFIL",
+                "CAP-ORDER",
+                "CAP-RESERVE",
+                "CAP-LOGISTICS",
+                "APP-ORDER",
+                "APP-STORE",
+                "APP-STOCK",
+                "IF-RESERVE",
+                "IF-EVENT",
+                "REQ-CONSISTENCY",
+                "ROLE-EA",
+                "SKILL-1",
+                "SKILL-2",
+                "SKILL-3",
+                "SKILL-4",
+                "DEV-A",
+                "ORDER-PENDING",
+                "ORDER-CONFIRMED",
+                "ORDER-EXCEPTION",
+                "ORDER-FULFIL",
+                "DELIVERY-NOTE"
+              ],
+              "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。"
+            },
+            {
+              "id": "TASK-SEG",
+              "scope": "库存语义与运营条件",
+              "decision": "业务一致性、受理/承诺和冲突处理规则未给出",
+              "outcome": "库存状态和服务责任待决清单",
+              "role_refs": [
+                "ROLE-SEG"
+              ],
+              "required_skill_ids": [
+                "G249:skill:data:operational-data"
+              ],
+              "method_ids": [
+                "msa-data-distribution-conditions-method"
+              ],
+              "artifact_ids": [
+                "requirements-catalog",
+                "data-lifecycle-diagram",
+                "solution-delivery-notebook"
+              ],
+              "evidence": [
+                "CASE-BASELINE",
+                "CASE-REVIEW"
+              ],
+              "workload_hours": null,
+              "model_object_refs": [
+                "CAP-FULFIL",
+                "CAP-ORDER",
+                "CAP-RESERVE",
+                "CAP-LOGISTICS",
+                "IF-RESERVE",
+                "IF-EVENT",
+                "REQ-CONSISTENCY",
+                "RISK-STOCK",
+                "ROLE-SEG",
+                "SKILL-1",
+                "SKILL-2",
+                "SKILL-3",
+                "SKILL-4",
+                "DEV-A",
+                "ORDER-PENDING",
+                "ORDER-CONFIRMED",
+                "ORDER-EXCEPTION",
+                "ORDER-FULFIL",
+                "DELIVERY-NOTE"
+              ],
+              "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。"
+            },
+            {
+              "id": "TASK-SOL",
+              "scope": "预占接口候选比较",
+              "decision": "比较同步预占和异步处理；缺一致性要求时不得定优",
+              "outcome": "接口契约、失败恢复与验证场景",
+              "role_refs": [
+                "ROLE-SOL"
+              ],
+              "required_skill_ids": [
+                "G249:skill:application:integration-and-interoperability",
+                "G249:skill:application:optimistic-pessimistic-patterns"
+              ],
+              "method_ids": [
+                "msa-contract-consumer-evidence-method"
+              ],
+              "artifact_ids": [
+                "application-communication-diagram",
+                "transition-architecture-model",
+                "risk-mitigation-plan",
+                "solution-delivery-notebook"
+              ],
+              "evidence": [
+                "CASE-BASELINE",
+                "CASE-REVIEW"
+              ],
+              "workload_hours": null,
+              "model_object_refs": [
+                "APP-ORDER",
+                "APP-STORE",
+                "APP-STOCK",
+                "IF-RESERVE",
+                "IF-EVENT",
+                "REQ-CONSISTENCY",
+                "WP-ONLINE",
+                "TRANS-ONLINE",
+                "RISK-STOCK",
+                "ROLE-SOL",
+                "SKILL-1",
+                "SKILL-2",
+                "SKILL-3",
+                "SKILL-4",
+                "DEV-A",
+                "ORDER-PENDING",
+                "ORDER-CONFIRMED",
+                "ORDER-EXCEPTION",
+                "ORDER-FULFIL",
+                "DELIVERY-NOTE"
+              ],
+              "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。"
+            }
+          ],
+          "requirements": [
+            {
+              "id": "REQ-SKILL-CH",
+              "task_ref": "TASK-CH",
+              "role_ref": "ROLE-CHIEF",
+              "skill_id": "G249:skill:business:strategic-planning",
+              "assessment_kind": "tailored_target",
+              "assessment_state": "adopted",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_criteria": [
+                "把战略约束转成可复议决定"
+              ],
+              "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+              "evidence": [
+                "CASE-ROLE-TARGET"
+              ]
+            },
+            {
+              "id": "REQ-SKILL-EA",
+              "task_ref": "TASK-EA",
+              "role_ref": "ROLE-EA",
+              "skill_id": "G249:skill:architecture:generic-integration-and-interoperability",
+              "assessment_kind": "tailored_target",
+              "assessment_state": "adopted",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_criteria": [
+                "解释跨分段接口语义及风险"
+              ],
+              "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+              "evidence": [
+                "CASE-ROLE-TARGET"
+              ]
+            },
+            {
+              "id": "REQ-SKILL-SEG",
+              "task_ref": "TASK-SEG",
+              "role_ref": "ROLE-SEG",
+              "skill_id": "G249:skill:data:operational-data",
+              "assessment_kind": "tailored_target",
+              "assessment_state": "adopted",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_criteria": [
+                "核对运行数据的一致性与恢复证据"
+              ],
+              "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+              "evidence": [
+                "CASE-ROLE-TARGET"
+              ]
+            },
+            {
+              "id": "REQ-SKILL-SOL",
+              "task_ref": "TASK-SOL",
+              "role_ref": "ROLE-SOL",
+              "skill_id": "G249:skill:application:integration-and-interoperability",
+              "assessment_kind": "tailored_target",
+              "assessment_state": "adopted",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_criteria": [
+                "独立完成异常接口设计并经评审"
+              ],
+              "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+              "evidence": [
+                "CASE-ROLE-TARGET"
+              ]
+            }
+          ],
+          "assessments": [
+            {
+              "id": "OBS-A",
+              "person_ref": "PERSON-A",
+              "skill_id": "G249:skill:application:integration-and-interoperability",
+              "assessment_kind": "observed_assessment",
+              "assessment_state": "evidence_insufficient",
+              "proficiency": null,
+              "scale_id": "G249-table5-1",
+              "task_refs": [
+                "TASK-SOL"
+              ],
+              "observed_on": "2026-11-05",
+              "evidence": [
+                "CASE-PERSON"
+              ],
+              "behavioral_evidence": [
+                {
+                  "criterion": "独立完成异常接口设计并经评审",
+                  "demonstrated": false,
+                  "evidence": [
+                    "CASE-PERSON"
+                  ]
+                }
+              ],
+              "note": "甲曾独立画接口图，但没有异常场景评审。3级未获证实；没有2级所需行为证据，不能自动记2级。"
+            },
+            {
+              "id": "OBS-EXPERT",
+              "person_ref": "PERSON-EXPERT",
+              "skill_id": "G249:skill:application:integration-and-interoperability",
+              "assessment_kind": "observed_assessment",
+              "assessment_state": "assessed",
+              "proficiency": 4,
+              "scale_id": "G249-table5-1",
+              "task_refs": [
+                "TASK-SOL"
+              ],
+              "observed_on": "2026-11-06",
+              "assessor": "虚构专业评审人",
+              "evidence": [
+                "CASE-EXPERT"
+              ],
+              "behavioral_evidence": [
+                {
+                  "criterion": "独立完成异常接口设计并经评审",
+                  "demonstrated": true,
+                  "evidence": [
+                    "CASE-EXPERT"
+                  ]
+                }
+              ]
+            }
+          ],
+          "assignments": [
+            {
+              "id": "ASSIGN-A",
+              "person_ref": "PERSON-A",
+              "role_ref": "ROLE-SOL",
+              "task_refs": [
+                "TASK-SOL"
+              ],
+              "requirement_refs": [
+                "REQ-SKILL-SOL"
+              ],
+              "assessment_refs": [
+                "OBS-A"
+              ],
+              "mandate_ref": "MANDATE-STOCK",
+              "authority": "虚构方案负责人；仅提出候选配置",
+              "valid_from": "2026-11-07",
+              "valid_until": "2026-11-30",
+              "available_hours": 40,
+              "evidence": [
+                "CASE-MANDATE",
+                "CASE-PERSON"
+              ],
+              "support": {
+                "provider": "PERSON-EXPERT",
+                "mode": "共同评审异常场景及接口契约，不替代甲的能力证据",
+                "requirement_refs": [
+                  "REQ-SKILL-SOL"
+                ],
+                "assessment_refs": [
+                  "OBS-EXPERT"
+                ],
+                "available_hours": 8,
+                "evidence": [
+                  "CASE-EXPERT"
+                ]
+              }
+            }
+          ],
+          "development": [
+            {
+              "id": "DEV-A",
+              "person": "PERSON-A",
+              "role": "ROLE-SOL",
+              "skill_id": "G249:skill:application:integration-and-interoperability",
+              "task_refs": [
+                "TASK-SOL"
+              ],
+              "requirement_refs": [
+                "REQ-SKILL-SOL"
+              ],
+              "current_proficiency": null,
+              "target_proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_gap": "尚缺独立完成异常接口设计并经评审的证据，不宣称能力已经判为2级",
+              "action": "在专家支持下补重复请求、库存不足及补偿场景；独立完成设计后提交评审",
+              "owner": "虚构方案负责人",
+              "due": "2026-11-30",
+              "success_criteria": [
+                "独立完成异常接口设计并经评审"
+              ],
+              "evidence": [
+                "CASE-PERSON",
+                "CASE-ROLE-TARGET"
+              ],
+              "reassessment": {
+                "assessor": "虚构独立专业评审人",
+                "due_on": "2026-11-30",
+                "criteria": [
+                  "独立完成异常接口设计并经评审"
+                ],
+                "status": "planned",
+                "evidence": []
+              },
+              "history": [
+                {
+                  "observed_on": "2026-11-05",
+                  "assessment_ref": "OBS-A",
+                  "proficiency": null,
+                  "evidence": [
+                    "CASE-PERSON"
+                  ],
+                  "status": "evidence_insufficient",
+                  "rationale": "缺少三级实操评审证据；无二级评级依据，保留未知。"
+                }
+              ]
+            }
+          ],
+          "interpretations": [],
+          "scales": [],
+          "example_notice": "全部企业、人员、评级与授权材料为虚构教学材料；正式能力与人员配置仍须责任方评审。",
+          "model_views": [
+            {
+              "id": "capability-map",
+              "artifact_id": "business-capability-map",
+              "profile_id": "capability-decomposition",
+              "title": "履约能力边界",
+              "context": {
+                "domains": [
+                  "business",
+                  "data",
+                  "application",
+                  "technology"
+                ],
+                "landscape": "segment",
+                "purpose": "project",
+                "abstraction": "logical",
+                "evolution": "target"
+              },
+              "entity_ids": [
+                "CAP-FULFIL",
+                "CAP-ORDER",
+                "CAP-RESERVE",
+                "CAP-LOGISTICS"
+              ],
+              "relationship_ids": [
+                "CAP-PART-CAP-ORDER",
+                "CAP-PART-CAP-RESERVE",
+                "CAP-PART-CAP-LOGISTICS"
+              ],
+              "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+              "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+            },
+            {
+              "id": "application-catalog",
+              "artifact_id": "application-portfolio-catalog",
+              "profile_id": "compat-application-portfolio-catalog",
+              "title": "候选应用边界与责任",
+              "context": {
+                "domains": [
+                  "business",
+                  "data",
+                  "application",
+                  "technology"
+                ],
+                "landscape": "segment",
+                "purpose": "project",
+                "abstraction": "logical",
+                "evolution": "target"
+              },
+              "entity_ids": [
+                "APP-ORDER",
+                "APP-STORE",
+                "APP-STOCK"
+              ],
+              "relationship_ids": [],
+              "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+              "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+            },
+            {
+              "id": "interface-network",
+              "artifact_id": "application-communication-diagram",
+              "profile_id": "compat-application-communication-diagram",
+              "title": "候选接口与交互",
+              "context": {
+                "domains": [
+                  "business",
+                  "data",
+                  "application",
+                  "technology"
+                ],
+                "landscape": "segment",
+                "purpose": "project",
+                "abstraction": "logical",
+                "evolution": "target"
+              },
+              "entity_ids": [
+                "APP-ORDER",
+                "APP-STORE",
+                "APP-STOCK",
+                "IF-RESERVE",
+                "IF-EVENT"
+              ],
+              "relationship_ids": [
+                "EX-RESERVE",
+                "USE-RESERVE",
+                "EX-EVENT",
+                "USE-EVENT"
+              ],
+              "analysis": "A同步预占与B异步处理均为候选。一致性要求不足，不能排名。缺少超卖、承诺及恢复标准。",
+              "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+            },
+            {
+              "id": "requirements",
+              "artifact_id": "requirements-catalog",
+              "profile_id": "compat-requirements-catalog",
+              "title": "需求与未决接受条件",
+              "context": {
+                "domains": [
+                  "business",
+                  "data",
+                  "application",
+                  "technology"
+                ],
+                "landscape": "segment",
+                "purpose": "project",
+                "abstraction": "logical",
+                "evolution": "target"
+              },
+              "entity_ids": [
+                "REQ-CONSISTENCY"
+              ],
+              "relationship_ids": [],
+              "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+              "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+            },
+            {
+              "id": "transition-roadmap",
+              "artifact_id": "transition-architecture-model",
+              "profile_id": "transition-architecture-model-default",
+              "title": "候选运营过渡与工作包",
+              "context": {
+                "domains": [
+                  "business",
+                  "data",
+                  "application",
+                  "technology"
+                ],
+                "landscape": "segment",
+                "purpose": "project",
+                "abstraction": "logical",
+                "evolution": "target"
+              },
+              "entity_ids": [
+                "WP-ONLINE",
+                "TRANS-ONLINE"
+              ],
+              "relationship_ids": [
+                "WP-TO-ONLINE"
+              ],
+              "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+              "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+            },
+            {
+              "id": "risk-treatment",
+              "artifact_id": "risk-mitigation-plan",
+              "profile_id": "risk-mitigation-plan-default",
+              "title": "库存与恢复风险处理",
+              "context": {
+                "domains": [
+                  "business",
+                  "data",
+                  "application",
+                  "technology"
+                ],
+                "landscape": "segment",
+                "purpose": "project",
+                "abstraction": "logical",
+                "evolution": "target"
+              },
+              "entity_ids": [
+                "RISK-STOCK"
+              ],
+              "relationship_ids": [],
+              "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+              "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+            },
+            {
+              "id": "order-states",
+              "artifact_id": "data-lifecycle-diagram",
+              "profile_id": "compat-data-lifecycle-diagram",
+              "title": "订单受理、承诺与物流交接边界",
+              "context": {
+                "domains": [
+                  "business",
+                  "data",
+                  "application",
+                  "technology"
+                ],
+                "landscape": "segment",
+                "purpose": "project",
+                "abstraction": "logical",
+                "evolution": "target"
+              },
+              "entity_ids": [
+                "ORDER-PENDING",
+                "ORDER-CONFIRMED",
+                "ORDER-EXCEPTION",
+                "ORDER-FULFIL"
+              ],
+              "relationship_ids": [
+                "ORDER-CONFIRM",
+                "ORDER-EXCEPT",
+                "ORDER-TO-FULFIL"
+              ],
+              "analysis": "业务给定物流只接收已确认订单。中间状态和异常处理为候选；确认条件、保留期限及物流接口尚待明确。",
+              "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+            },
+            {
+              "id": "delivery-notebook",
+              "artifact_id": "solution-delivery-notebook",
+              "profile_id": "solution-delivery-notebook-default",
+              "title": "方案备选、跨域交接与运营条件",
+              "context": {
+                "domains": [
+                  "business",
+                  "data",
+                  "application",
+                  "technology"
+                ],
+                "landscape": "segment",
+                "purpose": "project",
+                "abstraction": "logical",
+                "evolution": "target"
+              },
+              "entity_ids": [
+                "DELIVERY-NOTE"
+              ],
+              "relationship_ids": [],
+              "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+              "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+            }
+          ],
+          "model_objects": [
+            {
+              "id": "CAP-FULFIL",
+              "type": "capability",
+              "name": "全渠道履约",
+              "attributes": {
+                "definition": "跨渠道协调订单、库存与交付",
+                "level": 1,
+                "category": "核心"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "CAP-ORDER",
+              "type": "capability",
+              "name": "订单承诺",
+              "attributes": {
+                "definition": "记录并管理订单受理与履约承诺",
+                "level": 2,
+                "category": "核心"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "CAP-RESERVE",
+              "type": "capability",
+              "name": "库存预占",
+              "attributes": {
+                "definition": "在明确的一致性与承诺规则下协调可售库存",
+                "level": 2,
+                "category": "核心"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "CAP-LOGISTICS",
+              "type": "capability",
+              "name": "物流履约",
+              "attributes": {
+                "definition": "依据确认订单安排交付",
+                "level": 2,
+                "category": "核心"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "APP-ORDER",
+              "type": "application",
+              "name": "线上订单应用",
+              "attributes": {
+                "version": "候选v1",
+                "owner": "订单分段",
+                "lifecycle": "候选目标",
+                "criticality": "待业务评价",
+                "cost": "待估算"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "APP-STORE",
+              "type": "application",
+              "name": "门店销售应用",
+              "attributes": {
+                "version": "候选v1",
+                "owner": "门店运营",
+                "lifecycle": "候选目标",
+                "criticality": "待业务评价",
+                "cost": "待估算"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "APP-STOCK",
+              "type": "application",
+              "name": "库存服务",
+              "attributes": {
+                "version": "候选v1",
+                "owner": "库存分段",
+                "lifecycle": "候选目标",
+                "criticality": "待业务评价",
+                "cost": "待估算"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "IF-RESERVE",
+              "type": "interface",
+              "name": "中央库存预占接口",
+              "attributes": {
+                "protocol": "候选 HTTPS 请求/响应",
+                "payload": "订单标识、商品、数量；一致性规则待明确",
+                "version": "候选v1"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "IF-EVENT",
+              "type": "interface",
+              "name": "订单事件处理接口",
+              "attributes": {
+                "protocol": "候选异步事件",
+                "payload": "事件标识、订单标识、数量；幂等与补偿策略待验证",
+                "version": "候选v1"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "REQ-CONSISTENCY",
+              "type": "requirement",
+              "name": "库存一致性与承诺标准待明确",
+              "attributes": {
+                "statement": "需业务确定超卖容忍、受理与最终承诺的界限及恢复目标",
+                "owner": "库存业务负责人",
+                "priority": "待排序",
+                "status": "needs-input",
+                "acceptance": "待提供业务接受标准"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "WP-ONLINE",
+              "type": "work_package",
+              "name": "在线试点准备",
+              "attributes": {
+                "owner": "方案团队",
+                "start": "2026-11-09",
+                "end": "2026-11-20",
+                "status": "候选；日期仅教学计划"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "TRANS-ONLINE",
+              "type": "transition",
+              "name": "受控在线试点",
+              "attributes": {
+                "definition": "保留在线同步与异步两种候选，等待业务一致性要求",
+                "operating_conditions": {
+                  "operations": "试点值守及人工异常处理",
+                  "data_consistency": "待业务定义",
+                  "dependencies": "接口验证及库存业务接受标准",
+                  "controls": "重复请求识别与审计待验证",
+                  "rollback": "停止新试点订单，保留存量记录并对账"
+                },
+                "ordinal": 1,
+                "start": "2026-11-09",
+                "end": "2026-11-20"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "RISK-STOCK",
+              "type": "risk_treatment",
+              "name": "库存冲突风险处理",
+              "attributes": {
+                "risk": "并发与延迟可能导致库存承诺冲突",
+                "action": "明确一致性政策并演练重复事件与库存不足",
+                "owner": "库存分段架构师",
+                "due_date": "2026-11-20",
+                "control": "候选幂等、冲突检测和人工补偿",
+                "expected_residual": "待演练，不填概率或残余风险分数",
+                "start": "2026-11-09",
+                "end": "2026-11-20"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ORDER-PENDING",
+              "type": "data_state",
+              "name": "订单已受理／待确认",
+              "attributes": {
+                "owner": "订单分段（候选责任）",
+                "retention": "保留期限待业务与法务确定",
+                "entry": "请求已记录；离线时需本地持久化",
+                "exit": "依据待确定的承诺规则确认或转异常"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ORDER-CONFIRMED",
+              "type": "data_state",
+              "name": "订单已确认",
+              "attributes": {
+                "owner": "订单分段（候选责任）",
+                "retention": "保留期限待定",
+                "entry": "库存与承诺条件已满足；详细规则待业务定义",
+                "exit": "交给物流履约或按变更政策处置"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ORDER-EXCEPTION",
+              "type": "data_state",
+              "name": "库存或同步异常待处理",
+              "attributes": {
+                "owner": "库存与门店联合责任待明确",
+                "retention": "保留至冲突处理与审计完成，时限待定",
+                "entry": "库存不足、重放冲突或恢复未对账",
+                "exit": "人工补偿或重新确认；规则待明确"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ORDER-FULFIL",
+              "type": "data_state",
+              "name": "允许物流履约的订单记录",
+              "attributes": {
+                "owner": "物流分段（来自工作范围）",
+                "retention": "保留期限待定",
+                "entry": "只接收已确认订单",
+                "exit": "履约结果回传；接口待调查"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "DELIVERY-NOTE",
+              "type": "guide:solution-delivery-notebook",
+              "name": "方案备选与需求、规格、风险配对",
+              "attributes": {
+                "work_package_id": "WP-ONLINE",
+                "solution_concept_ref": "interface-network",
+                "implementation_strategy": "受控试点；先明确接受条件和异常责任，再验证接口并决定是否进入候选运营状态",
+                "stakeholders": [
+                  {
+                    "id": "SH-OPS",
+                    "name": "门店运营",
+                    "requirement_ids": [
+                      "REQ-CONSISTENCY"
+                    ]
+                  }
+                ],
+                "requirements": [
+                  {
+                    "id": "REQ-CONSISTENCY",
+                    "statement": "需业务确定超卖容忍、受理与最终承诺的界限及恢复目标",
+                    "stakeholder_ids": [
+                      "SH-OPS"
+                    ]
+                  }
+                ],
+                "specifications": [
+                  {
+                    "id": "SPEC-ONLINE",
+                    "requirement_id": "REQ-CONSISTENCY",
+                    "statement": "候选A：销售确认前同步预占；候选B：事件受理与异步库存处理。没有一致性标准，无法定优。",
+                    "spec_type": "候选接口与业务契约",
+                    "applies_to": "APP-ORDER / APP-STOCK"
+                  }
+                ],
+                "risks": [
+                  {
+                    "id": "RISK-STOCK",
+                    "description": "并发与延迟可能导致库存承诺冲突"
+                  }
+                ],
+                "controls": [
+                  {
+                    "id": "CTRL-STOCK",
+                    "risk_id": "RISK-STOCK",
+                    "statement": "候选幂等、冲突检测和人工补偿",
+                    "applies_to": "APP-STOCK"
+                  }
+                ],
+                "gaps": [
+                  {
+                    "id": "GAP-CONSISTENCY",
+                    "description": "缺库存一致性、承诺、恢复与业务接受标准；候选控制尚未验证",
+                    "in_scope": true
+                  }
+                ],
+                "architecture_summary": {
+                  "business": {
+                    "view_ids": [
+                      "capability-map",
+                      "requirements"
+                    ]
+                  },
+                  "information": {
+                    "view_ids": [
+                      "order-states"
+                    ],
+                    "status": "needs-input",
+                    "reason": "已表达订单受理、确认、异常及物流交接状态；完整数据模型、保留政策与业务接受标准仍待展开，不能据此声称数据架构充分"
+                  },
+                  "application": {
+                    "view_ids": [
+                      "application-catalog",
+                      "interface-network"
+                    ]
+                  },
+                  "infrastructure": {
+                    "status": "needs-input",
+                    "reason": "部署拓扑和容量未提供，本例只表达逻辑接口候选；上线前仍需基础设施分析"
+                  },
+                  "security": {
+                    "status": "needs-input",
+                    "reason": "安全与隐私要求未提供，保留待评审输入；不宣称安全充分"
+                  }
+                },
+                "decision_agenda": [
+                  {
+                    "id": "DEC-STRATEGY",
+                    "role_ref": "ROLE-CHIEF",
+                    "question": "先受控试点还是扩大渠道承诺范围？",
+                    "goal": "打通线上订单、门店库存和物流履约",
+                    "options": [
+                      "先在线试点后评估离线",
+                      "并行验证在线与离线方案"
+                    ],
+                    "tradeoff": "并行可提前暴露离线风险但增加设计、门店改造与运行投入；成本收益未估算",
+                    "needed_input": [
+                      "渠道价值/服务目标",
+                      "预算与人员工作量",
+                      "库存风险接受者"
+                    ],
+                    "status": "pending-decision",
+                    "evidence": [
+                      "CASE-MANDATE",
+                      "CASE-BASELINE"
+                    ]
+                  },
+                  {
+                    "id": "DEC-CROSS-SEGMENT",
+                    "role_ref": "ROLE-EA",
+                    "question": "订单、库存、物流之间由谁承诺和接受风险？",
+                    "proposed_boundary": "订单区分受理与最终确认；库存提供承诺条件；物流仅使用已确认订单；异常与恢复责任待确认",
+                    "needed_input": [
+                      "一致性与承诺政策",
+                      "跨分段责任接受记录",
+                      "门店在线调用与物流交接契约"
+                    ],
+                    "status": "pending-decision",
+                    "evidence": [
+                      "CASE-MANDATE",
+                      "CASE-BASELINE"
+                    ]
+                  },
+                  {
+                    "id": "DEC-STOCK",
+                    "role_ref": "ROLE-SEG",
+                    "question": "允许怎样的库存、断连及恢复行为？",
+                    "proposed_boundary": "待确认记录与可履约记录分开；冲突进入异常处理，不把异步等同于避免超卖",
+                    "needed_input": [
+                      "超卖容忍",
+                      "本地额度",
+                      "恢复目标及对账责任"
+                    ],
+                    "status": "pending-decision",
+                    "evidence": [
+                      "CASE-BASELINE"
+                    ]
+                  }
+                ]
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ROLE-CHIEF",
+              "type": "guide:architecture-role",
+              "name": "首席架构师",
+              "attributes": {
+                "tier": "chief",
+                "scope": "战略与运营语境",
+                "primary_responsibility": "跨业务决策议程和未决项",
+                "definition": "本次任务角色：战略优先与业务承诺边界"
+              },
+              "evidence": [
+                "CASE-MANDATE"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ROLE-EA",
+              "type": "guide:architecture-role",
+              "name": "企业架构师",
+              "attributes": {
+                "tier": "enterprise",
+                "scope": "跨订单、库存和门店能力",
+                "primary_responsibility": "跨域接口原则与协作边界",
+                "definition": "本次任务角色：跨分段互操作原则"
+              },
+              "evidence": [
+                "CASE-MANDATE"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ROLE-SEG",
+              "type": "guide:architecture-role",
+              "name": "库存分段架构师",
+              "attributes": {
+                "tier": "segment",
+                "scope": "库存业务/数据",
+                "primary_responsibility": "库存状态和服务责任待决清单",
+                "definition": "本次任务角色：库存语义与运营条件"
+              },
+              "evidence": [
+                "CASE-MANDATE"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ROLE-SOL",
+              "type": "guide:architecture-role",
+              "name": "履约解决方案架构师",
+              "attributes": {
+                "tier": "solution",
+                "scope": "库存预占与异步接口",
+                "primary_responsibility": "接口契约、失败恢复与验证场景",
+                "definition": "本次任务角色：预占接口候选比较"
+              },
+              "evidence": [
+                "CASE-MANDATE"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "SKILL-1",
+              "type": "skill",
+              "name": "Strategic Planning",
+              "attributes": {
+                "skill_id": "G249:skill:business:strategic-planning",
+                "category": "Business",
+                "subskill": "Strategic Planning"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "SKILL-2",
+              "type": "skill",
+              "name": "Generic Integration and Interoperability",
+              "attributes": {
+                "skill_id": "G249:skill:architecture:generic-integration-and-interoperability",
+                "category": "Architecture",
+                "subskill": "Generic Integration and Interoperability"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "SKILL-3",
+              "type": "skill",
+              "name": "Operational Data",
+              "attributes": {
+                "skill_id": "G249:skill:data:operational-data",
+                "category": "Data",
+                "subskill": "Operational Data"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "SKILL-4",
+              "type": "skill",
+              "name": "Integration and Interoperability",
+              "attributes": {
+                "skill_id": "G249:skill:application:integration-and-interoperability",
+                "category": "Application",
+                "subskill": "Integration and Interoperability"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "DEV-A",
+              "type": "skill_development",
+              "name": "异常接口分析实践与复评",
+              "attributes": {
+                "person": "PERSON-A",
+                "role": "ROLE-SOL",
+                "skill_id": "G249:skill:application:integration-and-interoperability",
+                "task_refs": [
+                  "TASK-SOL"
+                ],
+                "requirement_refs": [
+                  "REQ-SKILL-SOL"
+                ],
+                "current_proficiency": null,
+                "target_proficiency": 3,
+                "scale_id": "G249-table5-1",
+                "behavioral_gap": "尚缺独立完成异常接口设计并经评审的证据，不宣称能力已经判为2级",
+                "action": "在专家支持下补重复请求、库存不足及补偿场景；独立完成设计后提交评审",
+                "owner": "虚构方案负责人",
+                "due": "2026-11-30",
+                "success_criteria": [
+                  "独立完成异常接口设计并经评审"
+                ],
+                "reassessment": {
+                  "assessor": "虚构独立专业评审人",
+                  "due_on": "2026-11-30",
+                  "criteria": [
+                    "独立完成异常接口设计并经评审"
+                  ],
+                  "status": "planned",
+                  "evidence": []
+                },
+                "history": [
+                  {
+                    "observed_on": "2026-11-05",
+                    "assessment_ref": "OBS-A",
+                    "proficiency": null,
+                    "evidence": [
+                      "CASE-PERSON"
+                    ],
+                    "status": "evidence_insufficient",
+                    "rationale": "缺少三级实操评审证据；无二级评级依据，保留未知。"
+                  }
+                ],
+                "start": "2026-11-07",
+                "end": "2026-11-30",
+                "evidence": [
+                  "CASE-PERSON",
+                  "CASE-ROLE-TARGET"
+                ],
+                "current_assessment_state": "evidence_insufficient"
+              },
+              "evidence": [
+                "CASE-PERSON",
+                "CASE-ROLE-TARGET"
+              ],
+              "certainty": "assumed"
+            }
+          ],
+          "model_relationships": [
+            {
+              "id": "CAP-PART-CAP-ORDER",
+              "type": "decomposes",
+              "source": "CAP-FULFIL",
+              "target": "CAP-ORDER",
+              "label": "能力分解",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "CAP-PART-CAP-RESERVE",
+              "type": "decomposes",
+              "source": "CAP-FULFIL",
+              "target": "CAP-RESERVE",
+              "label": "能力分解",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "CAP-PART-CAP-LOGISTICS",
+              "type": "decomposes",
+              "source": "CAP-FULFIL",
+              "target": "CAP-LOGISTICS",
+              "label": "能力分解",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "EX-RESERVE",
+              "type": "exposes",
+              "source": "APP-STOCK",
+              "target": "IF-RESERVE",
+              "label": "提供预占契约",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "USE-RESERVE",
+              "type": "consumes",
+              "source": "APP-ORDER",
+              "target": "IF-RESERVE",
+              "label": "候选A：在线请求",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "EX-EVENT",
+              "type": "exposes",
+              "source": "APP-STOCK",
+              "target": "IF-EVENT",
+              "label": "候选B：处理事件",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "USE-EVENT",
+              "type": "consumes",
+              "source": "APP-ORDER",
+              "target": "IF-EVENT",
+              "label": "候选B：提交事件",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "WP-TO-ONLINE",
+              "type": "implements_transition",
+              "source": "WP-ONLINE",
+              "target": "TRANS-ONLINE",
+              "label": "准备运营状态",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "REQ-IF",
+              "type": "traces_to",
+              "source": "IF-RESERVE",
+              "target": "REQ-CONSISTENCY",
+              "label": "接口设计依赖业务一致性要求",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "CAP-IF",
+              "type": "traces_to",
+              "source": "CAP-RESERVE",
+              "target": "IF-RESERVE",
+              "label": "能力的候选实现接口",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "RISK-REQ",
+              "type": "traces_to",
+              "source": "RISK-STOCK",
+              "target": "REQ-CONSISTENCY",
+              "label": "政策缺口影响风险处理",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "TRANS-REQ",
+              "type": "traces_to",
+              "source": "TRANS-ONLINE",
+              "target": "REQ-CONSISTENCY",
+              "label": "试点进入条件依赖业务接受标准",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ORDER-CONFIRM",
+              "type": "transitions_to",
+              "source": "ORDER-PENDING",
+              "target": "ORDER-CONFIRMED",
+              "label": "满足待确定的库存与承诺条件",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ORDER-EXCEPT",
+              "type": "transitions_to",
+              "source": "ORDER-PENDING",
+              "target": "ORDER-EXCEPTION",
+              "label": "库存不足、重放冲突或未对账",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "ORDER-TO-FULFIL",
+              "type": "transitions_to",
+              "source": "ORDER-CONFIRMED",
+              "target": "ORDER-FULFIL",
+              "label": "确认后才允许交付物流",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "CAP-ORDER-STATE",
+              "type": "traces_to",
+              "source": "CAP-ORDER",
+              "target": "ORDER-PENDING",
+              "label": "订单能力管理受理与确认",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "CAP-LOGISTICS-STATE",
+              "type": "traces_to",
+              "source": "CAP-LOGISTICS",
+              "target": "ORDER-FULFIL",
+              "label": "物流只使用已确认订单",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "RISK-ORDER",
+              "type": "traces_to",
+              "source": "RISK-STOCK",
+              "target": "ORDER-EXCEPTION",
+              "label": "冲突与重放影响承诺状态",
+              "attributes": {},
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "SPECIAL-CH",
+              "type": "g249:specialization",
+              "source": "ROLE-CHIEF",
+              "target": "ROLE-EA",
+              "label": "首席作为企业架构角色特例",
+              "attributes": {
+                "semantic_type": "specialization",
+                "scope": "全渠道履约候选架构工作"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "GUIDE-EA",
+              "type": "g249:architecture_guidance",
+              "source": "ROLE-EA",
+              "target": "ROLE-SEG",
+              "label": "跨分段原则与协调",
+              "attributes": {
+                "semantic_type": "architecture_guidance",
+                "scope": "全渠道履约候选架构工作"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "CONSTRAINT-SEG",
+              "type": "g249:architecture_constraint",
+              "source": "ROLE-SEG",
+              "target": "ROLE-SOL",
+              "label": "库存边界与未决一致性约束",
+              "attributes": {
+                "semantic_type": "architecture_constraint",
+                "scope": "全渠道履约候选架构工作"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "COOPERATE-SOL",
+              "type": "g249:collaborates_with",
+              "source": "ROLE-SOL",
+              "target": "ROLE-SEG",
+              "label": "反馈方案可行性与异常场景",
+              "attributes": {
+                "semantic_type": "collaborates_with",
+                "scope": "全渠道履约候选架构工作"
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "HANDOFF-IF",
+              "type": "g249:handoff",
+              "source": "ROLE-SEG",
+              "target": "ROLE-SOL",
+              "label": "交接接口范围和未决接受条件",
+              "attributes": {
+                "semantic_type": "handoff",
+                "scope": "全渠道履约候选架构工作",
+                "deliverable_ref": "interface-network",
+                "acceptance_criteria": [
+                  "能力边界、接口约束与未决条件均能追溯至需求"
+                ]
+              },
+              "evidence": [
+                "CASE-REVIEW"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "REQ-SKILL-CH",
+              "type": "supports_role",
+              "source": "SKILL-1",
+              "target": "ROLE-CHIEF",
+              "label": "项目裁剪目标",
+              "attributes": {
+                "task_ref": "TASK-CH",
+                "assessment_kind": "tailored_target",
+                "assessment_state": "adopted",
+                "proficiency": 3,
+                "scale_id": "G249-table5-1",
+                "behavioral_criteria": [
+                  "把战略约束转成可复议决定"
+                ],
+                "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+                "task_refs": [
+                  "TASK-CH"
+                ]
+              },
+              "evidence": [
+                "CASE-ROLE-TARGET"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "REQ-SKILL-EA",
+              "type": "supports_role",
+              "source": "SKILL-2",
+              "target": "ROLE-EA",
+              "label": "项目裁剪目标",
+              "attributes": {
+                "task_ref": "TASK-EA",
+                "assessment_kind": "tailored_target",
+                "assessment_state": "adopted",
+                "proficiency": 3,
+                "scale_id": "G249-table5-1",
+                "behavioral_criteria": [
+                  "解释跨分段接口语义及风险"
+                ],
+                "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+                "task_refs": [
+                  "TASK-EA"
+                ]
+              },
+              "evidence": [
+                "CASE-ROLE-TARGET"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "REF-REQ-SKILL-EA",
+              "type": "supports_role",
+              "source": "SKILL-2",
+              "target": "ROLE-EA",
+              "label": "原文参考目标",
+              "attributes": {
+                "proficiency": 4,
+                "assessment_kind": "source_reference_target",
+                "assessment_state": "reference",
+                "scale_id": "G249-table5-1",
+                "reference_role_id": "G249:role:enterprise-architect",
+                "source_locator": "G249 table5-2 G249:skill:architecture:generic-integration-and-interoperability"
+              },
+              "evidence": [
+                "g249-table-source"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "REQ-SKILL-SEG",
+              "type": "supports_role",
+              "source": "SKILL-3",
+              "target": "ROLE-SEG",
+              "label": "项目裁剪目标",
+              "attributes": {
+                "task_ref": "TASK-SEG",
+                "assessment_kind": "tailored_target",
+                "assessment_state": "adopted",
+                "proficiency": 3,
+                "scale_id": "G249-table5-1",
+                "behavioral_criteria": [
+                  "核对运行数据的一致性与恢复证据"
+                ],
+                "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+                "task_refs": [
+                  "TASK-SEG"
+                ]
+              },
+              "evidence": [
+                "CASE-ROLE-TARGET"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "REQ-SKILL-SOL",
+              "type": "supports_role",
+              "source": "SKILL-4",
+              "target": "ROLE-SOL",
+              "label": "项目裁剪目标",
+              "attributes": {
+                "task_ref": "TASK-SOL",
+                "assessment_kind": "tailored_target",
+                "assessment_state": "adopted",
+                "proficiency": 3,
+                "scale_id": "G249-table5-1",
+                "behavioral_criteria": [
+                  "独立完成异常接口设计并经评审"
+                ],
+                "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+                "task_refs": [
+                  "TASK-SOL"
+                ]
+              },
+              "evidence": [
+                "CASE-ROLE-TARGET"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "OBS-A",
+              "type": "supports_role",
+              "source": "SKILL-4",
+              "target": "ROLE-SOL",
+              "label": "人员观察证据",
+              "attributes": {
+                "person_ref": "PERSON-A",
+                "assessment_kind": "observed_assessment",
+                "assessment_state": "evidence_insufficient",
+                "proficiency": null,
+                "scale_id": "G249-table5-1",
+                "task_refs": [
+                  "TASK-SOL"
+                ],
+                "observed_on": "2026-11-05",
+                "behavioral_evidence": [
+                  {
+                    "criterion": "独立完成异常接口设计并经评审",
+                    "demonstrated": false,
+                    "evidence": [
+                      "CASE-PERSON"
+                    ]
+                  }
+                ],
+                "note": "甲曾独立画接口图，但没有异常场景评审。3级未获证实；没有2级所需行为证据，不能自动记2级。"
+              },
+              "evidence": [
+                "CASE-PERSON"
+              ],
+              "certainty": "assumed"
+            },
+            {
+              "id": "OBS-EXPERT",
+              "type": "supports_role",
+              "source": "SKILL-4",
+              "target": "ROLE-SOL",
+              "label": "人员观察证据",
+              "attributes": {
+                "person_ref": "PERSON-EXPERT",
+                "assessment_kind": "observed_assessment",
+                "assessment_state": "assessed",
+                "proficiency": 4,
+                "scale_id": "G249-table5-1",
+                "task_refs": [
+                  "TASK-SOL"
+                ],
+                "observed_on": "2026-11-06",
+                "assessor": "虚构专业评审人",
+                "behavioral_evidence": [
+                  {
+                    "criterion": "独立完成异常接口设计并经评审",
+                    "demonstrated": true,
+                    "evidence": [
+                      "CASE-EXPERT"
+                    ]
+                  }
+                ]
+              },
+              "evidence": [
+                "CASE-EXPERT"
+              ],
+              "certainty": "assumed"
+            }
+          ],
+          "model_binding": {
+            "version": "g249-assessment-binding/1",
+            "context_ref": "G249-ASSESSMENT-CONTEXT"
+          }
+        }
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "CAP-PART-CAP-ORDER",
+      "type": "decomposes",
+      "source": "CAP-FULFIL",
+      "target": "CAP-ORDER",
+      "label": "能力分解",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "CAP-PART-CAP-RESERVE",
+      "type": "decomposes",
+      "source": "CAP-FULFIL",
+      "target": "CAP-RESERVE",
+      "label": "能力分解",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "CAP-PART-CAP-LOGISTICS",
+      "type": "decomposes",
+      "source": "CAP-FULFIL",
+      "target": "CAP-LOGISTICS",
+      "label": "能力分解",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "EX-RESERVE",
+      "type": "exposes",
+      "source": "APP-STOCK",
+      "target": "IF-RESERVE",
+      "label": "提供预占契约",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "USE-RESERVE",
+      "type": "consumes",
+      "source": "APP-ORDER",
+      "target": "IF-RESERVE",
+      "label": "候选A：在线请求",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "EX-EVENT",
+      "type": "exposes",
+      "source": "APP-STOCK",
+      "target": "IF-EVENT",
+      "label": "候选B：处理事件",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "USE-EVENT",
+      "type": "consumes",
+      "source": "APP-ORDER",
+      "target": "IF-EVENT",
+      "label": "候选B：提交事件",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "WP-TO-ONLINE",
+      "type": "implements_transition",
+      "source": "WP-ONLINE",
+      "target": "TRANS-ONLINE",
+      "label": "准备运营状态",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "REQ-IF",
+      "type": "traces_to",
+      "source": "IF-RESERVE",
+      "target": "REQ-CONSISTENCY",
+      "label": "接口设计依赖业务一致性要求",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "CAP-IF",
+      "type": "traces_to",
+      "source": "CAP-RESERVE",
+      "target": "IF-RESERVE",
+      "label": "能力的候选实现接口",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "RISK-REQ",
+      "type": "traces_to",
+      "source": "RISK-STOCK",
+      "target": "REQ-CONSISTENCY",
+      "label": "政策缺口影响风险处理",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "TRANS-REQ",
+      "type": "traces_to",
+      "source": "TRANS-ONLINE",
+      "target": "REQ-CONSISTENCY",
+      "label": "试点进入条件依赖业务接受标准",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-CONFIRM",
+      "type": "transitions_to",
+      "source": "ORDER-PENDING",
+      "target": "ORDER-CONFIRMED",
+      "label": "满足待确定的库存与承诺条件",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-EXCEPT",
+      "type": "transitions_to",
+      "source": "ORDER-PENDING",
+      "target": "ORDER-EXCEPTION",
+      "label": "库存不足、重放冲突或未对账",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "ORDER-TO-FULFIL",
+      "type": "transitions_to",
+      "source": "ORDER-CONFIRMED",
+      "target": "ORDER-FULFIL",
+      "label": "确认后才允许交付物流",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "CAP-ORDER-STATE",
+      "type": "traces_to",
+      "source": "CAP-ORDER",
+      "target": "ORDER-PENDING",
+      "label": "订单能力管理受理与确认",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "CAP-LOGISTICS-STATE",
+      "type": "traces_to",
+      "source": "CAP-LOGISTICS",
+      "target": "ORDER-FULFIL",
+      "label": "物流只使用已确认订单",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "RISK-ORDER",
+      "type": "traces_to",
+      "source": "RISK-STOCK",
+      "target": "ORDER-EXCEPTION",
+      "label": "冲突与重放影响承诺状态",
+      "attributes": {},
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "SPECIAL-CH",
+      "type": "g249:specialization",
+      "source": "ROLE-CHIEF",
+      "target": "ROLE-EA",
+      "label": "首席作为企业架构角色特例",
+      "attributes": {
+        "semantic_type": "specialization",
+        "scope": "全渠道履约候选架构工作"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "GUIDE-EA",
+      "type": "g249:architecture_guidance",
+      "source": "ROLE-EA",
+      "target": "ROLE-SEG",
+      "label": "跨分段原则与协调",
+      "attributes": {
+        "semantic_type": "architecture_guidance",
+        "scope": "全渠道履约候选架构工作"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "CONSTRAINT-SEG",
+      "type": "g249:architecture_constraint",
+      "source": "ROLE-SEG",
+      "target": "ROLE-SOL",
+      "label": "库存边界与未决一致性约束",
+      "attributes": {
+        "semantic_type": "architecture_constraint",
+        "scope": "全渠道履约候选架构工作"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "COOPERATE-SOL",
+      "type": "g249:collaborates_with",
+      "source": "ROLE-SOL",
+      "target": "ROLE-SEG",
+      "label": "反馈方案可行性与异常场景",
+      "attributes": {
+        "semantic_type": "collaborates_with",
+        "scope": "全渠道履约候选架构工作"
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "HANDOFF-IF",
+      "type": "g249:handoff",
+      "source": "ROLE-SEG",
+      "target": "ROLE-SOL",
+      "label": "交接接口范围和未决接受条件",
+      "attributes": {
+        "semantic_type": "handoff",
+        "scope": "全渠道履约候选架构工作",
+        "deliverable_ref": "interface-network",
+        "acceptance_criteria": [
+          "能力边界、接口约束与未决条件均能追溯至需求"
+        ]
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "REQ-SKILL-CH",
+      "type": "supports_role",
+      "source": "SKILL-1",
+      "target": "ROLE-CHIEF",
+      "label": "项目裁剪目标",
+      "attributes": {
+        "task_ref": "TASK-CH",
+        "assessment_kind": "tailored_target",
+        "assessment_state": "adopted",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_criteria": [
+          "把战略约束转成可复议决定"
+        ],
+        "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+        "task_refs": [
+          "TASK-CH"
+        ]
+      },
+      "evidence": [
+        "CASE-ROLE-TARGET"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "REQ-SKILL-EA",
+      "type": "supports_role",
+      "source": "SKILL-2",
+      "target": "ROLE-EA",
+      "label": "项目裁剪目标",
+      "attributes": {
+        "task_ref": "TASK-EA",
+        "assessment_kind": "tailored_target",
+        "assessment_state": "adopted",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_criteria": [
+          "解释跨分段接口语义及风险"
+        ],
+        "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+        "task_refs": [
+          "TASK-EA"
+        ]
+      },
+      "evidence": [
+        "CASE-ROLE-TARGET"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "REF-REQ-SKILL-EA",
+      "type": "supports_role",
+      "source": "SKILL-2",
+      "target": "ROLE-EA",
+      "label": "原文参考目标",
+      "attributes": {
+        "proficiency": 4,
+        "assessment_kind": "source_reference_target",
+        "assessment_state": "reference",
+        "scale_id": "G249-table5-1",
+        "reference_role_id": "G249:role:enterprise-architect",
+        "source_locator": "G249 table5-2 G249:skill:architecture:generic-integration-and-interoperability"
+      },
+      "evidence": [
+        "g249-table-source"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "REQ-SKILL-SEG",
+      "type": "supports_role",
+      "source": "SKILL-3",
+      "target": "ROLE-SEG",
+      "label": "项目裁剪目标",
+      "attributes": {
+        "task_ref": "TASK-SEG",
+        "assessment_kind": "tailored_target",
+        "assessment_state": "adopted",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_criteria": [
+          "核对运行数据的一致性与恢复证据"
+        ],
+        "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+        "task_refs": [
+          "TASK-SEG"
+        ]
+      },
+      "evidence": [
+        "CASE-ROLE-TARGET"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "REQ-SKILL-SOL",
+      "type": "supports_role",
+      "source": "SKILL-4",
+      "target": "ROLE-SOL",
+      "label": "项目裁剪目标",
+      "attributes": {
+        "task_ref": "TASK-SOL",
+        "assessment_kind": "tailored_target",
+        "assessment_state": "adopted",
+        "proficiency": 3,
+        "scale_id": "G249-table5-1",
+        "behavioral_criteria": [
+          "独立完成异常接口设计并经评审"
+        ],
+        "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+        "task_refs": [
+          "TASK-SOL"
+        ]
+      },
+      "evidence": [
+        "CASE-ROLE-TARGET"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "OBS-A",
+      "type": "supports_role",
+      "source": "SKILL-4",
+      "target": "ROLE-SOL",
+      "label": "人员观察证据",
+      "attributes": {
+        "person_ref": "PERSON-A",
+        "assessment_kind": "observed_assessment",
+        "assessment_state": "evidence_insufficient",
+        "proficiency": null,
+        "scale_id": "G249-table5-1",
+        "task_refs": [
+          "TASK-SOL"
+        ],
+        "observed_on": "2026-11-05",
+        "behavioral_evidence": [
+          {
+            "criterion": "独立完成异常接口设计并经评审",
+            "demonstrated": false,
+            "evidence": [
+              "CASE-PERSON"
+            ]
+          }
+        ],
+        "note": "甲曾独立画接口图，但没有异常场景评审。3级未获证实；没有2级所需行为证据，不能自动记2级。"
+      },
+      "evidence": [
+        "CASE-PERSON"
+      ],
+      "certainty": "assumed"
+    },
+    {
+      "id": "OBS-EXPERT",
+      "type": "supports_role",
+      "source": "SKILL-4",
+      "target": "ROLE-SOL",
+      "label": "人员观察证据",
+      "attributes": {
+        "person_ref": "PERSON-EXPERT",
+        "assessment_kind": "observed_assessment",
+        "assessment_state": "assessed",
+        "proficiency": 4,
+        "scale_id": "G249-table5-1",
+        "task_refs": [
+          "TASK-SOL"
+        ],
+        "observed_on": "2026-11-06",
+        "assessor": "虚构专业评审人",
+        "behavioral_evidence": [
+          {
+            "criterion": "独立完成异常接口设计并经评审",
+            "demonstrated": true,
+            "evidence": [
+              "CASE-EXPERT"
+            ]
+          }
+        ]
+      },
+      "evidence": [
+        "CASE-EXPERT"
+      ],
+      "certainty": "assumed"
+    }
+  ],
+  "scales": [
+    {
+      "id": "G249-table5-1",
+      "name": "G249 Table 5-1 人的技能熟练度",
+      "anchors": [
+        {
+          "value": 1,
+          "meaning": "Background: Some understanding but reliant on specialists."
+        },
+        {
+          "value": 2,
+          "meaning": "Aware: Understands and can address issues with the support of specialists."
+        },
+        {
+          "value": 3,
+          "meaning": "Knowledgeable: Good detail enabling effective decision-making, requiring specialist input in difficult situations."
+        },
+        {
+          "value": 4,
+          "meaning": "Expert: Extensive experience, practical, and applied knowledge."
+        }
+      ],
+      "evidence": [
+        "g249-table-source"
+      ]
+    }
+  ],
+  "extensions": {
+    "relationship_types": {
+      "g249:specialization": {
+        "source_types": [
+          "guide:architecture-role"
+        ],
+        "target_types": [
+          "guide:architecture-role"
+        ],
+        "meaning": "首席是企业架构角色的特化"
+      },
+      "g249:architecture_guidance": {
+        "source_types": [
+          "guide:architecture-role"
+        ],
+        "target_types": [
+          "guide:architecture-role"
+        ],
+        "meaning": "专业指导，不表示雇佣汇报"
+      },
+      "g249:architecture_constraint": {
+        "source_types": [
+          "guide:architecture-role"
+        ],
+        "target_types": [
+          "guide:architecture-role"
+        ],
+        "meaning": "架构约束及适用边界"
+      },
+      "g249:collaborates_with": {
+        "source_types": [
+          "guide:architecture-role"
+        ],
+        "target_types": [
+          "guide:architecture-role"
+        ],
+        "meaning": "方案与域架构协作"
+      },
+      "g249:handoff": {
+        "source_types": [
+          "guide:architecture-role"
+        ],
+        "target_types": [
+          "guide:architecture-role"
+        ],
+        "meaning": "交接经说明的接口约束和未决事项"
+      },
+      "g249:reports_to": {
+        "source_types": [
+          "guide:architecture-role"
+        ],
+        "target_types": [
+          "guide:architecture-role"
+        ],
+        "meaning": "仅在有明确组织授权证据时记录人事汇报"
+      }
+    },
+    "entity_types": {
+      "guide:g249-assessment-context": "G249任务、技能与证据的项目分析上下文"
+    }
+  },
+  "analyses": [
+    {
+      "id": "g249-assessment",
+      "method_id": "architecture-role-skill-assessment",
+      "inputs": {
+        "source_ids": [
+          "CASE-MANDATE",
+          "CASE-BASELINE",
+          "CASE-REVIEW",
+          "CASE-PERSON",
+          "CASE-EXPERT",
+          "CASE-ROLE-TARGET",
+          "CASE-CHANGE",
+          "g249-table-source",
+          "example-source"
+        ],
+        "scope": "虚构全渠道履约：在线库存预占与异步处理候选；业务一致性及工作量未定",
+        "as_of": "2026-11-07",
+        "mandate": {
+          "id": "MANDATE-STOCK",
+          "scope": "全渠道订单履约改造的候选架构分析",
+          "decision_owner": "架构委员会与库存业务负责人",
+          "evidence": [
+            "CASE-MANDATE"
+          ]
+        },
+        "roles": [
+          {
+            "id": "ROLE-CHIEF",
+            "name": "首席架构师",
+            "tier": "chief",
+            "scope": "战略与运营语境",
+            "evidence": [
+              "CASE-MANDATE"
+            ]
+          },
+          {
+            "id": "ROLE-EA",
+            "name": "企业架构师",
+            "tier": "enterprise",
+            "scope": "跨订单、库存和门店能力",
+            "evidence": [
+              "CASE-MANDATE"
+            ]
+          },
+          {
+            "id": "ROLE-SEG",
+            "name": "库存分段架构师",
+            "tier": "segment",
+            "scope": "库存业务/数据",
+            "evidence": [
+              "CASE-MANDATE"
+            ]
+          },
+          {
+            "id": "ROLE-SOL",
+            "name": "履约解决方案架构师",
+            "tier": "solution",
+            "scope": "库存预占与异步接口",
+            "evidence": [
+              "CASE-MANDATE"
+            ]
+          }
+        ],
+        "tasks": [
+          {
+            "id": "TASK-CH",
+            "scope": "战略优先与业务承诺边界",
+            "decision": "明确先试点还是扩大承诺范围；不代业务定义超卖容忍",
+            "outcome": "跨业务决策议程和未决项",
+            "role_refs": [
+              "ROLE-CHIEF"
+            ],
+            "required_skill_ids": [
+              "G249:skill:business:strategic-planning"
+            ],
+            "method_ids": [
+              "architecture-backlog-trace-review"
+            ],
+            "artifact_ids": [
+              "business-capability-map",
+              "transition-architecture-model",
+              "solution-delivery-notebook"
+            ],
+            "evidence": [
+              "CASE-BASELINE",
+              "CASE-REVIEW"
+            ],
+            "workload_hours": null,
+            "model_object_refs": [
+              "CAP-FULFIL",
+              "CAP-ORDER",
+              "CAP-RESERVE",
+              "CAP-LOGISTICS",
+              "TRANS-ONLINE",
+              "RISK-STOCK",
+              "ROLE-CHIEF",
+              "SKILL-1",
+              "SKILL-2",
+              "SKILL-3",
+              "SKILL-4",
+              "DEV-A",
+              "ORDER-PENDING",
+              "ORDER-CONFIRMED",
+              "ORDER-EXCEPTION",
+              "ORDER-FULFIL",
+              "DELIVERY-NOTE"
+            ],
+            "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。"
+          },
+          {
+            "id": "TASK-EA",
+            "scope": "跨分段互操作原则",
+            "decision": "确定订单、库存与门店之间的责任和约束",
+            "outcome": "跨域接口原则与协作边界",
+            "role_refs": [
+              "ROLE-EA"
+            ],
+            "required_skill_ids": [
+              "G249:skill:architecture:generic-integration-and-interoperability"
+            ],
+            "method_ids": [
+              "domain-architecture-alignment-review"
+            ],
+            "artifact_ids": [
+              "business-capability-map",
+              "application-portfolio-catalog",
+              "solution-delivery-notebook"
+            ],
+            "evidence": [
+              "CASE-BASELINE",
+              "CASE-REVIEW"
+            ],
+            "workload_hours": null,
+            "model_object_refs": [
+              "CAP-FULFIL",
+              "CAP-ORDER",
+              "CAP-RESERVE",
+              "CAP-LOGISTICS",
+              "APP-ORDER",
+              "APP-STORE",
+              "APP-STOCK",
+              "IF-RESERVE",
+              "IF-EVENT",
+              "REQ-CONSISTENCY",
+              "ROLE-EA",
+              "SKILL-1",
+              "SKILL-2",
+              "SKILL-3",
+              "SKILL-4",
+              "DEV-A",
+              "ORDER-PENDING",
+              "ORDER-CONFIRMED",
+              "ORDER-EXCEPTION",
+              "ORDER-FULFIL",
+              "DELIVERY-NOTE"
+            ],
+            "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。"
+          },
+          {
+            "id": "TASK-SEG",
+            "scope": "库存语义与运营条件",
+            "decision": "业务一致性、受理/承诺和冲突处理规则未给出",
+            "outcome": "库存状态和服务责任待决清单",
+            "role_refs": [
+              "ROLE-SEG"
+            ],
+            "required_skill_ids": [
+              "G249:skill:data:operational-data"
+            ],
+            "method_ids": [
+              "msa-data-distribution-conditions-method"
+            ],
+            "artifact_ids": [
+              "requirements-catalog",
+              "data-lifecycle-diagram",
+              "solution-delivery-notebook"
+            ],
+            "evidence": [
+              "CASE-BASELINE",
+              "CASE-REVIEW"
+            ],
+            "workload_hours": null,
+            "model_object_refs": [
+              "CAP-FULFIL",
+              "CAP-ORDER",
+              "CAP-RESERVE",
+              "CAP-LOGISTICS",
+              "IF-RESERVE",
+              "IF-EVENT",
+              "REQ-CONSISTENCY",
+              "RISK-STOCK",
+              "ROLE-SEG",
+              "SKILL-1",
+              "SKILL-2",
+              "SKILL-3",
+              "SKILL-4",
+              "DEV-A",
+              "ORDER-PENDING",
+              "ORDER-CONFIRMED",
+              "ORDER-EXCEPTION",
+              "ORDER-FULFIL",
+              "DELIVERY-NOTE"
+            ],
+            "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。"
+          },
+          {
+            "id": "TASK-SOL",
+            "scope": "预占接口候选比较",
+            "decision": "比较同步预占和异步处理；缺一致性要求时不得定优",
+            "outcome": "接口契约、失败恢复与验证场景",
+            "role_refs": [
+              "ROLE-SOL"
+            ],
+            "required_skill_ids": [
+              "G249:skill:application:integration-and-interoperability",
+              "G249:skill:application:optimistic-pessimistic-patterns"
+            ],
+            "method_ids": [
+              "msa-contract-consumer-evidence-method"
+            ],
+            "artifact_ids": [
+              "application-communication-diagram",
+              "transition-architecture-model",
+              "risk-mitigation-plan",
+              "solution-delivery-notebook"
+            ],
+            "evidence": [
+              "CASE-BASELINE",
+              "CASE-REVIEW"
+            ],
+            "workload_hours": null,
+            "model_object_refs": [
+              "APP-ORDER",
+              "APP-STORE",
+              "APP-STOCK",
+              "IF-RESERVE",
+              "IF-EVENT",
+              "REQ-CONSISTENCY",
+              "WP-ONLINE",
+              "TRANS-ONLINE",
+              "RISK-STOCK",
+              "ROLE-SOL",
+              "SKILL-1",
+              "SKILL-2",
+              "SKILL-3",
+              "SKILL-4",
+              "DEV-A",
+              "ORDER-PENDING",
+              "ORDER-CONFIRMED",
+              "ORDER-EXCEPTION",
+              "ORDER-FULFIL",
+              "DELIVERY-NOTE"
+            ],
+            "output_tailoring_reason": "本轮以实际需求、接口候选和运营过渡支持决策；来源映射的其他候选视图未选，不能声称其已完成。"
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-SKILL-CH",
+            "task_ref": "TASK-CH",
+            "role_ref": "ROLE-CHIEF",
+            "skill_id": "G249:skill:business:strategic-planning",
+            "assessment_kind": "tailored_target",
+            "assessment_state": "adopted",
+            "proficiency": 3,
+            "scale_id": "G249-table5-1",
+            "behavioral_criteria": [
+              "把战略约束转成可复议决定"
+            ],
+            "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+            "evidence": [
+              "CASE-ROLE-TARGET"
+            ]
+          },
+          {
+            "id": "REQ-SKILL-EA",
+            "task_ref": "TASK-EA",
+            "role_ref": "ROLE-EA",
+            "skill_id": "G249:skill:architecture:generic-integration-and-interoperability",
+            "assessment_kind": "tailored_target",
+            "assessment_state": "adopted",
+            "proficiency": 3,
+            "scale_id": "G249-table5-1",
+            "behavioral_criteria": [
+              "解释跨分段接口语义及风险"
+            ],
+            "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+            "evidence": [
+              "CASE-ROLE-TARGET"
+            ]
+          },
+          {
+            "id": "REQ-SKILL-SEG",
+            "task_ref": "TASK-SEG",
+            "role_ref": "ROLE-SEG",
+            "skill_id": "G249:skill:data:operational-data",
+            "assessment_kind": "tailored_target",
+            "assessment_state": "adopted",
+            "proficiency": 3,
+            "scale_id": "G249-table5-1",
+            "behavioral_criteria": [
+              "核对运行数据的一致性与恢复证据"
+            ],
+            "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+            "evidence": [
+              "CASE-ROLE-TARGET"
+            ]
+          },
+          {
+            "id": "REQ-SKILL-SOL",
+            "task_ref": "TASK-SOL",
+            "role_ref": "ROLE-SOL",
+            "skill_id": "G249:skill:application:integration-and-interoperability",
+            "assessment_kind": "tailored_target",
+            "assessment_state": "adopted",
+            "proficiency": 3,
+            "scale_id": "G249-table5-1",
+            "behavioral_criteria": [
+              "独立完成异常接口设计并经评审"
+            ],
+            "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+            "evidence": [
+              "CASE-ROLE-TARGET"
+            ]
+          }
+        ],
+        "assessments": [
+          {
+            "id": "OBS-A",
+            "person_ref": "PERSON-A",
+            "skill_id": "G249:skill:application:integration-and-interoperability",
+            "assessment_kind": "observed_assessment",
+            "assessment_state": "evidence_insufficient",
+            "proficiency": null,
+            "scale_id": "G249-table5-1",
+            "task_refs": [
+              "TASK-SOL"
+            ],
+            "observed_on": "2026-11-05",
+            "evidence": [
+              "CASE-PERSON"
+            ],
+            "behavioral_evidence": [
+              {
+                "criterion": "独立完成异常接口设计并经评审",
+                "demonstrated": false,
+                "evidence": [
+                  "CASE-PERSON"
+                ]
+              }
+            ],
+            "note": "甲曾独立画接口图，但没有异常场景评审。3级未获证实；没有2级所需行为证据，不能自动记2级。"
+          },
+          {
+            "id": "OBS-EXPERT",
+            "person_ref": "PERSON-EXPERT",
+            "skill_id": "G249:skill:application:integration-and-interoperability",
+            "assessment_kind": "observed_assessment",
+            "assessment_state": "assessed",
+            "proficiency": 4,
+            "scale_id": "G249-table5-1",
+            "task_refs": [
+              "TASK-SOL"
+            ],
+            "observed_on": "2026-11-06",
+            "assessor": "虚构专业评审人",
+            "evidence": [
+              "CASE-EXPERT"
+            ],
+            "behavioral_evidence": [
+              {
+                "criterion": "独立完成异常接口设计并经评审",
+                "demonstrated": true,
+                "evidence": [
+                  "CASE-EXPERT"
+                ]
+              }
+            ]
+          }
+        ],
+        "assignments": [
+          {
+            "id": "ASSIGN-A",
+            "person_ref": "PERSON-A",
+            "role_ref": "ROLE-SOL",
+            "task_refs": [
+              "TASK-SOL"
+            ],
+            "requirement_refs": [
+              "REQ-SKILL-SOL"
+            ],
+            "assessment_refs": [
+              "OBS-A"
+            ],
+            "mandate_ref": "MANDATE-STOCK",
+            "authority": "虚构方案负责人；仅提出候选配置",
+            "valid_from": "2026-11-07",
+            "valid_until": "2026-11-30",
+            "available_hours": 40,
+            "evidence": [
+              "CASE-MANDATE",
+              "CASE-PERSON"
+            ],
+            "support": {
+              "provider": "PERSON-EXPERT",
+              "mode": "共同评审异常场景及接口契约，不替代甲的能力证据",
+              "requirement_refs": [
+                "REQ-SKILL-SOL"
+              ],
+              "assessment_refs": [
+                "OBS-EXPERT"
+              ],
+              "available_hours": 8,
+              "evidence": [
+                "CASE-EXPERT"
+              ]
+            }
+          }
+        ],
+        "development": [
+          {
+            "id": "DEV-A",
+            "person": "PERSON-A",
+            "role": "ROLE-SOL",
+            "skill_id": "G249:skill:application:integration-and-interoperability",
+            "task_refs": [
+              "TASK-SOL"
+            ],
+            "requirement_refs": [
+              "REQ-SKILL-SOL"
+            ],
+            "current_proficiency": null,
+            "target_proficiency": 3,
+            "scale_id": "G249-table5-1",
+            "behavioral_gap": "尚缺独立完成异常接口设计并经评审的证据，不宣称能力已经判为2级",
+            "action": "在专家支持下补重复请求、库存不足及补偿场景；独立完成设计后提交评审",
+            "owner": "虚构方案负责人",
+            "due": "2026-11-30",
+            "success_criteria": [
+              "独立完成异常接口设计并经评审"
+            ],
+            "evidence": [
+              "CASE-PERSON",
+              "CASE-ROLE-TARGET"
+            ],
+            "reassessment": {
+              "assessor": "虚构独立专业评审人",
+              "due_on": "2026-11-30",
+              "criteria": [
+                "独立完成异常接口设计并经评审"
+              ],
+              "status": "planned",
+              "evidence": []
+            },
+            "history": [
+              {
+                "observed_on": "2026-11-05",
+                "assessment_ref": "OBS-A",
+                "proficiency": null,
+                "evidence": [
+                  "CASE-PERSON"
+                ],
+                "status": "evidence_insufficient",
+                "rationale": "缺少三级实操评审证据；无二级评级依据，保留未知。"
+              }
+            ]
+          }
+        ],
+        "interpretations": [],
+        "scales": [],
+        "example_notice": "全部企业、人员、评级与授权材料为虚构教学材料；正式能力与人员配置仍须责任方评审。",
+        "model_views": [
+          {
+            "id": "capability-map",
+            "artifact_id": "business-capability-map",
+            "profile_id": "capability-decomposition",
+            "title": "履约能力边界",
+            "context": {
+              "domains": [
+                "business",
+                "data",
+                "application",
+                "technology"
+              ],
+              "landscape": "segment",
+              "purpose": "project",
+              "abstraction": "logical",
+              "evolution": "target"
+            },
+            "entity_ids": [
+              "CAP-FULFIL",
+              "CAP-ORDER",
+              "CAP-RESERVE",
+              "CAP-LOGISTICS"
+            ],
+            "relationship_ids": [
+              "CAP-PART-CAP-ORDER",
+              "CAP-PART-CAP-RESERVE",
+              "CAP-PART-CAP-LOGISTICS"
+            ],
+            "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+            "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+          },
+          {
+            "id": "application-catalog",
+            "artifact_id": "application-portfolio-catalog",
+            "profile_id": "compat-application-portfolio-catalog",
+            "title": "候选应用边界与责任",
+            "context": {
+              "domains": [
+                "business",
+                "data",
+                "application",
+                "technology"
+              ],
+              "landscape": "segment",
+              "purpose": "project",
+              "abstraction": "logical",
+              "evolution": "target"
+            },
+            "entity_ids": [
+              "APP-ORDER",
+              "APP-STORE",
+              "APP-STOCK"
+            ],
+            "relationship_ids": [],
+            "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+            "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+          },
+          {
+            "id": "interface-network",
+            "artifact_id": "application-communication-diagram",
+            "profile_id": "compat-application-communication-diagram",
+            "title": "候选接口与交互",
+            "context": {
+              "domains": [
+                "business",
+                "data",
+                "application",
+                "technology"
+              ],
+              "landscape": "segment",
+              "purpose": "project",
+              "abstraction": "logical",
+              "evolution": "target"
+            },
+            "entity_ids": [
+              "APP-ORDER",
+              "APP-STORE",
+              "APP-STOCK",
+              "IF-RESERVE",
+              "IF-EVENT"
+            ],
+            "relationship_ids": [
+              "EX-RESERVE",
+              "USE-RESERVE",
+              "EX-EVENT",
+              "USE-EVENT"
+            ],
+            "analysis": "A同步预占与B异步处理均为候选。一致性要求不足，不能排名。缺少超卖、承诺及恢复标准。",
+            "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+          },
+          {
+            "id": "requirements",
+            "artifact_id": "requirements-catalog",
+            "profile_id": "compat-requirements-catalog",
+            "title": "需求与未决接受条件",
+            "context": {
+              "domains": [
+                "business",
+                "data",
+                "application",
+                "technology"
+              ],
+              "landscape": "segment",
+              "purpose": "project",
+              "abstraction": "logical",
+              "evolution": "target"
+            },
+            "entity_ids": [
+              "REQ-CONSISTENCY"
+            ],
+            "relationship_ids": [],
+            "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+            "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+          },
+          {
+            "id": "transition-roadmap",
+            "artifact_id": "transition-architecture-model",
+            "profile_id": "transition-architecture-model-default",
+            "title": "候选运营过渡与工作包",
+            "context": {
+              "domains": [
+                "business",
+                "data",
+                "application",
+                "technology"
+              ],
+              "landscape": "segment",
+              "purpose": "project",
+              "abstraction": "logical",
+              "evolution": "target"
+            },
+            "entity_ids": [
+              "WP-ONLINE",
+              "TRANS-ONLINE"
+            ],
+            "relationship_ids": [
+              "WP-TO-ONLINE"
+            ],
+            "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+            "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+          },
+          {
+            "id": "risk-treatment",
+            "artifact_id": "risk-mitigation-plan",
+            "profile_id": "risk-mitigation-plan-default",
+            "title": "库存与恢复风险处理",
+            "context": {
+              "domains": [
+                "business",
+                "data",
+                "application",
+                "technology"
+              ],
+              "landscape": "segment",
+              "purpose": "project",
+              "abstraction": "logical",
+              "evolution": "target"
+            },
+            "entity_ids": [
+              "RISK-STOCK"
+            ],
+            "relationship_ids": [],
+            "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+            "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+          },
+          {
+            "id": "order-states",
+            "artifact_id": "data-lifecycle-diagram",
+            "profile_id": "compat-data-lifecycle-diagram",
+            "title": "订单受理、承诺与物流交接边界",
+            "context": {
+              "domains": [
+                "business",
+                "data",
+                "application",
+                "technology"
+              ],
+              "landscape": "segment",
+              "purpose": "project",
+              "abstraction": "logical",
+              "evolution": "target"
+            },
+            "entity_ids": [
+              "ORDER-PENDING",
+              "ORDER-CONFIRMED",
+              "ORDER-EXCEPTION",
+              "ORDER-FULFIL"
+            ],
+            "relationship_ids": [
+              "ORDER-CONFIRM",
+              "ORDER-EXCEPT",
+              "ORDER-TO-FULFIL"
+            ],
+            "analysis": "业务给定物流只接收已确认订单。中间状态和异常处理为候选；确认条件、保留期限及物流接口尚待明确。",
+            "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+          },
+          {
+            "id": "delivery-notebook",
+            "artifact_id": "solution-delivery-notebook",
+            "profile_id": "solution-delivery-notebook-default",
+            "title": "方案备选、跨域交接与运营条件",
+            "context": {
+              "domains": [
+                "business",
+                "data",
+                "application",
+                "technology"
+              ],
+              "landscape": "segment",
+              "purpose": "project",
+              "abstraction": "logical",
+              "evolution": "target"
+            },
+            "entity_ids": [
+              "DELIVERY-NOTE"
+            ],
+            "relationship_ids": [],
+            "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+            "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+          }
+        ],
+        "model_objects": [
+          {
+            "id": "CAP-FULFIL",
+            "type": "capability",
+            "name": "全渠道履约",
+            "attributes": {
+              "definition": "跨渠道协调订单、库存与交付",
+              "level": 1,
+              "category": "核心"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "CAP-ORDER",
+            "type": "capability",
+            "name": "订单承诺",
+            "attributes": {
+              "definition": "记录并管理订单受理与履约承诺",
+              "level": 2,
+              "category": "核心"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "CAP-RESERVE",
+            "type": "capability",
+            "name": "库存预占",
+            "attributes": {
+              "definition": "在明确的一致性与承诺规则下协调可售库存",
+              "level": 2,
+              "category": "核心"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "CAP-LOGISTICS",
+            "type": "capability",
+            "name": "物流履约",
+            "attributes": {
+              "definition": "依据确认订单安排交付",
+              "level": 2,
+              "category": "核心"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "APP-ORDER",
+            "type": "application",
+            "name": "线上订单应用",
+            "attributes": {
+              "version": "候选v1",
+              "owner": "订单分段",
+              "lifecycle": "候选目标",
+              "criticality": "待业务评价",
+              "cost": "待估算"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "APP-STORE",
+            "type": "application",
+            "name": "门店销售应用",
+            "attributes": {
+              "version": "候选v1",
+              "owner": "门店运营",
+              "lifecycle": "候选目标",
+              "criticality": "待业务评价",
+              "cost": "待估算"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "APP-STOCK",
+            "type": "application",
+            "name": "库存服务",
+            "attributes": {
+              "version": "候选v1",
+              "owner": "库存分段",
+              "lifecycle": "候选目标",
+              "criticality": "待业务评价",
+              "cost": "待估算"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "IF-RESERVE",
+            "type": "interface",
+            "name": "中央库存预占接口",
+            "attributes": {
+              "protocol": "候选 HTTPS 请求/响应",
+              "payload": "订单标识、商品、数量；一致性规则待明确",
+              "version": "候选v1"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "IF-EVENT",
+            "type": "interface",
+            "name": "订单事件处理接口",
+            "attributes": {
+              "protocol": "候选异步事件",
+              "payload": "事件标识、订单标识、数量；幂等与补偿策略待验证",
+              "version": "候选v1"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REQ-CONSISTENCY",
+            "type": "requirement",
+            "name": "库存一致性与承诺标准待明确",
+            "attributes": {
+              "statement": "需业务确定超卖容忍、受理与最终承诺的界限及恢复目标",
+              "owner": "库存业务负责人",
+              "priority": "待排序",
+              "status": "needs-input",
+              "acceptance": "待提供业务接受标准"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "WP-ONLINE",
+            "type": "work_package",
+            "name": "在线试点准备",
+            "attributes": {
+              "owner": "方案团队",
+              "start": "2026-11-09",
+              "end": "2026-11-20",
+              "status": "候选；日期仅教学计划"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "TRANS-ONLINE",
+            "type": "transition",
+            "name": "受控在线试点",
+            "attributes": {
+              "definition": "保留在线同步与异步两种候选，等待业务一致性要求",
+              "operating_conditions": {
+                "operations": "试点值守及人工异常处理",
+                "data_consistency": "待业务定义",
+                "dependencies": "接口验证及库存业务接受标准",
+                "controls": "重复请求识别与审计待验证",
+                "rollback": "停止新试点订单，保留存量记录并对账"
+              },
+              "ordinal": 1,
+              "start": "2026-11-09",
+              "end": "2026-11-20"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "RISK-STOCK",
+            "type": "risk_treatment",
+            "name": "库存冲突风险处理",
+            "attributes": {
+              "risk": "并发与延迟可能导致库存承诺冲突",
+              "action": "明确一致性政策并演练重复事件与库存不足",
+              "owner": "库存分段架构师",
+              "due_date": "2026-11-20",
+              "control": "候选幂等、冲突检测和人工补偿",
+              "expected_residual": "待演练，不填概率或残余风险分数",
+              "start": "2026-11-09",
+              "end": "2026-11-20"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ORDER-PENDING",
+            "type": "data_state",
+            "name": "订单已受理／待确认",
+            "attributes": {
+              "owner": "订单分段（候选责任）",
+              "retention": "保留期限待业务与法务确定",
+              "entry": "请求已记录；离线时需本地持久化",
+              "exit": "依据待确定的承诺规则确认或转异常"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ORDER-CONFIRMED",
+            "type": "data_state",
+            "name": "订单已确认",
+            "attributes": {
+              "owner": "订单分段（候选责任）",
+              "retention": "保留期限待定",
+              "entry": "库存与承诺条件已满足；详细规则待业务定义",
+              "exit": "交给物流履约或按变更政策处置"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ORDER-EXCEPTION",
+            "type": "data_state",
+            "name": "库存或同步异常待处理",
+            "attributes": {
+              "owner": "库存与门店联合责任待明确",
+              "retention": "保留至冲突处理与审计完成，时限待定",
+              "entry": "库存不足、重放冲突或恢复未对账",
+              "exit": "人工补偿或重新确认；规则待明确"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ORDER-FULFIL",
+            "type": "data_state",
+            "name": "允许物流履约的订单记录",
+            "attributes": {
+              "owner": "物流分段（来自工作范围）",
+              "retention": "保留期限待定",
+              "entry": "只接收已确认订单",
+              "exit": "履约结果回传；接口待调查"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "DELIVERY-NOTE",
+            "type": "guide:solution-delivery-notebook",
+            "name": "方案备选与需求、规格、风险配对",
+            "attributes": {
+              "work_package_id": "WP-ONLINE",
+              "solution_concept_ref": "interface-network",
+              "implementation_strategy": "受控试点；先明确接受条件和异常责任，再验证接口并决定是否进入候选运营状态",
+              "stakeholders": [
+                {
+                  "id": "SH-OPS",
+                  "name": "门店运营",
+                  "requirement_ids": [
+                    "REQ-CONSISTENCY"
+                  ]
+                }
+              ],
+              "requirements": [
+                {
+                  "id": "REQ-CONSISTENCY",
+                  "statement": "需业务确定超卖容忍、受理与最终承诺的界限及恢复目标",
+                  "stakeholder_ids": [
+                    "SH-OPS"
+                  ]
+                }
+              ],
+              "specifications": [
+                {
+                  "id": "SPEC-ONLINE",
+                  "requirement_id": "REQ-CONSISTENCY",
+                  "statement": "候选A：销售确认前同步预占；候选B：事件受理与异步库存处理。没有一致性标准，无法定优。",
+                  "spec_type": "候选接口与业务契约",
+                  "applies_to": "APP-ORDER / APP-STOCK"
+                }
+              ],
+              "risks": [
+                {
+                  "id": "RISK-STOCK",
+                  "description": "并发与延迟可能导致库存承诺冲突"
+                }
+              ],
+              "controls": [
+                {
+                  "id": "CTRL-STOCK",
+                  "risk_id": "RISK-STOCK",
+                  "statement": "候选幂等、冲突检测和人工补偿",
+                  "applies_to": "APP-STOCK"
+                }
+              ],
+              "gaps": [
+                {
+                  "id": "GAP-CONSISTENCY",
+                  "description": "缺库存一致性、承诺、恢复与业务接受标准；候选控制尚未验证",
+                  "in_scope": true
+                }
+              ],
+              "architecture_summary": {
+                "business": {
+                  "view_ids": [
+                    "capability-map",
+                    "requirements"
+                  ]
+                },
+                "information": {
+                  "view_ids": [
+                    "order-states"
+                  ],
+                  "status": "needs-input",
+                  "reason": "已表达订单受理、确认、异常及物流交接状态；完整数据模型、保留政策与业务接受标准仍待展开，不能据此声称数据架构充分"
+                },
+                "application": {
+                  "view_ids": [
+                    "application-catalog",
+                    "interface-network"
+                  ]
+                },
+                "infrastructure": {
+                  "status": "needs-input",
+                  "reason": "部署拓扑和容量未提供，本例只表达逻辑接口候选；上线前仍需基础设施分析"
+                },
+                "security": {
+                  "status": "needs-input",
+                  "reason": "安全与隐私要求未提供，保留待评审输入；不宣称安全充分"
+                }
+              },
+              "decision_agenda": [
+                {
+                  "id": "DEC-STRATEGY",
+                  "role_ref": "ROLE-CHIEF",
+                  "question": "先受控试点还是扩大渠道承诺范围？",
+                  "goal": "打通线上订单、门店库存和物流履约",
+                  "options": [
+                    "先在线试点后评估离线",
+                    "并行验证在线与离线方案"
+                  ],
+                  "tradeoff": "并行可提前暴露离线风险但增加设计、门店改造与运行投入；成本收益未估算",
+                  "needed_input": [
+                    "渠道价值/服务目标",
+                    "预算与人员工作量",
+                    "库存风险接受者"
+                  ],
+                  "status": "pending-decision",
+                  "evidence": [
+                    "CASE-MANDATE",
+                    "CASE-BASELINE"
+                  ]
+                },
+                {
+                  "id": "DEC-CROSS-SEGMENT",
+                  "role_ref": "ROLE-EA",
+                  "question": "订单、库存、物流之间由谁承诺和接受风险？",
+                  "proposed_boundary": "订单区分受理与最终确认；库存提供承诺条件；物流仅使用已确认订单；异常与恢复责任待确认",
+                  "needed_input": [
+                    "一致性与承诺政策",
+                    "跨分段责任接受记录",
+                    "门店在线调用与物流交接契约"
+                  ],
+                  "status": "pending-decision",
+                  "evidence": [
+                    "CASE-MANDATE",
+                    "CASE-BASELINE"
+                  ]
+                },
+                {
+                  "id": "DEC-STOCK",
+                  "role_ref": "ROLE-SEG",
+                  "question": "允许怎样的库存、断连及恢复行为？",
+                  "proposed_boundary": "待确认记录与可履约记录分开；冲突进入异常处理，不把异步等同于避免超卖",
+                  "needed_input": [
+                    "超卖容忍",
+                    "本地额度",
+                    "恢复目标及对账责任"
+                  ],
+                  "status": "pending-decision",
+                  "evidence": [
+                    "CASE-BASELINE"
+                  ]
+                }
+              ]
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ROLE-CHIEF",
+            "type": "guide:architecture-role",
+            "name": "首席架构师",
+            "attributes": {
+              "tier": "chief",
+              "scope": "战略与运营语境",
+              "primary_responsibility": "跨业务决策议程和未决项",
+              "definition": "本次任务角色：战略优先与业务承诺边界"
+            },
+            "evidence": [
+              "CASE-MANDATE"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ROLE-EA",
+            "type": "guide:architecture-role",
+            "name": "企业架构师",
+            "attributes": {
+              "tier": "enterprise",
+              "scope": "跨订单、库存和门店能力",
+              "primary_responsibility": "跨域接口原则与协作边界",
+              "definition": "本次任务角色：跨分段互操作原则"
+            },
+            "evidence": [
+              "CASE-MANDATE"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ROLE-SEG",
+            "type": "guide:architecture-role",
+            "name": "库存分段架构师",
+            "attributes": {
+              "tier": "segment",
+              "scope": "库存业务/数据",
+              "primary_responsibility": "库存状态和服务责任待决清单",
+              "definition": "本次任务角色：库存语义与运营条件"
+            },
+            "evidence": [
+              "CASE-MANDATE"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ROLE-SOL",
+            "type": "guide:architecture-role",
+            "name": "履约解决方案架构师",
+            "attributes": {
+              "tier": "solution",
+              "scope": "库存预占与异步接口",
+              "primary_responsibility": "接口契约、失败恢复与验证场景",
+              "definition": "本次任务角色：预占接口候选比较"
+            },
+            "evidence": [
+              "CASE-MANDATE"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "SKILL-1",
+            "type": "skill",
+            "name": "Strategic Planning",
+            "attributes": {
+              "skill_id": "G249:skill:business:strategic-planning",
+              "category": "Business",
+              "subskill": "Strategic Planning"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "SKILL-2",
+            "type": "skill",
+            "name": "Generic Integration and Interoperability",
+            "attributes": {
+              "skill_id": "G249:skill:architecture:generic-integration-and-interoperability",
+              "category": "Architecture",
+              "subskill": "Generic Integration and Interoperability"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "SKILL-3",
+            "type": "skill",
+            "name": "Operational Data",
+            "attributes": {
+              "skill_id": "G249:skill:data:operational-data",
+              "category": "Data",
+              "subskill": "Operational Data"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "SKILL-4",
+            "type": "skill",
+            "name": "Integration and Interoperability",
+            "attributes": {
+              "skill_id": "G249:skill:application:integration-and-interoperability",
+              "category": "Application",
+              "subskill": "Integration and Interoperability"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "DEV-A",
+            "type": "skill_development",
+            "name": "异常接口分析实践与复评",
+            "attributes": {
+              "person": "PERSON-A",
+              "role": "ROLE-SOL",
+              "skill_id": "G249:skill:application:integration-and-interoperability",
+              "task_refs": [
+                "TASK-SOL"
+              ],
+              "requirement_refs": [
+                "REQ-SKILL-SOL"
+              ],
+              "current_proficiency": null,
+              "target_proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_gap": "尚缺独立完成异常接口设计并经评审的证据，不宣称能力已经判为2级",
+              "action": "在专家支持下补重复请求、库存不足及补偿场景；独立完成设计后提交评审",
+              "owner": "虚构方案负责人",
+              "due": "2026-11-30",
+              "success_criteria": [
+                "独立完成异常接口设计并经评审"
+              ],
+              "reassessment": {
+                "assessor": "虚构独立专业评审人",
+                "due_on": "2026-11-30",
+                "criteria": [
+                  "独立完成异常接口设计并经评审"
+                ],
+                "status": "planned",
+                "evidence": []
+              },
+              "history": [
+                {
+                  "observed_on": "2026-11-05",
+                  "assessment_ref": "OBS-A",
+                  "proficiency": null,
+                  "evidence": [
+                    "CASE-PERSON"
+                  ],
+                  "status": "evidence_insufficient",
+                  "rationale": "缺少三级实操评审证据；无二级评级依据，保留未知。"
+                }
+              ],
+              "start": "2026-11-07",
+              "end": "2026-11-30",
+              "evidence": [
+                "CASE-PERSON",
+                "CASE-ROLE-TARGET"
+              ],
+              "current_assessment_state": "evidence_insufficient"
+            },
+            "evidence": [
+              "CASE-PERSON",
+              "CASE-ROLE-TARGET"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "model_relationships": [
+          {
+            "id": "CAP-PART-CAP-ORDER",
+            "type": "decomposes",
+            "source": "CAP-FULFIL",
+            "target": "CAP-ORDER",
+            "label": "能力分解",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "CAP-PART-CAP-RESERVE",
+            "type": "decomposes",
+            "source": "CAP-FULFIL",
+            "target": "CAP-RESERVE",
+            "label": "能力分解",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "CAP-PART-CAP-LOGISTICS",
+            "type": "decomposes",
+            "source": "CAP-FULFIL",
+            "target": "CAP-LOGISTICS",
+            "label": "能力分解",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "EX-RESERVE",
+            "type": "exposes",
+            "source": "APP-STOCK",
+            "target": "IF-RESERVE",
+            "label": "提供预占契约",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "USE-RESERVE",
+            "type": "consumes",
+            "source": "APP-ORDER",
+            "target": "IF-RESERVE",
+            "label": "候选A：在线请求",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "EX-EVENT",
+            "type": "exposes",
+            "source": "APP-STOCK",
+            "target": "IF-EVENT",
+            "label": "候选B：处理事件",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "USE-EVENT",
+            "type": "consumes",
+            "source": "APP-ORDER",
+            "target": "IF-EVENT",
+            "label": "候选B：提交事件",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "WP-TO-ONLINE",
+            "type": "implements_transition",
+            "source": "WP-ONLINE",
+            "target": "TRANS-ONLINE",
+            "label": "准备运营状态",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REQ-IF",
+            "type": "traces_to",
+            "source": "IF-RESERVE",
+            "target": "REQ-CONSISTENCY",
+            "label": "接口设计依赖业务一致性要求",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "CAP-IF",
+            "type": "traces_to",
+            "source": "CAP-RESERVE",
+            "target": "IF-RESERVE",
+            "label": "能力的候选实现接口",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "RISK-REQ",
+            "type": "traces_to",
+            "source": "RISK-STOCK",
+            "target": "REQ-CONSISTENCY",
+            "label": "政策缺口影响风险处理",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "TRANS-REQ",
+            "type": "traces_to",
+            "source": "TRANS-ONLINE",
+            "target": "REQ-CONSISTENCY",
+            "label": "试点进入条件依赖业务接受标准",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ORDER-CONFIRM",
+            "type": "transitions_to",
+            "source": "ORDER-PENDING",
+            "target": "ORDER-CONFIRMED",
+            "label": "满足待确定的库存与承诺条件",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ORDER-EXCEPT",
+            "type": "transitions_to",
+            "source": "ORDER-PENDING",
+            "target": "ORDER-EXCEPTION",
+            "label": "库存不足、重放冲突或未对账",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "ORDER-TO-FULFIL",
+            "type": "transitions_to",
+            "source": "ORDER-CONFIRMED",
+            "target": "ORDER-FULFIL",
+            "label": "确认后才允许交付物流",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "CAP-ORDER-STATE",
+            "type": "traces_to",
+            "source": "CAP-ORDER",
+            "target": "ORDER-PENDING",
+            "label": "订单能力管理受理与确认",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "CAP-LOGISTICS-STATE",
+            "type": "traces_to",
+            "source": "CAP-LOGISTICS",
+            "target": "ORDER-FULFIL",
+            "label": "物流只使用已确认订单",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "RISK-ORDER",
+            "type": "traces_to",
+            "source": "RISK-STOCK",
+            "target": "ORDER-EXCEPTION",
+            "label": "冲突与重放影响承诺状态",
+            "attributes": {},
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "SPECIAL-CH",
+            "type": "g249:specialization",
+            "source": "ROLE-CHIEF",
+            "target": "ROLE-EA",
+            "label": "首席作为企业架构角色特例",
+            "attributes": {
+              "semantic_type": "specialization",
+              "scope": "全渠道履约候选架构工作"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "GUIDE-EA",
+            "type": "g249:architecture_guidance",
+            "source": "ROLE-EA",
+            "target": "ROLE-SEG",
+            "label": "跨分段原则与协调",
+            "attributes": {
+              "semantic_type": "architecture_guidance",
+              "scope": "全渠道履约候选架构工作"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "CONSTRAINT-SEG",
+            "type": "g249:architecture_constraint",
+            "source": "ROLE-SEG",
+            "target": "ROLE-SOL",
+            "label": "库存边界与未决一致性约束",
+            "attributes": {
+              "semantic_type": "architecture_constraint",
+              "scope": "全渠道履约候选架构工作"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "COOPERATE-SOL",
+            "type": "g249:collaborates_with",
+            "source": "ROLE-SOL",
+            "target": "ROLE-SEG",
+            "label": "反馈方案可行性与异常场景",
+            "attributes": {
+              "semantic_type": "collaborates_with",
+              "scope": "全渠道履约候选架构工作"
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "HANDOFF-IF",
+            "type": "g249:handoff",
+            "source": "ROLE-SEG",
+            "target": "ROLE-SOL",
+            "label": "交接接口范围和未决接受条件",
+            "attributes": {
+              "semantic_type": "handoff",
+              "scope": "全渠道履约候选架构工作",
+              "deliverable_ref": "interface-network",
+              "acceptance_criteria": [
+                "能力边界、接口约束与未决条件均能追溯至需求"
+              ]
+            },
+            "evidence": [
+              "CASE-REVIEW"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REQ-SKILL-CH",
+            "type": "supports_role",
+            "source": "SKILL-1",
+            "target": "ROLE-CHIEF",
+            "label": "项目裁剪目标",
+            "attributes": {
+              "task_ref": "TASK-CH",
+              "assessment_kind": "tailored_target",
+              "assessment_state": "adopted",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_criteria": [
+                "把战略约束转成可复议决定"
+              ],
+              "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+              "task_refs": [
+                "TASK-CH"
+              ]
+            },
+            "evidence": [
+              "CASE-ROLE-TARGET"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REQ-SKILL-EA",
+            "type": "supports_role",
+            "source": "SKILL-2",
+            "target": "ROLE-EA",
+            "label": "项目裁剪目标",
+            "attributes": {
+              "task_ref": "TASK-EA",
+              "assessment_kind": "tailored_target",
+              "assessment_state": "adopted",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_criteria": [
+                "解释跨分段接口语义及风险"
+              ],
+              "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+              "task_refs": [
+                "TASK-EA"
+              ]
+            },
+            "evidence": [
+              "CASE-ROLE-TARGET"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REF-REQ-SKILL-EA",
+            "type": "supports_role",
+            "source": "SKILL-2",
+            "target": "ROLE-EA",
+            "label": "原文参考目标",
+            "attributes": {
+              "proficiency": 4,
+              "assessment_kind": "source_reference_target",
+              "assessment_state": "reference",
+              "scale_id": "G249-table5-1",
+              "reference_role_id": "G249:role:enterprise-architect",
+              "source_locator": "G249 table5-2 G249:skill:architecture:generic-integration-and-interoperability"
+            },
+            "evidence": [
+              "g249-table-source"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REQ-SKILL-SEG",
+            "type": "supports_role",
+            "source": "SKILL-3",
+            "target": "ROLE-SEG",
+            "label": "项目裁剪目标",
+            "attributes": {
+              "task_ref": "TASK-SEG",
+              "assessment_kind": "tailored_target",
+              "assessment_state": "adopted",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_criteria": [
+                "核对运行数据的一致性与恢复证据"
+              ],
+              "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+              "task_refs": [
+                "TASK-SEG"
+              ]
+            },
+            "evidence": [
+              "CASE-ROLE-TARGET"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "REQ-SKILL-SOL",
+            "type": "supports_role",
+            "source": "SKILL-4",
+            "target": "ROLE-SOL",
+            "label": "项目裁剪目标",
+            "attributes": {
+              "task_ref": "TASK-SOL",
+              "assessment_kind": "tailored_target",
+              "assessment_state": "adopted",
+              "proficiency": 3,
+              "scale_id": "G249-table5-1",
+              "behavioral_criteria": [
+                "独立完成异常接口设计并经评审"
+              ],
+              "tailoring_reason": "虚构角色主管针对本次候选分析采用3级；不是原表直接批准。",
+              "task_refs": [
+                "TASK-SOL"
+              ]
+            },
+            "evidence": [
+              "CASE-ROLE-TARGET"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "OBS-A",
+            "type": "supports_role",
+            "source": "SKILL-4",
+            "target": "ROLE-SOL",
+            "label": "人员观察证据",
+            "attributes": {
+              "person_ref": "PERSON-A",
+              "assessment_kind": "observed_assessment",
+              "assessment_state": "evidence_insufficient",
+              "proficiency": null,
+              "scale_id": "G249-table5-1",
+              "task_refs": [
+                "TASK-SOL"
+              ],
+              "observed_on": "2026-11-05",
+              "behavioral_evidence": [
+                {
+                  "criterion": "独立完成异常接口设计并经评审",
+                  "demonstrated": false,
+                  "evidence": [
+                    "CASE-PERSON"
+                  ]
+                }
+              ],
+              "note": "甲曾独立画接口图，但没有异常场景评审。3级未获证实；没有2级所需行为证据，不能自动记2级。"
+            },
+            "evidence": [
+              "CASE-PERSON"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "OBS-EXPERT",
+            "type": "supports_role",
+            "source": "SKILL-4",
+            "target": "ROLE-SOL",
+            "label": "人员观察证据",
+            "attributes": {
+              "person_ref": "PERSON-EXPERT",
+              "assessment_kind": "observed_assessment",
+              "assessment_state": "assessed",
+              "proficiency": 4,
+              "scale_id": "G249-table5-1",
+              "task_refs": [
+                "TASK-SOL"
+              ],
+              "observed_on": "2026-11-06",
+              "assessor": "虚构专业评审人",
+              "behavioral_evidence": [
+                {
+                  "criterion": "独立完成异常接口设计并经评审",
+                  "demonstrated": true,
+                  "evidence": [
+                    "CASE-EXPERT"
+                  ]
+                }
+              ]
+            },
+            "evidence": [
+              "CASE-EXPERT"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "model_binding": {
+          "version": "g249-assessment-binding/1",
+          "context_ref": "G249-ASSESSMENT-CONTEXT"
+        }
+      },
+      "evidence": [
+        "CASE-MANDATE",
+        "CASE-BASELINE",
+        "CASE-REVIEW",
+        "CASE-PERSON",
+        "CASE-EXPERT",
+        "CASE-ROLE-TARGET",
+        "CASE-CHANGE",
+        "g249-table-source",
+        "example-source"
+      ]
+    }
+  ],
+  "supporting_views": [
+    {
+      "id": "capability-map",
+      "artifact_id": "business-capability-map",
+      "profile_id": "capability-decomposition",
+      "title": "履约能力边界",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "CAP-FULFIL",
+        "CAP-ORDER",
+        "CAP-RESERVE",
+        "CAP-LOGISTICS"
+      ],
+      "relationship_ids": [
+        "CAP-PART-CAP-ORDER",
+        "CAP-PART-CAP-RESERVE",
+        "CAP-PART-CAP-LOGISTICS"
+      ],
+      "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "application-catalog",
+      "artifact_id": "application-portfolio-catalog",
+      "profile_id": "compat-application-portfolio-catalog",
+      "title": "候选应用边界与责任",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "APP-ORDER",
+        "APP-STORE",
+        "APP-STOCK"
+      ],
+      "relationship_ids": [],
+      "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "interface-network",
+      "artifact_id": "application-communication-diagram",
+      "profile_id": "compat-application-communication-diagram",
+      "title": "候选接口与交互",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "APP-ORDER",
+        "APP-STORE",
+        "APP-STOCK",
+        "IF-RESERVE",
+        "IF-EVENT"
+      ],
+      "relationship_ids": [
+        "EX-RESERVE",
+        "USE-RESERVE",
+        "EX-EVENT",
+        "USE-EVENT"
+      ],
+      "analysis": "A同步预占与B异步处理均为候选。一致性要求不足，不能排名。缺少超卖、承诺及恢复标准。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "requirements",
+      "artifact_id": "requirements-catalog",
+      "profile_id": "compat-requirements-catalog",
+      "title": "需求与未决接受条件",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "REQ-CONSISTENCY"
+      ],
+      "relationship_ids": [],
+      "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "transition-roadmap",
+      "artifact_id": "transition-architecture-model",
+      "profile_id": "transition-architecture-model-default",
+      "title": "候选运营过渡与工作包",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "WP-ONLINE",
+        "TRANS-ONLINE"
+      ],
+      "relationship_ids": [
+        "WP-TO-ONLINE"
+      ],
+      "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "risk-treatment",
+      "artifact_id": "risk-mitigation-plan",
+      "profile_id": "risk-mitigation-plan-default",
+      "title": "库存与恢复风险处理",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "RISK-STOCK"
+      ],
+      "relationship_ids": [],
+      "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "order-states",
+      "artifact_id": "data-lifecycle-diagram",
+      "profile_id": "compat-data-lifecycle-diagram",
+      "title": "订单受理、承诺与物流交接边界",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "ORDER-PENDING",
+        "ORDER-CONFIRMED",
+        "ORDER-EXCEPTION",
+        "ORDER-FULFIL"
+      ],
+      "relationship_ids": [
+        "ORDER-CONFIRM",
+        "ORDER-EXCEPT",
+        "ORDER-TO-FULFIL"
+      ],
+      "analysis": "业务给定物流只接收已确认订单。中间状态和异常处理为候选；确认条件、保留期限及物流接口尚待明确。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "delivery-notebook",
+      "artifact_id": "solution-delivery-notebook",
+      "profile_id": "solution-delivery-notebook-default",
+      "title": "方案备选、跨域交接与运营条件",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "DELIVERY-NOTE"
+      ],
+      "relationship_ids": [],
+      "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "role-collaboration",
+      "artifact_id": "architecture-role-catalog",
+      "profile_id": "architecture-role-collaboration",
+      "title": "角色协作与交接",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "ROLE-CHIEF",
+        "ROLE-EA",
+        "ROLE-SEG",
+        "ROLE-SOL"
+      ],
+      "relationship_ids": [
+        "SPECIAL-CH",
+        "GUIDE-EA",
+        "CONSTRAINT-SEG",
+        "COOPERATE-SOL",
+        "HANDOFF-IF"
+      ],
+      "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "skill-matrix",
+      "artifact_id": "architecture-skill-matrix",
+      "profile_id": "ea-skill-role-proficiency",
+      "title": "任务技能目标与独立人员观察",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "SKILL-1",
+        "SKILL-2",
+        "SKILL-3",
+        "SKILL-4",
+        "ROLE-CHIEF",
+        "ROLE-EA",
+        "ROLE-SEG",
+        "ROLE-SOL"
+      ],
+      "relationship_ids": [
+        "REQ-SKILL-CH",
+        "REQ-SKILL-EA",
+        "REF-REQ-SKILL-EA",
+        "REQ-SKILL-SEG",
+        "REQ-SKILL-SOL",
+        "OBS-A",
+        "OBS-EXPERT"
+      ],
+      "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    },
+    {
+      "id": "development-plan",
+      "artifact_id": "architecture-development-plan",
+      "profile_id": "architecture-development-plan-default",
+      "title": "人员发展行动与复评条件",
+      "context": {
+        "domains": [
+          "business",
+          "data",
+          "application",
+          "technology"
+        ],
+        "landscape": "segment",
+        "purpose": "project",
+        "abstraction": "logical",
+        "evolution": "target"
+      },
+      "entity_ids": [
+        "DEV-A"
+      ],
+      "relationship_ids": [],
+      "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+      "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+    }
+  ],
+  "view": {
+    "id": "role-assignment",
+    "artifact_id": "architecture-role-catalog",
+    "profile_id": "architecture-work-assignment-review",
+    "title": "任务、角色、能力证据与配置条件",
+    "context": {
+      "domains": [
+        "business",
+        "data",
+        "application",
+        "technology"
+      ],
+      "landscape": "segment",
+      "purpose": "project",
+      "abstraction": "logical",
+      "evolution": "target"
+    },
+    "entity_ids": [
+      "G249-ASSESSMENT-CONTEXT"
+    ],
+    "relationship_ids": [],
+    "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+    "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。",
+    "attributes": {
+      "analysis_ids": [
+        "g249-assessment"
+      ]
+    }
+  }
+}
+```

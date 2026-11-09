@@ -1,0 +1,3403 @@
+{
+  "schema_version": "1.0",
+  "id": "G248/fig3-1",
+  "status": "done",
+  "doc": {
+    "code": "G248",
+    "title_zh": "构建块的选择方法",
+    "title_en": "An Approach to Selecting Building Blocks",
+    "zh_md": "G248e_构建块的选择方法.md",
+    "en_pdf": "togaf-standard-10th/G248e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-1",
+    "title_en": "TOGAF Enterprise Metamodel [C220]",
+    "title_zh": "TOGAF 企业元模型 [C220]",
+    "section_en": "3. Choosing the Building Blocks for the Relevant Entities for Each Change Profile",
+    "section_zh": "3. 为各变革画像的相关实体选择构建块",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        19
+      ],
+      "printed_page": 7,
+      "bboxes": [
+        [
+          48.2,
+          237.4,
+          563.8,
+          684.8
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        190
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g248_metamodel.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "ac55d97fc6ab",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "原图含 36 个实体、6 个分区和约 60 条带关系名的连线；SVG 只画了 15 个实体，且排成 5×3 的示意网格，缺 21 个实体（如 Course of Action、Value Stream、Business Information、Role、Event、Control、Contract、Service Quality、Data/Application/Technology 三层的全部组件、Contract、System 等）。",
+        "SVG 的 15 个框中没有一条关系文字：原图的 Creates、Addresses、Motivates、Influences、Is made specific、Realizes、Is operationalized by、Orchestrates、Decomposes、Is realized through、Is served by、Provides platform for 等关系名全部丢失，只剩无标签的灰色短线。",
+        "SVG 自拟了“上层：动机与需求；中层：业务架构实体；下层：应用、数据与技术实体”的三层解释和“ABB 基于这些实体创建；SBB 实现为物理/运营组件并记录于解决方案全景”的结论，这些不是原图内容。",
+        "SVG 把“原则/约束”合并成一个框、把“目标/目的”合并成一个框，原图是独立实体；又把“逻辑/物理组件”合并成一个框，原图分属应用与技术两域。",
+        "SVG 把“位置”放在应用/数据/技术层，原图中 Location 属于 General Entities 的 Associated with All Objects。",
+        "SVG 没有原图的分区色带（General Entities / BUSINESS / DATA / APPLICATION / TECHNOLOGY ARCHITECTURE）与“Associated with All Objects”面板，无法表达哪些实体是横切实体。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "er_model"
+    ],
+    "notation": "TOGAF 企业元模型式 ERD：白底黑框实体，分区色带表示架构域，实体间用细实线连接，每条线两侧写一对互为反向的关系名；没有箭头与属性栏",
+    "concepts": [
+      "enterprise_metamodel",
+      "building_block",
+      "business_architecture",
+      "data_architecture",
+      "application_architecture",
+      "technology_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "TOGAF 企业元模型总图：36 个实体分五个域，以成对关系名连接动机、业务、数据、应用与技术实体。",
+    "purpose_zh": "第 3 章的基准图：在按变革画像挑选构建块之前，先给出“需要考虑哪些实体类型及其重要关系”。后续表 3-1 按画像把实体分组，图 2-2/2-3/6-1 都是这个元模型在具体场景中的子集。",
+    "reading_guide_zh": "从顶部橙色 General Entities 带读起：灰色面板内的 Principle、Constraint、Assumption、Requirement、Location、Gap、Work Package 与所有实体相关，右侧 Capability 由工作包交付。再读黄色 BUSINESS ARCHITECTURE：上方是动机链 Driver→Goal→Objective→Measure 与横贯的 Course of Action，下方是 Product/Organization Unit/Business Capability/Value Stream/Business Information/Function/Actor/Process/Role/Event 等业务实体。最后读下方三个信息系统域：粉色 Data、绿色 Application、蓝色 Technology，各自都有 Service→Logical→Physical 的实现链，并通过 Uses / Is served by 等关系跨域相连。每条连线读两侧成对的关系名，而不是看线的几何方向。",
+    "key_points_zh": [
+      "全图 36 个实体，按五个域分区：General 8 个（含 Capability）、Business 19 个、Data 3 个、Application 3 个、Technology 3 个。",
+      "General Entities 中除 Capability 外的 7 个实体位于“Associated with All Objects”灰色面板内，表示它们可关联到任意实体；Capability 在工作包右侧，由 Work Package 交付（Delivers / Is delivered by）。",
+      "动机链是 Driver Creates Goal、Goal Is made specific（by Objective）、Objective Realizes Goal、Objective Is tracked against Measure；Goal 又 Is realized by Course of Action，Driver Motivates Course of Action。",
+      "Course of Action 横贯业务域，向下 Influences Product、Organization Unit、Business Capability、Value Stream、Business Information、Function 等业务实体。",
+      "业务域内部有两条主要实现链：Capability Is realized by Function（Function Supports Capability）；Process Supports / Is realized by Business Service，并由 Actor、Role 执行，Process 与 Event 之间互相 Generates/Resolves。",
+      "三个信息系统域结构对称：Application Service→Logical Application Component→Physical Application Component，Technology Service→Logical Technology Component→Physical Technology Component，Data Entity→Logical Data Component→Physical Data Component；上层 Service 由下层组件实现，下层组件向上 Serves/Supplies。",
+      "跨域关系把三层串起来：应用组件 Uses Data Entity，应用组件 Is served by 技术组件，Logical Technology Component Provides platform for Application Service，Application Service Is implemented on Technology Service。",
+      "所有连线都没有箭头，方向由线两侧成对的关系名（主动/被动）表达；实体是类型而非实例，图不表示某个企业的具体架构。"
+    ],
+    "hierarchy_zh": "两层“容器”关系：最外层是五个架构域色带（General Entities、BUSINESS ARCHITECTURE、DATA ARCHITECTURE、APPLICATION ARCHITECTURE、TECHNOLOGY ARCHITECTURE）；General 带内又有一个“Associated with All Objects”灰色面板包住 7 个横切实体。实体本身平铺，不表达上下级；Service→Logical→Physical 的层级由关系名（Is realized by / Is realized through）表达，不是框的嵌套。",
+    "line_semantics_zh": "细实线连接两个实体，线两侧各写一个关系名，二者互为反向读法（如 Is produced by / Delivers、Is realized by / Realizes）；全图没有箭头，方向只能靠关系名的主动/被动语态判断。多条线在中央交汇，交叉处的小半圆是绘图软件的“跨线跳线”，不是关系符号。分区色带与面板边界表示归属，不表示关系。",
+    "misreadings_zh": [
+      "图中所有关系线都没有箭头；不要按线的走向猜方向，必须读线旁成对的关系名（主动语态一侧为起点）。",
+      "线交叉处的小弧线是“跳线”（line hop），不是聚合/组合菱形，也不表示任何关系语义。",
+      "“Associated with All Objects”是灰色面板的标题，表示面板内 7 个实体可关联到任意实体；Capability 虽在同一橙色带内，却在面板之外，不属于“与所有对象关联”的集合。",
+      "Business Service 是横跨黄色与下方三域边界的长条实体，不是三个域的容器；它通过 Realizes / Is realized by 等关系与数据、应用、流程相连。",
+      "不要把 Service→Logical→Physical 读成“包含”：三者是 realization 关系（Physical realizes Logical，Logical is realized by Physical），不是整体—部分。",
+      "中文稿当前引用的 figs/g248_metamodel.svg 只是 15 个实体的示意网格，关系和 21 个实体都缺失，不能据它理解本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p19",
+        "summary_zh": "TOGAF 企业元模型（图 3-1）识别在生成逻辑模型、规定变革（ABB）并创建物理/运营实现（SBB）时需要考虑的实体类型及其部分重要关系。"
+      },
+      {
+        "source": "en_pdf p19",
+        "summary_zh": "除实体外，还需识别包含这些实体及其关系的视角，以及在变革活动期间管理构建块与制品的容器交付物；架构师用选定视角创建针对具体问题的视图。"
+      },
+      {
+        "source": "zh_md L188",
+        "summary_zh": "中文稿对应段落：企业元模型识别实体类型及其部分重要关系，并需识别视角与容器交付物。"
+      },
+      {
+        "source": "zh_md L369",
+        "summary_zh": "中文稿指出可能解决方案及构建块可用各企业对 TOGAF 企业元模型的专门化来描述，详细程度随变革性质与利益相关者理解而定。"
+      },
+      {
+        "source": "zh_md L383",
+        "summary_zh": "中文稿再次说明企业元模型识别实体类型与重要关系，并提到制品清单见附录 A/B、架构存储库保存工作产品。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "自上而下五个色带：顶部橙色 General Entities（内含灰色 Associated with All Objects 面板，右端 Capability）；其下大片黄色 BUSINESS ARCHITECTURE（动机实体在上、业务实体在中、Business Service 长条在下）；最底部并排三块——粉色 DATA ARCHITECTURE、绿色 APPLICATION ARCHITECTURE、蓝色 TECHNOLOGY ARCHITECTURE，各含 Service/Logical/Physical 三个实体。"
+  },
+  "legend": [
+    {
+      "symbol": "橙色带 General Entities",
+      "meaning_zh": "通用实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "灰色面板 Associated with All Objects",
+      "meaning_zh": "可与任意对象关联的横切实体集合",
+      "explicit": true
+    },
+    {
+      "symbol": "黄色带 BUSINESS ARCHITECTURE",
+      "meaning_zh": "业务架构实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "粉色带 DATA ARCHITECTURE",
+      "meaning_zh": "数据架构实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "绿色带 APPLICATION ARCHITECTURE",
+      "meaning_zh": "应用架构实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "蓝色带 TECHNOLOGY ARCHITECTURE",
+      "meaning_zh": "技术架构实体分区",
+      "explicit": true
+    },
+    {
+      "symbol": "白底黑框矩形",
+      "meaning_zh": "一个元模型实体类型",
+      "explicit": false
+    },
+    {
+      "symbol": "细实线两侧成对的关系名",
+      "meaning_zh": "两个实体间的双向可读关系；无箭头，靠语态判方向",
+      "explicit": false
+    },
+    {
+      "symbol": "线交叉处的小半圆",
+      "meaning_zh": "绘图跳线，仅表示两线不相交，不是关系符号",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "general_group",
+      "label_en": "General Entities",
+      "label_zh": "通用实体",
+      "type": "group",
+      "parent": null,
+      "position": "顶部橙色横带",
+      "description_zh": "通用实体分区。"
+    },
+    {
+      "id": "all_objects_group",
+      "label_en": "Associated with All Objects",
+      "label_zh": "与所有对象关联",
+      "type": "group",
+      "parent": "general_group",
+      "position": "General 带内灰色面板",
+      "description_zh": "包住 7 个横切实体；面板标题说明这些实体可与任意对象关联。"
+    },
+    {
+      "id": "business_group",
+      "label_en": "BUSINESS ARCHITECTURE",
+      "label_zh": "业务架构",
+      "type": "group",
+      "parent": null,
+      "position": "中部黄色大区",
+      "description_zh": "业务架构实体分区。"
+    },
+    {
+      "id": "data_group",
+      "label_en": "DATA ARCHITECTURE",
+      "label_zh": "数据架构",
+      "type": "group",
+      "parent": null,
+      "position": "底部左侧粉色区",
+      "description_zh": "数据架构实体分区。"
+    },
+    {
+      "id": "application_group",
+      "label_en": "APPLICATION ARCHITECTURE",
+      "label_zh": "应用架构",
+      "type": "group",
+      "parent": null,
+      "position": "底部中间绿色区",
+      "description_zh": "应用架构实体分区。"
+    },
+    {
+      "id": "technology_group",
+      "label_en": "TECHNOLOGY ARCHITECTURE",
+      "label_zh": "技术架构",
+      "type": "group",
+      "parent": null,
+      "position": "底部右侧蓝色区",
+      "description_zh": "技术架构实体分区。"
+    },
+    {
+      "id": "principle",
+      "label_en": "Principle",
+      "label_zh": "原则",
+      "type": "principle",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 1 框"
+    },
+    {
+      "id": "constraint",
+      "label_en": "Constraint",
+      "label_zh": "约束",
+      "type": "principle",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 2 框"
+    },
+    {
+      "id": "assumption",
+      "label_en": "Assumption",
+      "label_zh": "假设",
+      "type": "concept",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 3 框"
+    },
+    {
+      "id": "requirement",
+      "label_en": "Requirement",
+      "label_zh": "需求",
+      "type": "requirement",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 4 框"
+    },
+    {
+      "id": "location",
+      "label_en": "Location",
+      "label_zh": "位置",
+      "type": "location",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 5 框"
+    },
+    {
+      "id": "gap",
+      "label_en": "Gap",
+      "label_zh": "差距",
+      "type": "concept",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 6 框"
+    },
+    {
+      "id": "work_package",
+      "label_en": "Work Package",
+      "label_zh": "工作包",
+      "type": "process",
+      "parent": "all_objects_group",
+      "position": "灰色面板第 7 框"
+    },
+    {
+      "id": "capability_general",
+      "label_en": "Capability",
+      "label_zh": "能力",
+      "type": "capability",
+      "parent": "general_group",
+      "position": "橙色带右端、灰色面板外",
+      "description_zh": "由工作包交付的通用能力；不在“与所有对象关联”面板内。"
+    },
+    {
+      "id": "driver",
+      "label_en": "Driver",
+      "label_zh": "驱动因素",
+      "type": "goal",
+      "parent": "business_group",
+      "position": "业务区左上"
+    },
+    {
+      "id": "goal",
+      "label_en": "Goal",
+      "label_zh": "目标",
+      "type": "goal",
+      "parent": "business_group",
+      "position": "业务区上部中左"
+    },
+    {
+      "id": "objective",
+      "label_en": "Objective",
+      "label_zh": "目的",
+      "type": "goal",
+      "parent": "business_group",
+      "position": "业务区上部中右"
+    },
+    {
+      "id": "measure",
+      "label_en": "Measure",
+      "label_zh": "度量",
+      "type": "metric",
+      "parent": "business_group",
+      "position": "业务区右上"
+    },
+    {
+      "id": "course_of_action",
+      "label_en": "Course of Action",
+      "label_zh": "行动方案",
+      "type": "concept",
+      "parent": "business_group",
+      "position": "业务区上部横条"
+    },
+    {
+      "id": "product",
+      "label_en": "Product",
+      "label_zh": "产品",
+      "type": "product",
+      "parent": "business_group",
+      "position": "业务区中左"
+    },
+    {
+      "id": "organization_unit",
+      "label_en": "Organization Unit",
+      "label_zh": "组织单元",
+      "type": "organization_unit",
+      "parent": "business_group",
+      "position": "业务区中左偏右"
+    },
+    {
+      "id": "business_capability",
+      "label_en": "Business Capability",
+      "label_zh": "业务能力",
+      "type": "capability",
+      "parent": "business_group",
+      "position": "业务区中部"
+    },
+    {
+      "id": "value_stream",
+      "label_en": "Value Stream",
+      "label_zh": "价值流",
+      "type": "value_stream",
+      "parent": "business_group",
+      "position": "业务区中右"
+    },
+    {
+      "id": "business_information",
+      "label_en": "Business Information",
+      "label_zh": "业务信息",
+      "type": "data",
+      "parent": "business_group",
+      "position": "业务区右上"
+    },
+    {
+      "id": "function",
+      "label_en": "Function",
+      "label_zh": "功能",
+      "type": "function",
+      "parent": "business_group",
+      "position": "业务区中左"
+    },
+    {
+      "id": "actor",
+      "label_en": "Actor",
+      "label_zh": "参与者",
+      "type": "actor",
+      "parent": "business_group",
+      "position": "业务区中部"
+    },
+    {
+      "id": "process",
+      "label_en": "Process",
+      "label_zh": "流程",
+      "type": "process",
+      "parent": "business_group",
+      "position": "业务区中右"
+    },
+    {
+      "id": "role",
+      "label_en": "Role",
+      "label_zh": "角色",
+      "type": "role",
+      "parent": "business_group",
+      "position": "业务区中下"
+    },
+    {
+      "id": "event",
+      "label_en": "Event",
+      "label_zh": "事件",
+      "type": "event",
+      "parent": "business_group",
+      "position": "业务区中下"
+    },
+    {
+      "id": "service_quality",
+      "label_en": "Service Quality",
+      "label_zh": "服务质量",
+      "type": "requirement",
+      "parent": "business_group",
+      "position": "业务区右下"
+    },
+    {
+      "id": "contract",
+      "label_en": "Contract",
+      "label_zh": "合同",
+      "type": "artifact",
+      "parent": "business_group",
+      "position": "业务区右下"
+    },
+    {
+      "id": "control",
+      "label_en": "Control",
+      "label_zh": "控制",
+      "type": "risk",
+      "parent": "business_group",
+      "position": "业务区右中",
+      "description_zh": "控制措施，确保流程正确运行。"
+    },
+    {
+      "id": "business_service",
+      "label_en": "Business Service",
+      "label_zh": "业务服务",
+      "type": "service",
+      "parent": "business_group",
+      "position": "业务区底部横条"
+    },
+    {
+      "id": "data_entity",
+      "label_en": "Data Entity",
+      "label_zh": "数据实体",
+      "type": "data",
+      "parent": "data_group",
+      "position": "数据区上部"
+    },
+    {
+      "id": "logical_data_component",
+      "label_en": "Logical Data Component",
+      "label_zh": "逻辑数据组件",
+      "type": "data",
+      "parent": "data_group",
+      "position": "数据区中部"
+    },
+    {
+      "id": "physical_data_component",
+      "label_en": "Physical Data Component",
+      "label_zh": "物理数据组件",
+      "type": "data",
+      "parent": "data_group",
+      "position": "数据区下部"
+    },
+    {
+      "id": "application_service",
+      "label_en": "Application Service",
+      "label_zh": "应用服务",
+      "type": "service",
+      "parent": "application_group",
+      "position": "应用区上部"
+    },
+    {
+      "id": "logical_application_component",
+      "label_en": "Logical Application Component",
+      "label_zh": "逻辑应用组件",
+      "type": "application",
+      "parent": "application_group",
+      "position": "应用区中部"
+    },
+    {
+      "id": "physical_application_component",
+      "label_en": "Physical Application Component",
+      "label_zh": "物理应用组件",
+      "type": "application",
+      "parent": "application_group",
+      "position": "应用区下部"
+    },
+    {
+      "id": "technology_service",
+      "label_en": "Technology Service",
+      "label_zh": "技术服务",
+      "type": "service",
+      "parent": "technology_group",
+      "position": "技术区上部"
+    },
+    {
+      "id": "logical_technology_component",
+      "label_en": "Logical Technology Component",
+      "label_zh": "逻辑技术组件",
+      "type": "technology",
+      "parent": "technology_group",
+      "position": "技术区中部"
+    },
+    {
+      "id": "physical_technology_component",
+      "label_en": "Physical Technology Component",
+      "label_zh": "物理技术组件",
+      "type": "technology",
+      "parent": "technology_group",
+      "position": "技术区下部"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_wp_capability",
+      "from": "work_package",
+      "to": "capability_general",
+      "type": "produces",
+      "label_en": "Delivers / Is delivered by",
+      "label_zh": "交付 / 由……交付",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "工作包交付能力；工作包在左，能力在右，反向读作能力由工作包交付。"
+    },
+    {
+      "id": "r_driver_goal",
+      "from": "driver",
+      "to": "goal",
+      "type": "produces",
+      "label_en": "Creates / Addresses",
+      "label_zh": "创建 / 应对",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "驱动因素创建目标；反向读作目标应对驱动因素。"
+    },
+    {
+      "id": "r_driver_coa",
+      "from": "driver",
+      "to": "course_of_action",
+      "type": "influence",
+      "label_en": "Motivates",
+      "label_zh": "激励",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "驱动因素激励行动方案；线从 Driver 左缘向下折到 Course of Action 左端。"
+    },
+    {
+      "id": "r_goal_objective",
+      "from": "goal",
+      "to": "objective",
+      "type": "association",
+      "label_en": "Is made specific / Realizes",
+      "label_zh": "被具体化 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "目标由目的加以具体化；反向读作目的实现目标。"
+    },
+    {
+      "id": "r_goal_coa",
+      "from": "goal",
+      "to": "course_of_action",
+      "type": "realization",
+      "label_en": "Is realized by / Realizes",
+      "label_zh": "由……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "目标由行动方案实现；反向读作行动方案实现目标。"
+    },
+    {
+      "id": "r_objective_measure",
+      "from": "objective",
+      "to": "measure",
+      "type": "association",
+      "label_en": "Is tracked against / Sets performance criteria for",
+      "label_zh": "对照……跟踪 / 为……设定绩效标准",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "目的对照度量来跟踪；反向读作度量为目的设定绩效标准。"
+    },
+    {
+      "id": "r_coa_product",
+      "from": "course_of_action",
+      "to": "product",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响产品。"
+    },
+    {
+      "id": "r_coa_orgunit",
+      "from": "course_of_action",
+      "to": "organization_unit",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响组织单元。"
+    },
+    {
+      "id": "r_coa_orgunit_motivates",
+      "from": "course_of_action",
+      "to": "organization_unit",
+      "type": "influence",
+      "label_en": "Motivates / Is motivated by",
+      "label_zh": "激励 / 受……激励",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案激励组织单元；反向读作组织单元受行动方案激励（第二条 CoA—组织单元连线，标签位于 Product 与 Organization Unit 之间）。"
+    },
+    {
+      "id": "r_coa_capability",
+      "from": "course_of_action",
+      "to": "business_capability",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响业务能力。"
+    },
+    {
+      "id": "r_coa_valuestream",
+      "from": "course_of_action",
+      "to": "value_stream",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响价值流。"
+    },
+    {
+      "id": "r_coa_businessinfo",
+      "from": "course_of_action",
+      "to": "business_information",
+      "type": "influence",
+      "label_en": "Influences",
+      "label_zh": "影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响业务信息。"
+    },
+    {
+      "id": "r_coa_function",
+      "from": "course_of_action",
+      "to": "function",
+      "type": "influence",
+      "label_en": "Influences / Is influenced by",
+      "label_zh": "影响 / 受……影响",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "行动方案影响功能；功能一侧标注“受……影响”。"
+    },
+    {
+      "id": "r_product_orgunit",
+      "from": "organization_unit",
+      "to": "product",
+      "type": "produces",
+      "label_en": "Is produced by / Delivers",
+      "label_zh": "由……生产 / 交付",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "产品由组织单元生产；反向读作组织单元交付产品。"
+    },
+    {
+      "id": "r_product_function",
+      "from": "function",
+      "to": "product",
+      "type": "produces",
+      "label_en": "Is produced by / Delivers",
+      "label_zh": "由……生产 / 交付",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "产品由功能生产；反向读作功能交付产品。"
+    },
+    {
+      "id": "r_orgunit_actor",
+      "from": "organization_unit",
+      "to": "actor",
+      "type": "composition",
+      "label_en": "Contains",
+      "label_zh": "包含",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "组织单元包含参与者。"
+    },
+    {
+      "id": "r_orgunit_function",
+      "from": "organization_unit",
+      "to": "function",
+      "type": "governs",
+      "label_en": "Owns and governs / Is owned by",
+      "label_zh": "拥有并治理 / 由……拥有",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "组织单元拥有并治理功能；功能一侧标注“由……拥有”。"
+    },
+    {
+      "id": "r_function_orgunit_owned",
+      "from": "function",
+      "to": "organization_unit",
+      "type": "dependency",
+      "label_en": "Is owned and governed by",
+      "label_zh": "由……拥有并治理",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能由组织单元拥有并治理（与 Owns and governs 为不同连线，标签位于 Function 下方）。"
+    },
+    {
+      "id": "r_orgunit_capability",
+      "from": "organization_unit",
+      "to": "business_capability",
+      "type": "serving",
+      "label_en": "Enables",
+      "label_zh": "使能",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "组织单元使能业务能力（端点按线的走向与语义推断）。"
+    },
+    {
+      "id": "r_orgunit_process",
+      "from": "organization_unit",
+      "to": "process",
+      "type": "association",
+      "label_en": "Participates in",
+      "label_zh": "参与",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "组织单元参与流程（端点按线的走向与语义推断）。"
+    },
+    {
+      "id": "r_capability_valuestream",
+      "from": "business_capability",
+      "to": "value_stream",
+      "type": "serving",
+      "label_en": "Enables / Is enabled by",
+      "label_zh": "使能 / 受……使能",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务能力使能价值流；反向读作价值流受业务能力使能。"
+    },
+    {
+      "id": "r_capability_process",
+      "from": "business_capability",
+      "to": "process",
+      "type": "association",
+      "label_en": "Is operationalized by / Operationalizes",
+      "label_zh": "由……运营化 / 运营化",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务能力由流程运营化；反向读作流程运营化业务能力（端点按语义推断）。"
+    },
+    {
+      "id": "r_valuestream_capability",
+      "from": "value_stream",
+      "to": "business_capability",
+      "type": "association",
+      "label_en": "Is operationalized by",
+      "label_zh": "由……运营化",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "价值流由业务能力运营化（第二条同名关系，端点按线束位置推断）。"
+    },
+    {
+      "id": "r_valuestream_process",
+      "from": "value_stream",
+      "to": "process",
+      "type": "association",
+      "label_en": "Is triggered by, Involves",
+      "label_zh": "由……触发、涉及",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "价值流由流程触发并涉及流程（端点按语义推断）。"
+    },
+    {
+      "id": "r_businessinfo_process",
+      "from": "process",
+      "to": "business_information",
+      "type": "access",
+      "label_en": "Uses / Is used by",
+      "label_zh": "使用 / 被……使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程使用业务信息；反向读作业务信息被流程使用。"
+    },
+    {
+      "id": "r_businessinfo_service",
+      "from": "business_information",
+      "to": "business_service",
+      "type": "produces",
+      "label_en": "Used to derive / Is derived from",
+      "label_zh": "用于派生 / 派生自",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务信息用于派生业务服务；反向读作业务服务派生自业务信息。"
+    },
+    {
+      "id": "r_process_service",
+      "from": "process",
+      "to": "business_service",
+      "type": "produces",
+      "label_en": "Delivers",
+      "label_zh": "交付",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程交付业务服务（端点按线的走向推断）。"
+    },
+    {
+      "id": "r_function_capability",
+      "from": "function",
+      "to": "business_capability",
+      "type": "serving",
+      "label_en": "Supports",
+      "label_zh": "支持",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能支持业务能力。"
+    },
+    {
+      "id": "r_capability_function",
+      "from": "business_capability",
+      "to": "function",
+      "type": "realization",
+      "label_en": "Is realized by",
+      "label_zh": "由……实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务能力由功能实现。"
+    },
+    {
+      "id": "r_function_actor",
+      "from": "function",
+      "to": "actor",
+      "type": "association",
+      "label_en": "Interacts with, Performs",
+      "label_zh": "与……交互、执行",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者与功能交互并执行功能（端点按语义推断）。"
+    },
+    {
+      "id": "r_function_service_interface",
+      "from": "function",
+      "to": "business_service",
+      "type": "serving",
+      "label_en": "Provides governed interface to access",
+      "label_zh": "提供受治理的访问接口",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能为访问业务服务提供受治理的接口。"
+    },
+    {
+      "id": "r_function_service_supply",
+      "from": "function",
+      "to": "business_service",
+      "type": "consumes",
+      "label_en": "Supplies or consumes / Is supplied or consumed by",
+      "label_zh": "供应或消费 / 被供应或消费",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能供应或消费业务服务（与上一条为不同连线）。"
+    },
+    {
+      "id": "r_function_coa",
+      "from": "function",
+      "to": "course_of_action",
+      "type": "dependency",
+      "label_en": "Is bounded by",
+      "label_zh": "受……约束",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "功能受行动方案约束。"
+    },
+    {
+      "id": "r_actor_orgunit",
+      "from": "actor",
+      "to": "organization_unit",
+      "type": "assignment",
+      "label_en": "Belongs to",
+      "label_zh": "隶属于",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者隶属于组织单元（按原图另有一条线与 Contains 分开）。"
+    },
+    {
+      "id": "r_actor_service",
+      "from": "actor",
+      "to": "business_service",
+      "type": "consumes",
+      "label_en": "Consumes",
+      "label_zh": "消费",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者消费业务服务。"
+    },
+    {
+      "id": "r_actor_process_task",
+      "from": "actor",
+      "to": "process",
+      "type": "assignment",
+      "label_en": "Performs a task in / Performs task in",
+      "label_zh": "在其中执行任务 / 在……中执行任务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者在流程中执行任务。"
+    },
+    {
+      "id": "r_actor_process_trigger",
+      "from": "actor",
+      "to": "process",
+      "type": "association",
+      "label_en": "Triggers, Participates in",
+      "label_zh": "触发、参与",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "参与者触发并参与流程（与 Performs task in 为不同连线）。"
+    },
+    {
+      "id": "r_process_process",
+      "from": "process",
+      "to": "process",
+      "type": "composition",
+      "label_en": "Orchestrates, Decomposes",
+      "label_zh": "编排、分解",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程编排并分解流程（自关系）。"
+    },
+    {
+      "id": "r_role_process",
+      "from": "role",
+      "to": "process",
+      "type": "assignment",
+      "label_en": "Performs, Participates in",
+      "label_zh": "执行、参与",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "角色执行并参与流程。"
+    },
+    {
+      "id": "r_process_role",
+      "from": "process",
+      "to": "role",
+      "type": "assignment",
+      "label_en": "Is performed by, Involves",
+      "label_zh": "由……执行、涉及",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程由角色执行并涉及角色；与上一条互为反向。"
+    },
+    {
+      "id": "r_process_event",
+      "from": "process",
+      "to": "event",
+      "type": "produces",
+      "label_en": "Generates, Resolves",
+      "label_zh": "生成、解决",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程生成并解决事件。"
+    },
+    {
+      "id": "r_event_process",
+      "from": "event",
+      "to": "process",
+      "type": "association",
+      "label_en": "Is resolved by, Is generated by",
+      "label_zh": "由……解决、由……生成",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "事件由流程解决并生成；与上一条互为反向。"
+    },
+    {
+      "id": "r_process_service_support",
+      "from": "process",
+      "to": "business_service",
+      "type": "serving",
+      "label_en": "Supports, Is realized by",
+      "label_zh": "支持、由……实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程支持业务服务，业务服务由流程实现。"
+    },
+    {
+      "id": "r_control_process",
+      "from": "control",
+      "to": "process",
+      "type": "governs",
+      "label_en": "Ensures correct operation of",
+      "label_zh": "确保……正确运行",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "控制确保流程正确运行。"
+    },
+    {
+      "id": "r_process_control",
+      "from": "process",
+      "to": "control",
+      "type": "dependency",
+      "label_en": "Is guided by",
+      "label_zh": "受……指导",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "流程受控制指导；与上一条互为反向。"
+    },
+    {
+      "id": "r_quality_contract",
+      "from": "service_quality",
+      "to": "contract",
+      "type": "association",
+      "label_en": "Applies to / Meets",
+      "label_zh": "适用于 / 满足",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "服务质量适用于合同，合同满足服务质量。"
+    },
+    {
+      "id": "r_contract_service",
+      "from": "contract",
+      "to": "business_service",
+      "type": "governs",
+      "label_en": "Governs, measures / Is governed and measured by",
+      "label_zh": "治理、度量 / 受……治理与度量",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "合同治理并度量业务服务；反向读作业务服务受合同治理与度量。"
+    },
+    {
+      "id": "r_quality_service",
+      "from": "service_quality",
+      "to": "business_service",
+      "type": "association",
+      "label_en": "Applies to / Meets",
+      "label_zh": "适用于 / 满足",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "服务质量适用于业务服务，业务服务满足服务质量。"
+    },
+    {
+      "id": "r_service_actor",
+      "from": "business_service",
+      "to": "actor",
+      "type": "serving",
+      "label_en": "Is provided to",
+      "label_zh": "被提供给",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务服务被提供给参与者。"
+    },
+    {
+      "id": "r_data_service",
+      "from": "data_entity",
+      "to": "business_service",
+      "type": "realization",
+      "label_en": "Realizes",
+      "label_zh": "实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "按原图文字，数据实体实现业务服务（长线从数据实体向左上折到业务服务左端）。"
+    },
+    {
+      "id": "r_service_app",
+      "from": "business_service",
+      "to": "application_service",
+      "type": "consumes",
+      "label_en": "Uses / Automates some or all of",
+      "label_zh": "使用 / 自动化其中部分或全部",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "业务服务使用应用服务；反向读作应用服务自动化业务服务的部分或全部。"
+    },
+    {
+      "id": "r_data_ldc",
+      "from": "data_entity",
+      "to": "logical_data_component",
+      "type": "composition",
+      "label_en": "Resides within / Encapsulates",
+      "label_zh": "驻留于 / 封装",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据实体驻留于逻辑数据组件，逻辑数据组件封装数据实体。"
+    },
+    {
+      "id": "r_ldc_pdc",
+      "from": "logical_data_component",
+      "to": "physical_data_component",
+      "type": "realization",
+      "label_en": "Is realized by / Realizes",
+      "label_zh": "由……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑数据组件由物理数据组件实现。"
+    },
+    {
+      "id": "r_data_appservice",
+      "from": "data_entity",
+      "to": "application_service",
+      "type": "access",
+      "label_en": "Is accessed and updated through",
+      "label_zh": "通过……访问与更新",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据实体通过应用服务被访问和更新。"
+    },
+    {
+      "id": "r_data_lac",
+      "from": "data_entity",
+      "to": "logical_application_component",
+      "type": "access",
+      "label_en": "Used by / Uses",
+      "label_zh": "被……使用 / 使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据实体被逻辑应用组件使用；反向读作逻辑应用组件使用数据实体。"
+    },
+    {
+      "id": "r_data_pac",
+      "from": "data_entity",
+      "to": "physical_application_component",
+      "type": "access",
+      "label_en": "Used by / Uses",
+      "label_zh": "被……使用 / 使用",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "数据实体被物理应用组件使用；反向读作物理应用组件使用数据实体。"
+    },
+    {
+      "id": "r_appservice_lac",
+      "from": "application_service",
+      "to": "logical_application_component",
+      "type": "realization",
+      "label_en": "Is realized through / Implements",
+      "label_zh": "通过……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "应用服务通过逻辑应用组件实现；逻辑应用组件实现应用服务。"
+    },
+    {
+      "id": "r_lac_pac",
+      "from": "logical_application_component",
+      "to": "physical_application_component",
+      "type": "realization",
+      "label_en": "Is realized by / Realizes",
+      "label_zh": "由……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑应用组件由物理应用组件实现。"
+    },
+    {
+      "id": "r_appservice_techservice",
+      "from": "application_service",
+      "to": "technology_service",
+      "type": "serving",
+      "label_en": "Is served by / Serves",
+      "label_zh": "由……服务 / 服务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "应用服务由技术服务支撑；反向读作技术服务服务于应用服务。"
+    },
+    {
+      "id": "r_lac_ltc",
+      "from": "logical_application_component",
+      "to": "logical_technology_component",
+      "type": "serving",
+      "label_en": "Is served by / Serves",
+      "label_zh": "由……服务 / 服务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑应用组件由逻辑技术组件服务。"
+    },
+    {
+      "id": "r_pac_ptc",
+      "from": "physical_application_component",
+      "to": "physical_technology_component",
+      "type": "serving",
+      "label_en": "Is served by / Serves",
+      "label_zh": "由……服务 / 服务",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "物理应用组件由物理技术组件服务。"
+    },
+    {
+      "id": "r_appservice_techservice_impl",
+      "from": "application_service",
+      "to": "technology_service",
+      "type": "dependency",
+      "label_en": "Is implemented on",
+      "label_zh": "实现在……之上",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "应用服务实现在技术服务之上；与 Is served by 为不同连线。"
+    },
+    {
+      "id": "r_ltc_techservice",
+      "from": "logical_technology_component",
+      "to": "technology_service",
+      "type": "serving",
+      "label_en": "Is supplied by / Supplies",
+      "label_zh": "由……供应 / 供应",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "技术服务由逻辑技术组件供应；反向读作逻辑技术组件供应技术服务。"
+    },
+    {
+      "id": "r_ltc_ptc",
+      "from": "logical_technology_component",
+      "to": "physical_technology_component",
+      "type": "realization",
+      "label_en": "Is realized by / Realizes",
+      "label_zh": "由……实现 / 实现",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑技术组件由物理技术组件实现。"
+    },
+    {
+      "id": "r_ltc_appservice",
+      "from": "logical_technology_component",
+      "to": "application_service",
+      "type": "serving",
+      "label_en": "Provides platform for",
+      "label_zh": "为……提供平台",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "逻辑技术组件为应用服务提供平台。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G248/fig2-2",
+      "relation": "generalizes",
+      "note_zh": "图 2-2 只使用本元模型中的业务目标、能力、基线/目标/过渡架构与工作包等少数实体，是元模型在过渡架构场景中的子集。"
+    },
+    {
+      "target": "G248/fig2-3",
+      "relation": "generalizes",
+      "note_zh": "图 2-3 在本元模型实体之外补充 MVP/MMP/交付冲刺，并把它们映射到过渡架构与工作包。"
+    },
+    {
+      "target": "G248/fig6-1",
+      "relation": "complements",
+      "note_zh": "图 6-1 展开本图中未单列的架构层级、架构师角色与业务/IS-IT 域及其分解，二者互补。"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "原图共有 36 个实体、约 60 条连线且多处线束交叠，部分中央区域（Product／Organization Unit／Function／Actor／Process）的端点归属按关系名语义与线的走向推断，未能逐条做像素级追踪。",
+      "“Enables”“Participates in”“Is operationalized by”“Is triggered by, Involves”“Delivers（Process→Business Service）”等标签位于线束交汇处，端点存在多种可能，已在对应关系的 description_zh 中标注“按语义/走向推断”。",
+      "Course of Action 对业务实体的“Influences”共有 5 条同名线（Product、Organization Unit、Business Capability、Value Stream、Business Information）另加 Function 一条，按落点列分别归属。",
+      "全图无基数标注，因此所有关系的 cardinality 均未填写。",
+      "版权标记 © The Open Group 位于 General Entities 带右上角。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 19 页图 3-1 截图（220 dpi）与 3×3 放大分块",
+      "英文 PDF 第 19 页原图（600 dpi 重渲染，局部 2 倍放大）",
+      "原图内嵌位图（3784×3284）与 tesseract OCR 的全部标签坐标",
+      "英文 PDF 第 19 页正文",
+      "中文稿 G248e_构建块的选择方法.md 第 186–190、367–383 行"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G248e.pdf",
+    "pdf_sha256": "810df20478f65d8dfd969089f9c682ec268d0e3a9126e062bda5191c9017e19c",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G248/fig3-1.json",
+    "interpretation_sha256": "7a030b9f16b402bd02f495d0d0ff29c42e31fd7d9eb9052a1955fd18cb08c1a1",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 19,
+        "text": "Figure 3-1: TOGAF Enterprise Metamodel [C220]",
+        "bbox_pdf_points": [
+          48.24,
+          689.514,
+          274.812,
+          703.08
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 19,
+      "printed_page": 7,
+      "bbox_pdf_points": [
+        48.2,
+        237.4,
+        563.8,
+        684.8
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G248/fig3-1-p0019.png",
+      "image_sha256": "fc8ee83f1b0c28a4aac0309a313f0d129f0c27b139e92c03d4c03f26eee7bc06",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "fc8ee83f1b0c28a4aac0309a313f0d129f0c27b139e92c03d4c03f26eee7bc06",
+          "status": "extracted-unverified",
+          "text": "‘Associated with All Objects\nPrinciple\nConstraint\n‘Assumption\nRequirement\nLocation\nGap\nWork Package\nBUSINESS ARCHITECTURE\ncreates\nIe made specie\nracked against\nDriver\nGoal\nObjective\nMeasure\nMotvates\n‘arenes\nRealzes\nSe paemance\nae\nInuance|\nCourse of Action\nAnfuences\nIntuences |\nIsinfuenced by\nIsinfuenced by\n“ Ce Ineuenced by\nProduct\n's produced by\nOrganization | Debvers\nBusiness\nEnables\nValue Stream\nBusiness\nvere\nUnt\nTeusedby\nCapabiity\nTeenabied by\nInformation\nused to\n's produced\nenables] | [contains\nL\nIe detvered by\nUses [is operatonaized etiagered by\n's operationalized\nwud by\ninvolves\nowns and\ngoverns]\nPerform tak in\nDebers\nOperatonatzes\nIsreatzed|\nih\nIsowned by|_ [Deters\n‘Belongs\n‘Crees,\n“Thggers. Decomposes|\n[Rete\n‘supports\nPateipates in\nIs guided by\nFunction\nTrac wth\n‘Actor\n‘Suppor,\nEnsures conest\nContot\n‘stntuenced by\n‘Supports\nPerr tak\n's produced by\nOrchestats,\n‘operation of\nIs bounded by]\nTerealzed by|\nPertorms\ncenerates,\nIs performed by,\n(Generates, | Decompocee\nConsumes\nEnete® i petormea|\nResohes\n‘Supplies or\nconsumes\nRole\nPerforma,\nspats in\nService\n‘Apps to\nEvent\nTeresoWea hy,\nTereroed by\nQuality\nIs generated by\nIe generatedby\nIsresoWesy|\nProvides governed\ntoned and\nfs governed and\nIntertace to acess|\n‘governed by\n's provided to\nhan\nIerealaea!\n—\nmeasured by\nis drves\nBusiness Service\nI\nrom\nPhysical Application\nPhysical\nTechnology\n‘Compement\nComponent",
+          "words": [
+            {
+              "text": "‘Associated",
+              "confidence": 74.138809,
+              "bbox_pixels_xywh": [
+                136,
+                30,
+                137,
+                11
+              ]
+            },
+            {
+              "text": "with",
+              "confidence": 93.866592,
+              "bbox_pixels_xywh": [
+                194,
+                20,
+                20,
+                28
+              ]
+            },
+            {
+              "text": "All",
+              "confidence": 96.797577,
+              "bbox_pixels_xywh": [
+                220,
+                20,
+                15,
+                28
+              ]
+            },
+            {
+              "text": "Objects",
+              "confidence": 84.705505,
+              "bbox_pixels_xywh": [
+                239,
+                20,
+                38,
+                28
+              ]
+            },
+            {
+              "text": "Principle",
+              "confidence": 78.788307,
+              "bbox_pixels_xywh": [
+                161,
+                56,
+                38,
+                10
+              ]
+            },
+            {
+              "text": "Constraint",
+              "confidence": 53.824825,
+              "bbox_pixels_xywh": [
+                243,
+                56,
+                46,
+                8
+              ]
+            },
+            {
+              "text": "‘Assumption",
+              "confidence": 81.238884,
+              "bbox_pixels_xywh": [
+                325,
+                56,
+                53,
+                10
+              ]
+            },
+            {
+              "text": "Requirement",
+              "confidence": 76.645866,
+              "bbox_pixels_xywh": [
+                409,
+                56,
+                58,
+                10
+              ]
+            },
+            {
+              "text": "Location",
+              "confidence": 88.146759,
+              "bbox_pixels_xywh": [
+                505,
+                56,
+                38,
+                8
+              ]
+            },
+            {
+              "text": "Gap",
+              "confidence": 85.383301,
+              "bbox_pixels_xywh": [
+                600,
+                56,
+                19,
+                10
+              ]
+            },
+            {
+              "text": "Work",
+              "confidence": 92.273956,
+              "bbox_pixels_xywh": [
+                662,
+                56,
+                24,
+                8
+              ]
+            },
+            {
+              "text": "Package",
+              "confidence": 96.769623,
+              "bbox_pixels_xywh": [
+                689,
+                56,
+                39,
+                10
+              ]
+            },
+            {
+              "text": "BUSINESS",
+              "confidence": 86.090836,
+              "bbox_pixels_xywh": [
+                6,
+                108,
+                57,
+                10
+              ]
+            },
+            {
+              "text": "ARCHITECTURE",
+              "confidence": 96.720856,
+              "bbox_pixels_xywh": [
+                66,
+                108,
+                90,
+                10
+              ]
+            },
+            {
+              "text": "creates",
+              "confidence": 68.414429,
+              "bbox_pixels_xywh": [
+                203,
+                149,
+                32,
+                7
+              ]
+            },
+            {
+              "text": "Ie",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                440,
+                138,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "made",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                454,
+                138,
+                21,
+                28
+              ]
+            },
+            {
+              "text": "specie",
+              "confidence": 23.654842,
+              "bbox_pixels_xywh": [
+                479,
+                138,
+                34,
+                28
+              ]
+            },
+            {
+              "text": "racked",
+              "confidence": 59.737312,
+              "bbox_pixels_xywh": [
+                687,
+                138,
+                33,
+                28
+              ]
+            },
+            {
+              "text": "against",
+              "confidence": 74.267548,
+              "bbox_pixels_xywh": [
+                724,
+                138,
+                33,
+                28
+              ]
+            },
+            {
+              "text": "Driver",
+              "confidence": 79.626564,
+              "bbox_pixels_xywh": [
+                144,
+                157,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Goal",
+              "confidence": 87.514969,
+              "bbox_pixels_xywh": [
+                385,
+                157,
+                22,
+                8
+              ]
+            },
+            {
+              "text": "Objective",
+              "confidence": 56.698856,
+              "bbox_pixels_xywh": [
+                614,
+                157,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "Measure",
+              "confidence": 90.895004,
+              "bbox_pixels_xywh": [
+                855,
+                157,
+                39,
+                8
+              ]
+            },
+            {
+              "text": "Motvates",
+              "confidence": 64.550217,
+              "bbox_pixels_xywh": [
+                55,
+                174,
+                39,
+                7
+              ]
+            },
+            {
+              "text": "‘arenes",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                308,
+                170,
+                43,
+                7
+              ]
+            },
+            {
+              "text": "Realzes",
+              "confidence": 53.226196,
+              "bbox_pixels_xywh": [
+                558,
+                170,
+                35,
+                8
+              ]
+            },
+            {
+              "text": "Se",
+              "confidence": 66.260147,
+              "bbox_pixels_xywh": [
+                756,
+                157,
+                17,
+                33
+              ]
+            },
+            {
+              "text": "paemance",
+              "confidence": 9.516306,
+              "bbox_pixels_xywh": [
+                780,
+                168,
+                51,
+                18
+              ]
+            },
+            {
+              "text": "ae",
+              "confidence": 24.76955,
+              "bbox_pixels_xywh": [
+                337,
+                177,
+                231,
+                41
+              ]
+            },
+            {
+              "text": "Inuance|",
+              "confidence": 39.718956,
+              "bbox_pixels_xywh": [
+                44,
+                238,
+                41,
+                7
+              ]
+            },
+            {
+              "text": "Course",
+              "confidence": 45.310551,
+              "bbox_pixels_xywh": [
+                480,
+                230,
+                32,
+                9
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 66.831909,
+              "bbox_pixels_xywh": [
+                516,
+                230,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "Action",
+              "confidence": 83.926506,
+              "bbox_pixels_xywh": [
+                527,
+                230,
+                28,
+                9
+              ]
+            },
+            {
+              "text": "Anfuences",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                113,
+                253,
+                55,
+                12
+              ]
+            },
+            {
+              "text": "Intuences",
+              "confidence": 24.010525,
+              "bbox_pixels_xywh": [
+                648,
+                253,
+                60,
+                14
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 52.679436,
+              "bbox_pixels_xywh": [
+                700,
+                245,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Isinfuenced",
+              "confidence": 6.731901,
+              "bbox_pixels_xywh": [
+                703,
+                280,
+                62,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 61.525887,
+              "bbox_pixels_xywh": [
+                757,
+                268,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Isinfuenced",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                883,
+                280,
+                62,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 63.203045,
+              "bbox_pixels_xywh": [
+                937,
+                268,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "“",
+              "confidence": 31.554203,
+              "bbox_pixels_xywh": [
+                481,
+                259,
+                19,
+                5
+              ]
+            },
+            {
+              "text": "Ce",
+              "confidence": 78.293968,
+              "bbox_pixels_xywh": [
+                500,
+                249,
+                26,
+                47
+              ]
+            },
+            {
+              "text": "Ineuenced",
+              "confidence": 11.791105,
+              "bbox_pixels_xywh": [
+                529,
+                280,
+                41,
+                7
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 76.976006,
+              "bbox_pixels_xywh": [
+                573,
+                280,
+                9,
+                9
+              ]
+            },
+            {
+              "text": "Product",
+              "confidence": 72.58696,
+              "bbox_pixels_xywh": [
+                139,
+                304,
+                36,
+                8
+              ]
+            },
+            {
+              "text": "'s",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                196,
+                287,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "produced",
+              "confidence": 91.274147,
+              "bbox_pixels_xywh": [
+                210,
+                298,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 95.872437,
+              "bbox_pixels_xywh": [
+                249,
+                287,
+                13,
+                28
+              ]
+            },
+            {
+              "text": "Organization",
+              "confidence": 46.65377,
+              "bbox_pixels_xywh": [
+                308,
+                298,
+                57,
+                10
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 81.436661,
+              "bbox_pixels_xywh": [
+                371,
+                287,
+                6,
+                28
+              ]
+            },
+            {
+              "text": "Debvers",
+              "confidence": 15.021687,
+              "bbox_pixels_xywh": [
+                381,
+                297,
+                32,
+                7
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 80.665771,
+              "bbox_pixels_xywh": [
+                495,
+                298,
+                41,
+                8
+              ]
+            },
+            {
+              "text": "Enables",
+              "confidence": 84.184296,
+              "bbox_pixels_xywh": [
+                562,
+                297,
+                32,
+                7
+              ]
+            },
+            {
+              "text": "Value",
+              "confidence": 77.800514,
+              "bbox_pixels_xywh": [
+                664,
+                304,
+                26,
+                8
+              ]
+            },
+            {
+              "text": "Stream",
+              "confidence": 74.566513,
+              "bbox_pixels_xywh": [
+                694,
+                304,
+                32,
+                8
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 82.980339,
+              "bbox_pixels_xywh": [
+                854,
+                298,
+                41,
+                8
+              ]
+            },
+            {
+              "text": "vere",
+              "confidence": 74.465912,
+              "bbox_pixels_xywh": [
+                273,
+                316,
+                21,
+                7
+              ]
+            },
+            {
+              "text": "Unt",
+              "confidence": 62.579395,
+              "bbox_pixels_xywh": [
+                328,
+                310,
+                18,
+                8
+              ]
+            },
+            {
+              "text": "Teusedby",
+              "confidence": 21.666397,
+              "bbox_pixels_xywh": [
+                433,
+                315,
+                41,
+                9
+              ]
+            },
+            {
+              "text": "Capabiity",
+              "confidence": 34.214268,
+              "bbox_pixels_xywh": [
+                493,
+                310,
+                45,
+                10
+              ]
+            },
+            {
+              "text": "Teenabied",
+              "confidence": 1.096573,
+              "bbox_pixels_xywh": [
+                599,
+                315,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 44.103043,
+              "bbox_pixels_xywh": [
+                644,
+                303,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Information",
+              "confidence": 87.729507,
+              "bbox_pixels_xywh": [
+                850,
+                310,
+                50,
+                8
+              ]
+            },
+            {
+              "text": "used",
+              "confidence": 53.696518,
+              "bbox_pixels_xywh": [
+                980,
+                313,
+                31,
+                7
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 53.696518,
+              "bbox_pixels_xywh": [
+                1004,
+                301,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "'s",
+              "confidence": 44.425011,
+              "bbox_pixels_xywh": [
+                89,
+                324,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "produced",
+              "confidence": 79.784302,
+              "bbox_pixels_xywh": [
+                102,
+                335,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "enables]",
+              "confidence": 43.010361,
+              "bbox_pixels_xywh": [
+                300,
+                325,
+                38,
+                16
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 68.529785,
+              "bbox_pixels_xywh": [
+                341,
+                321,
+                6,
+                29
+              ]
+            },
+            {
+              "text": "[contains",
+              "confidence": 60.923294,
+              "bbox_pixels_xywh": [
+                355,
+                325,
+                42,
+                17
+              ]
+            },
+            {
+              "text": "L",
+              "confidence": 69.667801,
+              "bbox_pixels_xywh": [
+                515,
+                325,
+                2,
+                11
+              ]
+            },
+            {
+              "text": "Ie",
+              "confidence": 37.131332,
+              "bbox_pixels_xywh": [
+                424,
+                330,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "detvered",
+              "confidence": 29.484612,
+              "bbox_pixels_xywh": [
+                437,
+                342,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 74.568283,
+              "bbox_pixels_xywh": [
+                477,
+                330,
+                13,
+                28
+              ]
+            },
+            {
+              "text": "Uses",
+              "confidence": 69.226082,
+              "bbox_pixels_xywh": [
+                517,
+                341,
+                21,
+                7
+              ]
+            },
+            {
+              "text": "[is",
+              "confidence": 18.042793,
+              "bbox_pixels_xywh": [
+                541,
+                330,
+                13,
+                28
+              ]
+            },
+            {
+              "text": "operatonaized",
+              "confidence": 18.042793,
+              "bbox_pixels_xywh": [
+                556,
+                340,
+                62,
+                9
+              ]
+            },
+            {
+              "text": "etiagered",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                633,
+                340,
+                59,
+                10
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 40.584713,
+              "bbox_pixels_xywh": [
+                681,
+                330,
+                14,
+                28
+              ]
+            },
+            {
+              "text": "'s",
+              "confidence": 11.292334,
+              "bbox_pixels_xywh": [
+                721,
+                340,
+                7,
+                8
+              ]
+            },
+            {
+              "text": "operationalized",
+              "confidence": 41.053085,
+              "bbox_pixels_xywh": [
+                731,
+                340,
+                61,
+                9
+              ]
+            },
+            {
+              "text": "wud",
+              "confidence": 11.65309,
+              "bbox_pixels_xywh": [
+                829,
+                341,
+                41,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 36.634121,
+              "bbox_pixels_xywh": [
+                862,
+                329,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "involves",
+              "confidence": 32.658768,
+              "bbox_pixels_xywh": [
+                660,
+                351,
+                33,
+                8
+              ]
+            },
+            {
+              "text": "owns",
+              "confidence": 56.546585,
+              "bbox_pixels_xywh": [
+                297,
+                353,
+                26,
+                28
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 84.672493,
+              "bbox_pixels_xywh": [
+                327,
+                353,
+                17,
+                28
+              ]
+            },
+            {
+              "text": "governs]",
+              "confidence": 42.269295,
+              "bbox_pixels_xywh": [
+                309,
+                377,
+                32,
+                8
+              ]
+            },
+            {
+              "text": "Perform",
+              "confidence": 69.344551,
+              "bbox_pixels_xywh": [
+                410,
+                365,
+                38,
+                28
+              ]
+            },
+            {
+              "text": "tak",
+              "confidence": 38.593674,
+              "bbox_pixels_xywh": [
+                456,
+                377,
+                22,
+                7
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 66.581589,
+              "bbox_pixels_xywh": [
+                480,
+                365,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Debers",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                587,
+                377,
+                32,
+                7
+              ]
+            },
+            {
+              "text": "Operatonatzes",
+              "confidence": 45.074043,
+              "bbox_pixels_xywh": [
+                639,
+                377,
+                63,
+                9
+              ]
+            },
+            {
+              "text": "Isreatzed|",
+              "confidence": 5.013447,
+              "bbox_pixels_xywh": [
+                906,
+                381,
+                41,
+                8
+              ]
+            },
+            {
+              "text": "ih",
+              "confidence": 25.067333,
+              "bbox_pixels_xywh": [
+                397,
+                394,
+                11,
+                4
+              ]
+            },
+            {
+              "text": "Isowned",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                107,
+                402,
+                47,
+                9
+              ]
+            },
+            {
+              "text": "by|_",
+              "confidence": 6.688824,
+              "bbox_pixels_xywh": [
+                147,
+                392,
+                17,
+                28
+              ]
+            },
+            {
+              "text": "[Deters",
+              "confidence": 43.065113,
+              "bbox_pixels_xywh": [
+                174,
+                403,
+                33,
+                7
+              ]
+            },
+            {
+              "text": "‘Belongs",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                349,
+                402,
+                43,
+                10
+              ]
+            },
+            {
+              "text": "‘Crees,",
+              "confidence": 11.286259,
+              "bbox_pixels_xywh": [
+                483,
+                400,
+                54,
+                8
+              ]
+            },
+            {
+              "text": "“Thggers.",
+              "confidence": 7.096148,
+              "bbox_pixels_xywh": [
+                437,
+                410,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "Decomposes|",
+              "confidence": 7.096148,
+              "bbox_pixels_xywh": [
+                485,
+                411,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "[Rete",
+              "confidence": 29.453402,
+              "bbox_pixels_xywh": [
+                647,
+                399,
+                123,
+                16
+              ]
+            },
+            {
+              "text": "‘supports",
+              "confidence": 56.785397,
+              "bbox_pixels_xywh": [
+                198,
+                418,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "Pateipates",
+              "confidence": 11.228886,
+              "bbox_pixels_xywh": [
+                438,
+                421,
+                56,
+                9
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 67.511513,
+              "bbox_pixels_xywh": [
+                487,
+                411,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Is",
+              "confidence": 28.696852,
+              "bbox_pixels_xywh": [
+                682,
+                418,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "guided",
+              "confidence": 28.696852,
+              "bbox_pixels_xywh": [
+                691,
+                418,
+                39,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 41.188564,
+              "bbox_pixels_xywh": [
+                722,
+                407,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Function",
+              "confidence": 33.755684,
+              "bbox_pixels_xywh": [
+                138,
+                427,
+                38,
+                8
+              ]
+            },
+            {
+              "text": "Trac",
+              "confidence": 22.331425,
+              "bbox_pixels_xywh": [
+                295,
+                423,
+                31,
+                28
+              ]
+            },
+            {
+              "text": "wth",
+              "confidence": 35.484879,
+              "bbox_pixels_xywh": [
+                333,
+                423,
+                15,
+                28
+              ]
+            },
+            {
+              "text": "‘Actor",
+              "confidence": 63.382996,
+              "bbox_pixels_xywh": [
+                384,
+                427,
+                24,
+                8
+              ]
+            },
+            {
+              "text": "‘Suppor,",
+              "confidence": 44.226192,
+              "bbox_pixels_xywh": [
+                554,
+                434,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "Ensures",
+              "confidence": 47.060886,
+              "bbox_pixels_xywh": [
+                764,
+                422,
+                37,
+                28
+              ]
+            },
+            {
+              "text": "conest",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                806,
+                422,
+                28,
+                28
+              ]
+            },
+            {
+              "text": "Contot",
+              "confidence": 29.043137,
+              "bbox_pixels_xywh": [
+                858,
+                427,
+                33,
+                8
+              ]
+            },
+            {
+              "text": "‘stntuenced",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                50,
+                438,
+                63,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 59.736477,
+              "bbox_pixels_xywh": [
+                104,
+                428,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "‘Supports",
+              "confidence": 39.833153,
+              "bbox_pixels_xywh": [
+                198,
+                442,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "Perr",
+              "confidence": 14.17161,
+              "bbox_pixels_xywh": [
+                434,
+                429,
+                33,
+                28
+              ]
+            },
+            {
+              "text": "tak",
+              "confidence": 56.915237,
+              "bbox_pixels_xywh": [
+                478,
+                429,
+                17,
+                28
+              ]
+            },
+            {
+              "text": "'s",
+              "confidence": 59.900726,
+              "bbox_pixels_xywh": [
+                529,
+                434,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "produced",
+              "confidence": 79.124695,
+              "bbox_pixels_xywh": [
+                543,
+                445,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 94.913132,
+              "bbox_pixels_xywh": [
+                585,
+                434,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Orchestats,",
+              "confidence": 54.561066,
+              "bbox_pixels_xywh": [
+                695,
+                441,
+                54,
+                8
+              ]
+            },
+            {
+              "text": "‘operation",
+              "confidence": 67.908791,
+              "bbox_pixels_xywh": [
+                783,
+                445,
+                38,
+                9
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 95.660393,
+              "bbox_pixels_xywh": [
+                824,
+                445,
+                8,
+                7
+              ]
+            },
+            {
+              "text": "Is",
+              "confidence": 30.892115,
+              "bbox_pixels_xywh": [
+                94,
+                442,
+                11,
+                28
+              ]
+            },
+            {
+              "text": "bounded",
+              "confidence": 61.645576,
+              "bbox_pixels_xywh": [
+                107,
+                454,
+                48,
+                9
+              ]
+            },
+            {
+              "text": "by]",
+              "confidence": 33.094463,
+              "bbox_pixels_xywh": [
+                145,
+                442,
+                15,
+                28
+              ]
+            },
+            {
+              "text": "Terealzed",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                198,
+                453,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "by|",
+              "confidence": 82.642899,
+              "bbox_pixels_xywh": [
+                240,
+                441,
+                15,
+                28
+              ]
+            },
+            {
+              "text": "Pertorms",
+              "confidence": 27.845711,
+              "bbox_pixels_xywh": [
+                315,
+                445,
+                36,
+                7
+              ]
+            },
+            {
+              "text": "cenerates,",
+              "confidence": 10.054989,
+              "bbox_pixels_xywh": [
+                417,
+                457,
+                42,
+                8
+              ]
+            },
+            {
+              "text": "Is",
+              "confidence": 23.075233,
+              "bbox_pixels_xywh": [
+                550,
+                446,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "performed",
+              "confidence": 23.075233,
+              "bbox_pixels_xywh": [
+                563,
+                457,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "by,",
+              "confidence": 80.475266,
+              "bbox_pixels_xywh": [
+                608,
+                446,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "(Generates,",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                639,
+                451,
+                45,
+                8
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 80.189651,
+              "bbox_pixels_xywh": [
+                688,
+                440,
+                3,
+                28
+              ]
+            },
+            {
+              "text": "Decompocee",
+              "confidence": 25.114298,
+              "bbox_pixels_xywh": [
+                695,
+                452,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "Consumes",
+              "confidence": 33.402977,
+              "bbox_pixels_xywh": [
+                350,
+                460,
+                43,
+                8
+              ]
+            },
+            {
+              "text": "Enete®",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                417,
+                468,
+                37,
+                7
+              ]
+            },
+            {
+              "text": "i",
+              "confidence": 17.237759,
+              "bbox_pixels_xywh": [
+                467,
+                464,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "petormea|",
+              "confidence": 16.40172,
+              "bbox_pixels_xywh": [
+                475,
+                463,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "Resohes",
+              "confidence": 45.518501,
+              "bbox_pixels_xywh": [
+                640,
+                462,
+                37,
+                7
+              ]
+            },
+            {
+              "text": "‘Supplies",
+              "confidence": 41.280853,
+              "bbox_pixels_xywh": [
+                272,
+                490,
+                45,
+                10
+              ]
+            },
+            {
+              "text": "or",
+              "confidence": 66.011665,
+              "bbox_pixels_xywh": [
+                310,
+                480,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "consumes",
+              "confidence": 13.15876,
+              "bbox_pixels_xywh": [
+                272,
+                503,
+                41,
+                6
+              ]
+            },
+            {
+              "text": "Role",
+              "confidence": 88.111481,
+              "bbox_pixels_xywh": [
+                521,
+                495,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "Performa,",
+              "confidence": 29.432974,
+              "bbox_pixels_xywh": [
+                574,
+                503,
+                36,
+                7
+              ]
+            },
+            {
+              "text": "spats",
+              "confidence": 53.755375,
+              "bbox_pixels_xywh": [
+                585,
+                514,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "in",
+              "confidence": 71.631584,
+              "bbox_pixels_xywh": [
+                624,
+                514,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "Service",
+              "confidence": 62.205219,
+              "bbox_pixels_xywh": [
+                719,
+                534,
+                33,
+                9
+              ]
+            },
+            {
+              "text": "‘Apps",
+              "confidence": 22.394438,
+              "bbox_pixels_xywh": [
+                777,
+                535,
+                40,
+                9
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 62.329956,
+              "bbox_pixels_xywh": [
+                810,
+                524,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Event",
+              "confidence": 92.060295,
+              "bbox_pixels_xywh": [
+                518,
+                540,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "TeresoWea",
+              "confidence": 18.849907,
+              "bbox_pixels_xywh": [
+                430,
+                547,
+                43,
+                7
+              ]
+            },
+            {
+              "text": "hy,",
+              "confidence": 4.233055,
+              "bbox_pixels_xywh": [
+                476,
+                547,
+                11,
+                9
+              ]
+            },
+            {
+              "text": "Tereroed",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                574,
+                547,
+                55,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 50.296562,
+              "bbox_pixels_xywh": [
+                621,
+                535,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 40.700806,
+              "bbox_pixels_xywh": [
+                720,
+                547,
+                31,
+                10
+              ]
+            },
+            {
+              "text": "Is",
+              "confidence": 40.503311,
+              "bbox_pixels_xywh": [
+                426,
+                558,
+                6,
+                7
+              ]
+            },
+            {
+              "text": "generated",
+              "confidence": 40.503311,
+              "bbox_pixels_xywh": [
+                435,
+                558,
+                40,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 58.70787,
+              "bbox_pixels_xywh": [
+                478,
+                558,
+                9,
+                9
+              ]
+            },
+            {
+              "text": "Ie",
+              "confidence": 24.380222,
+              "bbox_pixels_xywh": [
+                570,
+                547,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "generatedby",
+              "confidence": 24.380222,
+              "bbox_pixels_xywh": [
+                583,
+                558,
+                53,
+                9
+              ]
+            },
+            {
+              "text": "IsresoWesy|",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                473,
+                578,
+                55,
+                9
+              ]
+            },
+            {
+              "text": "Provides",
+              "confidence": 55.9478,
+              "bbox_pixels_xywh": [
+                79,
+                584,
+                35,
+                7
+              ]
+            },
+            {
+              "text": "governed",
+              "confidence": 92.904243,
+              "bbox_pixels_xywh": [
+                117,
+                584,
+                37,
+                9
+              ]
+            },
+            {
+              "text": "toned",
+              "confidence": 11.728659,
+              "bbox_pixels_xywh": [
+                196,
+                584,
+                53,
+                7
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 79.861572,
+              "bbox_pixels_xywh": [
+                236,
+                572,
+                17,
+                28
+              ]
+            },
+            {
+              "text": "fs",
+              "confidence": 51.477509,
+              "bbox_pixels_xywh": [
+                874,
+                573,
+                9,
+                28
+              ]
+            },
+            {
+              "text": "governed",
+              "confidence": 81.133163,
+              "bbox_pixels_xywh": [
+                885,
+                584,
+                55,
+                9
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 83.641495,
+              "bbox_pixels_xywh": [
+                927,
+                573,
+                17,
+                28
+              ]
+            },
+            {
+              "text": "Intertace",
+              "confidence": 22.375736,
+              "bbox_pixels_xywh": [
+                79,
+                595,
+                76,
+                7
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 31.130947,
+              "bbox_pixels_xywh": [
+                117,
+                583,
+                7,
+                28
+              ]
+            },
+            {
+              "text": "acess|",
+              "confidence": 68.467361,
+              "bbox_pixels_xywh": [
+                126,
+                595,
+                29,
+                7
+              ]
+            },
+            {
+              "text": "‘governed",
+              "confidence": 56.324291,
+              "bbox_pixels_xywh": [
+                200,
+                595,
+                49,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 62.072124,
+              "bbox_pixels_xywh": [
+                240,
+                583,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "'s",
+              "confidence": 43.452843,
+              "bbox_pixels_xywh": [
+                399,
+                584,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "provided",
+              "confidence": 62.576141,
+              "bbox_pixels_xywh": [
+                413,
+                595,
+                44,
+                9
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 64.290924,
+              "bbox_pixels_xywh": [
+                450,
+                584,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "han",
+              "confidence": 52.868267,
+              "bbox_pixels_xywh": [
+                516,
+                562,
+                43,
+                42
+              ]
+            },
+            {
+              "text": "Ierealaea!",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                635,
+                594,
+                41,
+                8
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 40.586006,
+              "bbox_pixels_xywh": [
+                692,
+                562,
+                87,
+                42
+              ]
+            },
+            {
+              "text": "measured",
+              "confidence": 65.787743,
+              "bbox_pixels_xywh": [
+                876,
+                595,
+                52,
+                9
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 82.782257,
+              "bbox_pixels_xywh": [
+                918,
+                583,
+                13,
+                28
+              ]
+            },
+            {
+              "text": "is",
+              "confidence": 74.012932,
+              "bbox_pixels_xywh": [
+                976,
+                599,
+                11,
+                28
+              ]
+            },
+            {
+              "text": "drves",
+              "confidence": 24.837999,
+              "bbox_pixels_xywh": [
+                989,
+                610,
+                30,
+                8
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 94.13932,
+              "bbox_pixels_xywh": [
+                478,
+                624,
+                41,
+                8
+              ]
+            },
+            {
+              "text": "Service",
+              "confidence": 73.758766,
+              "bbox_pixels_xywh": [
+                522,
+                624,
+                34,
+                8
+              ]
+            },
+            {
+              "text": "I",
+              "confidence": 27.789717,
+              "bbox_pixels_xywh": [
+                926,
+                626,
+                50,
+                4
+              ]
+            },
+            {
+              "text": "rom",
+              "confidence": 50.916145,
+              "bbox_pixels_xywh": [
+                980,
+                621,
+                18,
+                7
+              ]
+            },
+            {
+              "text": "Physical",
+              "confidence": 58.525257,
+              "bbox_pixels_xywh": [
+                471,
+                835,
+                38,
+                10
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 51.155273,
+              "bbox_pixels_xywh": [
+                512,
+                835,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "Physical",
+              "confidence": 79.476585,
+              "bbox_pixels_xywh": [
+                744,
+                835,
+                37,
+                10
+              ]
+            },
+            {
+              "text": "Technology",
+              "confidence": 79.329872,
+              "bbox_pixels_xywh": [
+                784,
+                835,
+                53,
+                10
+              ]
+            },
+            {
+              "text": "‘Compement",
+              "confidence": 47.373676,
+              "bbox_pixels_xywh": [
+                489,
+                848,
+                56,
+                10
+              ]
+            },
+            {
+              "text": "Component",
+              "confidence": 87.617401,
+              "bbox_pixels_xywh": [
+                764,
+                848,
+                53,
+                10
+              ]
+            }
+          ],
+          "mean_word_confidence": 48.17,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

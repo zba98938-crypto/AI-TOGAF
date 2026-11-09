@@ -1,0 +1,65 @@
+# 全指南角色语境证据
+
+26份指南按受控角色词表定位。以下统计是证据出现数量，不是不同人员或正式岗位数量。完整正文片段见 mentions.json。
+
+|角色族|文档数|片段数|
+|---|---:|---:|
+|首席架构师 (chief-architect)|6|11|
+|企业架构师 (enterprise-architect)|23|158|
+|分段架构师 (segment-architect)|3|17|
+|解决方案架构师 (solution-architect)|5|27|
+|业务架构师 (business-architect)|10|35|
+|数据架构师 (data-architect)|4|16|
+|应用架构师 (application-architect)|1|1|
+|技术架构师 (technology-architect)|1|1|
+|安全架构师 (security-architect)|2|11|
+|架构委员会 (architecture-board)|5|19|
+|架构赞助人 (architecture-sponsor)|2|2|
+|架构经理 (architecture-manager)|3|3|
+|项目经理 (project-manager)|7|132|
+|项目群经理 (program-manager)|2|3|
+|组合经理 (portfolio-manager)|2|7|
+|产品负责人 (product-owner)|6|16|
+|产品经理 (product-manager)|5|8|
+|变更经理 (change-manager)|2|5|
+|数据所有者 (data-owner)|2|12|
+|数据管家 (data-steward)|3|10|
+|信息所有者 (information-owner)|0|0|
+|业务所有者 (business-owner)|3|5|
+|流程所有者 (process-owner)|0|0|
+|服务所有者 (service-owner)|0|0|
+|高管/Executive (executive)|17|73|
+|业务领导 (business-leader)|9|26|
+|利益相关者 (stakeholder)|26|653|
+|客户与用户 (customer-user)|26|609|
+|领域专家 (subject-matter-expert)|4|16|
+|实施者 (implementer)|4|42|
+|运营者 (operator)|4|15|
+|设计师 (designer)|7|11|
+|架构实践者 (practitioner)|26|321|
+|业务分析师 (business-analyst)|4|11|
+|风险经理 (risk-manager)|1|1|
+|合规人员 (compliance-officer)|1|3|
+|首席信息官 (CIO)|8|29|
+|首席信息安全官 (CISO)|0|0|
+|首席执行官 (CEO)|4|14|
+|EA能力负责人 (ea-capability-leader)|1|8|
+|业务需求所有者 (business-requirements-owner)|1|1|
+|风险所有者 (risk-owner)|2|2|
+|业务伙伴 (business-partner)|5|7|
+|数字实践者 (digital-practitioner)|26|49|
+|产品团队 (product-team)|3|11|
+|数据隐私负责人 (data-privacy-officer)|1|3|
+|数据保管者 (data-custodian)|0|0|
+|数据管理办公室 (data-management-office)|1|2|
+|数据受托人 (data-trustee)|1|2|
+|审计者 (auditor)|2|6|
+|变更决策者 (decision-maker)|7|55|
+|利益相关者代理 (stakeholder-agent)|1|2|
+|治理中的架构师角色 (architect-governance)|1|1|
+|首席风险官 (chief-risk-officer)|1|2|
+|Scrum Master (scrum-master)|1|1|
+|数据经理 (data-manager)|4|11|
+|应用所有者 (application-owner)|2|2|
+|内部控制人员 (internal-controller)|1|3|
+|数字可持续专业方向 (sustainability-expert)|1|1|

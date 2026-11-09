@@ -1,0 +1,337 @@
+# G178/figA-1 · 迈克尔·波特的价值链
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G178/figA-1.md) · [JSON](../../architecture/diagrams/G178/figA-1.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G178e.pdf`；SHA-256：`517130a041a8d956b2868dc39d570b84e2d80c64709e4c1368f9747388a3a026`。
+
+## 原图 · PDF 第 25 页
+
+![英文原图](../assets/G178/figA-1-p0025.png)
+
+PDF 坐标：`[99.8, 361.5, 512.2, 598.1]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Firm Infrastructure
+Human Resource Management
+Support
+Activities
+Technology Development
+Procurement
+Inbound
+Operations | Outbound | Marketing | Service
+Logistics
+Logistics
+And Sales
+Ye
+Primary Activities
+```
+
+## 概要（历史解释；局部修正见上）
+
+波特价值链：4 项辅助活动横跨 5 项主要活动，所有活动共同产生右端的利润（Margin）。
+
+## 目的（历史解释；局部修正见上）
+
+附录 A 比较其他价值分析技术，本图在 A.1 节给出价值链的样子，用来说明它与价值流的区别：价值链着眼于活动成本和利润，给出企业如何产生经济价值（钱）的宏观视角，但缺少一种结构来建模、分解和分析企业如何组合能力为利益相关者产出结果，而这正是价值流的用途。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+先看左侧大括号“Support Activities（辅助活动）”括住的上部 4 条绿色横带，再看下方大括号“Primary Activities（主要活动）”括住的下部 5 个彩色竖列（从左到右）。最右边的灰色 V 形箭头写着两次“Margin（利润）”，上半段挨着辅助活动，下半段挨着主要活动，表示利润由全部活动共同形成。图中没有连线和箭头线，关系全靠位置表达。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 价值链把企业活动分为两组：主要活动 5 项（内部后勤、生产运营、外部后勤、市场营销与销售、服务）和辅助活动 4 项（企业基础设施、人力资源管理、技术开发、采购）。
+- 每条辅助活动横带都横跨全部 5 个主要活动列，表示辅助活动支撑整条价值链，而不是对应某一个主要活动（由版式表达；Porter 模型的含义属背景知识）。
+- 右端的利润箭头同时包住两组活动：利润是全部活动共同作用的结果。正文说明价值链主要关注活动成本和利润，即经济价值如何产生。
+- 正文引用 Porter 的定义：价值链把企业拆分为战略上相关的活动，以理解成本行为和现有及潜在的（竞争）差异化来源。
+- 与价值流对比：价值链是企业如何产生经济价值（钱）的宏观视角；价值流则把端到端的价值生产系统分解为由业务能力使能的核心活动序列（价值流阶段），从利益相关者的角度定义价值。
+- 图中没有利益相关者、触发事件、阶段的进入/退出标准或价值项，活动是通用的企业职能类别，这也是正文所说它“缺少建模、分解与分析结构”的直观体现。
+
+## 层级（历史解释；局部修正见上）
+
+两组并列的活动类别：辅助活动（4 项，上部横带）和主要活动（5 项，下部竖列），各由大括号标出；利润位于右端，覆盖两组。组内各项是同级关系。
+
+## 线条含义（历史解释；局部修正见上）
+
+图中没有连线。辅助活动横带横跨主要活动表示支撑关系；主要活动从左到右排列，连同右端箭头形状给出指向利润的方向；利润箭头覆盖两组活动表示利润来自全部活动。这些关系在清单中都标为推断。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 利润来自全部活动（辅助 + 主要），不只来自主要活动；中文稿引用的 SVG 把“利润 / 毛利”画成只和主要活动同行的方框，容易造成这种误读。
+- 主要活动从左到右的排列和右端箭头，不等于价值流阶段那种带进入/退出标准的先后阶段；价值链的活动是企业内部的职能类别。
+- 辅助活动横带的上下次序不表示层级或重要性。
+- 原图是“Marketing And Sales（市场营销与销售）”；SVG 只写“市场营销”，并把整张图上下颠倒。
+
+## 元素
+
+```json
+[
+  {
+    "id": "g_support",
+    "label_en": "Support Activities",
+    "label_zh": "辅助活动",
+    "type": "group",
+    "parent": null,
+    "position": "左侧大括号，括住上部 4 条横带"
+  },
+  {
+    "id": "sa_firm_infra",
+    "label_en": "Firm Infrastructure",
+    "label_zh": "企业基础设施",
+    "type": "process",
+    "notation_type": "Porter support activity",
+    "parent": "g_support",
+    "order": 1,
+    "position": "最上一条横带"
+  },
+  {
+    "id": "sa_hrm",
+    "label_en": "Human Resource Management",
+    "label_zh": "人力资源管理",
+    "type": "process",
+    "notation_type": "Porter support activity",
+    "parent": "g_support",
+    "order": 2
+  },
+  {
+    "id": "sa_tech_dev",
+    "label_en": "Technology Development",
+    "label_zh": "技术开发",
+    "type": "process",
+    "notation_type": "Porter support activity",
+    "parent": "g_support",
+    "order": 3
+  },
+  {
+    "id": "sa_procurement",
+    "label_en": "Procurement",
+    "label_zh": "采购",
+    "type": "process",
+    "notation_type": "Porter support activity",
+    "parent": "g_support",
+    "order": 4,
+    "position": "最下一条横带，紧贴主要活动"
+  },
+  {
+    "id": "g_primary",
+    "label_en": "Primary Activities",
+    "label_zh": "主要活动",
+    "type": "group",
+    "parent": null,
+    "position": "下方大括号，括住 5 个竖列"
+  },
+  {
+    "id": "pa_inbound",
+    "label_en": "Inbound Logistics",
+    "label_zh": "内部后勤",
+    "type": "process",
+    "notation_type": "Porter primary activity",
+    "parent": "g_primary",
+    "order": 1,
+    "description_zh": "也常译作“进货后勤”。"
+  },
+  {
+    "id": "pa_operations",
+    "label_en": "Operations",
+    "label_zh": "生产运营",
+    "type": "process",
+    "notation_type": "Porter primary activity",
+    "parent": "g_primary",
+    "order": 2
+  },
+  {
+    "id": "pa_outbound",
+    "label_en": "Outbound Logistics",
+    "label_zh": "外部后勤",
+    "type": "process",
+    "notation_type": "Porter primary activity",
+    "parent": "g_primary",
+    "order": 3,
+    "description_zh": "也常译作“出货后勤”。"
+  },
+  {
+    "id": "pa_marketing_sales",
+    "label_en": "Marketing And Sales",
+    "label_zh": "市场营销与销售",
+    "type": "process",
+    "notation_type": "Porter primary activity",
+    "parent": "g_primary",
+    "order": 4
+  },
+  {
+    "id": "pa_service",
+    "label_en": "Service",
+    "label_zh": "服务",
+    "type": "process",
+    "notation_type": "Porter primary activity",
+    "parent": "g_primary",
+    "order": 5
+  },
+  {
+    "id": "margin",
+    "label_en": "Margin",
+    "label_zh": "利润（毛利）",
+    "type": "goal",
+    "parent": null,
+    "position": "右端灰色 V 形箭头，标签上下各出现一次",
+    "description_zh": "价值链的经济结果；箭头同时覆盖辅助活动和主要活动。"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "g_support",
+    "to": "g_primary",
+    "type": "serving",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "辅助活动横带横跨全部主要活动列，表示支撑整条价值链"
+  },
+  {
+    "from": "pa_inbound",
+    "to": "pa_operations",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "从左到右排列，整体箭头指向右端（背景知识：Porter 的主要活动大体沿实物流排列）"
+  },
+  {
+    "from": "pa_operations",
+    "to": "pa_outbound",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "pa_outbound",
+    "to": "pa_marketing_sales",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "pa_marketing_sales",
+    "to": "pa_service",
+    "type": "sequence",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "g_primary",
+    "to": "margin",
+    "type": "produces",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "利润箭头下半段紧接主要活动"
+  },
+  {
+    "from": "g_support",
+    "to": "margin",
+    "type": "produces",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "利润箭头上半段紧接辅助活动"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "上部绿色横带",
+    "meaning_zh": "辅助活动；横跨全部主要活动",
+    "explicit": false
+  },
+  {
+    "symbol": "下部彩色竖列（粉、蓝、橙、褐、紫）",
+    "meaning_zh": "主要活动；颜色只用于区分各项，无额外含义",
+    "explicit": false
+  },
+  {
+    "symbol": "右端灰色 V 形箭头",
+    "meaning_zh": "利润（Margin），由全部活动共同形成",
+    "explicit": false
+  },
+  {
+    "symbol": "大括号 + 文字",
+    "meaning_zh": "标出“辅助活动”和“主要活动”两组",
+    "explicit": true
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "LR",
+  "description_zh": "整体是一个指向右的箭头形：左侧大括号标“Support Activities”，括住上部 4 条绿色横带；下部 5 个彩色竖列，下方大括号标“Primary Activities”；右端灰色 V 形箭头上下两半各写一次“Margin”。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G233/figB-1",
+    "relation": "same_as",
+    "note_zh": "G233 图 B-1 是同一张波特价值链图（内容与版式相同，图题另注“Source: Competitive Advantage”）"
+  },
+  {
+    "target": "G178/fig1-1",
+    "relation": "contrasts_with",
+    "note_zh": "附录 A.1 把价值链与价值流对比：前者是经济价值的宏观视角，后者把端到端价值生产分解为由能力使能的阶段（如图 1-1）"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [],
+  "analyzed_from": [
+    "英文 PDF 第 25 页原图截图（220 dpi）",
+    "英文 PDF 第 25 页正文",
+    "中文稿 G178e_价值流.md 第 293–301 行",
+    "figs/g178_figA-1.svg 源码",
+    "G233/figB-1 原图截图（核对 same_as）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

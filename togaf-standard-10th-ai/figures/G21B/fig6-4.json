@@ -1,0 +1,1784 @@
+{
+  "schema_version": "1.0",
+  "id": "G21B/fig6-4",
+  "status": "done",
+  "doc": {
+    "code": "G21B",
+    "title_zh": "信息架构——客户主数据管理",
+    "title_en": "Information Architecture — Customer Master Data (C-MDM)",
+    "zh_md": "G21Be_信息架构_客户主数据管理.md",
+    "en_pdf": "togaf-standard-10th/G21Be.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "6-4",
+    "title_en": "Cooperation Style Patterns",
+    "title_zh": "协作式风格模式",
+    "section_en": "6.1.2 Related Integration Patterns",
+    "section_zh": null,
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        51
+      ],
+      "printed_page": 41,
+      "bboxes": [
+        [
+          61.1,
+          403.8,
+          550.9,
+          681.1
+        ]
+      ]
+    },
+    "zh_location": null
+  },
+  "assets": [],
+  "classification": {
+    "diagram_types": [
+      "matrix",
+      "flow"
+    ],
+    "notation": "与图 6-2 相同的 4×2 交换模式矩阵；用红色粗框标出协作式相关的格子，左侧另附“MDM 与 4 个系统双向”的协作式小图。",
+    "concepts": [
+      "data_integration",
+      "master_data_management",
+      "application_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "用红框标出协作式相关的交换模式：直接采集 UI、真相点同步服务、直接访问 UI、搜索读取服务，以及批量列。",
+    "purpose_zh": "把“协作式”落到交换模式：正文说协作式使用主源与副本源之间的数据同步管理，运营系统与 C-MDM 真相保持对齐但可能有延迟；左侧小图用双向箭头强调“系统保留自己的数据、同时与 MDM 同步”。",
+    "reading_guide_zh": "先看左侧小图 Cooperation：MDM 居中，4 个系统与它两两双向箭头。再看右侧矩阵的红框：上排第 1 列、第 3 列、第 4 列被框住；下排第 1–2 列被框住，第 4 列整列也被框住。阅读时应以正文“协作式=同步模式”为准，并注意红框的实际覆盖范围与原图文字并不完全一致（见 misreadings）。",
+    "key_points_zh": [
+      "协作式的核心是同步：Point of Truth Synchronization Service（采集）与 Point of Truth “On Update Event” Consumption（分发）成对使用，运营系统与 C-MDM 保持近实时对齐。",
+      "左侧小图画出 MDM 与 4 个系统全部双向连接，表示系统既向 MDM 推送更新，也接收 MDM 的真相版本。",
+      "直接采集 UI 与直接访问 UI 仍可用：用户可以直接在 C-MDM 界面录入或查询。",
+      "正文强调协作式比整合式复杂，但能在孤岛式信息系统中对客户数据质量与治理实现高水平控制；需要事务型应用支持 UI、工作流与合并/删除。",
+      "红框的实际覆盖范围（含批量列与搜索读取列）与正文“协作式使用同步”不完全一致，疑为原图标注偏差；判断某模式是否属于协作式应以正文为准。"
+    ],
+    "hierarchy_zh": "两层：矩阵的采集/分发两大类 + 8 个模式；左侧小图是风格级示意，不参与矩阵层级。",
+    "line_semantics_zh": "矩阵内箭头表示数据流（采集向上、分发向下）；红框表示“本风格相关/选用”，无方向含义；左侧小图的双向箭头表示系统与 MDM 双向同步。",
+    "misreadings_zh": [
+      "不要严格按红框理解协作式：红框还框住了 Batch Acquisition/Batch Consumption 与 Search and Read，而正文只说协作式使用同步管理；这更可能是原图标注偏移。",
+      "协作式的“系统保留自己的数据”不等于“双主库”：真相版本仍由 C-MDM 定义并同步回系统。",
+      "双向箭头不是“两个方向都实时”：正文允许交换频率/架构上存在一定时延。",
+      "红框不是风险标记。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p51",
+        "summary_zh": "协作式使用主源与副本源之间的数据“同步”管理（见图 6-4）；运营系统应与 C-MDM 真相对齐，但可能在交换频率/架构上存在一定时延。"
+      },
+      {
+        "source": "zh_md L776",
+        "summary_zh": "协作式采用主源与副本源之间的数据同步管理模式；运营系统应与 C-MDM 的真相对齐，但在交换频率/架构上可能存在一定时延。"
+      },
+      {
+        "source": "zh_md L755",
+        "summary_zh": "协作式：所有系统拥有自己的数据，MDM 整合后把新版本真相转发给所有连接系统，各系统可通过 C-MDM 分配的客户 ID 与主数据同步。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "grid",
+    "description_zh": "左侧协作式小图（MDM 居中、4 系统环绕、双向箭头）；右侧 4×2 矩阵，红框分别位于上排第 1 列、第 3 列、第 4 列，以及下排第 1–2 列与第 4 列；中央为 C-MDM 带；底部图例。"
+  },
+  "legend": [
+    {
+      "symbol": "红色粗框",
+      "meaning_zh": "该风格相关/选用的交换模式（本图红框覆盖上排第 1、3、4 列，下排第 1–2 列与第 4 列）",
+      "explicit": false
+    },
+    {
+      "symbol": "左侧小图的双向箭头",
+      "meaning_zh": "系统与 MDM 双向同步",
+      "explicit": false
+    },
+    {
+      "symbol": "青色球 / 橙色球 / 圆柱 / 箭头",
+      "meaning_zh": "已采集数据 / 已分发数据 / 客户数据存储 / 客户数据流（同图 6-2 图例）",
+      "explicit": true
+    }
+  ],
+  "elements": [
+    {
+      "id": "style_mini",
+      "label_en": "Cooperation",
+      "label_zh": "协作式小图",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左侧"
+    },
+    {
+      "id": "mini_mdm",
+      "label_en": "MDM",
+      "label_zh": "MDM",
+      "type": "application",
+      "parent": "style_mini",
+      "level": 2
+    },
+    {
+      "id": "mini_sys_purple",
+      "label_en": null,
+      "label_zh": "业务系统（紫色圆柱，左上）",
+      "type": "application",
+      "parent": "style_mini",
+      "level": 2
+    },
+    {
+      "id": "mini_sys_grey",
+      "label_en": null,
+      "label_zh": "业务系统（灰色圆柱，右上）",
+      "type": "application",
+      "parent": "style_mini",
+      "level": 2
+    },
+    {
+      "id": "mini_sys_orange",
+      "label_en": null,
+      "label_zh": "业务系统（橙色圆柱，左下）",
+      "type": "application",
+      "parent": "style_mini",
+      "level": 2
+    },
+    {
+      "id": "mini_sys_green",
+      "label_en": null,
+      "label_zh": "业务系统（绿色圆柱，右下）",
+      "type": "application",
+      "parent": "style_mini",
+      "level": 2
+    },
+    {
+      "id": "g_acq_patterns",
+      "label_en": "Customer Data Acquisition Patterns",
+      "label_zh": "客户数据采集模式",
+      "type": "group",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "g_dist_patterns",
+      "label_en": "Customer Data Distribution Patterns",
+      "label_zh": "客户数据分发模式",
+      "type": "group",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "c_mdm",
+      "label_en": "C-MDM System (Point of Truth)",
+      "label_zh": "C-MDM 系统（真相点）",
+      "type": "application",
+      "parent": null,
+      "level": 1,
+      "position": "中央横带"
+    },
+    {
+      "id": "a1",
+      "label_en": "Direct Point of Truth Acquisition UI",
+      "label_zh": "直接真相点采集界面",
+      "type": "service",
+      "parent": "g_acq_patterns",
+      "level": 2,
+      "order": 1,
+      "description_zh": "本图被红框圈住。"
+    },
+    {
+      "id": "a2",
+      "label_en": "Point of Truth Service (no local storage, near-real time)",
+      "label_zh": "真相点服务（无本地存储，近实时）",
+      "type": "service",
+      "parent": "g_acq_patterns",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "a3",
+      "label_en": "Point of Truth Synchronization Service (local storage, near-real time)",
+      "label_zh": "真相点同步服务（本地存储，近实时）",
+      "type": "service",
+      "parent": "g_acq_patterns",
+      "level": 2,
+      "order": 3,
+      "description_zh": "本图被红框圈住；正文指定协作式使用的核心模式。"
+    },
+    {
+      "id": "a4",
+      "label_en": "Batch Acquisition (local storage, batch)",
+      "label_zh": "批量获取（本地存储，批处理）",
+      "type": "service",
+      "parent": "g_acq_patterns",
+      "level": 2,
+      "order": 4,
+      "description_zh": "本图第 4 列整列被红框圈住（与正文不一致）。"
+    },
+    {
+      "id": "d1",
+      "label_en": "Direct Point of Truth Access UI (search and read)",
+      "label_zh": "直接真相点访问界面（搜索与读取）",
+      "type": "service",
+      "parent": "g_dist_patterns",
+      "level": 2,
+      "order": 1,
+      "description_zh": "本图与 d2 一起被红框圈住。"
+    },
+    {
+      "id": "d2",
+      "label_en": "Point of Truth \"Search and Read\" Service (no local storage, near-real time)",
+      "label_zh": "真相点“搜索与读取”服务（无本地存储，近实时）",
+      "type": "service",
+      "parent": "g_dist_patterns",
+      "level": 2,
+      "order": 2,
+      "description_zh": "本图被红框圈住。"
+    },
+    {
+      "id": "d3",
+      "label_en": "Point of Truth \"On Update Event\" Consumption (local storage, near-real time)",
+      "label_zh": "真相点“更新事件”消费（本地存储，近实时）",
+      "type": "service",
+      "parent": "g_dist_patterns",
+      "level": 2,
+      "order": 3,
+      "description_zh": "正文所述协作式的分发核心模式，但本图未被红框圈住。"
+    },
+    {
+      "id": "d4",
+      "label_en": "Batch Consumption (local storage, batch)",
+      "label_zh": "批量消费（本地存储，批处理）",
+      "type": "service",
+      "parent": "g_dist_patterns",
+      "level": 2,
+      "order": 4,
+      "description_zh": "本图第 4 列整列被红框圈住。"
+    },
+    {
+      "id": "poa_app",
+      "label_en": "Point of Acquisition App",
+      "label_zh": "采集点应用",
+      "type": "application",
+      "parent": null,
+      "position": "采集第 2–4 列"
+    },
+    {
+      "id": "poc_app",
+      "label_en": "Point of Consumption App",
+      "label_zh": "消费点应用",
+      "type": "application",
+      "parent": null,
+      "position": "分发第 2–4 列"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "mini1",
+      "from": "mini_sys_purple",
+      "to": "mini_mdm",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "description_zh": "左侧小图：双向同步。"
+    },
+    {
+      "id": "mini2",
+      "from": "mini_sys_grey",
+      "to": "mini_mdm",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "description_zh": "左侧小图：双向同步。"
+    },
+    {
+      "id": "mini3",
+      "from": "mini_sys_orange",
+      "to": "mini_mdm",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "description_zh": "左侧小图：双向同步。"
+    },
+    {
+      "id": "mini4",
+      "from": "mini_sys_green",
+      "to": "mini_mdm",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "both",
+      "description_zh": "左侧小图：双向同步。"
+    },
+    {
+      "id": "r1",
+      "from": "poa_app",
+      "to": "c_mdm",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "采集第 2 列（Point of Truth Service）。"
+    },
+    {
+      "id": "r2",
+      "from": "poa_app",
+      "to": "c_mdm",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "采集第 3 列（Synchronization Service），红框内。"
+    },
+    {
+      "id": "r3",
+      "from": "poa_app",
+      "to": "c_mdm",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "采集第 4 列（Batch Acquisition），红框内。"
+    },
+    {
+      "id": "r4",
+      "from": "c_mdm",
+      "to": "poc_app",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "分发第 2 列（Search and Read Service），红框内。"
+    },
+    {
+      "id": "r5",
+      "from": "c_mdm",
+      "to": "poc_app",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "分发第 3 列（On Update Event Consumption），红框外。"
+    },
+    {
+      "id": "r6",
+      "from": "c_mdm",
+      "to": "poc_app",
+      "type": "flow",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "分发第 4 列（Batch Consumption），红框内。"
+    }
+  ],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_red_frames",
+      "title_zh": "本图红框的实际覆盖范围（按像素坐标转录）",
+      "columns": [
+        "红框",
+        "覆盖列",
+        "覆盖的模式",
+        "与正文的一致性"
+      ],
+      "rows": [
+        [
+          "上排红框 1",
+          "第 1 列",
+          "Direct Point of Truth Acquisition UI",
+          "一致（可直接在 C-MDM 界面录入）"
+        ],
+        [
+          "上排红框 2",
+          "第 3 列",
+          "Point of Truth Synchronization Service",
+          "一致（协作式的核心同步模式）"
+        ],
+        [
+          "整列红框",
+          "第 4 列（上下两格）",
+          "Batch Acquisition + Batch Consumption",
+          "不一致：正文未说协作式使用批量模式"
+        ],
+        [
+          "下排红框",
+          "第 1–2 列",
+          "Direct Point of Truth Access UI + Point of Truth “Search and Read” Service",
+          "部分一致：直接访问与搜索读取可用于协作式，但正文强调的是“同步”"
+        ]
+      ],
+      "cell_legend": [
+        "红框为原图像素级标注，非本分析推断"
+      ],
+      "notes_zh": "红框坐标：上排第 1 列 x371–632/y15–329；第 3 列 x912–1200/y15–329；第 4 列 x1197–1507/y15–731；下排第 1–2 列 x371–911/y404–731。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G21B/fig6-2",
+      "relation": "variant_of",
+      "note_zh": "与图 6-2 使用同一 4×2 模式矩阵，只增加红色选用框与左侧协作式小图。"
+    },
+    {
+      "target": "G21B/fig6-1",
+      "relation": "instance_of",
+      "note_zh": "本图是图 6-1 中 Cooperation 集成风格在交换模式层面的具体化。"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "红框覆盖范围与正文“协作式使用同步管理”不一致（还框住了批量列与搜索读取列，且未框住 On Update Event Consumption），疑为原图标注偏移或错误；本分析按像素如实记录并在表中标出。",
+      "左侧小图的系统圆柱无标签；双向箭头是否代表“同步”依据正文与图 6-1。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 51 页原图截图及 2×2 放大分块",
+      "英文 PDF 第 51 页正文",
+      "中文稿第 755、776 行（协作式说明）；图 6-4 本身未被中文稿引用",
+      "红框像素检测（PIL）结果"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Be.pdf",
+    "pdf_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21B/fig6-4.json",
+    "interpretation_sha256": "e46fd79cf226e1c578b932c6af8cc8eb7c3ad606a90717cc6991eab4f0d2a8f6",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 51,
+        "text": "Figure 6-4: Cooperation Style Patterns",
+        "bbox_pdf_points": [
+          48.24,
+          685.796,
+          227.032,
+          699.362
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 51,
+      "printed_page": 41,
+      "bbox_pdf_points": [
+        61.1,
+        403.8,
+        550.9,
+        681.1
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21B/fig6-4-p0051.png",
+      "image_sha256": "f41a4e09130c30daf3fc86df5544d0e76126b88203a656c87e9dbf3988b1c179",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "f41a4e09130c30daf3fc86df5544d0e76126b88203a656c87e9dbf3988b1c179",
+          "status": "extracted-unverified",
+          "text": "irect Point of Truth\nPoint of Truth Service\nPoint of Truth\nBatch Acquisition\n:\nition UI\n:\nAcq\n(re local storage,\n‘Synchronization Service\n(local storage, batch)\n£5\nnear-real time)\n(local storage,\nce\nnear-real time)\nBie\nPoint of\nPointor @\nPointof §@\nS=\nES\nAcquisition App\n\\equisition App\n‘Acquisition App\nao\n33\nog\nCooperation\nSs.\nC-MDM System (Point of Truth)\nSs “se\n£5\nae\nof\nPoint of\nPoint of\nPointof\n‘Consumption App\nConsumption App\nConsumption App\nES\net\nPoint of Truth “On\nOB\nPoint of Truth “Search\nog\nUpdate Event”\nDirect Point of Truth\nand Read” Service\nConsumption\nAccess UI\n(no local storage,\n(local storage,\nBatch Consumption\n(search and read)\nnear-real time)\nnear-real time)\n(local storage, batch)\n:\n:\nLegend\n@evsereronsreruies GB cusomerdstaserage\n@cusiomeroataDisebsted =p Customer Daa Flow",
+          "words": [
+            {
+              "text": "irect",
+              "confidence": 92.268898,
+              "bbox_pixels_xywh": [
+                265,
+                25,
+                25,
+                10
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 96.44976,
+              "bbox_pixels_xywh": [
+                294,
+                24,
+                17,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.44976,
+              "bbox_pixels_xywh": [
+                324,
+                24,
+                22,
+                11
+              ]
+            },
+            {
+              "text": "Truth",
+              "confidence": 96.869057,
+              "bbox_pixels_xywh": [
+                350,
+                24,
+                36,
+                11
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 95.000244,
+              "bbox_pixels_xywh": [
+                423,
+                24,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 95.000244,
+              "bbox_pixels_xywh": [
+                461,
+                24,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "Truth",
+              "confidence": 92.540237,
+              "bbox_pixels_xywh": [
+                477,
+                23,
+                38,
+                12
+              ]
+            },
+            {
+              "text": "Service",
+              "confidence": 92.540237,
+              "bbox_pixels_xywh": [
+                518,
+                24,
+                51,
+                11
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 92.649765,
+              "bbox_pixels_xywh": [
+                639,
+                24,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 92.649765,
+              "bbox_pixels_xywh": [
+                677,
+                24,
+                14,
+                11
+              ]
+            },
+            {
+              "text": "Truth",
+              "confidence": 92.195755,
+              "bbox_pixels_xywh": [
+                695,
+                24,
+                36,
+                11
+              ]
+            },
+            {
+              "text": "Batch",
+              "confidence": 95.854477,
+              "bbox_pixels_xywh": [
+                814,
+                24,
+                38,
+                11
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 95.854477,
+              "bbox_pixels_xywh": [
+                856,
+                24,
+                76,
+                14
+              ]
+            },
+            {
+              "text": ":",
+              "confidence": 33.572926,
+              "bbox_pixels_xywh": [
+                965,
+                32,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "ition",
+              "confidence": 96.782616,
+              "bbox_pixels_xywh": [
+                322,
+                42,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "UI",
+              "confidence": 72.409081,
+              "bbox_pixels_xywh": [
+                352,
+                41,
+                13,
+                11
+              ]
+            },
+            {
+              "text": ":",
+              "confidence": 37.128681,
+              "bbox_pixels_xywh": [
+                965,
+                39,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "Acq",
+              "confidence": 88.22583,
+              "bbox_pixels_xywh": [
+                272,
+                41,
+                25,
+                14
+              ]
+            },
+            {
+              "text": "(re",
+              "confidence": 62.406536,
+              "bbox_pixels_xywh": [
+                443,
+                41,
+                19,
+                15
+              ]
+            },
+            {
+              "text": "local",
+              "confidence": 95.768143,
+              "bbox_pixels_xywh": [
+                466,
+                41,
+                28,
+                12
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 96.45472,
+              "bbox_pixels_xywh": [
+                499,
+                42,
+                49,
+                13
+              ]
+            },
+            {
+              "text": "‘Synchronization",
+              "confidence": 87.013268,
+              "bbox_pixels_xywh": [
+                603,
+                41,
+                110,
+                14
+              ]
+            },
+            {
+              "text": "Service",
+              "confidence": 96.928177,
+              "bbox_pixels_xywh": [
+                717,
+                41,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "(local",
+              "confidence": 96.653076,
+              "bbox_pixels_xywh": [
+                808,
+                41,
+                33,
+                14
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 95.435555,
+              "bbox_pixels_xywh": [
+                844,
+                42,
+                50,
+                13
+              ]
+            },
+            {
+              "text": "batch)",
+              "confidence": 96.356941,
+              "bbox_pixels_xywh": [
+                900,
+                41,
+                38,
+                14
+              ]
+            },
+            {
+              "text": "£5",
+              "confidence": 66.572289,
+              "bbox_pixels_xywh": [
+                195,
+                63,
+                28,
+                16
+              ]
+            },
+            {
+              "text": "near-real",
+              "confidence": 66.215752,
+              "bbox_pixels_xywh": [
+                450,
+                58,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "time)",
+              "confidence": 94.629074,
+              "bbox_pixels_xywh": [
+                509,
+                57,
+                31,
+                14
+              ]
+            },
+            {
+              "text": "(local",
+              "confidence": 42.126499,
+              "bbox_pixels_xywh": [
+                642,
+                58,
+                33,
+                14
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 96.011086,
+              "bbox_pixels_xywh": [
+                678,
+                58,
+                50,
+                14
+              ]
+            },
+            {
+              "text": "ce",
+              "confidence": 26.392117,
+              "bbox_pixels_xywh": [
+                197,
+                76,
+                25,
+                10
+              ]
+            },
+            {
+              "text": "near-real",
+              "confidence": 69.835732,
+              "bbox_pixels_xywh": [
+                639,
+                75,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "time)",
+              "confidence": 96.621658,
+              "bbox_pixels_xywh": [
+                699,
+                75,
+                31,
+                14
+              ]
+            },
+            {
+              "text": "Bie",
+              "confidence": 64.071251,
+              "bbox_pixels_xywh": [
+                194,
+                86,
+                29,
+                16
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 96.663132,
+              "bbox_pixels_xywh": [
+                452,
+                101,
+                31,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 72.066643,
+              "bbox_pixels_xywh": [
+                486,
+                101,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "Pointor",
+              "confidence": 46.536797,
+              "bbox_pixels_xywh": [
+                644,
+                101,
+                46,
+                11
+              ]
+            },
+            {
+              "text": "@",
+              "confidence": 82.804504,
+              "bbox_pixels_xywh": [
+                708,
+                94,
+                20,
+                22
+              ]
+            },
+            {
+              "text": "Pointof",
+              "confidence": 43.961967,
+              "bbox_pixels_xywh": [
+                838,
+                101,
+                47,
+                11
+              ]
+            },
+            {
+              "text": "§@",
+              "confidence": 27.138229,
+              "bbox_pixels_xywh": [
+                905,
+                94,
+                21,
+                22
+              ]
+            },
+            {
+              "text": "S=",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                197,
+                127,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "ES",
+              "confidence": 82.401901,
+              "bbox_pixels_xywh": [
+                197,
+                115,
+                26,
+                12
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 94.184113,
+              "bbox_pixels_xywh": [
+                427,
+                119,
+                68,
+                13
+              ]
+            },
+            {
+              "text": "App",
+              "confidence": 78.876907,
+              "bbox_pixels_xywh": [
+                499,
+                119,
+                25,
+                13
+              ]
+            },
+            {
+              "text": "\\equisition",
+              "confidence": 56.81839,
+              "bbox_pixels_xywh": [
+                629,
+                119,
+                57,
+                13
+              ]
+            },
+            {
+              "text": "App",
+              "confidence": 93.025238,
+              "bbox_pixels_xywh": [
+                690,
+                119,
+                26,
+                13
+              ]
+            },
+            {
+              "text": "‘Acquisition",
+              "confidence": 63.219597,
+              "bbox_pixels_xywh": [
+                814,
+                119,
+                67,
+                13
+              ]
+            },
+            {
+              "text": "App",
+              "confidence": 87.121086,
+              "bbox_pixels_xywh": [
+                885,
+                119,
+                25,
+                13
+              ]
+            },
+            {
+              "text": "ao",
+              "confidence": 43.100471,
+              "bbox_pixels_xywh": [
+                197,
+                138,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "33",
+              "confidence": 82.88501,
+              "bbox_pixels_xywh": [
+                197,
+                149,
+                26,
+                8
+              ]
+            },
+            {
+              "text": "og",
+              "confidence": 47.273643,
+              "bbox_pixels_xywh": [
+                194,
+                157,
+                31,
+                16
+              ]
+            },
+            {
+              "text": "Cooperation",
+              "confidence": 96.295921,
+              "bbox_pixels_xywh": [
+                42,
+                181,
+                72,
+                12
+              ]
+            },
+            {
+              "text": "Ss.",
+              "confidence": 32.456268,
+              "bbox_pixels_xywh": [
+                2,
+                204,
+                155,
+                31
+              ]
+            },
+            {
+              "text": "C-MDM",
+              "confidence": 91.498367,
+              "bbox_pixels_xywh": [
+                435,
+                226,
+                76,
+                18
+              ]
+            },
+            {
+              "text": "System",
+              "confidence": 95.961761,
+              "bbox_pixels_xywh": [
+                520,
+                226,
+                78,
+                23
+              ]
+            },
+            {
+              "text": "(Point",
+              "confidence": 96.738937,
+              "bbox_pixels_xywh": [
+                608,
+                227,
+                65,
+                22
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.847832,
+              "bbox_pixels_xywh": [
+                681,
+                227,
+                21,
+                17
+              ]
+            },
+            {
+              "text": "Truth)",
+              "confidence": 96.366158,
+              "bbox_pixels_xywh": [
+                709,
+                227,
+                64,
+                22
+              ]
+            },
+            {
+              "text": "Ss",
+              "confidence": 11.066122,
+              "bbox_pixels_xywh": [
+                0,
+                274,
+                56,
+                51
+              ]
+            },
+            {
+              "text": "“se",
+              "confidence": 39.836967,
+              "bbox_pixels_xywh": [
+                97,
+                274,
+                65,
+                51
+              ]
+            },
+            {
+              "text": "£5",
+              "confidence": 50.080025,
+              "bbox_pixels_xywh": [
+                196,
+                303,
+                27,
+                17
+              ]
+            },
+            {
+              "text": "ae",
+              "confidence": 38.248878,
+              "bbox_pixels_xywh": [
+                198,
+                316,
+                25,
+                12
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 47.291241,
+              "bbox_pixels_xywh": [
+                195,
+                326,
+                28,
+                16
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 39.289738,
+              "bbox_pixels_xywh": [
+                452,
+                329,
+                31,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 39.289738,
+              "bbox_pixels_xywh": [
+                486,
+                329,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 92.223366,
+              "bbox_pixels_xywh": [
+                644,
+                329,
+                31,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 75.762878,
+              "bbox_pixels_xywh": [
+                678,
+                329,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "Pointof",
+              "confidence": 66.702332,
+              "bbox_pixels_xywh": [
+                838,
+                329,
+                46,
+                11
+              ]
+            },
+            {
+              "text": "‘Consumption",
+              "confidence": 89.097763,
+              "bbox_pixels_xywh": [
+                419,
+                346,
+                83,
+                14
+              ]
+            },
+            {
+              "text": "App",
+              "confidence": 83.44635,
+              "bbox_pixels_xywh": [
+                506,
+                347,
+                25,
+                13
+              ]
+            },
+            {
+              "text": "Consumption",
+              "confidence": 92.156769,
+              "bbox_pixels_xywh": [
+                612,
+                346,
+                82,
+                14
+              ]
+            },
+            {
+              "text": "App",
+              "confidence": 95.308746,
+              "bbox_pixels_xywh": [
+                697,
+                347,
+                26,
+                13
+              ]
+            },
+            {
+              "text": "Consumption",
+              "confidence": 69.432663,
+              "bbox_pixels_xywh": [
+                806,
+                346,
+                83,
+                14
+              ]
+            },
+            {
+              "text": "App",
+              "confidence": 96.171776,
+              "bbox_pixels_xywh": [
+                892,
+                347,
+                25,
+                13
+              ]
+            },
+            {
+              "text": "ES",
+              "confidence": 52.246975,
+              "bbox_pixels_xywh": [
+                198,
+                355,
+                25,
+                12
+              ]
+            },
+            {
+              "text": "et",
+              "confidence": 33.909931,
+              "bbox_pixels_xywh": [
+                198,
+                364,
+                25,
+                12
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 96.401085,
+              "bbox_pixels_xywh": [
+                624,
+                372,
+                91,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 95.909035,
+              "bbox_pixels_xywh": [
+                664,
+                364,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Truth",
+              "confidence": 96.708878,
+              "bbox_pixels_xywh": [
+                682,
+                372,
+                33,
+                11
+              ]
+            },
+            {
+              "text": "“On",
+              "confidence": 96.708878,
+              "bbox_pixels_xywh": [
+                727,
+                372,
+                19,
+                11
+              ]
+            },
+            {
+              "text": "OB",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                198,
+                381,
+                25,
+                8
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 96.819504,
+              "bbox_pixels_xywh": [
+                420,
+                389,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 95.516914,
+              "bbox_pixels_xywh": [
+                460,
+                381,
+                12,
+                28
+              ]
+            },
+            {
+              "text": "Truth",
+              "confidence": 95.675537,
+              "bbox_pixels_xywh": [
+                475,
+                389,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "“Search",
+              "confidence": 95.675537,
+              "bbox_pixels_xywh": [
+                516,
+                389,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "og",
+              "confidence": 52.023621,
+              "bbox_pixels_xywh": [
+                195,
+                394,
+                28,
+                13
+              ]
+            },
+            {
+              "text": "Update",
+              "confidence": 96.258339,
+              "bbox_pixels_xywh": [
+                636,
+                389,
+                48,
+                14
+              ]
+            },
+            {
+              "text": "Event”",
+              "confidence": 95.826859,
+              "bbox_pixels_xywh": [
+                688,
+                389,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "Direct",
+              "confidence": 96.342392,
+              "bbox_pixels_xywh": [
+                250,
+                406,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "Point",
+              "confidence": 96.342392,
+              "bbox_pixels_xywh": [
+                294,
+                406,
+                35,
+                11
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.640244,
+              "bbox_pixels_xywh": [
+                332,
+                406,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "Truth",
+              "confidence": 96.976692,
+              "bbox_pixels_xywh": [
+                349,
+                406,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.956352,
+              "bbox_pixels_xywh": [
+                434,
+                406,
+                24,
+                11
+              ]
+            },
+            {
+              "text": "Read”",
+              "confidence": 94.671753,
+              "bbox_pixels_xywh": [
+                462,
+                406,
+                41,
+                11
+              ]
+            },
+            {
+              "text": "Service",
+              "confidence": 96.48452,
+              "bbox_pixels_xywh": [
+                507,
+                406,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "Consumption",
+              "confidence": 95.483749,
+              "bbox_pixels_xywh": [
+                639,
+                405,
+                91,
+                15
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 85.385368,
+              "bbox_pixels_xywh": [
+                285,
+                423,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "UI",
+              "confidence": 77.556221,
+              "bbox_pixels_xywh": [
+                338,
+                423,
+                13,
+                11
+              ]
+            },
+            {
+              "text": "(no",
+              "confidence": 60.617897,
+              "bbox_pixels_xywh": [
+                443,
+                423,
+                19,
+                13
+              ]
+            },
+            {
+              "text": "local",
+              "confidence": 60.617897,
+              "bbox_pixels_xywh": [
+                466,
+                423,
+                28,
+                11
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 94.637039,
+              "bbox_pixels_xywh": [
+                499,
+                424,
+                48,
+                13
+              ]
+            },
+            {
+              "text": "(local",
+              "confidence": 41.20602,
+              "bbox_pixels_xywh": [
+                642,
+                423,
+                33,
+                14
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 96.559959,
+              "bbox_pixels_xywh": [
+                678,
+                424,
+                50,
+                13
+              ]
+            },
+            {
+              "text": "Batch",
+              "confidence": 96.810265,
+              "bbox_pixels_xywh": [
+                806,
+                423,
+                38,
+                11
+              ]
+            },
+            {
+              "text": "Consumption",
+              "confidence": 95.810921,
+              "bbox_pixels_xywh": [
+                849,
+                423,
+                90,
+                14
+              ]
+            },
+            {
+              "text": "(search",
+              "confidence": 87.26989,
+              "bbox_pixels_xywh": [
+                264,
+                440,
+                46,
+                14
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 87.26989,
+              "bbox_pixels_xywh": [
+                314,
+                440,
+                23,
+                11
+              ]
+            },
+            {
+              "text": "read)",
+              "confidence": 91.467033,
+              "bbox_pixels_xywh": [
+                341,
+                440,
+                31,
+                13
+              ]
+            },
+            {
+              "text": "near-real",
+              "confidence": 83.474266,
+              "bbox_pixels_xywh": [
+                450,
+                440,
+                56,
+                11
+              ]
+            },
+            {
+              "text": "time)",
+              "confidence": 96.904716,
+              "bbox_pixels_xywh": [
+                510,
+                440,
+                31,
+                14
+              ]
+            },
+            {
+              "text": "near-real",
+              "confidence": 40.947346,
+              "bbox_pixels_xywh": [
+                639,
+                440,
+                56,
+                12
+              ]
+            },
+            {
+              "text": "time)",
+              "confidence": 96.871765,
+              "bbox_pixels_xywh": [
+                699,
+                441,
+                31,
+                14
+              ]
+            },
+            {
+              "text": "(local",
+              "confidence": 95.358543,
+              "bbox_pixels_xywh": [
+                808,
+                440,
+                33,
+                14
+              ]
+            },
+            {
+              "text": "storage,",
+              "confidence": 93.987434,
+              "bbox_pixels_xywh": [
+                844,
+                441,
+                50,
+                13
+              ]
+            },
+            {
+              "text": "batch)",
+              "confidence": 93.987434,
+              "bbox_pixels_xywh": [
+                900,
+                440,
+                38,
+                14
+              ]
+            },
+            {
+              "text": ":",
+              "confidence": 33.03492,
+              "bbox_pixels_xywh": [
+                966,
+                454,
+                1,
+                4
+              ]
+            },
+            {
+              "text": ":",
+              "confidence": 16.156826,
+              "bbox_pixels_xywh": [
+                966,
+                447,
+                1,
+                4
+              ]
+            },
+            {
+              "text": "Legend",
+              "confidence": 95.701164,
+              "bbox_pixels_xywh": [
+                658,
+                488,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "@evsereronsreruies",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                655,
+                505,
+                139,
+                20
+              ]
+            },
+            {
+              "text": "GB",
+              "confidence": 19.86227,
+              "bbox_pixels_xywh": [
+                818,
+                494,
+                20,
+                38
+              ]
+            },
+            {
+              "text": "cusomerdstaserage",
+              "confidence": 1.673441,
+              "bbox_pixels_xywh": [
+                847,
+                505,
+                112,
+                23
+              ]
+            },
+            {
+              "text": "@cusiomeroataDisebsted",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                655,
+                532,
+                147,
+                20
+              ]
+            },
+            {
+              "text": "=p",
+              "confidence": 47.186218,
+              "bbox_pixels_xywh": [
+                820,
+                521,
+                21,
+                35
+              ]
+            },
+            {
+              "text": "Customer",
+              "confidence": 77.428047,
+              "bbox_pixels_xywh": [
+                847,
+                537,
+                97,
+                11
+              ]
+            },
+            {
+              "text": "Daa",
+              "confidence": 49.504475,
+              "bbox_pixels_xywh": [
+                898,
+                521,
+                19,
+                35
+              ]
+            },
+            {
+              "text": "Flow",
+              "confidence": 50.091599,
+              "bbox_pixels_xywh": [
+                922,
+                521,
+                24,
+                35
+              ]
+            }
+          ],
+          "mean_word_confidence": 74.57,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

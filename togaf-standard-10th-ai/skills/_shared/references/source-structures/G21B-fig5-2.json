@@ -1,0 +1,138 @@
+{
+  "schema_version": "2.0",
+  "id": "G21B/fig5-2",
+  "title": "组织/法人内核数据",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      485
+    ],
+    "label_table_lines": [
+      489,
+      500
+    ]
+  },
+  "reading": {
+    "purpose_zh": "界定 C-MDM 对“组织”（法人实体）客户应管理的核心数据范围，与图 5-1 的自然人范围并列；说明同一套 C-MDM 要同时容纳 B2C 与 B2B 两类客户，且法人数据需要额外的官方注册标识与规模/业务领域描述。",
+    "reading_guide_zh": "先确认标题是“Customer Data – Organization”，再与图 5-1 对照读：上排仍是内部标识键、外部标识键，但第三格换成“法人描述”；下排是联系方式、偏好/同意、关系/集团成员。六个框并列，无先后；字段级内容见表 5-2。",
+    "key_points_zh": [
+      "组织客户同样有内部标识键（业务客户编码、唯一技术键）与外部标识键（组织官方编号、数据提供方参考号、国家登记 ID 等）。",
+      "法人描述包含组织名称、替代名称（经营名称）、成立日期、规模参数（dimensioning data，如官方权重类别）与组织业务领域；中文稿表 5-2 特别标注英文原文仍沿用“First name”“Date of birth”等自然人字段名。",
+      "联系方式数据包括相关自然人及其联系方式（可链接到 C-MDM 中的另一自然人）、相关地址与相关电子邮箱。",
+      "偏好/同意数据与自然人相同，记录组织授权/不授权使用某范围数据。",
+      "关系/集团成员描述组织与其他实体的关系（如母公司、子公司、集团成员），对应自然人图中的“与其他客户的关系”。",
+      "图 5-2 与图 5-1 结构完全同构，差别只在第三格（法人描述 vs 个人标识数据）与第六格（关系/集团成员 vs 与其他客户的关系）。"
+    ],
+    "hierarchy_zh": "两层：第 1 层是“组织客户内核数据”；第 2 层是六个并列分类。分类之间无上下级、无连线。",
+    "line_semantics_zh": "图中没有连线或箭头；六个分类的并列与同属关系只由 2×3 网格与淡黄底板表达。",
+    "misreadings_zh": [
+      "不要把“法人描述”当作一个字段：它是名称、替代名称、成立日期、规模参数、业务领域等一组属性的分类。",
+      "英文原图表 5-2 中仍出现“First name”“Date of birth”字样，是原文沿用自然人模板的措辞，实际含义是组织名称与成立日期（中文稿已注明）。",
+      "组织客户的“关系/集团成员”不是人际父子关系，而是法人之间的集团/股权/成员关系。",
+      "图只给分类，不给字段；设计数据模型须结合表 5-2。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "org_kernel",
+      "label_en": "Customer Data – Organization",
+      "label_zh": "客户数据——组织",
+      "type": "data",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "org_internal_keys",
+      "label_en": "Internal Identification Keys",
+      "label_zh": "内部标识键",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "org_external_keys",
+      "label_en": "External Identification Keys",
+      "label_zh": "外部标识键",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "org_legal_desc",
+      "label_en": "Legal Person Description",
+      "label_zh": "法人描述",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "org_contact",
+      "label_en": "Contact Data",
+      "label_zh": "联系方式数据",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "org_prefs",
+      "label_en": "Preferences/Consent Data",
+      "label_zh": "偏好/同意数据",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "org_group",
+      "label_en": "Relationships/Group Membership",
+      "label_zh": "关系/集团成员",
+      "type": "data",
+      "parent": "org_kernel",
+      "level": 2,
+      "order": 6
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "淡黄色底板",
+      "meaning_zh": "组织/法人内核数据的整体范围",
+      "explicit": false
+    },
+    {
+      "symbol": "底板内的浅色框 + 顶部横线",
+      "meaning_zh": "一个数据分类（细项见表 5-2）",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中只给分类名，字段级内容依据表 5-2；表 5-2 中“First name/Date of birth”沿用了自然人字段名，本分析按中文稿注释理解为组织名称/成立日期。",
+      "“关系/集团成员”的具体关系类型（母子公司、集团成员等）图中未列出。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 39 页原图截图",
+      "英文 PDF 第 39 页正文与表 5-2 开头",
+      "中文稿 G21Be_信息架构_客户主数据管理.md 第 483–515 行",
+      "figs/zh/g21be_fig5-2_zh.png 中文化图"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G21B/fig5-2",
+    "asset": "figs/g21be_fig5-2_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "11"
+  }
+}

@@ -1,0 +1,40 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["SOA Reference Architecture"]
+  n1["Consumer Interfaces"]
+  n2["Business Processes"]
+  n3["Services"]
+  n4["Service Components"]
+  n5["Operational Systems"]
+  n6["Integration"]
+  n7["Quality of Service"]
+  n8["Information"]
+  n9["Governance"]
+  n10["消费者接口程序 1（无标签矩形）"]
+  n11["消费者接口程序 2（无标签矩形）"]
+  n12["业务流程 1（组合流程，无标签椭圆）"]
+  n13["业务流程 2（无标签椭圆）"]
+  n14["业务流程 3（无标签椭圆）"]
+  n15["服务 1（无标签椭圆）"]
+  n16["服务 2（组合服务，无标签椭圆）"]
+  n17["服务 3（无标签椭圆）"]
+  n18["服务 4（无标签椭圆）"]
+  n19["服务组件 1（无标签矩形）"]
+  n20["服务组件 2（无标签矩形）"]
+  n21["服务组件 3（无标签矩形）"]
+  n22["运营系统程序（无标签矩形）"]
+  n23["数据库（无标签圆柱）"]
+  n12 -->|"包含组成"| n13
+  n12 -->|"包含组成"| n14
+  n14 -->|"包含组成"| n16
+  n14 -->|"包含组成"| n18
+  n16 -->|"包含组成"| n15
+  n16 -->|"包含组成"| n17
+  n14 -->|"支撑/服务"| n10
+  n14 -->|"支撑/服务"| n11
+  n18 -->|"支撑/服务"| n11
+  n19 -->|"实现"| n17
+  n19 -->|"依赖"| n20
+  n19 -->|"依赖"| n21
+  n21 -->|"依赖"| n22
+  n21 -->|"访问"| n23

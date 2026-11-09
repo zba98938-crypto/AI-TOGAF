@@ -1,0 +1,2482 @@
+{
+  "schema_version": "capability-addenda/1",
+  "id": "skill-contract-counterexamples",
+  "status": "registered-not-accepted",
+  "portability": "portable",
+  "rule_origin_policy": "project-operational-convention",
+  "owner": "togaf-architecture-workbench",
+  "sources": [
+    "capabilities.json 的 misreadings / checks / calculation_policy",
+    "validate.py 与 profile_render.py 的断言码"
+  ],
+  "notice": "Every counterexample states a wrong input and the assertion code it must trigger. A counterexample whose expected value is not an existing assertion code is rejected at build time; a passing build grants no acceptance.",
+  "patches": [
+    {
+      "group": "work_products",
+      "id": "risk-appetite",
+      "set": {
+        "counterexample": {
+          "input": "对「风险偏好」给出：风险偏好不是一条任意高低分线，批准状态需要证据",
+          "expected": "approval-without-evidence",
+          "why": "风险偏好不是一条任意高低分线，批准状态需要证据"
+        },
+        "modification_example": {
+          "change": "在「风险偏好」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "business-impact-analysis",
+      "set": {
+        "counterexample": {
+          "input": "对「业务影响分析」给出：业务影响分析不定义事件发生的可能性",
+          "expected": "missing-evidence",
+          "why": "业务影响分析不定义事件发生的可能性"
+        },
+        "modification_example": {
+          "change": "在「业务影响分析」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-resource-plan",
+      "set": {
+        "counterexample": {
+          "input": "对「安全资源计划」给出：资源计划不等于把所有安全职责交给一位架构师",
+          "expected": "missing-evidence",
+          "why": "资源计划不等于把所有安全职责交给一位架构师"
+        },
+        "modification_example": {
+          "change": "在「安全资源计划」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-blueprint",
+      "set": {
+        "counterexample": {
+          "input": "对「安全蓝图」给出：愿景蓝图不等于已完成的技术方案或已运行控制",
+          "expected": "missing-evidence",
+          "why": "愿景蓝图不等于已完成的技术方案或已运行控制"
+        },
+        "modification_example": {
+          "change": "在「安全蓝图」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "business-attribute-profile",
+      "set": {
+        "counterexample": {
+          "input": "对「业务属性画像」给出：SABSA属性参考集不是所有项目强制清单",
+          "expected": "missing-attribute",
+          "why": "SABSA属性参考集不是所有项目强制清单"
+        },
+        "modification_example": {
+          "change": "在「业务属性画像」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-policy-architecture",
+      "set": {
+        "counterexample": {
+          "input": "对「安全策略架构」给出：政策架构不是防火墙规则列表",
+          "expected": "missing-evidence",
+          "why": "政策架构不是防火墙规则列表"
+        },
+        "modification_example": {
+          "change": "在「安全策略架构」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-domain-model",
+      "set": {
+        "counterexample": {
+          "input": "对「安全域模型」给出：视觉容器只有经定义后才能表示安全域，组织部门不自动等于安全域",
+          "expected": "missing-evidence",
+          "why": "视觉容器只有经定义后才能表示安全域，组织部门不自动等于安全域"
+        },
+        "modification_example": {
+          "change": "在「安全域模型」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "trust-framework",
+      "set": {
+        "counterexample": {
+          "input": "对「信任框架」给出：数字证书可以传递既有信任，不能创造业务信任",
+          "expected": "missing-evidence",
+          "why": "数字证书可以传递既有信任，不能创造业务信任"
+        },
+        "modification_example": {
+          "change": "在「信任框架」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "business-risk-register",
+      "set": {
+        "counterexample": {
+          "input": "对「业务风险模型／风险登记册」给出：业务风险模型和风险登记册是同一工作产品的表达，不重复计数",
+          "expected": "duplicate-id",
+          "why": "业务风险模型和风险登记册是同一工作产品的表达，不重复计数"
+        },
+        "modification_example": {
+          "change": "在「业务风险模型／风险登记册」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "applicable-legislation-register",
+      "set": {
+        "counterexample": {
+          "input": "对「适用法律法规登记册」给出：法规适用不能仅由系统部署地推断",
+          "expected": "missing-evidence",
+          "why": "法规适用不能仅由系统部署地推断"
+        },
+        "modification_example": {
+          "change": "在「适用法律法规登记册」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "applicable-control-framework-register",
+      "set": {
+        "counterexample": {
+          "input": "对「适用控制框架登记册」给出：历史引用的框架版本不是当前项目自动适用的版本",
+          "expected": "dangling-reference",
+          "why": "历史引用的框架版本不是当前项目自动适用的版本"
+        },
+        "modification_example": {
+          "change": "在「适用控制框架登记册」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-services-catalog",
+      "set": {
+        "counterexample": {
+          "input": "对「安全服务目录」给出：控制框架包含要求，安全服务描述实现安全目标的构建块",
+          "expected": "missing-evidence",
+          "why": "控制框架包含要求，安全服务描述实现安全目标的构建块"
+        },
+        "modification_example": {
+          "change": "在「安全服务目录」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-classification-scheme",
+      "set": {
+        "counterexample": {
+          "input": "对「安全分类方案」给出：分类适用于业务能力服务信息和技术等多种资产",
+          "expected": "missing-evidence",
+          "why": "分类适用于业务能力服务信息和技术等多种资产"
+        },
+        "modification_example": {
+          "change": "在「安全分类方案」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "data-quality-assessment",
+      "set": {
+        "counterexample": {
+          "input": "对「数据质量评估」给出：不同质量维度不能无依据地加总成一个精确分数",
+          "expected": "missing-evidence",
+          "why": "不同质量维度不能无依据地加总成一个精确分数"
+        },
+        "modification_example": {
+          "change": "在「数据质量评估」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "risk-mitigation-plan",
+      "set": {
+        "counterexample": {
+          "input": "对「风险缓解计划」给出：计划中的控制不能被写成已经有效运行",
+          "expected": "missing-evidence",
+          "why": "计划中的控制不能被写成已经有效运行"
+        },
+        "modification_example": {
+          "change": "在「风险缓解计划」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "transition-risk-assessment",
+      "set": {
+        "counterexample": {
+          "input": "对「过渡范围风险评估」给出：目标架构安全不等于迁移过程安全",
+          "expected": "missing-evidence",
+          "why": "目标架构安全不等于迁移过程安全"
+        },
+        "modification_example": {
+          "change": "在「过渡范围风险评估」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "rollback-plan",
+      "set": {
+        "counterexample": {
+          "input": "对「回退计划」给出：回退不是仅写恢复备份，应说明业务与数据恢复条件",
+          "expected": "missing-evidence",
+          "why": "回退不是仅写恢复备份，应说明业务与数据恢复条件"
+        },
+        "modification_example": {
+          "change": "在「回退计划」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-impact-analysis",
+      "set": {
+        "counterexample": {
+          "input": "对「安全影响分析」给出：图可达只是候选影响，不能自动认定所有对象受损",
+          "expected": "missing-evidence",
+          "why": "图可达只是候选影响，不能自动认定所有对象受损"
+        },
+        "modification_example": {
+          "change": "在「安全影响分析」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-audit-record",
+      "set": {
+        "counterexample": {
+          "input": "对「安全审计记录」给出：生成审计表不能证明渗透测试或控制运行已经完成",
+          "expected": "missing-evidence",
+          "why": "生成审计表不能证明渗透测试或控制运行已经完成"
+        },
+        "modification_example": {
+          "change": "在「安全审计记录」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "security-training-plan",
+      "set": {
+        "counterexample": {
+          "input": "对「安全培训与意识计划」给出：计划中的培训不等于完成或达到熟练度",
+          "expected": "missing-evidence",
+          "why": "计划中的培训不等于完成或达到熟练度"
+        },
+        "modification_example": {
+          "change": "在「安全培训与意识计划」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-maturity-model",
+      "set": {
+        "counterexample": {
+          "input": "对「架构成熟度模型」给出：ACMM 六级九要素是指南示例，不是所有 TOGAF 项目的统一评级",
+          "expected": "missing-evidence",
+          "why": "ACMM 六级九要素是指南示例，不是所有 TOGAF 项目的统一评级"
+        },
+        "modification_example": {
+          "change": "在「架构成熟度模型」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-maturity-scorecard",
+      "set": {
+        "counterexample": {
+          "input": "对「架构成熟度评分卡」给出：加权等级与各级达成百分比是互补结果，不能互相替代",
+          "expected": "missing-evidence",
+          "why": "加权等级与各级达成百分比是互补结果，不能互相替代"
+        },
+        "modification_example": {
+          "change": "在「架构成熟度评分卡」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "digital-adoption-position",
+      "set": {
+        "counterexample": {
+          "input": "对「数字技术采用定位」给出：ABCD 不是由低到高的优劣或成熟度等级",
+          "expected": "missing-evidence",
+          "why": "ABCD 不是由低到高的优劣或成熟度等级"
+        },
+        "modification_example": {
+          "change": "在「数字技术采用定位」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "digital-readiness-questionnaire",
+      "set": {
+        "counterexample": {
+          "input": "对「数字技术就绪度问卷」给出：问卷答案不是客观测量值，需说明参与者与共识过程",
+          "expected": "missing-evidence",
+          "why": "问卷答案不是客观测量值，需说明参与者与共识过程"
+        },
+        "modification_example": {
+          "change": "在「数字技术就绪度问卷」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "digital-readiness-assessment",
+      "set": {
+        "counterexample": {
+          "input": "对「数字技术就绪度评估」给出：没有来源或用户规则时不创建统一总分合格线",
+          "expected": "missing-evidence",
+          "why": "没有来源或用户规则时不创建统一总分合格线"
+        },
+        "modification_example": {
+          "change": "在「数字技术就绪度评估」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "readiness-consequence-analysis",
+      "set": {
+        "counterexample": {
+          "input": "对「就绪度因素后果分析」给出：背景重复因素列表不表示全连接依赖，后果未自带概率和严重度",
+          "expected": "duplicate-id",
+          "why": "背景重复因素列表不表示全连接依赖，后果未自带概率和严重度"
+        },
+        "modification_example": {
+          "change": "在「就绪度因素后果分析」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "adoption-factor-progression",
+      "set": {
+        "counterexample": {
+          "input": "对「采用因素递进路线」给出：射线长度和角度不是定量评分，因素层次不等于 ADM 阶段",
+          "expected": "missing-evidence",
+          "why": "射线长度和角度不是定量评分，因素层次不等于 ADM 阶段"
+        },
+        "modification_example": {
+          "change": "在「采用因素递进路线」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "business-scenario-document",
+      "set": {
+        "counterexample": {
+          "input": "对「业务场景文档」给出：业务场景不能由单张用例图替代，也不能预设技术答案",
+          "expected": "missing-evidence",
+          "why": "业务场景不能由单张用例图替代，也不能预设技术答案"
+        },
+        "modification_example": {
+          "change": "在「业务场景文档」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "scenario-traceability-matrix",
+      "set": {
+        "counterexample": {
+          "input": "对「业务场景关联矩阵」给出：6项总体任务、5个迭代步骤与3个阶段是不同分解",
+          "expected": "missing-evidence",
+          "why": "6项总体任务、5个迭代步骤与3个阶段是不同分解"
+        },
+        "modification_example": {
+          "change": "在「业务场景关联矩阵」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "options-decision-matrix",
+      "set": {
+        "counterexample": {
+          "input": "对「备选方案决策矩阵」给出：成本原值不能直接当越高越好的评分，权重必须显式",
+          "expected": "missing-evidence",
+          "why": "成本原值不能直接当越高越好的评分，权重必须显式"
+        },
+        "modification_example": {
+          "change": "在「备选方案决策矩阵」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "capability-instance-model",
+      "set": {
+        "counterexample": {
+          "input": "对「能力实例组成模型」给出：同一能力的多个实例不等于多个新能力或子能力",
+          "expected": "missing-evidence",
+          "why": "同一能力的多个实例不等于多个新能力或子能力"
+        },
+        "modification_example": {
+          "change": "在「能力实例组成模型」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "capability-increment-analysis",
+      "set": {
+        "counterexample": {
+          "input": "对「能力增量分析」给出：绿色不等于已实现或高成熟度，新建改进退役标签与颜色分开记录",
+          "expected": "missing-evidence",
+          "why": "绿色不等于已实现或高成熟度，新建改进退役标签与颜色分开记录"
+        },
+        "modification_example": {
+          "change": "在「能力增量分析」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "metadata-dictionary",
+      "set": {
+        "counterexample": {
+          "input": "对「元数据字典」给出：资产名称相同不保证含义相同，字典不是所有数据值的副本",
+          "expected": "missing-evidence",
+          "why": "资产名称相同不保证含义相同，字典不是所有数据值的副本"
+        },
+        "modification_example": {
+          "change": "在「元数据字典」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "data-usage-documentation",
+      "set": {
+        "counterexample": {
+          "input": "对「数据使用文档」给出：存在使用关系不等于已获访问授权",
+          "expected": "missing-evidence",
+          "why": "存在使用关系不等于已获访问授权"
+        },
+        "modification_example": {
+          "change": "在「数据使用文档」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "metadata-policy-documentation",
+      "set": {
+        "counterexample": {
+          "input": "对「元数据规则与政策文档」给出：政策描述与可执行验证规则需分别标识",
+          "expected": "missing-evidence",
+          "why": "政策描述与可执行验证规则需分别标识"
+        },
+        "modification_example": {
+          "change": "在「元数据规则与政策文档」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "data-issue-register",
+      "set": {
+        "counterexample": {
+          "input": "对「数据问题文档／登记册」给出：未经验证的根因只能标为假设",
+          "expected": "missing-evidence",
+          "why": "未经验证的根因只能标为假设"
+        },
+        "modification_example": {
+          "change": "在「数据问题文档／登记册」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "business-technical-asset-mapping",
+      "set": {
+        "counterexample": {
+          "input": "对「业务与技术资产关联」给出：概念相近不等于同一资产，关联不是自动实现关系",
+          "expected": "missing-evidence",
+          "why": "概念相近不等于同一资产，关联不是自动实现关系"
+        },
+        "modification_example": {
+          "change": "在「业务与技术资产关联」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "metadata-repository-design",
+      "set": {
+        "counterexample": {
+          "input": "对「元数据存储库设计」给出：部署一个存储库不自动建立数据治理",
+          "expected": "missing-evidence",
+          "why": "部署一个存储库不自动建立数据治理"
+        },
+        "modification_example": {
+          "change": "在「元数据存储库设计」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "metadata-model",
+      "set": {
+        "counterexample": {
+          "input": "对「元数据模型」给出：图4-5的参考资产不是每个项目必须全选的模型",
+          "expected": "missing-evidence",
+          "why": "图4-5的参考资产不是每个项目必须全选的模型"
+        },
+        "modification_example": {
+          "change": "在「元数据模型」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "metadata-asset-coverage",
+      "set": {
+        "counterexample": {
+          "input": "对「元数据资产覆盖矩阵」给出：参考图空格不表示禁止、不存在或无需管理",
+          "expected": "empty-view",
+          "why": "参考图空格不表示禁止、不存在或无需管理"
+        },
+        "modification_example": {
+          "change": "在「元数据资产覆盖矩阵」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "metadata-validation-workflow",
+      "set": {
+        "counterexample": {
+          "input": "对「元数据校验工作流」给出：协作式的最终一致性不等于没有治理",
+          "expected": "missing-evidence",
+          "why": "协作式的最终一致性不等于没有治理"
+        },
+        "modification_example": {
+          "change": "在「元数据校验工作流」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "metadata-integration-model",
+      "set": {
+        "counterexample": {
+          "input": "对「元数据集成模型」给出：集成组织方式与手工推送拉取采集方式是两个独立维度",
+          "expected": "missing-evidence",
+          "why": "集成组织方式与手工推送拉取采集方式是两个独立维度"
+        },
+        "modification_example": {
+          "change": "在「元数据集成模型」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "metadata-ingestion-options",
+      "set": {
+        "counterexample": {
+          "input": "对「元数据采集备选方案」给出：三种机制是备选方案，不是三个固定先后阶段",
+          "expected": "missing-evidence",
+          "why": "三种机制是备选方案，不是三个固定先后阶段"
+        },
+        "modification_example": {
+          "change": "在「元数据采集备选方案」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "metadata-inference-design",
+      "set": {
+        "counterexample": {
+          "input": "对「技术元数据推断方案」给出：采集模式不必然需要读取实际业务数据",
+          "expected": "missing-evidence",
+          "why": "采集模式不必然需要读取实际业务数据"
+        },
+        "modification_example": {
+          "change": "在「技术元数据推断方案」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "customer-mdm-model",
+      "set": {
+        "counterexample": {
+          "input": "对「客户主数据模型」给出：统一客户标识不等于无条件合并不同业务语境",
+          "expected": "missing-evidence",
+          "why": "统一客户标识不等于无条件合并不同业务语境"
+        },
+        "modification_example": {
+          "change": "在「客户主数据模型」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "mdm-integration-style",
+      "set": {
+        "counterexample": {
+          "input": "对「主数据集成风格」给出：参考集成风格不是指定厂商产品",
+          "expected": "missing-evidence",
+          "why": "参考集成风格不是指定厂商产品"
+        },
+        "modification_example": {
+          "change": "在「主数据集成风格」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "mdm-exchange-pattern",
+      "set": {
+        "counterexample": {
+          "input": "对「主数据交换模式」给出：缩写必须随来源定义，不凭名称猜测语义",
+          "expected": "missing-evidence",
+          "why": "缩写必须随来源定义，不凭名称猜测语义"
+        },
+        "modification_example": {
+          "change": "在「主数据交换模式」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "bi-transition-architecture",
+      "set": {
+        "counterexample": {
+          "input": "对「BI 与分析演进架构」给出：不同状态是同一架构的演进视图，不机械当成独立制品种类",
+          "expected": "mixed-evolution",
+          "why": "不同状态是同一架构的演进视图，不机械当成独立制品种类"
+        },
+        "modification_example": {
+          "change": "在「BI 与分析演进架构」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "bi-requirements-profile",
+      "set": {
+        "counterexample": {
+          "input": "对「BI 与分析需求规格」给出：未取得外部完整需求电子表格时不能声称覆盖其全部条目",
+          "expected": "core-vocabulary-override",
+          "why": "未取得外部完整需求电子表格时不能声称覆盖其全部条目"
+        },
+        "modification_example": {
+          "change": "在「BI 与分析需求规格」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "microservice-decomposition-method",
+      "set": {
+        "counterexample": {
+          "input": "对「微服务应用分解方法」给出：小服务数量不是微服务架构成功指标",
+          "expected": "missing-evidence",
+          "why": "小服务数量不是微服务架构成功指标"
+        },
+        "modification_example": {
+          "change": "在「微服务应用分解方法」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "microservice-technical-guidance",
+      "set": {
+        "counterexample": {
+          "input": "对「微服务技术指南」给出：外部实践补充必须标项目约定，不能冒充指南原文",
+          "expected": "missing-evidence",
+          "why": "外部实践补充必须标项目约定，不能冒充指南原文"
+        },
+        "modification_example": {
+          "change": "在「微服务技术指南」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "microservice-value-catalog",
+      "set": {
+        "counterexample": {
+          "input": "对「微服务价值与资源目录」给出：计划服务不能标为已交付，服务数量不等于业务价值",
+          "expected": "missing-evidence",
+          "why": "计划服务不能标为已交付，服务数量不等于业务价值"
+        },
+        "modification_example": {
+          "change": "在「微服务价值与资源目录」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "customer-journey",
+      "set": {
+        "counterexample": {
+          "input": "对「客户旅程」给出：客户旅程不是内部流程图，体验陈述需证据",
+          "expected": "missing-evidence",
+          "why": "客户旅程不是内部流程图，体验陈述需证据"
+        },
+        "modification_example": {
+          "change": "在「客户旅程」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "customer-persona",
+      "set": {
+        "counterexample": {
+          "input": "对「客户画像」给出：虚构人物叙述不能冒充真实用户研究结果",
+          "expected": "missing-evidence",
+          "why": "虚构人物叙述不能冒充真实用户研究结果"
+        },
+        "modification_example": {
+          "change": "在「客户画像」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "ea-service-catalog",
+      "set": {
+        "counterexample": {
+          "input": "对「企业架构服务目录」给出：候选服务不是每个 EA 团队必须提供的服务清单",
+          "expected": "missing-evidence",
+          "why": "候选服务不是每个 EA 团队必须提供的服务清单"
+        },
+        "modification_example": {
+          "change": "在「企业架构服务目录」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "interoperability-assessment",
+      "set": {
+        "counterexample": {
+          "input": "对「互操作性评估」给出：网络连通不能证明语义和业务互操作",
+          "expected": "missing-evidence",
+          "why": "网络连通不能证明语义和业务互操作"
+        },
+        "modification_example": {
+          "change": "在「互操作性评估」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "ea-value-map",
+      "set": {
+        "counterexample": {
+          "input": "对「EA 与企业价值地图」给出：相关性或贡献假设不能直接断言为确定收益因果",
+          "expected": "missing-evidence",
+          "why": "相关性或贡献假设不能直接断言为确定收益因果"
+        },
+        "modification_example": {
+          "change": "在「EA 与企业价值地图」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "ea-team-capacity-plan",
+      "set": {
+        "counterexample": {
+          "input": "对「EA 团队容量计划」给出：人数不等于可用容量，技能熟练度不等于工时",
+          "expected": "missing-evidence",
+          "why": "人数不等于可用容量，技能熟练度不等于工时"
+        },
+        "modification_example": {
+          "change": "在「EA 团队容量计划」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-skill-matrix",
+      "set": {
+        "counterexample": {
+          "input": "对「架构技能／角色矩阵」给出：G249 四级熟练度不等于组织成熟度，参考等级可以裁剪",
+          "expected": "missing-evidence",
+          "why": "G249 四级熟练度不等于组织成熟度，参考等级可以裁剪"
+        },
+        "modification_example": {
+          "change": "在「架构技能／角色矩阵」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-development-plan",
+      "set": {
+        "counterexample": {
+          "input": "对「架构人员发展计划」给出：参加培训不自动提升为专家等级",
+          "expected": "missing-evidence",
+          "why": "参加培训不自动提升为专家等级"
+        },
+        "modification_example": {
+          "change": "在「架构人员发展计划」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-project-wbs",
+      "set": {
+        "counterexample": {
+          "input": "对「架构项目工作分解」给出：架构项目在该指南限 A–F，不代表所有架构工作都限于 A–F",
+          "expected": "missing-evidence",
+          "why": "架构项目在该指南限 A–F，不代表所有架构工作都限于 A–F"
+        },
+        "modification_example": {
+          "change": "在「架构项目工作分解」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-project-schedule",
+      "set": {
+        "counterexample": {
+          "input": "对「架构项目资源与进度」给出：没有依赖和工期证据不能宣称算出关键路径",
+          "expected": "missing-evidence",
+          "why": "没有依赖和工期证据不能宣称算出关键路径"
+        },
+        "modification_example": {
+          "change": "在「架构项目资源与进度」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-acceptance-criteria",
+      "set": {
+        "counterexample": {
+          "input": "对「架构成果验收准则」给出：工件不要求各自成为独立文档，数量不是验收目标",
+          "expected": "missing-evidence",
+          "why": "工件不要求各自成为独立文档，数量不是验收目标"
+        },
+        "modification_example": {
+          "change": "在「架构成果验收准则」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "environmental-is-assessment",
+      "set": {
+        "counterexample": {
+          "input": "对「信息系统年度环境评估」给出：Scope2转移到Scope3并不自动等于减排",
+          "expected": "missing-evidence",
+          "why": "Scope2转移到Scope3并不自动等于减排"
+        },
+        "modification_example": {
+          "change": "在「信息系统年度环境评估」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "sustainability-review-canvas",
+      "set": {
+        "counterexample": {
+          "input": "对「可持续性架构评审画布」给出：图3-14存在数值疑点，应保留来源值与差异，不能强行消解",
+          "expected": "missing-evidence",
+          "why": "图3-14存在数值疑点，应保留来源值与差异，不能强行消解"
+        },
+        "modification_example": {
+          "change": "在「可持续性架构评审画布」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "environmental-debt-register",
+      "set": {
+        "counterexample": {
+          "input": "对「环境债务日志」给出：环境债务不是仅有碳排总量，责任和决策也需记录",
+          "expected": "missing-evidence",
+          "why": "环境债务不是仅有碳排总量，责任和决策也需记录"
+        },
+        "modification_example": {
+          "change": "在「环境债务日志」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "environmental-decision-log",
+      "set": {
+        "counterexample": {
+          "input": "对「环境决策日志」给出：低环境影响方案是否采用仍取决于明确权衡，不能伪造批准",
+          "expected": "approval-without-evidence",
+          "why": "低环境影响方案是否采用仍取决于明确权衡，不能伪造批准"
+        },
+        "modification_example": {
+          "change": "在「环境决策日志」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "government-reference-tailoring",
+      "set": {
+        "counterexample": {
+          "input": "对「政府参考模型裁剪」给出：参考部门分类不是实际组织架构，版本中的部门计数应核对",
+          "expected": "missing-evidence",
+          "why": "参考部门分类不是实际组织架构，版本中的部门计数应核对"
+        },
+        "modification_example": {
+          "change": "在「政府参考模型裁剪」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "digital-business-reference-tailoring",
+      "set": {
+        "counterexample": {
+          "input": "对「数字业务参考模型裁剪」给出：参考模型裁剪不表示全量采用，也不等于最终技术架构",
+          "expected": "missing-evidence",
+          "why": "参考模型裁剪不表示全量采用，也不等于最终技术架构"
+        },
+        "modification_example": {
+          "change": "在「数字业务参考模型裁剪」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "building-block-description",
+      "set": {
+        "counterexample": {
+          "input": "对「构建块描述」给出：ABB不是一个指定技术产品，SBB不能仅按图中的相邻位置推断实现",
+          "expected": "missing-evidence",
+          "why": "ABB不是一个指定技术产品，SBB不能仅按图中的相邻位置推断实现"
+        },
+        "modification_example": {
+          "change": "在「构建块描述」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "transition-architecture-model",
+      "set": {
+        "counterexample": {
+          "input": "对「过渡架构模型」给出：过渡架构不是仅有交付日期的里程碑",
+          "expected": "transition-operability-gap",
+          "why": "过渡架构不是仅有交付日期的里程碑"
+        },
+        "modification_example": {
+          "change": "在「过渡架构模型」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "value-network",
+      "set": {
+        "counterexample": {
+          "input": "对「价值网络」给出：价值网络不是顺序价值流，连接不默认双向，不把信息发送自动视为价值",
+          "expected": "missing-evidence",
+          "why": "价值网络不是顺序价值流，连接不默认双向，不把信息发送自动视为价值"
+        },
+        "modification_example": {
+          "change": "在「价值网络」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "lean-value-stream",
+      "set": {
+        "counterexample": {
+          "input": "对「精益价值流」给出：精益流程单元不是业务架构价值阶段，不能用相同能力交叉映射替代；无统一单位不计算活动比",
+          "expected": "missing-evidence",
+          "why": "精益流程单元不是业务架构价值阶段，不能用相同能力交叉映射替代；无统一单位不计算活动比"
+        },
+        "modification_example": {
+          "change": "在「精益价值流」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "four-box-business-model",
+      "set": {
+        "counterexample": {
+          "input": "对「四框业务模型」给出：四框不能用九块画布或六维立方体的字段替代，利润公式需要明确变量而非捏造收益",
+          "expected": "missing-attribute",
+          "why": "四框不能用九块画布或六维立方体的字段替代，利润公式需要明确变量而非捏造收益"
+        },
+        "modification_example": {
+          "change": "在「四框业务模型」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "business-model-cube",
+      "set": {
+        "counterexample": {
+          "input": "对「业务模型立方体」给出：中央Relations表示关系核心而非第七维度；六维没有流程先后或由位置确定的层级",
+          "expected": "missing-evidence",
+          "why": "中央Relations表示关系核心而非第七维度；六维没有流程先后或由位置确定的层级"
+        },
+        "modification_example": {
+          "change": "在「业务模型立方体」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "operating-model",
+      "set": {
+        "counterexample": {
+          "input": "对「运营模式」给出：两轴是业务流程而非IT集成与技术标准；四模式无优劣或必经演进顺序",
+          "expected": "missing-evidence",
+          "why": "两轴是业务流程而非IT集成与技术标准；四模式无优劣或必经演进顺序"
+        },
+        "modification_example": {
+          "change": "在「运营模式」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "stakeholder-influence-matrix",
+      "set": {
+        "counterexample": {
+          "input": "对「利益相关者影响力与影响程度矩阵」给出：来源横轴是Impact不是Interest；介入策略不能取代RACI或决策授权",
+          "expected": "missing-evidence",
+          "why": "来源横轴是Impact不是Interest；介入策略不能取代RACI或决策授权"
+        },
+        "modification_example": {
+          "change": "在「利益相关者影响力与影响程度矩阵」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "balanced-scorecard",
+      "set": {
+        "counterexample": {
+          "input": "对「平衡计分卡目标与成果」给出：目标和成果不同；原图四视角间没有因果边，不能补造学习到财务的因果链",
+          "expected": "missing-evidence",
+          "why": "目标和成果不同；原图四视角间没有因果边，不能补造学习到财务的因果链"
+        },
+        "modification_example": {
+          "change": "在「平衡计分卡目标与成果」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "change-profile-governance-checklist",
+      "set": {
+        "counterexample": {
+          "input": "对「变革画像治理检查清单」给出：名称、来源表格和成功输出不等于业务结论已核实",
+          "expected": "missing-evidence",
+          "why": "名称、来源表格和成功输出不等于业务结论已核实"
+        },
+        "modification_example": {
+          "change": "在「变革画像治理检查清单」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "viewpoint-library",
+      "set": {
+        "counterexample": {
+          "input": "只有图名“数据流图”，无关注点/所需信息",
+          "expected": "missing-evidence",
+          "why": "报告viewpoint-information-gap，不计完成视角",
+          "original_expected_text": "报告viewpoint-information-gap，不计完成视角"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-governance-checklist",
+      "set": {
+        "counterexample": {
+          "input": "目标九问只给八项；或实施Q1=yes仍按个人偏好判失败",
+          "expected": "missing-evidence",
+          "why": "缺项被拒绝；合理解释路径保持合规",
+          "original_expected_text": "缺项被拒绝；合理解释路径保持合规"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "non-compliance-disposition",
+      "set": {
+        "counterexample": {
+          "input": "临时豁免没有到期日或复评责任",
+          "expected": "missing-evidence",
+          "why": "waiver-needs-expiry-review-owner拒绝完成",
+          "original_expected_text": "waiver-needs-expiry-review-owner拒绝完成"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "business-cycle-product-alignment",
+      "set": {
+        "counterexample": {
+          "input": "无消费方期限，只写“阶段F完成”",
+          "expected": "missing-evidence",
+          "why": "missing-consumer-deadline拒绝准时判定",
+          "original_expected_text": "missing-consumer-deadline拒绝准时判定"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "value-realization-assessment",
+      "set": {
+        "counterexample": {
+          "input": "实际为全部站点而基线只有城西站",
+          "expected": "missing-evidence",
+          "why": "incomparable-measurement-scope；停止差额计算",
+          "original_expected_text": "incomparable-measurement-scope；停止差额计算"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-backlog",
+      "set": {
+        "counterexample": {
+          "input": "对「架构业务变革与冲刺待办」给出：不把速率当项目完成度",
+          "expected": "missing-evidence",
+          "why": "不把速率当项目完成度"
+        },
+        "modification_example": {
+          "change": "在「架构业务变革与冲刺待办」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "dorp-record",
+      "set": {
+        "counterexample": {
+          "input": "对「冲刺DORP记录」给出：DORP不是只写会议纪要或四个空标题",
+          "expected": "empty-view",
+          "why": "DORP不是只写会议纪要或四个空标题"
+        },
+        "modification_example": {
+          "change": "在「冲刺DORP记录」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "decision-delegation-register",
+      "set": {
+        "counterexample": {
+          "input": "对「决策授权与可逆性登记」给出：七级不是TOGAF成熟度评分",
+          "expected": "missing-evidence",
+          "why": "七级不是TOGAF成熟度评分"
+        },
+        "modification_example": {
+          "change": "在「决策授权与可逆性登记」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-description-formality-review",
+      "set": {
+        "counterexample": {
+          "input": "对「架构描述充分性与正式度评审」给出：形式规范不证明内容充分",
+          "expected": "missing-evidence",
+          "why": "形式规范不证明内容充分"
+        },
+        "modification_example": {
+          "change": "在「架构描述充分性与正式度评审」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "technical-debt-register",
+      "set": {
+        "counterexample": {
+          "input": "对「技术与架构债登记」给出：不是所有债务都必须EA处理",
+          "expected": "missing-evidence",
+          "why": "不是所有债务都必须EA处理"
+        },
+        "modification_example": {
+          "change": "在「技术与架构债登记」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "portfolio-theme-work-package-register",
+      "set": {
+        "counterexample": {
+          "input": "WP-ID依赖WP-SIGN形成循环；或一包同时keep/improve",
+          "expected": "dependency-cycle",
+          "why": "dependency-cycle或ambiguous-change-kind",
+          "original_expected_text": "dependency-cycle或ambiguous-change-kind"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "shared-carbon-factor-catalog",
+      "set": {
+        "counterexample": {
+          "input": "因子缺单位/期间/来源或把制造kgCO2e/台当年度值",
+          "expected": "carbon-data-metadata-gap",
+          "why": "carbon-data-metadata-gap或boundary-unit-conflict",
+          "original_expected_text": "carbon-data-metadata-gap或boundary-unit-conflict"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "cloud-environmental-data-contract",
+      "set": {
+        "counterexample": {
+          "input": "设备子集10000大于同边界Scope3总9000；或要求把两种Scope2相加",
+          "expected": "scope3-subset-exceeds-total",
+          "why": "scope3-subset-exceeds-total或scope2-bases-not-additive",
+          "original_expected_text": "scope3-subset-exceeds-total或scope2-bases-not-additive"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "ea-point-of-view-register",
+      "set": {
+        "counterexample": {
+          "input": "对「EA观点文件与影响经营登记」给出：名称、来源表格和成功输出不等于业务结论已核实",
+          "expected": "missing-evidence",
+          "why": "名称、来源表格和成功输出不等于业务结论已核实"
+        },
+        "modification_example": {
+          "change": "在「EA观点文件与影响经营登记」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "project-management-strategy",
+      "set": {
+        "counterexample": {
+          "input": "对「架构项目管理策略」给出：名称、来源表格和成功输出不等于业务结论已核实",
+          "expected": "missing-evidence",
+          "why": "名称、来源表格和成功输出不等于业务结论已核实"
+        },
+        "modification_example": {
+          "change": "在「架构项目管理策略」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "project-status-highlight-report",
+      "set": {
+        "counterexample": {
+          "input": "对「架构项目状态要点报告」给出：名称、来源表格和成功输出不等于业务结论已核实",
+          "expected": "missing-evidence",
+          "why": "名称、来源表格和成功输出不等于业务结论已核实"
+        },
+        "modification_example": {
+          "change": "在「架构项目状态要点报告」的范围内新增或修改一项，检查下游是否随之变化",
+          "expected": "受影响对象、关系、视图与缺口须同步更新；旧结论不自动沿用"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "scenario-elicitation",
+      "set": {
+        "counterexample": {
+          "input": "执行「业务场景前提验证与归一化」时跳过或误做：前提未经检验时不能当业务事实",
+          "expected": "missing-evidence",
+          "why": "前提未经检验时不能当业务事实"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "option-weighted-decision",
+      "set": {
+        "counterexample": {
+          "input": "执行「备选方案评价」时跳过或误做：成本量不能直接当越高越好的分值",
+          "expected": "missing-evidence",
+          "why": "成本量不能直接当越高越好的分值"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "business-risk-assessment",
+      "set": {
+        "counterexample": {
+          "input": "执行「业务风险评估」时跳过或误做：概率未知不能自行代入统一乘法",
+          "expected": "missing-evidence",
+          "why": "概率未知不能自行代入统一乘法"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "business-impact-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「业务影响分析」时跳过或误做：影响不含事件发生可能性",
+          "expected": "missing-evidence",
+          "why": "影响不含事件发生可能性"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "acmm-maturity-assessment",
+      "set": {
+        "counterexample": {
+          "input": "执行「ACMM 成熟度评价」时跳过或误做：无显式权重与规则不计算统一总分",
+          "expected": "missing-evidence",
+          "why": "无显式权重与规则不计算统一总分"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "dtra-readiness-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「DTRA 就绪度评价与后果」时跳过或误做：不自造统一总分通过线，采用类型不是成熟度",
+          "expected": "relation-endpoint-type",
+          "why": "不自造统一总分通过线，采用类型不是成熟度"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "capability-decomposition-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「能力定义与分解」时跳过或误做：流程步骤不作为子能力",
+          "expected": "missing-evidence",
+          "why": "流程步骤不作为子能力"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "capability-instance-gap-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「能力实例增量分析」时跳过或误做：名称相同不等于同一实例",
+          "expected": "missing-evidence",
+          "why": "名称相同不等于同一实例"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "value-stream-definition-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「价值流定义与能力使能」时跳过或误做：价值链与价值流用途和结构不同",
+          "expected": "missing-evidence",
+          "why": "价值链与价值流用途和结构不同"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "metadata-requirement-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「元数据需求与范围分析」时跳过或误做：参考资产清单不是强制全选",
+          "expected": "missing-evidence",
+          "why": "参考资产清单不是强制全选"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "metadata-integration-tradeoff",
+      "set": {
+        "counterexample": {
+          "input": "执行「元数据集成与采集权衡」时跳过或误做：组织模型和采集机制不能混为一维",
+          "expected": "missing-evidence",
+          "why": "组织模型和采集机制不能混为一维"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "mdm-identity-analysis",
+      "set": {
+        "counterexample": {
+          "input": "执行「客户主数据身份与集成分析」时跳过或误做：统一客户视图不是无条件合并所有记录",
+          "expected": "missing-evidence",
+          "why": "统一客户视图不是无条件合并所有记录"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "bi-transition-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「BI 与分析演进规划」时跳过或误做：参考目标平台不直接指定厂商",
+          "expected": "missing-evidence",
+          "why": "参考目标平台不直接指定厂商"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "microservice-boundary-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「微服务边界与价值分析」时跳过或误做：更多更小服务不自动提供价值",
+          "expected": "missing-evidence",
+          "why": "更多更小服务不自动提供价值"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "architecture-role-skill-assessment",
+      "set": {
+        "counterexample": {
+          "input": "执行「角色技能差距评估」时跳过或误做：熟练度、团队容量和组织成熟度分开",
+          "expected": "missing-evidence",
+          "why": "熟练度、团队容量和组织成熟度分开"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "architecture-project-scheduling",
+      "set": {
+        "counterexample": {
+          "input": "执行「架构项目分解与排程」时跳过或误做：不完整依赖不能支持确定关键路径",
+          "expected": "missing-evidence",
+          "why": "不完整依赖不能支持确定关键路径"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "environment-lifecycle-accounting",
+      "set": {
+        "counterexample": {
+          "input": "执行「信息系统年度环境评估」时跳过或误做：单位、期间、组织边界和来源齐全",
+          "expected": "missing-evidence",
+          "why": "单位、期间、组织边界和来源齐全"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "sustainability-option-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「可持续性方案评审」时跳过或误做：原图印刷矛盾保留证据，不静默改数",
+          "expected": "missing-evidence",
+          "why": "原图印刷矛盾保留证据，不静默改数"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "reference-model-tailoring",
+      "set": {
+        "counterexample": {
+          "input": "执行「参考模型裁剪」时跳过或误做：参考分类不是项目实际组织或部署事实",
+          "expected": "missing-evidence",
+          "why": "参考分类不是项目实际组织或部署事实"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "change-profile-governance-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「按变革画像逐项核查规划、实施和价值条件」时跳过或误做：无通过证据不得标通过",
+          "expected": "missing-evidence",
+          "why": "无通过证据不得标通过"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "architecture-backlog-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「架构业务变革与冲刺待办分析方法」时跳过或误做：业务优先级有证据；编号顺序不等同关系方向",
+          "expected": "matrix-direction",
+          "why": "业务优先级有证据；编号顺序不等同关系方向"
+        },
+        "calculator_id": "architecture-backlog-trace-review",
+        "implementation_status": "operational-steps-with-explicit-input-calculator"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "dorp-record-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「冲刺DORP记录分析方法」时跳过或误做：Demo/Outcome/Retrospective/Planning四项分别存在",
+          "expected": "missing-evidence",
+          "why": "Demo/Outcome/Retrospective/Planning四项分别存在"
+        },
+        "calculator_id": "project-highlight-review",
+        "implementation_status": "operational-steps-with-explicit-input-calculator"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "decision-delegation-register-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「决策授权与可逆性登记分析方法」时跳过或误做：七名称来自外部方法；权责描述与组织约定一致",
+          "expected": "missing-evidence",
+          "why": "七名称来自外部方法；权责描述与组织约定一致"
+        },
+        "calculator_id": "project-management-strategy-review",
+        "implementation_status": "operational-steps-with-explicit-input-calculator"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "architecture-description-formality-review-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「架构描述充分性与正式度评审分析方法」时跳过或误做：充分性与正式度各有独立依据",
+          "expected": "missing-evidence",
+          "why": "充分性与正式度各有独立依据"
+        },
+        "calculator_id": "ea-point-of-view-review",
+        "implementation_status": "operational-steps-with-explicit-input-calculator"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "technical-debt-register-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「技术与架构债登记分析方法」时跳过或误做：原因、后果、范围和负责人明确",
+          "expected": "view-edge-outside",
+          "why": "原因、后果、范围和负责人明确"
+        },
+        "calculator_id": "change-profile-checklist",
+        "implementation_status": "operational-steps-with-explicit-input-calculator"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "delivery-style-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「交付风格逐范围比较方法」时跳过或误做：改变风险或范围时重评，不把原选择自动传播给新范围",
+          "expected": "view-edge-outside",
+          "why": "改变风险或范围时重评，不把原选择自动传播给新范围"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "set-based-options-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「集合式并行方案逐轮评估方法」时跳过或误做：选定后继续细化并交授权方；记录未验证耦合",
+          "expected": "missing-evidence",
+          "why": "选定后继续细化并交授权方；记录未验证耦合"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "mdm-operational-ten-questions-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「C-MDM十问运营诊断分析」时跳过或误做：将缺口映射行动、责任、影响；不得按yes比例冒充成熟度",
+          "expected": "missing-evidence",
+          "why": "将缺口映射行动、责任、影响；不得按yes比例冒充成熟度"
+        },
+        "calculator_id": "set-based-options-review",
+        "implementation_status": "operational-steps-with-explicit-input-calculator"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "mdm-four-plateau-operations-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「C-MDM四平台态运营计划分析」时跳过或误做：选择演进触发，不强制固定四期",
+          "expected": "missing-evidence",
+          "why": "选择演进触发，不强制固定四期"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "mdm-match-merge-arbitration-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「C-MDM匹配、合并与人工仲裁分析」时跳过或误做：执行前验证可取消合并与历史语义",
+          "expected": "missing-evidence",
+          "why": "执行前验证可取消合并与历史语义"
+        },
+        "calculator_id": "delivery-style-review",
+        "implementation_status": "operational-steps-with-explicit-input-calculator"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "ea-service-emergence-npd-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「EA服务N／P／D语境矩阵分析」时跳过或误做：记录项目证据与原图证据两个状态，不混称相同",
+          "expected": "mixed-evolution",
+          "why": "记录项目证据与原图证据两个状态，不混称相同"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "ea-service-adm-evidence-map-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「EA服务与ADM证据映射分析」时跳过或误做：未知原图格不推断不适用或唯一阶段",
+          "expected": "missing-evidence",
+          "why": "未知原图格不推断不适用或唯一阶段"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "msa-contract-consumer-evidence-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「微服务契约与实际／计划消费者分析」时跳过或误做：分析新增消费者或字段改变的兼容与治理影响",
+          "expected": "missing-attribute",
+          "why": "分析新增消费者或字段改变的兼容与治理影响"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "msa-data-distribution-conditions-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「MSA数据分布、分片与批次条件表分析」时跳过或误做：核查数据流与运行独立性冲突",
+          "expected": "missing-evidence",
+          "why": "核查数据流与运行独立性冲突"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "msa-source-deployment-execution-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「MSA源、部署与执行单元追溯表分析」时跳过或误做：按需求/故障条件扩实例并保留同包追溯",
+          "expected": "dangling-reference",
+          "why": "按需求/故障条件扩实例并保留同包追溯"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "bi-stage-operability-and-exit-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「BI多阶段运营与退出条件分析」时跳过或误做：退出前逐项验证旧需求与恢复、治理、元数据",
+          "expected": "missing-evidence",
+          "why": "退出前逐项验证旧需求与恢复、治理、元数据"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "bi-requirement-origin-boundary-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「BI架构需求及来源边界分析」时跳过或误做：未找到电子表格时只交付局部候选与缺口",
+          "expected": "missing-evidence",
+          "why": "未找到电子表格时只交付局部候选与缺口"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "business-attribute-evaluation",
+      "set": {
+        "counterexample": {
+          "input": "执行「业务属性画像」时跳过或误做：所有指标拥有单位、尺度、时期、数据和计算依据",
+          "expected": "missing-evidence",
+          "why": "所有指标拥有单位、尺度、时期、数据和计算依据"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "scenario-traceability-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「业务场景关联矩阵」时跳过或误做：每个规范条目可追溯只读原始记录与转换步骤",
+          "expected": "dangling-reference",
+          "why": "每个规范条目可追溯只读原始记录与转换步骤"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "architecture-backlog-trace-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「战略MVA追溯与边界变更评审」时跳过或误做：修改战略或边界时保留ID与历史，重算纳入集合与依赖；分别检查验收证据和可运营条件",
+          "expected": "missing-evidence",
+          "why": "修改战略或边界时保留ID与历史，重算纳入集合与依赖；分别检查验收证据和可运营条件"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "government-reference-catalog-overlay-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「government-reference-catalog-overlay参考裁剪分析」时跳过或误做：用节点属性表达本地覆盖并保持参考身份",
+          "expected": "missing-attribute",
+          "why": "用节点属性表达本地覆盖并保持参考身份"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "dbrm-mapping-suite-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「dbrm-mapping-suite参考裁剪分析」时跳过或误做：项目补充映射另标project-only，不反写来源",
+          "expected": "missing-evidence",
+          "why": "项目补充映射另标project-only，不反写来源"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "digital-enablement-competency-mapping-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「digital-enablement-competency-mapping参考裁剪分析」时跳过或误做：用多角色协作和行动填补缺口，不把语境当成熟度级别",
+          "expected": "missing-evidence",
+          "why": "用多角色协作和行动填补缺口，不把语境当成熟度级别"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "operating-model-submodel-analysis-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「operating-model-submodel-analysis参考裁剪分析」时跳过或误做：核对资源缺口并调整范围或补充能力",
+          "expected": "view-edge-outside",
+          "why": "核对资源缺口并调整范围或补充能力"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "product-architecture-allocation-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「product-architecture-allocation参考裁剪分析」时跳过或误做：关联运营能力与技术组件，分析功能改变的联合影响",
+          "expected": "missing-evidence",
+          "why": "关联运营能力与技术组件，分析功能改变的联合影响"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "msa-readiness-evidence-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「MSA组织与生命周期就绪证据分析」时跳过或误做：OSIMM按独立来源调用，不用ACMM或项目表替代",
+          "expected": "missing-evidence",
+          "why": "OSIMM按独立来源调用，不用ACMM或项目表替代"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "msa-federated-governance-process-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「MSA双轨治理与豁免过程分析」时跳过或误做：支持/对齐/扩展/约束分别记录方向",
+          "expected": "matrix-direction",
+          "why": "支持/对齐/扩展/约束分别记录方向"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "msa-value-resource-evidence-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「微服务业务价值与开发运营资源分析」时跳过或误做：成本或ROI规则未提供则不计算",
+          "expected": "missing-evidence",
+          "why": "成本或ROI规则未提供则不计算"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "bi-usage-goal-measures-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「BI用途待办、目标与可追溯度量分析」时跳过或误做：检查测量结果和目标/方向不同",
+          "expected": "matrix-direction",
+          "why": "检查测量结果和目标/方向不同"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "bi-business-function-coverage-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「BI业务功能参考覆盖分析」时跳过或误做：对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+          "expected": "missing-evidence",
+          "why": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "bi-application-function-coverage-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「BI应用功能参考覆盖分析」时跳过或误做：对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+          "expected": "missing-evidence",
+          "why": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "mdm-business-function-coverage-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「C-MDM业务功能参考覆盖分析」时跳过或误做：对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+          "expected": "missing-evidence",
+          "why": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数"
+        },
+        "calculator_id": "metadata-application-coverage-review",
+        "implementation_status": "operational-steps-with-explicit-input-calculator"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "mdm-application-function-coverage-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「C-MDM应用功能参考覆盖分析」时跳过或误做：对缺口形成具体补证/实现/复评行动，不合成成熟度分数",
+          "expected": "missing-evidence",
+          "why": "对缺口形成具体补证/实现/复评行动，不合成成熟度分数"
+        },
+        "calculator_id": "metadata-application-coverage-review",
+        "implementation_status": "operational-steps-with-explicit-input-calculator"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "bi-value-chain-controls-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「BI数据价值链、语义与控制分析」时跳过或误做：不因价值链存在就认定数据正确/及时",
+          "expected": "missing-evidence",
+          "why": "不因价值链存在就认定数据正确/及时"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "bi-model-operating-monitoring-method",
+      "set": {
+        "counterexample": {
+          "input": "执行「BI分析模型运营监控与处置分析」时跳过或误做：形成运行监控记录后再评审实际表现",
+          "expected": "missing-evidence",
+          "why": "形成运行监控记录后再评审实际表现"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "ea-point-of-view-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「EA观点文件与影响经营登记审查」时跳过或误做：point of view经营不等同于viewpoint library",
+          "expected": "missing-evidence",
+          "why": "point of view经营不等同于viewpoint library"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "project-management-strategy-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「架构项目管理策略审查」时跳过或误做：四核心方面来自§3.1.8，配置管理来自§4.2.1",
+          "expected": "missing-evidence",
+          "why": "四核心方面来自§3.1.8，配置管理来自§4.2.1"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "project-highlight-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「架构项目状态要点报告审查」时跳过或误做：要点报告是按时间驱动的沟通，不替代例外报告",
+          "expected": "missing-evidence",
+          "why": "要点报告是按时间驱动的沟通，不替代例外报告"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "metadata-application-coverage-review",
+      "set": {
+        "counterexample": {
+          "input": "执行「元数据应用功能覆盖审查」时跳过或误做：源表每行有一个处置结果；遗漏为未知",
+          "expected": "missing-evidence",
+          "why": "源表每行有一个处置结果；遗漏为未知"
+        }
+      }
+    },
+    {
+      "group": "analysis_methods",
+      "id": "agile-collaboration-selection-switch",
+      "set": {
+        "counterexample": {
+          "input": "执行「四模式选择与周期切换」时跳过或误做：复核能力授权和回退条件，生成两布局并评审",
+          "expected": "missing-evidence",
+          "why": "复核能力授权和回退条件，生成两布局并评审"
+        },
+        "calculator_status": "no-deterministic-calculator",
+        "calculator_reason": "该方法的结论依赖领域判断或定性证据，本项目未定义确定性算子；结果须由技能按 method.md 执行并由责任方确认，不得输出伪数值。"
+      }
+    },
+    {
+      "group": "work_products",
+      "id": "business-impact-analysis",
+      "add": {
+        "required_attributes": {
+          "risk_asset": [
+            "asset_id",
+            "criticality",
+            "owner",
+            "confidentiality_need",
+            "integrity_need",
+            "availability_need"
+          ]
+        }
+      },
+      "note": "risk_asset 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "business-risk-register",
+      "add": {
+        "required_attributes": {
+          "threat_event": [
+            "threat_actor_ref",
+            "event_time",
+            "likelihood_scale",
+            "evidence"
+          ]
+        }
+      },
+      "note": "threat_event 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "security-services-catalog",
+      "add": {
+        "required_attributes": {
+          "control_objective": [
+            "objective_statement",
+            "control_ref",
+            "evidence_ref",
+            "test_result"
+          ]
+        }
+      },
+      "note": "control_objective 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "data-quality-assessment",
+      "add": {
+        "required_attributes": {
+          "data_quality_rule": [
+            "dimension",
+            "rule_expression",
+            "threshold",
+            "measure_period",
+            "owner"
+          ]
+        }
+      },
+      "note": "data_quality_rule 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-project-schedule",
+      "add": {
+        "required_attributes": {
+          "milestone": [
+            "due_date",
+            "exit_criteria",
+            "owner",
+            "dependency"
+          ]
+        }
+      },
+      "note": "milestone 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "options-decision-matrix",
+      "add": {
+        "required_attributes": {
+          "option": [
+            "option_id",
+            "criteria_scores",
+            "rationale",
+            "tradeoff"
+          ]
+        }
+      },
+      "note": "option 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "decision-delegation-register",
+      "add": {
+        "required_attributes": {
+          "decision_record": [
+            "question",
+            "options_considered",
+            "decision",
+            "authority",
+            "rationale",
+            "date"
+          ]
+        }
+      },
+      "note": "decision_record 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "project-work-package-authorization",
+      "add": {
+        "required_attributes": {
+          "project": [
+            "scope",
+            "sponsor",
+            "start",
+            "end",
+            "budget",
+            "status"
+          ]
+        }
+      },
+      "note": "project 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-maturity-scorecard",
+      "add": {
+        "required_attributes": {
+          "assessment_result": [
+            "subject_ref",
+            "method_ref",
+            "result_value",
+            "unit",
+            "period",
+            "evidence"
+          ]
+        }
+      },
+      "note": "assessment_result 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "architecture-skill-matrix",
+      "add": {
+        "required_attributes": {
+          "skill": [
+            "skill_name",
+            "proficiency_level",
+            "evidence",
+            "holder_ref"
+          ]
+        }
+      },
+      "note": "skill 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "interoperability-assessment",
+      "add": {
+        "required_attributes": {
+          "equipment": [
+            "equipment_class",
+            "work_center_ref",
+            "criticality",
+            "maintenance_plan_ref"
+          ]
+        }
+      },
+      "note": "equipment 的字段为本项目补充，非原文强制字段"
+    },
+    {
+      "group": "work_products",
+      "id": "environmental-is-assessment",
+      "add": {
+        "required_attributes": {
+          "phosphogypsum_record": [
+            "generated_tonnage",
+            "utilised_tonnage",
+            "stockpiled_tonnage",
+            "utilisation_rate",
+            "period"
+          ]
+        }
+      },
+      "note": "phosphogypsum_record 的字段为本项目补充，非原文强制字段"
+    }
+  ],
+  "analysis_methods": [
+    {
+      "id": "dependency-topological-order",
+      "name": "工作包依赖拓扑排序",
+      "owner": "togaf-migration-roadmap",
+      "source_refs": [
+        "G186 §8",
+        "G188 §3.2"
+      ],
+      "required_inputs": [
+        "工作包清单",
+        "依赖边",
+        "硬依赖与软依赖标记"
+      ],
+      "analysis_steps": [
+        "建立依赖图",
+        "检测环并报告",
+        "按拓扑序排出批次",
+        "标出软依赖可并行段"
+      ],
+      "output_work_products": [
+        "portfolio-theme-work-package-register"
+      ],
+      "checks": [
+        "存在环却直接给出顺序，未报告环"
+      ],
+      "missing_input_policy": "缺依赖标记时只输出候选序与缺口，不声称关键路径。",
+      "definition_status": "project-operational-method",
+      "implementation_status": "specified-awaiting-behavioral-validation",
+      "counterexample": {
+        "input": "依赖图中 A→B→C→A 成环，仍输出 A、B、C 的顺序",
+        "expected": "cycle",
+        "why": "存在环却直接给出顺序，未报告环"
+      },
+      "reference_document": "references/analysis-methods/dependency-topological-order.md"
+    },
+    {
+      "id": "transition-operability-check",
+      "name": "过渡架构可运营性判定",
+      "owner": "togaf-migration-roadmap",
+      "source_refs": [
+        "G248 §2",
+        "G186 §9"
+      ],
+      "required_inputs": [
+        "过渡架构",
+        "运营条件五项（人员、系统、数据、控制、回退）"
+      ],
+      "analysis_steps": [
+        "逐项检查运营条件",
+        "缺项即判不可运营",
+        "输出缺口 ID 与补齐动作"
+      ],
+      "output_work_products": [
+        "transition-architecture-model"
+      ],
+      "checks": [
+        "只给进度百分比就判定过渡可运营"
+      ],
+      "missing_input_policy": "运营条件缺项时判为不可运营并列出缺项，不按比例折算。",
+      "definition_status": "project-operational-method",
+      "implementation_status": "specified-awaiting-behavioral-validation",
+      "counterexample": {
+        "input": "过渡架构仅给出「完成 70%」，未说明人员、系统、数据、控制与回退",
+        "expected": "transition-operability-gap",
+        "why": "只给进度百分比就判定过渡可运营"
+      },
+      "reference_document": "references/analysis-methods/transition-operability-check.md"
+    },
+    {
+      "id": "work-package-prioritization",
+      "name": "工作包优先级判定",
+      "owner": "togaf-migration-roadmap",
+      "source_refs": [
+        "G186 §8.4",
+        "G176 §12.8"
+      ],
+      "required_inputs": [
+        "工作包",
+        "评价准则",
+        "准则权重及其来源"
+      ],
+      "analysis_steps": [
+        "校验每条权重的来源",
+        "加权计算",
+        "报告权重敏感区间"
+      ],
+      "output_work_products": [
+        "portfolio-estimate-sufficiency-check"
+      ],
+      "checks": [
+        "权重无来源却直接加权算出总分"
+      ],
+      "missing_input_policy": "权重缺来源时不计算总分，只列准则与候选。",
+      "definition_status": "project-operational-method",
+      "implementation_status": "specified-awaiting-behavioral-validation",
+      "counterexample": {
+        "input": "五项准则各给 20% 权重，但无任何来源或裁决记录",
+        "expected": "missing-evidence",
+        "why": "权重无来源却直接加权算出总分"
+      },
+      "reference_document": "references/analysis-methods/work-package-prioritization.md"
+    },
+    {
+      "id": "benefit-realization-trigger",
+      "name": "收益实现复评触发",
+      "owner": "togaf-migration-roadmap",
+      "source_refs": [
+        "G184 §10.1.7",
+        "G184 §11.4"
+      ],
+      "required_inputs": [
+        "目标值与期间",
+        "实测值与观测窗",
+        "归因边界"
+      ],
+      "analysis_steps": [
+        "对齐目标与实测的口径",
+        "计算偏差",
+        "按观测窗判定是否触发复评"
+      ],
+      "output_work_products": [
+        "value-realization-assessment"
+      ],
+      "checks": [
+        "把计划值当实测值计算偏差"
+      ],
+      "missing_input_policy": "无实测值时只报未观测，不填计划值。",
+      "definition_status": "project-operational-method",
+      "implementation_status": "specified-awaiting-behavioral-validation",
+      "counterexample": {
+        "input": "以计划收益 12% 作为实测值参与偏差计算",
+        "expected": "measurement-evidence-gap",
+        "why": "把计划值当实测值计算偏差"
+      },
+      "reference_document": "references/analysis-methods/benefit-realization-trigger.md"
+    }
+  ],
+  "declared_assertion_codes": {
+    "reject-unsupported-commitment": "拒绝无法支持的框架接触或承诺声明。",
+    "factor-evidence-gap": "实施因素缺少证据或来源。",
+    "all-staff-coverage-gap": "技能矩阵未覆盖全部相关岗位。",
+    "authorization-not-ready": "授权状态尚未就绪却已进入执行。",
+    "closure-products-not-accepted": "收尾时成果尚未被接受。",
+    "criterion-result-contradiction": "判据与观察结果互相矛盾。",
+    "dual-entry-trace-gap": "双入口分析缺少用途侧或基础设施侧的追溯。",
+    "learning-evidence-gap": "学习或培训项缺少效果证据。",
+    "missing-project-contingency": "项目缺少应急与回退安排。",
+    "procurement-transparency-gap": "采购要求缺少可核的透明度证据。",
+    "scope3-subset-exceeds-total": "Scope 3 子集超过其所属总量。",
+    "unsourced-maturity-rating": "成熟度评级没有来源或证据。",
+    "dependency-cycle": "工作包依赖存在环，无法排序。",
+    "carbon-data-metadata-gap": "碳数据的元数据缺失边界、单位或因子来源。"
+  }
+}

@@ -1,0 +1,1628 @@
+{
+  "schema_version": "1.0",
+  "id": "G186/fig5-5",
+  "status": "done",
+  "doc": {
+    "code": "G186",
+    "title_zh": "实践者方法：按 TOGAF ADM 开发企业架构",
+    "title_en": "A Practitioners' Approach to Developing EA Following the TOGAF ADM",
+    "zh_md": "G186e_实践者方法_按TOGAF_ADM开发企业架构.md",
+    "en_pdf": "togaf-standard-10th/G186e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "5-5",
+    "title_en": "Stylized Architecture Development Gantt Chart",
+    "title_zh": "程式化的架构开发甘特图",
+    "section_en": "5.2.3. Iteration",
+    "section_zh": "5.2.3 迭代",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        63
+      ],
+      "printed_page": 49,
+      "bboxes": [
+        [
+          48.2,
+          36.0,
+          563.8,
+          267.9
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        796
+      ],
+      "label_table_lines": [
+        800,
+        815
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g186e_fig5-5_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "baa13b429ed5",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.994（≥0.9 通常为同一图）",
+        "中文稿当前实际引用的是 figs/zh/g186e_fig5-5_zh.svg，而非本英文 PNG；骨架把本 PNG 标为 referenced_in_zh_md=true 与当前 md 不符"
+      ]
+    },
+    {
+      "path": "figs/zh/g186e_fig5-5_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "61d813cd7ba0",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "第 9 行任务名被拆成“发展 / 说明书 / 架构工作”三行，语序错乱，应为“编制架构工作说明书”",
+        "第 16、17 行“完成候选架构/完成路线图”被拆成多行，前置任务列被截断为“12,13,14,1”，与原图一样受列宽限制",
+        "表头“任务名称”字号偏小，“Predece…”仍为英文且被截断",
+        "其余任务名、条形位置、里程碑 10-22 与 11-16 均与原图一致"
+      ]
+    },
+    {
+      "path": "G186e_实践者方法_按TOGAF_ADM开发企业架构.md#L800-L815",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "8514f3ceb4fb",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "标签表把“Develop Statement of Architecture Work”译为“编制架构工作说明书”，译法正确，但中文 PNG 实际渲染成“发展/说明书/架构工作”，未按该表执行",
+        "未列出 10-22、11-16 两个里程碑日期，也未列前置任务列",
+        "未包含表头“Predecessor（前置任务）”的截断形式"
+      ]
+    },
+    {
+      "path": "figs/zh/g186e_fig5-5_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "cff0147ecb17",
+      "fidelity": "major_deviation",
+      "issues_zh": [
+        "第 16、17 行的前置任务被写成“11,12,13,14”；原图单元格虽被截断，但可见“12,13,14,1…”，按任务编号应为 12,13,14,15，SVG 把 15 误写成 11",
+        "条形长度被拉齐到整周：A 阶段步骤在原图约为 09-27→10-02（5 天），SVG 画成 09-27→10-04（7 天）；B/C/D/E 第一轮也被拉长到整周，改变了工期比例",
+        "新增了原图没有的图例（任务/阶段（汇总）/里程碑/依赖（前置 → 后续））与“读法”说明，读者会以为原图自带图例",
+        "新增顶部横跨时间轴的说明行“2015 年 9 — 11 月（周刻度起始日…）”，原图只有周标签",
+        "把工具界面元素（信息图标、列宽、网格）简化掉，并重新排版任务名，视觉上已不是同一张截图"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "timeline",
+      "table"
+    ],
+    "notation": "甘特图（建模/项目管理工具截图）：左侧任务表（行号、任务名、前置任务），右侧周刻度时间轴；青绿色横条=任务，黑色方括号=汇总任务，菱形=里程碑，蓝色折线=前置依赖",
+    "concepts": [
+      "adm",
+      "gantt_schedule",
+      "architecture_roadmap",
+      "migration_planning"
+    ],
+    "adm_phases": [
+      "adm_phase_a",
+      "adm_phase_b",
+      "adm_phase_c",
+      "adm_phase_d",
+      "adm_phase_e"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "程式化甘特图：两轮 A–E 阶段开发，以 10-22 与 11-16 两个里程碑衔接，体现 ADM 阶段的反复重访。",
+    "purpose_zh": "作者用一张“看起来像真实项目计划”的甘特图说明 ADM 不是一次走完的直线：第一轮先做 A 阶段步骤、制定愿景并并行启动 B–E，产出架构工作说明书后到达 10-22 里程碑；第二轮再从 B 到 E 重做一遍，最后同时完成候选架构与路线图。正文随后说，把这张程式化计划套到每种架构目的上，就会看到实践者在适当详细程度上不断重访所需阶段。",
+    "reading_guide_zh": "先看左侧任务表：行号 2–17，缩进表示汇总/子任务，最后一列是前置任务。右侧时间轴从 2015-09-27 到 11-15，每周一格，格内标 S/M/T/W/T/F/S。青绿色横条是任务工期；黑色方括号是汇总任务（Phase A、Develop the Vision、Architecture Development Phases）；带日期的菱形是里程碑（10-22、11-16）；蓝色折线把前置任务连到后续任务。读的顺序是先第一轮（09-27 起），再 10-22 之后的第二轮。",
+    "key_points_zh": [
+      "第一轮：A 阶段步骤从 09-27 开始；10-02 起“制定愿景”与 B、C、D、E 四个阶段并行展开；B–E 全部结束后才编制架构工作说明书（前置 5,6,7,8），10-22 完成 A 阶段。",
+      "第二轮从 10-22 里程碑开始，B、C、D、E 再次并行启动（前置均为 10），说明阶段被重访而不是一次性通过。",
+      "两个终点里程碑都落在 11-16：完成候选架构、完成路线图；它们的前置都是第二轮的 B、C、D、E。",
+      "Phase A 是汇总任务，跨度约 09-27–10-22；Architecture Development Phases 也是汇总任务，跨度约 10-22–11-15。",
+      "Develop the Vision 是带汇总括号的粗体任务，其下没有展开子任务；它与 B–E 同时启动。",
+      "图中没有返工或反馈箭头；“迭代”是由两轮相同阶段的重复表达，而不是由回路连线表达。",
+      "正文把这张计划套到每种架构目的上，得出“持续重访所需阶段、并按适当详细程度开展”的结论。"
+    ],
+    "hierarchy_zh": "两层 WBS：Phase A（汇总）⊃ Phase A Steps、Develop the Vision、Phase B/C/D/E（第一轮）、Develop Statement of Architecture Work、Complete Phase A；Architecture Development Phases（汇总）⊃ Phase B/C/D/E（第二轮）、Complete Candidate Architecture、Complete Roadmap。里程碑是所在汇总任务的终点事件。",
+    "line_semantics_zh": "青绿色横条=任务工期；黑色方括号=汇总任务的时间跨度；菱形=里程碑（完成 A 阶段 10-22；完成候选架构/完成路线图 11-16）；蓝色折线=前置依赖（由前置任务连到后续任务）；左侧绿色竖线是工具的项目开始/当前日期标记，原图无文字说明。图中没有表示“返工”的箭头，迭代由第二轮任务表达。",
+    "misreadings_zh": [
+      "不要把 B、C、D、E 读成串行：第一轮与第二轮中它们都同时启动、并行推进。",
+      "不要把 10-22 与 11-16 当成任务工期；它们是里程碑日期。",
+      "不要把两轮理解为“第一轮失败后重做”；正文说的是按目的与详细程度持续重访阶段。",
+      "这张图是程式化（stylized）计划，条形长度不是承诺工期；日期也只能按周刻度估读。",
+      "中文 SVG 把第 16/17 行的前置任务写成 11,12,13,14（应为 12,13,14,15），并把多条任务拉长到整周；不要据它计算工期或依赖。",
+      "中文 PNG 第 9 行任务名“发展/说明书/架构工作”是错译，正确为“编制架构工作说明书”。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p63",
+        "summary_zh": "把图 5-5 的程式化甘特计划应用到图 4-1 的每种目的上，就会清楚看到实践者在适当详细程度上不断重访所需阶段。"
+      },
+      {
+        "source": "zh_md L816",
+        "summary_zh": "考虑不同目的以及随时间级联的情形（图 4-1）；把图 5-5 的程式化甘特计划应用到每个目的上，就会看到实践者在适当详细程度上不断重访所需阶段。"
+      },
+      {
+        "source": "en_pdf p63",
+        "summary_zh": "图题为 Stylized Architecture Development Gantt Chart；图后正文转入问题解决方法（图 5-6）。"
+      },
+      {
+        "source": "zh_md L796",
+        "summary_zh": "中文稿以“图 5-5：程式化的架构开发甘特图（中文重绘）”引用 figs/zh/g186e_fig5-5_zh.svg。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "左侧固定任务表（行号 2–17、任务名、前置任务），右侧为 2015-09-27 至 11-15 的周刻度时间轴；任务条从左向右延伸，两轮之间由 10-22 里程碑分隔；底部有横向滚动条痕迹。"
+  },
+  "legend": [
+    {
+      "symbol": "青绿色横条",
+      "meaning_zh": "任务工期",
+      "explicit": false
+    },
+    {
+      "symbol": "黑色方括号（粗线）",
+      "meaning_zh": "汇总任务（Phase A、Develop the Vision、Architecture Development Phases）",
+      "explicit": false
+    },
+    {
+      "symbol": "菱形 + 日期",
+      "meaning_zh": "里程碑（10-22、11-16）",
+      "explicit": false
+    },
+    {
+      "symbol": "蓝色折线",
+      "meaning_zh": "前置任务到后续任务的依赖",
+      "explicit": false
+    },
+    {
+      "symbol": "左侧绿色竖线",
+      "meaning_zh": "工具的项目开始/当前日期标记",
+      "explicit": false
+    },
+    {
+      "symbol": "行首缩进与三角形",
+      "meaning_zh": "WBS 层级（汇总任务可折叠）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "phase_a",
+      "label_en": "Phase A",
+      "label_zh": "A 阶段",
+      "type": "phase",
+      "parent": null,
+      "level": 0,
+      "order": 1,
+      "position": "行 2，汇总任务",
+      "description_zh": "第一轮的总括阶段，黑色汇总括号约 09-27–10-22。"
+    },
+    {
+      "id": "phase_a_steps",
+      "label_en": "Phase A Steps",
+      "label_zh": "A 阶段步骤",
+      "type": "process",
+      "parent": "phase_a",
+      "level": 1,
+      "order": 1,
+      "position": "行 3",
+      "description_zh": "第一轮最先执行的任务，约 09-27–10-02。"
+    },
+    {
+      "id": "develop_vision",
+      "label_en": "Develop the Vision",
+      "label_zh": "制定愿景",
+      "type": "process",
+      "parent": "phase_a",
+      "level": 1,
+      "order": 2,
+      "position": "行 4，粗体汇总任务",
+      "description_zh": "前置为 3；约 10-02–10-20；其起始处向下分出 B–E 的连接线。"
+    },
+    {
+      "id": "phase_b_r1",
+      "label_en": "Phase B",
+      "label_zh": "B 阶段（第一轮）",
+      "type": "process",
+      "parent": "phase_a",
+      "level": 1,
+      "order": 3,
+      "position": "行 5",
+      "description_zh": "第一轮业务架构阶段，约 10-02–10-07。"
+    },
+    {
+      "id": "phase_c_r1",
+      "label_en": "Phase C",
+      "label_zh": "C 阶段（第一轮）",
+      "type": "process",
+      "parent": "phase_a",
+      "level": 1,
+      "order": 4,
+      "position": "行 6",
+      "description_zh": "第一轮信息系统架构阶段，约 10-02–10-10。"
+    },
+    {
+      "id": "phase_d_r1",
+      "label_en": "Phase D",
+      "label_zh": "D 阶段（第一轮）",
+      "type": "process",
+      "parent": "phase_a",
+      "level": 1,
+      "order": 5,
+      "position": "行 7",
+      "description_zh": "第一轮技术架构阶段，约 10-02–10-15。"
+    },
+    {
+      "id": "phase_e_r1",
+      "label_en": "Phase E",
+      "label_zh": "E 阶段（第一轮）",
+      "type": "process",
+      "parent": "phase_a",
+      "level": 1,
+      "order": 6,
+      "position": "行 8",
+      "description_zh": "第一轮机会与解决方案阶段，约 10-02–10-20。"
+    },
+    {
+      "id": "stmt_arch_work",
+      "label_en": "Develop Statement of Architecture Work",
+      "label_zh": "编制架构工作说明书",
+      "type": "process",
+      "parent": "phase_a",
+      "level": 1,
+      "order": 7,
+      "position": "行 9",
+      "description_zh": "前置 5,6,7,8；约 10-20–10-22。"
+    },
+    {
+      "id": "complete_phase_a",
+      "label_en": "Complete Phase A",
+      "label_zh": "完成 A 阶段",
+      "type": "event",
+      "parent": "phase_a",
+      "level": 1,
+      "order": 8,
+      "position": "行 10，里程碑 10-22",
+      "description_zh": "前置 9；菱形里程碑，日期 10-22。"
+    },
+    {
+      "id": "arch_dev_phases",
+      "label_en": "Architecture Development Phases",
+      "label_zh": "架构开发阶段",
+      "type": "phase",
+      "parent": null,
+      "level": 0,
+      "order": 2,
+      "position": "行 11，汇总任务",
+      "description_zh": "第二轮的汇总阶段，约 10-22–11-15。"
+    },
+    {
+      "id": "phase_b_r2",
+      "label_en": "Phase B",
+      "label_zh": "B 阶段（第二轮）",
+      "type": "process",
+      "parent": "arch_dev_phases",
+      "level": 1,
+      "order": 1,
+      "position": "行 12",
+      "description_zh": "前置 10；约 10-22–10-29。"
+    },
+    {
+      "id": "phase_c_r2",
+      "label_en": "Phase C",
+      "label_zh": "C 阶段（第二轮）",
+      "type": "process",
+      "parent": "arch_dev_phases",
+      "level": 1,
+      "order": 2,
+      "position": "行 13",
+      "description_zh": "前置 10；约 10-22–11-04。"
+    },
+    {
+      "id": "phase_d_r2",
+      "label_en": "Phase D",
+      "label_zh": "D 阶段（第二轮）",
+      "type": "process",
+      "parent": "arch_dev_phases",
+      "level": 1,
+      "order": 3,
+      "position": "行 14",
+      "description_zh": "前置 10；约 10-22–11-10。"
+    },
+    {
+      "id": "phase_e_r2",
+      "label_en": "Phase E",
+      "label_zh": "E 阶段（第二轮）",
+      "type": "process",
+      "parent": "arch_dev_phases",
+      "level": 1,
+      "order": 4,
+      "position": "行 15",
+      "description_zh": "前置 10；约 10-22–11-14。"
+    },
+    {
+      "id": "complete_candidate_arch",
+      "label_en": "Complete Candidate Architecture",
+      "label_zh": "完成候选架构",
+      "type": "event",
+      "parent": "arch_dev_phases",
+      "level": 1,
+      "order": 5,
+      "position": "行 16，里程碑 11-16",
+      "description_zh": "前置 12,13,14,15（原图单元格被列宽截断）；菱形 11-16。"
+    },
+    {
+      "id": "complete_roadmap",
+      "label_en": "Complete Roadmap",
+      "label_zh": "完成路线图",
+      "type": "event",
+      "parent": "arch_dev_phases",
+      "level": 1,
+      "order": 6,
+      "position": "行 17，里程碑 11-16",
+      "description_zh": "前置 12,13,14,15；菱形 11-16，位于候选架构里程碑之后。"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "phase_a_steps",
+      "to": "develop_vision",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 4 的前置为 3；蓝色依赖线由 A 阶段步骤末端连到制定愿景起始。"
+    },
+    {
+      "from": "develop_vision",
+      "to": "phase_b_r1",
+      "type": "triggering",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "竖线由制定愿景的起始处向下分出，B 阶段与它同时启动；原图该行前置任务为空。"
+    },
+    {
+      "from": "develop_vision",
+      "to": "phase_c_r1",
+      "type": "triggering",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "同一竖向连接线分出。"
+    },
+    {
+      "from": "develop_vision",
+      "to": "phase_d_r1",
+      "type": "triggering",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "同一竖向连接线分出。"
+    },
+    {
+      "from": "develop_vision",
+      "to": "phase_e_r1",
+      "type": "triggering",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "同一竖向连接线分出。"
+    },
+    {
+      "from": "phase_b_r1",
+      "to": "stmt_arch_work",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 9 的前置为 5,6,7,8 之一。"
+    },
+    {
+      "from": "phase_c_r1",
+      "to": "stmt_arch_work",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 9 的前置之一。"
+    },
+    {
+      "from": "phase_d_r1",
+      "to": "stmt_arch_work",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 9 的前置之一。"
+    },
+    {
+      "from": "phase_e_r1",
+      "to": "stmt_arch_work",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 9 的前置之一；四条依赖在工具中汇入同一竖线。"
+    },
+    {
+      "from": "stmt_arch_work",
+      "to": "complete_phase_a",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 10 的前置为 9。"
+    },
+    {
+      "from": "complete_phase_a",
+      "to": "phase_b_r2",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第二轮 B 阶段的前置为里程碑 10。"
+    },
+    {
+      "from": "complete_phase_a",
+      "to": "phase_c_r2",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第二轮 C 阶段的前置为 10。"
+    },
+    {
+      "from": "complete_phase_a",
+      "to": "phase_d_r2",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第二轮 D 阶段的前置为 10。"
+    },
+    {
+      "from": "complete_phase_a",
+      "to": "phase_e_r2",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "第二轮 E 阶段的前置为 10；四者共用一条竖向干线。"
+    },
+    {
+      "from": "phase_b_r2",
+      "to": "complete_candidate_arch",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 16 的前置为 12,13,14,15 之一。"
+    },
+    {
+      "from": "phase_c_r2",
+      "to": "complete_candidate_arch",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 16 的前置之一。"
+    },
+    {
+      "from": "phase_d_r2",
+      "to": "complete_candidate_arch",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 16 的前置之一。"
+    },
+    {
+      "from": "phase_e_r2",
+      "to": "complete_candidate_arch",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 16 的前置之一。"
+    },
+    {
+      "from": "phase_b_r2",
+      "to": "complete_roadmap",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 17 的前置为 12,13,14,15 之一。"
+    },
+    {
+      "from": "phase_c_r2",
+      "to": "complete_roadmap",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 17 的前置之一。"
+    },
+    {
+      "from": "phase_d_r2",
+      "to": "complete_roadmap",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 17 的前置之一。"
+    },
+    {
+      "from": "phase_e_r2",
+      "to": "complete_roadmap",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "任务 17 的前置之一。"
+    },
+    {
+      "from": "complete_candidate_arch",
+      "to": "complete_roadmap",
+      "type": "sequence",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "工具中从 11-16 候选架构菱形向下连到 11-16 路线图菱形。"
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_r1_parallel",
+      "kind": "parallel",
+      "name_zh": "第一轮 B–E 并行",
+      "steps": [
+        "phase_b_r1",
+        "phase_c_r1",
+        "phase_d_r1",
+        "phase_e_r1"
+      ],
+      "description_zh": "四个阶段在约 10-02 同时启动。"
+    },
+    {
+      "id": "f_r2_parallel",
+      "kind": "parallel",
+      "name_zh": "第二轮 B–E 并行",
+      "steps": [
+        "phase_b_r2",
+        "phase_c_r2",
+        "phase_d_r2",
+        "phase_e_r2"
+      ],
+      "description_zh": "四个阶段在 10-22 同时重新启动。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "t_gantt",
+      "title_zh": "甘特图任务表（按原图逐行转录，日期按周刻度估读）",
+      "columns": [
+        "行号",
+        "任务名称",
+        "前置任务",
+        "开始",
+        "完成",
+        "类型"
+      ],
+      "rows": [
+        [
+          "2",
+          "Phase A",
+          "—",
+          "≈09-27",
+          "≈10-22",
+          "汇总任务"
+        ],
+        [
+          "3",
+          "Phase A Steps",
+          "—",
+          "≈09-27",
+          "≈10-02",
+          "任务"
+        ],
+        [
+          "4",
+          "Develop the Vision",
+          "3",
+          "≈10-02",
+          "≈10-20",
+          "汇总任务"
+        ],
+        [
+          "5",
+          "Phase B",
+          "—",
+          "≈10-02",
+          "≈10-07",
+          "任务"
+        ],
+        [
+          "6",
+          "Phase C",
+          "—",
+          "≈10-02",
+          "≈10-10",
+          "任务"
+        ],
+        [
+          "7",
+          "Phase D",
+          "—",
+          "≈10-02",
+          "≈10-15",
+          "任务"
+        ],
+        [
+          "8",
+          "Phase E",
+          "—",
+          "≈10-02",
+          "≈10-20",
+          "任务"
+        ],
+        [
+          "9",
+          "Develop Statement of Architecture Work",
+          "5,6,7,8",
+          "≈10-20",
+          "≈10-22",
+          "任务"
+        ],
+        [
+          "10",
+          "Complete Phase A",
+          "9",
+          "≈10-22",
+          "≈10-22",
+          "里程碑"
+        ],
+        [
+          "11",
+          "Architecture Development Phases",
+          "—",
+          "≈10-22",
+          "≈11-15",
+          "汇总任务"
+        ],
+        [
+          "12",
+          "Phase B",
+          "10",
+          "≈10-22",
+          "≈10-29",
+          "任务"
+        ],
+        [
+          "13",
+          "Phase C",
+          "10",
+          "≈10-22",
+          "≈11-04",
+          "任务"
+        ],
+        [
+          "14",
+          "Phase D",
+          "10",
+          "≈10-22",
+          "≈11-10",
+          "任务"
+        ],
+        [
+          "15",
+          "Phase E",
+          "10",
+          "≈10-22",
+          "≈11-14",
+          "任务"
+        ],
+        [
+          "16",
+          "Complete Candidate Architecture",
+          "12,13,14,15",
+          "≈11-16",
+          "≈11-16",
+          "里程碑"
+        ],
+        [
+          "17",
+          "Complete Roadmap",
+          "12,13,14,15",
+          "≈11-16",
+          "≈11-16",
+          "里程碑"
+        ]
+      ],
+      "cell_legend": [
+        "青绿色横条=任务；黑色方括号=汇总任务；菱形=里程碑；≈ 表示按周刻度估读、误差约 ±1 天",
+        "第 16、17 行的前置任务在原图单元格中被列宽截断为“12,13,14,1…”，此处补全为 12,13,14,15"
+      ],
+      "notes_zh": "行号沿用工具最左列（2–17，1 为表头）。B–E 第一轮的前置任务列为空，但工具用一条从“制定愿景”起始处向下的竖线把它们连在一起，故表中记为同时启动。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G186/fig4-1",
+      "relation": "related",
+      "note_zh": "第 63 页正文要求把这张程式化计划应用到图 4-1 的每种架构目的上，以说明按目的与详细程度重访阶段。"
+    }
+  ],
+  "quality": {
+    "confidence": "medium",
+    "uncertainties_zh": [
+      "开始/完成日期是按周刻度（09-27 起，每周约 153 px）估读的，误差约 ±1 天；条形端点并不总落在日刻度上。",
+      "第 16、17 行的前置任务在原图中被列宽截断，只能看到“12,13,14,1”；按任务编号补为 12,13,14,15，不能 100% 确认末位。",
+      "第一轮 B–E 的前置列空白，工具中靠一条竖线连接；该竖线究竟表示“与制定愿景同时启动”还是“依赖制定愿景”，无法从截图完全确认。",
+      "图中绿色竖线无标签，按工具惯例理解为项目开始/当前日期标记。",
+      "工具界面的表头（Task Name、Predece…）、周刻度字母、滚动条等属于截图外观，未作为元素记录，其信息已体现在表格的列名与日期列中。",
+      "“程式化（stylized）”意味着条形长度不是真实工期，正文也未给出具体日历。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 63 页图 5-5 截图（220 dpi）及 3×3 放大分块",
+      "英文 PDF 第 63 页正文",
+      "中文稿 G186e_实践者方法_按TOGAF_ADM开发企业架构.md 第 796–818 行及标签对照表 L800–L815",
+      "figs/g186e_fig5-5_en.png、figs/zh/g186e_fig5-5_zh.png 与 figs/zh/g186e_fig5-5_zh.svg"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G186e.pdf",
+    "pdf_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G186/fig5-5.json",
+    "interpretation_sha256": "ce10556d9b746506c41ad1ee4e981b8fb43f9bee6c69d0279b6f020fd2bc2833",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 63,
+        "text": "Figure 5-5: Stylized Architecture Development Gantt Chart",
+        "bbox_pdf_points": [
+          48.24,
+          272.588,
+          320.797,
+          286.154
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 63,
+      "printed_page": 49,
+      "bbox_pdf_points": [
+        48.2,
+        36.0,
+        563.8,
+        267.9
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G186/fig5-5-p0063.png",
+      "image_sha256": "c425f18bef37f5ba210dd447fcc9b08a906e2d91d858be3862aa916b5e526ea5",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "c425f18bef37f5ba210dd447fcc9b08a906e2d91d858be3862aa916b5e526ea5",
+          "status": "extracted-unverified",
+          "text": "cod\n50a\nwwoant\nSoa\nSoa\nhors\nEon 08\nShor\n© Toictiame\n= Predece\n5\no\nw\nf\n5\n1\n1\ns\na\n+ Phase A\nPhase A Steps:\n3\n—\n4 Develop the\nPhases\nPhase c\nPhase D\nPhase E\nDevelop\n3678\n‘Statement of\n“Architecure Work\nwo\n102\n‘Complete Phase 9\nw\n4 pechitecture\n2\nPhase 8\na\nPhase c\n“\nPhase D\n6\nPhase e\n6\nPrseptsd\nwe 1116\n7\n1234\n© The Open Group\n“9 46",
+          "words": [
+            {
+              "text": "cod",
+              "confidence": 35.74667,
+              "bbox_pixels_xywh": [
+                270,
+                20,
+                34,
+                8
+              ]
+            },
+            {
+              "text": "50a",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                374,
+                20,
+                30,
+                7
+              ]
+            },
+            {
+              "text": "wwoant",
+              "confidence": 11.271353,
+              "bbox_pixels_xywh": [
+                471,
+                20,
+                32,
+                7
+              ]
+            },
+            {
+              "text": "Soa",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                575,
+                20,
+                30,
+                7
+              ]
+            },
+            {
+              "text": "Soa",
+              "confidence": 13.682489,
+              "bbox_pixels_xywh": [
+                672,
+                20,
+                33,
+                7
+              ]
+            },
+            {
+              "text": "hors",
+              "confidence": 29.770355,
+              "bbox_pixels_xywh": [
+                772,
+                20,
+                34,
+                7
+              ]
+            },
+            {
+              "text": "Eon",
+              "confidence": 21.582918,
+              "bbox_pixels_xywh": [
+                872,
+                20,
+                36,
+                7
+              ]
+            },
+            {
+              "text": "08",
+              "confidence": 52.760849,
+              "bbox_pixels_xywh": [
+                900,
+                8,
+                13,
+                28
+              ]
+            },
+            {
+              "text": "Shor",
+              "confidence": 34.563068,
+              "bbox_pixels_xywh": [
+                973,
+                20,
+                35,
+                7
+              ]
+            },
+            {
+              "text": "©",
+              "confidence": 62.345516,
+              "bbox_pixels_xywh": [
+                57,
+                26,
+                12,
+                13
+              ]
+            },
+            {
+              "text": "Toictiame",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                80,
+                31,
+                43,
+                8
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 48.769665,
+              "bbox_pixels_xywh": [
+                172,
+                35,
+                5,
+                4
+              ]
+            },
+            {
+              "text": "Predece",
+              "confidence": 50.805466,
+              "bbox_pixels_xywh": [
+                184,
+                31,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "5",
+              "confidence": 51.803787,
+              "bbox_pixels_xywh": [
+                763,
+                32,
+                4,
+                7
+              ]
+            },
+            {
+              "text": "o",
+              "confidence": 39.707188,
+              "bbox_pixels_xywh": [
+                790,
+                32,
+                7,
+                7
+              ]
+            },
+            {
+              "text": "w",
+              "confidence": 81.465256,
+              "bbox_pixels_xywh": [
+                818,
+                32,
+                9,
+                7
+              ]
+            },
+            {
+              "text": "f",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                849,
+                32,
+                4,
+                7
+              ]
+            },
+            {
+              "text": "5",
+              "confidence": 54.297623,
+              "bbox_pixels_xywh": [
+                878,
+                32,
+                4,
+                7
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 40.634083,
+              "bbox_pixels_xywh": [
+                907,
+                32,
+                4,
+                7
+              ]
+            },
+            {
+              "text": "1",
+              "confidence": 54.047363,
+              "bbox_pixels_xywh": [
+                935,
+                32,
+                4,
+                7
+              ]
+            },
+            {
+              "text": "s",
+              "confidence": 66.265823,
+              "bbox_pixels_xywh": [
+                964,
+                32,
+                4,
+                7
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 29.807571,
+              "bbox_pixels_xywh": [
+                991,
+                32,
+                7,
+                7
+              ]
+            },
+            {
+              "text": "+",
+              "confidence": 27.94075,
+              "bbox_pixels_xywh": [
+                80,
+                50,
+                5,
+                6
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 22.687149,
+              "bbox_pixels_xywh": [
+                88,
+                48,
+                36,
+                9
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 22.687149,
+              "bbox_pixels_xywh": [
+                118,
+                38,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 95.892906,
+              "bbox_pixels_xywh": [
+                100,
+                65,
+                62,
+                11
+              ]
+            },
+            {
+              "text": "A",
+              "confidence": 81.060005,
+              "bbox_pixels_xywh": [
+                128,
+                55,
+                6,
+                28
+              ]
+            },
+            {
+              "text": "Steps:",
+              "confidence": 60.025082,
+              "bbox_pixels_xywh": [
+                138,
+                65,
+                24,
+                11
+              ]
+            },
+            {
+              "text": "3",
+              "confidence": 94.24041,
+              "bbox_pixels_xywh": [
+                184,
+                84,
+                5,
+                8
+              ]
+            },
+            {
+              "text": "—",
+              "confidence": 72.415146,
+              "bbox_pixels_xywh": [
+                262,
+                51,
+                333,
+                41
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 44.260715,
+              "bbox_pixels_xywh": [
+                91,
+                85,
+                3,
+                5
+              ]
+            },
+            {
+              "text": "Develop",
+              "confidence": 93.82972,
+              "bbox_pixels_xywh": [
+                100,
+                83,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.614037,
+              "bbox_pixels_xywh": [
+                140,
+                74,
+                17,
+                28
+              ]
+            },
+            {
+              "text": "Phases",
+              "confidence": 47.190292,
+              "bbox_pixels_xywh": [
+                112,
+                114,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 29.156008,
+              "bbox_pixels_xywh": [
+                112,
+                131,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "c",
+              "confidence": 29.156008,
+              "bbox_pixels_xywh": [
+                140,
+                121,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 57.530334,
+              "bbox_pixels_xywh": [
+                112,
+                148,
+                35,
+                9
+              ]
+            },
+            {
+              "text": "D",
+              "confidence": 57.530334,
+              "bbox_pixels_xywh": [
+                140,
+                138,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 82.925072,
+              "bbox_pixels_xywh": [
+                112,
+                166,
+                33,
+                8
+              ]
+            },
+            {
+              "text": "E",
+              "confidence": 10.838814,
+              "bbox_pixels_xywh": [
+                140,
+                155,
+                8,
+                28
+              ]
+            },
+            {
+              "text": "Develop",
+              "confidence": 92.994957,
+              "bbox_pixels_xywh": [
+                100,
+                183,
+                37,
+                11
+              ]
+            },
+            {
+              "text": "3678",
+              "confidence": 58.583961,
+              "bbox_pixels_xywh": [
+                183,
+                183,
+                30,
+                10
+              ]
+            },
+            {
+              "text": "‘Statement",
+              "confidence": 83.9655,
+              "bbox_pixels_xywh": [
+                99,
+                196,
+                59,
+                9
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.110062,
+              "bbox_pixels_xywh": [
+                148,
+                186,
+                13,
+                28
+              ]
+            },
+            {
+              "text": "“Architecure",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                95,
+                201,
+                56,
+                28
+              ]
+            },
+            {
+              "text": "Work",
+              "confidence": 92.442169,
+              "bbox_pixels_xywh": [
+                157,
+                201,
+                25,
+                28
+              ]
+            },
+            {
+              "text": "wo",
+              "confidence": 26.798143,
+              "bbox_pixels_xywh": [
+                32,
+                228,
+                9,
+                8
+              ]
+            },
+            {
+              "text": "102",
+              "confidence": 68.054291,
+              "bbox_pixels_xywh": [
+                630,
+                227,
+                24,
+                9
+              ]
+            },
+            {
+              "text": "‘Complete",
+              "confidence": 57.418526,
+              "bbox_pixels_xywh": [
+                84,
+                219,
+                47,
+                28
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 36.2752,
+              "bbox_pixels_xywh": [
+                135,
+                219,
+                33,
+                28
+              ]
+            },
+            {
+              "text": "9",
+              "confidence": 62.615044,
+              "bbox_pixels_xywh": [
+                183,
+                229,
+                6,
+                9
+              ]
+            },
+            {
+              "text": "w",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                32,
+                260,
+                7,
+                7
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 46.797935,
+              "bbox_pixels_xywh": [
+                80,
+                262,
+                3,
+                5
+              ]
+            },
+            {
+              "text": "pechitecture",
+              "confidence": 10.479202,
+              "bbox_pixels_xywh": [
+                88,
+                260,
+                56,
+                9
+              ]
+            },
+            {
+              "text": "2",
+              "confidence": 55.441833,
+              "bbox_pixels_xywh": [
+                32,
+                305,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 64.561424,
+              "bbox_pixels_xywh": [
+                100,
+                306,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "8",
+              "confidence": 50.407772,
+              "bbox_pixels_xywh": [
+                128,
+                296,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 50.482407,
+              "bbox_pixels_xywh": [
+                32,
+                322,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 74.217255,
+              "bbox_pixels_xywh": [
+                100,
+                323,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "c",
+              "confidence": 57.095596,
+              "bbox_pixels_xywh": [
+                131,
+                313,
+                7,
+                28
+              ]
+            },
+            {
+              "text": "“",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                32,
+                340,
+                8,
+                7
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 93.096405,
+              "bbox_pixels_xywh": [
+                100,
+                340,
+                35,
+                9
+              ]
+            },
+            {
+              "text": "D",
+              "confidence": 83.874184,
+              "bbox_pixels_xywh": [
+                131,
+                330,
+                7,
+                28
+              ]
+            },
+            {
+              "text": "6",
+              "confidence": 30.325298,
+              "bbox_pixels_xywh": [
+                32,
+                357,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "Phase",
+              "confidence": 63.819298,
+              "bbox_pixels_xywh": [
+                100,
+                358,
+                34,
+                8
+              ]
+            },
+            {
+              "text": "e",
+              "confidence": 23.046169,
+              "bbox_pixels_xywh": [
+                128,
+                347,
+                10,
+                28
+              ]
+            },
+            {
+              "text": "6",
+              "confidence": 53.477745,
+              "bbox_pixels_xywh": [
+                32,
+                374,
+                8,
+                8
+              ]
+            },
+            {
+              "text": "Prseptsd",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                184,
+                375,
+                46,
+                10
+              ]
+            },
+            {
+              "text": "we",
+              "confidence": 39.631351,
+              "bbox_pixels_xywh": [
+                973,
+                364,
+                11,
+                28
+              ]
+            },
+            {
+              "text": "1116",
+              "confidence": 78.995354,
+              "bbox_pixels_xywh": [
+                989,
+                373,
+                24,
+                11
+              ]
+            },
+            {
+              "text": "7",
+              "confidence": 63.22435,
+              "bbox_pixels_xywh": [
+                32,
+                420,
+                9,
+                8
+              ]
+            },
+            {
+              "text": "1234",
+              "confidence": 33.008965,
+              "bbox_pixels_xywh": [
+                184,
+                421,
+                46,
+                10
+              ]
+            },
+            {
+              "text": "©",
+              "confidence": 95.122818,
+              "bbox_pixels_xywh": [
+                804,
+                420,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "The",
+              "confidence": 96.073753,
+              "bbox_pixels_xywh": [
+                821,
+                420,
+                27,
+                12
+              ]
+            },
+            {
+              "text": "Open",
+              "confidence": 96.073753,
+              "bbox_pixels_xywh": [
+                854,
+                420,
+                38,
+                15
+              ]
+            },
+            {
+              "text": "Group",
+              "confidence": 95.167801,
+              "bbox_pixels_xywh": [
+                898,
+                420,
+                43,
+                15
+              ]
+            },
+            {
+              "text": "“9",
+              "confidence": 47.126694,
+              "bbox_pixels_xywh": [
+                976,
+                421,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "46",
+              "confidence": 48.897812,
+              "bbox_pixels_xywh": [
+                989,
+                419,
+                24,
+                9
+              ]
+            }
+          ],
+          "mean_word_confidence": 50.4,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

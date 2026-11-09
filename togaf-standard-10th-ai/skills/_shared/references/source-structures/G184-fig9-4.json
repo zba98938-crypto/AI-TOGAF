@@ -1,0 +1,241 @@
+{
+  "schema_version": "2.0",
+  "id": "G184/fig9-4",
+  "title": "普遍接受的域",
+  "content_role": "source-interpretation-reference-not-project-facts",
+  "notice": "以下为本地图表解释的便携摘录；不表示已核实官方定义。布局、推测箭头、示例名称和参考分类不能自动转为项目架构事实。",
+  "source_locator": {
+    "md_lines": [
+      992
+    ],
+    "label_table_lines": null
+  },
+  "reading": {
+    "purpose_zh": "界定本文档所说的（架构）域及其范围：业务、数据与信息、应用、技术四个域各占一格并给出关注点；集成（外圆）与安全（内圆）覆盖在四域之上，表示它们与四个域都相交，而不是第五个独立域。正文特别提醒：圆的重叠不表示一个域是另一个域的子集。",
+    "reading_guide_zh": "先看四个色块：左上蓝色 Business、右上橙色 Data & Information、右下绿色 Applications、左下灰色 Technology；每个色块除域名外还有一段说明该域关注什么。再看中央的两个圆：较大的橙色圆 Integration，其内部是深色圆 Security。两个圆都跨在四个色块的交界处，表示与四域都接触；Security 画在 Integration 里面只是叠放，正文明确否认子集关系。",
+    "key_points_zh": [
+      "四个域及关注点：Business 处理应当做或正在做什么，以及在哪里、如何、为何做；Data & Information 关注哪些数据需要采集、作为决策依据并被引用。",
+      "Applications 关注应采用何种自动化与简化、正在使用什么；Technology 关注使用哪些机械与设施，包括计算、供暖与制冷。",
+      "中央 Integration 圆说明如何在企业内外移动数据/信息；它覆盖四个色块，表示集成是跨域的。",
+      "中央 Security 圆说明谁可以查看/执行什么、以及何时；它是横切关注点，贯穿整个 EA。",
+      "正文明确：图中的可视化不表示一个域是另一个域的子集；含义是集成域与安全域“触及”业务、数据、应用与技术域。",
+      "安全架构影响并告知业务、应用、数据与技术架构；它可能组织在架构范围之外，但部分内容必须与架构整合开发。",
+      "四个色块没有顺序、层级或成熟度含义，位置只表示四个并列域；两个圆的大小与覆盖面积也没有量化含义。"
+    ],
+    "hierarchy_zh": "没有上下级。四个域是并列的色块；Integration 与 Security 是两个覆盖圆。Security 圆画在 Integration 圆之内，但正文明确否认子集关系，因此不设 parent，也不把它当作 Integration 的子域。",
+    "line_semantics_zh": "图中没有连线或箭头。关系由圆与色块的重叠表达：Integration 与 Security 都跨四个域，表示与四域相交；Security 在 Integration 内部只是图形叠放，不代表包含。",
+    "misreadings_zh": [
+      "不要把 Security 圆读成 Integration 的子域或子集；正文明确说该可视化不表示一个域是另一个域的子集。",
+      "不要把四个色块读成四层堆叠、成熟度阶段或流程顺序；它们是并列的四个架构域。",
+      "不要把 Integration 当作第五个架构域；正文把它与 Security 一起描述为触及四域的集成/横切关注点。",
+      "不要把安全圆画得更小、更靠内理解为安全只作用于局部；它覆盖四个域的交界处。",
+      "图中央偏右的“© The Open Group”落在绿色应用块内，是版权水印，不是应用域的内容。",
+      "中文资产的文字被切成碎片并相互遮挡，不能据其措辞理解各域定义；应以英文原图为准。"
+    ]
+  },
+  "elements": [
+    {
+      "id": "domain_business",
+      "label_en": "Business",
+      "label_zh": "业务域",
+      "type": "architecture",
+      "parent": null,
+      "level": 1,
+      "order": 1,
+      "position": "左上蓝色块，域名在左上角",
+      "description_zh": "Deals with what should or is being done and where, how, and why（处理应当做或正在做什么，以及在哪里、如何、为何做）。"
+    },
+    {
+      "id": "domain_data",
+      "label_en": "Data & Information",
+      "label_zh": "数据与信息域",
+      "type": "architecture",
+      "parent": null,
+      "level": 1,
+      "order": 2,
+      "position": "右上橙色块，域名在右上角",
+      "description_zh": "What data matters to be captured, base decisions upon, and referenced（哪些数据重要、需要采集，作为决策依据并被引用）。"
+    },
+    {
+      "id": "domain_applications",
+      "label_en": "Applications",
+      "label_zh": "应用域",
+      "type": "architecture",
+      "parent": null,
+      "level": 1,
+      "order": 3,
+      "position": "右下绿色块，域名在右下角",
+      "description_zh": "What kind of automation, simplification should be employed and are in use（应采用何种自动化与简化，以及正在使用什么）。"
+    },
+    {
+      "id": "domain_technology",
+      "label_en": "Technology",
+      "label_zh": "技术域",
+      "type": "architecture",
+      "parent": null,
+      "level": 1,
+      "order": 4,
+      "position": "左下灰色块，域名在左下角",
+      "description_zh": "Kinds of machinery and facilities, including computing, heating, cooling are in use（使用哪些机械与设施，包括计算、供暖与制冷）。"
+    },
+    {
+      "id": "integration",
+      "label_en": "Integration",
+      "label_zh": "集成",
+      "type": "architecture",
+      "parent": null,
+      "position": "中央橙色大圆，标签在圆顶部",
+      "description_zh": "How to move data/information within & outside the Enterprise（如何在企业内外移动数据/信息）。"
+    },
+    {
+      "id": "security",
+      "label_en": "Security",
+      "label_zh": "安全",
+      "type": "architecture",
+      "parent": null,
+      "position": "集成圆内的深色小圆",
+      "description_zh": "Who to get to see/do what & when（谁可以查看/执行什么，以及何时）；横切四个域，不表示子集。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_int_business",
+      "from": "integration",
+      "to": "domain_business",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "集成圆跨入业务色块，表示与业务域相交（正文称“触及”）。"
+    },
+    {
+      "id": "r_int_data",
+      "from": "integration",
+      "to": "domain_data",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "集成圆跨入数据与信息色块。"
+    },
+    {
+      "id": "r_int_apps",
+      "from": "integration",
+      "to": "domain_applications",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "集成圆跨入应用色块。"
+    },
+    {
+      "id": "r_int_tech",
+      "from": "integration",
+      "to": "domain_technology",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "集成圆跨入技术色块。"
+    },
+    {
+      "id": "r_sec_business",
+      "from": "security",
+      "to": "domain_business",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "安全圆跨入业务色块；正文说安全架构影响并告知业务架构。"
+    },
+    {
+      "id": "r_sec_data",
+      "from": "security",
+      "to": "domain_data",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "安全圆跨入数据与信息色块。"
+    },
+    {
+      "id": "r_sec_apps",
+      "from": "security",
+      "to": "domain_applications",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "安全圆跨入应用色块。"
+    },
+    {
+      "id": "r_sec_tech",
+      "from": "security",
+      "to": "domain_technology",
+      "type": "influence",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "安全圆跨入技术色块。"
+    },
+    {
+      "id": "r_sec_int",
+      "from": "security",
+      "to": "integration",
+      "type": "association",
+      "explicit": false,
+      "line": "implicit",
+      "arrow": "none",
+      "description_zh": "安全圆画在集成圆内，仅表示图形叠放；正文明确不表示一个域是另一个域的子集。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "legend": [
+    {
+      "symbol": "四个色块（蓝/橙/绿/灰）",
+      "meaning_zh": "四个并列的架构域",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色大圆",
+      "meaning_zh": "Integration（集成域）",
+      "explicit": false
+    },
+    {
+      "symbol": "深色内圆",
+      "meaning_zh": "Security（安全域/横切关注点）",
+      "explicit": false
+    },
+    {
+      "symbol": "圆与色块重叠",
+      "meaning_zh": "与该域相交/触及，不表示子集",
+      "explicit": false
+    }
+  ],
+  "uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "Integration 与 Security 的圆画在四个色块之上，其与各域的重叠范围是示意性的，没有精确边界；“触及”四个域依据正文而非圆的实际覆盖面积。",
+      "Security 位于 Integration 圆内，但正文明确否认子集关系；本分析未设 parent，只记录一条说明性的 association。",
+      "四个色块的顺序（业务、数据、应用、技术）与象限位置是否对应某种标准布局，图中无说明；本分析只按视觉位置记录。",
+      "各域的长句说明在图中是段落文字，本分析将其完整写入 description_zh，中文为解析者转述。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 90 页图 9-4 截图与 2x2 放大分块",
+      "英文 PDF 第 89、90 页正文",
+      "中文稿 G184e_领导者指南_建立并演进EA能力.md 第 983-1004 行",
+      "figs/zh/g184e_fig9-4_zh.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "conflicts": [],
+  "detailed_observation": null,
+  "visual_structure_review": {
+    "id": "G184/fig9-4",
+    "asset": "figs/g184e_fig9-4_en.png",
+    "kind": "en_original",
+    "status": "visual-structure-triage-only",
+    "sheet": "03"
+  }
+}

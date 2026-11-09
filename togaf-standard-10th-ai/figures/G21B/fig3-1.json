@@ -1,0 +1,1560 @@
+{
+  "schema_version": "1.0",
+  "id": "G21B/fig3-1",
+  "status": "done",
+  "doc": {
+    "code": "G21B",
+    "title_zh": "信息架构——客户主数据管理",
+    "title_en": "Information Architecture — Customer Master Data (C-MDM)",
+    "zh_md": "G21Be_信息架构_客户主数据管理.md",
+    "en_pdf": "togaf-standard-10th/G21Be.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-1",
+    "title_en": "C-MDM Capability",
+    "title_zh": "C-MDM 能力的功能构成",
+    "section_en": "3 C-MDM Capability",
+    "section_zh": "3. C-MDM 能力",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        22
+      ],
+      "printed_page": 12,
+      "bboxes": [
+        [
+          61.1,
+          36.0,
+          550.9,
+          314.0
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        256
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21b_fig3-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "09a69a045d5d",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "原图是 ArchiMate 块状图：外层 C-MDM Capability 大框，内含 C-MDM Team（黄色业务功能）与 C-MDM System（蓝色应用功能）两部分，四周再连 9 个外部参与者/系统；SVG 改成了“客户主数据管理”居中、下方 9 个自拟功能框的树形图，完全不同的示意。",
+        "SVG 的 9 个功能（数据获取、数据质量、数据治理、数据服务、安全与合规、度量与价值、参考数据、客户关系）大多不是原图标签：原图业务功能是 C-MDM Capabilities Management and Governance、C-MDM Design、C-MDM Operation、Extension of C-MDM Scope and Usages、External Customer Data Acquisition、Data Quality and Business Value Measure、Communication；应用功能是 Reference Data Management、Data Acquisition、Data Quality Management、Data Privacy Management、Data Access、Quality & Technical Dashboard, Reports, and Audit、Customer Master Data Administration。",
+        "漏掉两个能力主体：C-MDM Team 与 C-MDM System；也漏掉全部 9 个外部参与者/系统（Business Partners、Data Providers、Engagement Teams、Core Operations Teams、Engagement Systems、Core Operations Systems、Business Partner Systems、Business Intelligence & Analytics Platforms、Data Provider Systems）及其连线。",
+        "原图的 ArchiMate 图标（参与者小人、应用组件、能力）在 SVG 中全部丢失，只剩中文文字与自拟连线。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "archimate",
+      "hierarchy"
+    ],
+    "notation": "ArchiMate 块状图：能力大框（右上角能力图标）内嵌套业务参与者/功能（黄色，带小人/功能折角图标）与应用组件/功能（蓝色，带组件/功能图标）；外部元素用橙色（业务）或青色（应用）边框，实线/虚线连接。",
+    "concepts": [
+      "business_capability",
+      "master_data_management",
+      "business_architecture",
+      "application_architecture"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "C-MDM 能力 = 团队（7 项业务功能）+ 系统（7 项应用功能），并连接 9 个外部参与者/系统。",
+    "purpose_zh": "第 3 章开头用一张 ArchiMate 图界定 C-MDM 能力的边界：左边是负责客户数据的组织（C-MDM Team，业务架构），右边是支撑它的信息系统（C-MDM System，信息系统架构），四周是必须交互的业务伙伴、数据提供方、互动/核心运营团队及其系统、BI 平台等，说明 C-MDM 不是单个应用而是“人员 + 流程 + 系统”的组合能力。",
+    "reading_guide_zh": "先看外圈：左上是业务伙伴，左下是数据提供方，上方是互动团队/核心运营团队及其系统，右侧是伙伴系统、BI 与分析平台、数据提供方系统——它们都在 C-MDM Capability 之外。再看中间的大框：左半黄色 C-MDM Team 是业务侧，7 个浅黄小框是它承担的业务功能；右半蓝色 C-MDM System 是系统侧，7 个蓝色小框是应用功能，其中 Reference Data Management、Quality & Technical Dashboard 与 Customer Master Data Administration 是跨功能的支撑块。最后顺着橙色线（业务层）与青色线（应用层）看外部元素如何接入团队或系统。",
+    "key_points_zh": [
+      "C-MDM 能力 = C-MDM Team（人/组织）+ C-MDM System（系统），外层再用一个 Capability 框把它们包住，表示能力是二者组合的结果。",
+      "C-MDM Team 的 7 项业务功能：能力管理与治理、设计、运营、范围与用途扩展、外部客户数据获取、数据质量与业务价值度量、沟通。",
+      "C-MDM System 的 7 项应用功能：参考数据管理、数据采集、数据质量管理、数据隐私管理、数据访问、质量与技术仪表盘/报表/审计、客户主数据管理。",
+      "Reference Data Management、Quality & Technical Dashboard, Reports, and Audit 与 Customer Master Data Administration 在版式上纵贯或横贯其他功能块，表示它们是支撑其他功能的基础能力。",
+      "外部有 4 类业务参与者（业务伙伴、数据提供方、互动团队、核心运营团队）和 5 类系统（互动系统、核心运营系统、业务伙伴系统、BI 与分析平台、数据提供方系统）。",
+      "业务伙伴同时接入互动团队、核心运营团队与 C-MDM Team；数据提供方接入 C-MDM Team；互动团队以虚线接入 C-MDM Team，核心运营团队以实线接入。",
+      "应用侧：互动系统、核心运营系统、业务伙伴系统、BI 平台、数据提供方系统都接入 C-MDM System；互动系统用虚线，其余用实线。",
+      "该图只表达“谁与谁相连”，不表达数据流向；数据流/交换模式在第 6 章（图 6-1 至 6-5）才展开。"
+    ],
+    "hierarchy_zh": "三层：第 1 层 C-MDM Capability（最外层大框）；第 2 层 C-MDM Team 与 C-MDM System（能力的两大组成部分）；第 3 层各自内部的功能（Team 7 项业务功能、System 7 项应用功能）。外部 9 个参与者/系统不属于该能力，画在框外。",
+    "line_semantics_zh": "橙色线表示业务层连接，青色线表示应用层连接；实线表示直接相连，虚线（Engagement Teams→C-MDM Team、Engagement Systems→C-MDM System）表示较间接/非直接的交互。所有线都没有箭头，因此图只表达关联，不表达方向或数据流。外部业务伙伴同时连到两个内部团队，说明它是共同的交互对象。",
+    "misreadings_zh": [
+      "不要把 C-MDM Team 与 C-MDM System 读成上下级：二者是同一能力的业务侧与系统侧，并列组成能力。",
+      "C-MDM System 内的 Reference Data Management 等不是“子流程”，而是与其他应用功能并列、但被画成跨块以表示其支撑范围较广的功能。",
+      "图没有箭头，不能据此判断数据从外部系统流向 C-MDM；数据流向与同步/异步方式见图 4-2 与图 6-2 至 6-5。",
+      "中文稿引用的 figs/g21b_fig3-1.svg 是自拟的功能树，功能名与外部元素都与原图不符，不能作为理解本图的依据。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p21",
+        "summary_zh": "C-MDM 能力由业务功能与应用功能构成，需要组织良好的团队（业务架构）与经过适配的信息系统（信息系统架构）；能力由客户数据所有者高管负责，相关参与者见图 3-1。"
+      },
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "C-MDM 业务功能由数据所有者/数据管家、数据经理、架构师等参与者共同负责；表 3-1 给出 7 项高层业务功能的说明，详细参考模型见第 5 章。"
+      },
+      {
+        "source": "zh_md L252",
+        "summary_zh": "C-MDM 能力由业务功能与应用功能构成，需要组织良好的团队与经过适配的信息系统；挑战是在自动化与人工流程之间取得平衡。"
+      },
+      {
+        "source": "zh_md L266",
+        "summary_zh": "表 3-1 列出 C-MDM 能力管理与治理、设计、运营、范围与用途扩展、沟通、外部客户数据获取、数据质量与业务价值度量 7 项业务功能。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "外部元素分列四周：左侧上下为 Business Partners、Data Providers；上方为 Engagement Teams / Core Operations Teams 与 Engagement Systems / Core Operations Systems；右侧自上而下为 Business Partner Systems、Business Intelligence & Analytics Platforms、Data Provider Systems。中央大框内左黄右蓝：C-MDM Team 与 C-MDM System。"
+  },
+  "legend": [
+    {
+      "symbol": "橙色边框（业务层）",
+      "meaning_zh": "业务参与者及其之间的连接",
+      "explicit": false
+    },
+    {
+      "symbol": "青色边框（应用层）",
+      "meaning_zh": "应用组件/系统及其之间的连接",
+      "explicit": false
+    },
+    {
+      "symbol": "黄色框（小人图标）",
+      "meaning_zh": "业务参与者；黄色大框为 C-MDM Team",
+      "explicit": false
+    },
+    {
+      "symbol": "蓝色框（应用组件图标）",
+      "meaning_zh": "应用组件；蓝色大框为 C-MDM System",
+      "explicit": false
+    },
+    {
+      "symbol": "浅黄小框（折角箭头图标）",
+      "meaning_zh": "业务功能（ArchiMate Business Function）",
+      "explicit": false
+    },
+    {
+      "symbol": "蓝色小框（折角箭头图标）",
+      "meaning_zh": "应用功能（ArchiMate Application Function）",
+      "explicit": false
+    },
+    {
+      "symbol": "实线 / 虚线",
+      "meaning_zh": "实线=直接交互；虚线=较间接的交互（依据线条样式推断，原图无图例）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "c_mdm_capability",
+      "label_en": "C-MDM Capability",
+      "label_zh": "C-MDM 能力",
+      "type": "capability",
+      "parent": null,
+      "level": 1,
+      "description_zh": "最外层大框，包含团队与系统两部分。"
+    },
+    {
+      "id": "c_mdm_team",
+      "label_en": "C-MDM Team",
+      "label_zh": "C-MDM 团队",
+      "type": "organization_unit",
+      "parent": "c_mdm_capability",
+      "level": 2
+    },
+    {
+      "id": "c_mdm_system",
+      "label_en": "C-MDM System",
+      "label_zh": "C-MDM 系统",
+      "type": "application",
+      "parent": "c_mdm_capability",
+      "level": 2
+    },
+    {
+      "id": "bf_governance",
+      "label_en": "C-MDM Capabilities Management and Governance",
+      "label_zh": "C-MDM 能力管理与治理",
+      "type": "function",
+      "parent": "c_mdm_team",
+      "level": 3
+    },
+    {
+      "id": "bf_design",
+      "label_en": "C-MDM Design",
+      "label_zh": "C-MDM 设计",
+      "type": "function",
+      "parent": "c_mdm_team",
+      "level": 3
+    },
+    {
+      "id": "bf_operation",
+      "label_en": "C-MDM Operation",
+      "label_zh": "C-MDM 运营",
+      "type": "function",
+      "parent": "c_mdm_team",
+      "level": 3
+    },
+    {
+      "id": "bf_extension",
+      "label_en": "Extension of C-MDM Scope and Usages",
+      "label_zh": "C-MDM 范围与用途扩展",
+      "type": "function",
+      "parent": "c_mdm_team",
+      "level": 3
+    },
+    {
+      "id": "bf_external_acq",
+      "label_en": "External Customer Data Acquisition",
+      "label_zh": "外部客户数据获取",
+      "type": "function",
+      "parent": "c_mdm_team",
+      "level": 3
+    },
+    {
+      "id": "bf_dq_value",
+      "label_en": "Data Quality and Business Value Measure",
+      "label_zh": "数据质量与业务价值度量",
+      "type": "function",
+      "parent": "c_mdm_team",
+      "level": 3
+    },
+    {
+      "id": "bf_communication",
+      "label_en": "Communication",
+      "label_zh": "沟通",
+      "type": "function",
+      "parent": "c_mdm_team",
+      "level": 3
+    },
+    {
+      "id": "af_reference_data",
+      "label_en": "Reference Data Management",
+      "label_zh": "参考数据管理",
+      "type": "function",
+      "parent": "c_mdm_system",
+      "level": 3
+    },
+    {
+      "id": "af_acquisition",
+      "label_en": "Data Acquisition",
+      "label_zh": "数据采集",
+      "type": "function",
+      "parent": "c_mdm_system",
+      "level": 3
+    },
+    {
+      "id": "af_dq",
+      "label_en": "Data Quality Management",
+      "label_zh": "数据质量管理",
+      "type": "function",
+      "parent": "c_mdm_system",
+      "level": 3
+    },
+    {
+      "id": "af_privacy",
+      "label_en": "Data Privacy Management",
+      "label_zh": "数据隐私管理",
+      "type": "function",
+      "parent": "c_mdm_system",
+      "level": 3
+    },
+    {
+      "id": "af_access",
+      "label_en": "Data Access",
+      "label_zh": "数据访问",
+      "type": "function",
+      "parent": "c_mdm_system",
+      "level": 3
+    },
+    {
+      "id": "af_dashboard",
+      "label_en": "Quality & Technical Dashboard, Reports, and Audit",
+      "label_zh": "质量与技术仪表盘、报表与审计",
+      "type": "function",
+      "parent": "c_mdm_system",
+      "level": 3
+    },
+    {
+      "id": "af_admin",
+      "label_en": "Customer Master Data Administration",
+      "label_zh": "客户主数据管理（系统管理功能）",
+      "type": "function",
+      "parent": "c_mdm_system",
+      "level": 3
+    },
+    {
+      "id": "x_business_partners",
+      "label_en": "Business Partners",
+      "label_zh": "业务伙伴",
+      "type": "actor",
+      "parent": null,
+      "position": "左上"
+    },
+    {
+      "id": "x_data_providers",
+      "label_en": "Data Providers",
+      "label_zh": "数据提供方",
+      "type": "actor",
+      "parent": null,
+      "position": "左下"
+    },
+    {
+      "id": "x_engagement_teams",
+      "label_en": "Engagement Teams",
+      "label_zh": "互动团队",
+      "type": "actor",
+      "parent": null,
+      "position": "上排左"
+    },
+    {
+      "id": "x_core_ops_teams",
+      "label_en": "Core Operations Teams",
+      "label_zh": "核心业务运营团队",
+      "type": "actor",
+      "parent": null,
+      "position": "上排中"
+    },
+    {
+      "id": "x_engagement_systems",
+      "label_en": "Engagement Systems",
+      "label_zh": "互动系统",
+      "type": "application",
+      "parent": null,
+      "position": "上排右"
+    },
+    {
+      "id": "x_core_ops_systems",
+      "label_en": "Core Operations Systems",
+      "label_zh": "核心业务运营系统",
+      "type": "application",
+      "parent": null,
+      "position": "上排右中"
+    },
+    {
+      "id": "x_bp_systems",
+      "label_en": "Business Partner Systems",
+      "label_zh": "业务伙伴系统",
+      "type": "application",
+      "parent": null,
+      "position": "右上"
+    },
+    {
+      "id": "x_bi_platforms",
+      "label_en": "Business Intelligence & Analytics Platforms",
+      "label_zh": "商业智能与分析平台",
+      "type": "application",
+      "parent": null,
+      "position": "右中"
+    },
+    {
+      "id": "x_dp_systems",
+      "label_en": "Data Provider Systems",
+      "label_zh": "数据提供方系统",
+      "type": "application",
+      "parent": null,
+      "position": "右下"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r1",
+      "from": "x_business_partners",
+      "to": "x_engagement_teams",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "橙色业务层连线，横向。"
+    },
+    {
+      "id": "r2",
+      "from": "x_business_partners",
+      "to": "x_core_ops_teams",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "橙色业务层连线。"
+    },
+    {
+      "id": "r3",
+      "from": "x_business_partners",
+      "to": "c_mdm_team",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "橙色线从 Business Partners 右缘下行接入 C-MDM Team 左缘中部。"
+    },
+    {
+      "id": "r4",
+      "from": "x_data_providers",
+      "to": "c_mdm_team",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "橙色线从 Data Providers 右缘接入 C-MDM Team 左下角。"
+    },
+    {
+      "id": "r5",
+      "from": "x_engagement_teams",
+      "to": "c_mdm_team",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none",
+      "description_zh": "橙色虚线，从 Engagement Teams 下缘垂直接入 C-MDM Team 上缘。"
+    },
+    {
+      "id": "r6",
+      "from": "x_core_ops_teams",
+      "to": "c_mdm_team",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "橙色实线短连接，从 Core Operations Teams 下缘接入 C-MDM Team 上缘。"
+    },
+    {
+      "id": "r7",
+      "from": "x_engagement_systems",
+      "to": "x_bp_systems",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "青色应用层连线，Engagement Systems 右缘 → Business Partner Systems 左缘。"
+    },
+    {
+      "id": "r8",
+      "from": "x_core_ops_systems",
+      "to": "x_bp_systems",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "青色应用层连线，Core Operations Systems 右缘 → Business Partner Systems 左缘。"
+    },
+    {
+      "id": "r9",
+      "from": "x_bp_systems",
+      "to": "c_mdm_system",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "青色连线接入 C-MDM System 右缘上部。"
+    },
+    {
+      "id": "r10",
+      "from": "x_bi_platforms",
+      "to": "c_mdm_system",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "青色连线接入 C-MDM System 右缘中部。"
+    },
+    {
+      "id": "r11",
+      "from": "x_dp_systems",
+      "to": "c_mdm_system",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "青色连线接入 C-MDM System 右缘下部（Customer Master Data Administration 一侧）。"
+    },
+    {
+      "id": "r12",
+      "from": "x_engagement_systems",
+      "to": "c_mdm_system",
+      "type": "association",
+      "explicit": true,
+      "line": "dashed",
+      "arrow": "none",
+      "description_zh": "青色虚线，从 Engagement Systems 下缘垂直接入 C-MDM System 上缘。"
+    },
+    {
+      "id": "r13",
+      "from": "x_core_ops_systems",
+      "to": "c_mdm_system",
+      "type": "association",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "none",
+      "description_zh": "青色实线短连接，从 Core Operations Systems 下缘接入 C-MDM System 上缘。"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G21B/fig5-3",
+      "relation": "overview_of",
+      "note_zh": "本图给出 C-MDM Team 的 7 项高层业务功能；图 5-3 把它们细化为 29 项详细业务功能并补充角色。"
+    },
+    {
+      "target": "G21B/fig5-4",
+      "relation": "overview_of",
+      "note_zh": "本图给出 C-MDM System 的 7 项高层应用功能；图 5-4 把它们细化为详细应用功能参考模型。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图无图例，虚线（Engagement Teams/Systems 到 C-MDM）的确切语义未说明，本分析只按“较间接交互”描述。",
+      "C-MDM System 内三个跨块功能（Reference Data Management、Quality & Technical Dashboard、Customer Master Data Administration）的边界在纵向上覆盖多个功能，无法确定它们是否是其他功能的父级；本分析按并列处理。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 22 页原图截图及 2×2 放大分块",
+      "英文 PDF 第 21–23 页正文与表 3-1",
+      "中文稿 G21Be_信息架构_客户主数据管理.md 第 242–258、266–272 行",
+      "figs/g21b_fig3-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Be.pdf",
+    "pdf_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21B/fig3-1.json",
+    "interpretation_sha256": "6b45eb1b45015e642bbb140c1a73257362bd3a5bb976d1639254b7d902318878",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 22,
+        "text": "Figure 3-1: C-MDM Capability",
+        "bbox_pdf_points": [
+          48.24,
+          318.696,
+          188.119,
+          332.262
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 22,
+      "printed_page": 12,
+      "bbox_pdf_points": [
+        61.1,
+        36.0,
+        550.9,
+        314.0
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21B/fig3-1-p0022.png",
+      "image_sha256": "dfe73af8b668b4fb5418423786fd278dafec43edea7aba95242729236d8a2d8e",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "dfe73af8b668b4fb5418423786fd278dafec43edea7aba95242729236d8a2d8e",
+          "status": "extracted-unverified",
+          "text": "zg\nEngagement Teams\nEngagement Systems\nEa]\n@]\nBusiness\nBusiness\nPartners\nPartner\n@)\nCore Operations %\nCore Operations\nSystems\nTeams\nSystems\nC-MDM Team\nC-MDM System\n~—___\n‘C-MDM Capabilities\nData Acquisition\nManagement and Governance\n@\nwa\na\nwn\nBusiness\nC-MDM Design\nData Qu\nity\nQuality &\nReference\nManagement\nTechnical\nH Intelligence\nExternal\nData\nDashboard,\n&\nData Quality\nManagement\nRepor\nCustomer\nC-MDM Operation\nand Business\nData Privacy\nand Au\nAnalytics\ng\nData\nValue\nManagement\nPlatforms\nData\nAcquisition\nMeasure\n> Extension of\nProviders\nC-MDM Scope and\nData Access\nUsages\n@]\n4\nData\n‘Communication\nCustomer Master Data Administration\nProvider\nSystems\nC-MDM Capability",
+          "words": [
+            {
+              "text": "zg",
+              "confidence": 20.705442,
+              "bbox_pixels_xywh": [
+                99,
+                12,
+                10,
+                16
+              ]
+            },
+            {
+              "text": "Engagement",
+              "confidence": 95.705666,
+              "bbox_pixels_xywh": [
+                230,
+                17,
+                97,
+                17
+              ]
+            },
+            {
+              "text": "Teams",
+              "confidence": 96.93396,
+              "bbox_pixels_xywh": [
+                332,
+                17,
+                52,
+                13
+              ]
+            },
+            {
+              "text": "Engagement",
+              "confidence": 95.979012,
+              "bbox_pixels_xywh": [
+                592,
+                17,
+                98,
+                17
+              ]
+            },
+            {
+              "text": "Systems",
+              "confidence": 96.464371,
+              "bbox_pixels_xywh": [
+                695,
+                17,
+                66,
+                17
+              ]
+            },
+            {
+              "text": "Ea]",
+              "confidence": 18.311272,
+              "bbox_pixels_xywh": [
+                836,
+                11,
+                17,
+                16
+              ]
+            },
+            {
+              "text": "@]",
+              "confidence": 25.290245,
+              "bbox_pixels_xywh": [
+                947,
+                11,
+                17,
+                16
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.625694,
+              "bbox_pixels_xywh": [
+                27,
+                38,
+                69,
+                13
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.619637,
+              "bbox_pixels_xywh": [
+                885,
+                38,
+                70,
+                13
+              ]
+            },
+            {
+              "text": "Partners",
+              "confidence": 96.640602,
+              "bbox_pixels_xywh": [
+                30,
+                59,
+                64,
+                13
+              ]
+            },
+            {
+              "text": "Partner",
+              "confidence": 91.723969,
+              "bbox_pixels_xywh": [
+                892,
+                59,
+                57,
+                13
+              ]
+            },
+            {
+              "text": "@)",
+              "confidence": 40.783524,
+              "bbox_pixels_xywh": [
+                836,
+                73,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "Core",
+              "confidence": 95.977737,
+              "bbox_pixels_xywh": [
+                156,
+                79,
+                36,
+                13
+              ]
+            },
+            {
+              "text": "Operations",
+              "confidence": 89.836479,
+              "bbox_pixels_xywh": [
+                199,
+                79,
+                83,
+                16
+              ]
+            },
+            {
+              "text": "%",
+              "confidence": 73.988365,
+              "bbox_pixels_xywh": [
+                297,
+                75,
+                9,
+                16
+              ]
+            },
+            {
+              "text": "Core",
+              "confidence": 96.794174,
+              "bbox_pixels_xywh": [
+                681,
+                79,
+                37,
+                13
+              ]
+            },
+            {
+              "text": "Operations",
+              "confidence": 89.28862,
+              "bbox_pixels_xywh": [
+                723,
+                79,
+                84,
+                16
+              ]
+            },
+            {
+              "text": "Systems",
+              "confidence": 96.000648,
+              "bbox_pixels_xywh": [
+                887,
+                80,
+                66,
+                17
+              ]
+            },
+            {
+              "text": "Teams",
+              "confidence": 96.432228,
+              "bbox_pixels_xywh": [
+                193,
+                100,
+                52,
+                13
+              ]
+            },
+            {
+              "text": "Systems",
+              "confidence": 83.026573,
+              "bbox_pixels_xywh": [
+                711,
+                100,
+                66,
+                16
+              ]
+            },
+            {
+              "text": "C-MDM",
+              "confidence": 91.845482,
+              "bbox_pixels_xywh": [
+                229,
+                147,
+                84,
+                19
+              ]
+            },
+            {
+              "text": "Team",
+              "confidence": 96.715607,
+              "bbox_pixels_xywh": [
+                322,
+                147,
+                63,
+                19
+              ]
+            },
+            {
+              "text": "C-MDM",
+              "confidence": 92.324547,
+              "bbox_pixels_xywh": [
+                584,
+                147,
+                85,
+                19
+              ]
+            },
+            {
+              "text": "System",
+              "confidence": 95.848808,
+              "bbox_pixels_xywh": [
+                678,
+                147,
+                88,
+                24
+              ]
+            },
+            {
+              "text": "~—___",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                861,
+                178,
+                108,
+                9
+              ]
+            },
+            {
+              "text": "‘C-MDM",
+              "confidence": 2.304649,
+              "bbox_pixels_xywh": [
+                247,
+                185,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "Capabilities",
+              "confidence": 96.524117,
+              "bbox_pixels_xywh": [
+                294,
+                185,
+                70,
+                12
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 95.367996,
+              "bbox_pixels_xywh": [
+                624,
+                193,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 95.367996,
+              "bbox_pixels_xywh": [
+                655,
+                193,
+                67,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 77.653992,
+              "bbox_pixels_xywh": [
+                216,
+                201,
+                77,
+                11
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.863281,
+              "bbox_pixels_xywh": [
+                297,
+                201,
+                21,
+                9
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 94.013046,
+              "bbox_pixels_xywh": [
+                323,
+                201,
+                72,
+                9
+              ]
+            },
+            {
+              "text": "@",
+              "confidence": 62.81403,
+              "bbox_pixels_xywh": [
+                947,
+                204,
+                17,
+                16
+              ]
+            },
+            {
+              "text": "wa",
+              "confidence": 36.991272,
+              "bbox_pixels_xywh": [
+                136,
+                235,
+                17,
+                10
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 61.615788,
+              "bbox_pixels_xywh": [
+                234,
+                235,
+                17,
+                10
+              ]
+            },
+            {
+              "text": "wn",
+              "confidence": 49.952065,
+              "bbox_pixels_xywh": [
+                380,
+                235,
+                17,
+                10
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.898941,
+              "bbox_pixels_xywh": [
+                885,
+                227,
+                70,
+                14
+              ]
+            },
+            {
+              "text": "C-MDM",
+              "confidence": 46.386978,
+              "bbox_pixels_xywh": [
+                256,
+                250,
+                42,
+                9
+              ]
+            },
+            {
+              "text": "Design",
+              "confidence": 96.926224,
+              "bbox_pixels_xywh": [
+                303,
+                250,
+                40,
+                12
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.660629,
+              "bbox_pixels_xywh": [
+                637,
+                241,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Qu",
+              "confidence": 89.579788,
+              "bbox_pixels_xywh": [
+                668,
+                241,
+                16,
+                10
+              ]
+            },
+            {
+              "text": "ity",
+              "confidence": 84.176147,
+              "bbox_pixels_xywh": [
+                699,
+                242,
+                11,
+                11
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 92.480873,
+              "bbox_pixels_xywh": [
+                775,
+                242,
+                42,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 85.577583,
+              "bbox_pixels_xywh": [
+                822,
+                242,
+                8,
+                10
+              ]
+            },
+            {
+              "text": "Reference",
+              "confidence": 93.7836,
+              "bbox_pixels_xywh": [
+                513,
+                257,
+                60,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 93.791893,
+              "bbox_pixels_xywh": [
+                635,
+                256,
+                77,
+                12
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 92.983955,
+              "bbox_pixels_xywh": [
+                773,
+                258,
+                58,
+                9
+              ]
+            },
+            {
+              "text": "H",
+              "confidence": 60.288948,
+              "bbox_pixels_xywh": [
+                857,
+                238,
+                9,
+                33
+              ]
+            },
+            {
+              "text": "Intelligence",
+              "confidence": 91.624718,
+              "bbox_pixels_xywh": [
+                877,
+                248,
+                86,
+                17
+              ]
+            },
+            {
+              "text": "External",
+              "confidence": 91.870003,
+              "bbox_pixels_xywh": [
+                154,
+                281,
+                48,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.98436,
+              "bbox_pixels_xywh": [
+                530,
+                273,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Dashboard,",
+              "confidence": 95.507713,
+              "bbox_pixels_xywh": [
+                768,
+                273,
+                65,
+                9
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 91.614937,
+              "bbox_pixels_xywh": [
+                914,
+                269,
+                11,
+                13
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.054169,
+              "bbox_pixels_xywh": [
+                392,
+                282,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 96.054169,
+              "bbox_pixels_xywh": [
+                423,
+                282,
+                42,
+                11
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 94.542435,
+              "bbox_pixels_xywh": [
+                505,
+                288,
+                76,
+                12
+              ]
+            },
+            {
+              "text": "Repor",
+              "confidence": 26.709362,
+              "bbox_pixels_xywh": [
+                777,
+                288,
+                31,
+                12
+              ]
+            },
+            {
+              "text": "Customer",
+              "confidence": 96.112091,
+              "bbox_pixels_xywh": [
+                149,
+                296,
+                58,
+                9
+              ]
+            },
+            {
+              "text": "C-MDM",
+              "confidence": 54.056702,
+              "bbox_pixels_xywh": [
+                247,
+                303,
+                42,
+                9
+              ]
+            },
+            {
+              "text": "Operation",
+              "confidence": 96.809715,
+              "bbox_pixels_xywh": [
+                294,
+                303,
+                58,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.846848,
+              "bbox_pixels_xywh": [
+                388,
+                297,
+                21,
+                9
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 83.97509,
+              "bbox_pixels_xywh": [
+                414,
+                297,
+                55,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.534218,
+              "bbox_pixels_xywh": [
+                635,
+                296,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Privacy",
+              "confidence": 93.912056,
+              "bbox_pixels_xywh": [
+                666,
+                296,
+                45,
+                11
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 91.769623,
+              "bbox_pixels_xywh": [
+                773,
+                303,
+                22,
+                9
+              ]
+            },
+            {
+              "text": "Au",
+              "confidence": 92.529312,
+              "bbox_pixels_xywh": [
+                799,
+                303,
+                16,
+                9
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 89.953232,
+              "bbox_pixels_xywh": [
+                885,
+                290,
+                69,
+                17
+              ]
+            },
+            {
+              "text": "g",
+              "confidence": 27.887093,
+              "bbox_pixels_xywh": [
+                99,
+                305,
+                10,
+                16
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.965515,
+              "bbox_pixels_xywh": [
+                165,
+                311,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Value",
+              "confidence": 93.53669,
+              "bbox_pixels_xywh": [
+                412,
+                312,
+                33,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 94.475311,
+              "bbox_pixels_xywh": [
+                635,
+                311,
+                76,
+                12
+              ]
+            },
+            {
+              "text": "Platforms",
+              "confidence": 96.869049,
+              "bbox_pixels_xywh": [
+                884,
+                311,
+                72,
+                13
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.412605,
+              "bbox_pixels_xywh": [
+                44,
+                329,
+                35,
+                12
+              ]
+            },
+            {
+              "text": "Acquisition",
+              "confidence": 95.59726,
+              "bbox_pixels_xywh": [
+                144,
+                327,
+                68,
+                11
+              ]
+            },
+            {
+              "text": "Measure",
+              "confidence": 96.929405,
+              "bbox_pixels_xywh": [
+                404,
+                327,
+                49,
+                9
+              ]
+            },
+            {
+              "text": ">",
+              "confidence": 41.963978,
+              "bbox_pixels_xywh": [
+                234,
+                340,
+                17,
+                10
+              ]
+            },
+            {
+              "text": "Extension",
+              "confidence": 86.868614,
+              "bbox_pixels_xywh": [
+                262,
+                340,
+                60,
+                9
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 93.404442,
+              "bbox_pixels_xywh": [
+                326,
+                340,
+                12,
+                9
+              ]
+            },
+            {
+              "text": "Providers",
+              "confidence": 84.387665,
+              "bbox_pixels_xywh": [
+                26,
+                350,
+                72,
+                12
+              ]
+            },
+            {
+              "text": "C-MDM",
+              "confidence": 63.586426,
+              "bbox_pixels_xywh": [
+                245,
+                355,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "Scope",
+              "confidence": 96.610878,
+              "bbox_pixels_xywh": [
+                292,
+                355,
+                36,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 95.557922,
+              "bbox_pixels_xywh": [
+                333,
+                355,
+                21,
+                10
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.794151,
+              "bbox_pixels_xywh": [
+                636,
+                354,
+                26,
+                9
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 86.736412,
+              "bbox_pixels_xywh": [
+                667,
+                354,
+                43,
+                9
+              ]
+            },
+            {
+              "text": "Usages",
+              "confidence": 89.771652,
+              "bbox_pixels_xywh": [
+                278,
+                371,
+                44,
+                11
+              ]
+            },
+            {
+              "text": "@]",
+              "confidence": 35.186024,
+              "bbox_pixels_xywh": [
+                947,
+                359,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 58.581387,
+              "bbox_pixels_xywh": [
+                861,
+                396,
+                10,
+                5
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 97.007927,
+              "bbox_pixels_xywh": [
+                902,
+                383,
+                35,
+                14
+              ]
+            },
+            {
+              "text": "‘Communication",
+              "confidence": 76.82016,
+              "bbox_pixels_xywh": [
+                260,
+                418,
+                95,
+                9
+              ]
+            },
+            {
+              "text": "Customer",
+              "confidence": 94.96138,
+              "bbox_pixels_xywh": [
+                559,
+                415,
+                58,
+                10
+              ]
+            },
+            {
+              "text": "Master",
+              "confidence": 96.46917,
+              "bbox_pixels_xywh": [
+                622,
+                415,
+                40,
+                10
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.167931,
+              "bbox_pixels_xywh": [
+                666,
+                415,
+                26,
+                10
+              ]
+            },
+            {
+              "text": "Administration",
+              "confidence": 96.869339,
+              "bbox_pixels_xywh": [
+                697,
+                415,
+                88,
+                10
+              ]
+            },
+            {
+              "text": "Provider",
+              "confidence": 96.856041,
+              "bbox_pixels_xywh": [
+                888,
+                404,
+                65,
+                13
+              ]
+            },
+            {
+              "text": "Systems",
+              "confidence": 95.717888,
+              "bbox_pixels_xywh": [
+                887,
+                425,
+                66,
+                17
+              ]
+            },
+            {
+              "text": "C-MDM",
+              "confidence": 91.741669,
+              "bbox_pixels_xywh": [
+                379,
+                491,
+                95,
+                22
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 95.837029,
+              "bbox_pixels_xywh": [
+                485,
+                491,
+                135,
+                27
+              ]
+            }
+          ],
+          "mean_word_confidence": 82.57,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

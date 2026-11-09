@@ -1,0 +1,326 @@
+{
+  "schema_version": "cross-guide-case-verification/1",
+  "passed": true,
+  "checks": [
+    {
+      "id": "candidate-no-ranking",
+      "passed": true,
+      "evidence": "CASE-BASELINE缺少一致性与承诺目标；候选A/B仍保留，且SPEC-ONLINE明确记录不可定优并追溯REQ-CONSISTENCY。"
+    },
+    {
+      "id": "offline-interface-risk-transition-tests",
+      "passed": true,
+      "evidence": "CASE-CHANGE要求断连受理；接口、存储、风险、过渡及恢复演练联动。"
+    },
+    {
+      "id": "online-sync-still-candidate",
+      "passed": true,
+      "evidence": "离线约束未把在线同步能力一概删除。"
+    },
+    {
+      "id": "confirmed-before-logistics",
+      "passed": true,
+      "evidence": "原始材料明确物流只使用确认订单；无待确认直达物流边。"
+    },
+    {
+      "id": "local-central-controls-separated",
+      "passed": true,
+      "evidence": "门店掉电/丢失与中央重放/对账分属不同候选控制范围，责任待确认。"
+    },
+    {
+      "id": "capacity-and-period-open",
+      "passed": true,
+      "evidence": "ASSIGN-A11/30到期，离线工作包12/04；不延长配置或凭可用小时认定充分。"
+    },
+    {
+      "id": "observations-not-upgraded",
+      "passed": true,
+      "evidence": "培训/新增目标不提高人员等级；甲和专家当前均缺充分评价证据。"
+    },
+    {
+      "id": "role-scope-and-decisions",
+      "passed": true,
+      "evidence": "经营、跨分段及库存决策都有待定输入，未编造委员会授权。"
+    },
+    {
+      "id": "impact-includes-role-development-decisions",
+      "passed": true,
+      "evidence": "影响遍历包含技能发展与决策上下文；可达仍仅代表人工复核候选。"
+    },
+    {
+      "id": "shared-object-id-stable",
+      "passed": true,
+      "evidence": "实际变更名称与定义，保持CAP-RESERVE身份。"
+    },
+    {
+      "id": "catalog-matrix-roadmap-agree",
+      "passed": true,
+      "evidence": "三种投影均有变更后的同一对象，未靠空集合通过。"
+    },
+    {
+      "id": "diagram-agrees-with-object",
+      "passed": true,
+      "evidence": "可编辑SVG标签及制品JSON定义均更新；第三版现已同时生成PNG；PNG视觉记录单独核对。"
+    },
+    {
+      "id": "bypass-confirmation",
+      "passed": true,
+      "evidence": "针对原始业务约束注入反例，必须被本地案例接受门槛拒绝。"
+    },
+    {
+      "id": "premature-approval",
+      "passed": true,
+      "evidence": "针对原始业务约束注入反例，必须被本地案例接受门槛拒绝。"
+    }
+  ],
+  "source_method_links": [
+    {
+      "guide": "G184",
+      "rule_id": "G184:chapter-review:4.2.6:rule03",
+      "rule": {
+        "kind": "scope-condition-decision",
+        "statement_zh": "识别实际授权与支持模式，不能把组织图或 RACI 表的存在直接当作授权已经成立。",
+        "boundary_zh": "",
+        "evidence": [
+          {
+            "source_unit_id": "G184:p0040:c003",
+            "pdf_page": 40,
+            "source_block_ids": [
+              "G184:p0040:b013",
+              "G184:p0040:b014",
+              "G184:p0040:b015"
+            ],
+            "quote_en": "empowerment, freedom, political, and financial support",
+            "source_path": "togaf-standard-10th/G184e.pdf",
+            "source_sha256": "85fe5653767b184c3c8c9c1bef9f5738adbb2bf6661fb50ee95e72d16bc9f614"
+          }
+        ],
+        "id": "G184:chapter-review:4.2.6:rule03"
+      },
+      "published_sha256": "88b87b16d66c740d5da9cb88d549ac4632baa368b8ac6c73072b53afa0ce0155",
+      "case_interpretation_zh": "工作委托不等于审批权",
+      "output_binding": "DELIVERY-NOTE decision_agenda及人员配置approval",
+      "relation_origin": "project-derived-guide-to-case-mapping"
+    },
+    {
+      "guide": "G186",
+      "rule_id": "G186:3.2:rule01",
+      "rule": {
+        "id": "G186:3.2:rule01",
+        "kind": "source-semantic-rule",
+        "statement_zh": "EA 帮助利益相关者在竞争性偏好之间知情权衡。",
+        "boundary_zh": "局部创新仍须满足整合战略和扩展企业的协同需要。",
+        "evidence": [
+          {
+            "source_unit_id": "G186:p0026:c006",
+            "pdf_page": 26,
+            "source_block_ids": [
+              "G186:p0026:b030",
+              "G186:p0026:b031",
+              "G186:p0026:b032",
+              "G186:p0026:b033"
+            ],
+            "quote_en": "In short, a good EA enables stakeholders to knowingly strike the right balance between any competing set of preferences. It allows individual business units to innovate safely in their pursuit of business value delivery. At the same time, it ensures the needs of the organization for an integrated strategy are met, permitting the closest possible synergy across the extended Enterprise.",
+            "source_path": "togaf-standard-10th/G186e.pdf",
+            "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a"
+          }
+        ]
+      },
+      "published_sha256": "95b29c68c5e70fd04e1adbc7f69dd7c5ebab8b7e82f45ee23103b7dbfefc8c9a",
+      "case_interpretation_zh": "在相互竞争偏好间准备知情权衡",
+      "output_binding": "同步/异步候选比较，缺一致性不排名",
+      "relation_origin": "project-derived-guide-to-case-mapping"
+    },
+    {
+      "guide": "G186",
+      "rule_id": "G186:5.1.1:rule01",
+      "rule": {
+        "id": "G186:5.1.1:rule01",
+        "kind": "source-semantic-rule",
+        "statement_zh": "四种状态为现状、目标、过渡与候选，目标以利益相关者批准为前提。",
+        "boundary_zh": "候选尚无足够批准来治理变更；过渡是部分实现的目标，不等于任意草稿。",
+        "evidence": [
+          {
+            "source_unit_id": "G186:p0050:c006",
+            "pdf_page": 50,
+            "source_block_ids": [
+              "G186:p0050:b075",
+              "G186:p0050:b076",
+              "G186:p0050:b077",
+              "G186:p0050:b078",
+              "G186:p0050:b079",
+              "G186:p0050:b080",
+              "G186:p0050:b081",
+              "G186:p0050:b082"
+            ],
+            "quote_en": "One of the most challenging aspects of a well-run repository is managing transitions over time. In most simple terms, every architecture will exist in up to four states. The current state is what exists in the Enterprise today; this baseline provides the reference for all change. The target state[2] is what stakeholders have approved; this state provides the reference for governing all change activity. Transition states are partially realized targets between the current state in the target state. The candidate state is what has been developed by the EA team but has not been approved for a status sufficient to govern change.",
+            "source_path": "togaf-standard-10th/G186e.pdf",
+            "source_sha256": "ed1c26faba5023a8d1b32b0ec893d75a3bb1d7a6508e99fa56ded079585d922a"
+          }
+        ]
+      },
+      "published_sha256": "95b29c68c5e70fd04e1adbc7f69dd7c5ebab8b7e82f45ee23103b7dbfefc8c9a",
+      "case_interpretation_zh": "候选状态与批准目标分开",
+      "output_binding": "所有版本project.approval_status=candidate",
+      "relation_origin": "project-derived-guide-to-case-mapping"
+    },
+    {
+      "guide": "G188",
+      "rule_id": "G188:3.2.7:rule06",
+      "rule": {
+        "id": "G188:3.2.7:rule06",
+        "kind": "source-method-and-applicability",
+        "statement_zh": "排程整合活动依赖、工期、资源与约束，建议利用排程工具及关键路径方法。",
+        "boundary_zh": "来源示例没有完整工作日历和人员容量，不能据表断言当前项目可按同日期交付。",
+        "evidence": [
+          {
+            "source_unit_id": "G188:p0059:c002",
+            "pdf_page": 59,
+            "source_block_ids": [
+              "G188:p0059:b005",
+              "G188:p0059:b006",
+              "G188:p0059:b007"
+            ],
+            "quote_en": "resource requirements, and schedule constraints",
+            "source_path": "togaf-standard-10th/G188e.pdf",
+            "source_sha256": "6e654af12a0bc034c7548d425a01123331ac9129c478a0bb957db89dd353dd29"
+          }
+        ]
+      },
+      "published_sha256": "820c9feed4be8dc50765ed21a858426a65b4ae65df4c0adf77844b394ad2a130",
+      "case_interpretation_zh": "排程需要依赖、工期、资源与约束",
+      "output_binding": "WP-OFFLINE/ASSIGN-A期间与容量缺口",
+      "relation_origin": "project-derived-guide-to-case-mapping"
+    },
+    {
+      "guide": "G248",
+      "rule_id": "G248:3.1:rule02",
+      "rule": {
+        "id": "G248:3.1:rule02",
+        "kind": "source-method-and-applicability",
+        "statement_zh": "每次纳入或排除实体和构建块，都应记录选择理由及影响。",
+        "boundary_zh": "自动删去较慢画像条目且不记录依据，会丢失源方法的治理意图。",
+        "evidence": [
+          {
+            "source_unit_id": "G248:p0022:c000",
+            "pdf_page": 22,
+            "source_block_ids": [
+              "G248:p0022:b001",
+              "G248:p0022:b002",
+              "G248:p0022:b003"
+            ],
+            "quote_en": "including the reasons for the choices and their implications",
+            "source_path": "togaf-standard-10th/G248e.pdf",
+            "source_sha256": "810df20478f65d8dfd969089f9c682ec268d0e3a9126e062bda5191c9017e19c"
+          }
+        ]
+      },
+      "published_sha256": "23d432380c78fe419949e9f096924074c3368818a171413efaccbbc792ebf30a",
+      "case_interpretation_zh": "选择和排除构建块保留理由与影响",
+      "output_binding": "在线同步可保留，纯同步无法单独覆盖离线",
+      "relation_origin": "project-derived-guide-to-case-mapping"
+    },
+    {
+      "guide": "G233",
+      "rule_id": "G233:3.3:rule01",
+      "rule": {
+        "id": "G233:3.3:rule01",
+        "kind": "source-method-and-applicability",
+        "statement_zh": "共享元素目录和模型库用于跨域追踪。",
+        "boundary_zh": "目录、矩阵、图和路线图不能各造一组同名ID。",
+        "evidence": [
+          {
+            "source_unit_id": "G233:p0021:c005",
+            "pdf_page": 21,
+            "source_block_ids": [
+              "G233:p0021:b031",
+              "G233:p0021:b032",
+              "G233:p0021:b033"
+            ],
+            "quote_en": "curated catalog",
+            "source_path": "togaf-standard-10th/G233e.pdf",
+            "source_sha256": "d5c62f9edb2465d10e59f0a1c9c23fb5d8a0b14e506cf7739a09886fbee07754"
+          }
+        ]
+      },
+      "published_sha256": "85c48093e735df5e236f24606e7ea8254376101d8fb79b05e1f5ab1873551ae5",
+      "case_interpretation_zh": "共享元素目录支持跨域追踪",
+      "output_binding": "CAP-RESERVE稳定ID投影到目录/矩阵/图/路线图",
+      "relation_origin": "project-derived-guide-to-case-mapping"
+    },
+    {
+      "guide": "G233",
+      "rule_id": "G233:7.2:rule03",
+      "rule": {
+        "id": "G233:7.2:rule03",
+        "kind": "source-method-and-applicability",
+        "statement_zh": "项目/运营团队依据容量确认时间和依赖。",
+        "boundary_zh": "缺工作量或可用容量时保持排期未证实。",
+        "evidence": [
+          {
+            "source_unit_id": "G233:p0044:c004",
+            "pdf_page": 44,
+            "source_block_ids": [
+              "G233:p0044:b008",
+              "G233:p0044:b009",
+              "G233:p0044:b010"
+            ],
+            "quote_en": "capacity",
+            "source_path": "togaf-standard-10th/G233e.pdf",
+            "source_sha256": "d5c62f9edb2465d10e59f0a1c9c23fb5d8a0b14e506cf7739a09886fbee07754"
+          }
+        ]
+      },
+      "published_sha256": "85c48093e735df5e236f24606e7ea8254376101d8fb79b05e1f5ab1873551ae5",
+      "case_interpretation_zh": "交付时间依据真实容量确认",
+      "output_binding": "工时未知不宣称排程可行",
+      "relation_origin": "project-derived-guide-to-case-mapping"
+    },
+    {
+      "guide": "G249",
+      "rule_id": "G249:3:rule02",
+      "rule": {
+        "id": "G249:3:rule02",
+        "kind": "precondition",
+        "statement_zh": "有效实践需要适当利益相关者明确授权，并使角色、技能与经验匹配企业架构任务。",
+        "boundary_zh": "适当利益相关者随组织而异；任务可由企业内外人员执行。",
+        "evidence": [
+          {
+            "source_unit_id": "G249:p0014:c006",
+            "pdf_page": 14,
+            "source_block_ids": [
+              "G249:p0014:b019",
+              "G249:p0014:b020"
+            ],
+            "quote_en": "Have a clear mandate from the appropriate relevant stakeholders",
+            "source_path": "togaf-standard-10th/G249e.pdf",
+            "source_sha256": "a21ad2452d4b7f77608254a7b1d0568481c52407277fd742a5430935d08271da"
+          }
+        ]
+      },
+      "published_sha256": "d5cbc7bb51ca415c66f57d75c3e9dfb507a6f23826fcf7a8f6ded6ce7f48835d",
+      "case_interpretation_zh": "任务需求到角色技能与证据",
+      "output_binding": "四任务、目标/观察/配置/发展分别记录",
+      "relation_origin": "project-derived-guide-to-case-mapping"
+    }
+  ],
+  "source_inputs": {
+    "raw-business-materials.md": "f7c505913f5b8a405bba45c0d6ccfd8097abc5c38e3ea7fa1862585175497f64",
+    "role-skill-inputs.json": "611b436b1c167cff818e1c4ce3a1a4d7f620c5d46c047836c4678c9b221ef8e0",
+    "run.py": "c86d78aa5b55f0c83c69ed708a60b2e44cc5ec0faa850657eba1b78eb3c03c56",
+    "base_build.py": "e0f18602977cf3d1aef3588e3639729082a299458ed2cda43f3b510fc9ede0f7",
+    "assignment_expression.py": "c192adb57f9d712fa8fcf054f6da1db535e769a478e6d0eb364054c3c7027df1"
+  },
+  "model_sha256": {
+    "baseline": "77cb2276b36a549cd7567ad7429ca5ea37e286a52261d1a6cc0e63cc1692eb21",
+    "offline-change": "b80953dab31b0c1eddefeeea3429e89ca744d9124b657f5c41d95acf31cd67db",
+    "shared-object-change": "b8147f13a8c05b549774bc575490bfa26859b8a5202b2873446804c55d4304b4"
+  },
+  "business_approval": "not-granted",
+  "limits_zh": [
+    "本地业务反例门槛和投影为本案例的显式项目实现，不声称官方指定算法。",
+    "测试证明限定断言，独立原始材料审阅另见independent-review.md及F08复核。",
+    "共享对象修改是名称/定义一致性验证，不等于变更业务政策后的所有影响自动得到正确设计。",
+    "真实一致性、容量、技能能力与审批仍缺依据。"
+  ]
+}

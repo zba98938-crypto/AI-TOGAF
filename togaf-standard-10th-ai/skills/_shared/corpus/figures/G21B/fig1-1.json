@@ -1,0 +1,1556 @@
+{
+  "schema_version": "1.0",
+  "id": "G21B/fig1-1",
+  "status": "done",
+  "doc": {
+    "code": "G21B",
+    "title_zh": "信息架构——客户主数据管理",
+    "title_en": "Information Architecture — Customer Master Data (C-MDM)",
+    "zh_md": "G21Be_信息架构_客户主数据管理.md",
+    "en_pdf": "togaf-standard-10th/G21Be.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "1-1",
+    "title_en": "Generic Description of the Capabilities of the Organization",
+    "title_zh": "组织能力的通用描述",
+    "section_en": "1.2 Data Management Capabilities",
+    "section_zh": "1.2 数据管理能力",
+    "attribution": null,
+    "en_location": {
+      "pages": [
+        12
+      ],
+      "printed_page": 2,
+      "bboxes": [
+        [
+          74.0,
+          143.3,
+          538.0,
+          537.7
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        94
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g21b_fig1-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "1480274fb684",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "版式完全不同：原图是“能力区域大框 + 框内子能力小框”的块状图（互动区 4 框、核心业务 3 框、数据管理支撑 4 框、业务支撑 6 框 + 基础设施），SVG 改成 6 个并列小方框串成一条横链。",
+        "虚构了原图不存在的两个能力区：“技术支撑（平台/基础设施）”和“治理（战略/架构/风险）”；原图没有“治理”区，基础设施是“业务支撑”框内的一个子项。",
+        "漏掉了两个外部能力（External Data Provider Capabilities、External Partner Capabilities）以及原图的“内部能力/外部能力”图例，而正文明确把它们算作六类能力中的两类。",
+        "漏掉了全部子能力标签（Prospect & Customer Digital Access、Partner Digital Access、Customer Relationship Management、Marketing、Inbound Logistics、Operations、Outbound Logistics、Metadata Management、BI & Analytics、Master Data Management、Integration & Interoperability、Human Resources、Finance & Procurement、Communication & Content Management、Security、Workplace、IT Management、Infrastructure）。",
+        "增加了原图没有的连线和图下说明文字（数据管理支撑为“能力底座”等），把原图的包含关系改成了链条关系。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "layered",
+      "hierarchy"
+    ],
+    "notation": "分层块状图（capability block diagram）：大圆角矩形表示能力区域（内部为蓝色、外部为灰色），区域内小圆角矩形表示具体能力；右下角小图标为“能力”ArchiMate 图标。",
+    "concepts": [
+      "business_capability",
+      "value_chain",
+      "data_management",
+      "master_data_management"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "把组织的信息系统能力按价值链分为核心业务、互动、数据管理支撑、业务支撑四个内部区域，外加两类外部能力。",
+    "purpose_zh": "为第 1.2 节“数据管理能力”建立全景：先说明企业价值链上的主活动与支撑活动如何被信息系统能力覆盖，再把“数据管理支撑”（元数据、BI 与分析、主数据管理、集成与互操作）定位为跨业务共享的能力底座，从而引出 C-MDM 所属的主数据管理。",
+    "reading_guide_zh": "从上到下读：最上方两个灰色框是组织要对接的外部能力；其下是蓝色“互动”区（面向客户/伙伴的数字接触点）；再下是“核心业务主活动”区（价值链主活动，收入在此产生）；最下方并列“数据管理支撑”和“业务支撑”两个内部支撑区。大框内的小框是该能力区包含的具体能力，框的大小和位置不表示优先级。阅读时把“数据管理支撑”当作与业务支撑并列、但横向服务于所有业务线的能力层。",
+    "key_points_zh": [
+      "图把能力分为六类：4 个内部能力区（核心业务主活动、互动、数据管理支撑、业务支撑）+ 2 个外部能力（外部数据提供方、外部伙伴）。",
+      "核心业务主活动沿价值链展开：入站物流（如接单）—运营（如处理订单）—出站物流（如交付订单），是企业收入产生的地方。",
+      "互动区承载与客户、业务用户、伙伴的数字交互，包含潜在客户与客户的数字访问、伙伴数字访问、CRM 与营销。",
+      "数据管理支撑只有四项：元数据管理、BI 与分析、主数据管理、集成与互操作；正文强调它们是各业务共享的常见数据管理能力，是“无边界信息流”的基础。",
+      "业务支撑包含人力资源、财务与采购、沟通与内容管理、安全、工作场所、IT 管理与基础设施；基础设施横贯业务支撑区底部。",
+      "C-MDM 位于“数据管理支撑”的主数据管理之内，聚焦客户数据；图本身不画 C-MDM，只给出它的能力归属。",
+      "外部数据提供方与外部伙伴是组织必须交互的外部数字能力，不属于组织内部能力（图例用灰色区分）。"
+    ],
+    "hierarchy_zh": "两层：第 1 层是 6 个能力区域（4 个内部 + 2 个外部）；第 2 层是区域内的具体能力（互动 4 项、核心业务 3 项、数据管理支撑 4 项、业务支撑 6 项 + 基础设施）。第 1 层与第 2 层为包含关系，不是上下级汇报关系。",
+    "line_semantics_zh": "图中没有任何连接线或箭头。能力之间的从属关系完全由“小框是否位于大框内”表达；外部能力与内部能力只用颜色和图例区分，二者之间没有画交互线。",
+    "misreadings_zh": [
+      "不要把“数据管理支撑”理解为与核心业务无关的 IT 后台：正文把它定位为跨业务共享、支撑无边界信息流的能力底座。",
+      "图中没有“治理”能力区，也没有把“技术支撑”单列；基础设施在“业务支撑”内。",
+      "六个能力区不是一条流程链，区域之间没有先后顺序；只有核心业务区内部沿价值链有入站—运营—出站的顺序含义。",
+      "中文稿当前引用的 figs/g21b_fig1-1.svg 是自拟的六框链条图，漏掉外部能力和全部子能力，不能据此理解原图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p12",
+        "summary_zh": "图 1-1 描述信息系统部门支持业务运营的能力，分为六个区域并按价值链方式组织，区分支持活动与主活动；随后逐段解释核心业务主活动与互动。"
+      },
+      {
+        "source": "zh_md L100",
+        "summary_zh": "支撑价值链的核心业务主活动包括从入站物流到出站物流、经运营的能力，收入在此产生。"
+      },
+      {
+        "source": "zh_md L102",
+        "summary_zh": "数据管理支撑：元数据管理、BI 与分析、主数据管理、集成与互操作是各业务共享的常见数据管理能力，是支撑无边界信息流的基础（见 DMBoK 第 2 版）。"
+      },
+      {
+        "source": "zh_md L107",
+        "summary_zh": "外部能力包括外部数据提供方能力与外部伙伴能力。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "TB",
+    "description_zh": "上下四层：顶部并排两个灰色外部能力框；其下蓝色“互动”大框（内含 2×2 小框）；再下“核心业务主活动”大框（横排 3 个小框）；最下方左右并排“数据管理支撑”（2×2 小框）与“业务支撑”（2 行小框 + 横贯的基础设施）；左下角为图例。"
+  },
+  "legend": [
+    {
+      "symbol": "浅蓝色大框（图例 Internal Capability）",
+      "meaning_zh": "组织内部、由组织 IT 部门提供的能力",
+      "explicit": true
+    },
+    {
+      "symbol": "灰色大框（图例 External Capability）",
+      "meaning_zh": "组织必须与之交互的外部数字能力",
+      "explicit": true
+    },
+    {
+      "symbol": "大框内的小圆角框",
+      "meaning_zh": "该能力区域包含的具体能力（无独立图例，由版式推断）",
+      "explicit": false
+    },
+    {
+      "symbol": "每个框右上角的小图标（三个叠放方块）",
+      "meaning_zh": "ArchiMate 的 Capability（能力）记法图标",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "ext_data_provider",
+      "label_en": "External Data Provider Capabilities",
+      "label_zh": "外部数据提供方能力",
+      "type": "capability",
+      "parent": null,
+      "level": 1,
+      "position": "顶部一行"
+    },
+    {
+      "id": "ext_partner",
+      "label_en": "External Partner Capabilities",
+      "label_zh": "外部伙伴能力",
+      "type": "capability",
+      "parent": null,
+      "level": 1,
+      "position": "顶部一行"
+    },
+    {
+      "id": "g_engagement",
+      "label_en": "Engagement",
+      "label_zh": "互动",
+      "type": "capability",
+      "parent": null,
+      "level": 1,
+      "description_zh": "蓝色大框，内含 4 个能力。"
+    },
+    {
+      "id": "eng_prospect_access",
+      "label_en": "Prospect & Customer Digital Access",
+      "label_zh": "潜在客户与客户数字访问",
+      "type": "capability",
+      "parent": "g_engagement",
+      "level": 2
+    },
+    {
+      "id": "eng_partner_access",
+      "label_en": "Partner Digital Access",
+      "label_zh": "伙伴数字访问",
+      "type": "capability",
+      "parent": "g_engagement",
+      "level": 2
+    },
+    {
+      "id": "eng_crm",
+      "label_en": "Customer Relationship Management",
+      "label_zh": "客户关系管理",
+      "type": "capability",
+      "parent": "g_engagement",
+      "level": 2
+    },
+    {
+      "id": "eng_marketing",
+      "label_en": "Marketing",
+      "label_zh": "营销",
+      "type": "capability",
+      "parent": "g_engagement",
+      "level": 2
+    },
+    {
+      "id": "g_core",
+      "label_en": "Core Business Primary Activities Supporting the Value Chain",
+      "label_zh": "支撑价值链的核心业务主活动",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "core_inbound",
+      "label_en": "Inbound Logistics",
+      "label_zh": "入站物流",
+      "type": "capability",
+      "parent": "g_core",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "core_operations",
+      "label_en": "Operations",
+      "label_zh": "运营",
+      "type": "capability",
+      "parent": "g_core",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "core_outbound",
+      "label_en": "Outbound Logistics",
+      "label_zh": "出站物流",
+      "type": "capability",
+      "parent": "g_core",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "g_data_support",
+      "label_en": "Data Management Support",
+      "label_zh": "数据管理支撑",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "dm_metadata",
+      "label_en": "Metadata Management",
+      "label_zh": "元数据管理",
+      "type": "capability",
+      "parent": "g_data_support",
+      "level": 2
+    },
+    {
+      "id": "dm_bi",
+      "label_en": "BI & Analytics",
+      "label_zh": "BI 与分析",
+      "type": "capability",
+      "parent": "g_data_support",
+      "level": 2
+    },
+    {
+      "id": "dm_mdm",
+      "label_en": "Master Data Management",
+      "label_zh": "主数据管理",
+      "type": "capability",
+      "parent": "g_data_support",
+      "level": 2,
+      "description_zh": "C-MDM 所属的能力。"
+    },
+    {
+      "id": "dm_integration",
+      "label_en": "Integration & Interoperability",
+      "label_zh": "集成与互操作",
+      "type": "capability",
+      "parent": "g_data_support",
+      "level": 2
+    },
+    {
+      "id": "g_business_support",
+      "label_en": "Business Support",
+      "label_zh": "业务支撑",
+      "type": "capability",
+      "parent": null,
+      "level": 1
+    },
+    {
+      "id": "bs_hr",
+      "label_en": "Human Resources",
+      "label_zh": "人力资源",
+      "type": "capability",
+      "parent": "g_business_support",
+      "level": 2
+    },
+    {
+      "id": "bs_finance",
+      "label_en": "Finance & Procurement",
+      "label_zh": "财务与采购",
+      "type": "capability",
+      "parent": "g_business_support",
+      "level": 2
+    },
+    {
+      "id": "bs_comms",
+      "label_en": "Communication & Content Management",
+      "label_zh": "沟通与内容管理",
+      "type": "capability",
+      "parent": "g_business_support",
+      "level": 2
+    },
+    {
+      "id": "bs_security",
+      "label_en": "Security",
+      "label_zh": "安全",
+      "type": "capability",
+      "parent": "g_business_support",
+      "level": 2
+    },
+    {
+      "id": "bs_workplace",
+      "label_en": "Workplace",
+      "label_zh": "工作场所",
+      "type": "capability",
+      "parent": "g_business_support",
+      "level": 2
+    },
+    {
+      "id": "bs_it",
+      "label_en": "IT Management",
+      "label_zh": "IT 管理",
+      "type": "capability",
+      "parent": "g_business_support",
+      "level": 2
+    },
+    {
+      "id": "bs_infrastructure",
+      "label_en": "Infrastructure",
+      "label_zh": "基础设施",
+      "type": "capability",
+      "parent": "g_business_support",
+      "level": 2,
+      "description_zh": "横贯业务支撑区底部的宽框。"
+    },
+    {
+      "id": "legend_internal",
+      "label_en": "Internal Capability",
+      "label_zh": "内部能力（图例）",
+      "type": "note",
+      "parent": null,
+      "position": "左下角图例"
+    },
+    {
+      "id": "legend_external",
+      "label_en": "External Capability",
+      "label_zh": "外部能力（图例）",
+      "type": "note",
+      "parent": null,
+      "position": "左下角图例"
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G21B/fig1-2",
+      "relation": "overview_of",
+      "note_zh": "图 1-2 把本图“数据管理支撑”区与其 DMBoK/DAMA 轮盘的知识领域逐一对应，是本图该区域的细化。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图没有写出“能力区域/子能力”的层级文字，层级由框的嵌套推断。",
+      "图例只说明内部/外部颜色，未说明每个框右上角图标含义；该图标判为 ArchiMate Capability 图标（依据图 2-1，背景知识）。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 12 页原图截图（含图例）",
+      "英文 PDF 第 12 页正文",
+      "中文稿 G21Be_信息架构_客户主数据管理.md 第 92–108 行",
+      "figs/g21b_fig1-1.svg 源码与渲染图"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G21Be.pdf",
+    "pdf_sha256": "8e64887f7a080d3d882f38078297bd7873a9072b71a12c39b9e77349890f37a2",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G21B/fig1-1.json",
+    "interpretation_sha256": "ebd9f3f77fa0945cf1552cb44c299e32d5091f2e0efc71601a57055846cd5d89",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 12,
+        "text": "Figure 1-1: Generic Description of the Capabilities of the Organization",
+        "bbox_pdf_points": [
+          48.24,
+          542.393,
+          373.166,
+          555.959
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 12,
+      "printed_page": 2,
+      "bbox_pdf_points": [
+        74.0,
+        143.3,
+        538.0,
+        537.7
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G21B/fig1-1-p0012.png",
+      "image_sha256": "3633b4513dea0a7397734d4e4ecf58675b6d4a4ebd9662ab8acb459d8a666c93",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "3633b4513dea0a7397734d4e4ecf58675b6d4a4ebd9662ab8acb459d8a666c93",
+          "status": "extracted-unverified",
+          "text": "External Data Provider Capabilities\na) (\nExternal Partner Capabilities\n|\ny X\nEngagement\nProspect & Customer Digital Access\na\nPartner Digital Access\nCustomer Relationship Management\nfl\nMarketing\nCore Business Primary Activities Supporting the Value Chain\nInbound Logistics 4\nOperations\nfe\nOutbound\na\nLogistics\nData Management Support\nEe\nBusiness Support\nF\nHuman\nMetadata ff\nBI & Analytics #f]\nEe\nFinance & ff\nCommunication & cf\nManagement\nResources\nProcurement\nContent\nManagement\nMaster Data ff\nIntegration & ff\nSecurity ff\nWorkplace ff\nIT Management ff\nManagement\nInteroperability\nInfrastructure\na\nLegend\nInternal\ndH) Capabilities provided by the IT department of the organization considered.\nCapability\neB External digital capabilities with which the organization has to interact.",
+          "words": [
+            {
+              "text": "External",
+              "confidence": 96.106567,
+              "bbox_pixels_xywh": [
+                100,
+                10,
+                60,
+                13
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.357422,
+              "bbox_pixels_xywh": [
+                165,
+                10,
+                34,
+                13
+              ]
+            },
+            {
+              "text": "Provider",
+              "confidence": 96.357422,
+              "bbox_pixels_xywh": [
+                204,
+                10,
+                63,
+                13
+              ]
+            },
+            {
+              "text": "Capabilities",
+              "confidence": 96.604179,
+              "bbox_pixels_xywh": [
+                271,
+                10,
+                87,
+                16
+              ]
+            },
+            {
+              "text": "a)",
+              "confidence": 59.599949,
+              "bbox_pixels_xywh": [
+                434,
+                6,
+                21,
+                20
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 21.409035,
+              "bbox_pixels_xywh": [
+                472,
+                6,
+                5,
+                10
+              ]
+            },
+            {
+              "text": "External",
+              "confidence": 96.609489,
+              "bbox_pixels_xywh": [
+                592,
+                10,
+                60,
+                13
+              ]
+            },
+            {
+              "text": "Partner",
+              "confidence": 96.499413,
+              "bbox_pixels_xywh": [
+                657,
+                10,
+                55,
+                13
+              ]
+            },
+            {
+              "text": "Capabilities",
+              "confidence": 93.757896,
+              "bbox_pixels_xywh": [
+                716,
+                10,
+                87,
+                16
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 45.064575,
+              "bbox_pixels_xywh": [
+                902,
+                5,
+                22,
+                35
+              ]
+            },
+            {
+              "text": "y",
+              "confidence": 33.439331,
+              "bbox_pixels_xywh": [
+                448,
+                37,
+                7,
+                12
+              ]
+            },
+            {
+              "text": "X",
+              "confidence": 59.942688,
+              "bbox_pixels_xywh": [
+                472,
+                38,
+                7,
+                11
+              ]
+            },
+            {
+              "text": "Engagement",
+              "confidence": 96.767944,
+              "bbox_pixels_xywh": [
+                417,
+                75,
+                93,
+                14
+              ]
+            },
+            {
+              "text": "Prospect",
+              "confidence": 93.306038,
+              "bbox_pixels_xywh": [
+                113,
+                121,
+                61,
+                15
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.303459,
+              "bbox_pixels_xywh": [
+                178,
+                121,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "Customer",
+              "confidence": 96.089478,
+              "bbox_pixels_xywh": [
+                193,
+                121,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "Digital",
+              "confidence": 96.587151,
+              "bbox_pixels_xywh": [
+                265,
+                121,
+                42,
+                15
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 77.883797,
+              "bbox_pixels_xywh": [
+                311,
+                121,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 71.941559,
+              "bbox_pixels_xywh": [
+                403,
+                119,
+                17,
+                18
+              ]
+            },
+            {
+              "text": "Partner",
+              "confidence": 96.807693,
+              "bbox_pixels_xywh": [
+                606,
+                121,
+                51,
+                12
+              ]
+            },
+            {
+              "text": "Digital",
+              "confidence": 96.90432,
+              "bbox_pixels_xywh": [
+                662,
+                121,
+                41,
+                15
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 88.281906,
+              "bbox_pixels_xywh": [
+                707,
+                121,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "Customer",
+              "confidence": 96.121559,
+              "bbox_pixels_xywh": [
+                111,
+                184,
+                67,
+                12
+              ]
+            },
+            {
+              "text": "Relationship",
+              "confidence": 96.592194,
+              "bbox_pixels_xywh": [
+                184,
+                184,
+                84,
+                15
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 92.882538,
+              "bbox_pixels_xywh": [
+                274,
+                184,
+                90,
+                15
+              ]
+            },
+            {
+              "text": "fl",
+              "confidence": 64.432831,
+              "bbox_pixels_xywh": [
+                403,
+                182,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "Marketing",
+              "confidence": 96.658897,
+              "bbox_pixels_xywh": [
+                649,
+                184,
+                67,
+                15
+              ]
+            },
+            {
+              "text": "Core",
+              "confidence": 96.853065,
+              "bbox_pixels_xywh": [
+                237,
+                262,
+                35,
+                12
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.382042,
+              "bbox_pixels_xywh": [
+                277,
+                262,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "Primary",
+              "confidence": 96.861198,
+              "bbox_pixels_xywh": [
+                351,
+                262,
+                57,
+                15
+              ]
+            },
+            {
+              "text": "Activities",
+              "confidence": 96.79306,
+              "bbox_pixels_xywh": [
+                412,
+                262,
+                69,
+                12
+              ]
+            },
+            {
+              "text": "Supporting",
+              "confidence": 91.438316,
+              "bbox_pixels_xywh": [
+                487,
+                262,
+                82,
+                15
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 95.290512,
+              "bbox_pixels_xywh": [
+                574,
+                262,
+                23,
+                12
+              ]
+            },
+            {
+              "text": "Value",
+              "confidence": 95.290512,
+              "bbox_pixels_xywh": [
+                602,
+                262,
+                40,
+                12
+              ]
+            },
+            {
+              "text": "Chain",
+              "confidence": 96.625076,
+              "bbox_pixels_xywh": [
+                647,
+                262,
+                42,
+                12
+              ]
+            },
+            {
+              "text": "Inbound",
+              "confidence": 96.215607,
+              "bbox_pixels_xywh": [
+                83,
+                294,
+                54,
+                11
+              ]
+            },
+            {
+              "text": "Logistics",
+              "confidence": 85.86338,
+              "bbox_pixels_xywh": [
+                143,
+                294,
+                60,
+                14
+              ]
+            },
+            {
+              "text": "4",
+              "confidence": 45.274017,
+              "bbox_pixels_xywh": [
+                215,
+                291,
+                18,
+                18
+              ]
+            },
+            {
+              "text": "Operations",
+              "confidence": 94.378212,
+              "bbox_pixels_xywh": [
+                425,
+                293,
+                75,
+                15
+              ]
+            },
+            {
+              "text": "fe",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                526,
+                291,
+                18,
+                18
+              ]
+            },
+            {
+              "text": "Outbound",
+              "confidence": 91.476768,
+              "bbox_pixels_xywh": [
+                741,
+                293,
+                67,
+                12
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 73.54879,
+              "bbox_pixels_xywh": [
+                839,
+                291,
+                17,
+                18
+              ]
+            },
+            {
+              "text": "Logistics",
+              "confidence": 95.154381,
+              "bbox_pixels_xywh": [
+                745,
+                312,
+                60,
+                15
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.948456,
+              "bbox_pixels_xywh": [
+                84,
+                372,
+                33,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 95.999352,
+              "bbox_pixels_xywh": [
+                122,
+                372,
+                95,
+                15
+              ]
+            },
+            {
+              "text": "Support",
+              "confidence": 96.906677,
+              "bbox_pixels_xywh": [
+                222,
+                372,
+                59,
+                15
+              ]
+            },
+            {
+              "text": "Ee",
+              "confidence": 9.488268,
+              "bbox_pixels_xywh": [
+                340,
+                370,
+                18,
+                17
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.883286,
+              "bbox_pixels_xywh": [
+                585,
+                372,
+                68,
+                12
+              ]
+            },
+            {
+              "text": "Support",
+              "confidence": 96.77916,
+              "bbox_pixels_xywh": [
+                658,
+                372,
+                60,
+                15
+              ]
+            },
+            {
+              "text": "F",
+              "confidence": 9.806671,
+              "bbox_pixels_xywh": [
+                903,
+                370,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "Human",
+              "confidence": 94.678619,
+              "bbox_pixels_xywh": [
+                446,
+                403,
+                49,
+                12
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 68.340736,
+              "bbox_pixels_xywh": [
+                63,
+                403,
+                64,
+                12
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 66.026375,
+              "bbox_pixels_xywh": [
+                152,
+                401,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "BI",
+              "confidence": 74.020332,
+              "bbox_pixels_xywh": [
+                221,
+                403,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 74.020332,
+              "bbox_pixels_xywh": [
+                239,
+                403,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 91.230186,
+              "bbox_pixels_xywh": [
+                253,
+                403,
+                62,
+                15
+              ]
+            },
+            {
+              "text": "#f]",
+              "confidence": 21.013336,
+              "bbox_pixels_xywh": [
+                323,
+                401,
+                18,
+                17
+              ]
+            },
+            {
+              "text": "Ee",
+              "confidence": 22.673153,
+              "bbox_pixels_xywh": [
+                526,
+                401,
+                18,
+                17
+              ]
+            },
+            {
+              "text": "Finance",
+              "confidence": 93.289696,
+              "bbox_pixels_xywh": [
+                608,
+                403,
+                54,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 93.235146,
+              "bbox_pixels_xywh": [
+                667,
+                403,
+                9,
+                12
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 46.427193,
+              "bbox_pixels_xywh": [
+                698,
+                401,
+                18,
+                17
+              ]
+            },
+            {
+              "text": "Communication",
+              "confidence": 92.375473,
+              "bbox_pixels_xywh": [
+                762,
+                403,
+                107,
+                12
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 92.035149,
+              "bbox_pixels_xywh": [
+                875,
+                403,
+                6,
+                12
+              ]
+            },
+            {
+              "text": "cf",
+              "confidence": 37.074112,
+              "bbox_pixels_xywh": [
+                887,
+                401,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.689201,
+              "bbox_pixels_xywh": [
+                50,
+                421,
+                90,
+                15
+              ]
+            },
+            {
+              "text": "Resources",
+              "confidence": 49.260307,
+              "bbox_pixels_xywh": [
+                434,
+                421,
+                74,
+                12
+              ]
+            },
+            {
+              "text": "Procurement",
+              "confidence": 96.623734,
+              "bbox_pixels_xywh": [
+                598,
+                421,
+                89,
+                12
+              ]
+            },
+            {
+              "text": "Content",
+              "confidence": 96.523155,
+              "bbox_pixels_xywh": [
+                796,
+                421,
+                54,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.168137,
+              "bbox_pixels_xywh": [
+                778,
+                440,
+                90,
+                14
+              ]
+            },
+            {
+              "text": "Master",
+              "confidence": 96.188591,
+              "bbox_pixels_xywh": [
+                54,
+                481,
+                47,
+                12
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 76.469376,
+              "bbox_pixels_xywh": [
+                106,
+                481,
+                32,
+                12
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 24.486622,
+              "bbox_pixels_xywh": [
+                152,
+                479,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "Integration",
+              "confidence": 91.885292,
+              "bbox_pixels_xywh": [
+                224,
+                481,
+                72,
+                15
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 92.65329,
+              "bbox_pixels_xywh": [
+                301,
+                481,
+                10,
+                12
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 24.84354,
+              "bbox_pixels_xywh": [
+                323,
+                479,
+                18,
+                17
+              ]
+            },
+            {
+              "text": "Security",
+              "confidence": 84.167793,
+              "bbox_pixels_xywh": [
+                443,
+                481,
+                56,
+                15
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 64.254463,
+              "bbox_pixels_xywh": [
+                526,
+                479,
+                18,
+                17
+              ]
+            },
+            {
+              "text": "Workplace",
+              "confidence": 87.564796,
+              "bbox_pixels_xywh": [
+                605,
+                481,
+                73,
+                15
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 60.026505,
+              "bbox_pixels_xywh": [
+                698,
+                479,
+                18,
+                17
+              ]
+            },
+            {
+              "text": "IT",
+              "confidence": 90.568527,
+              "bbox_pixels_xywh": [
+                769,
+                481,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 90.568527,
+              "bbox_pixels_xywh": [
+                787,
+                481,
+                90,
+                15
+              ]
+            },
+            {
+              "text": "ff",
+              "confidence": 18.049994,
+              "bbox_pixels_xywh": [
+                887,
+                479,
+                17,
+                17
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.906242,
+              "bbox_pixels_xywh": [
+                50,
+                499,
+                90,
+                15
+              ]
+            },
+            {
+              "text": "Interoperability",
+              "confidence": 96.614571,
+              "bbox_pixels_xywh": [
+                217,
+                499,
+                101,
+                15
+              ]
+            },
+            {
+              "text": "Infrastructure",
+              "confidence": 96.087769,
+              "bbox_pixels_xywh": [
+                606,
+                559,
+                91,
+                12
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 64.891235,
+              "bbox_pixels_xywh": [
+                887,
+                557,
+                17,
+                18
+              ]
+            },
+            {
+              "text": "Legend",
+              "confidence": 96.854462,
+              "bbox_pixels_xywh": [
+                8,
+                635,
+                51,
+                15
+              ]
+            },
+            {
+              "text": "Internal",
+              "confidence": 72.757164,
+              "bbox_pixels_xywh": [
+                87,
+                668,
+                50,
+                11
+              ]
+            },
+            {
+              "text": "dH)",
+              "confidence": 28.742519,
+              "bbox_pixels_xywh": [
+                169,
+                665,
+                17,
+                18
+              ]
+            },
+            {
+              "text": "Capabilities",
+              "confidence": 47.059982,
+              "bbox_pixels_xywh": [
+                213,
+                670,
+                79,
+                15
+              ]
+            },
+            {
+              "text": "provided",
+              "confidence": 96.216454,
+              "bbox_pixels_xywh": [
+                298,
+                670,
+                58,
+                15
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.988663,
+              "bbox_pixels_xywh": [
+                362,
+                670,
+                16,
+                15
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.60141,
+              "bbox_pixels_xywh": [
+                382,
+                670,
+                21,
+                12
+              ]
+            },
+            {
+              "text": "IT",
+              "confidence": 92.517113,
+              "bbox_pixels_xywh": [
+                410,
+                670,
+                12,
+                12
+              ]
+            },
+            {
+              "text": "department",
+              "confidence": 87.10199,
+              "bbox_pixels_xywh": [
+                427,
+                670,
+                78,
+                15
+              ]
+            },
+            {
+              "text": "of",
+              "confidence": 96.991623,
+              "bbox_pixels_xywh": [
+                510,
+                670,
+                13,
+                12
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.69883,
+              "bbox_pixels_xywh": [
+                527,
+                670,
+                21,
+                12
+              ]
+            },
+            {
+              "text": "organization",
+              "confidence": 96.573769,
+              "bbox_pixels_xywh": [
+                553,
+                670,
+                84,
+                15
+              ]
+            },
+            {
+              "text": "considered.",
+              "confidence": 96.560387,
+              "bbox_pixels_xywh": [
+                643,
+                670,
+                79,
+                12
+              ]
+            },
+            {
+              "text": "Capability",
+              "confidence": 96.330078,
+              "bbox_pixels_xywh": [
+                79,
+                686,
+                67,
+                15
+              ]
+            },
+            {
+              "text": "eB",
+              "confidence": 33.327568,
+              "bbox_pixels_xywh": [
+                36,
+                719,
+                158,
+                54
+              ]
+            },
+            {
+              "text": "External",
+              "confidence": 96.942253,
+              "bbox_pixels_xywh": [
+                213,
+                732,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "digital",
+              "confidence": 95.29528,
+              "bbox_pixels_xywh": [
+                274,
+                732,
+                40,
+                14
+              ]
+            },
+            {
+              "text": "capabilities",
+              "confidence": 96.476128,
+              "bbox_pixels_xywh": [
+                319,
+                732,
+                77,
+                14
+              ]
+            },
+            {
+              "text": "with",
+              "confidence": 93.339066,
+              "bbox_pixels_xywh": [
+                400,
+                732,
+                27,
+                11
+              ]
+            },
+            {
+              "text": "which",
+              "confidence": 97.009819,
+              "bbox_pixels_xywh": [
+                432,
+                732,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "the",
+              "confidence": 96.242928,
+              "bbox_pixels_xywh": [
+                477,
+                732,
+                21,
+                11
+              ]
+            },
+            {
+              "text": "organization",
+              "confidence": 91.767944,
+              "bbox_pixels_xywh": [
+                503,
+                732,
+                84,
+                14
+              ]
+            },
+            {
+              "text": "has",
+              "confidence": 96.921562,
+              "bbox_pixels_xywh": [
+                593,
+                732,
+                24,
+                11
+              ]
+            },
+            {
+              "text": "to",
+              "confidence": 96.967598,
+              "bbox_pixels_xywh": [
+                622,
+                732,
+                12,
+                11
+              ]
+            },
+            {
+              "text": "interact.",
+              "confidence": 96.792206,
+              "bbox_pixels_xywh": [
+                640,
+                732,
+                54,
+                11
+              ]
+            }
+          ],
+          "mean_word_confidence": 80.57,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

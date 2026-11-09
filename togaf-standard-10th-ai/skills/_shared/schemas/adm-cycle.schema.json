@@ -1,0 +1,465 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:togaf-skills:adm-cycle:1.0",
+  "title": "Project ADM cycle execution record (not a TOGAF certification)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "project_id",
+    "is_example",
+    "scope",
+    "phases",
+    "requirements"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "adm-cycle-1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "is_example": {
+      "type": "boolean"
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "previous_cycle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phases": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "$ref": "#/$defs/phase"
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner",
+        "baseline_ids",
+        "no_requirements_reason",
+        "changes",
+        "reviews"
+      ],
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "baseline_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "no_requirements_reason": {
+          "type": "string"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/change"
+          }
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/requirementsReview"
+          }
+        },
+        "source_step_coverage": {
+          "$ref": "#/$defs/sourceCoverage"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "phaseId": {
+      "enum": [
+        "Preliminary",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256",
+          "locator"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collection",
+        "id"
+      ],
+      "properties": {
+        "collection": {
+          "enum": [
+            "entities",
+            "relationships",
+            "views",
+            "deliverables",
+            "analyses"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "authority",
+        "authority_role",
+        "rationale",
+        "evidence"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "accepted",
+            "rejected",
+            "deferred"
+          ]
+        },
+        "authority": {
+          "type": "string"
+        },
+        "authority_role": {
+          "enum": [
+            "stakeholder",
+            "delegate"
+          ]
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        },
+        "delegation_evidence": {
+          "$ref": "#/$defs/evidence"
+        }
+      }
+    },
+    "criterion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "rationale",
+        "evidence"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "satisfied",
+            "not-applicable"
+          ]
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        }
+      }
+    },
+    "iteration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "status",
+        "reason",
+        "owner",
+        "input_refs",
+        "output_refs",
+        "depends_on",
+        "criteria",
+        "decision",
+        "model_sha256",
+        "contract_sha256"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "planned",
+            "in-progress",
+            "ready-for-review",
+            "completed"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner": {
+          "type": "string"
+        },
+        "input_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "output_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "depends_on": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "criteria": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/criterion"
+          }
+        },
+        "decision": {
+          "$ref": "#/$defs/decision"
+        },
+        "model_sha256": {
+          "type": "string",
+          "pattern": "^([a-f0-9]{64})?$"
+        },
+        "contract_sha256": {
+          "type": "string",
+          "pattern": "^([a-f0-9]{64})?$"
+        },
+        "source_step_coverage": {
+          "$ref": "#/$defs/sourceCoverage"
+        }
+      }
+    },
+    "phase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "phase",
+        "applicability",
+        "tailoring_reason",
+        "tailoring_decision",
+        "iterations"
+      ],
+      "properties": {
+        "phase": {
+          "$ref": "#/$defs/phaseId"
+        },
+        "applicability": {
+          "enum": [
+            "execute",
+            "reuse",
+            "not-applicable"
+          ]
+        },
+        "tailoring_reason": {
+          "type": "string"
+        },
+        "tailoring_decision": {
+          "$ref": "#/$defs/decision"
+        },
+        "iterations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/iteration"
+          }
+        }
+      }
+    },
+    "change": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "requirement_ids",
+        "reason",
+        "affected_phases",
+        "affected_refs",
+        "decision"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requirement_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "affected_phases": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/phaseId"
+          }
+        },
+        "affected_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "decision": {
+          "$ref": "#/$defs/decision"
+        }
+      }
+    },
+    "requirementsReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "iteration_id",
+        "reviewer",
+        "rationale",
+        "change_ids",
+        "model_sha256",
+        "evidence"
+      ],
+      "properties": {
+        "iteration_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "change_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "model_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        }
+      }
+    },
+    "sourceCoverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_step_id",
+          "disposition",
+          "rationale",
+          "evidence",
+          "source_step_sha256",
+          "context_sha256"
+        ],
+        "properties": {
+          "source_step_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "disposition": {
+            "enum": [
+              "pending",
+              "execute",
+              "reuse",
+              "not-applicable"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "evidence": {
+            "$ref": "#/$defs/evidence"
+          },
+          "source_step_sha256": {
+            "type": "string",
+            "pattern": "^([a-f0-9]{64})?$"
+          },
+          "context_sha256": {
+            "type": "string",
+            "pattern": "^([a-f0-9]{64})?$"
+          }
+        }
+      }
+    }
+  }
+}

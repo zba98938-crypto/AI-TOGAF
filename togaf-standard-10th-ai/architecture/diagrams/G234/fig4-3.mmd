@@ -1,0 +1,48 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Normative Approach"]
+  n1["Crowd-Sourcing Approach"]
+  n2["规范式质量目标"]
+  n3["众包式质量目标"]
+  n4["Precision"]
+  n5["Accuracy"]
+  n6["Integrity"]
+  n7["Consistency"]
+  n8["Completeness"]
+  n9["Timeliness"]
+  n10["Standard-Based"]
+  n11["Created by a few, then published as read-only"]
+  n12["Static, change lifecycle management"]
+  n13["Collaboration-Based Metadata"]
+  n14["Created by many, edited by many"]
+  n15["Dynamic, eventual consistency"]
+  n16["System of reference (quality, reporting)"]
+  n17["&#x27;Crowd sourcing&#x27; metadata collection"]
+  n18["Metadata Repository"]
+  n19["Central Team"]
+  n20["Create, Modify"]
+  n21["Read"]
+  n22["Consumers"]
+  n23["Change Request: Creation, Modification"]
+  n24["Metadata Repository"]
+  n25["Read"]
+  n26["Create, Modify"]
+  n27["Communities of Contributors"]
+  n2 -->|"影响"| n0
+  n3 -->|"影响"| n1
+  n19 -->|"流动"| n18
+  n18 -->|"流动"| n22
+  n22 -->|"流动"| n23
+  n23 -->|"流动"| n19
+  n24 -->|"流动"| n27
+  n27 -->|"流动"| n24
+  n2 -.->|"分组"| n4
+  n2 -.->|"分组"| n5
+  n2 -.->|"分组"| n6
+  n2 -.->|"分组"| n7
+  n3 -.->|"分组"| n8
+  n3 -.->|"分组"| n9
+  n10 -.->|"visual_containment_only"| n11
+  n10 -.->|"visual_containment_only"| n12
+  n13 -.->|"visual_containment_only"| n14
+  n13 -.->|"visual_containment_only"| n15

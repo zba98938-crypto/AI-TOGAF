@@ -1,0 +1,2340 @@
+{
+  "schema_version": "1.0",
+  "id": "G234/fig4-1",
+  "status": "done",
+  "doc": {
+    "code": "G234",
+    "title_zh": "信息架构——元数据管理",
+    "title_en": "Information Architecture — Metadata Management",
+    "zh_md": "G234e_信息架构_元数据管理.md",
+    "en_pdf": "togaf-standard-10th/G234e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "4-1",
+    "title_en": "Metadata Sources Illustration",
+    "title_zh": "元数据来源示意",
+    "section_en": "4.2 Metadata Management Guidelines for a Business Architecture (ADM Phase B)",
+    "section_zh": "4.2 业务架构阶段的元数据管理指南（ADM 阶段 B）",
+    "attribution": "© The Open Group",
+    "en_location": {
+      "pages": [
+        23
+      ],
+      "printed_page": 13,
+      "bboxes": [
+        [
+          61.1,
+          36.0,
+          550.9,
+          259.4
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        229
+      ],
+      "label_table_lines": null
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g234_fig4-1.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": true,
+      "sha1": "307b70125282",
+      "fidelity": "not_equivalent",
+      "issues_zh": [
+        "原图是“元数据域全景”：顶部 7 个元数据域列（Data Glossary, Policies, & Quality / Business Processes / Security Management / Application Repository / Data Privacy / Risk Management / Reference Data），每列内嵌该域可提供的元数据资产；中部是一条 “Data Documentation and Governance” 横带；底部是 Technical Metadata 与 Operational Metadata 两个大框及数据类型示意",
+        "SVG 改画成 5 个来源系统（业务应用、数据仓库、数据湖/新平台、接口与 API、外部数据）经虚线汇入“元数据存储库”，主题从“有哪些元数据域与资产”变成“数据源汇入仓库”，与原图不等价",
+        "SVG 丢失了原图全部 7 个元数据域和约 30 个元数据资产标签（如 Business Term、Business Data Object、Confidentiality Classification、Data Processing Activity、Code Set、Code Value 等），而这些正是本图的主体",
+        "SVG 丢失了中部 “Data Documentation and Governance” 横带及其 6 个治理标签（Business Data Domain、Role、Organization、Data Classification、Metadata Association、Metadata Activity Logs）",
+        "SVG 丢失了底部技术元数据/运营元数据的分组，以及 Relational、Analytical、Structured/Semi-structured/Unstructured data 的形态示意",
+        "SVG 增加了原图没有的来源（业务应用、数据仓库、数据湖、接口与 API、供应商/伙伴），并自加“挑战：不同社区、不同流程与生命周期；需按业务目标逐步汇聚”的注释"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "infographic",
+      "hierarchy"
+    ],
+    "notation": "无连线的域分组信息图：7 个元数据域列 + 域内资产标签；一条跨域治理横带；底部技术与运营元数据分组，配数据库图标和数据形态示意",
+    "concepts": [
+      "metadata_management",
+      "data_architecture",
+      "data_management",
+      "information_concept",
+      "data_integration"
+    ],
+    "adm_phases": [
+      "adm_phase_b"
+    ]
+  },
+  "semantics": {
+    "one_line_zh": "把组织内可获取元数据的 7 个域、约 30 类元数据资产，以及技术与运营元数据的数据形态一次铺开。",
+    "purpose_zh": "第 4.2 节开头说明元数据散落在多个来源、多个社区、不同流程与生命周期中，图 4-1 先把“有哪些域、每域能提供什么资产”摆出来，随后正文才建议按业务目标分步建立文档，而不是一次性全量登记。",
+    "reading_guide_zh": "先看顶部 7 列：每列标题是一个元数据域，列内标签是该域可提供的元数据资产。再看中部横带 “Data Documentation and Governance”，它是跨域共用的治理标签。最后看底部两框：左侧 Technical Metadata 列数据库/数据集/字段/数据流/删除规则/质量规则，并用图标区分关系型、分析型与结构化/半结构化/非结构化数据；右侧 Operational Metadata 列质量异常、数据量、访问事件和产生它们的工具。全图没有箭头。",
+    "key_points_zh": [
+      "7 个元数据域：数据术语表/政策/质量、业务流程、安全管理、应用存储库、数据隐私、风险管理、参考数据。",
+      "同一类资产会跨域出现：Control 同时出现在安全管理与风险管理，Process/Activity 同时出现在业务流程与数据隐私，说明“域”是视角而非互斥分区。",
+      "中部 “Data Documentation and Governance” 不属于任何单一域，它把业务数据域、角色、组织、数据分类、元数据关联、元数据活动日志作为贯穿各域的治理维度。",
+      "技术元数据框把资产（Database、Data Set、Data Field、Data Flow、Technical Data Deletion Rule、Technical Data Quality Rule）与数据形态（Relational、Analytical；Structured/Semi-structured/Unstructured data）并列，暗示形态决定采集方式。",
+      "运营元数据框用零散小方块示意事件流，资产是 Data Quality Anomaly、Data Volume、Data Access Event，由 BI & Analytics Platform 与 Administration & Monitoring Tools 产生。",
+      "图注说明这些元数据域是从用例中提炼后套用到本文语境的，因此清单是基线而非穷举；这与正文“分步推进”的建议一致。"
+    ],
+    "hierarchy_zh": "两层：元数据域（L1，7 个并列列）→ 域内元数据资产（L2）。底部 Technical Metadata 与 Operational Metadata 是两个并列大类（L1），其下资产与数据形态为 L2。中部治理横带独立于所有域。",
+    "line_semantics_zh": "全图没有任何连线或箭头。归属由“标签在哪个域列/哪个大框内”表达；中部横带的位置表示它跨域适用；底部数据形态图标只是示意，不表示数据流。",
+    "misreadings_zh": [
+      "不要把 7 列读成流程步骤或成熟度阶段，它们是并列的元数据域。",
+      "不要因为某资产在一个域出现就认为它只属于该域；Control、Process、Activity 都跨域重复。",
+      "不要把底部的数据库/文件图标当成数据流或系统接口，它们只是数据形态示意，没有箭头。",
+      "不要把中部横带当成第三个大类；它是一条治理标签带，横跨上方 7 个域。",
+      "中文稿 SVG 画的是“5 个来源系统 → 元数据存储库”，与本图的域/资产清单完全不同，不能据它理解本图。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p23",
+        "summary_zh": "图 4-1 展示组织内元数据来源；图注说明元数据域是从用例中提炼并套用到本文语境的；正文建议分步建立元数据文档，而不是同时登记所有资产。"
+      },
+      {
+        "source": "en_pdf p22",
+        "summary_zh": "元数据存在于组织内多个来源，主要挑战是把不同种类、不同社区、不同流程与生命周期的元数据汇聚起来，以支持合规、质量监控与可访问性等业务目标。"
+      },
+      {
+        "source": "zh_md L226",
+        "summary_zh": "中文稿引用图 4-1 说明元数据多来源，并给出循序渐进建立文档的建议。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "grid",
+    "description_zh": "上部 7 列等宽域面板横向排列；中部一条通栏治理横带；下部左右两个大框（左 Technical Metadata、右 Operational Metadata），左框内再按上中下排三类数据形态。"
+  },
+  "legend": [
+    {
+      "symbol": "列标题 + 列内灰底标签",
+      "meaning_zh": "一个元数据域及其可提供的元数据资产",
+      "explicit": false
+    },
+    {
+      "symbol": "青绿色横带",
+      "meaning_zh": "Data Documentation and Governance：跨域治理标签",
+      "explicit": true
+    },
+    {
+      "symbol": "数据库圆柱图标",
+      "meaning_zh": "关系型数据库/分析型数据存储",
+      "explicit": false
+    },
+    {
+      "symbol": "散落小方块",
+      "meaning_zh": "运营事件或非结构化数据对象示意",
+      "explicit": false
+    },
+    {
+      "symbol": "大框标题 Technical Metadata / Operational Metadata",
+      "meaning_zh": "元数据的两大类别",
+      "explicit": true
+    }
+  ],
+  "elements": [
+    {
+      "id": "d_glossary",
+      "label_en": "Data Glossary, Policies, & Quality",
+      "label_zh": "数据术语表、政策与质量",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 1 列",
+      "description_zh": "该域提供术语、对象、元素、质量规则与政策类资产。"
+    },
+    {
+      "id": "d_business_processes",
+      "label_en": "Business Processes",
+      "label_zh": "业务流程",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 2 列"
+    },
+    {
+      "id": "d_security",
+      "label_en": "Security Management",
+      "label_zh": "安全管理",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 3 列"
+    },
+    {
+      "id": "d_application_repo",
+      "label_en": "Application Repository",
+      "label_zh": "应用存储库",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 4 列"
+    },
+    {
+      "id": "d_data_privacy",
+      "label_en": "Data Privacy",
+      "label_zh": "数据隐私",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 5 列"
+    },
+    {
+      "id": "d_risk",
+      "label_en": "Risk Management",
+      "label_zh": "风险管理",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 6 列"
+    },
+    {
+      "id": "d_reference_data",
+      "label_en": "Reference Data",
+      "label_zh": "参考数据",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "第 7 列"
+    },
+    {
+      "id": "a_data_glossary",
+      "label_en": "Data Glossary",
+      "label_zh": "数据术语表",
+      "type": "artifact",
+      "parent": "d_glossary",
+      "level": 2
+    },
+    {
+      "id": "a_modeling_tools",
+      "label_en": "Modeling Tools",
+      "label_zh": "建模工具",
+      "type": "application",
+      "parent": "d_glossary",
+      "level": 2
+    },
+    {
+      "id": "a_business_term",
+      "label_en": "Business Term",
+      "label_zh": "业务术语",
+      "type": "data",
+      "parent": "d_glossary",
+      "level": 2
+    },
+    {
+      "id": "a_business_data_object",
+      "label_en": "Business Data Object",
+      "label_zh": "业务数据对象",
+      "type": "data",
+      "parent": "d_glossary",
+      "level": 2
+    },
+    {
+      "id": "a_business_data_element",
+      "label_en": "Business Data Element",
+      "label_zh": "业务数据元素",
+      "type": "data",
+      "parent": "d_glossary",
+      "level": 2
+    },
+    {
+      "id": "a_business_dq_rule",
+      "label_en": "Business Data Quality Rule",
+      "label_zh": "业务数据质量规则",
+      "type": "principle",
+      "parent": "d_glossary",
+      "level": 2
+    },
+    {
+      "id": "a_data_policy",
+      "label_en": "Data Policy",
+      "label_zh": "数据政策",
+      "type": "principle",
+      "parent": "d_glossary",
+      "level": 2
+    },
+    {
+      "id": "a_bp_modeling_tools",
+      "label_en": "Business Processes Modeling Tools",
+      "label_zh": "业务流程建模工具",
+      "type": "application",
+      "parent": "d_business_processes",
+      "level": 2
+    },
+    {
+      "id": "a_business_rule",
+      "label_en": "Business Rule",
+      "label_zh": "业务规则",
+      "type": "principle",
+      "parent": "d_business_processes",
+      "level": 2
+    },
+    {
+      "id": "a_process",
+      "label_en": "Process",
+      "label_zh": "流程",
+      "type": "process",
+      "parent": "d_business_processes",
+      "level": 2
+    },
+    {
+      "id": "a_activity",
+      "label_en": "Activity",
+      "label_zh": "活动",
+      "type": "process",
+      "parent": "d_business_processes",
+      "level": 2
+    },
+    {
+      "id": "a_security_repo",
+      "label_en": "Security Management Repositories",
+      "label_zh": "安全管理存储库",
+      "type": "artifact",
+      "parent": "d_security",
+      "level": 2
+    },
+    {
+      "id": "a_security_control",
+      "label_en": "Control",
+      "label_zh": "控制",
+      "type": "risk",
+      "parent": "d_security",
+      "level": 2
+    },
+    {
+      "id": "a_confidentiality",
+      "label_en": "Confidentiality Classification",
+      "label_zh": "保密性分级",
+      "type": "data",
+      "parent": "d_security",
+      "level": 2
+    },
+    {
+      "id": "a_app_repo",
+      "label_en": "Application Metadata Repositories",
+      "label_zh": "应用元数据存储库",
+      "type": "artifact",
+      "parent": "d_application_repo",
+      "level": 2
+    },
+    {
+      "id": "a_application",
+      "label_en": "Application",
+      "label_zh": "应用",
+      "type": "application",
+      "parent": "d_application_repo",
+      "level": 2
+    },
+    {
+      "id": "a_app_data_flow",
+      "label_en": "Data Flow",
+      "label_zh": "数据流",
+      "type": "data",
+      "parent": "d_application_repo",
+      "level": 2
+    },
+    {
+      "id": "a_privacy_registries",
+      "label_en": "Data Privacy Registries",
+      "label_zh": "数据隐私登记册",
+      "type": "artifact",
+      "parent": "d_data_privacy",
+      "level": 2
+    },
+    {
+      "id": "a_processing_activity",
+      "label_en": "Data Processing Activity",
+      "label_zh": "数据处理活动",
+      "type": "process",
+      "parent": "d_data_privacy",
+      "level": 2
+    },
+    {
+      "id": "a_privacy_assessment",
+      "label_en": "Data Privacy Assessment",
+      "label_zh": "数据隐私评估",
+      "type": "artifact",
+      "parent": "d_data_privacy",
+      "level": 2
+    },
+    {
+      "id": "a_business_deletion_rule",
+      "label_en": "Business Data Deletion Rule",
+      "label_zh": "业务数据删除规则",
+      "type": "principle",
+      "parent": "d_data_privacy",
+      "level": 2
+    },
+    {
+      "id": "a_privacy_classification",
+      "label_en": "Privacy Classification",
+      "label_zh": "隐私分级",
+      "type": "data",
+      "parent": "d_data_privacy",
+      "level": 2
+    },
+    {
+      "id": "a_risk_registries",
+      "label_en": "Risk Management Registries",
+      "label_zh": "风险管理登记册",
+      "type": "artifact",
+      "parent": "d_risk",
+      "level": 2
+    },
+    {
+      "id": "a_risk_committee",
+      "label_en": "Committee",
+      "label_zh": "委员会",
+      "type": "organization_unit",
+      "parent": "d_risk",
+      "level": 2
+    },
+    {
+      "id": "a_risk_control",
+      "label_en": "Control",
+      "label_zh": "控制",
+      "type": "risk",
+      "parent": "d_risk",
+      "level": 2
+    },
+    {
+      "id": "a_risk_process",
+      "label_en": "Process",
+      "label_zh": "流程",
+      "type": "process",
+      "parent": "d_risk",
+      "level": 2
+    },
+    {
+      "id": "a_reference_repo",
+      "label_en": "Reference Data Repository",
+      "label_zh": "参考数据存储库",
+      "type": "artifact",
+      "parent": "d_reference_data",
+      "level": 2
+    },
+    {
+      "id": "a_code_set",
+      "label_en": "Code Set",
+      "label_zh": "代码集",
+      "type": "data",
+      "parent": "d_reference_data",
+      "level": 2
+    },
+    {
+      "id": "a_code_value",
+      "label_en": "Code Value",
+      "label_zh": "代码值",
+      "type": "data",
+      "parent": "d_reference_data",
+      "level": 2
+    },
+    {
+      "id": "grp_governance_band",
+      "label_en": "Data Documentation and Governance",
+      "label_zh": "数据文档化与治理",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "中部通栏横带",
+      "description_zh": "跨域的治理标签带。"
+    },
+    {
+      "id": "g_business_domain",
+      "label_en": "Business Data Domain",
+      "label_zh": "业务数据域",
+      "type": "data",
+      "parent": "grp_governance_band",
+      "level": 2
+    },
+    {
+      "id": "g_role",
+      "label_en": "Role",
+      "label_zh": "角色",
+      "type": "role",
+      "parent": "grp_governance_band",
+      "level": 2
+    },
+    {
+      "id": "g_organization",
+      "label_en": "Organization",
+      "label_zh": "组织",
+      "type": "organization_unit",
+      "parent": "grp_governance_band",
+      "level": 2
+    },
+    {
+      "id": "g_data_classification",
+      "label_en": "Data Classification",
+      "label_zh": "数据分类",
+      "type": "data",
+      "parent": "grp_governance_band",
+      "level": 2
+    },
+    {
+      "id": "g_metadata_association",
+      "label_en": "Metadata Association",
+      "label_zh": "元数据关联",
+      "type": "artifact",
+      "parent": "grp_governance_band",
+      "level": 2
+    },
+    {
+      "id": "g_activity_logs",
+      "label_en": "Metadata Activity Logs",
+      "label_zh": "元数据活动日志",
+      "type": "data",
+      "parent": "grp_governance_band",
+      "level": 2
+    },
+    {
+      "id": "grp_technical",
+      "label_en": "Technical Metadata",
+      "label_zh": "技术元数据",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "左下大框"
+    },
+    {
+      "id": "t_database",
+      "label_en": "Database",
+      "label_zh": "数据库",
+      "type": "data",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_data_set",
+      "label_en": "Data Set",
+      "label_zh": "数据集",
+      "type": "data",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_data_field",
+      "label_en": "Data Field",
+      "label_zh": "数据字段",
+      "type": "data",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_data_flow",
+      "label_en": "Data Flow",
+      "label_zh": "数据流",
+      "type": "data",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_deletion_rule",
+      "label_en": "Technical Data Deletion Rule",
+      "label_zh": "技术数据删除规则",
+      "type": "principle",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_dq_rule",
+      "label_en": "Technical Data Quality Rule",
+      "label_zh": "技术数据质量规则",
+      "type": "principle",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_bi_platform",
+      "label_en": "BI & Analytics Platform",
+      "label_zh": "BI 与分析平台",
+      "type": "application",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_integration_tools",
+      "label_en": "Data Integration Tools",
+      "label_zh": "数据集成工具",
+      "type": "application",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_db_tools",
+      "label_en": "Database Management & System Catalog",
+      "label_zh": "数据库管理与系统目录",
+      "type": "application",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_relational",
+      "label_en": "Relational",
+      "label_zh": "关系型",
+      "type": "data",
+      "parent": "grp_technical",
+      "level": 2,
+      "position": "结构化数据图标下"
+    },
+    {
+      "id": "t_analytical",
+      "label_en": "Analytical",
+      "label_zh": "分析型",
+      "type": "data",
+      "parent": "grp_technical",
+      "level": 2,
+      "position": "结构化数据图标下"
+    },
+    {
+      "id": "t_structured",
+      "label_en": "STRUCTURED DATA",
+      "label_zh": "结构化数据",
+      "type": "note",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_semi_structured",
+      "label_en": "SEMI-STRUCTURED DATA",
+      "label_zh": "半结构化数据",
+      "type": "note",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "t_unstructured",
+      "label_en": "UNSTRUCTURED DATA",
+      "label_zh": "非结构化数据",
+      "type": "note",
+      "parent": "grp_technical",
+      "level": 2
+    },
+    {
+      "id": "grp_operational",
+      "label_en": "Operational Metadata",
+      "label_zh": "运营元数据",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "右下大框"
+    },
+    {
+      "id": "o_dq_anomaly",
+      "label_en": "Data Quality Anomaly",
+      "label_zh": "数据质量异常",
+      "type": "data",
+      "parent": "grp_operational",
+      "level": 2
+    },
+    {
+      "id": "o_data_volume",
+      "label_en": "Data Volume",
+      "label_zh": "数据量",
+      "type": "metric",
+      "parent": "grp_operational",
+      "level": 2
+    },
+    {
+      "id": "o_access_event",
+      "label_en": "Data Access Event",
+      "label_zh": "数据访问事件",
+      "type": "event",
+      "parent": "grp_operational",
+      "level": 2
+    },
+    {
+      "id": "o_bi_platform",
+      "label_en": "BI & Analytics Platform",
+      "label_zh": "BI 与分析平台",
+      "type": "application",
+      "parent": "grp_operational",
+      "level": 2
+    },
+    {
+      "id": "o_admin_tools",
+      "label_en": "Administration & Monitoring Tools",
+      "label_zh": "管理与监控工具",
+      "type": "application",
+      "parent": "grp_operational",
+      "level": 2
+    }
+  ],
+  "relationships": [],
+  "flows": [],
+  "tables": [
+    {
+      "id": "t_domains",
+      "title_zh": "元数据域 × 域内元数据资产（按原图逐列转录）",
+      "columns": [
+        "元数据域",
+        "域内元数据资产"
+      ],
+      "rows": [
+        [
+          "Data Glossary, Policies, & Quality 数据术语表、政策与质量",
+          "Data Glossary；Modeling Tools；Business Term；Business Data Object；Business Data Element；Business Data Quality Rule；Data Policy"
+        ],
+        [
+          "Business Processes 业务流程",
+          "Business Processes Modeling Tools；Business Rule；Process；Activity"
+        ],
+        [
+          "Security Management 安全管理",
+          "Security Management Repositories；Control；Confidentiality Classification"
+        ],
+        [
+          "Application Repository 应用存储库",
+          "Application Metadata Repositories；Application；Data Flow"
+        ],
+        [
+          "Data Privacy 数据隐私",
+          "Data Privacy Registries；Data Processing Activity；Data Privacy Assessment；Business Data Deletion Rule；Privacy Classification"
+        ],
+        [
+          "Risk Management 风险管理",
+          "Risk Management Registries；Committee；Control；Process"
+        ],
+        [
+          "Reference Data 参考数据",
+          "Reference Data Repository；Code Set；Code Value"
+        ]
+      ],
+      "notes_zh": "行序即原图从左到右的列序；同一资产名可出现在多个域。"
+    },
+    {
+      "id": "t_bottom_groups",
+      "title_zh": "底部两大元数据类别及其资产",
+      "columns": [
+        "类别",
+        "资产与形态"
+      ],
+      "rows": [
+        [
+          "Technical Metadata 技术元数据",
+          "Database；Data Set；Data Field；Data Flow；Technical Data Deletion Rule；Technical Data Quality Rule；BI & Analytics Platform；Data Integration Tools；Database Management & System Catalog；数据形态：Relational、Analytical（STRUCTURED DATA）、SEMI-STRUCTURED DATA、UNSTRUCTURED DATA"
+        ],
+        [
+          "Operational Metadata 运营元数据",
+          "Data Quality Anomaly；Data Volume；Data Access Event；BI & Analytics Platform；Administration & Monitoring Tools"
+        ]
+      ],
+      "notes_zh": "Technical Metadata 框内的数据形态由数据库/文件图标示意，不是可点击资产标签。"
+    }
+  ],
+  "related_figures": [
+    {
+      "target": "G234/fig4-2",
+      "relation": "precedes",
+      "note_zh": "图 4-1 列出元数据域与资产，图 4-2 接着说明如何从这些来源收集需求"
+    },
+    {
+      "target": "G234/fig4-5",
+      "relation": "complements",
+      "note_zh": "图 4-5 用矩阵重新组织关键元数据资产，可作为本图资产清单的类型化视图"
+    },
+    {
+      "target": "G234/fig4-10",
+      "relation": "related",
+      "note_zh": "本图底部技术元数据的数据形态（结构化/半结构化/非结构化）在图 4-10 展开为采集与推断方式"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "原图资产标签的字距很小，个别空格在 PDF 中缺失（如 BusinessTerm），本分析按正常英文词距记录。",
+      "“Data Documentation and Governance” 横带属于图内元素还是图题的一部分，版式上无边框区分；按图内横带处理。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 23 页原图截图（2x2 与 3x3 放大分块）",
+      "英文 PDF 第 22–23 页正文",
+      "中文稿 G234e_信息架构_元数据管理.md 第 226–231 行",
+      "figs/g234_fig4-1.svg 源码"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G234e.pdf",
+    "pdf_sha256": "34a1c590f938bf915182fe5bbe00d1d68f9a3e948697b5500ce7c5a9494f77e7",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G234/fig4-1.json",
+    "interpretation_sha256": "9af8f74dc0802e14f9d0bebd2a3bfe1d4fecea5d1f4c7ca8705ce5ca7b16968d",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 23,
+        "text": "Figure 4-1: Metadata Sources Illustration",
+        "bbox_pdf_points": [
+          48.24,
+          264.117,
+          241.755,
+          277.683
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 23,
+      "printed_page": 13,
+      "bbox_pdf_points": [
+        61.1,
+        36.0,
+        550.9,
+        259.4
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G234/fig4-1-p0023.png",
+      "image_sha256": "2f143ff5a7f9f837bea58d95e279521ef430faf1c751458a2a4916f9292d9209",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "2f143ff5a7f9f837bea58d95e279521ef430faf1c751458a2a4916f9292d9209",
+          "status": "extracted-unverified",
+          "text": "Data Glossary,\nBusiness\nSecurity\nApplication\nData Privacy\nRisk Management\nReference\nProcesses\nData\nPolicies, & Quality\nManagement\nRepository\nData\nMedeling\nBusiness Processes\n[Security Management\n‘Application Metadata\nData Privacy\nFisk Management\nReteenceData\nGlossary\nToole\nModeling Tools\nRepostories\nRepositories\nRegistries\nRegistries\nRepository\n|\nI\nProcess\nBusiness|\n(\nRule\naa\nAatvity\nan\nAepli\n(Ceonro)\n(waar)\n‘anfidantalty\nData Policy\nfisinessRue)\nClassification\nJ\n(WaaFiow |\n(Privacy Gasiteaton\n(CPrevess_)\n(Coaevave )\nData Documentation and Governance\n(BisinessataDomain\nRole] (Organization) ata Classification) [Metadata Association ) ( Metadata Activity Logs }\n(Database) [DataSet] [Data Field | ( DataFiow | {Technical Data Deletion Rule }( Technical Data Qualiy Rule )\n(Data Guay Anomay) (Data Volume | [Data Access Event]\nTechnical\nee oe\nOperational\nMetadata\nS=\nee ===\nMetadata\nBIE Analytics\nRelational\nAnalytica\n==\nPlatform\n“STRUCTURED DATA\nBre Analyiee\nor\nPlatform\nDaa integration\nTools\na, =\nrs\noe\na\nsoon\n‘Administration &\n(Daas)\nMonitering Tools\nManagement &\n‘System Catalog\n‘SEMI-STRUCTURED DATA\nUNSTRUCTURED DATA",
+          "words": [
+            {
+              "text": "Data",
+              "confidence": 95.767166,
+              "bbox_pixels_xywh": [
+                23,
+                14,
+                24,
+                9
+              ]
+            },
+            {
+              "text": "Glossary,",
+              "confidence": 92.804092,
+              "bbox_pixels_xywh": [
+                51,
+                14,
+                55,
+                11
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 94.686737,
+              "bbox_pixels_xywh": [
+                180,
+                14,
+                52,
+                9
+              ]
+            },
+            {
+              "text": "Security",
+              "confidence": 95.214142,
+              "bbox_pixels_xywh": [
+                324,
+                14,
+                47,
+                11
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 88.969078,
+              "bbox_pixels_xywh": [
+                456,
+                14,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 92.535782,
+              "bbox_pixels_xywh": [
+                595,
+                14,
+                24,
+                9
+              ]
+            },
+            {
+              "text": "Privacy",
+              "confidence": 91.783607,
+              "bbox_pixels_xywh": [
+                624,
+                14,
+                42,
+                11
+              ]
+            },
+            {
+              "text": "Risk",
+              "confidence": 95.441711,
+              "bbox_pixels_xywh": [
+                720,
+                14,
+                24,
+                9
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.928444,
+              "bbox_pixels_xywh": [
+                749,
+                14,
+                74,
+                11
+              ]
+            },
+            {
+              "text": "Reference",
+              "confidence": 96.468315,
+              "bbox_pixels_xywh": [
+                885,
+                14,
+                56,
+                9
+              ]
+            },
+            {
+              "text": "Processes",
+              "confidence": 96.695107,
+              "bbox_pixels_xywh": [
+                177,
+                29,
+                58,
+                9
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 89.045113,
+              "bbox_pixels_xywh": [
+                901,
+                29,
+                25,
+                9
+              ]
+            },
+            {
+              "text": "Policies,",
+              "confidence": 92.144974,
+              "bbox_pixels_xywh": [
+                12,
+                29,
+                48,
+                10
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 91.690178,
+              "bbox_pixels_xywh": [
+                65,
+                29,
+                7,
+                9
+              ]
+            },
+            {
+              "text": "Quality",
+              "confidence": 91.690178,
+              "bbox_pixels_xywh": [
+                77,
+                29,
+                40,
+                11
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 90.902451,
+              "bbox_pixels_xywh": [
+                311,
+                29,
+                74,
+                11
+              ]
+            },
+            {
+              "text": "Repository",
+              "confidence": 91.896355,
+              "bbox_pixels_xywh": [
+                458,
+                29,
+                62,
+                11
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 93.079353,
+              "bbox_pixels_xywh": [
+                24,
+                53,
+                21,
+                8
+              ]
+            },
+            {
+              "text": "Medeling",
+              "confidence": 30.580072,
+              "bbox_pixels_xywh": [
+                74,
+                53,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 83.941071,
+              "bbox_pixels_xywh": [
+                160,
+                53,
+                43,
+                8
+              ]
+            },
+            {
+              "text": "Processes",
+              "confidence": 81.22686,
+              "bbox_pixels_xywh": [
+                206,
+                53,
+                47,
+                8
+              ]
+            },
+            {
+              "text": "[Security",
+              "confidence": 80.738693,
+              "bbox_pixels_xywh": [
+                297,
+                53,
+                38,
+                10
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 92.714981,
+              "bbox_pixels_xywh": [
+                338,
+                53,
+                60,
+                10
+              ]
+            },
+            {
+              "text": "‘Application",
+              "confidence": 71.131721,
+              "bbox_pixels_xywh": [
+                440,
+                53,
+                51,
+                10
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 75.502007,
+              "bbox_pixels_xywh": [
+                494,
+                53,
+                43,
+                8
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 85.876083,
+              "bbox_pixels_xywh": [
+                601,
+                53,
+                21,
+                8
+              ]
+            },
+            {
+              "text": "Privacy",
+              "confidence": 85.887413,
+              "bbox_pixels_xywh": [
+                625,
+                53,
+                35,
+                10
+              ]
+            },
+            {
+              "text": "Fisk",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                730,
+                53,
+                20,
+                8
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                753,
+                53,
+                60,
+                10
+              ]
+            },
+            {
+              "text": "ReteenceData",
+              "confidence": 42.183578,
+              "bbox_pixels_xywh": [
+                878,
+                53,
+                71,
+                8
+              ]
+            },
+            {
+              "text": "Glossary",
+              "confidence": 74.570007,
+              "bbox_pixels_xywh": [
+                14,
+                65,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "Toole",
+              "confidence": 76.364304,
+              "bbox_pixels_xywh": [
+                81,
+                65,
+                28,
+                8
+              ]
+            },
+            {
+              "text": "Modeling",
+              "confidence": 89.358971,
+              "bbox_pixels_xywh": [
+                171,
+                65,
+                42,
+                10
+              ]
+            },
+            {
+              "text": "Tools",
+              "confidence": 71.55513,
+              "bbox_pixels_xywh": [
+                216,
+                65,
+                26,
+                8
+              ]
+            },
+            {
+              "text": "Repostories",
+              "confidence": 81.943588,
+              "bbox_pixels_xywh": [
+                319,
+                65,
+                58,
+                10
+              ]
+            },
+            {
+              "text": "Repositories",
+              "confidence": 42.210129,
+              "bbox_pixels_xywh": [
+                461,
+                65,
+                57,
+                10
+              ]
+            },
+            {
+              "text": "Registries",
+              "confidence": 64.181335,
+              "bbox_pixels_xywh": [
+                607,
+                65,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "Registries",
+              "confidence": 84.049301,
+              "bbox_pixels_xywh": [
+                749,
+                65,
+                47,
+                10
+              ]
+            },
+            {
+              "text": "Repository",
+              "confidence": 25.144791,
+              "bbox_pixels_xywh": [
+                888,
+                65,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 68.211563,
+              "bbox_pixels_xywh": [
+                9,
+                49,
+                1,
+                31
+              ]
+            },
+            {
+              "text": "I",
+              "confidence": 60.053028,
+              "bbox_pixels_xywh": [
+                62,
+                49,
+                8,
+                31
+              ]
+            },
+            {
+              "text": "Process",
+              "confidence": 71.060944,
+              "bbox_pixels_xywh": [
+                187,
+                144,
+                38,
+                8
+              ]
+            },
+            {
+              "text": "Business|",
+              "confidence": 36.618877,
+              "bbox_pixels_xywh": [
+                15,
+                157,
+                43,
+                8
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 66.840004,
+              "bbox_pixels_xywh": [
+                6,
+                156,
+                3,
+                23
+              ]
+            },
+            {
+              "text": "Rule",
+              "confidence": 46.984768,
+              "bbox_pixels_xywh": [
+                54,
+                169,
+                22,
+                8
+              ]
+            },
+            {
+              "text": "aa",
+              "confidence": 44.901653,
+              "bbox_pixels_xywh": [
+                83,
+                156,
+                42,
+                23
+              ]
+            },
+            {
+              "text": "Aatvity",
+              "confidence": 10.574303,
+              "bbox_pixels_xywh": [
+                188,
+                168,
+                34,
+                9
+              ]
+            },
+            {
+              "text": "an",
+              "confidence": 68.102043,
+              "bbox_pixels_xywh": [
+                330,
+                160,
+                19,
+                8
+              ]
+            },
+            {
+              "text": "Aepli",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                463,
+                166,
+                24,
+                10
+              ]
+            },
+            {
+              "text": "(Ceonro)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                740,
+                162,
+                71,
+                18
+              ]
+            },
+            {
+              "text": "(waar)",
+              "confidence": 30.188913,
+              "bbox_pixels_xywh": [
+                879,
+                163,
+                70,
+                18
+              ]
+            },
+            {
+              "text": "‘anfidantalty",
+              "confidence": 36.795082,
+              "bbox_pixels_xywh": [
+                322,
+                180,
+                58,
+                10
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 68.361053,
+              "bbox_pixels_xywh": [
+                35,
+                178,
+                24,
+                28
+              ]
+            },
+            {
+              "text": "Policy",
+              "confidence": 68.361053,
+              "bbox_pixels_xywh": [
+                63,
+                178,
+                28,
+                28
+              ]
+            },
+            {
+              "text": "fisinessRue)",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                172,
+                186,
+                67,
+                17
+              ]
+            },
+            {
+              "text": "Classification",
+              "confidence": 58.291935,
+              "bbox_pixels_xywh": [
+                316,
+                193,
+                62,
+                8
+              ]
+            },
+            {
+              "text": "J",
+              "confidence": 54.576145,
+              "bbox_pixels_xywh": [
+                380,
+                180,
+                3,
+                23
+              ]
+            },
+            {
+              "text": "(WaaFiow",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                454,
+                187,
+                59,
+                16
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 41.499592,
+              "bbox_pixels_xywh": [
+                523,
+                187,
+                2,
+                16
+              ]
+            },
+            {
+              "text": "(Privacy",
+              "confidence": 37.100845,
+              "bbox_pixels_xywh": [
+                572,
+                185,
+                43,
+                18
+              ]
+            },
+            {
+              "text": "Gasiteaton",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                623,
+                175,
+                55,
+                33
+              ]
+            },
+            {
+              "text": "(CPrevess_)",
+              "confidence": 24.836922,
+              "bbox_pixels_xywh": [
+                740,
+                187,
+                71,
+                16
+              ]
+            },
+            {
+              "text": "(Coaevave",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                879,
+                187,
+                61,
+                16
+              ]
+            },
+            {
+              "text": ")",
+              "confidence": 60.446236,
+              "bbox_pixels_xywh": [
+                946,
+                187,
+                3,
+                16
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 96.9058,
+              "bbox_pixels_xywh": [
+                356,
+                228,
+                32,
+                12
+              ]
+            },
+            {
+              "text": "Documentation",
+              "confidence": 96.923027,
+              "bbox_pixels_xywh": [
+                392,
+                228,
+                108,
+                12
+              ]
+            },
+            {
+              "text": "and",
+              "confidence": 96.070312,
+              "bbox_pixels_xywh": [
+                505,
+                228,
+                26,
+                12
+              ]
+            },
+            {
+              "text": "Governance",
+              "confidence": 96.38427,
+              "bbox_pixels_xywh": [
+                536,
+                228,
+                86,
+                12
+              ]
+            },
+            {
+              "text": "(BisinessataDomain",
+              "confidence": 11.379204,
+              "bbox_pixels_xywh": [
+                197,
+                248,
+                111,
+                15
+              ]
+            },
+            {
+              "text": "Role]",
+              "confidence": 80.613136,
+              "bbox_pixels_xywh": [
+                327,
+                248,
+                28,
+                15
+              ]
+            },
+            {
+              "text": "(Organization)",
+              "confidence": 36.488411,
+              "bbox_pixels_xywh": [
+                363,
+                248,
+                69,
+                15
+              ]
+            },
+            {
+              "text": "ata",
+              "confidence": 53.986885,
+              "bbox_pixels_xywh": [
+                442,
+                241,
+                19,
+                27
+              ]
+            },
+            {
+              "text": "Classification)",
+              "confidence": 28.869247,
+              "bbox_pixels_xywh": [
+                464,
+                248,
+                66,
+                15
+              ]
+            },
+            {
+              "text": "[Metadata",
+              "confidence": 75.445267,
+              "bbox_pixels_xywh": [
+                537,
+                241,
+                50,
+                27
+              ]
+            },
+            {
+              "text": "Association",
+              "confidence": 93.153664,
+              "bbox_pixels_xywh": [
+                590,
+                241,
+                53,
+                27
+              ]
+            },
+            {
+              "text": ")",
+              "confidence": 45.907318,
+              "bbox_pixels_xywh": [
+                651,
+                248,
+                2,
+                15
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 62.345634,
+              "bbox_pixels_xywh": [
+                659,
+                247,
+                3,
+                17
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 60.151634,
+              "bbox_pixels_xywh": [
+                669,
+                241,
+                41,
+                27
+              ]
+            },
+            {
+              "text": "Activity",
+              "confidence": 50.036922,
+              "bbox_pixels_xywh": [
+                714,
+                241,
+                32,
+                27
+              ]
+            },
+            {
+              "text": "Logs",
+              "confidence": 89.735786,
+              "bbox_pixels_xywh": [
+                752,
+                241,
+                19,
+                27
+              ]
+            },
+            {
+              "text": "}",
+              "confidence": 29.433266,
+              "bbox_pixels_xywh": [
+                779,
+                247,
+                3,
+                17
+              ]
+            },
+            {
+              "text": "(Database)",
+              "confidence": 54.385357,
+              "bbox_pixels_xywh": [
+                18,
+                288,
+                56,
+                15
+              ]
+            },
+            {
+              "text": "[DataSet]",
+              "confidence": 33.66288,
+              "bbox_pixels_xywh": [
+                107,
+                290,
+                38,
+                8
+              ]
+            },
+            {
+              "text": "[Data",
+              "confidence": 28.155655,
+              "bbox_pixels_xywh": [
+                168,
+                279,
+                30,
+                29
+              ]
+            },
+            {
+              "text": "Field",
+              "confidence": 28.155655,
+              "bbox_pixels_xywh": [
+                200,
+                279,
+                22,
+                29
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 58.702423,
+              "bbox_pixels_xywh": [
+                233,
+                288,
+                2,
+                15
+              ]
+            },
+            {
+              "text": "(",
+              "confidence": 44.827766,
+              "bbox_pixels_xywh": [
+                241,
+                288,
+                2,
+                15
+              ]
+            },
+            {
+              "text": "DataFiow",
+              "confidence": 65.835976,
+              "bbox_pixels_xywh": [
+                251,
+                290,
+                46,
+                8
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 26.404915,
+              "bbox_pixels_xywh": [
+                301,
+                279,
+                6,
+                29
+              ]
+            },
+            {
+              "text": "{Technical",
+              "confidence": 56.026684,
+              "bbox_pixels_xywh": [
+                313,
+                279,
+                51,
+                29
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 56.026684,
+              "bbox_pixels_xywh": [
+                369,
+                279,
+                18,
+                29
+              ]
+            },
+            {
+              "text": "Deletion",
+              "confidence": 55.028297,
+              "bbox_pixels_xywh": [
+                391,
+                279,
+                37,
+                29
+              ]
+            },
+            {
+              "text": "Rule",
+              "confidence": 77.497177,
+              "bbox_pixels_xywh": [
+                432,
+                279,
+                17,
+                29
+              ]
+            },
+            {
+              "text": "}(",
+              "confidence": 51.748257,
+              "bbox_pixels_xywh": [
+                456,
+                288,
+                10,
+                15
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 62.872204,
+              "bbox_pixels_xywh": [
+                471,
+                279,
+                46,
+                29
+              ]
+            },
+            {
+              "text": "Data",
+              "confidence": 62.872204,
+              "bbox_pixels_xywh": [
+                521,
+                279,
+                19,
+                29
+              ]
+            },
+            {
+              "text": "Qualiy",
+              "confidence": 17.319689,
+              "bbox_pixels_xywh": [
+                543,
+                279,
+                30,
+                29
+              ]
+            },
+            {
+              "text": "Rule",
+              "confidence": 80.318901,
+              "bbox_pixels_xywh": [
+                579,
+                279,
+                20,
+                29
+              ]
+            },
+            {
+              "text": ")",
+              "confidence": 80.318901,
+              "bbox_pixels_xywh": [
+                605,
+                288,
+                3,
+                15
+              ]
+            },
+            {
+              "text": "(Data",
+              "confidence": 78.362984,
+              "bbox_pixels_xywh": [
+                633,
+                288,
+                25,
+                16
+              ]
+            },
+            {
+              "text": "Guay",
+              "confidence": 30.151371,
+              "bbox_pixels_xywh": [
+                662,
+                278,
+                32,
+                31
+              ]
+            },
+            {
+              "text": "Anomay)",
+              "confidence": 28.139353,
+              "bbox_pixels_xywh": [
+                698,
+                278,
+                45,
+                31
+              ]
+            },
+            {
+              "text": "(Data",
+              "confidence": 57.180614,
+              "bbox_pixels_xywh": [
+                747,
+                278,
+                27,
+                31
+              ]
+            },
+            {
+              "text": "Volume",
+              "confidence": 57.180614,
+              "bbox_pixels_xywh": [
+                776,
+                291,
+                32,
+                8
+              ]
+            },
+            {
+              "text": "|",
+              "confidence": 58.517841,
+              "bbox_pixels_xywh": [
+                815,
+                288,
+                2,
+                16
+              ]
+            },
+            {
+              "text": "[Data",
+              "confidence": 58.517841,
+              "bbox_pixels_xywh": [
+                822,
+                288,
+                24,
+                16
+              ]
+            },
+            {
+              "text": "Access",
+              "confidence": 62.637718,
+              "bbox_pixels_xywh": [
+                851,
+                278,
+                32,
+                31
+              ]
+            },
+            {
+              "text": "Event]",
+              "confidence": 70.958214,
+              "bbox_pixels_xywh": [
+                887,
+                288,
+                31,
+                16
+              ]
+            },
+            {
+              "text": "Technical",
+              "confidence": 96.747108,
+              "bbox_pixels_xywh": [
+                14,
+                312,
+                68,
+                11
+              ]
+            },
+            {
+              "text": "ee",
+              "confidence": 45.586288,
+              "bbox_pixels_xywh": [
+                311,
+                315,
+                99,
+                10
+              ]
+            },
+            {
+              "text": "oe",
+              "confidence": 45.693302,
+              "bbox_pixels_xywh": [
+                430,
+                306,
+                42,
+                28
+              ]
+            },
+            {
+              "text": "Operational",
+              "confidence": 94.966827,
+              "bbox_pixels_xywh": [
+                882,
+                312,
+                81,
+                14
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 96.560303,
+              "bbox_pixels_xywh": [
+                15,
+                331,
+                63,
+                10
+              ]
+            },
+            {
+              "text": "S=",
+              "confidence": 33.65694,
+              "bbox_pixels_xywh": [
+                161,
+                315,
+                104,
+                32
+              ]
+            },
+            {
+              "text": "ee",
+              "confidence": 32.964676,
+              "bbox_pixels_xywh": [
+                309,
+                329,
+                86,
+                18
+              ]
+            },
+            {
+              "text": "===",
+              "confidence": 39.465225,
+              "bbox_pixels_xywh": [
+                409,
+                330,
+                63,
+                15
+              ]
+            },
+            {
+              "text": "Metadata",
+              "confidence": 96.192261,
+              "bbox_pixels_xywh": [
+                900,
+                331,
+                63,
+                10
+              ]
+            },
+            {
+              "text": "BIE",
+              "confidence": 85.206284,
+              "bbox_pixels_xywh": [
+                42,
+                349,
+                17,
+                8
+              ]
+            },
+            {
+              "text": "Analytics",
+              "confidence": 32.114426,
+              "bbox_pixels_xywh": [
+                62,
+                349,
+                43,
+                10
+              ]
+            },
+            {
+              "text": "Relational",
+              "confidence": 90.961693,
+              "bbox_pixels_xywh": [
+                189,
+                350,
+                46,
+                8
+              ]
+            },
+            {
+              "text": "Analytica",
+              "confidence": 83.523048,
+              "bbox_pixels_xywh": [
+                366,
+                351,
+                45,
+                10
+              ]
+            },
+            {
+              "text": "==",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                757,
+                345,
+                33,
+                9
+              ]
+            },
+            {
+              "text": "Platform",
+              "confidence": 23.692879,
+              "bbox_pixels_xywh": [
+                54,
+                361,
+                37,
+                8
+              ]
+            },
+            {
+              "text": "“STRUCTURED",
+              "confidence": 63.531822,
+              "bbox_pixels_xywh": [
+                257,
+                368,
+                72,
+                7
+              ]
+            },
+            {
+              "text": "DATA",
+              "confidence": 88.70446,
+              "bbox_pixels_xywh": [
+                331,
+                368,
+                27,
+                7
+              ]
+            },
+            {
+              "text": "Bre",
+              "confidence": 14.605627,
+              "bbox_pixels_xywh": [
+                873,
+                359,
+                18,
+                8
+              ]
+            },
+            {
+              "text": "Analyiee",
+              "confidence": 0.0,
+              "bbox_pixels_xywh": [
+                894,
+                359,
+                43,
+                10
+              ]
+            },
+            {
+              "text": "or",
+              "confidence": 49.180321,
+              "bbox_pixels_xywh": [
+                672,
+                379,
+                22,
+                8
+              ]
+            },
+            {
+              "text": "Platform",
+              "confidence": 53.38089,
+              "bbox_pixels_xywh": [
+                887,
+                371,
+                38,
+                8
+              ]
+            },
+            {
+              "text": "Daa",
+              "confidence": 30.592751,
+              "bbox_pixels_xywh": [
+                37,
+                379,
+                21,
+                8
+              ]
+            },
+            {
+              "text": "integration",
+              "confidence": 30.592751,
+              "bbox_pixels_xywh": [
+                61,
+                379,
+                50,
+                10
+              ]
+            },
+            {
+              "text": "Tools",
+              "confidence": 77.87619,
+              "bbox_pixels_xywh": [
+                60,
+                392,
+                27,
+                7
+              ]
+            },
+            {
+              "text": "a,",
+              "confidence": 56.364899,
+              "bbox_pixels_xywh": [
+                137,
+                378,
+                27,
+                28
+              ]
+            },
+            {
+              "text": "=",
+              "confidence": 92.596245,
+              "bbox_pixels_xywh": [
+                212,
+                387,
+                22,
+                10
+              ]
+            },
+            {
+              "text": "rs",
+              "confidence": 9.304523,
+              "bbox_pixels_xywh": [
+                355,
+                384,
+                45,
+                12
+              ]
+            },
+            {
+              "text": "oe",
+              "confidence": 28.764076,
+              "bbox_pixels_xywh": [
+                764,
+                382,
+                19,
+                15
+              ]
+            },
+            {
+              "text": "a",
+              "confidence": 38.846481,
+              "bbox_pixels_xywh": [
+                220,
+                399,
+                64,
+                12
+              ]
+            },
+            {
+              "text": "soon",
+              "confidence": 41.258446,
+              "bbox_pixels_xywh": [
+                458,
+                398,
+                103,
+                9
+              ]
+            },
+            {
+              "text": "‘Administration",
+              "confidence": 85.152054,
+              "bbox_pixels_xywh": [
+                868,
+                393,
+                66,
+                8
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 89.684464,
+              "bbox_pixels_xywh": [
+                937,
+                393,
+                6,
+                8
+              ]
+            },
+            {
+              "text": "(Daas)",
+              "confidence": 46.345154,
+              "bbox_pixels_xywh": [
+                30,
+                406,
+                88,
+                8
+              ]
+            },
+            {
+              "text": "Monitering",
+              "confidence": 37.683052,
+              "bbox_pixels_xywh": [
+                867,
+                405,
+                49,
+                10
+              ]
+            },
+            {
+              "text": "Tools",
+              "confidence": 54.838051,
+              "bbox_pixels_xywh": [
+                919,
+                405,
+                25,
+                8
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 91.009949,
+              "bbox_pixels_xywh": [
+                39,
+                419,
+                70,
+                10
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 90.855377,
+              "bbox_pixels_xywh": [
+                105,
+                409,
+                7,
+                28
+              ]
+            },
+            {
+              "text": "‘System",
+              "confidence": 57.324371,
+              "bbox_pixels_xywh": [
+                37,
+                431,
+                33,
+                10
+              ]
+            },
+            {
+              "text": "Catalog",
+              "confidence": 95.775391,
+              "bbox_pixels_xywh": [
+                74,
+                431,
+                35,
+                10
+              ]
+            },
+            {
+              "text": "‘SEMI-STRUCTURED",
+              "confidence": 47.700253,
+              "bbox_pixels_xywh": [
+                156,
+                428,
+                99,
+                8
+              ]
+            },
+            {
+              "text": "DATA",
+              "confidence": 96.627403,
+              "bbox_pixels_xywh": [
+                258,
+                428,
+                26,
+                8
+              ]
+            },
+            {
+              "text": "UNSTRUCTURED",
+              "confidence": 87.447044,
+              "bbox_pixels_xywh": [
+                398,
+                428,
+                114,
+                8
+              ]
+            },
+            {
+              "text": "DATA",
+              "confidence": 95.456291,
+              "bbox_pixels_xywh": [
+                487,
+                417,
+                29,
+                28
+              ]
+            }
+          ],
+          "mean_word_confidence": 60.03,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

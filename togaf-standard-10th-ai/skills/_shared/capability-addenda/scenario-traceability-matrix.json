@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "status": "production-package-implemented-pending-central-integration",
+  "portability": "Only relative references; source summaries bundled, original PDFs not required at runtime.",
+  "rule_origin_policy": "来源定义、项目操作约定与虚构案例数值逐条区分。未提供的指标权重、目标、容差和合格线不能推断为TOGAF要求。",
+  "id": "scenario-traceability-matrix",
+  "artifact_id": "scenario-traceability-matrix",
+  "profile_id": "scenario-traceability-matrix-default",
+  "owner": "togaf-vision-scenarios",
+  "sources": [
+    {
+      "guide": "G176",
+      "sections": [
+        "3.2.3",
+        "11.4"
+      ],
+      "english_pdf_pages": [
+        22,
+        23,
+        45,
+        46
+      ],
+      "evidence": "../reviews/G176-scenario-matrix-addendum.json"
+    }
+  ],
+  "decision_use": "检验场景是否把流程与五类业务/技术参与要素和问题结果联系起来，并保留原始材料的转化轨迹。",
+  "stakeholders": [
+    "业务分析师",
+    "业务代表",
+    "人的参与者",
+    "系统负责人",
+    "架构师"
+  ],
+  "adm_phases": [
+    "A",
+    "B",
+    "Requirements Management"
+  ],
+  "required_inputs": [
+    {
+      "id": "raw_records",
+      "origin": "source",
+      "meaning": "只读原始业务材料与定位"
+    },
+    {
+      "id": "normalized_records",
+      "origin": "source",
+      "meaning": "拆分复合陈述、统一术语和分类后的原子记录"
+    },
+    {
+      "id": "transformation_log",
+      "origin": "source",
+      "meaning": "每一步输入、输出、操作、理由、证据"
+    },
+    {
+      "id": "processes",
+      "origin": "source",
+      "meaning": "作为关联焦点的流程"
+    },
+    {
+      "id": "constituencies",
+      "origin": "source",
+      "meaning": "受影响利益相关方群体"
+    },
+    {
+      "id": "human_actors",
+      "origin": "source",
+      "meaning": "人的参与者"
+    },
+    {
+      "id": "computer_actors",
+      "origin": "source",
+      "meaning": "计算机参与者"
+    },
+    {
+      "id": "problems",
+      "origin": "source",
+      "meaning": "待改善问题/痛点"
+    },
+    {
+      "id": "objectives",
+      "origin": "source",
+      "meaning": "期望达成的结果"
+    }
+  ],
+  "missing_input_policy": "未知关系用缺口ID，不把空格当确定无关联。缺任一类别可生成范围受限草稿；未关联结果的痛点必须列为阻断检查项。",
+  "semantics": {
+    "model_container": "model.extension_data['togaf-addenda:g176-scenario']",
+    "matrix_rows": "流程",
+    "matrix_column_groups": [
+      "利益群体",
+      "人的参与者",
+      "计算机参与者",
+      "问题",
+      "目标"
+    ],
+    "association": "关系表示被明确证明的场景关联；不默认表示CRUD、流程先后或责任分工。",
+    "painpoint_outcome": "每个痛点至少关联一个期望结果；此关系独立于流程行到问题/目标的关系。",
+    "identity": "重名保留独立ID并记录语境；复用同一参与者必须复用同一ID。",
+    "production_container": "analyses[].inputs and typed entities[].attributes; legacy namespace remains audit history"
+  },
+  "analysis_steps": [
+    "锁定原始资料",
+    "按单点拆分复合陈述",
+    "统一术语并分类，记录每次转换",
+    "以流程链接五类要素，逐个关联给证据",
+    "验证每个痛点至少有一个成果",
+    "从已支持关系形成业务/技术需求",
+    "评审是否回应原始问题，批准后才进入需求存储库"
+  ],
+  "output_structure": [
+    "原始到规范记录映射",
+    "转换审计日志",
+    "按五类分组的关联矩阵",
+    "痛点与成果追溯",
+    "业务和技术需求及缺口"
+  ],
+  "notation": "矩阵中显式标关联含义；空格、无关联、未确认分开。",
+  "quality_checks": [
+    {
+      "id": "SCN-001",
+      "rule": "每个规范条目可追溯只读原始记录与转换步骤"
+    },
+    {
+      "id": "SCN-002",
+      "rule": "复合陈述不得丢失子句"
+    },
+    {
+      "id": "SCN-003",
+      "rule": "每个痛点至少一个成果"
+    },
+    {
+      "id": "SCN-004",
+      "rule": "矩阵关系没有未经原文授权的CRUD/顺序/责任编码"
+    },
+    {
+      "id": "SCN-005",
+      "rule": "同ID复用、重名不同ID不合并"
+    },
+    {
+      "id": "SCN-006",
+      "rule": "单一制品请求仍可输出本矩阵和最小必要追溯，不强制全套成果"
+    }
+  ],
+  "misreadings": [
+    "6项总体任务、5个迭代步骤与3个阶段是不同分解",
+    "矩阵有一条关联不代表实际控制流",
+    "把全部流程和全部参与者自动连满会制造事实"
+  ],
+  "example": "../examples/addenda/scenario-traceability-matrix/case.json",
+  "method_reference": "../references/capability-addenda/scenario-traceability-matrix.md",
+  "render_obligations": [
+    "process_ids",
+    "five_column_categories",
+    "association_ids_and_meaning",
+    "painpoint_outcome_refs",
+    "unknown_vs_absent",
+    "source_transformation_refs"
+  ],
+  "acceptance": {
+    "definition": "english-pdf-checked",
+    "model": "example-v2-validation-passed",
+    "analysis": "production-calculator-tests-passed",
+    "generation": "standard-generator-isolated-package-executed",
+    "modification": "production-baseline-and-modified-executed",
+    "review": "production-negative-and-boundary-tests-passed",
+    "visual": "matrix-two-layouts-opened"
+  },
+  "execution_evidence": "../examples/addenda/scenario-traceability-matrix/execution-review.json",
+  "production_package": "evidence-work-products.json",
+  "production_usage": "../references/capability-addenda/production-use.md",
+  "production_example": "../examples/addenda/scenario-traceability-matrix/production-baseline-model.json"
+}

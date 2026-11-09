@@ -1,0 +1,785 @@
+{
+  "schema_version": "1.0",
+  "id": "G242/fig3-11",
+  "status": "done",
+  "doc": {
+    "code": "G242",
+    "title_zh": "环境可持续的信息系统",
+    "title_en": "Environmentally Sustainable Information Systems",
+    "zh_md": "G242e_环境可持续的信息系统.md",
+    "en_pdf": "togaf-standard-10th/G242e.pdf"
+  },
+  "figure": {
+    "kind": "figure",
+    "number": "3-11",
+    "title_en": "Measuring the Environmental Impact of the Information System at Different Levels (Source: The Shift Project Lean-ICT Work Group)",
+    "title_zh": "在不同层面度量信息系统的环境影响（来源：The Shift Project Lean-ICT 工作组）",
+    "section_en": "3.6.3 Provide to Stakeholders a Measure of their Environmental Impact",
+    "section_zh": "3.6.3 向利益相关者提供其环境影响度量",
+    "attribution": "Source: The Shift Project Lean-ICT Work Group",
+    "en_location": {
+      "pages": [
+        65
+      ],
+      "printed_page": 47,
+      "bboxes": [
+        [
+          48.2,
+          417.1,
+          563.8,
+          621.0
+        ]
+      ]
+    },
+    "zh_location": {
+      "md_lines": [
+        1142
+      ],
+      "label_table_lines": [
+        1146,
+        1168
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "figs/g242_fig3-11_en.png",
+      "kind": "en_original",
+      "referenced_in_zh_md": true,
+      "sha1": "043b3e9abd81",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "[自动] 与英文 PDF 截图的缩略图相似度 0.977（≥0.9 通常为同一图）",
+        "英文截图与原图一致（自动相似度 0.977），三条色带、三组指标、CO₂ 当量框架列、碳足迹列与三支箭头均完整。"
+      ]
+    },
+    {
+      "path": "figs/zh/g242_fig3-11_zh.png",
+      "kind": "zh_localized",
+      "referenced_in_zh_md": false,
+      "sha1": "fe8ebd0d7733",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "第二行第 4 个指标框“Frequency/Usage Time of Applications, or More Details of Applications' Function”被压成一条约 10px 宽的细条，文字竖排不可读，等于丢了一个指标。",
+        "第二行第 2 个框仍是英文“Number of Used Applications/Software”，未译。",
+        "第三行“能耗”字号远大于其他标签，明显溢出框体；“#Terminals”等未译。",
+        "第一行左侧“按用途/业务管理的基础设施指标”框被淡化成半透明浅橙，右侧框仍为实心橙；右侧碳足迹列上层框也偏棕，橙色层的视觉一致性被削弱（底色与箭头仍保留橙色）。"
+      ]
+    },
+    {
+      "path": "figs/zh/g242_fig3-11_zh.svg",
+      "kind": "zh_redraw_svg",
+      "referenced_in_zh_md": false,
+      "sha1": "39a2c92aa31d",
+      "fidelity": "minor_deviation",
+      "issues_zh": [
+        "原图三层用橙（业务用途）/青（软件与应用）/深蓝（基础设施与网络）区分，重绘改成浅灰蓝/浅蓝/深蓝，业务用途层的橙色编码丢失，层级颜色对应关系被削弱。",
+        "原图“CO₂ Equivalent Frame”框为白底、碳足迹列为灰色底；重绘中前者为浅灰、后者为中灰，与三层色带对比度下降。",
+        "三支箭头起点画在色带右缘之外（x=854），原图箭头从色带边缘穿过 CO₂ 框架列指向右侧；方向与含义一致。",
+        "全部 10 个指标框、3 个碳足迹框与三层组名均保留，无遗漏。"
+      ]
+    },
+    {
+      "path": "G242e_环境可持续的信息系统.md#L1146-L1168",
+      "kind": "label_table",
+      "referenced_in_zh_md": true,
+      "sha1": "5dcc2c777552",
+      "fidelity": "faithful",
+      "issues_zh": [
+        "18 行对照覆盖原图全部可见标签，英文逐字一致，中文与中文稿术语一致。"
+      ]
+    }
+  ],
+  "classification": {
+    "diagram_types": [
+      "layered",
+      "flow"
+    ],
+    "notation": "三层横向色带（业务用途、软件与应用、基础设施与网络），每层放若干指标框；右侧竖列“CO₂ 当量框架”与灰色“碳足迹”列，三支同色箭头把每层指标送入对应层级的碳足迹。",
+    "concepts": [
+      "ghg_emissions",
+      "sustainability"
+    ],
+    "adm_phases": []
+  },
+  "semantics": {
+    "one_line_zh": "把指标按业务、应用、基础设施三层组织，经 CO₂ 当量框架换算成同层级的碳足迹。",
+    "purpose_zh": "回答“如何把技术层的碳核算交到业务手里”：为业务负责人、应用负责人、基础设施负责人分别提供其熟悉的中介指标（用途、应用数量、能耗、存储量等），再统一折算成该层级可负责的碳足迹，使每个利益相关者都能在自己的决策范围内提减排杠杆。",
+    "reading_guide_zh": "从上到下读三层：业务用途（最抽象）、软件与应用、基础设施与网络（最具体）。每层左侧是若干指标框；右侧有一支与层色一致的箭头，穿过中间的“CO₂ 等效框架”竖列，指向右端灰色列中同色的碳足迹框。也就是说：本层指标 → 统一折算 → 本层碳足迹。",
+    "key_points_zh": [
+      "三个层级对应三类责任主体：业务用途层对“用数字服务做什么”负责，应用层对“用什么软件/应用”负责，基础设施层对“跑在什么设备和网络上”负责。",
+      "业务用途层只有两个指标，都是“按用途/业务管理”归集的基础设施指标与应用指标，说明业务层不直接测硬件，而是按用途分摊。",
+      "软件与应用层用四个易得指标：应用/软件数量、内部应用引用的不同库数量、应用使用频率/时长或功能细节、按应用分摊的基础设施指标。",
+      "基础设施层用四个物理量：设备制造碳排放、能耗、存储数据量、内外传输数据量——这些正是 ICT 人员日常可监控的量。",
+      "“CO₂ 当量框架”是三层共用的唯一折算口径，纵向贯穿全图；没有它，三层指标不可比。",
+      "右侧碳足迹与左侧三层一一对应：按用途/业务管理的碳足迹、按应用/软件的碳足迹、按设备/材料与相关基础设施总体的碳足迹。",
+      "该图回应正文的过渡策略：当云服务等第三方细节不可得时，先用中间指标让管理层行动，等待披露标准落地。"
+    ],
+    "hierarchy_zh": "三层并列而非上下级：业务用途（最概括）→ 软件与应用 → 基础设施与网络（最具体），是“度量粒度”的分解。每层内部是“指标集合 → 折算 → 碳足迹”的横向三段式；碳足迹列是三层结果的汇总容器，不是第四层。",
+    "line_semantics_zh": "三支水平箭头是全图唯一的连线：橙箭头从业务用途色带右缘出发，青箭头从软件与应用色带出发，深蓝箭头从基础设施与网络色带出发，均穿过“CO₂ 当量框架”竖列，箭头指向同色的碳足迹框。箭头表示“指标经统一框架折算为该层级碳足迹”，不是数据流或时序。",
+    "misreadings_zh": [
+      "三层不是成熟度等级，也不是先后步骤；它们是同一信息系统的三种度量视角，可同时使用。",
+      "“CO₂ 当量框架”不是一层或一个指标，而是折算方法/口径列，三支箭头都穿过它。",
+      "最右侧“Carbon Footprint”灰列不是第四个层级，而是三层各自结果所在的位置。",
+      "业务用途层的指标并不“更粗”，只是归集口径按用途/业务而非按设备。",
+      "中文稿当前引用的重绘 SVG 把第一层改成浅蓝灰，不能据颜色判断原图没有橙色层级编码。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p65",
+        "summary_zh": "完成技术组件的温室气体度量后，必须把它应用到组织主要职能：商品与服务生产的价值链、财务与人力资源等支持职能、客户关系职能，以识别影响最大的业务线并设定各职能减排目标。"
+      },
+      {
+        "source": "en_pdf p65",
+        "summary_zh": "可采用 ICT 人员熟悉的中间度量与指标：排放增长可与存储量、网络流量、处理量增长关联；第三方云服务细节不可知时，中间指标可让管理层先行行动。"
+      },
+      {
+        "source": "zh_md L1138",
+        "summary_zh": "中文稿转述同一做法：把技术组件度量应用到主要职能，识别高影响业务线。"
+      },
+      {
+        "source": "zh_md L1140",
+        "summary_zh": "中间度量可与存储量、网络流量、处理量增长关联；云服务细节不明时先用中间度量。"
+      },
+      {
+        "source": "zh_md L1169",
+        "summary_zh": "为使利益相关者能在其决策范围内提杠杆，应提供公司计算数字 GHG 排放所用的通用数据资料库。"
+      }
+    ]
+  },
+  "layout": {
+    "direction": "LR",
+    "description_zh": "左侧三条横向圆角色带自上而下堆叠，每条带内并排若干指标框；中间一条竖直的“CO₂ 当量框架”列；右侧灰色竖直列放三个碳足迹框；三支水平箭头自左向右穿过中间列。"
+  },
+  "legend": [
+    {
+      "symbol": "橙色",
+      "meaning_zh": "业务用途层（最概括）",
+      "explicit": false
+    },
+    {
+      "symbol": "青色",
+      "meaning_zh": "软件与应用层",
+      "explicit": false
+    },
+    {
+      "symbol": "深蓝色",
+      "meaning_zh": "基础设施与网络层（最具体）",
+      "explicit": false
+    },
+    {
+      "symbol": "同色水平箭头",
+      "meaning_zh": "该层指标经 CO₂ 当量框架折算为该层碳足迹",
+      "explicit": false
+    },
+    {
+      "symbol": "浅灰圆角带",
+      "meaning_zh": "层级容器（组）",
+      "explicit": false
+    }
+  ],
+  "elements": [
+    {
+      "id": "grp_business",
+      "label_en": "Business Uses",
+      "label_zh": "业务用途",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 1,
+      "position": "最上层浅灰圆角带"
+    },
+    {
+      "id": "ind_bus_infra",
+      "label_en": "Infrastructure Indicators by Use/Business Management",
+      "label_zh": "按用途/业务管理的基础设施指标",
+      "type": "metric",
+      "parent": "grp_business",
+      "level": 2,
+      "order": 1,
+      "position": "上层左，橙色框"
+    },
+    {
+      "id": "ind_bus_app",
+      "label_en": "Application Indicators by Use/Business Management",
+      "label_zh": "按用途/业务管理的应用指标",
+      "type": "metric",
+      "parent": "grp_business",
+      "level": 2,
+      "order": 2,
+      "position": "上层右，橙色框"
+    },
+    {
+      "id": "grp_software",
+      "label_en": "Software & Applications",
+      "label_zh": "软件与应用",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 2,
+      "position": "中间层浅灰圆角带"
+    },
+    {
+      "id": "ind_sw_infra",
+      "label_en": "Infrastructure Indicators by Application/Software",
+      "label_zh": "按应用/软件的基础设施指标",
+      "type": "metric",
+      "parent": "grp_software",
+      "level": 2,
+      "order": 1,
+      "position": "中层第 1 个，青色框"
+    },
+    {
+      "id": "ind_sw_count",
+      "label_en": "Number of Used Applications/Software",
+      "label_zh": "使用的应用/软件数量",
+      "type": "metric",
+      "parent": "grp_software",
+      "level": 2,
+      "order": 2,
+      "position": "中层第 2 个"
+    },
+    {
+      "id": "ind_sw_libs",
+      "label_en": "Number of Different Libraries Used by Internal Applications",
+      "label_zh": "内部应用使用的不同库数量",
+      "type": "metric",
+      "parent": "grp_software",
+      "level": 2,
+      "order": 3,
+      "position": "中层第 3 个"
+    },
+    {
+      "id": "ind_sw_freq",
+      "label_en": "Frequency/Usage Time of Applications, or More Details of Applications' Function",
+      "label_zh": "应用的使用频率/时长，或应用功能的更多细节",
+      "type": "metric",
+      "parent": "grp_software",
+      "level": 2,
+      "order": 4,
+      "position": "中层第 4 个"
+    },
+    {
+      "id": "grp_infrastructure",
+      "label_en": "Infrastructure & Network",
+      "label_zh": "基础设施与网络",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "order": 3,
+      "position": "最下层浅灰圆角带"
+    },
+    {
+      "id": "ind_if_build",
+      "label_en": "Carbon Emission Related to Equipment Fabrication",
+      "label_zh": "与设备制造相关的碳排放",
+      "type": "metric",
+      "parent": "grp_infrastructure",
+      "level": 2,
+      "order": 1,
+      "position": "下层第 1 个，深蓝框"
+    },
+    {
+      "id": "ind_if_energy",
+      "label_en": "Energy Consumption",
+      "label_zh": "能耗",
+      "type": "metric",
+      "parent": "grp_infrastructure",
+      "level": 2,
+      "order": 2,
+      "position": "下层第 2 个"
+    },
+    {
+      "id": "ind_if_storage",
+      "label_en": "Volume of Stored Data",
+      "label_zh": "存储数据量",
+      "type": "metric",
+      "parent": "grp_infrastructure",
+      "level": 2,
+      "order": 3,
+      "position": "下层第 3 个"
+    },
+    {
+      "id": "ind_if_transfer",
+      "label_en": "Volume of Transferred Data Internally and Externally",
+      "label_zh": "内外部传输的数据量",
+      "type": "metric",
+      "parent": "grp_infrastructure",
+      "level": 2,
+      "order": 4,
+      "position": "下层第 4 个"
+    },
+    {
+      "id": "frame_co2",
+      "label_en": "CO₂ Equivalent Frame",
+      "label_zh": "CO₂ 当量框架",
+      "type": "concept",
+      "parent": null,
+      "level": 1,
+      "position": "中部竖直白框，贯穿三层"
+    },
+    {
+      "id": "grp_footprint",
+      "label_en": "Carbon Footprint",
+      "label_zh": "碳足迹",
+      "type": "group",
+      "parent": null,
+      "level": 1,
+      "position": "右侧灰色竖直列"
+    },
+    {
+      "id": "fp_use",
+      "label_en": "Carbon Footprint by Use and/or by Business Management",
+      "label_zh": "按用途和/或业务管理的碳足迹",
+      "type": "metric",
+      "parent": "grp_footprint",
+      "level": 2,
+      "order": 1,
+      "position": "右列上层，橙色框"
+    },
+    {
+      "id": "fp_app",
+      "label_en": "Carbon Footprint by Application/Software",
+      "label_zh": "按应用/软件的碳足迹",
+      "type": "metric",
+      "parent": "grp_footprint",
+      "level": 2,
+      "order": 2,
+      "position": "右列中层，青色框"
+    },
+    {
+      "id": "fp_infra",
+      "label_en": "Carbon Footprint by Equipment/Material, by Relevant Infrastructure Overall",
+      "label_zh": "按设备/材料、按相关基础设施总体的碳足迹",
+      "type": "metric",
+      "parent": "grp_footprint",
+      "level": 2,
+      "order": 3,
+      "position": "右列下层，深蓝框"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_business_fp",
+      "from": "grp_business",
+      "to": "fp_use",
+      "type": "produces",
+      "label_en": "CO₂ Equivalent Frame",
+      "label_zh": "CO₂ 当量框架",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "橙色箭头：业务用途层的指标经 CO₂ 当量框架折算为按用途/业务管理的碳足迹"
+    },
+    {
+      "id": "r_software_fp",
+      "from": "grp_software",
+      "to": "fp_app",
+      "type": "produces",
+      "label_en": "CO₂ Equivalent Frame",
+      "label_zh": "CO₂ 当量框架",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "青色箭头：软件与应用层指标经同一框架折算为按应用/软件的碳足迹"
+    },
+    {
+      "id": "r_infra_fp",
+      "from": "grp_infrastructure",
+      "to": "fp_infra",
+      "type": "produces",
+      "label_en": "CO₂ Equivalent Frame",
+      "label_zh": "CO₂ 当量框架",
+      "explicit": true,
+      "line": "solid",
+      "arrow": "forward",
+      "description_zh": "深蓝箭头：基础设施与网络层指标经同一框架折算为按设备/材料与相关基础设施的碳足迹"
+    }
+  ],
+  "flows": [],
+  "tables": [],
+  "related_figures": [
+    {
+      "target": "G242/fig3-10",
+      "relation": "related",
+      "note_zh": "图 3-10 汇总组织信息系统的年度总量，本图把同一足迹分解到业务、应用、基础设施三个责任层级。"
+    },
+    {
+      "target": "G242/fig5-1",
+      "relation": "related",
+      "note_zh": "图 5-1 中“从摇篮到坟墓度量信息系统环境影响”功能组的三个业务功能，正是本图度量工作的组织化描述。"
+    }
+  ],
+  "quality": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "三支箭头的起点在色带右缘，未明确锚定到某一个指标框；按“该层指标整体”理解。",
+      "原图未给出任何计算公式或权重，CO₂ 当量框架的具体折算方法不在图中。",
+      "“Business Uses”层为何只有基础设施与应用两类指标、没有业务自身指标，图中未解释。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 65 页（印刷页 47）原图截图与 2×2 放大分块",
+      "英文 PDF 第 65 页正文",
+      "中文稿 G242e_环境可持续的信息系统.md 第 1137–1171 行",
+      "figs/zh/g242_fig3-11_zh.svg 源码、figs/zh/g242_fig3-11_zh.png、figs/g242_fig3-11_en.png"
+    ],
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "source_role": "source-figure-with-historical-interpretation",
+    "pdf_path": "togaf-standard-10th/G242e.pdf",
+    "pdf_sha256": "517339a5e3f509f08699c10b929f5ae14b6bca356b55e76163ffe437d54d5d19",
+    "interpretation_path": "togaf-standard-10th-zh/figs/ai/G242/fig3-11.json",
+    "interpretation_sha256": "c34f4c5122a26537955002863d42413a4da9eae38b26711a29e9cc84a6b11f34",
+    "interpretation_status": "historical-interpretation-not-fully-reverified",
+    "page_numbering": "PDF physical page, one-based",
+    "bbox_coordinate_system": "PDF points; origin top-left",
+    "title_matches": [
+      {
+        "pdf_page": 65,
+        "text": "Figure 3-11: Measuring the Environmental Impact of the Information System at Different Levels (Source: The",
+        "bbox_pdf_points": [
+          48.24,
+          625.762,
+          552.396,
+          639.328
+        ]
+      }
+    ]
+  },
+  "source_extraction": [
+    {
+      "pdf_page": 65,
+      "printed_page": 47,
+      "bbox_pdf_points": [
+        48.2,
+        417.1,
+        563.8,
+        621.0
+      ],
+      "page_size_points": [
+        612.0,
+        792.0
+      ],
+      "image_path": "figures/assets/G242/fig3-11-p0065.png",
+      "image_sha256": "da6357bd1ba017f664b15d6e1166658a44b8ed7f50e6bf885ee6b9de273c540a",
+      "render_dpi": 144,
+      "region_source": "historical-bbox-checked-within-original-page",
+      "transcription": {
+        "digital_text": "",
+        "digital_words": [],
+        "ocr": {
+          "engine": "tesseract",
+          "language": "eng",
+          "page_segmentation_mode": 11,
+          "image_sha256": "da6357bd1ba017f664b15d6e1166658a44b8ed7f50e6bf885ee6b9de273c540a",
+          "status": "extracted-unverified",
+          "text": "Busine\nCarbon Footprint\nInfrastructure Indicators\nApplication Indicators by\nCarbon\nby Use/Business\nUse/Business\nFootprint by\nManagement\nManagement\nUse and/or by\nBusiness\nManagement\nE\ne &\n\\\nations\nInfrastr\ncture\nNetwork",
+          "words": [
+            {
+              "text": "Busine",
+              "confidence": 85.088203,
+              "bbox_pixels_xywh": [
+                323,
+                23,
+                44,
+                11
+              ]
+            },
+            {
+              "text": "Carbon",
+              "confidence": 95.316368,
+              "bbox_pixels_xywh": [
+                884,
+                19,
+                51,
+                11
+              ]
+            },
+            {
+              "text": "Footprint",
+              "confidence": 95.316368,
+              "bbox_pixels_xywh": [
+                943,
+                20,
+                65,
+                13
+              ]
+            },
+            {
+              "text": "Infrastructure",
+              "confidence": 95.424934,
+              "bbox_pixels_xywh": [
+                196,
+                59,
+                88,
+                11
+              ]
+            },
+            {
+              "text": "Indicators",
+              "confidence": 94.749733,
+              "bbox_pixels_xywh": [
+                290,
+                59,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "Application",
+              "confidence": 94.985367,
+              "bbox_pixels_xywh": [
+                401,
+                59,
+                74,
+                14
+              ]
+            },
+            {
+              "text": "Indicators",
+              "confidence": 96.131577,
+              "bbox_pixels_xywh": [
+                481,
+                59,
+                65,
+                11
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.916687,
+              "bbox_pixels_xywh": [
+                552,
+                59,
+                15,
+                14
+              ]
+            },
+            {
+              "text": "Carbon",
+              "confidence": 94.442482,
+              "bbox_pixels_xywh": [
+                922,
+                62,
+                48,
+                11
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 93.241943,
+              "bbox_pixels_xywh": [
+                219,
+                77,
+                14,
+                14
+              ]
+            },
+            {
+              "text": "Use/Business",
+              "confidence": 85.470436,
+              "bbox_pixels_xywh": [
+                239,
+                77,
+                93,
+                12
+              ]
+            },
+            {
+              "text": "Use/Business",
+              "confidence": 78.437653,
+              "bbox_pixels_xywh": [
+                438,
+                77,
+                92,
+                11
+              ]
+            },
+            {
+              "text": "Footprint",
+              "confidence": 95.934143,
+              "bbox_pixels_xywh": [
+                907,
+                80,
+                59,
+                14
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.11068,
+              "bbox_pixels_xywh": [
+                971,
+                80,
+                15,
+                14
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.345734,
+              "bbox_pixels_xywh": [
+                231,
+                96,
+                88,
+                14
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 93.754036,
+              "bbox_pixels_xywh": [
+                440,
+                96,
+                88,
+                14
+              ]
+            },
+            {
+              "text": "Use",
+              "confidence": 96.057709,
+              "bbox_pixels_xywh": [
+                899,
+                99,
+                26,
+                11
+              ]
+            },
+            {
+              "text": "and/or",
+              "confidence": 95.330742,
+              "bbox_pixels_xywh": [
+                931,
+                99,
+                42,
+                11
+              ]
+            },
+            {
+              "text": "by",
+              "confidence": 96.084877,
+              "bbox_pixels_xywh": [
+                979,
+                99,
+                15,
+                14
+              ]
+            },
+            {
+              "text": "Business",
+              "confidence": 96.337898,
+              "bbox_pixels_xywh": [
+                916,
+                117,
+                61,
+                12
+              ]
+            },
+            {
+              "text": "Management",
+              "confidence": 96.468483,
+              "bbox_pixels_xywh": [
+                902,
+                136,
+                89,
+                14
+              ]
+            },
+            {
+              "text": "E",
+              "confidence": 15.110292,
+              "bbox_pixels_xywh": [
+                332,
+                165,
+                2,
+                3
+              ]
+            },
+            {
+              "text": "e",
+              "confidence": 65.49456,
+              "bbox_pixels_xywh": [
+                348,
+                161,
+                7,
+                8
+              ]
+            },
+            {
+              "text": "&",
+              "confidence": 65.49456,
+              "bbox_pixels_xywh": [
+                363,
+                161,
+                9,
+                8
+              ]
+            },
+            {
+              "text": "\\",
+              "confidence": 62.447517,
+              "bbox_pixels_xywh": [
+                385,
+                163,
+                2,
+                4
+              ]
+            },
+            {
+              "text": "ations",
+              "confidence": 96.362244,
+              "bbox_pixels_xywh": [
+                432,
+                161,
+                35,
+                8
+              ]
+            },
+            {
+              "text": "Infrastr",
+              "confidence": 90.032791,
+              "bbox_pixels_xywh": [
+                286,
+                292,
+                50,
+                12
+              ]
+            },
+            {
+              "text": "cture",
+              "confidence": 53.537331,
+              "bbox_pixels_xywh": [
+                350,
+                296,
+                37,
+                8
+              ]
+            },
+            {
+              "text": "Network",
+              "confidence": 96.264236,
+              "bbox_pixels_xywh": [
+                412,
+                292,
+                60,
+                12
+              ]
+            }
+          ],
+          "mean_word_confidence": 86.64,
+          "coordinate_space": "rendered crop pixels; sparse-text order is not diagram topology"
+        }
+      }
+    }
+  ],
+  "known_conflicts": [],
+  "current_visual_findings": [],
+  "validation": {
+    "graph_integrity_issues": [],
+    "location_available": true,
+    "caption_page_match": true,
+    "visual_review_scope": "not-reverified-this-build",
+    "all_source_pages_valid": true
+  }
+}

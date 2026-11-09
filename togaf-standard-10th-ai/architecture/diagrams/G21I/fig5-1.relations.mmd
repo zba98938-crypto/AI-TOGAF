@@ -1,0 +1,11 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Corporate Governance"]
+  n1["IT Governance"]
+  n2["Enterprise Architecture Governance"]
+  n3["MSA/Cloud-Native Governance"]
+  n1 -->|"支撑/服务"| n0
+  n2 -->|"支撑/服务"| n0
+  n1 <-->|"关联"| n2
+  n3 -->|"特化"| n1
+  n2 -->|"治理/监督"| n3

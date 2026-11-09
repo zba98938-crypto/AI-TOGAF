@@ -1,0 +1,365 @@
+{
+  "schema_version": "2.0",
+  "project": {
+    "id": "g249-omnichannel",
+    "name": "虚构全渠道订单履约改造",
+    "version": "2",
+    "context": {
+      "domains": [
+        "business",
+        "data",
+        "application",
+        "technology"
+      ],
+      "landscape": "segment",
+      "purpose": "project",
+      "abstraction": "logical",
+      "evolution": "target"
+    },
+    "is_example": true,
+    "approval_status": "candidate",
+    "implementation_status": "not-started"
+  },
+  "view": {
+    "id": "delivery-notebook",
+    "artifact_id": "solution-delivery-notebook",
+    "profile_id": "solution-delivery-notebook-default",
+    "title": "方案备选、跨域交接与运营条件",
+    "context": {
+      "domains": [
+        "business",
+        "data",
+        "application",
+        "technology"
+      ],
+      "landscape": "segment",
+      "purpose": "project",
+      "abstraction": "logical",
+      "evolution": "target"
+    },
+    "entity_ids": [
+      "DELIVERY-NOTE"
+    ],
+    "relationship_ids": [],
+    "analysis": "依据虚构材料表达候选设计；证据不足的结论保留缺口。",
+    "legend": "虚构教学案例；稳定ID跨视图复用。候选设计和项目规则不表示官方模板或业务批准。"
+  },
+  "computed_analyses": [],
+  "entities": [
+    {
+      "id": "DELIVERY-NOTE",
+      "type": "guide:solution-delivery-notebook",
+      "name": "方案备选与需求、规格、风险配对",
+      "attributes": {
+        "work_package_id": "WP-OFFLINE",
+        "solution_concept_ref": "interface-network",
+        "implementation_strategy": "受控试点；先明确接受条件和异常责任，再验证接口并决定是否进入候选运营状态",
+        "stakeholders": [
+          {
+            "id": "SH-OPS",
+            "name": "门店运营",
+            "requirement_ids": [
+              "REQ-CONSISTENCY",
+              "REQ-OFFLINE"
+            ]
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-CONSISTENCY",
+            "statement": "需业务确定超卖容忍、受理与最终承诺的界限及恢复目标",
+            "stakeholder_ids": [
+              "SH-OPS"
+            ]
+          },
+          {
+            "id": "REQ-OFFLINE",
+            "statement": "断连可受理；最终承诺、额度及冲突政策待业务决定",
+            "stakeholder_ids": [
+              "SH-OPS"
+            ]
+          }
+        ],
+        "specifications": [
+          {
+            "id": "SPEC-ONLINE",
+            "requirement_id": "REQ-CONSISTENCY",
+            "statement": "候选A：销售确认前同步预占；候选B：事件受理与异步库存处理。没有一致性标准，无法定优。",
+            "spec_type": "候选接口与业务契约",
+            "applies_to": "APP-ORDER / APP-STOCK"
+          },
+          {
+            "id": "SPEC-OFFLINE",
+            "requirement_id": "REQ-OFFLINE",
+            "statement": "纯同步中央调用不能单独支撑断连受理。新增持久事件、幂等标识、恢复重放与人工冲突处理候选；受理不等于最终承诺。",
+            "spec_type": "候选恢复与订单状态契约",
+            "applies_to": "APP-STORE / IF-RECOVERY"
+          }
+        ],
+        "risks": [
+          {
+            "id": "RISK-STOCK",
+            "description": "断连积压、重复执行、库存冲突及恢复后未对账"
+          }
+        ],
+        "controls": [
+          {
+            "id": "CTRL-LOCAL-DURABILITY",
+            "risk_id": "RISK-STOCK",
+            "statement": "候选：门店记录持久成功后答复受理；故障丢失窗口、保留与加密政策待验证",
+            "applies_to": "APP-STORE / LOCAL-ORDER-RECORD",
+            "owner_status": "门店数据与运营责任待确认",
+            "status": "candidate"
+          },
+          {
+            "id": "CTRL-CENTRAL-REPLAY",
+            "risk_id": "RISK-STOCK",
+            "statement": "候选：中央按事件标识去重并逐笔对账，保留冲突和恢复检查点；接收不等于库存承诺",
+            "applies_to": "APP-STOCK / IF-RECOVERY / CENTRAL-ORDER-RECORD",
+            "owner_status": "库存、订单与恢复对账责任待确认",
+            "status": "candidate"
+          }
+        ],
+        "gaps": [
+          {
+            "id": "GAP-CONSISTENCY",
+            "description": "缺库存一致性、承诺、恢复与业务接受标准；候选控制尚未验证",
+            "in_scope": true
+          },
+          {
+            "id": "GAP-OFFLINE-POLICY",
+            "description": "本地额度、承诺责任、冲突处理和数据保留规则待业务与安全评审",
+            "in_scope": true
+          }
+        ],
+        "architecture_summary": {
+          "business": {
+            "view_ids": [
+              "capability-map",
+              "requirements"
+            ]
+          },
+          "information": {
+            "view_ids": [
+              "order-states",
+              "offline-data-boundary"
+            ],
+            "status": "needs-input",
+            "reason": "已表达订单受理、确认、异常及物流交接状态，以及本地持久记录与中央恢复边界；完整数据模型、保留政策与业务接受标准仍待展开，不能据此声称数据架构充分"
+          },
+          "application": {
+            "view_ids": [
+              "application-catalog",
+              "interface-network"
+            ]
+          },
+          "infrastructure": {
+            "status": "needs-input",
+            "reason": "部署拓扑和容量未提供，本例只表达逻辑接口候选；上线前仍需基础设施分析"
+          },
+          "security": {
+            "status": "needs-input",
+            "reason": "安全与隐私要求未提供，保留待评审输入；不宣称安全充分"
+          }
+        },
+        "recovery_contract": {
+          "local_record_ref": "LOCAL-ORDER-RECORD",
+          "central_receiver_ref": "APP-STOCK",
+          "interface_ref": "IF-RECOVERY",
+          "durable_ack": "记录持久成功后才答复受理；故障窗口与可接受丢失量待验证",
+          "replay": "候选稳定事件标识去重、检查点重试；具体重试/保留策略待确定",
+          "reconciliation": "逐笔检查本地记录与中央接收/承诺状态；冲突交由责任方决定，不能自动覆盖库存",
+          "rollback": "停止新的离线受理；保留本地记录与检查点，逐笔核对后恢复在线",
+          "verification_scenarios": [
+            "断连仍能受理",
+            "重连重放",
+            "重复事件不重复生效",
+            "库存不足转异常",
+            "存储故障与丢失窗口",
+            "恢复后长期未对账",
+            "停止离线受理并回退"
+          ],
+          "status": "candidate-awaiting-business-and-operational-review"
+        },
+        "decision_agenda": [
+          {
+            "id": "DEC-STRATEGY",
+            "role_ref": "ROLE-CHIEF",
+            "question": "先受控试点还是扩大渠道承诺范围？",
+            "goal": "打通线上订单、门店库存和物流履约",
+            "options": [
+              "先在线试点后评估离线",
+              "并行验证在线与离线方案"
+            ],
+            "tradeoff": "并行可提前暴露离线风险但增加设计、门店改造与运行投入；成本收益未估算",
+            "needed_input": [
+              "渠道价值/服务目标",
+              "预算与人员工作量",
+              "库存风险接受者"
+            ],
+            "status": "pending-decision",
+            "evidence": [
+              "CASE-MANDATE",
+              "CASE-BASELINE"
+            ]
+          },
+          {
+            "id": "DEC-CROSS-SEGMENT",
+            "role_ref": "ROLE-EA",
+            "question": "订单、库存、物流之间由谁承诺和接受风险？",
+            "proposed_boundary": "订单区分受理与最终确认；库存提供承诺条件；物流仅使用已确认订单；异常与恢复责任待确认",
+            "needed_input": [
+              "一致性与承诺政策",
+              "跨分段责任接受记录",
+              "门店在线调用与物流交接契约"
+            ],
+            "status": "pending-decision",
+            "evidence": [
+              "CASE-MANDATE",
+              "CASE-BASELINE"
+            ]
+          },
+          {
+            "id": "DEC-STOCK",
+            "role_ref": "ROLE-SEG",
+            "question": "允许怎样的库存、断连及恢复行为？",
+            "proposed_boundary": "待确认记录与可履约记录分开；冲突进入异常处理，不把异步等同于避免超卖",
+            "needed_input": [
+              "超卖容忍",
+              "本地额度",
+              "恢复目标及对账责任"
+            ],
+            "status": "pending-decision",
+            "evidence": [
+              "CASE-BASELINE",
+              "CASE-CHANGE"
+            ]
+          }
+        ]
+      },
+      "evidence": [
+        "CASE-REVIEW"
+      ],
+      "certainty": "assumed"
+    }
+  ],
+  "relationships": [],
+  "sources": [
+    {
+      "id": "CASE-MANDATE",
+      "kind": "example",
+      "description": "虚构架构工作委托",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-mandate"
+    },
+    {
+      "id": "CASE-BASELINE",
+      "kind": "example",
+      "description": "虚构现状及未决要求",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-baseline"
+    },
+    {
+      "id": "CASE-CHANGE",
+      "kind": "example",
+      "description": "虚构离线门店销售新增约束",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-change"
+    },
+    {
+      "id": "CASE-REVIEW",
+      "kind": "example",
+      "description": "虚构项目分析约定",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/raw-business-materials.md#case-review"
+    },
+    {
+      "id": "CASE-PERSON",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-PERSON",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json"
+    },
+    {
+      "id": "CASE-EXPERT",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-EXPERT",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json"
+    },
+    {
+      "id": "CASE-ROLE-TARGET",
+      "kind": "example",
+      "description": "虚构人员与任务配置证据：CASE-ROLE-TARGET",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json"
+    },
+    {
+      "id": "g249-table-source",
+      "kind": "official",
+      "description": "G249 §5 Tables 5-1/5-2：参考等级与量表；不证明任何人员已具备能力",
+      "locator": "corpus/sources/pdf/G249e.pdf#page=27"
+    },
+    {
+      "id": "example-source",
+      "kind": "example",
+      "description": "虚构项目要求、辅导应用记录与复评计划；非实际人员评价",
+      "locator": "togaf-standard-10th-ai/maintenance/cases/omnichannel/role-skill-inputs.json"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GAP-CONSISTENCY",
+      "description": "库存一致性、承诺和恢复目标未明确，方案不能定优",
+      "impact": "接口、风险及试点进入条件未定",
+      "needed_input": "业务接受标准与服务水平"
+    },
+    {
+      "id": "GAP-STORE-ONLINE",
+      "description": "门店在线销售与中央库存的当前交互尚未调查",
+      "impact": "不能由线上订单接口推断门店在线行为",
+      "needed_input": "门店在线流程、接口与失败处理材料"
+    },
+    {
+      "id": "GAP-LOGISTICS-HANDOFF",
+      "description": "已确认订单交给物流的具体接口和责任未提供",
+      "impact": "只明确确认前不进入物流，交接规格待定",
+      "needed_input": "物流接收契约与责任方"
+    },
+    {
+      "id": "GAP-OFFLINE-DURATION",
+      "description": "最大断连时间未知",
+      "impact": "阻断离线候选方案接受与运营状态进入",
+      "needed_input": "断连上限与存储容量依据"
+    },
+    {
+      "id": "GAP-LOSS",
+      "description": "可容忍的数据丢失窗口未知",
+      "impact": "阻断离线候选方案接受与运营状态进入",
+      "needed_input": "持久成功标准、故障演练与数据丢失容忍"
+    },
+    {
+      "id": "GAP-RECOVERY",
+      "description": "恢复和对账服务目标未知",
+      "impact": "阻断离线候选方案接受与运营状态进入",
+      "needed_input": "恢复时限与未对账告警规则"
+    },
+    {
+      "id": "GAP-LOCAL-QUOTA",
+      "description": "本地额度与超卖政策未定",
+      "impact": "阻断离线候选方案接受与运营状态进入",
+      "needed_input": "业务承诺、额度与冲突接受决定"
+    },
+    {
+      "id": "GAP-EXCEPTION-OWNER",
+      "description": "冲突、补偿与回退责任待确认",
+      "impact": "阻断离线候选方案接受与运营状态进入",
+      "needed_input": "业务与运营责任人的交接接受记录"
+    },
+    {
+      "id": "GAP-ASSIGNMENT-PERIOD",
+      "description": "ASSIGN-A只覆盖至2026-11-30，离线工作包候选结束2026-12-04；后半段配置未确定",
+      "impact": "不能认定完整交付期有人员覆盖；工时与专家支持也未证明充分",
+      "needed_input": "续任/替代人员、可用容量和工作量"
+    },
+    {
+      "id": "GAP-EXPERT-LEVEL",
+      "description": "原教学输入称专家4级但现有行为证据不足，当前等级保持未评价",
+      "impact": "不能仅凭专家头衔确认支持能力",
+      "needed_input": "任务相关的广泛经验、实际应用与评审证据"
+    }
+  ]
+}

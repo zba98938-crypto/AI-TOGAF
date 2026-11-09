@@ -1,0 +1,426 @@
+# G21I/fig6-2 · 项目架构
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G21I/fig6-2.md) · [JSON](../../architecture/diagrams/G21I/fig6-2.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G21Ie.pdf`；SHA-256：`279f6c06124f49a147a168591965805115b2fc976eea2664e41e491ac5d163bf`。
+
+## 原图 · PDF 第 33 页
+
+![英文原图](../assets/G21I/fig6-2-p0033.png)
+
+PDF 坐标：`[138.5, 190.0, 473.5, 420.6]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Interfaces
+|
+|
+Atomic
+Business
+ae @ @
+Functions
+Microservices a | wi
+Microservice
+Components
+at? 6G
+```
+
+## 概要（历史解释；局部修正见上）
+
+项目架构示例：接口、原子业务功能、微服务、微服务组件四层，外面包着继承自企业架构的变更管理与治理。
+
+## 目的（历史解释；局部修正见上）
+
+第 6.1 节说明项目级架构的开发：先弄清要实现的业务功能和推动采用 MSA 的业务驱动因素（可扩展性、韧性、故障转移等），明确 MSA 层在总体架构中的位置、它提供哪些原子业务功能（ABF），识别微服务输入输出与其他层交换的接口；治理与变更管理继承自总体企业架构。本图给出这种项目架构的示例。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+自上而下读内框中的 4 条层带：接口（蓝色卡片）→ 原子业务功能（浅绿椭圆）→ 微服务（蓝色圆柱）→ 微服务组件（黄色立方体）。上三层各有 3 个实例，按列对齐。中间那个微服务用一条竖线连到它下方的一个组件，该组件再用两条箭头调用左侧两个组件；右侧两个组件没有连线。4 条层带外面先包着“变更管理”框，再包着“治理”框（两框标题竖排在右侧）。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 项目架构由 4 层组成：接口、原子业务功能、微服务、微服务组件；原文把 ABF 定义为企业内交付价值的最小业务功能单元，通常支撑单一业务能力。
+- 接口层对应原文“识别微服务输入输出与其他架构层交换的接口”。
+- 微服务由下层的微服务组件实现：图中一个微服务连到一个组件，该组件又调用另外两个组件，说明一个微服务的实现可以由多个组件协作完成。
+- 变更管理和治理画成包住全部 4 层的外框：原文说治理与变更管理继承自总体企业架构，企业架构中定义的治理、变更管理、标准和公共基础设施由各项目架构继承。
+- 这一项目级架构会在后续阶段扩展为解决方案架构；它比企业级架构更详细，但不是解决方案架构，也不应在技术等方面作不必要的限制。
+
+## 层级（历史解释；局部修正见上）
+
+外层“治理”框包住内层“变更管理”框，内框中自上而下是 4 条层带；每条层带内是该层的示意实例。框的嵌套表示治理与变更管理覆盖全部 4 层。
+
+## 线条含义（历史解释；局部修正见上）
+
+只有 3 条线：中间微服务到其下方组件的竖直细线（实现，无箭头）；该组件到左侧两个组件的折线箭头（调用，箭头指向被调用组件）。接口、ABF、微服务之间没有连线，上下对齐的同列实例之间的对应关系是由位置推断的（关系清单中标为推断）。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 治理与变更管理不是第 5、6 层，而是包住全部 4 层、继承自企业架构的外框。
+- 右侧两个没有连线的组件只是示意更多组件，不表示它们不被使用。
+- 原图右下的空心大字是英文 PDF 的“Evaluation Copy”水印，不是图的内容。
+- 中文稿引用的中文化 PNG 中，“变更管理”的补丁盖住了层带右端，两层外框的嵌套关系不易看出。
+
+## 元素
+
+```json
+[
+  {
+    "id": "frame_gov",
+    "label_en": "Governance",
+    "label_zh": "治理",
+    "type": "group",
+    "parent": null,
+    "level": 0,
+    "position": "最外框"
+  },
+  {
+    "id": "frame_change",
+    "label_en": "Change Management",
+    "label_zh": "变更管理",
+    "type": "group",
+    "parent": "frame_gov",
+    "level": 1,
+    "position": "内框"
+  },
+  {
+    "id": "l_interfaces",
+    "label_en": "Interfaces",
+    "label_zh": "接口",
+    "type": "group",
+    "parent": "frame_change",
+    "level": 2,
+    "order": 1
+  },
+  {
+    "id": "l_abf",
+    "label_en": "Atomic Business Functions",
+    "label_zh": "原子业务功能",
+    "type": "group",
+    "parent": "frame_change",
+    "level": 2,
+    "order": 2
+  },
+  {
+    "id": "l_ms",
+    "label_en": "Microservices",
+    "label_zh": "微服务",
+    "type": "group",
+    "parent": "frame_change",
+    "level": 2,
+    "order": 3
+  },
+  {
+    "id": "l_mc",
+    "label_en": "Microservice Components",
+    "label_zh": "微服务组件",
+    "type": "group",
+    "parent": "frame_change",
+    "level": 2,
+    "order": 4
+  },
+  {
+    "id": "if_1",
+    "label_en": null,
+    "label_zh": "接口 1（卡片）",
+    "type": "application",
+    "parent": "l_interfaces",
+    "level": 3,
+    "position": "左列",
+    "description_zh": "与其他架构层交换微服务输入输出的接口。"
+  },
+  {
+    "id": "if_2",
+    "label_en": null,
+    "label_zh": "接口 2（卡片）",
+    "type": "application",
+    "parent": "l_interfaces",
+    "level": 3,
+    "position": "中列"
+  },
+  {
+    "id": "if_3",
+    "label_en": null,
+    "label_zh": "接口 3（卡片）",
+    "type": "application",
+    "parent": "l_interfaces",
+    "level": 3,
+    "position": "右列"
+  },
+  {
+    "id": "abf_1",
+    "label_en": null,
+    "label_zh": "原子业务功能 1（椭圆）",
+    "type": "function",
+    "parent": "l_abf",
+    "level": 3,
+    "position": "左列"
+  },
+  {
+    "id": "abf_2",
+    "label_en": null,
+    "label_zh": "原子业务功能 2（椭圆）",
+    "type": "function",
+    "parent": "l_abf",
+    "level": 3,
+    "position": "中列"
+  },
+  {
+    "id": "abf_3",
+    "label_en": null,
+    "label_zh": "原子业务功能 3（椭圆）",
+    "type": "function",
+    "parent": "l_abf",
+    "level": 3,
+    "position": "右列"
+  },
+  {
+    "id": "ms_1",
+    "label_en": null,
+    "label_zh": "微服务 1（圆柱）",
+    "type": "service",
+    "parent": "l_ms",
+    "level": 3,
+    "position": "左列"
+  },
+  {
+    "id": "ms_2",
+    "label_en": null,
+    "label_zh": "微服务 2（圆柱）",
+    "type": "service",
+    "parent": "l_ms",
+    "level": 3,
+    "position": "中列"
+  },
+  {
+    "id": "ms_3",
+    "label_en": null,
+    "label_zh": "微服务 3（圆柱）",
+    "type": "service",
+    "parent": "l_ms",
+    "level": 3,
+    "position": "右列"
+  },
+  {
+    "id": "mc_1",
+    "label_en": null,
+    "label_zh": "微服务组件 1（立方体）",
+    "type": "application",
+    "parent": "l_mc",
+    "level": 3,
+    "position": "最左下"
+  },
+  {
+    "id": "mc_2",
+    "label_en": null,
+    "label_zh": "微服务组件 2（立方体）",
+    "type": "application",
+    "parent": "l_mc",
+    "level": 3,
+    "position": "左中"
+  },
+  {
+    "id": "mc_3",
+    "label_en": null,
+    "label_zh": "微服务组件 3（立方体）",
+    "type": "application",
+    "parent": "l_mc",
+    "level": 3,
+    "position": "中列，微服务 2 正下方"
+  },
+  {
+    "id": "mc_4",
+    "label_en": null,
+    "label_zh": "微服务组件 4（立方体，无连线）",
+    "type": "application",
+    "parent": "l_mc",
+    "level": 3,
+    "position": "右"
+  },
+  {
+    "id": "mc_5",
+    "label_en": null,
+    "label_zh": "微服务组件 5（立方体，无连线）",
+    "type": "application",
+    "parent": "l_mc",
+    "level": 3,
+    "position": "最右"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "mc_3",
+    "to": "ms_2",
+    "type": "realization",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "none",
+    "description_zh": "竖直细线：组件实现其上方的微服务"
+  },
+  {
+    "from": "mc_3",
+    "to": "mc_2",
+    "type": "dependency",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward",
+    "description_zh": "折线箭头：组件调用组件"
+  },
+  {
+    "from": "mc_3",
+    "to": "mc_1",
+    "type": "dependency",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "ms_1",
+    "to": "abf_1",
+    "type": "realization",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward",
+    "description_zh": "同列上下对齐：微服务实现原子业务功能"
+  },
+  {
+    "from": "ms_2",
+    "to": "abf_2",
+    "type": "realization",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "ms_3",
+    "to": "abf_3",
+    "type": "realization",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "forward"
+  },
+  {
+    "from": "if_1",
+    "to": "abf_1",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none",
+    "description_zh": "同列上下对齐：接口暴露该功能的输入输出"
+  },
+  {
+    "from": "if_2",
+    "to": "abf_2",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none"
+  },
+  {
+    "from": "if_3",
+    "to": "abf_3",
+    "type": "association",
+    "explicit": false,
+    "line": "implicit",
+    "arrow": "none"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "外层浅青色框 + 竖排标题 Governance",
+    "meaning_zh": "治理，覆盖全部各层",
+    "explicit": false
+  },
+  {
+    "symbol": "内层深青色框 + 竖排标题 Change Management",
+    "meaning_zh": "变更管理，覆盖全部各层",
+    "explicit": false
+  },
+  {
+    "symbol": "蓝色卡片（右上角圆角）",
+    "meaning_zh": "接口",
+    "explicit": false
+  },
+  {
+    "symbol": "浅绿椭圆",
+    "meaning_zh": "原子业务功能",
+    "explicit": false
+  },
+  {
+    "symbol": "蓝色圆柱",
+    "meaning_zh": "微服务",
+    "explicit": false
+  },
+  {
+    "symbol": "黄色立方体",
+    "meaning_zh": "微服务组件",
+    "explicit": false
+  },
+  {
+    "symbol": "竖直细线（无箭头）",
+    "meaning_zh": "微服务由组件实现",
+    "explicit": false
+  },
+  {
+    "symbol": "折线箭头",
+    "meaning_zh": "组件调用其他组件",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "TB",
+  "description_zh": "外层浅青色框（治理）内套深青色框（变更管理），两框的竖排标题在右侧；内框中 4 条层带自上而下：浅绿（接口）、亮蓝（原子业务功能）、浅紫（微服务）、浅红（微服务组件），层名在左，示意实例在右。"
+}
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "high",
+  "uncertainties_zh": [
+    "接口、原子业务功能、微服务三层实例之间没有连线；同列一一对应（微服务实现 ABF、接口暴露 ABF）是按上下对齐和正文推断的，原文没有明说。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 33 页原图截图（220 dpi）",
+    "英文 PDF 第 33–34 页正文",
+    "中文稿 G21Ie_微服务架构.md 第 430–463 行（含图内标签对照表 L444–L453）",
+    "figs/zh/g21ie_fig6-2_zh.png",
+    "figs/g21ie_fig6-2_en.png（自动相似度 0.97）"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```

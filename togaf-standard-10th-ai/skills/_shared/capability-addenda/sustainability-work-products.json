@@ -1,0 +1,4076 @@
+{
+  "schema_version": "2.1-addenda",
+  "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 表模型来自G242正文操作化，非原图复刻。未重算环境排放，核算集成由既有环境方法负责。",
+  "work_products": [
+    {
+      "id": "sustainability-capability-assessment",
+      "artifact_id": "sustainability-capability-assessment",
+      "name": "数字可持续性能力评估",
+      "name_zh": "数字可持续性能力评估",
+      "name_en": "Sustainability Capability Assessment",
+      "owner": "togaf-ea-capability",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G242 §3.2、§5.2表5-1"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "企业可持续ICT能力有哪些具体强项、缺口和改进？",
+      "stakeholders": [
+        "业务负责人",
+        "企业架构师",
+        "环境核算负责人",
+        "采购及供应商负责人",
+        "HR与治理负责人"
+      ],
+      "concerns": [
+        "企业可持续ICT能力有哪些具体强项、缺口和改进？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "组织、服务、业务用途及所评估期间/生命周期边界",
+        "原始访谈、使用数据、供应商记录及稳定证据ID",
+        "适用目标、职责和组织自定决策规则；未知项显式登记"
+      ],
+      "optional_inputs": [
+        "历史评估、环境数据目录、采购契约及角色技能资料"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:sustainability_capability"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "dimension",
+        "reference_functions",
+        "current_evidence",
+        "target_need",
+        "gap",
+        "action",
+        "owner",
+        "assessment_rule",
+        "rating",
+        "evidence_refs"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "评估项",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "dimension": {
+          "meaning": "G242六维之一",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "reference_functions": {
+          "meaning": "关联的七功能组/详细功能；多对多",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "current_evidence": {
+          "meaning": "已做/未证/部分开展的事实",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "target_need": {
+          "meaning": "组织实际需要",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "gap": {
+          "meaning": "当前与需要之间的具体缺口",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "action": {
+          "meaning": "改进动作",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "owner": {
+          "meaning": "责任人",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "assessment_rule": {
+          "meaning": "定性或已选成熟度规则及出处",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "rating": {
+          "meaning": "未选规则时not-scored",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "原始材料ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:sustainability_capability": [
+          "dimension",
+          "reference_functions",
+          "current_evidence",
+          "target_need",
+          "gap",
+          "action",
+          "owner",
+          "assessment_rule",
+          "rating",
+          "evidence_refs"
+        ]
+      },
+      "relation_semantics": "用途—应用/数据—基础设施用稳定ID追踪；评估维度与功能多对多关联；总额与子集、两种Scope2基础、抵消和复制存储分别表达。表格相邻不代表因果或可相加。",
+      "analysis": [
+        "按六维访谈并核查已开展活动",
+        "以七高层功能/35详细功能作非穷尽检查参照，按范围裁剪",
+        "区分缺证、未开展和有效执行",
+        "只有项目选择成熟度模型后才评分，公开规则来源",
+        "把缺口转为有责任和验收依据的改进"
+      ],
+      "analysis_steps": [
+        "按六维访谈并核查已开展活动",
+        "以七高层功能/35详细功能作非穷尽检查参照，按范围裁剪",
+        "区分缺证、未开展和有效执行",
+        "只有项目选择成熟度模型后才评分，公开规则来源",
+        "把缺口转为有责任和验收依据的改进"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "六维评估不等于七高层功能的一一映射",
+        "源文未给等级/权重/合格线，不能默认ACMM或自造评分",
+        "参加宣导或发布政策不能自动证明能力成熟"
+      ],
+      "checks": [
+        "六维评估不等于七高层功能的一一映射",
+        "源文未给等级/权重/合格线，不能默认ACMM或自造评分",
+        "参加宣导或发布政策不能自动证明能力成熟"
+      ],
+      "misreadings": [
+        "六维评估不等于七高层功能的一一映射",
+        "源文未给等级/权重/合格线，不能默认ACMM或自造评分",
+        "参加宣导或发布政策不能自动证明能力成熟"
+      ],
+      "related_deliverables": [
+        "capability-assessment",
+        "tailored-architecture-framework"
+      ],
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-sustainability-capability-assessment-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 capability",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#capability"
+          }
+        ],
+        "entities": [
+          {
+            "id": "sustainability-capability-assessment-default-1",
+            "type": "guide:sustainability_capability",
+            "name": "战略",
+            "attributes": {
+              "dimension": "战略",
+              "reference_functions": [
+                "制定并推展可持续信息系统战略"
+              ],
+              "current_evidence": "董事会愿景已发布",
+              "target_need": "职能级目标与责任",
+              "gap": "职能目标未分配",
+              "action": "由业务/CSR/ICT细化目标",
+              "owner": "发起人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-01"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-2",
+            "type": "guide:sustainability_capability",
+            "name": "治理",
+            "attributes": {
+              "dimension": "治理",
+              "reference_functions": [
+                "治理转型"
+              ],
+              "current_evidence": "现有架构委员会不含环境职责",
+              "target_need": "环境评审、债务与例外流程",
+              "gap": "职权与准则未更新",
+              "action": "修订现有委员会职责",
+              "owner": "架构委员会流程负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-01"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-3",
+            "type": "guide:sustainability_capability",
+            "name": "业务/数据/应用/技术架构",
+            "attributes": {
+              "dimension": "业务/数据/应用/技术架构",
+              "reference_functions": [
+                "架构并构建可持续信息系统",
+                "运营可持续信息系统"
+              ],
+              "current_evidence": "数据删除期限已提出",
+              "target_need": "全栈及全生命周期考虑",
+              "gap": "终端/外包生命周期未检验",
+              "action": "把设备、软件与外包纳入设计检查",
+              "owner": "架构负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-02"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-4",
+            "type": "guide:sustainability_capability",
+            "name": "文化",
+            "attributes": {
+              "dimension": "文化",
+              "reference_functions": [
+                "发展可持续数字文化"
+              ],
+              "current_evidence": "两场全员宣导",
+              "target_need": "全员理解与角色技能",
+              "gap": "采购/核算岗位缺专项技能",
+              "action": "按角色训练并验证应用",
+              "owner": "HR/培训负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-02"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-5",
+            "type": "guide:sustainability_capability",
+            "name": "数字环境足迹度量",
+            "attributes": {
+              "dimension": "数字环境足迹度量",
+              "reference_functions": [
+                "从摇篮到坟墓度量",
+                "运营可持续信息系统"
+              ],
+              "current_evidence": "只有自营机房电力台账",
+              "target_need": "制造/运行/退出/云边界完整",
+              "gap": "制造回收云资料不全",
+              "action": "完善清单和供应方数据契约",
+              "owner": "环境核算负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-6",
+            "type": "guide:sustainability_capability",
+            "name": "生态系统",
+            "attributes": {
+              "dimension": "生态系统",
+              "reference_functions": [
+                "与客户/提供方/伙伴/主管部门互动"
+              ],
+              "current_evidence": "供应商愿给用电",
+              "target_need": "端到端服务足迹透明度",
+              "gap": "无设备Scope3承诺",
+              "action": "采购纳入数据和复评条款",
+              "owner": "采购负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-sustainability-capability-assessment-default",
+          "artifact_id": "sustainability-capability-assessment",
+          "profile_id": "sustainability-capability-assessment-default",
+          "title": "数字可持续能力六维评估",
+          "entity_ids": [
+            "sustainability-capability-assessment-default-1",
+            "sustainability-capability-assessment-default-2",
+            "sustainability-capability-assessment-default-3",
+            "sustainability-capability-assessment-default-4",
+            "sustainability-capability-assessment-default-5",
+            "sustainability-capability-assessment-default-6"
+          ],
+          "relationship_ids": [],
+          "analysis": "把CA-01至03按六维记录事实和改进；七高层功能组多对多关联，不把七组当七级，也不移植ACMM评分。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "capability"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "raw-material-worked-case-and-explicit-rule-executed",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-output-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/sustainability-capability-assessment.md",
+      "modification_example": {
+        "change": "环境职责经确认并有首次评审记录",
+        "expected": "治理当前证据更新、缺口缩小，但六维仍无数字评分"
+      },
+      "counterexample": {
+        "input": "无评分模型却给成熟度3/5",
+        "expected": "unsourced-maturity-rating"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "sustainability-dual-entry-analysis",
+      "artifact_id": "sustainability-dual-entry-analysis",
+      "name": "用途与基础设施双入口分析",
+      "name_zh": "用途与基础设施双入口分析",
+      "name_en": "Sustainability Dual Entry Analysis",
+      "owner": "togaf-change-value",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G242 §3.5.2–3.5.3、表3-3"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "从哪里识别可放弃/优化用途与设备，如何形成可接受约束？",
+      "stakeholders": [
+        "业务负责人",
+        "企业架构师",
+        "环境核算负责人",
+        "采购及供应商负责人",
+        "HR与治理负责人"
+      ],
+      "concerns": [
+        "从哪里识别可放弃/优化用途与设备，如何形成可接受约束？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "组织、服务、业务用途及所评估期间/生命周期边界",
+        "原始访谈、使用数据、供应商记录及稳定证据ID",
+        "适用目标、职责和组织自定决策规则；未知项显式登记"
+      ],
+      "optional_inputs": [
+        "历史评估、环境数据目录、采购契约及角色技能资料"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:dual_entry_opportunity"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "entry_point",
+        "use_id",
+        "application_data_path",
+        "infrastructure_id",
+        "baseline_evidence",
+        "action",
+        "business_acceptance",
+        "nonfunctional_change",
+        "constraints",
+        "priority_basis",
+        "dependencies",
+        "status"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "机会记录",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "entry_point": {
+          "meaning": "use或infrastructure，两入口分别输出",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "use_id": {
+          "meaning": "业务用途稳定ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "application_data_path": {
+          "meaning": "应用/数据映射路径",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "infrastructure_id": {
+          "meaning": "设备/系统稳定ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "baseline_evidence": {
+          "meaning": "初始使用/资源/环境依据及缺口",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "action": {
+          "meaning": "优化或放弃候选",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "business_acceptance": {
+          "meaning": "业务可接受性及授权",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "nonfunctional_change": {
+          "meaning": "修订的非功能要求",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "constraints": {
+          "meaning": "用途/数据/应用开发/基础设施四类约束",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "priority_basis": {
+          "meaning": "排序规则与依据，不能无依据打分",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "dependencies": {
+          "meaning": "共享依赖/退出影响",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "status": {
+          "meaning": "待验证/候选，不能凭分析认定减排",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:dual_entry_opportunity": [
+          "entry_point",
+          "use_id",
+          "application_data_path",
+          "infrastructure_id",
+          "baseline_evidence",
+          "action",
+          "business_acceptance",
+          "nonfunctional_change",
+          "constraints",
+          "priority_basis",
+          "dependencies",
+          "status"
+        ]
+      },
+      "relation_semantics": "用途—应用/数据—基础设施用稳定ID追踪；评估维度与功能多对多关联；总额与子集、两种Scope2基础、抵消和复制存储分别表达。表格相邻不代表因果或可相加。",
+      "analysis": [
+        "取得与业务/技术协作的管理授权",
+        "从业务用途和高影响基础设施分别建立候选清单",
+        "沿应用/数据/设备向下或业务向上追溯共享影响",
+        "核实业务接受性并修订非功能要求",
+        "明确四类约束理由/检查/复评，并转入方案评审和治理"
+      ],
+      "analysis_steps": [
+        "取得与业务/技术协作的管理授权",
+        "从业务用途和高影响基础设施分别建立候选清单",
+        "沿应用/数据/设备向下或业务向上追溯共享影响",
+        "核实业务接受性并修订非功能要求",
+        "明确四类约束理由/检查/复评，并转入方案评审和治理"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "基础设施看似空闲不代表没有业务用途",
+        "共有设备和数据不能按单一用途全部删除",
+        "排序不等于碳量核算；未测量不填虚构减排值",
+        "低技术/人工替代也需同范围全生命周期比较"
+      ],
+      "checks": [
+        "基础设施看似空闲不代表没有业务用途",
+        "共有设备和数据不能按单一用途全部删除",
+        "排序不等于碳量核算；未测量不填虚构减排值",
+        "低技术/人工替代也需同范围全生命周期比较"
+      ],
+      "misreadings": [
+        "基础设施看似空闲不代表没有业务用途",
+        "共有设备和数据不能按单一用途全部删除",
+        "排序不等于碳量核算；未测量不填虚构减排值",
+        "低技术/人工替代也需同范围全生命周期比较"
+      ],
+      "related_deliverables": [
+        "implementation-migration-plan",
+        "architecture-requirements-specification"
+      ],
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-sustainability-dual-entry-analysis-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 dual-entry",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#dual-entry"
+          }
+        ],
+        "entities": [
+          {
+            "id": "sustainability-dual-entry-analysis-default-1",
+            "type": "guide:dual_entry_opportunity",
+            "name": "培训视频节制",
+            "attributes": {
+              "entry_point": "use",
+              "use_id": "USE-TRAIN",
+              "application_data_path": [
+                "APP-VIDEO",
+                "DATA-VID"
+              ],
+              "infrastructure_id": "STORAGE-A",
+              "baseline_evidence": "DU-02：默认4K且永久保存；碳足迹数据尚缺",
+              "action": "优化为1080p；非合规视频90天后删除",
+              "business_acceptance": "业务负责人在DU-02接受；需数据/安全审查",
+              "nonfunctional_change": "降低非关键视频分辨率与保存期；法定记录仍7年",
+              "constraints": {
+                "use": "默认1080p，特殊需求申请",
+                "data": "培训90天；法定记录7年单独分类",
+                "application-development": "上传时必须元数据标保留类别",
+                "infrastructure": "不因视频减少而删除共享STORAGE-A"
+              },
+              "priority_basis": "项目DU-04：已有业务接受先做；不声称减排量",
+              "dependencies": [
+                "STORAGE-A共享法定记录",
+                "删除规则审查"
+              ],
+              "status": "candidate-awaiting-control-review"
+            },
+            "evidence": [
+              "src-sustainability-dual-entry-analysis-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-dual-entry-analysis-default-2",
+            "type": "guide:dual_entry_opportunity",
+            "name": "报表服务器运行窗口",
+            "attributes": {
+              "entry_point": "infrastructure",
+              "use_id": "USE-REPORT",
+              "application_data_path": [
+                "APP-REPORT",
+                "DATA-REPORT"
+              ],
+              "infrastructure_id": "SERVER-B",
+              "baseline_evidence": "DU-03使用日志08–18有作业；能耗测量待补",
+              "action": "评估非工作窗口停机/按需启动",
+              "business_acceptance": "非紧急报表次日上午交付被接受；紧急用途需核实",
+              "nonfunctional_change": "用业务窗口替代默认24x7；保留恢复演练条件",
+              "constraints": {
+                "use": "非紧急报表在08–18执行",
+                "data": "保留业务规定数据，不推断可删",
+                "application-development": "作业必须可暂停并恢复",
+                "infrastructure": "运维验证恢复时间后才能停机"
+              },
+              "priority_basis": "项目DU-04：运维验证后处理",
+              "dependencies": [
+                "启动可靠性",
+                "潜在紧急业务用途"
+              ],
+              "status": "candidate-awaiting-operations-evidence"
+            },
+            "evidence": [
+              "src-sustainability-dual-entry-analysis-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-sustainability-dual-entry-analysis-default",
+          "artifact_id": "sustainability-dual-entry-analysis",
+          "profile_id": "sustainability-dual-entry-analysis-default",
+          "title": "用途与基础设施双入口机会清单",
+          "entity_ids": [
+            "sustainability-dual-entry-analysis-default-1",
+            "sustainability-dual-entry-analysis-default-2"
+          ],
+          "relationship_ids": [],
+          "analysis": "分别从培训用途向下追到共享存储，从服务器向上追到报表业务。两个入口保留独立清单和四类约束，避免删除共享法定记录；未提供排放数值时不伪算收益。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "dual-entry"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "raw-material-worked-case-and-explicit-rule-executed",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-output-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/sustainability-dual-entry-analysis.md",
+      "modification_example": {
+        "change": "发现SERVER-B夜间支持紧急作业",
+        "expected": "撤回夜间停机建议，标冲突并调整恢复/业务要求；培训优化不受此事实直接影响"
+      },
+      "counterexample": {
+        "input": "基础设施优化无任何业务用途回溯",
+        "expected": "dual-entry-trace-gap"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "sustainability-education-plan",
+      "artifact_id": "sustainability-education-plan",
+      "name": "数字可持续教育与技能计划",
+      "name_zh": "数字可持续教育与技能计划",
+      "name_en": "Sustainability Education Plan",
+      "owner": "togaf-organization-roles",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G242 §3.3.2、§4.3、§5.2"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "所有员工和关键专业角色怎样形成可应用的可持续ICT技能？",
+      "stakeholders": [
+        "业务负责人",
+        "企业架构师",
+        "环境核算负责人",
+        "采购及供应商负责人",
+        "HR与治理负责人"
+      ],
+      "concerns": [
+        "所有员工和关键专业角色怎样形成可应用的可持续ICT技能？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "组织、服务、业务用途及所评估期间/生命周期边界",
+        "原始访谈、使用数据、供应商记录及稳定证据ID",
+        "适用目标、职责和组织自定决策规则；未知项显式登记"
+      ],
+      "optional_inputs": [
+        "历史评估、环境数据目录、采购契约及角色技能资料"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:sustainability_learning"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "audience",
+        "population",
+        "current_evidence",
+        "skill_need",
+        "learning_activity",
+        "resources",
+        "application_check",
+        "hr_change",
+        "owner",
+        "status",
+        "evidence_refs"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "教育项目",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "audience": {
+          "meaning": "全员或具体角色",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "population": {
+          "meaning": "覆盖人数及范围",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "current_evidence": {
+          "meaning": "现有知识/培训/实操证据",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "skill_need": {
+          "meaning": "需补知识与技能",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "learning_activity": {
+          "meaning": "可执行活动",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "resources": {
+          "meaning": "已选资源及可用性",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "application_check": {
+          "meaning": "实际应用能力的验证方式",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "hr_change": {
+          "meaning": "职位/招聘要求变更",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "owner": {
+          "meaning": "责任人",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "status": {
+          "meaning": "覆盖与验证状态",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "原料ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:sustainability_learning": [
+          "audience",
+          "population",
+          "current_evidence",
+          "skill_need",
+          "learning_activity",
+          "resources",
+          "application_check",
+          "hr_change",
+          "owner",
+          "status",
+          "evidence_refs"
+        ]
+      },
+      "relation_semantics": "用途—应用/数据—基础设施用稳定ID追踪；评估维度与功能多对多关联；总额与子集、两种Scope2基础、抵消和复制存储分别表达。表格相邻不代表因果或可相加。",
+      "analysis": [
+        "列全员与重叠专业角色，查当前证据",
+        "将普遍意识与角色技能分开",
+        "为采购、核算、架构等设计实操任务",
+        "安排资源、责任、时间与HR职位/招聘变更",
+        "验证理解/实践效果；参加课程不自动提熟练度"
+      ],
+      "analysis_steps": [
+        "列全员与重叠专业角色，查当前证据",
+        "将普遍意识与角色技能分开",
+        "为采购、核算、架构等设计实操任务",
+        "安排资源、责任、时间与HR职位/招聘变更",
+        "验证理解/实践效果；参加课程不自动提熟练度"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "不得仅覆盖ICT员工而漏业务及采购",
+        "重叠人群不重复计覆盖人数",
+        "课程/认证建议需核实可用性；本指南例子不代表当前认证有效",
+        "无评分依据不得自行给技能等级"
+      ],
+      "checks": [
+        "不得仅覆盖ICT员工而漏业务及采购",
+        "重叠人群不重复计覆盖人数",
+        "课程/认证建议需核实可用性；本指南例子不代表当前认证有效",
+        "无评分依据不得自行给技能等级"
+      ],
+      "misreadings": [
+        "不得仅覆盖ICT员工而漏业务及采购",
+        "重叠人群不重复计覆盖人数",
+        "课程/认证建议需核实可用性；本指南例子不代表当前认证有效",
+        "无评分依据不得自行给技能等级"
+      ],
+      "related_deliverables": [
+        "organization-model",
+        "capability-assessment"
+      ],
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-sustainability-education-plan-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 education",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#education"
+          }
+        ],
+        "entities": [
+          {
+            "id": "sustainability-education-plan-default-1",
+            "type": "guide:sustainability_learning",
+            "name": "全员基础",
+            "attributes": {
+              "audience": "全部员工",
+              "population": 100,
+              "current_evidence": "45人仅参加，未测理解",
+              "skill_need": "能源/气候/资源与自身ICT使用影响",
+              "learning_activity": "同伴工作坊与使用场景练习",
+              "resources": "内部同伴工作坊/项目选定课程；可用日期待排",
+              "application_check": "解释个人使用选择的影响与替代方式",
+              "hr_change": "入职教育加入相同基础",
+              "owner": "HR与对应职能负责人",
+              "status": "planned; competence-not-verified",
+              "evidence_refs": [
+                "ED-01",
+                "ED-02",
+                "ED-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-education-plan-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-education-plan-default-2",
+            "type": "guide:sustainability_learning",
+            "name": "采购专项",
+            "attributes": {
+              "audience": "采购人员",
+              "population": 4,
+              "current_evidence": "无专项训练",
+              "skill_need": "全生命周期数据、条款、手段/结果义务",
+              "learning_activity": "评审虚构供应商报告并起草条款",
+              "resources": "内部同伴工作坊/项目选定课程；可用日期待排",
+              "application_check": "识别净零宣传中的范围/抵消缺口",
+              "hr_change": "采购岗位与面试加入数据契约能力",
+              "owner": "HR与对应职能负责人",
+              "status": "planned; competence-not-verified",
+              "evidence_refs": [
+                "ED-01",
+                "ED-02",
+                "ED-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-education-plan-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-education-plan-default-3",
+            "type": "guide:sustainability_learning",
+            "name": "碳核算专项",
+            "attributes": {
+              "audience": "核算人员",
+              "population": 2,
+              "current_evidence": "无边界实操证据",
+              "skill_need": "边界、单位、Scope2两法与Scope3子集",
+              "learning_activity": "复核一份云19字段记录",
+              "resources": "内部同伴工作坊/项目选定课程；可用日期待排",
+              "application_check": "发现市场/地点法相加与子集重复计量",
+              "hr_change": "核算岗位加入边界复核",
+              "owner": "HR与对应职能负责人",
+              "status": "planned; competence-not-verified",
+              "evidence_refs": [
+                "ED-01",
+                "ED-02",
+                "ED-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-education-plan-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-education-plan-default-4",
+            "type": "guide:sustainability_learning",
+            "name": "架构专项",
+            "attributes": {
+              "audience": "架构师",
+              "population": 6,
+              "current_evidence": "缺生态设计实操",
+              "skill_need": "生态设计、低技术替代、双入口分析",
+              "learning_activity": "从用途与设备提出方案并评审",
+              "resources": "内部同伴工作坊/项目选定课程；可用日期待排",
+              "application_check": "业务可接受性、全生命周期比较与约束完整",
+              "hr_change": "架构岗位加入生态设计技能",
+              "owner": "HR与对应职能负责人",
+              "status": "planned; competence-not-verified",
+              "evidence_refs": [
+                "ED-01",
+                "ED-02",
+                "ED-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-education-plan-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-sustainability-education-plan-default",
+          "artifact_id": "sustainability-education-plan",
+          "profile_id": "sustainability-education-plan-default",
+          "title": "可持续性教育与角色技能计划",
+          "entity_ids": [
+            "sustainability-education-plan-default-1",
+            "sustainability-education-plan-default-2",
+            "sustainability-education-plan-default-3",
+            "sustainability-education-plan-default-4"
+          ],
+          "relationship_ids": [],
+          "analysis": "全员100与专项采购4/核算2/架构6是重叠人群，不相加成112。45人参训不代表已理解；专项技能通过实际任务检验。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "education"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "raw-material-worked-case-and-explicit-rule-executed",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-output-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/sustainability-education-plan.md",
+      "modification_example": {
+        "change": "采购4人完成报告识别和合同练习，但全员理解验证仍未完成",
+        "expected": "采购能力证据更新，不能把全员状态标完成"
+      },
+      "counterexample": {
+        "input": "仅20名ICT人员被标全员覆盖",
+        "expected": "all-staff-coverage-gap"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "shared-carbon-factor-catalog",
+      "artifact_id": "shared-carbon-factor-catalog",
+      "name": "共享碳单位数据与因子目录",
+      "name_zh": "共享碳单位数据与因子目录",
+      "name_en": "Shared Carbon Factor Catalog",
+      "owner": "togaf-change-value",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G242 §3.6.3表3-4"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "哪些单位数据可在什么边界、版本和单位下复用于环境评估？",
+      "stakeholders": [
+        "业务负责人",
+        "企业架构师",
+        "环境核算负责人",
+        "采购及供应商负责人",
+        "HR与治理负责人"
+      ],
+      "concerns": [
+        "哪些单位数据可在什么边界、版本和单位下复用于环境评估？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "组织、服务、业务用途及所评估期间/生命周期边界",
+        "原始访谈、使用数据、供应商记录及稳定证据ID",
+        "适用目标、职责和组织自定决策规则；未知项显式登记"
+      ],
+      "optional_inputs": [
+        "历史评估、环境数据目录、采购契约及角色技能资料"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:carbon_reference_data"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "data_kind",
+        "value",
+        "unit",
+        "period",
+        "geography",
+        "lifecycle_boundary",
+        "applicability",
+        "allocation_basis",
+        "source_version",
+        "source_locator",
+        "quality",
+        "reuse_limits"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "单位数据/因子",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "data_kind": {
+          "meaning": "活动强度、设备足迹或电力因子等，不全部称排放因子",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "value": {
+          "meaning": "原始值；不静默插值",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "unit": {
+          "meaning": "原始单位与分母",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "period": {
+          "meaning": "适用/观察期间",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "geography": {
+          "meaning": "地区/设施/能源结构",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "lifecycle_boundary": {
+          "meaning": "制造、运行或组合边界",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "applicability": {
+          "meaning": "机型/服务/分配范围",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "allocation_basis": {
+          "meaning": "是否含PUE及服务分配依据",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "source_version": {
+          "meaning": "来源版本和更新日期",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "source_locator": {
+          "meaning": "原料/供应商/计算记录定位",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "quality": {
+          "meaning": "测量/估算/未知及不确定性",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "reuse_limits": {
+          "meaning": "不可跨何种范围/单位/期间复用",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:carbon_reference_data": [
+          "data_kind",
+          "value",
+          "unit",
+          "period",
+          "geography",
+          "lifecycle_boundary",
+          "applicability",
+          "allocation_basis",
+          "source_version",
+          "source_locator",
+          "quality",
+          "reuse_limits"
+        ]
+      },
+      "relation_semantics": "用途—应用/数据—基础设施用稳定ID追踪；评估维度与功能多对多关联；总额与子集、两种Scope2基础、抵消和复制存储分别表达。表格相邻不代表因果或可相加。",
+      "analysis": [
+        "收集原始单位数据和来源，不把计算结果当原始因子",
+        "声明机型/服务/地区/期间与生命周期边界",
+        "核实单位分母、分配与PUE包含情况",
+        "登记版本、质量和适用限制",
+        "更新时保留旧版及引用该版的评估，禁止静默替换历史计算"
+      ],
+      "analysis_steps": [
+        "收集原始单位数据和来源，不把计算结果当原始因子",
+        "声明机型/服务/地区/期间与生命周期边界",
+        "核实单位分母、分配与PUE包含情况",
+        "登记版本、质量和适用限制",
+        "更新时保留旧版及引用该版的评估，禁止静默替换历史计算"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "表3-4非穷尽，不把五类当数量上限",
+        "kWh/年、kgCO2e/台、kWh/vCPU、kgCO2e/币种、kgCO2e/kWh不可混用",
+        "已含PUE不再次乘PUE；单位数据没有实际服务分配则不得视为已验证",
+        "共享目录输入核算但本工作产品不产生排放总额"
+      ],
+      "checks": [
+        "表3-4非穷尽，不把五类当数量上限",
+        "kWh/年、kgCO2e/台、kWh/vCPU、kgCO2e/币种、kgCO2e/kWh不可混用",
+        "已含PUE不再次乘PUE；单位数据没有实际服务分配则不得视为已验证",
+        "共享目录输入核算但本工作产品不产生排放总额"
+      ],
+      "misreadings": [
+        "表3-4非穷尽，不把五类当数量上限",
+        "kWh/年、kgCO2e/台、kWh/vCPU、kgCO2e/币种、kgCO2e/kWh不可混用",
+        "已含PUE不再次乘PUE；单位数据没有实际服务分配则不得视为已验证",
+        "共享目录输入核算但本工作产品不产生排放总额"
+      ],
+      "related_deliverables": [
+        "architecture-repository",
+        "architecture-definition-document"
+      ],
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-shared-carbon-factor-catalog-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 factor-catalog",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#factor-catalog"
+          }
+        ],
+        "entities": [
+          {
+            "id": "shared-carbon-factor-catalog-default-1",
+            "type": "guide:carbon_reference_data",
+            "name": "平均机型M用电",
+            "attributes": {
+              "data_kind": "equipment-electricity",
+              "value": 45,
+              "unit": "kWh/device/year",
+              "period": "2026",
+              "geography": "企业机型M使用地点",
+              "lifecycle_boundary": "operation-electricity",
+              "applicability": "机型M，未覆盖其他机型",
+              "allocation_basis": "制造商平均用电，不作公司实际电表值",
+              "source_version": "FC-01/v1",
+              "source_locator": "FC-01",
+              "quality": "fictional-manufacturer-estimate",
+              "reuse_limits": "不能当制造排放或其他机型因子"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "shared-carbon-factor-catalog-default-2",
+            "type": "guide:carbon_reference_data",
+            "name": "机型M制造足迹",
+            "attributes": {
+              "data_kind": "equipment-embodied",
+              "value": 250,
+              "unit": "kgCO2e/device",
+              "period": "2026 product version",
+              "geography": "机型M制造供应链",
+              "lifecycle_boundary": "manufacturing",
+              "applicability": "机型M一台的制造足迹",
+              "allocation_basis": "整台制造额，未按年度摊销",
+              "source_version": "FC-01/v1",
+              "source_locator": "FC-01",
+              "quality": "fictional-manufacturer-estimate",
+              "reuse_limits": "不能当每年排放，也不能再加已含设备的Scope3总额"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "shared-carbon-factor-catalog-default-3",
+            "type": "guide:carbon_reference_data",
+            "name": "自营机房服务分配用电",
+            "attributes": {
+              "data_kind": "datacenter-activity-intensity",
+              "value": 1.2,
+              "unit": "kWh/vCPU",
+              "period": "2026",
+              "geography": "机房A",
+              "lifecycle_boundary": "operation-electricity-including-PUE",
+              "applicability": "ALLOC-2026中实际服务VM分配",
+              "allocation_basis": "包含PUE分摊；VM使用及分配表ALLOC-2026",
+              "source_version": "FC-02/v1",
+              "source_locator": "FC-02 / ALLOC-2026",
+              "quality": "fictional-allocated-measurement",
+              "reuse_limits": "不得再次乘PUE；不同期间/vCPU-hour不可直接替换"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "shared-carbon-factor-catalog-default-4",
+            "type": "guide:carbon_reference_data",
+            "name": "云消费强度",
+            "attributes": {
+              "data_kind": "cloud-spend-intensity",
+              "value": 0.02,
+              "unit": "kgCO2e/CNY",
+              "period": "2026",
+              "geography": "供应商已评估服务范围",
+              "lifecycle_boundary": "operation-and-manufacturing",
+              "applicability": "指定服务及2026计价基准",
+              "allocation_basis": "服务消费金额分配，仅本示例规则",
+              "source_version": "FC-03/v1",
+              "source_locator": "FC-03",
+              "quality": "fictional-supplier-estimate",
+              "reuse_limits": "货币口径依价格变化，不当通用技术因子"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "shared-carbon-factor-catalog-default-5",
+            "type": "guide:carbon_reference_data",
+            "name": "地点法电力因子",
+            "attributes": {
+              "data_kind": "grid-emission-factor",
+              "value": 0.4,
+              "unit": "kgCO2e/kWh",
+              "period": "2026",
+              "geography": "GRID-X虚构地区",
+              "lifecycle_boundary": "location-based-electricity",
+              "applicability": "GRID-X；无现实适用性",
+              "allocation_basis": "地点法，不是供应商采购合同市场法",
+              "source_version": "FC-03/v1",
+              "source_locator": "FC-03",
+              "quality": "fictional-scenario-factor",
+              "reuse_limits": "仅用于示例，禁止默认为项目真实因子"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-shared-carbon-factor-catalog-default",
+          "artifact_id": "shared-carbon-factor-catalog",
+          "profile_id": "shared-carbon-factor-catalog-default",
+          "title": "共享碳单位数据与因子目录",
+          "entity_ids": [
+            "shared-carbon-factor-catalog-default-1",
+            "shared-carbon-factor-catalog-default-2",
+            "shared-carbon-factor-catalog-default-3",
+            "shared-carbon-factor-catalog-default-4",
+            "shared-carbon-factor-catalog-default-5"
+          ],
+          "relationship_ids": [],
+          "analysis": "保留表3-4五类原始单位数据及边界/分配/PUE信息；它们不是五个通用排放因子，不做新的环境总额计算。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "factor-catalog"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "raw-material-worked-case-and-explicit-rule-executed",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-output-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/shared-carbon-factor-catalog.md",
+      "modification_example": {
+        "change": "FC-03发布v2地点因子0.35，v1仍存在",
+        "expected": "新增版本、适用期与变更理由；既有v1引用不被覆盖"
+      },
+      "counterexample": {
+        "input": "因子缺单位/期间/来源或把制造kgCO2e/台当年度值",
+        "expected": "carbon-data-metadata-gap或boundary-unit-conflict"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "sustainable-procurement-strategy",
+      "artifact_id": "sustainable-procurement-strategy",
+      "name": "可持续ICT采购战略",
+      "name_zh": "可持续ICT采购战略",
+      "name_en": "Sustainable Procurement Strategy",
+      "owner": "togaf-implementation-governance",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G242 §3.7.1–3.7.3、§4.3"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "如何在服务范围、地点、合同和全生命周期中形成可证实采购选择？",
+      "stakeholders": [
+        "业务负责人",
+        "企业架构师",
+        "环境核算负责人",
+        "采购及供应商负责人",
+        "HR与治理负责人"
+      ],
+      "concerns": [
+        "如何在服务范围、地点、合同和全生命周期中形成可证实采购选择？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "组织、服务、业务用途及所评估期间/生命周期边界",
+        "原始访谈、使用数据、供应商记录及稳定证据ID",
+        "适用目标、职责和组织自定决策规则；未知项显式登记"
+      ],
+      "optional_inputs": [
+        "历史评估、环境数据目录、采购契约及角色技能资料"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:sustainable_procurement"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "option",
+        "sourcing",
+        "location",
+        "lifecycle_evidence",
+        "whole_life_tco",
+        "means_obligations",
+        "result_obligations",
+        "end_of_use",
+        "supply_chain_access",
+        "gaps",
+        "decision_rule",
+        "recommendation",
+        "authority"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "采购方案",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "option": {
+          "meaning": "候选方案/范围",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "sourcing": {
+          "meaning": "内包/外包/采购/服务获取",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "location": {
+          "meaning": "在岸/近岸/离岸及实际地区证据",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "lifecycle_evidence": {
+          "meaning": "端到端足迹、可再生采购和抵消分列",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "whole_life_tco": {
+          "meaning": "购置、运行、维护、退出等范围和缺项",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "means_obligations": {
+          "meaning": "证明培训/方法/度量等手段",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "result_obligations": {
+          "meaning": "可验证成果承诺",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "end_of_use": {
+          "meaning": "翻新/回收/拆解去向与证据",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "supply_chain_access": {
+          "meaning": "中间环节/供应链访问和演进参与",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "gaps": {
+          "meaning": "影响比较和选择的数据缺口",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "decision_rule": {
+          "meaning": "组织自定准则，不默认权重",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "recommendation": {
+          "meaning": "候选处理，不自动选商",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "authority": {
+          "meaning": "发起人决定、法务审查等",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:sustainable_procurement": [
+          "option",
+          "sourcing",
+          "location",
+          "lifecycle_evidence",
+          "whole_life_tco",
+          "means_obligations",
+          "result_obligations",
+          "end_of_use",
+          "supply_chain_access",
+          "gaps",
+          "decision_rule",
+          "recommendation",
+          "authority"
+        ]
+      },
+      "relation_semantics": "用途—应用/数据—基础设施用稳定ID追踪；评估维度与功能多对多关联；总额与子集、两种Scope2基础、抵消和复制存储分别表达。表格相邻不代表因果或可相加。",
+      "analysis": [
+        "明确业务用途寿命及采购/外包/所在地方案",
+        "要求端到端数据、抵消与可再生采购分别公开",
+        "与法务将手段义务和结果义务分别写成可验证条款",
+        "比较全生命周期成本、修理能力、退出及供应链访问",
+        "按有来源的组织准则权衡；缺资料时给补证/不选择结论"
+      ],
+      "analysis_steps": [
+        "明确业务用途寿命及采购/外包/所在地方案",
+        "要求端到端数据、抵消与可再生采购分别公开",
+        "与法务将手段义务和结果义务分别写成可验证条款",
+        "比较全生命周期成本、修理能力、退出及供应链访问",
+        "按有来源的组织准则权衡；缺资料时给补证/不选择结论"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "在岸、租赁、云或认证称号不能自动证明低足迹",
+        "抵消后的净零不能代替端到端排放透明度",
+        "不造权重或最低合格分；对外采购须实际授权"
+      ],
+      "checks": [
+        "在岸、租赁、云或认证称号不能自动证明低足迹",
+        "抵消后的净零不能代替端到端排放透明度",
+        "不造权重或最低合格分；对外采购须实际授权"
+      ],
+      "misreadings": [
+        "在岸、租赁、云或认证称号不能自动证明低足迹",
+        "抵消后的净零不能代替端到端排放透明度",
+        "不造权重或最低合格分；对外采购须实际授权"
+      ],
+      "related_deliverables": [
+        "implementation-migration-plan",
+        "architecture-contract"
+      ],
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-sustainable-procurement-strategy-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 procurement",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#procurement"
+          }
+        ],
+        "entities": [
+          {
+            "id": "sustainable-procurement-strategy-default-1",
+            "type": "guide:sustainable_procurement",
+            "name": "A本地翻新",
+            "attributes": {
+              "option": "A本地翻新 / 100终端5年业务用途",
+              "sourcing": "purchase-refurbished",
+              "location": "onshore；具体地区待核实",
+              "lifecycle_evidence": "愿供制造/维修/退出数据；尚未收齐",
+              "whole_life_tco": "5年TCO待补；不只比较购置价",
+              "means_obligations": "维修人员培训记录、环境数据报告方法与审查权",
+              "result_obligations": "项目要求5年备件可得性、退出设备逐台追踪；由法务/发起人确认",
+              "end_of_use": "愿提供维修及设备回收去向",
+              "supply_chain_access": "直接与供方协作，需核实制造中间环节",
+              "gaps": [
+                "完整足迹",
+                "五年TCO",
+                "退出合同"
+              ],
+              "decision_rule": "PR-03：先证据透明和可验证维修支持；无评分权重",
+              "recommendation": "补证后比较；当前不选择供应商",
+              "authority": "法务审查条款，采购准备，发起人决定"
+            },
+            "evidence": [
+              "src-sustainable-procurement-strategy-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainable-procurement-strategy-default-2",
+            "type": "guide:sustainable_procurement",
+            "name": "B远程租赁",
+            "attributes": {
+              "option": "B远程租赁 / 100终端5年业务用途",
+              "sourcing": "outsource-lease",
+              "location": "offshore；电力结构待核实",
+              "lifecycle_evidence": "只报抵消后零碳，缺总额与抵消拆分",
+              "whole_life_tco": "2年换机与5年服务成本未统一",
+              "means_obligations": "维修人员培训记录、环境数据报告方法与审查权",
+              "result_obligations": "项目要求5年备件可得性、退出设备逐台追踪；由法务/发起人确认",
+              "end_of_use": "设备退还后去向不明",
+              "supply_chain_access": "需供应方演进参与机制",
+              "gaps": [
+                "制造足迹",
+                "Scope2两法",
+                "抵消拆分",
+                "服务分配",
+                "五年TCO",
+                "退出去向"
+              ],
+              "decision_rule": "PR-03：先证据透明和可验证维修支持；无评分权重",
+              "recommendation": "补证后比较；当前不选择供应商",
+              "authority": "法务审查条款，采购准备，发起人决定"
+            },
+            "evidence": [
+              "src-sustainable-procurement-strategy-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-sustainable-procurement-strategy-default",
+          "artifact_id": "sustainable-procurement-strategy",
+          "profile_id": "sustainable-procurement-strategy-default",
+          "title": "可持续ICT采购战略",
+          "entity_ids": [
+            "sustainable-procurement-strategy-default-1",
+            "sustainable-procurement-strategy-default-2"
+          ],
+          "relationship_ids": [],
+          "analysis": "比较A/B内外获取方式、位置、生命周期TCO、手段与结果义务、退出去向；资料不足不排名，不因租赁/在岸或零碳宣传直接作可持续结论。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "procurement"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "raw-material-worked-case-and-explicit-rule-executed",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-output-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/sustainable-procurement-strategy.md",
+      "modification_example": {
+        "change": "B提交排放/抵消独列和设备去向，但仍无五年TCO",
+        "expected": "仅关闭已补资料缺口，仍不能完整比较或自动选B"
+      },
+      "counterexample": {
+        "input": "将“零碳”宣传单独作为完整足迹证据",
+        "expected": "procurement-transparency-gap"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "cloud-environmental-data-contract",
+      "artifact_id": "cloud-environmental-data-contract",
+      "name": "云与外包环境数据共享契约",
+      "name_zh": "云与外包环境数据共享契约",
+      "name_en": "Cloud Environmental Data Contract",
+      "owner": "togaf-implementation-governance",
+      "kind": "catalog",
+      "renderer": "catalog",
+      "notation": "table",
+      "source_refs": [
+        "G242 §6表6-1"
+      ],
+      "definition_status": "guide-work-product-with-project-operational-contract",
+      "decision": "服务提供方应以哪些边界和口径交付可审查环境数据？",
+      "stakeholders": [
+        "业务负责人",
+        "企业架构师",
+        "环境核算负责人",
+        "采购及供应商负责人",
+        "HR与治理负责人"
+      ],
+      "concerns": [
+        "服务提供方应以哪些边界和口径交付可审查环境数据？",
+        "依据、权限、完整性和可追溯性"
+      ],
+      "adm_phases": [
+        "A",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "required_inputs": [
+        "组织、服务、业务用途及所评估期间/生命周期边界",
+        "原始访谈、使用数据、供应商记录及稳定证据ID",
+        "适用目标、职责和组织自定决策规则；未知项显式登记"
+      ],
+      "optional_inputs": [
+        "历史评估、环境数据目录、采购契约及角色技能资料"
+      ],
+      "missing_input_policy": "关键依据未知时给候选表、受影响ID与责任；不编造权重、阈值、估算、批准或实际完成。",
+      "entity_types": [
+        "guide:cloud_environmental_field"
+      ],
+      "relationship_types": [],
+      "fields": [
+        "name",
+        "sequence",
+        "field_key",
+        "value",
+        "unit",
+        "period",
+        "service_boundary",
+        "semantics",
+        "evidence_refs",
+        "quality"
+      ],
+      "attribute_semantics": {
+        "name": {
+          "meaning": "数据项名",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "sequence": {
+          "meaning": "G242拟议19字段顺序",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "field_key": {
+          "meaning": "稳定字段key",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "value": {
+          "meaning": "供应方原始值，未知显式保存",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "unit": {
+          "meaning": "原始单位",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "period": {
+          "meaning": "该值测量期间",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "service_boundary": {
+          "meaning": "服务/组织实体/生命周期/分配边界",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "semantics": {
+          "meaning": "互斥、包含、抵消、复制等含义",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "evidence_refs": {
+          "meaning": "供应方报告/方法证据ID",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        },
+        "quality": {
+          "meaning": "完整/未知及口径待确认",
+          "value_rule": "原料ID与数据版本明确；组织规则显式注明；未知保留缺口。",
+          "definition_origin": "guide-derived-project-operational-convention"
+        }
+      },
+      "required_attributes": {
+        "guide:cloud_environmental_field": [
+          "sequence",
+          "field_key",
+          "value",
+          "unit",
+          "period",
+          "service_boundary",
+          "semantics",
+          "evidence_refs",
+          "quality"
+        ]
+      },
+      "relation_semantics": "用途—应用/数据—基础设施用稳定ID追踪；评估维度与功能多对多关联；总额与子集、两种Scope2基础、抵消和复制存储分别表达。表格相邻不代表因果或可相加。",
+      "analysis": [
+        "确认提供方、服务、使用实体、期间与服务分配依据",
+        "按拟议19字段逐项收集原始值和单位、测量期间",
+        "同时保留市场/地点Scope2，设备Scope3包含关系及抵消独列",
+        "检查年度/月度、制造/运行水、复制存储与进出流量口径",
+        "给缺口/冲突清单后交给独立核算方法；不在数据契约中自动合计排放"
+      ],
+      "analysis_steps": [
+        "确认提供方、服务、使用实体、期间与服务分配依据",
+        "按拟议19字段逐项收集原始值和单位、测量期间",
+        "同时保留市场/地点Scope2，设备Scope3包含关系及抵消独列",
+        "检查年度/月度、制造/运行水、复制存储与进出流量口径",
+        "给缺口/冲突清单后交给独立核算方法；不在数据契约中自动合计排放"
+      ],
+      "output": [
+        "实际分析记录和结论",
+        "未决项、责任及动作",
+        "稳定对象ID、来源与实际view_id"
+      ],
+      "semantic_checks": [
+        "G242提出数据共享模型，不宣称已成为国际标准",
+        "Period允许年/月而若干描述写完整年度，必须逐值声明期间，不自动年化",
+        "供应方scope标签与消费者组织范围归属不同",
+        "市场法和地点法不能相加，设备子集不与Scope3总量相加，抵消不抵掉报送原始值",
+        "复制后存储量不是逻辑原始数据；制造水未知不能记零"
+      ],
+      "checks": [
+        "G242提出数据共享模型，不宣称已成为国际标准",
+        "Period允许年/月而若干描述写完整年度，必须逐值声明期间，不自动年化",
+        "供应方scope标签与消费者组织范围归属不同",
+        "市场法和地点法不能相加，设备子集不与Scope3总量相加，抵消不抵掉报送原始值",
+        "复制后存储量不是逻辑原始数据；制造水未知不能记零"
+      ],
+      "misreadings": [
+        "G242提出数据共享模型，不宣称已成为国际标准",
+        "Period允许年/月而若干描述写完整年度，必须逐值声明期间，不自动年化",
+        "供应方scope标签与消费者组织范围归属不同",
+        "市场法和地点法不能相加，设备子集不与Scope3总量相加，抵消不抵掉报送原始值",
+        "复制后存储量不是逻辑原始数据；制造水未知不能记零"
+      ],
+      "related_deliverables": [
+        "architecture-contract",
+        "architecture-repository"
+      ],
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-cloud-environmental-data-contract-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 cloud",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#cloud"
+          }
+        ],
+        "entities": [
+          {
+            "id": "cloud-environmental-data-contract-default-1",
+            "type": "guide:cloud_environmental_field",
+            "name": "提供方名称",
+            "attributes": {
+              "sequence": 1,
+              "field_key": "provider_name",
+              "value": "Atlas示例云",
+              "unit": "text",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "supplier identifier",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-2",
+            "type": "guide:cloud_environmental_field",
+            "name": "被评估服务",
+            "attributes": {
+              "sequence": 2,
+              "field_key": "provider_evaluated_service",
+              "value": "工单SaaS",
+              "unit": "text",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "specific service",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-3",
+            "type": "guide:cloud_environmental_field",
+            "name": "相关组织实体",
+            "attributes": {
+              "sequence": 3,
+              "field_key": "concerned_organization_entities",
+              "value": [
+                "澄源客服部",
+                "澄源运营部"
+              ],
+              "unit": "list",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "customer entities",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-4",
+            "type": "guide:cloud_environmental_field",
+            "name": "期间",
+            "attributes": {
+              "sequence": 4,
+              "field_key": "period",
+              "value": "2026",
+              "unit": "year/month",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "reporting period; annual definitions remain explicit",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-5",
+            "type": "guide:cloud_environmental_field",
+            "name": "用电量",
+            "attributes": {
+              "sequence": 5,
+              "field_key": "electricity_consumption_kwh",
+              "value": 120000,
+              "unit": "kWh",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "gross allocated service electricity",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-6",
+            "type": "guide:cloud_environmental_field",
+            "name": "采购可再生电力",
+            "attributes": {
+              "sequence": 6,
+              "field_key": "renewable_electricity_purchased_kwh",
+              "value": 80000,
+              "unit": "kWh",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "purchase disclosure; not a subtraction",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-7",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope2市场法",
+            "attributes": {
+              "sequence": 7,
+              "field_key": "scope2_market_based_kgco2e",
+              "value": 18000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "alternative accounting basis; do not add to location-based",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-8",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope2地点法",
+            "attributes": {
+              "sequence": 8,
+              "field_key": "scope2_location_based_kgco2e",
+              "value": 48000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "alternative accounting basis; do not add to market-based",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-9",
+            "type": "guide:cloud_environmental_field",
+            "name": "PUE",
+            "attributes": {
+              "sequence": 9,
+              "field_key": "pue",
+              "value": 1.4,
+              "unit": "ratio",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "hosting efficiency; included-allocation must be declared",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-10",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope2计算说明",
+            "attributes": {
+              "sequence": 10,
+              "field_key": "scope2_calculation_comments",
+              "value": "市场法按服务采购合同；地点法按设施区域；分配已包含PUE，不再次乘；原始排放未扣抵消",
+              "unit": "text",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "optional comments; explicit missing allowed",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-11",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope3总量",
+            "attributes": {
+              "sequence": 11,
+              "field_key": "total_scope3_kgco2e",
+              "value": 9000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "supplier total allocated to service",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-12",
+            "type": "guide:cloud_environmental_field",
+            "name": "数字设备Scope3子集",
+            "attributes": {
+              "sequence": 12,
+              "field_key": "digital_equipment_scope3_kgco2e",
+              "value": 6000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "subset of total_scope3_kgco2e, not additive",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-13",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope3计算说明",
+            "attributes": {
+              "sequence": 13,
+              "field_key": "scope3_calculation_comments",
+              "value": "供应方范围3按客户实际服务分配，设备制造为子集；不自动等同客户GHG范围归属",
+              "unit": "text",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "optional comments; explicit missing allowed",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-14",
+            "type": "guide:cloud_environmental_field",
+            "name": "碳信用与抵消",
+            "attributes": {
+              "sequence": 14,
+              "field_key": "carbon_credits_offsets_kgco2e",
+              "value": 5000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "separate disclosure; do not net reported gross emissions",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-15",
+            "type": "guide:cloud_environmental_field",
+            "name": "数字废弃物重量",
+            "attributes": {
+              "sequence": 15,
+              "field_key": "digital_waste_kg",
+              "value": 120,
+              "unit": "kg",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "disposed equipment in declared period/boundary",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-16",
+            "type": "guide:cloud_environmental_field",
+            "name": "回收数字废弃物",
+            "attributes": {
+              "sequence": 16,
+              "field_key": "recycled_digital_waste_kg",
+              "value": 100,
+              "unit": "kg",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "collected for recycling; boundary/lot must be clear",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-17",
+            "type": "guide:cloud_environmental_field",
+            "name": "水消耗",
+            "attributes": {
+              "sequence": 17,
+              "field_key": "water_consumption",
+              "value": {
+                "value": 300,
+                "unit": "m3",
+                "lifecycle_stage": "use-cooling",
+                "manufacturing_value": null,
+                "gap": "制造水未知；总生命周期水不可计算"
+              },
+              "unit": "m3",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "manufacturing/use phase split or explicit phase scope",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "manufacturing-water-missing"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-18",
+            "type": "guide:cloud_environmental_field",
+            "name": "存储数据量含复制",
+            "attributes": {
+              "sequence": 18,
+              "field_key": "stored_data_gb_including_replication",
+              "value": 6000,
+              "unit": "GB",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "include all replicas, distinguish logical original；存储6000GB含3份复制，逻辑原始2000GB",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-19",
+            "type": "guide:cloud_environmental_field",
+            "name": "进出网络流量总量",
+            "attributes": {
+              "sequence": 19,
+              "field_key": "network_traffic_gb",
+              "value": 90000,
+              "unit": "GB",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "inbound plus outbound over declared period",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-cloud-environmental-data-contract-default",
+          "artifact_id": "cloud-environmental-data-contract",
+          "profile_id": "cloud-environmental-data-contract-default",
+          "title": "云环境数据共享契约19字段",
+          "entity_ids": [
+            "cloud-environmental-data-contract-default-1",
+            "cloud-environmental-data-contract-default-2",
+            "cloud-environmental-data-contract-default-3",
+            "cloud-environmental-data-contract-default-4",
+            "cloud-environmental-data-contract-default-5",
+            "cloud-environmental-data-contract-default-6",
+            "cloud-environmental-data-contract-default-7",
+            "cloud-environmental-data-contract-default-8",
+            "cloud-environmental-data-contract-default-9",
+            "cloud-environmental-data-contract-default-10",
+            "cloud-environmental-data-contract-default-11",
+            "cloud-environmental-data-contract-default-12",
+            "cloud-environmental-data-contract-default-13",
+            "cloud-environmental-data-contract-default-14",
+            "cloud-environmental-data-contract-default-15",
+            "cloud-environmental-data-contract-default-16",
+            "cloud-environmental-data-contract-default-17",
+            "cloud-environmental-data-contract-default-18",
+            "cloud-environmental-data-contract-default-19"
+          ],
+          "relationship_ids": [],
+          "analysis": "逐行保留G242表6-1拟议最小数据集：Scope2两法并行不相加；设备6000为Scope3总9000子集；抵消5000独列；存储6000含复制。制造水未知，不能宣称全生命周期数据完全。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "cloud"
+      },
+      "implementation_status": {
+        "definition": "local-source-read; public-official-verification-pending",
+        "model": "executed-valid-no-issues",
+        "analysis": "raw-material-worked-case-and-explicit-rule-executed",
+        "generation": "baseline-modified-two-layout-tables-executed",
+        "modification": "executed-with-output-change",
+        "review": "rule-checks-passed; independent-business-review-pending",
+        "visual": "not-applicable-table"
+      },
+      "method_reference": "references/capability-addenda/cloud-environmental-data-contract.md",
+      "modification_example": {
+        "change": "Scope3设备子集从6000更新为7000，总额仍9000",
+        "expected": "子集更新且仍不相加；两种Scope2与抵消保持独立"
+      },
+      "counterexample": {
+        "input": "设备子集10000大于同边界Scope3总9000；或要求把两种Scope2相加",
+        "expected": "scope3-subset-exceeds-total或scope2-bases-not-additive"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "sustainability-capability-assessment-default",
+      "artifact_id": "sustainability-capability-assessment",
+      "name": "数字可持续能力六维评估",
+      "name_zh": "数字可持续能力六维评估",
+      "owner": "togaf-ea-capability",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G242 §3.2、§5.2表5-1"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:sustainability_capability": [
+          "dimension",
+          "reference_functions",
+          "current_evidence",
+          "target_need",
+          "gap",
+          "action",
+          "owner",
+          "assessment_rule",
+          "rating",
+          "evidence_refs"
+        ]
+      },
+      "entity_types": [
+        "guide:sustainability_capability"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "六维评估不等于七高层功能的一一映射",
+        "源文未给等级/权重/合格线，不能默认ACMM或自造评分",
+        "参加宣导或发布政策不能自动证明能力成熟"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "sustainability-capability-assessment-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-sustainability-capability-assessment-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 capability",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#capability"
+          }
+        ],
+        "entities": [
+          {
+            "id": "sustainability-capability-assessment-default-1",
+            "type": "guide:sustainability_capability",
+            "name": "战略",
+            "attributes": {
+              "dimension": "战略",
+              "reference_functions": [
+                "制定并推展可持续信息系统战略"
+              ],
+              "current_evidence": "董事会愿景已发布",
+              "target_need": "职能级目标与责任",
+              "gap": "职能目标未分配",
+              "action": "由业务/CSR/ICT细化目标",
+              "owner": "发起人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-01"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-2",
+            "type": "guide:sustainability_capability",
+            "name": "治理",
+            "attributes": {
+              "dimension": "治理",
+              "reference_functions": [
+                "治理转型"
+              ],
+              "current_evidence": "现有架构委员会不含环境职责",
+              "target_need": "环境评审、债务与例外流程",
+              "gap": "职权与准则未更新",
+              "action": "修订现有委员会职责",
+              "owner": "架构委员会流程负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-01"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-3",
+            "type": "guide:sustainability_capability",
+            "name": "业务/数据/应用/技术架构",
+            "attributes": {
+              "dimension": "业务/数据/应用/技术架构",
+              "reference_functions": [
+                "架构并构建可持续信息系统",
+                "运营可持续信息系统"
+              ],
+              "current_evidence": "数据删除期限已提出",
+              "target_need": "全栈及全生命周期考虑",
+              "gap": "终端/外包生命周期未检验",
+              "action": "把设备、软件与外包纳入设计检查",
+              "owner": "架构负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-02"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-4",
+            "type": "guide:sustainability_capability",
+            "name": "文化",
+            "attributes": {
+              "dimension": "文化",
+              "reference_functions": [
+                "发展可持续数字文化"
+              ],
+              "current_evidence": "两场全员宣导",
+              "target_need": "全员理解与角色技能",
+              "gap": "采购/核算岗位缺专项技能",
+              "action": "按角色训练并验证应用",
+              "owner": "HR/培训负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-02"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-5",
+            "type": "guide:sustainability_capability",
+            "name": "数字环境足迹度量",
+            "attributes": {
+              "dimension": "数字环境足迹度量",
+              "reference_functions": [
+                "从摇篮到坟墓度量",
+                "运营可持续信息系统"
+              ],
+              "current_evidence": "只有自营机房电力台账",
+              "target_need": "制造/运行/退出/云边界完整",
+              "gap": "制造回收云资料不全",
+              "action": "完善清单和供应方数据契约",
+              "owner": "环境核算负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-capability-assessment-default-6",
+            "type": "guide:sustainability_capability",
+            "name": "生态系统",
+            "attributes": {
+              "dimension": "生态系统",
+              "reference_functions": [
+                "与客户/提供方/伙伴/主管部门互动"
+              ],
+              "current_evidence": "供应商愿给用电",
+              "target_need": "端到端服务足迹透明度",
+              "gap": "无设备Scope3承诺",
+              "action": "采购纳入数据和复评条款",
+              "owner": "采购负责人",
+              "assessment_rule": "G242 §5.2六维；企业未选评分模型，使用证据缺口评估",
+              "rating": "not-scored",
+              "evidence_refs": [
+                "CA-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-capability-assessment-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-sustainability-capability-assessment-default",
+          "artifact_id": "sustainability-capability-assessment",
+          "profile_id": "sustainability-capability-assessment-default",
+          "title": "数字可持续能力六维评估",
+          "entity_ids": [
+            "sustainability-capability-assessment-default-1",
+            "sustainability-capability-assessment-default-2",
+            "sustainability-capability-assessment-default-3",
+            "sustainability-capability-assessment-default-4",
+            "sustainability-capability-assessment-default-5",
+            "sustainability-capability-assessment-default-6"
+          ],
+          "relationship_ids": [],
+          "analysis": "把CA-01至03按六维记录事实和改进；七高层功能组多对多关联，不把七组当七级，也不移植ACMM评分。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "capability"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "sustainability-dual-entry-analysis-default",
+      "artifact_id": "sustainability-dual-entry-analysis",
+      "name": "用途与基础设施双入口机会清单",
+      "name_zh": "用途与基础设施双入口机会清单",
+      "owner": "togaf-change-value",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G242 §3.5.2–3.5.3、表3-3"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:dual_entry_opportunity": [
+          "entry_point",
+          "use_id",
+          "application_data_path",
+          "infrastructure_id",
+          "baseline_evidence",
+          "action",
+          "business_acceptance",
+          "nonfunctional_change",
+          "constraints",
+          "priority_basis",
+          "dependencies",
+          "status"
+        ]
+      },
+      "entity_types": [
+        "guide:dual_entry_opportunity"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "基础设施看似空闲不代表没有业务用途",
+        "共有设备和数据不能按单一用途全部删除",
+        "排序不等于碳量核算；未测量不填虚构减排值",
+        "低技术/人工替代也需同范围全生命周期比较"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "sustainability-dual-entry-analysis-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-sustainability-dual-entry-analysis-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 dual-entry",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#dual-entry"
+          }
+        ],
+        "entities": [
+          {
+            "id": "sustainability-dual-entry-analysis-default-1",
+            "type": "guide:dual_entry_opportunity",
+            "name": "培训视频节制",
+            "attributes": {
+              "entry_point": "use",
+              "use_id": "USE-TRAIN",
+              "application_data_path": [
+                "APP-VIDEO",
+                "DATA-VID"
+              ],
+              "infrastructure_id": "STORAGE-A",
+              "baseline_evidence": "DU-02：默认4K且永久保存；碳足迹数据尚缺",
+              "action": "优化为1080p；非合规视频90天后删除",
+              "business_acceptance": "业务负责人在DU-02接受；需数据/安全审查",
+              "nonfunctional_change": "降低非关键视频分辨率与保存期；法定记录仍7年",
+              "constraints": {
+                "use": "默认1080p，特殊需求申请",
+                "data": "培训90天；法定记录7年单独分类",
+                "application-development": "上传时必须元数据标保留类别",
+                "infrastructure": "不因视频减少而删除共享STORAGE-A"
+              },
+              "priority_basis": "项目DU-04：已有业务接受先做；不声称减排量",
+              "dependencies": [
+                "STORAGE-A共享法定记录",
+                "删除规则审查"
+              ],
+              "status": "candidate-awaiting-control-review"
+            },
+            "evidence": [
+              "src-sustainability-dual-entry-analysis-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-dual-entry-analysis-default-2",
+            "type": "guide:dual_entry_opportunity",
+            "name": "报表服务器运行窗口",
+            "attributes": {
+              "entry_point": "infrastructure",
+              "use_id": "USE-REPORT",
+              "application_data_path": [
+                "APP-REPORT",
+                "DATA-REPORT"
+              ],
+              "infrastructure_id": "SERVER-B",
+              "baseline_evidence": "DU-03使用日志08–18有作业；能耗测量待补",
+              "action": "评估非工作窗口停机/按需启动",
+              "business_acceptance": "非紧急报表次日上午交付被接受；紧急用途需核实",
+              "nonfunctional_change": "用业务窗口替代默认24x7；保留恢复演练条件",
+              "constraints": {
+                "use": "非紧急报表在08–18执行",
+                "data": "保留业务规定数据，不推断可删",
+                "application-development": "作业必须可暂停并恢复",
+                "infrastructure": "运维验证恢复时间后才能停机"
+              },
+              "priority_basis": "项目DU-04：运维验证后处理",
+              "dependencies": [
+                "启动可靠性",
+                "潜在紧急业务用途"
+              ],
+              "status": "candidate-awaiting-operations-evidence"
+            },
+            "evidence": [
+              "src-sustainability-dual-entry-analysis-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-sustainability-dual-entry-analysis-default",
+          "artifact_id": "sustainability-dual-entry-analysis",
+          "profile_id": "sustainability-dual-entry-analysis-default",
+          "title": "用途与基础设施双入口机会清单",
+          "entity_ids": [
+            "sustainability-dual-entry-analysis-default-1",
+            "sustainability-dual-entry-analysis-default-2"
+          ],
+          "relationship_ids": [],
+          "analysis": "分别从培训用途向下追到共享存储，从服务器向上追到报表业务。两个入口保留独立清单和四类约束，避免删除共享法定记录；未提供排放数值时不伪算收益。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "dual-entry"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "sustainability-education-plan-default",
+      "artifact_id": "sustainability-education-plan",
+      "name": "可持续性教育与角色技能计划",
+      "name_zh": "可持续性教育与角色技能计划",
+      "owner": "togaf-organization-roles",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G242 §3.3.2、§4.3、§5.2"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:sustainability_learning": [
+          "audience",
+          "population",
+          "current_evidence",
+          "skill_need",
+          "learning_activity",
+          "resources",
+          "application_check",
+          "hr_change",
+          "owner",
+          "status",
+          "evidence_refs"
+        ]
+      },
+      "entity_types": [
+        "guide:sustainability_learning"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "不得仅覆盖ICT员工而漏业务及采购",
+        "重叠人群不重复计覆盖人数",
+        "课程/认证建议需核实可用性；本指南例子不代表当前认证有效",
+        "无评分依据不得自行给技能等级"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "sustainability-education-plan-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-sustainability-education-plan-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 education",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#education"
+          }
+        ],
+        "entities": [
+          {
+            "id": "sustainability-education-plan-default-1",
+            "type": "guide:sustainability_learning",
+            "name": "全员基础",
+            "attributes": {
+              "audience": "全部员工",
+              "population": 100,
+              "current_evidence": "45人仅参加，未测理解",
+              "skill_need": "能源/气候/资源与自身ICT使用影响",
+              "learning_activity": "同伴工作坊与使用场景练习",
+              "resources": "内部同伴工作坊/项目选定课程；可用日期待排",
+              "application_check": "解释个人使用选择的影响与替代方式",
+              "hr_change": "入职教育加入相同基础",
+              "owner": "HR与对应职能负责人",
+              "status": "planned; competence-not-verified",
+              "evidence_refs": [
+                "ED-01",
+                "ED-02",
+                "ED-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-education-plan-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-education-plan-default-2",
+            "type": "guide:sustainability_learning",
+            "name": "采购专项",
+            "attributes": {
+              "audience": "采购人员",
+              "population": 4,
+              "current_evidence": "无专项训练",
+              "skill_need": "全生命周期数据、条款、手段/结果义务",
+              "learning_activity": "评审虚构供应商报告并起草条款",
+              "resources": "内部同伴工作坊/项目选定课程；可用日期待排",
+              "application_check": "识别净零宣传中的范围/抵消缺口",
+              "hr_change": "采购岗位与面试加入数据契约能力",
+              "owner": "HR与对应职能负责人",
+              "status": "planned; competence-not-verified",
+              "evidence_refs": [
+                "ED-01",
+                "ED-02",
+                "ED-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-education-plan-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-education-plan-default-3",
+            "type": "guide:sustainability_learning",
+            "name": "碳核算专项",
+            "attributes": {
+              "audience": "核算人员",
+              "population": 2,
+              "current_evidence": "无边界实操证据",
+              "skill_need": "边界、单位、Scope2两法与Scope3子集",
+              "learning_activity": "复核一份云19字段记录",
+              "resources": "内部同伴工作坊/项目选定课程；可用日期待排",
+              "application_check": "发现市场/地点法相加与子集重复计量",
+              "hr_change": "核算岗位加入边界复核",
+              "owner": "HR与对应职能负责人",
+              "status": "planned; competence-not-verified",
+              "evidence_refs": [
+                "ED-01",
+                "ED-02",
+                "ED-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-education-plan-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainability-education-plan-default-4",
+            "type": "guide:sustainability_learning",
+            "name": "架构专项",
+            "attributes": {
+              "audience": "架构师",
+              "population": 6,
+              "current_evidence": "缺生态设计实操",
+              "skill_need": "生态设计、低技术替代、双入口分析",
+              "learning_activity": "从用途与设备提出方案并评审",
+              "resources": "内部同伴工作坊/项目选定课程；可用日期待排",
+              "application_check": "业务可接受性、全生命周期比较与约束完整",
+              "hr_change": "架构岗位加入生态设计技能",
+              "owner": "HR与对应职能负责人",
+              "status": "planned; competence-not-verified",
+              "evidence_refs": [
+                "ED-01",
+                "ED-02",
+                "ED-03"
+              ]
+            },
+            "evidence": [
+              "src-sustainability-education-plan-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-sustainability-education-plan-default",
+          "artifact_id": "sustainability-education-plan",
+          "profile_id": "sustainability-education-plan-default",
+          "title": "可持续性教育与角色技能计划",
+          "entity_ids": [
+            "sustainability-education-plan-default-1",
+            "sustainability-education-plan-default-2",
+            "sustainability-education-plan-default-3",
+            "sustainability-education-plan-default-4"
+          ],
+          "relationship_ids": [],
+          "analysis": "全员100与专项采购4/核算2/架构6是重叠人群，不相加成112。45人参训不代表已理解；专项技能通过实际任务检验。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "education"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "shared-carbon-factor-catalog-default",
+      "artifact_id": "shared-carbon-factor-catalog",
+      "name": "共享碳单位数据与因子目录",
+      "name_zh": "共享碳单位数据与因子目录",
+      "owner": "togaf-change-value",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G242 §3.6.3表3-4"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:carbon_reference_data": [
+          "data_kind",
+          "value",
+          "unit",
+          "period",
+          "geography",
+          "lifecycle_boundary",
+          "applicability",
+          "allocation_basis",
+          "source_version",
+          "source_locator",
+          "quality",
+          "reuse_limits"
+        ]
+      },
+      "entity_types": [
+        "guide:carbon_reference_data"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "表3-4非穷尽，不把五类当数量上限",
+        "kWh/年、kgCO2e/台、kWh/vCPU、kgCO2e/币种、kgCO2e/kWh不可混用",
+        "已含PUE不再次乘PUE；单位数据没有实际服务分配则不得视为已验证",
+        "共享目录输入核算但本工作产品不产生排放总额"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "shared-carbon-factor-catalog-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-shared-carbon-factor-catalog-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 factor-catalog",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#factor-catalog"
+          }
+        ],
+        "entities": [
+          {
+            "id": "shared-carbon-factor-catalog-default-1",
+            "type": "guide:carbon_reference_data",
+            "name": "平均机型M用电",
+            "attributes": {
+              "data_kind": "equipment-electricity",
+              "value": 45,
+              "unit": "kWh/device/year",
+              "period": "2026",
+              "geography": "企业机型M使用地点",
+              "lifecycle_boundary": "operation-electricity",
+              "applicability": "机型M，未覆盖其他机型",
+              "allocation_basis": "制造商平均用电，不作公司实际电表值",
+              "source_version": "FC-01/v1",
+              "source_locator": "FC-01",
+              "quality": "fictional-manufacturer-estimate",
+              "reuse_limits": "不能当制造排放或其他机型因子"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "shared-carbon-factor-catalog-default-2",
+            "type": "guide:carbon_reference_data",
+            "name": "机型M制造足迹",
+            "attributes": {
+              "data_kind": "equipment-embodied",
+              "value": 250,
+              "unit": "kgCO2e/device",
+              "period": "2026 product version",
+              "geography": "机型M制造供应链",
+              "lifecycle_boundary": "manufacturing",
+              "applicability": "机型M一台的制造足迹",
+              "allocation_basis": "整台制造额，未按年度摊销",
+              "source_version": "FC-01/v1",
+              "source_locator": "FC-01",
+              "quality": "fictional-manufacturer-estimate",
+              "reuse_limits": "不能当每年排放，也不能再加已含设备的Scope3总额"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "shared-carbon-factor-catalog-default-3",
+            "type": "guide:carbon_reference_data",
+            "name": "自营机房服务分配用电",
+            "attributes": {
+              "data_kind": "datacenter-activity-intensity",
+              "value": 1.2,
+              "unit": "kWh/vCPU",
+              "period": "2026",
+              "geography": "机房A",
+              "lifecycle_boundary": "operation-electricity-including-PUE",
+              "applicability": "ALLOC-2026中实际服务VM分配",
+              "allocation_basis": "包含PUE分摊；VM使用及分配表ALLOC-2026",
+              "source_version": "FC-02/v1",
+              "source_locator": "FC-02 / ALLOC-2026",
+              "quality": "fictional-allocated-measurement",
+              "reuse_limits": "不得再次乘PUE；不同期间/vCPU-hour不可直接替换"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "shared-carbon-factor-catalog-default-4",
+            "type": "guide:carbon_reference_data",
+            "name": "云消费强度",
+            "attributes": {
+              "data_kind": "cloud-spend-intensity",
+              "value": 0.02,
+              "unit": "kgCO2e/CNY",
+              "period": "2026",
+              "geography": "供应商已评估服务范围",
+              "lifecycle_boundary": "operation-and-manufacturing",
+              "applicability": "指定服务及2026计价基准",
+              "allocation_basis": "服务消费金额分配，仅本示例规则",
+              "source_version": "FC-03/v1",
+              "source_locator": "FC-03",
+              "quality": "fictional-supplier-estimate",
+              "reuse_limits": "货币口径依价格变化，不当通用技术因子"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "shared-carbon-factor-catalog-default-5",
+            "type": "guide:carbon_reference_data",
+            "name": "地点法电力因子",
+            "attributes": {
+              "data_kind": "grid-emission-factor",
+              "value": 0.4,
+              "unit": "kgCO2e/kWh",
+              "period": "2026",
+              "geography": "GRID-X虚构地区",
+              "lifecycle_boundary": "location-based-electricity",
+              "applicability": "GRID-X；无现实适用性",
+              "allocation_basis": "地点法，不是供应商采购合同市场法",
+              "source_version": "FC-03/v1",
+              "source_locator": "FC-03",
+              "quality": "fictional-scenario-factor",
+              "reuse_limits": "仅用于示例，禁止默认为项目真实因子"
+            },
+            "evidence": [
+              "src-shared-carbon-factor-catalog-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-shared-carbon-factor-catalog-default",
+          "artifact_id": "shared-carbon-factor-catalog",
+          "profile_id": "shared-carbon-factor-catalog-default",
+          "title": "共享碳单位数据与因子目录",
+          "entity_ids": [
+            "shared-carbon-factor-catalog-default-1",
+            "shared-carbon-factor-catalog-default-2",
+            "shared-carbon-factor-catalog-default-3",
+            "shared-carbon-factor-catalog-default-4",
+            "shared-carbon-factor-catalog-default-5"
+          ],
+          "relationship_ids": [],
+          "analysis": "保留表3-4五类原始单位数据及边界/分配/PUE信息；它们不是五个通用排放因子，不做新的环境总额计算。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "factor-catalog"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "sustainable-procurement-strategy-default",
+      "artifact_id": "sustainable-procurement-strategy",
+      "name": "可持续ICT采购战略",
+      "name_zh": "可持续ICT采购战略",
+      "owner": "togaf-implementation-governance",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G242 §3.7.1–3.7.3、§4.3"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:sustainable_procurement": [
+          "option",
+          "sourcing",
+          "location",
+          "lifecycle_evidence",
+          "whole_life_tco",
+          "means_obligations",
+          "result_obligations",
+          "end_of_use",
+          "supply_chain_access",
+          "gaps",
+          "decision_rule",
+          "recommendation",
+          "authority"
+        ]
+      },
+      "entity_types": [
+        "guide:sustainable_procurement"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "在岸、租赁、云或认证称号不能自动证明低足迹",
+        "抵消后的净零不能代替端到端排放透明度",
+        "不造权重或最低合格分；对外采购须实际授权"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "sustainable-procurement-strategy-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-sustainable-procurement-strategy-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 procurement",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#procurement"
+          }
+        ],
+        "entities": [
+          {
+            "id": "sustainable-procurement-strategy-default-1",
+            "type": "guide:sustainable_procurement",
+            "name": "A本地翻新",
+            "attributes": {
+              "option": "A本地翻新 / 100终端5年业务用途",
+              "sourcing": "purchase-refurbished",
+              "location": "onshore；具体地区待核实",
+              "lifecycle_evidence": "愿供制造/维修/退出数据；尚未收齐",
+              "whole_life_tco": "5年TCO待补；不只比较购置价",
+              "means_obligations": "维修人员培训记录、环境数据报告方法与审查权",
+              "result_obligations": "项目要求5年备件可得性、退出设备逐台追踪；由法务/发起人确认",
+              "end_of_use": "愿提供维修及设备回收去向",
+              "supply_chain_access": "直接与供方协作，需核实制造中间环节",
+              "gaps": [
+                "完整足迹",
+                "五年TCO",
+                "退出合同"
+              ],
+              "decision_rule": "PR-03：先证据透明和可验证维修支持；无评分权重",
+              "recommendation": "补证后比较；当前不选择供应商",
+              "authority": "法务审查条款，采购准备，发起人决定"
+            },
+            "evidence": [
+              "src-sustainable-procurement-strategy-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "sustainable-procurement-strategy-default-2",
+            "type": "guide:sustainable_procurement",
+            "name": "B远程租赁",
+            "attributes": {
+              "option": "B远程租赁 / 100终端5年业务用途",
+              "sourcing": "outsource-lease",
+              "location": "offshore；电力结构待核实",
+              "lifecycle_evidence": "只报抵消后零碳，缺总额与抵消拆分",
+              "whole_life_tco": "2年换机与5年服务成本未统一",
+              "means_obligations": "维修人员培训记录、环境数据报告方法与审查权",
+              "result_obligations": "项目要求5年备件可得性、退出设备逐台追踪；由法务/发起人确认",
+              "end_of_use": "设备退还后去向不明",
+              "supply_chain_access": "需供应方演进参与机制",
+              "gaps": [
+                "制造足迹",
+                "Scope2两法",
+                "抵消拆分",
+                "服务分配",
+                "五年TCO",
+                "退出去向"
+              ],
+              "decision_rule": "PR-03：先证据透明和可验证维修支持；无评分权重",
+              "recommendation": "补证后比较；当前不选择供应商",
+              "authority": "法务审查条款，采购准备，发起人决定"
+            },
+            "evidence": [
+              "src-sustainable-procurement-strategy-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-sustainable-procurement-strategy-default",
+          "artifact_id": "sustainable-procurement-strategy",
+          "profile_id": "sustainable-procurement-strategy-default",
+          "title": "可持续ICT采购战略",
+          "entity_ids": [
+            "sustainable-procurement-strategy-default-1",
+            "sustainable-procurement-strategy-default-2"
+          ],
+          "relationship_ids": [],
+          "analysis": "比较A/B内外获取方式、位置、生命周期TCO、手段与结果义务、退出去向；资料不足不排名，不因租赁/在岸或零碳宣传直接作可持续结论。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "procurement"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    },
+    {
+      "id": "cloud-environmental-data-contract-default",
+      "artifact_id": "cloud-environmental-data-contract",
+      "name": "云环境数据共享契约19字段",
+      "name_zh": "云环境数据共享契约19字段",
+      "owner": "togaf-implementation-governance",
+      "renderer": "catalog",
+      "output_kind": "table",
+      "version": "2.1-addenda",
+      "source_refs": [
+        "G242 §6表6-1"
+      ],
+      "source_structure_refs": [],
+      "required_attributes": {
+        "guide:cloud_environmental_field": [
+          "sequence",
+          "field_key",
+          "value",
+          "unit",
+          "period",
+          "service_boundary",
+          "semantics",
+          "evidence_refs",
+          "quality"
+        ]
+      },
+      "entity_types": [
+        "guide:cloud_environmental_field"
+      ],
+      "relationship_types": [],
+      "checks": [
+        "G242提出数据共享模型，不宣称已成为国际标准",
+        "Period允许年/月而若干描述写完整年度，必须逐值声明期间，不自动年化",
+        "供应方scope标签与消费者组织范围归属不同",
+        "市场法和地点法不能相加，设备子集不与Scope3总量相加，抵消不抵掉报送原始值",
+        "复制后存储量不是逻辑原始数据；制造水未知不能记零"
+      ],
+      "definition_status": "source-guided-table-project-schema",
+      "template": {
+        "id": "cloud-environmental-data-contract-default",
+        "version": "2.1-addenda",
+        "source_verified": false,
+        "layout_notes": "源正文方法的项目字段表；没有原图复刻声明。"
+      },
+      "example": {
+        "notice": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。",
+        "sources": [
+          {
+            "id": "src-cloud-environmental-data-contract-default",
+            "kind": "example",
+            "description": "虚构澄源服务企业可持续ICT案例；全部数据、角色与供应商证据为演示，不是排放因子建议。 材料组 cloud",
+            "locator": "examples/addenda/sustainability/raw-business-materials.json#cloud"
+          }
+        ],
+        "entities": [
+          {
+            "id": "cloud-environmental-data-contract-default-1",
+            "type": "guide:cloud_environmental_field",
+            "name": "提供方名称",
+            "attributes": {
+              "sequence": 1,
+              "field_key": "provider_name",
+              "value": "Atlas示例云",
+              "unit": "text",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "supplier identifier",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-2",
+            "type": "guide:cloud_environmental_field",
+            "name": "被评估服务",
+            "attributes": {
+              "sequence": 2,
+              "field_key": "provider_evaluated_service",
+              "value": "工单SaaS",
+              "unit": "text",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "specific service",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-3",
+            "type": "guide:cloud_environmental_field",
+            "name": "相关组织实体",
+            "attributes": {
+              "sequence": 3,
+              "field_key": "concerned_organization_entities",
+              "value": [
+                "澄源客服部",
+                "澄源运营部"
+              ],
+              "unit": "list",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "customer entities",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-4",
+            "type": "guide:cloud_environmental_field",
+            "name": "期间",
+            "attributes": {
+              "sequence": 4,
+              "field_key": "period",
+              "value": "2026",
+              "unit": "year/month",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "reporting period; annual definitions remain explicit",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-5",
+            "type": "guide:cloud_environmental_field",
+            "name": "用电量",
+            "attributes": {
+              "sequence": 5,
+              "field_key": "electricity_consumption_kwh",
+              "value": 120000,
+              "unit": "kWh",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "gross allocated service electricity",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-6",
+            "type": "guide:cloud_environmental_field",
+            "name": "采购可再生电力",
+            "attributes": {
+              "sequence": 6,
+              "field_key": "renewable_electricity_purchased_kwh",
+              "value": 80000,
+              "unit": "kWh",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "purchase disclosure; not a subtraction",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-7",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope2市场法",
+            "attributes": {
+              "sequence": 7,
+              "field_key": "scope2_market_based_kgco2e",
+              "value": 18000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "alternative accounting basis; do not add to location-based",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-8",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope2地点法",
+            "attributes": {
+              "sequence": 8,
+              "field_key": "scope2_location_based_kgco2e",
+              "value": 48000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "alternative accounting basis; do not add to market-based",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-9",
+            "type": "guide:cloud_environmental_field",
+            "name": "PUE",
+            "attributes": {
+              "sequence": 9,
+              "field_key": "pue",
+              "value": 1.4,
+              "unit": "ratio",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "hosting efficiency; included-allocation must be declared",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-10",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope2计算说明",
+            "attributes": {
+              "sequence": 10,
+              "field_key": "scope2_calculation_comments",
+              "value": "市场法按服务采购合同；地点法按设施区域；分配已包含PUE，不再次乘；原始排放未扣抵消",
+              "unit": "text",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "optional comments; explicit missing allowed",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-11",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope3总量",
+            "attributes": {
+              "sequence": 11,
+              "field_key": "total_scope3_kgco2e",
+              "value": 9000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "supplier total allocated to service",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-12",
+            "type": "guide:cloud_environmental_field",
+            "name": "数字设备Scope3子集",
+            "attributes": {
+              "sequence": 12,
+              "field_key": "digital_equipment_scope3_kgco2e",
+              "value": 6000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "subset of total_scope3_kgco2e, not additive",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-13",
+            "type": "guide:cloud_environmental_field",
+            "name": "Scope3计算说明",
+            "attributes": {
+              "sequence": 13,
+              "field_key": "scope3_calculation_comments",
+              "value": "供应方范围3按客户实际服务分配，设备制造为子集；不自动等同客户GHG范围归属",
+              "unit": "text",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "optional comments; explicit missing allowed",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-14",
+            "type": "guide:cloud_environmental_field",
+            "name": "碳信用与抵消",
+            "attributes": {
+              "sequence": 14,
+              "field_key": "carbon_credits_offsets_kgco2e",
+              "value": 5000,
+              "unit": "kgCO2e",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "separate disclosure; do not net reported gross emissions",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-15",
+            "type": "guide:cloud_environmental_field",
+            "name": "数字废弃物重量",
+            "attributes": {
+              "sequence": 15,
+              "field_key": "digital_waste_kg",
+              "value": 120,
+              "unit": "kg",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "disposed equipment in declared period/boundary",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-16",
+            "type": "guide:cloud_environmental_field",
+            "name": "回收数字废弃物",
+            "attributes": {
+              "sequence": 16,
+              "field_key": "recycled_digital_waste_kg",
+              "value": 100,
+              "unit": "kg",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "collected for recycling; boundary/lot must be clear",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-17",
+            "type": "guide:cloud_environmental_field",
+            "name": "水消耗",
+            "attributes": {
+              "sequence": 17,
+              "field_key": "water_consumption",
+              "value": {
+                "value": 300,
+                "unit": "m3",
+                "lifecycle_stage": "use-cooling",
+                "manufacturing_value": null,
+                "gap": "制造水未知；总生命周期水不可计算"
+              },
+              "unit": "m3",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "manufacturing/use phase split or explicit phase scope",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "manufacturing-water-missing"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-18",
+            "type": "guide:cloud_environmental_field",
+            "name": "存储数据量含复制",
+            "attributes": {
+              "sequence": 18,
+              "field_key": "stored_data_gb_including_replication",
+              "value": 6000,
+              "unit": "GB",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "include all replicas, distinguish logical original；存储6000GB含3份复制，逻辑原始2000GB",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          },
+          {
+            "id": "cloud-environmental-data-contract-default-19",
+            "type": "guide:cloud_environmental_field",
+            "name": "进出网络流量总量",
+            "attributes": {
+              "sequence": 19,
+              "field_key": "network_traffic_gb",
+              "value": 90000,
+              "unit": "GB",
+              "period": "2026",
+              "service_boundary": "Atlas工单SaaS→澄源客服/运营；按实际服务用量分配；供应方报告范围不自动成为客户范围",
+              "semantics": "inbound plus outbound over declared period",
+              "evidence_refs": [
+                "CL-01",
+                "CL-02",
+                "CL-03",
+                "CL-04"
+              ],
+              "quality": "fictional-supplier-record"
+            },
+            "evidence": [
+              "src-cloud-environmental-data-contract-default"
+            ],
+            "certainty": "assumed"
+          }
+        ],
+        "relationships": [],
+        "view": {
+          "id": "v-cloud-environmental-data-contract-default",
+          "artifact_id": "cloud-environmental-data-contract",
+          "profile_id": "cloud-environmental-data-contract-default",
+          "title": "云环境数据共享契约19字段",
+          "entity_ids": [
+            "cloud-environmental-data-contract-default-1",
+            "cloud-environmental-data-contract-default-2",
+            "cloud-environmental-data-contract-default-3",
+            "cloud-environmental-data-contract-default-4",
+            "cloud-environmental-data-contract-default-5",
+            "cloud-environmental-data-contract-default-6",
+            "cloud-environmental-data-contract-default-7",
+            "cloud-environmental-data-contract-default-8",
+            "cloud-environmental-data-contract-default-9",
+            "cloud-environmental-data-contract-default-10",
+            "cloud-environmental-data-contract-default-11",
+            "cloud-environmental-data-contract-default-12",
+            "cloud-environmental-data-contract-default-13",
+            "cloud-environmental-data-contract-default-14",
+            "cloud-environmental-data-contract-default-15",
+            "cloud-environmental-data-contract-default-16",
+            "cloud-environmental-data-contract-default-17",
+            "cloud-environmental-data-contract-default-18",
+            "cloud-environmental-data-contract-default-19"
+          ],
+          "relationship_ids": [],
+          "analysis": "逐行保留G242表6-1拟议最小数据集：Scope2两法并行不相加；设备6000为Scope3总9000子集；抵消5000独列；存储6000含复制。制造水未知，不能宣称全生命周期数据完全。",
+          "legend": "虚构记录；计划、实绩、建议、授权和批准分别表述。空缺不等于零或已接受。"
+        },
+        "raw_input_group": "cloud"
+      },
+      "execution_evidence": "examples/addenda/sustainability/execution-audit.json"
+    }
+  ],
+  "default_profiles": {
+    "sustainability-capability-assessment": "sustainability-capability-assessment-default",
+    "sustainability-dual-entry-analysis": "sustainability-dual-entry-analysis-default",
+    "sustainability-education-plan": "sustainability-education-plan-default",
+    "shared-carbon-factor-catalog": "shared-carbon-factor-catalog-default",
+    "sustainable-procurement-strategy": "sustainable-procurement-strategy-default",
+    "cloud-environmental-data-contract": "cloud-environmental-data-contract-default"
+  },
+  "patches": [],
+  "source_conflicts": [
+    {
+      "id": "G242-cloud-period",
+      "source": "G242表6-1",
+      "resolution": "Period列年/月而多个指标定义完整年度；本例选全年度，其他数据须逐值声明实际期间，拒绝未声明的月年混合。"
+    }
+  ],
+  "deduplication_decisions": [
+    {
+      "candidate": "sustainability-capability-assessment",
+      "decision": "不套ACMM分数；环境六维证据评估是专用程序和工作产品。"
+    },
+    {
+      "candidate": "sustainability-dual-entry-analysis",
+      "decision": "为现有可持续方案评审提供发现阶段输入；并非再次造评分法。"
+    },
+    {
+      "candidate": "sustainability-education-plan",
+      "decision": "全员和采购/核算/架构角色覆盖，不以人员发展计划或安全培训的名字替代专用输入/输出。"
+    },
+    {
+      "candidate": "shared-carbon-factor-catalog",
+      "decision": "原始单位数据复用库，与年度核算结果分离，不重算排放。"
+    },
+    {
+      "candidate": "sustainable-procurement-strategy",
+      "decision": "跨采购模式、地点、合同和退出路径；与一次性方案矩阵分离。"
+    },
+    {
+      "candidate": "cloud-environmental-data-contract",
+      "decision": "供应方交换输入契约，不等同年度环境评估结果。"
+    }
+  ],
+  "candidate_resolutions": {
+    "sustainability-capability-assessment": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "sustainability-capability-assessment"
+      ],
+      "profile_ids": [
+        "sustainability-capability-assessment-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "capability",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:sustainability-capability-assessment": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "sustainability-capability-assessment"
+      ],
+      "profile_ids": [
+        "sustainability-capability-assessment-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "capability",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "sustainability-dual-entry-analysis": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "sustainability-dual-entry-analysis"
+      ],
+      "profile_ids": [
+        "sustainability-dual-entry-analysis-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "dual",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:sustainability-dual-entry-analysis": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "sustainability-dual-entry-analysis"
+      ],
+      "profile_ids": [
+        "sustainability-dual-entry-analysis-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "dual",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "sustainability-education-plan": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "sustainability-education-plan"
+      ],
+      "profile_ids": [
+        "sustainability-education-plan-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "education",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:sustainability-education-plan": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "sustainability-education-plan"
+      ],
+      "profile_ids": [
+        "sustainability-education-plan-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "education",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "shared-carbon-factor-catalog": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "shared-carbon-factor-catalog"
+      ],
+      "profile_ids": [
+        "shared-carbon-factor-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "factors",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:shared-carbon-factor-catalog": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "shared-carbon-factor-catalog"
+      ],
+      "profile_ids": [
+        "shared-carbon-factor-catalog-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "factors",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "sustainable-procurement-strategy": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "sustainable-procurement-strategy"
+      ],
+      "profile_ids": [
+        "sustainable-procurement-strategy-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "procurement",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:sustainable-procurement-strategy": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "sustainable-procurement-strategy"
+      ],
+      "profile_ids": [
+        "sustainable-procurement-strategy-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "procurement",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "cloud-environmental-data-contract": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "cloud-environmental-data-contract"
+      ],
+      "profile_ids": [
+        "cloud-environmental-data-contract-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "cloud",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    },
+    "new:cloud-environmental-data-contract": {
+      "status": "implemented-engineering-cases; independent-business-review-pending",
+      "work_product_ids": [
+        "cloud-environmental-data-contract"
+      ],
+      "profile_ids": [
+        "cloud-environmental-data-contract-default"
+      ],
+      "method": {
+        "registration": "work-product procedure; not independently registered analysis_method",
+        "functions": "cloud",
+        "entrypoint": "examples/addenda/sustainability/methods.py"
+      },
+      "case_evidence": "examples/addenda/sustainability/execution-audit.json",
+      "definition_status": "local-source-read; official-verification-pending"
+    }
+  }
+}

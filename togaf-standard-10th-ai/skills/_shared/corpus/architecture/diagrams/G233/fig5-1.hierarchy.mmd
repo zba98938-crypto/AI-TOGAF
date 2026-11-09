@@ -1,0 +1,21 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Warehouse Order Fulfillment Value Stream"]
+  n1["Customer Order Placed"]
+  n2["Customer"]
+  n3["Customer Order Processing"]
+  n4["Pick Ordered Products"]
+  n5["Pack Ordered Products"]
+  n6["Ship Ordered Products"]
+  n7["Order shipped within one business day"]
+  n0 -.->|"visual_containment_only"| n1
+  n0 -.->|"visual_containment_only"| n2
+  n0 -.->|"value_stream_decomposition"| n3
+  n0 -.->|"value_stream_decomposition"| n4
+  n0 -.->|"value_stream_decomposition"| n5
+  n0 -.->|"value_stream_decomposition"| n6
+  n0 -.->|"visual_containment_only"| n7
+  n0 -->|"语义组成: composition"| n3
+  n0 -->|"语义组成: composition"| n4
+  n0 -->|"语义组成: composition"| n5
+  n0 -->|"语义组成: composition"| n6

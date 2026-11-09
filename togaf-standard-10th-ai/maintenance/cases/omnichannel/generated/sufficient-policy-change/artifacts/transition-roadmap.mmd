@@ -1,0 +1,16 @@
+flowchart LR
+  %% Specialized notation is in the SVG; this source is the complete labelled relation projection.
+  %% entity-id: WP-ONLINE
+  n0["在线试点准备"]
+  %% entity-id: TRANS-ONLINE
+  n1["受控在线试点"]
+  %% entity-id: WP-OFFLINE
+  n2["断连与恢复演练"]
+  %% entity-id: TRANS-OFFLINE
+  n3["断连受理与恢复对账试点"]
+  %% relationship-id: WP-TO-ONLINE
+  n0 -->|"准备运营状态"| n1
+  %% relationship-id: WP-TO-OFFLINE
+  n2 -->|"验证后进入候选运营状态"| n3
+  %% relationship-id: WP-DEP
+  n2 -->|"依赖已验证的在线契约"| n0

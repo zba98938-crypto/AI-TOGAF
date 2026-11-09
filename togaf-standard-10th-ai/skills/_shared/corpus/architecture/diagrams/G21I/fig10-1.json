@@ -1,0 +1,1343 @@
+{
+  "schema_version": "architecture-diagrams/1.0",
+  "id": "G21I/fig10-1",
+  "document_id": "G21I",
+  "content_role": "derived-architecture-analysis",
+  "title_zh": "范围转型",
+  "title_en": "Scope Transformation",
+  "category": "process-or-method-model",
+  "diagram_types": [
+    "flow",
+    "infographic"
+  ],
+  "concepts": [
+    "microservices",
+    "transition_architecture",
+    "architecture_roadmap",
+    "baseline_target_gap"
+  ],
+  "source": {
+    "pdf_path": "togaf-standard-10th/G21Ie.pdf",
+    "pdf_sha256": "279f6c06124f49a147a168591965805115b2fc976eea2664e41e491ac5d163bf",
+    "pdf_pages": [
+      44
+    ],
+    "figure_record_path": "figures/G21I/fig10-1.json",
+    "figure_record_sha256": "ae0e7e1e0cc979d3691ee08e2518c8cda33c25be65e672cc3d727b84f0422572",
+    "source_role": "source-figure-with-historical-interpretation",
+    "images": [
+      {
+        "image_path": "figures/assets/G21I/fig10-1-p0044.png",
+        "image_sha256": "7091078cb552d9ecac8b4538a7ae86090404b390c9e93030936fa92a311143e7",
+        "pdf_page": 44,
+        "bbox_pdf_points": [
+          99.8,
+          36.0,
+          512.2,
+          186.8
+        ],
+        "region_source": "historical-bbox-checked-within-original-page"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label_en": "Current State",
+      "label_zh": "现状",
+      "type": "architecture",
+      "position": "左上标题框",
+      "id": "G21I/fig10-1#current_state",
+      "local_id": "current_state",
+      "meaning_zh": "架构：现状",
+      "notation_type": null,
+      "source_position": "左上标题框",
+      "source_parent": null,
+      "visual_parent": null,
+      "group_parent": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "ancestors": [],
+      "children": [
+        "G21I/fig10-1#monolith",
+        "G21I/fig10-1#greenfield"
+      ],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "current_state",
+        "label_en": "Current State",
+        "label_zh": "现状",
+        "type": "architecture",
+        "parent": null,
+        "position": "左上标题框"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [
+        "G21I/fig10-1#r0001"
+      ],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "Monolith",
+      "label_zh": "单体应用",
+      "type": "application",
+      "position": "左列上",
+      "description_zh": "可分解的单体方案。",
+      "id": "G21I/fig10-1#monolith",
+      "local_id": "monolith",
+      "meaning_zh": "可分解的单体方案。",
+      "notation_type": null,
+      "source_position": "左列上",
+      "source_parent": "current_state",
+      "visual_parent": "G21I/fig10-1#current_state",
+      "group_parent": "G21I/fig10-1#current_state",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 1,
+      "ancestors": [
+        "G21I/fig10-1#current_state"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "monolith",
+        "label_en": "Monolith",
+        "label_zh": "单体应用",
+        "type": "application",
+        "parent": "current_state",
+        "position": "左列上",
+        "description_zh": "可分解的单体方案。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [
+        "G21I/fig10-1#r0003"
+      ],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "Greenfield",
+      "label_zh": "全新建设（绿地）",
+      "type": "concept",
+      "position": "左列下",
+      "description_zh": "没有遗留系统的全新建设场景。",
+      "id": "G21I/fig10-1#greenfield",
+      "local_id": "greenfield",
+      "meaning_zh": "没有遗留系统的全新建设场景。",
+      "notation_type": null,
+      "source_position": "左列下",
+      "source_parent": "current_state",
+      "visual_parent": "G21I/fig10-1#current_state",
+      "group_parent": "G21I/fig10-1#current_state",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 1,
+      "ancestors": [
+        "G21I/fig10-1#current_state"
+      ],
+      "children": [],
+      "label_evidence": "ocr-label-match",
+      "source_element": {
+        "id": "greenfield",
+        "label_en": "Greenfield",
+        "label_zh": "全新建设（绿地）",
+        "type": "concept",
+        "parent": "current_state",
+        "position": "左列下",
+        "description_zh": "没有遗留系统的全新建设场景。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G21I/fig10-1#r0003"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": "Transformation Roadmaps",
+      "label_zh": "转型路线图",
+      "type": "artifact",
+      "position": "中间大箭头上",
+      "description_zh": "复数：每个模块各有路线图与过渡计划。",
+      "id": "G21I/fig10-1#roadmaps",
+      "local_id": "roadmaps",
+      "meaning_zh": "复数：每个模块各有路线图与过渡计划。",
+      "notation_type": null,
+      "source_position": "中间大箭头上",
+      "source_parent": null,
+      "visual_parent": null,
+      "group_parent": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "ancestors": [],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "roadmaps",
+        "label_en": "Transformation Roadmaps",
+        "label_zh": "转型路线图",
+        "type": "artifact",
+        "position": "中间大箭头上",
+        "description_zh": "复数：每个模块各有路线图与过渡计划。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0
+    },
+    {
+      "label_en": "Target State",
+      "label_zh": "目标状态",
+      "type": "architecture",
+      "position": "右上标题框",
+      "description_zh": "模块化、分布式、高度解耦的方案。",
+      "id": "G21I/fig10-1#target_state",
+      "local_id": "target_state",
+      "meaning_zh": "模块化、分布式、高度解耦的方案。",
+      "notation_type": null,
+      "source_position": "右上标题框",
+      "source_parent": null,
+      "visual_parent": null,
+      "group_parent": null,
+      "hierarchy_kind": null,
+      "depth": 0,
+      "ancestors": [],
+      "children": [
+        "G21I/fig10-1#cloud",
+        "G21I/fig10-1#ms_4",
+        "G21I/fig10-1#ms_5"
+      ],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "target_state",
+        "label_en": "Target State",
+        "label_zh": "目标状态",
+        "type": "architecture",
+        "parent": null,
+        "position": "右上标题框",
+        "description_zh": "模块化、分布式、高度解耦的方案。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [
+        "G21I/fig10-1#r0001"
+      ],
+      "outgoing_relations": [],
+      "participating_relation_count": 1
+    },
+    {
+      "label_en": null,
+      "label_zh": "云（未标名称的云形图）",
+      "type": "technology",
+      "position": "右侧中上",
+      "id": "G21I/fig10-1#cloud",
+      "local_id": "cloud",
+      "meaning_zh": "技术：云（未标名称的云形图）",
+      "notation_type": null,
+      "source_position": "右侧中上",
+      "source_parent": "target_state",
+      "visual_parent": "G21I/fig10-1#target_state",
+      "group_parent": "G21I/fig10-1#target_state",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 1,
+      "ancestors": [
+        "G21I/fig10-1#target_state"
+      ],
+      "children": [
+        "G21I/fig10-1#ms_1",
+        "G21I/fig10-1#ms_2",
+        "G21I/fig10-1#ms_3"
+      ],
+      "label_evidence": "not-tested-short-or-implicit-label",
+      "source_element": {
+        "id": "cloud",
+        "label_en": null,
+        "label_zh": "云（未标名称的云形图）",
+        "type": "technology",
+        "parent": "target_state",
+        "position": "右侧中上"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0
+    },
+    {
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "position": "云内左上",
+      "id": "G21I/fig10-1#ms_1",
+      "local_id": "ms_1",
+      "meaning_zh": "服务：微服务",
+      "notation_type": null,
+      "source_position": "云内左上",
+      "source_parent": "cloud",
+      "visual_parent": "G21I/fig10-1#cloud",
+      "group_parent": "G21I/fig10-1#cloud",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 2,
+      "ancestors": [
+        "G21I/fig10-1#target_state",
+        "G21I/fig10-1#cloud"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "ms_1",
+        "label_en": "Microservice",
+        "label_zh": "微服务",
+        "type": "service",
+        "parent": "cloud",
+        "position": "云内左上"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0
+    },
+    {
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "position": "云内右上",
+      "id": "G21I/fig10-1#ms_2",
+      "local_id": "ms_2",
+      "meaning_zh": "服务：微服务",
+      "notation_type": null,
+      "source_position": "云内右上",
+      "source_parent": "cloud",
+      "visual_parent": "G21I/fig10-1#cloud",
+      "group_parent": "G21I/fig10-1#cloud",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 2,
+      "ancestors": [
+        "G21I/fig10-1#target_state",
+        "G21I/fig10-1#cloud"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "ms_2",
+        "label_en": "Microservice",
+        "label_zh": "微服务",
+        "type": "service",
+        "parent": "cloud",
+        "position": "云内右上"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0
+    },
+    {
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "position": "云内中",
+      "id": "G21I/fig10-1#ms_3",
+      "local_id": "ms_3",
+      "meaning_zh": "服务：微服务",
+      "notation_type": null,
+      "source_position": "云内中",
+      "source_parent": "cloud",
+      "visual_parent": "G21I/fig10-1#cloud",
+      "group_parent": "G21I/fig10-1#cloud",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 2,
+      "ancestors": [
+        "G21I/fig10-1#target_state",
+        "G21I/fig10-1#cloud"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "ms_3",
+        "label_en": "Microservice",
+        "label_zh": "微服务",
+        "type": "service",
+        "parent": "cloud",
+        "position": "云内中"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0
+    },
+    {
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "position": "云外右下",
+      "description_zh": "部署在云外的微服务。",
+      "id": "G21I/fig10-1#ms_4",
+      "local_id": "ms_4",
+      "meaning_zh": "部署在云外的微服务。",
+      "notation_type": null,
+      "source_position": "云外右下",
+      "source_parent": "target_state",
+      "visual_parent": "G21I/fig10-1#target_state",
+      "group_parent": "G21I/fig10-1#target_state",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 1,
+      "ancestors": [
+        "G21I/fig10-1#target_state"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "ms_4",
+        "label_en": "Microservice",
+        "label_zh": "微服务",
+        "type": "service",
+        "parent": "target_state",
+        "position": "云外右下",
+        "description_zh": "部署在云外的微服务。"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0
+    },
+    {
+      "label_en": "Microservice",
+      "label_zh": "微服务",
+      "type": "service",
+      "position": "云外左下",
+      "id": "G21I/fig10-1#ms_5",
+      "local_id": "ms_5",
+      "meaning_zh": "服务：微服务",
+      "notation_type": null,
+      "source_position": "云外左下",
+      "source_parent": "target_state",
+      "visual_parent": "G21I/fig10-1#target_state",
+      "group_parent": "G21I/fig10-1#target_state",
+      "hierarchy_kind": "visual_containment_only",
+      "depth": 1,
+      "ancestors": [
+        "G21I/fig10-1#target_state"
+      ],
+      "children": [],
+      "label_evidence": "not-found-in-machine-text",
+      "source_element": {
+        "id": "ms_5",
+        "label_en": "Microservice",
+        "label_zh": "微服务",
+        "type": "service",
+        "parent": "target_state",
+        "position": "云外左下"
+      },
+      "origin": "source-interpretation",
+      "evidence_refs": [
+        "source-interpretation"
+      ],
+      "incoming_relations": [],
+      "outgoing_relations": [],
+      "participating_relation_count": 0
+    }
+  ],
+  "edges": [
+    {
+      "id": "G21I/fig10-1#r0001",
+      "source_relation_index": 0,
+      "source_relation_id": null,
+      "from": "G21I/fig10-1#current_state",
+      "to": "G21I/fig10-1#target_state",
+      "predicate": "transitions_to",
+      "predicate_zh": "过渡到",
+      "direction": "subject-to-object",
+      "label_en": "Transformation Roadmaps",
+      "label_zh": "转型路线图",
+      "description_zh": "大块箭头",
+      "visual": {
+        "explicit_connection": true,
+        "line_style": "thick",
+        "arrow": "forward",
+        "from": "G21I/fig10-1#current_state",
+        "to": "G21I/fig10-1#target_state",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "historical-interpretation",
+      "status": "explicit-connection-historical-meaning",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "current_state",
+        "to": "target_state",
+        "type": "transitions_to",
+        "label_en": "Transformation Roadmaps",
+        "label_zh": "转型路线图",
+        "explicit": true,
+        "line": "thick",
+        "arrow": "forward",
+        "description_zh": "大块箭头"
+      },
+      "evidence_refs": [
+        "source-interpretation"
+      ]
+    },
+    {
+      "id": "G21I/fig10-1#r0003",
+      "source_relation_index": 2,
+      "source_relation_id": null,
+      "from": "G21I/fig10-1#monolith",
+      "to": "G21I/fig10-1#greenfield",
+      "predicate": "alternative",
+      "predicate_zh": "alternative",
+      "direction": "undirected",
+      "label_en": null,
+      "label_zh": "二选一的起点",
+      "description_zh": "p43正文明确当前状态可以为Greenfield或decomposable monolith；原图二者间无连线，语义为文本支持的备选起点。",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "none",
+        "from": "G21I/fig10-1#monolith",
+        "to": "G21I/fig10-1#greenfield",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "current-source-review",
+      "status": "source-reviewed-correction",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "monolith",
+        "to": "greenfield",
+        "type": "contrast",
+        "label_zh": "二选一的起点",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "none"
+      },
+      "evidence_refs": [
+        "source-interpretation",
+        "current-visual-review"
+      ]
+    }
+  ],
+  "rejected_nodes": [],
+  "rejected_edges": [
+    {
+      "id": "G21I/fig10-1#r0002",
+      "source_relation_index": 1,
+      "source_relation_id": null,
+      "from": "G21I/fig10-1#roadmaps",
+      "to": "G21I/fig10-1#target_state",
+      "predicate": "realization",
+      "predicate_zh": "实现",
+      "direction": "subject-to-object",
+      "label_en": null,
+      "label_zh": null,
+      "description_zh": "Transformation Roadmaps已经是唯一大箭头的标签；没有标签实体到Target的第二条线。",
+      "visual": {
+        "explicit_connection": false,
+        "line_style": "implicit",
+        "arrow": "forward",
+        "from": "G21I/fig10-1#roadmaps",
+        "to": "G21I/fig10-1#target_state",
+        "direction_is_semantic_not_pixel_geometry": true
+      },
+      "semantic_basis": "current-source-review",
+      "status": "source-reviewed-correction",
+      "cardinality": null,
+      "polarity": null,
+      "required_proficiency": null,
+      "source_relation": {
+        "from": "roadmaps",
+        "to": "target_state",
+        "type": "realization",
+        "explicit": false,
+        "line": "implicit",
+        "arrow": "forward",
+        "description_zh": "路线图（各模块各一份）把现状带到目标状态"
+      },
+      "evidence_refs": [
+        "source-interpretation",
+        "current-visual-review"
+      ],
+      "semantic_state": "rejected-unobserved",
+      "rejection_reason_zh": "Transformation Roadmaps已经是唯一大箭头的标签；没有标签实体到Target的第二条线。"
+    }
+  ],
+  "hierarchy": {
+    "containment_and_grouping": [
+      {
+        "id": "G21I/fig10-1#h-monolith",
+        "parent": "G21I/fig10-1#current_state",
+        "child": "G21I/fig10-1#monolith",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G21I/fig10-1#h-greenfield",
+        "parent": "G21I/fig10-1#current_state",
+        "child": "G21I/fig10-1#greenfield",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G21I/fig10-1#h-cloud",
+        "parent": "G21I/fig10-1#target_state",
+        "child": "G21I/fig10-1#cloud",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G21I/fig10-1#h-ms_1",
+        "parent": "G21I/fig10-1#cloud",
+        "child": "G21I/fig10-1#ms_1",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G21I/fig10-1#h-ms_2",
+        "parent": "G21I/fig10-1#cloud",
+        "child": "G21I/fig10-1#ms_2",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G21I/fig10-1#h-ms_3",
+        "parent": "G21I/fig10-1#cloud",
+        "child": "G21I/fig10-1#ms_3",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G21I/fig10-1#h-ms_4",
+        "parent": "G21I/fig10-1#target_state",
+        "child": "G21I/fig10-1#ms_4",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      },
+      {
+        "id": "G21I/fig10-1#h-ms_5",
+        "parent": "G21I/fig10-1#target_state",
+        "child": "G21I/fig10-1#ms_5",
+        "kind": "visual_containment_only",
+        "basis": "parent-field-plus-typed-semantic-analysis",
+        "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+        "visual_enclosure_confirmed": null,
+        "evidence_refs": [
+          "source-interpretation",
+          "current-visual-review"
+        ]
+      }
+    ],
+    "semantic_hierarchy": [],
+    "organizational_reporting_edge_ids": [],
+    "governance_edge_ids": [],
+    "instantiation_edge_ids": [],
+    "views": {
+      "visual_or_classification": {
+        "links": [
+          {
+            "id": "G21I/fig10-1#h-monolith",
+            "parent": "G21I/fig10-1#current_state",
+            "child": "G21I/fig10-1#monolith",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G21I/fig10-1#h-greenfield",
+            "parent": "G21I/fig10-1#current_state",
+            "child": "G21I/fig10-1#greenfield",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G21I/fig10-1#h-cloud",
+            "parent": "G21I/fig10-1#target_state",
+            "child": "G21I/fig10-1#cloud",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G21I/fig10-1#h-ms_1",
+            "parent": "G21I/fig10-1#cloud",
+            "child": "G21I/fig10-1#ms_1",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G21I/fig10-1#h-ms_2",
+            "parent": "G21I/fig10-1#cloud",
+            "child": "G21I/fig10-1#ms_2",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G21I/fig10-1#h-ms_3",
+            "parent": "G21I/fig10-1#cloud",
+            "child": "G21I/fig10-1#ms_3",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G21I/fig10-1#h-ms_4",
+            "parent": "G21I/fig10-1#target_state",
+            "child": "G21I/fig10-1#ms_4",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          },
+          {
+            "id": "G21I/fig10-1#h-ms_5",
+            "parent": "G21I/fig10-1#target_state",
+            "child": "G21I/fig10-1#ms_5",
+            "kind": "visual_containment_only",
+            "basis": "parent-field-plus-typed-semantic-analysis",
+            "reason_zh": "保存原图解释中的包含；业务关系类型需要图例或正文进一步限定。",
+            "visual_enclosure_confirmed": null,
+            "evidence_refs": [
+              "source-interpretation",
+              "current-visual-review"
+            ]
+          }
+        ],
+        "roots": [
+          "G21I/fig10-1#current_state",
+          "G21I/fig10-1#target_state"
+        ],
+        "nodes": [
+          {
+            "id": "G21I/fig10-1#cloud",
+            "parents": [
+              "G21I/fig10-1#target_state"
+            ],
+            "children": [
+              "G21I/fig10-1#ms_1",
+              "G21I/fig10-1#ms_2",
+              "G21I/fig10-1#ms_3"
+            ],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G21I/fig10-1#current_state",
+            "parents": [],
+            "children": [
+              "G21I/fig10-1#greenfield",
+              "G21I/fig10-1#monolith"
+            ],
+            "shortest_root_depth": 0
+          },
+          {
+            "id": "G21I/fig10-1#greenfield",
+            "parents": [
+              "G21I/fig10-1#current_state"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G21I/fig10-1#monolith",
+            "parents": [
+              "G21I/fig10-1#current_state"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G21I/fig10-1#ms_1",
+            "parents": [
+              "G21I/fig10-1#cloud"
+            ],
+            "children": [],
+            "shortest_root_depth": 2
+          },
+          {
+            "id": "G21I/fig10-1#ms_2",
+            "parents": [
+              "G21I/fig10-1#cloud"
+            ],
+            "children": [],
+            "shortest_root_depth": 2
+          },
+          {
+            "id": "G21I/fig10-1#ms_3",
+            "parents": [
+              "G21I/fig10-1#cloud"
+            ],
+            "children": [],
+            "shortest_root_depth": 2
+          },
+          {
+            "id": "G21I/fig10-1#ms_4",
+            "parents": [
+              "G21I/fig10-1#target_state"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G21I/fig10-1#ms_5",
+            "parents": [
+              "G21I/fig10-1#target_state"
+            ],
+            "children": [],
+            "shortest_root_depth": 1
+          },
+          {
+            "id": "G21I/fig10-1#target_state",
+            "parents": [],
+            "children": [
+              "G21I/fig10-1#cloud",
+              "G21I/fig10-1#ms_4",
+              "G21I/fig10-1#ms_5"
+            ],
+            "shortest_root_depth": 0
+          }
+        ],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      },
+      "semantic_composition": {
+        "links": [],
+        "roots": [],
+        "nodes": [],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      },
+      "organizational_reporting": {
+        "links": [],
+        "roots": [],
+        "nodes": [],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      },
+      "governance_scope": {
+        "links": [],
+        "roots": [],
+        "nodes": [],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      },
+      "type_and_instance": {
+        "links": [],
+        "roots": [],
+        "nodes": [],
+        "multiple_parent_nodes": [],
+        "cycle_or_cycle_dependent_nodes": [],
+        "semantics_zh": "父项和子项按此视图的关系类型解释。多父项是有向图；最短根深度不等同统一业务等级。"
+      }
+    }
+  },
+  "role_node_ids": [],
+  "flows": [
+    {
+      "id": "f_scope",
+      "kind": "sequence",
+      "name_zh": "范围转型",
+      "steps": [
+        "current_state",
+        "roadmaps",
+        "target_state"
+      ]
+    }
+  ],
+  "source_flows": [
+    {
+      "id": "f_scope",
+      "kind": "sequence",
+      "name_zh": "范围转型",
+      "steps": [
+        "current_state",
+        "roadmaps",
+        "target_state"
+      ]
+    }
+  ],
+  "source_flows_role": "archived-inherited-interpretation-see-current-flows",
+  "tables": [],
+  "source_tables": [],
+  "source_tables_role": "archived-inherited-transcription-see-current-tables",
+  "legend": [
+    {
+      "symbol": "灰蓝色标题框",
+      "meaning_zh": "状态名称（现状 / 目标状态）",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色实心框",
+      "meaning_zh": "单体方案（已有系统）",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色边框、白底的框",
+      "meaning_zh": "全新建设（没有已有系统）",
+      "explicit": false
+    },
+    {
+      "symbol": "灰蓝色大块箭头",
+      "meaning_zh": "转型路线图，由现状指向目标状态",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色圆角框",
+      "meaning_zh": "微服务",
+      "explicit": false
+    },
+    {
+      "symbol": "云形图",
+      "meaning_zh": "云（未标名称）；云内为云上部署的微服务",
+      "explicit": false
+    }
+  ],
+  "source_legend": [
+    {
+      "symbol": "灰蓝色标题框",
+      "meaning_zh": "状态名称（现状 / 目标状态）",
+      "explicit": false
+    },
+    {
+      "symbol": "橙色实心框",
+      "meaning_zh": "单体方案（已有系统）",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色边框、白底的框",
+      "meaning_zh": "全新建设（没有已有系统）",
+      "explicit": false
+    },
+    {
+      "symbol": "灰蓝色大块箭头",
+      "meaning_zh": "转型路线图，由现状指向目标状态",
+      "explicit": false
+    },
+    {
+      "symbol": "绿色圆角框",
+      "meaning_zh": "微服务",
+      "explicit": false
+    },
+    {
+      "symbol": "云形图",
+      "meaning_zh": "云（未标名称）；云内为云上部署的微服务",
+      "explicit": false
+    }
+  ],
+  "source_legend_role": "archived-inherited-interpretation-see-current-legend",
+  "analysis": {
+    "author_purpose_zh": "第 10.2 节（阶段 E 的范围转型）用本图说明云原生与 MSA 的核心理念：目标状态是模块化、分布式、高度解耦的方案；由于微服务独立且自包含，每个模块的范围可以单独管理，各有自己的路线图与过渡计划。范围转型是阶段 E 的三类关键考虑之一（另两类为组织转型和技术转型）。",
+    "reading_sequence_zh": "从左到右读。左侧“现状”下列出两种起点：单体（橙色框）和全新建设（绿框），二者是可选的两种情形，不是同时存在的两个部分。中间的大箭头是“转型路线图”（复数）。右侧“目标状态”是 5 个独立的微服务，其中 3 个画在云里，2 个在云外。",
+    "source_logic_zh": [
+      "现状有两种情形：可分解的单体方案，或没有遗留系统的全新建设（Greenfield）。",
+      "目标状态是模块化、分布式、高度解耦的方案，由多个彼此独立的微服务组成。",
+      "微服务独立且自包含，所以每个模块的范围可以单独管理，各有自己的路线图与过渡计划；箭头上写的是复数的“转型路线图”。",
+      "部分微服务在云内、部分在云外：原文指出微服务是云原生方案的一种，但也可以部署在云外；云原生则专为云设计。",
+      "阶段 E 还要考虑组织转型（每个微服务由单一团队拥有，治理结构精益、联邦式）和技术转型（异构技术格局、内外双重参考架构、交付与部署基础设施，以及数据转型），这些不在本图中。"
+    ],
+    "structure_findings_zh": [
+      "本图有 11 个具名或隐含元素、2 条关系和 8 条包含/分组记录。",
+      "包含/分组树最大深度为 2；根节点为 现状、转型路线图、目标状态。",
+      "本图没有可直接确认为人员直属汇报的关系；视觉上下位置、能力分解和治理职责分别读取。",
+      "包含分组后有 2 个连通分量；分离可能源于图例、并列分类或独立示例，未自动补边。"
+    ],
+    "application_zh": [
+      "按阶段/事件/行为关系读取入口、出口、责任和产物；检查循环与例外路径。",
+      "工作流先后不表示组织管理权；在项目中显式记录条件和完成标准。"
+    ],
+    "hierarchy_explanation_zh": "两组：“现状”下是单体与全新建设两种可选起点；“目标状态”下是 5 个微服务，其中 3 个位于云形图内。",
+    "line_explanation_zh": "只有一个大块箭头，从现状指向目标状态，标“转型路线图”。现状中的两个框之间、各微服务之间都没有连线。",
+    "misreadings_zh": [
+      "单体与全新建设是二选一的两种起点，不是需要同时迁移的两个系统。",
+      "箭头不表示一次性整体迁移；原文强调每个模块有自己的路线图与过渡计划。",
+      "云外的 2 个微服务不是“尚未迁移”的部分；原图没有区分它们的状态，正文只说明微服务也可以部署在云外。"
+    ],
+    "current_findings_zh": [
+      "核对Current/Target、Monolith/Greenfield、路线图箭头以及五个独立Microservice标签：云内3、云外2。",
+      "仅一条向右大块转型箭头，Transformation Roadmaps是箭头内标签；删除将路线图标签另造为实体→目标的冗余边。",
+      "Monolith与Greenfield为正文支持的当前状态选项，无二者间连接；云外两微服务是本图内容，不能假定MSA全部部署在云中。"
+    ],
+    "strongly_connected_note": "Cycles in process/feedback views are not automatically errors.",
+    "source_semantics_status": "inherited-with-listed-current-overrides",
+    "overridden_legacy_fields": [],
+    "components": [
+      [
+        "G21I/fig10-1#cloud",
+        "G21I/fig10-1#current_state",
+        "G21I/fig10-1#greenfield",
+        "G21I/fig10-1#monolith",
+        "G21I/fig10-1#ms_1",
+        "G21I/fig10-1#ms_2",
+        "G21I/fig10-1#ms_3",
+        "G21I/fig10-1#ms_4",
+        "G21I/fig10-1#ms_5",
+        "G21I/fig10-1#target_state"
+      ],
+      [
+        "G21I/fig10-1#roadmaps"
+      ]
+    ],
+    "structural_hubs": [
+      {
+        "node_id": "G21I/fig10-1#current_state",
+        "incident_relation_count": 1
+      },
+      {
+        "node_id": "G21I/fig10-1#target_state",
+        "incident_relation_count": 1
+      },
+      {
+        "node_id": "G21I/fig10-1#monolith",
+        "incident_relation_count": 1
+      },
+      {
+        "node_id": "G21I/fig10-1#greenfield",
+        "incident_relation_count": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "id": "pdf-p43",
+      "document_id": "G21I",
+      "pdf_page": 43,
+      "page_markdown": "documents/G21I.md#page-43",
+      "quotes": [
+        {
+          "text": "The TOGAF Opportunities & Solutions phase identifies delivery vehicles (projects, programs, or portfolios) that effectively deliver the Target Architecture defined in previous phases. It reviews the target business objectives and capabilities, consolidates the gaps from Phases B to D, and organizes groups of building blocks to address these capabilities. It then generates an outline Implementation and Migration Strategy.",
+          "source_block_ids": [
+            "G21I:p0043:b003",
+            "G21I:p0043:b004",
+            "G21I:p0043:b005",
+            "G21I:p0043:b006",
+            "G21I:p0043:b007"
+          ]
+        },
+        {
+          "text": "There are some nuances between a cloud-native solution and a microservices-based solution. Microservices are a type of cloud-native solution, but they can have non-cloud deployments as well. Cloud-native is exclusively designed for the cloud. The intent of cloud-native is to optimally use cloud- scale architecture and cloud services in the solution. Microservices have other constraints and motivations; refer to The Open Group White Paper: Microservices Architecture [W169] for a deeper understanding. The commonalities are that they are both very modular and highly distributed deployments. They are elastically scalable and resilient.",
+          "source_block_ids": [
+            "G21I:p0043:b008",
+            "G21I:p0043:b009",
+            "G21I:p0043:b010",
+            "G21I:p0043:b011",
+            "G21I:p0043:b012",
+            "G21I:p0043:b013",
+            "G21I:p0043:b014"
+          ]
+        }
+      ],
+      "selection": "same-page-context"
+    },
+    {
+      "id": "pdf-p44",
+      "document_id": "G21I",
+      "pdf_page": 44,
+      "page_markdown": "documents/G21I.md#page-44",
+      "quotes": [
+        {
+          "text": "To successfully embrace cloud-native and MSA requires significant organizational transformation. The target state demands single team ownership of each module (microservice) and a lean, federated governance structure. Each team will autonomously own the entire lifecycle of the microservice, and there is a need for coordination to enable all capabilities of the desired target state solution.",
+          "source_block_ids": [
+            "G21I:p0044:b003",
+            "G21I:p0044:b004",
+            "G21I:p0044:b005",
+            "G21I:p0044:b006"
+          ]
+        },
+        {
+          "text": "This new paradigm presents a good opportunity for adopting an Agile/DevOps methodology; see The Open Group White Paper: Benefits of DevOps Methodology for Microservices Solutions [W196].",
+          "source_block_ids": [
+            "G21I:p0044:b007",
+            "G21I:p0044:b008"
+          ]
+        }
+      ],
+      "selection": "same-page-context"
+    },
+    {
+      "id": "source-interpretation",
+      "kind": "inherited-interpretation-and-transcription",
+      "record_path": "figures/G21I/fig10-1.json",
+      "record_sha256": "ae0e7e1e0cc979d3691ee08e2518c8cda33c25be65e672cc3d727b84f0422572",
+      "notice_zh": "既有解释加原文图像与转录。其历史语义不等于本轮视觉复核。"
+    },
+    {
+      "id": "current-visual-review",
+      "kind": "selected-source-visual-review",
+      "review_path": "maintenance/pipeline/architecture-diagram-reviews.json",
+      "review_record_id": "G21I/fig10-1",
+      "scope": "All visible labels and symbols, connector presence/endpoints/directions, grouping, table content or absence, and relevant source-page text reviewed against original crops.",
+      "pdf_sha256": "279f6c06124f49a147a168591965805115b2fc976eea2664e41e491ac5d163bf",
+      "crop_sha256": [
+        "7091078cb552d9ecac8b4538a7ae86090404b390c9e93030936fa92a311143e7"
+      ]
+    }
+  ],
+  "current_visual_review": {
+    "source_pdf_sha256": "279f6c06124f49a147a168591965805115b2fc976eea2664e41e491ac5d163bf",
+    "source_crop_sha256": [
+      "7091078cb552d9ecac8b4538a7ae86090404b390c9e93030936fa92a311143e7"
+    ],
+    "date": "2026-11-07",
+    "review_status": "source-content-audited",
+    "scope": "All visible labels and symbols, connector presence/endpoints/directions, grouping, table content or absence, and relevant source-page text reviewed against original crops.",
+    "reviewed_components": [
+      "visible-labels",
+      "connector-topology",
+      "grouping",
+      "table-content-or-absence",
+      "nearby-source-text"
+    ],
+    "inspected_pdf_pages": [
+      43,
+      44
+    ],
+    "findings_zh": [
+      "核对Current/Target、Monolith/Greenfield、路线图箭头以及五个独立Microservice标签：云内3、云外2。",
+      "仅一条向右大块转型箭头，Transformation Roadmaps是箭头内标签；删除将路线图标签另造为实体→目标的冗余边。",
+      "Monolith与Greenfield为正文支持的当前状态选项，无二者间连接；云外两微服务是本图内容，不能假定MSA全部部署在云中。"
+    ],
+    "edge_overrides": {
+      "1": {
+        "semantic_state": "rejected-unobserved",
+        "visual_explicit_connection": false,
+        "reason_zh": "Transformation Roadmaps已经是唯一大箭头的标签；没有标签实体到Target的第二条线。"
+      },
+      "2": {
+        "direction": "undirected",
+        "visual_explicit_connection": false,
+        "reason_zh": "p43正文明确当前状态可以为Greenfield或decomposable monolith；原图二者间无连线，语义为文本支持的备选起点。",
+        "predicate": "alternative"
+      }
+    }
+  },
+  "corrections": [
+    {
+      "edge_id": "G21I/fig10-1#r0002",
+      "old_type": "realization",
+      "new_predicate": null,
+      "reason_zh": "Transformation Roadmaps已经是唯一大箭头的标签；没有标签实体到Target的第二条线。"
+    },
+    {
+      "edge_id": "G21I/fig10-1#r0003",
+      "old_type": "contrast",
+      "new_predicate": "alternative",
+      "reason_zh": "p43正文明确当前状态可以为Greenfield或decomposable monolith；原图二者间无连线，语义为文本支持的备选起点。"
+    }
+  ],
+  "source_uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中的云没有标签；“云内/云外”与“微服务可部署在云外”的对应来自第 10.1 节正文，图本身没有说明。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 44 页原图截图（220 dpi）",
+      "英文 PDF 第 43–44 页正文",
+      "中文稿 G21Ie_微服务架构.md 第 616–662 行（含图内标签对照表 L639–L648）",
+      "figs/zh/g21ie_fig10-1_zh.png",
+      "figs/g21ie_fig10-1_en.png（自动相似度 0.979）"
+    ],
+    "date": "2026-10-31"
+  },
+  "previous_source_semantics": {
+    "one_line_zh": "无论现状是单体还是全新建设，都通过转型路线图走向由多个独立微服务组成的目标状态。",
+    "purpose_zh": "第 10.2 节（阶段 E 的范围转型）用本图说明云原生与 MSA 的核心理念：目标状态是模块化、分布式、高度解耦的方案；由于微服务独立且自包含，每个模块的范围可以单独管理，各有自己的路线图与过渡计划。范围转型是阶段 E 的三类关键考虑之一（另两类为组织转型和技术转型）。",
+    "reading_guide_zh": "从左到右读。左侧“现状”下列出两种起点：单体（橙色框）和全新建设（绿框），二者是可选的两种情形，不是同时存在的两个部分。中间的大箭头是“转型路线图”（复数）。右侧“目标状态”是 5 个独立的微服务，其中 3 个画在云里，2 个在云外。",
+    "key_points_zh": [
+      "现状有两种情形：可分解的单体方案，或没有遗留系统的全新建设（Greenfield）。",
+      "目标状态是模块化、分布式、高度解耦的方案，由多个彼此独立的微服务组成。",
+      "微服务独立且自包含，所以每个模块的范围可以单独管理，各有自己的路线图与过渡计划；箭头上写的是复数的“转型路线图”。",
+      "部分微服务在云内、部分在云外：原文指出微服务是云原生方案的一种，但也可以部署在云外；云原生则专为云设计。",
+      "阶段 E 还要考虑组织转型（每个微服务由单一团队拥有，治理结构精益、联邦式）和技术转型（异构技术格局、内外双重参考架构、交付与部署基础设施，以及数据转型），这些不在本图中。"
+    ],
+    "hierarchy_zh": "两组：“现状”下是单体与全新建设两种可选起点；“目标状态”下是 5 个微服务，其中 3 个位于云形图内。",
+    "line_semantics_zh": "只有一个大块箭头，从现状指向目标状态，标“转型路线图”。现状中的两个框之间、各微服务之间都没有连线。",
+    "misreadings_zh": [
+      "单体与全新建设是二选一的两种起点，不是需要同时迁移的两个系统。",
+      "箭头不表示一次性整体迁移；原文强调每个模块有自己的路线图与过渡计划。",
+      "云外的 2 个微服务不是“尚未迁移”的部分；原图没有区分它们的状态，正文只说明微服务也可以部署在云外。"
+    ],
+    "text_evidence": [
+      {
+        "source": "en_pdf p43",
+        "summary_zh": "阶段 E 识别交付目标架构的交付载体，汇总阶段 B–D 的差距，并形成实施与迁移策略纲要。"
+      },
+      {
+        "source": "en_pdf p43",
+        "summary_zh": "微服务是云原生方案的一种，但也可以部署在云外；云原生专为云设计；二者都高度模块化、分布式部署，具有弹性和韧性。云原生与 MSA 给目标架构、架构路线图和过渡计划带来范围转型、组织转型、技术转型（含数据转型）三类考虑。"
+      },
+      {
+        "source": "en_pdf p43",
+        "summary_zh": "范围转型：目标状态是模块化、分布式、高度解耦的方案；现状可能是全新建设或可分解的单体；微服务独立且自包含，使每个模块的范围可单独管理，各有自己的路线图与过渡计划，见图 10-1。"
+      },
+      {
+        "source": "en_pdf p44",
+        "summary_zh": "组织转型要求每个模块（微服务）由单一团队拥有、治理结构精益且联邦式；技术转型要考虑从同质到异构的技术格局、从单一到双重参考架构、以及交付与部署基础设施的转型。"
+      },
+      {
+        "source": "zh_md L633",
+        "summary_zh": "中文稿对范围转型的说明与英文一致。"
+      }
+    ]
+  },
+  "previous_source_uncertainty": {
+    "confidence": "high",
+    "uncertainties_zh": [
+      "图中的云没有标签；“云内/云外”与“微服务可部署在云外”的对应来自第 10.1 节正文，图本身没有说明。"
+    ],
+    "analyzed_from": [
+      "英文 PDF 第 44 页原图截图（220 dpi）",
+      "英文 PDF 第 43–44 页正文",
+      "中文稿 G21Ie_微服务架构.md 第 616–662 行（含图内标签对照表 L639–L648）",
+      "figs/zh/g21ie_fig10-1_zh.png",
+      "figs/g21ie_fig10-1_en.png（自动相似度 0.979）"
+    ],
+    "date": "2026-10-31"
+  },
+  "source_conflicts": [],
+  "source_visual_transcription": null,
+  "statistics": {
+    "nodes": 11,
+    "source_relations": 2,
+    "containment_or_grouping": 8,
+    "relation_types": {
+      "alternative": 1,
+      "transitions_to": 1
+    },
+    "node_types": {
+      "application": 1,
+      "architecture": 2,
+      "artifact": 1,
+      "concept": 1,
+      "service": 5,
+      "technology": 1
+    },
+    "implicit_relations": 1,
+    "explicit_connections": 1,
+    "reporting_relations": 0,
+    "reporting_subject_types": {},
+    "governance_relations": 0,
+    "instantiation_relations": 0,
+    "max_group_depth": 2,
+    "components": 2,
+    "isolated_nodes": [
+      "G21I/fig10-1#roadmaps"
+    ],
+    "table_records": 0,
+    "corrections": 2,
+    "role_nodes": 0,
+    "rejected_historical_relations": 1
+  },
+  "quality": {
+    "graph_integrity": "checked",
+    "semantic_analysis": "typed-graph-and-context-analysis",
+    "visual_review": "source-content-audited",
+    "notice_zh": "所有元素/关系均有来源定位；未把历史解释重命名为本轮逐线视觉确认。源图与语义图是两种视图，布局不证明汇报或因果。"
+  }
+}

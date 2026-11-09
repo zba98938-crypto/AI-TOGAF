@@ -1,0 +1,15 @@
+flowchart TB
+  %% Semantic reconstruction; see original source image for exact layout.
+  n0["Payment"]
+  n1["Loan"]
+  n2["Customer"]
+  n3["Account"]
+  n4["Branch"]
+  n5["Employee"]
+  n0 -->|"关联"| n1
+  n1 ---|"关联 &#91;图文冲突&#93;"| n2
+  n2 -->|"关联"| n3
+  n4 -->|"关联"| n1
+  n4 -->|"关联"| n3
+  n5 -->|"关联"| n2
+  n5 -->|"关联"| n4

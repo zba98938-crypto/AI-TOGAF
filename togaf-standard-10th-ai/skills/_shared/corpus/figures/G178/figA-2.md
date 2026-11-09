@@ -1,0 +1,837 @@
+# G178/figA-2 · 价值网络图
+
+> 当前图示解析：[Markdown](../../architecture/diagrams/G178/figA-2.md) · [JSON](../../architecture/diagrams/G178/figA-2.json)。包含本轮修正与证据状态；下方保留原图和历史转录。
+
+内容角色：`source-figure-with-historical-interpretation`。历史图意解释保留其来源；OCR 不是已验证文字，布局不是业务关系。
+
+原文：`togaf-standard-10th/G178e.pdf`；SHA-256：`517130a041a8d956b2868dc39d570b84e2d80c64709e4c1368f9747388a3a026`。
+
+## 原图 · PDF 第 26 页
+
+![英文原图](../assets/G178/figA-2-p0026.png)
+
+PDF 坐标：`[48.2, 36.0, 563.8, 420.3]`；裁剪来源：`historical-bbox-checked-within-original-page`。
+
+### 图内文字（数字提取）
+
+原图该区域未提供可提取的数字文本。
+
+### 图内文字（OCR，待核对）
+
+```text
+Input to
+= “Strategy
+Special
+Projects
+=_—
+-_-—
+Trends
+Co brand
+Resellers
+_~
+Opportunities,
+~N
+Local
+Inputto
+\ bake
+Market
+Marketin;
+N
+Innovations
+— Strategy
+Strate:
+Focus
+}
+Company
+1
+Assess,
+Idea:
+iences
+Input to \ Directioy
+Market Cultural
+/
+Revenut
+\_ Exper
+!
+Strategy \
+Insights Trends
+\ insights !
+7 sighs,
+\
+Trends
+42
+/ +
+Product
+«Beta
+\ XN
+Trends
+77 Reven
+Innovatior
+Tests
+NN \\
+a7
+Market
+~ oS
+ag
+Researcl
+Research Request
+Focus
+Offerings
+7
+41
+Trends
+\ \
+Market*
+Vy
+Revenue
+Marketing
+Local
+Storie:
+Industy “Co -brandin
+Market
+Market
+Experience ~ Options
+1 \
+strategic’
+Insights
+\
+(
+uf
+Trends
+Intelligence
+’
+Product yf
+\\ Focus offerings
+Local
+Suggestions,
+Company 7
+Innovations
+=
+Plans
+\ a Trends
+v1
+Contacts
+Advisory
+Regional \
+7
+Board
+— “Selling
+Needs.
+7
+x _-
+_~—
+Le Insights
+\
+Marketing
+~
+\ Innovations
+Go-To-Market
+NON
+Co brand
+~——
+Partners
+Opportunity
+~_-—
+~
+-
+Market Insights. — —
+-
+“Feedback —— —— —"
+```
+
+## 概要（历史解释；局部修正见上）
+
+价值网络示例：以科技公司为中心的 7 个角色之间有 50 条带标签的价值交换，实线多为有形交付物、虚线多为无形交付物。
+
+## 目的（历史解释；局部修正见上）
+
+附录 A.2 用它说明价值网络的样子：节点是企业中的人员或角色，节点之间的连线是交互，代表可能有形（产品或现金）也可能无形（如知识增长）的交付物。正文指出价值网络与价值链处理的元素类似，区别在意图：价值网络用来理解企业内部和企业之间复杂的关系网与价值交换区域。附录借此与价值流对比，价值网络既没有阶段先后，也没有能力映射。
+
+## 阅读顺序（历史解释；局部修正见上）
+
+先找中心的“Technology Company（科技公司）”，它与其余 6 个角色都有往来。每条线都有箭头和标签：箭头指向接收方，标签是沿箭头方向传递的交付物。例如从科技公司指向经销商的实线“Offerings”表示科技公司向经销商提供产品/服务，经销商指回科技公司的实线“Revenue”表示经销商带来收入。实线（青绿色、粗体标签）多为收入、产品、战略方向、研究等有形交付物；虚线（深蓝色）多为趋势、洞察、建议、反馈等无形交付物。图上没有图例，这一区分是按价值网络惯例和标签内容推断的。同名标签会出现多次（如 Trends 出现 6 次），每次是不同的一条交互。
+
+## 关键含义（历史解释；局部修正见上）
+
+- 7 个节点都是角色：科技公司（中心）、高管团队、研究人员、经销商、本地分支机构、市场推广合作伙伴、顾问委员会。其中 4 个浅蓝色（科技公司、高管团队、研究人员、本地分支机构），3 个橙色（经销商、顾问委员会、市场推广合作伙伴）；颜色含义图上未说明，可能区分内部角色与外部伙伴（推断）。
+- 共 50 条带标签的交互，36 条与科技公司相连；其余 14 条是外围角色之间的直接交换：高管团队与研究人员之间 3 条、经销商→高管团队 1 条、经销商与本地分支机构之间 3 条、市场推广合作伙伴与本地分支机构之间 5 条、顾问委员会与市场推广合作伙伴之间 2 条。
+- 三个渠道角色（经销商、本地分支机构、市场推广合作伙伴）与科技公司之间的有形交换模式相同：科技公司给出 Strategic Focus（战略重点）和 Offerings（产品与服务），对方回报 Market Assess（市场评估）和 Revenue（收入）。
+- 无形交换多于有形交换（33 条虚线对 17 条实线），如趋势、洞察、对战略的输入、联合品牌机会、反馈；这对应正文所说交付物可以是无形的，例如知识增长。
+- 交换是双向、多对多的：研究人员向科技公司提供产品创新、市场研究、Beta 测试和趋势，科技公司向研究人员提出研究请求并分享趋势；高管团队从研究人员、科技公司、经销商三方收到“对战略的输入”，并向科技公司给出战略方向、向研究人员布置专项项目。
+- 顾问委员会几乎只向外输出无形交付物（市场故事、行业经验、联合品牌方案、产品建议、销售洞察、市场洞察），只从科技公司收到“计划”、从市场推广合作伙伴收到“反馈”。
+- 与价值链和价值流的区别（正文）：价值网络处理与价值链类似的元素，但目的在于理解复杂的关系网与价值交换；图中没有阶段先后、能力映射，也不从单个触发方利益相关者的视角组织。
+
+## 层级（历史解释；局部修正见上）
+
+没有层级或容器嵌套，7 个节点是同级的角色。科技公司处在网络中心（连接最多），这只是拓扑上的中心，不表示其他角色隶属于它。
+
+## 线条含义（历史解释；局部修正见上）
+
+每条线都是一次有方向的交互（关系类型记为 flow），箭头指向接收方，线上标签是传递的交付物。实线（青绿色、标签加粗）与虚线（深蓝色）区分两类交付物：按价值网络惯例和标签内容推断，实线为有形交付物，虚线为无形交付物。顾问委员会→市场推广合作伙伴的“Market Insights”是一条颜色较浅的虚线、标签加粗，含义不明。
+
+## 易误读点（历史解释；局部修正见上）
+
+- 节点是角色，不是交付物；收入、产品、趋势等交付物都写在连线上。中文稿引用的 SVG 把“交付物（无形）”“资金”画成节点，与原图和正文都不符。
+- 同名标签出现多次（Trends 6 次，Input to Strategy 3 次，Market Assess、Revenue、Strategic Focus、Offerings 各 3 次，Insights、Market Insights 各 2 次），每次是不同角色之间的一条独立交互，不能合并。
+- 连线没有时间先后，这不是流程图；同一对角色之间常有方向相反的多条线。
+- 实线/虚线对应有形/无形是推断，图上没有图例。
+- 科技公司处在中心只因为它是本例的焦点企业，不表示其他角色向它汇报。
+
+## 元素
+
+```json
+[
+  {
+    "id": "tech_co",
+    "label_en": "Technology Company",
+    "label_zh": "科技公司",
+    "type": "role",
+    "position": "中心，浅蓝色",
+    "description_zh": "焦点企业；50 条交互中 36 条与它相连。"
+  },
+  {
+    "id": "exec_team",
+    "label_en": "Executive Team",
+    "label_zh": "高管团队",
+    "type": "role",
+    "position": "上方，浅蓝色"
+  },
+  {
+    "id": "researchers",
+    "label_en": "Researchers",
+    "label_zh": "研究人员",
+    "type": "role",
+    "position": "左上，浅蓝色"
+  },
+  {
+    "id": "resellers",
+    "label_en": "Resellers",
+    "label_zh": "经销商",
+    "type": "role",
+    "position": "右上，橙色"
+  },
+  {
+    "id": "local_affiliates",
+    "label_en": "Local Affiliates",
+    "label_zh": "本地分支机构",
+    "type": "role",
+    "position": "右侧，浅蓝色"
+  },
+  {
+    "id": "gtm_partners",
+    "label_en": "Go-To-Market Partners",
+    "label_zh": "市场推广合作伙伴",
+    "type": "role",
+    "position": "右下，橙色"
+  },
+  {
+    "id": "advisory_board",
+    "label_en": "Advisory Board",
+    "label_zh": "顾问委员会",
+    "type": "role",
+    "position": "左下，橙色"
+  }
+]
+```
+
+## 关系
+
+```json
+[
+  {
+    "from": "exec_team",
+    "to": "researchers",
+    "type": "flow",
+    "label_en": "Special Projects",
+    "label_zh": "专项项目",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "exec_team",
+    "to": "researchers",
+    "type": "flow",
+    "label_en": "Trends",
+    "label_zh": "趋势",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "researchers",
+    "to": "exec_team",
+    "type": "flow",
+    "label_en": "Input to Strategy",
+    "label_zh": "对战略的输入",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "exec_team",
+    "type": "flow",
+    "label_en": "Input to Strategy",
+    "label_zh": "对战略的输入",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "exec_team",
+    "type": "flow",
+    "label_en": "Insights",
+    "label_zh": "洞察",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "resellers",
+    "to": "exec_team",
+    "type": "flow",
+    "label_en": "Input to Strategy",
+    "label_zh": "对战略的输入",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "图顶部的长弧线"
+  },
+  {
+    "from": "exec_team",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Strategic Direction",
+    "label_zh": "战略方向",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "resellers",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Co brand Opportunities",
+    "label_zh": "联合品牌机会",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "resellers",
+    "type": "flow",
+    "label_en": "Strategic Focus",
+    "label_zh": "战略重点",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "resellers",
+    "type": "flow",
+    "label_en": "Offerings",
+    "label_zh": "产品与服务",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "resellers",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Market Assess",
+    "label_zh": "市场评估",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "resellers",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Revenue",
+    "label_zh": "收入",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "resellers",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Market Insights",
+    "label_zh": "市场洞察",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "resellers",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Cultural Trends",
+    "label_zh": "文化趋势",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "resellers",
+    "to": "local_affiliates",
+    "type": "flow",
+    "label_en": "Marketing Ideas",
+    "label_zh": "营销创意",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "local_affiliates",
+    "to": "resellers",
+    "type": "flow",
+    "label_en": "Company Experiences",
+    "label_zh": "公司经验",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "local_affiliates",
+    "to": "resellers",
+    "type": "flow",
+    "label_en": "Local Innovations",
+    "label_zh": "本地创新",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "researchers",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Product Innovations",
+    "label_zh": "产品创新",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "researchers",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Market Research",
+    "label_zh": "市场研究",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "researchers",
+    "type": "flow",
+    "label_en": "Research Request",
+    "label_zh": "研究请求",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "researchers",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Beta Tests",
+    "label_zh": "Beta 测试",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "方向按线条走向推断"
+  },
+  {
+    "from": "researchers",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Trends",
+    "label_zh": "趋势",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "研究人员与科技公司之间两条 Trends 中靠上的一条"
+  },
+  {
+    "from": "tech_co",
+    "to": "researchers",
+    "type": "flow",
+    "label_en": "Trends",
+    "label_zh": "趋势",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "箭头指向研究人员底部"
+  },
+  {
+    "from": "local_affiliates",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Revenue",
+    "label_zh": "收入",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "local_affiliates",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Market Assess",
+    "label_zh": "市场评估",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "local_affiliates",
+    "type": "flow",
+    "label_en": "Strategic Focus",
+    "label_zh": "战略重点",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "local_affiliates",
+    "type": "flow",
+    "label_en": "Offerings",
+    "label_zh": "产品与服务",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "local_affiliates",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Insights",
+    "label_zh": "洞察",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "标签位于“Cultural Trends”下方，按线条走向归为本地分支机构发出"
+  },
+  {
+    "from": "local_affiliates",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Trends",
+    "label_zh": "趋势",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "local_affiliates",
+    "type": "flow",
+    "label_en": "Marketing Insights",
+    "label_zh": "营销洞察",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "local_affiliates",
+    "type": "flow",
+    "label_en": "Trends",
+    "label_zh": "趋势",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "local_affiliates",
+    "type": "flow",
+    "label_en": "Company Contacts",
+    "label_zh": "公司联系人",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "local_affiliates",
+    "to": "gtm_partners",
+    "type": "flow",
+    "label_en": "Local Market Intelligence",
+    "label_zh": "本地市场情报",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "local_affiliates",
+    "type": "flow",
+    "label_en": "Local Innovations",
+    "label_zh": "本地创新",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "gtm_partners",
+    "type": "flow",
+    "label_en": "Strategic Focus",
+    "label_zh": "战略重点",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "gtm_partners",
+    "type": "flow",
+    "label_en": "Offerings",
+    "label_zh": "产品与服务",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Market Assess",
+    "label_zh": "市场评估",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Revenue",
+    "label_zh": "收入",
+    "explicit": true,
+    "line": "solid",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Trends",
+    "label_zh": "趋势",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Regional Needs",
+    "label_zh": "区域需求",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Marketing Innovations",
+    "label_zh": "营销创新",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Co brand Opportunity",
+    "label_zh": "联合品牌机会",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "advisory_board",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Market Stories",
+    "label_zh": "市场故事",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "advisory_board",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Industry Experience",
+    "label_zh": "行业经验",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "advisory_board",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Co-branding Options",
+    "label_zh": "联合品牌方案",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "advisory_board",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Product Suggestions",
+    "label_zh": "产品建议",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "tech_co",
+    "to": "advisory_board",
+    "type": "flow",
+    "label_en": "Plans",
+    "label_zh": "计划",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "箭头指向顾问委员会右侧"
+  },
+  {
+    "from": "advisory_board",
+    "to": "tech_co",
+    "type": "flow",
+    "label_en": "Selling Insights",
+    "label_zh": "销售洞察",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward"
+  },
+  {
+    "from": "advisory_board",
+    "to": "gtm_partners",
+    "type": "flow",
+    "label_en": "Market Insights",
+    "label_zh": "市场洞察",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "颜色较浅的虚线，标签加粗"
+  },
+  {
+    "from": "gtm_partners",
+    "to": "advisory_board",
+    "type": "flow",
+    "label_en": "Feedback",
+    "label_zh": "反馈",
+    "explicit": true,
+    "line": "dashed",
+    "arrow": "forward",
+    "description_zh": "图底部最外侧的长弧线，箭头指向顾问委员会底部"
+  }
+]
+```
+
+## 图例
+
+```json
+[
+  {
+    "symbol": "浅蓝色椭圆",
+    "meaning_zh": "角色节点（科技公司、高管团队、研究人员、本地分支机构）；颜色含义未说明，可能表示内部角色",
+    "explicit": false
+  },
+  {
+    "symbol": "橙色椭圆",
+    "meaning_zh": "角色节点（经销商、顾问委员会、市场推广合作伙伴）；颜色含义未说明，可能表示外部伙伴",
+    "explicit": false
+  },
+  {
+    "symbol": "青绿色实线 + 粗体标签 + 箭头",
+    "meaning_zh": "交互，推断为有形交付物（收入、产品与服务、战略方向、研究等）",
+    "explicit": false
+  },
+  {
+    "symbol": "深蓝色虚线 + 标签 + 箭头",
+    "meaning_zh": "交互，推断为无形交付物（趋势、洞察、建议、反馈等）",
+    "explicit": false
+  },
+  {
+    "symbol": "箭头方向",
+    "meaning_zh": "交付物从发出方流向接收方",
+    "explicit": false
+  }
+]
+```
+
+## 布局
+
+```json
+{
+  "direction": "radial",
+  "description_zh": "中心偏左为科技公司；左上是研究人员，上方是高管团队，右上是经销商，右侧是本地分支机构，右下是市场推广合作伙伴，左下是顾问委员会。大量弧线从中心向四周放射，外围角色之间也有弧线相连。"
+}
+```
+
+## 相关图
+
+```json
+[
+  {
+    "target": "G178/figA-1",
+    "relation": "contrasts_with",
+    "note_zh": "正文说明价值网络与价值链处理的元素类似，区别在意图：价值网络着眼于企业内外的关系网与价值交换"
+  }
+]
+```
+
+## 历史不确定性
+
+```json
+{
+  "confidence": "medium",
+  "uncertainties_zh": [
+    "已用 600 dpi 放大复核原先 7 条不确定方向：研究人员与科技公司之间的 Beta Tests 和两条 Trends、本地分支机构与科技公司之间的 Insights、顾问委员会与科技公司之间的 Plans 与 Selling Insights 均可按箭头头部判定；本地分支机构与科技公司之间的 Trends 与相邻线交叉，仍按中等把握记录。",
+    "“Insights”标签紧挨“Cultural Trends”下方，也可能是“Cultural Trends Insights”这一个标签的一部分；本解析按线条间隙将其归为本地分支机构→科技公司的独立交互。",
+    "图上没有图例：实线/虚线对应有形/无形交付物、浅蓝/橙色对应内部/外部角色，都是推断。",
+    "角色和交付物的中文译名由解析者拟定；中文稿引用的 SVG 与原图不对应，无法作为术语参照。"
+  ],
+  "analyzed_from": [
+    "英文 PDF 第 26 页原图截图（220 dpi）及 3×3 放大分块",
+    "英文 PDF 第 26 页 600 dpi 放大分块（复核箭头方向）",
+    "英文 PDF 第 25–26 页正文",
+    "中文稿 G178e_价值流.md 第 303–309 行",
+    "figs/g178_figA-2.svg 源码"
+  ],
+  "date": "2026-10-31"
+}
+```
+
+## 结构校验
+
+```json
+{
+  "graph_integrity_issues": [],
+  "location_available": true,
+  "caption_page_match": true,
+  "visual_review_scope": "not-reverified-this-build",
+  "all_source_pages_valid": true
+}
+```
