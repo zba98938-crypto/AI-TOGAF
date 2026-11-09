@@ -185,7 +185,50 @@ def official_query_adapters():
                  'scope':'finite Integer arguments only; adapter equivalence and unlimited-bound execution not certified','independent_acceptance':'pending'}]
     raise Incomplete('normative multiplicity query missing')
 
-def validate_mapped(data,java_home=None):
+def multiplicity_case_records(cases):
+    """Expand explicit cases using pinned source identities, never caller OCL."""
+    from uml_ocl_obligations import multiplicity_execution_catalog
+    catalog=multiplicity_execution_catalog();lookup={}
+    for operation in catalog['operations']:
+        lookup[operation['source_identity']['key']]=(operation,False)
+        if operation['derived']:lookup[operation['derived']['source_identity']['key']]=(operation,True)
+    if not isinstance(cases,list):raise Invalid('operation cases must be a list')
+    rows=[];metadata=[];seen=set()
+    for case in cases:
+        if not isinstance(case,dict) or set(case)-{'id','self','obligation','arguments','result_probe'}:
+            raise Invalid('operation case has unsupported fields')
+        if any(not isinstance(case.get(k),str) or not case[k] or any(c in case[k] for c in '\t\n\r|;') for k in ('id','self','obligation')):
+            raise Invalid('operation case requires plain id, self and exact obligation identity')
+        if case['id'] in seen:raise Invalid('duplicate operation case id')
+        seen.add(case['id'])
+        if case['obligation'] not in lookup:raise Incomplete('operation obligation not in the bounded source scope')
+        operation,derived=lookup[case['obligation']];arguments=case.get('arguments',[])
+        if not isinstance(arguments,list):raise Invalid('operation arguments must be a list')
+        encoded=[]
+        for argument in arguments:
+            if not isinstance(argument,dict) or set(argument)!={'kind','value'} or argument['kind'] not in {'integer','unlimited','object','null','invalid'}:
+                raise Invalid('operation argument must have a supported kind and value')
+            value=str(argument['value'])
+            if any(c in value for c in '\t\n\r|;'):raise Invalid('operation argument delimiter prohibited')
+            encoded.append(argument['kind']+'|'+value)
+        probe=case.get('result_probe','')
+        if probe not in {'','true','false','null','invalid'}:raise Invalid('unsupported fixed result diagnostic')
+        signature=';'.join('|'.join(str(p[k]).lower() if isinstance(p[k],bool) else str(p[k]) for k in ('name','direction','type','lower','upper','ordered','unique')) for p in operation['parameters'])
+        result=next(p for p in operation['parameters'] if p['direction']=='return')
+        for rule in operation['rules']:
+            if probe and rule['role']!='bodyCondition':continue
+            if derived and rule['source_identity']['key']!=operation['derived']['definition_identity']['key']:continue
+            identity=operation['derived']['source_identity'] if derived else rule['source_identity']
+            rows.append([case['id'],identity['key'],rule['source_identity']['key'],operation['source_identity']['key'],operation['name'],rule['role'],
+                         'derived-feature' if derived else 'operation-constraint',result['type'],signature,case['self'],';'.join(encoded),probe,rule['original_body']])
+            metadata.append({'case_id':case['id'],'obligation_identity':identity,'definition_identity':rule['source_identity'],
+                             'operation_identity':operation['source_identity'],'owner_identity':operation['owner_identity'],
+                             'role':rule['role'],'original_body':rule['original_body'],'original_body_sha256':rule['original_body_sha256'],
+                             'parameters':operation['parameters'],'derived_feature':operation['derived'] if derived else None,
+                             'result_probe_is_diagnostic_only':bool(probe),'full_obligation_implemented':False})
+    return rows,metadata,catalog
+
+def validate_mapped(data,java_home=None,operation_cases=None):
     xml=safe_xml(data)
     if namespace(xml.tag) not in (OMG_UML,XMI):raise Invalid('explicit OMG UML 2.5.1 namespace required')
     # No native/profile package resolution here: even lawful references stay blocked
@@ -199,6 +242,7 @@ def validate_mapped(data,java_home=None):
     java=str(home/'bin/java') if (home/'bin/java').is_file() else shutil.which('java')
     if not java:raise Incomplete('Java21 unavailable; pass --java-home or JAVA_HOME')
     rules,source_sha=official_rules();executable,syntax_adapters=execution_rules(rules);queries=official_query_adapters();boolean_adapter=boolean_semantics_adapter()
+    case_rows,case_metadata,case_catalog=multiplicity_case_records([] if operation_cases is None else operation_cases)
     # Map namespace declarations and Clark tags only through a serialized copy.
     # In contrast to byte.replace, this does not rewrite business string literals.
     from lxml import etree
@@ -219,18 +263,29 @@ def validate_mapped(data,java_home=None):
         tmp=Path(tmp);p=tmp/'input.uml';p.write_bytes(copy);tsv=tmp/'rules.tsv'
         tsv.write_text('\n'.join('\t'.join(base64.b64encode(r[k].encode()).decode() for k in ('context','id','body')) for r in executable)+'\n')
         query_tsv=tmp/'queries.tsv';query_tsv.write_text('\n'.join('\t'.join(base64.b64encode(r[k].encode()).decode() for k in ('context','id','definition')) for r in queries)+'\n')
-        result=subprocess.run([java,'-Xmx512m','--class-path',str(JARS/'*'),str(ROOT/'scripts/UmlValidate.java'),str(p),str(tsv),str(JARS),str(query_tsv)],capture_output=True,text=True,timeout=120)
+        argv=[java,'-Xmx512m','--class-path',str(JARS/'*'),str(ROOT/'scripts/UmlValidate.java'),str(p),str(tsv),str(JARS),str(query_tsv)]
+        if operation_cases is not None:
+            cases_tsv=tmp/'operation-cases.tsv';cases_tsv.write_text('\n'.join('\t'.join(base64.b64encode(str(value).encode()).decode() for value in row) for row in case_rows)+('\n' if case_rows else ''))
+            argv.append(str(cases_tsv))
+        result=subprocess.run(argv,capture_output=True,text=True,timeout=120)
         if result.returncode:raise Incomplete('mapped UML2/OCL backend failed: '+result.stderr[-4000:])
         report=json.loads(result.stdout)
     report.update(original_sha256=sha(data),mapped_sha256=sha(copy),namespace_mapping=mapping,original_bytes_preserved=True,normative_ocl_source_sha256=source_sha,normative_ocl_rule_count=len(rules),query_adapters=queries,syntax_adapters=[a for a in syntax_adapters if a['kind']=='exact-source-syntax-adapter'],semantic_adapters=[a for a in syntax_adapters if a['kind']=='normative-prose-semantic-adapter'],boolean_operation_adapter=boolean_adapter,dependency_manifest_sha256=sha((JARS/'manifest.json').read_bytes()),mapping_equivalence='explicit adapter, not independently certified',conformance_status='incomplete',value_semantics={'outcomes':['true','false','null','invalid','non-boolean'],'null_is_false':False,'null_is_invalid':False,'boolean_null_operation_equivalence':'typed OCL 2.4 Boolean operation adapter; full-language equivalence not certified'})
     from uml_ocl_obligations import execution_inventory
     report['normative_ocl_execution_scope']=execution_inventory()['summary']
+    report['operation_derived_source_bindings']=case_metadata
+    report['operation_derived_capability']={'source_sha256':case_catalog['source_sha256'],'supported_queries':[r['name'] for r in case_catalog['operations']],
+        'supported_derived_features':['lower','upper'],'scope':'Explicit cases with exact source signatures; independent oracle acceptance remains external; optional int carriers and full obligation equivalence are not certified.',
+        'requested_case_count':len(operation_cases or []),'executed_constraint_count':sum(r.get('evaluation_count',0) for r in report.get('operation_derived_cases',[])),
+        'catalog_execution_count':0,'full_obligation_implemented':False,'full_standard_acceptance':False}
+    report['native_process']={'argv':argv,'exit_code':result.returncode,'timeout':False,'timeout_seconds':120,
+        'stdout_sha256':sha(result.stdout.encode()),'stderr_sha256':sha(result.stderr.encode())}
     return report
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--input',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--java-home',type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--input',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--java-home',type=Path);p.add_argument('--operation-cases',type=Path);a=p.parse_args()
     try:
-        report=validate_mapped(a.input.read_bytes(),a.java_home);a.out.parent.mkdir(parents=True,exist_ok=True)
+        report=validate_mapped(a.input.read_bytes(),a.java_home,json.loads(a.operation_cases.read_text()) if a.operation_cases else None);a.out.parent.mkdir(parents=True,exist_ok=True)
         with a.out.open('x') as f:json.dump(report,f,ensure_ascii=False,indent=2)
         print(json.dumps({k:report[k] for k in ('loaded_objects','ocl_parsed','ocl_unmapped','ocl_evaluations','conformance_status')}));return 3
     except (Invalid,Incomplete,subprocess.TimeoutExpired) as e:print(str(e));return 3

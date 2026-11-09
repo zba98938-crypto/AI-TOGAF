@@ -1,0 +1,2810 @@
+[
+  {
+    "obligation_id": "uml:2.5.1:construct:UML.xmi:MultiplicityElement-compatibleWith",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-compatibleWith",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]",
+      "occurrence": 1,
+      "key": "source-identity:237b756ce0e7dbcc7b81c3b7902a706ba99a476a77d3b8eb8686636ab945fed4",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12913
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-compatibleWith",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]",
+      "occurrence": 1,
+      "key": "source-identity:237b756ce0e7dbcc7b81c3b7902a706ba99a476a77d3b8eb8686636ab945fed4",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12913
+    },
+    "operation_name": "compatibleWith",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-compatibleWith-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:836154db03ef8f9d794ef4e38448a0d89ad060964d02e5007e62343befc7b273",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12928
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-compatibleWith-other",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]/ownedParameter[name=other]",
+          "occurrence": 1,
+          "key": "source-identity:9fe1d00e6057c686d8ac7912579746f7dacd17c76dd6bc7d71b10b13512c12b4",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12931
+        },
+        "name": "other",
+        "direction": "in",
+        "type": "MultiplicityElement",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-compatibleWith-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:dcf0efde80bed037c47fcd7af61c30a5996b30351d1e9dc635bf2718a69bdf45",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12919
+        },
+        "role": "bodyCondition",
+        "original_body": "result = ((other.lowerBound() <= self.lowerBound()) and ((other.upperBound() = *) or (self.upperBound() <= other.upperBound())))",
+        "original_body_sha256": "a7bef33f9f02c2f889b36e923c3ccaef91d84b107fd64dbc23a2a0d4a242d404"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 26,
+      "original_constraint_evaluations": 25,
+      "native_calls": 25,
+      "outcomes": {
+        "true": 25,
+        "not-evaluated": 1
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": true
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-compatibleWith-spec",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-compatibleWith-spec",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]/ownedRule[name=spec]",
+      "occurrence": 1,
+      "key": "source-identity:dcf0efde80bed037c47fcd7af61c30a5996b30351d1e9dc635bf2718a69bdf45",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12919
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-compatibleWith",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]",
+      "occurrence": 1,
+      "key": "source-identity:237b756ce0e7dbcc7b81c3b7902a706ba99a476a77d3b8eb8686636ab945fed4",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12913
+    },
+    "operation_name": "compatibleWith",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-compatibleWith-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:836154db03ef8f9d794ef4e38448a0d89ad060964d02e5007e62343befc7b273",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12928
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-compatibleWith-other",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]/ownedParameter[name=other]",
+          "occurrence": 1,
+          "key": "source-identity:9fe1d00e6057c686d8ac7912579746f7dacd17c76dd6bc7d71b10b13512c12b4",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12931
+        },
+        "name": "other",
+        "direction": "in",
+        "type": "MultiplicityElement",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-compatibleWith-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=compatibleWith]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:dcf0efde80bed037c47fcd7af61c30a5996b30351d1e9dc635bf2718a69bdf45",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12919
+        },
+        "role": "bodyCondition",
+        "original_body": "result = ((other.lowerBound() <= self.lowerBound()) and ((other.upperBound() = *) or (self.upperBound() <= other.upperBound())))",
+        "original_body_sha256": "a7bef33f9f02c2f889b36e923c3ccaef91d84b107fd64dbc23a2a0d4a242d404"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 26,
+      "original_constraint_evaluations": 25,
+      "native_calls": 25,
+      "outcomes": {
+        "true": 25,
+        "not-evaluated": 1
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:construct:UML.xmi:MultiplicityElement-includesMultiplicity",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-includesMultiplicity",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]",
+      "occurrence": 1,
+      "key": "source-identity:2cb7190a437e59bd0c5ffb76ff0c2479e68bfab3e479726b4d2767aae9349681",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12934
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-includesMultiplicity",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]",
+      "occurrence": 1,
+      "key": "source-identity:2cb7190a437e59bd0c5ffb76ff0c2479e68bfab3e479726b4d2767aae9349681",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12934
+    },
+    "operation_name": "includesMultiplicity",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:e2d100e601fcf6714164ecb97f63fa65f252bb8892b62b2f9e4dd1add07d8760",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12960
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-M",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedParameter[name=M]",
+          "occurrence": 1,
+          "key": "source-identity:5e1079becdc28bb4ab368c3c9392d73e1963227bf6c70b7a00ba76c8ae283047",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12963
+        },
+        "name": "M",
+        "direction": "in",
+        "type": "MultiplicityElement",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-pre",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedRule[name=pre]",
+          "occurrence": 1,
+          "key": "source-identity:ecc347d72e3ebd0c7968b60709119577ba954728caa8c6f3129270ebf281ce2d",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12941
+        },
+        "role": "precondition",
+        "original_body": "self.upperBound()->notEmpty() and self.lowerBound()->notEmpty() and M.upperBound()->notEmpty() and M.lowerBound()->notEmpty()",
+        "original_body_sha256": "b59a9f1467d6269e99ea5cbc55f37ffb04ed63a6ce0bbeca5c25cbebcee72b02"
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:df31f9bb09879f68d4680aa0da96f575b25d71685b93f9a34df6cad8a230b7b7",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12950
+        },
+        "role": "bodyCondition",
+        "original_body": "result = ((self.lowerBound() <= M.lowerBound()) and (self.upperBound() >= M.upperBound()))",
+        "original_body_sha256": "686d9f2e08ca18d38385c1eb2fbc74e84e6c9f986f846f844488c795b844b590"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 50,
+      "original_constraint_evaluations": 50,
+      "native_calls": 25,
+      "outcomes": {
+        "true": 50
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": true
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-includesMultiplicity-pre",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-includesMultiplicity-pre",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedRule[name=pre]",
+      "occurrence": 1,
+      "key": "source-identity:ecc347d72e3ebd0c7968b60709119577ba954728caa8c6f3129270ebf281ce2d",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12941
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-includesMultiplicity",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]",
+      "occurrence": 1,
+      "key": "source-identity:2cb7190a437e59bd0c5ffb76ff0c2479e68bfab3e479726b4d2767aae9349681",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12934
+    },
+    "operation_name": "includesMultiplicity",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:e2d100e601fcf6714164ecb97f63fa65f252bb8892b62b2f9e4dd1add07d8760",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12960
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-M",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedParameter[name=M]",
+          "occurrence": 1,
+          "key": "source-identity:5e1079becdc28bb4ab368c3c9392d73e1963227bf6c70b7a00ba76c8ae283047",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12963
+        },
+        "name": "M",
+        "direction": "in",
+        "type": "MultiplicityElement",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-pre",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedRule[name=pre]",
+          "occurrence": 1,
+          "key": "source-identity:ecc347d72e3ebd0c7968b60709119577ba954728caa8c6f3129270ebf281ce2d",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12941
+        },
+        "role": "precondition",
+        "original_body": "self.upperBound()->notEmpty() and self.lowerBound()->notEmpty() and M.upperBound()->notEmpty() and M.lowerBound()->notEmpty()",
+        "original_body_sha256": "b59a9f1467d6269e99ea5cbc55f37ffb04ed63a6ce0bbeca5c25cbebcee72b02"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 25,
+      "original_constraint_evaluations": 25,
+      "native_calls": 0,
+      "outcomes": {
+        "true": 25
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-includesMultiplicity-spec",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-includesMultiplicity-spec",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedRule[name=spec]",
+      "occurrence": 1,
+      "key": "source-identity:df31f9bb09879f68d4680aa0da96f575b25d71685b93f9a34df6cad8a230b7b7",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12950
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-includesMultiplicity",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]",
+      "occurrence": 1,
+      "key": "source-identity:2cb7190a437e59bd0c5ffb76ff0c2479e68bfab3e479726b4d2767aae9349681",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12934
+    },
+    "operation_name": "includesMultiplicity",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:e2d100e601fcf6714164ecb97f63fa65f252bb8892b62b2f9e4dd1add07d8760",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12960
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-M",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedParameter[name=M]",
+          "occurrence": 1,
+          "key": "source-identity:5e1079becdc28bb4ab368c3c9392d73e1963227bf6c70b7a00ba76c8ae283047",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12963
+        },
+        "name": "M",
+        "direction": "in",
+        "type": "MultiplicityElement",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-includesMultiplicity-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=includesMultiplicity]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:df31f9bb09879f68d4680aa0da96f575b25d71685b93f9a34df6cad8a230b7b7",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12950
+        },
+        "role": "bodyCondition",
+        "original_body": "result = ((self.lowerBound() <= M.lowerBound()) and (self.upperBound() >= M.upperBound()))",
+        "original_body_sha256": "686d9f2e08ca18d38385c1eb2fbc74e84e6c9f986f846f844488c795b844b590"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 25,
+      "original_constraint_evaluations": 25,
+      "native_calls": 25,
+      "outcomes": {
+        "true": 25
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:construct:UML.xmi:MultiplicityElement-is",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-is",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]",
+      "occurrence": 1,
+      "key": "source-identity:7ab34db02a965abbff6065ee815787093972fe5e03def39ca53c84d3d7545d71",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12966
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-is",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]",
+      "occurrence": 1,
+      "key": "source-identity:7ab34db02a965abbff6065ee815787093972fe5e03def39ca53c84d3d7545d71",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12966
+    },
+    "operation_name": "is",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-is-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:63832154aebb563222171eec7eb2cfb07c93619daee57cfc34c059c8253fbd7b",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12980
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-is-lowerbound",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]/ownedParameter[name=lowerbound]",
+          "occurrence": 1,
+          "key": "source-identity:9d12585f34d07c9cdc112416ebe5ea70ee9f55f54e370ef93d4ab73a02585533",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12983
+        },
+        "name": "lowerbound",
+        "direction": "in",
+        "type": "Integer",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-is-upperbound",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]/ownedParameter[name=upperbound]",
+          "occurrence": 1,
+          "key": "source-identity:4ae47b6429aa110c03d817c7cd03be05f9e3bdaaa3614a1eaf9eb2780e6bdf5f",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12986
+        },
+        "name": "upperbound",
+        "direction": "in",
+        "type": "UnlimitedNatural",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-is-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:0008b1458173eba2c4ad37895479da0dd17cc0cea352ee24e12b507a729b2bac",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12971
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (lowerbound = self.lowerBound() and upperbound = self.upperBound())",
+        "original_body_sha256": "ae94d5cd1ae18fafceba64b25c0cbdc81df19edec5ebee6d7142120d2a56a4cd"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 16,
+      "original_constraint_evaluations": 10,
+      "native_calls": 10,
+      "outcomes": {
+        "true": 10,
+        "not-evaluated": 6
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": true
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-is-spec",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-is-spec",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]/ownedRule[name=spec]",
+      "occurrence": 1,
+      "key": "source-identity:0008b1458173eba2c4ad37895479da0dd17cc0cea352ee24e12b507a729b2bac",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12971
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-is",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]",
+      "occurrence": 1,
+      "key": "source-identity:7ab34db02a965abbff6065ee815787093972fe5e03def39ca53c84d3d7545d71",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12966
+    },
+    "operation_name": "is",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-is-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:63832154aebb563222171eec7eb2cfb07c93619daee57cfc34c059c8253fbd7b",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12980
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-is-lowerbound",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]/ownedParameter[name=lowerbound]",
+          "occurrence": 1,
+          "key": "source-identity:9d12585f34d07c9cdc112416ebe5ea70ee9f55f54e370ef93d4ab73a02585533",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12983
+        },
+        "name": "lowerbound",
+        "direction": "in",
+        "type": "Integer",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-is-upperbound",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]/ownedParameter[name=upperbound]",
+          "occurrence": 1,
+          "key": "source-identity:4ae47b6429aa110c03d817c7cd03be05f9e3bdaaa3614a1eaf9eb2780e6bdf5f",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12986
+        },
+        "name": "upperbound",
+        "direction": "in",
+        "type": "UnlimitedNatural",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-is-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=is]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:0008b1458173eba2c4ad37895479da0dd17cc0cea352ee24e12b507a729b2bac",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12971
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (lowerbound = self.lowerBound() and upperbound = self.upperBound())",
+        "original_body_sha256": "ae94d5cd1ae18fafceba64b25c0cbdc81df19edec5ebee6d7142120d2a56a4cd"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 16,
+      "original_constraint_evaluations": 10,
+      "native_calls": 10,
+      "outcomes": {
+        "true": 10,
+        "not-evaluated": 6
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:construct:UML.xmi:MultiplicityElement-isMultivalued",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-isMultivalued",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]",
+      "occurrence": 1,
+      "key": "source-identity:b90289d2c1aee1f4408f0fd4004d3d4bcf17aa71e18ae3f1ffbfd8f7574ec314",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12991
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-isMultivalued",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]",
+      "occurrence": 1,
+      "key": "source-identity:b90289d2c1aee1f4408f0fd4004d3d4bcf17aa71e18ae3f1ffbfd8f7574ec314",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12991
+    },
+    "operation_name": "isMultivalued",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-isMultivalued-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:3dc74b51fc2e81a765e44da9f85a1d6e7c88706741c578f579882711f39db4d7",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13015
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-isMultivalued-pre",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]/ownedRule[name=pre]",
+          "occurrence": 1,
+          "key": "source-identity:f0dd2c1b9b6eb300c98595b52de99d924cf1f302a6611e80f8cfecde65b22f54",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12998
+        },
+        "role": "precondition",
+        "original_body": "upperBound()->notEmpty()",
+        "original_body_sha256": "8cc9dc1ebd922b31ef7d69b5ef9a1e02fc9bdf2e10d2687d6b3686c27be9b14f"
+      },
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-isMultivalued-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:d0be075db3d42d31b96cf690e2eec84c4a894ccbfa44d13aef0b223ff9fa5af4",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13006
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (upperBound() > 1)",
+        "original_body_sha256": "2f5134cd1be4f89e3e494276176a80d969abb9038ebcc5dcb845a77d33ea27bf"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 13,
+      "original_constraint_evaluations": 13,
+      "native_calls": 8,
+      "outcomes": {
+        "true": 10,
+        "false": 2,
+        "invalid": 1
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": true
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-isMultivalued-pre",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-isMultivalued-pre",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]/ownedRule[name=pre]",
+      "occurrence": 1,
+      "key": "source-identity:f0dd2c1b9b6eb300c98595b52de99d924cf1f302a6611e80f8cfecde65b22f54",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12998
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-isMultivalued",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]",
+      "occurrence": 1,
+      "key": "source-identity:b90289d2c1aee1f4408f0fd4004d3d4bcf17aa71e18ae3f1ffbfd8f7574ec314",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12991
+    },
+    "operation_name": "isMultivalued",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-isMultivalued-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:3dc74b51fc2e81a765e44da9f85a1d6e7c88706741c578f579882711f39db4d7",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13015
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-isMultivalued-pre",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]/ownedRule[name=pre]",
+          "occurrence": 1,
+          "key": "source-identity:f0dd2c1b9b6eb300c98595b52de99d924cf1f302a6611e80f8cfecde65b22f54",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 12998
+        },
+        "role": "precondition",
+        "original_body": "upperBound()->notEmpty()",
+        "original_body_sha256": "8cc9dc1ebd922b31ef7d69b5ef9a1e02fc9bdf2e10d2687d6b3686c27be9b14f"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 5,
+      "original_constraint_evaluations": 5,
+      "native_calls": 0,
+      "outcomes": {
+        "true": 5
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-isMultivalued-spec",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-isMultivalued-spec",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]/ownedRule[name=spec]",
+      "occurrence": 1,
+      "key": "source-identity:d0be075db3d42d31b96cf690e2eec84c4a894ccbfa44d13aef0b223ff9fa5af4",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13006
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-isMultivalued",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]",
+      "occurrence": 1,
+      "key": "source-identity:b90289d2c1aee1f4408f0fd4004d3d4bcf17aa71e18ae3f1ffbfd8f7574ec314",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12991
+    },
+    "operation_name": "isMultivalued",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-isMultivalued-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:3dc74b51fc2e81a765e44da9f85a1d6e7c88706741c578f579882711f39db4d7",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13015
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Boolean",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-isMultivalued-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=isMultivalued]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:d0be075db3d42d31b96cf690e2eec84c4a894ccbfa44d13aef0b223ff9fa5af4",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13006
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (upperBound() > 1)",
+        "original_body_sha256": "2f5134cd1be4f89e3e494276176a80d969abb9038ebcc5dcb845a77d33ea27bf"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 8,
+      "original_constraint_evaluations": 8,
+      "native_calls": 8,
+      "outcomes": {
+        "true": 5,
+        "false": 2,
+        "invalid": 1
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:construct:UML.xmi:MultiplicityElement-lower.1",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lower.1",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]",
+      "occurrence": 1,
+      "key": "source-identity:bf3ceb9e89ee6760f6e8d922c920597882ddda4f81b0c7b9499178f101cda63c",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13020
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lower.1",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]",
+      "occurrence": 1,
+      "key": "source-identity:bf3ceb9e89ee6760f6e8d922c920597882ddda4f81b0c7b9499178f101cda63c",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13020
+    },
+    "operation_name": "lower",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lower.1-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:19a1a6d113037eaa0dd7d281a3e8d9b36dd6df7c164e697cc185532263469b8a",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13035
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Integer",
+        "lower": "0",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lower.1-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:6dbedef8480529ccbd8b888132d8dc4d6202843381e57012427e253e932b907b",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13025
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (lowerBound())",
+        "original_body_sha256": "3059281fd4de5adf5030fc0e0128f57beff7ca04bb2a79414a2356b8c97b62c7"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 10,
+      "original_constraint_evaluations": 10,
+      "native_calls": 10,
+      "outcomes": {
+        "true": 10
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": true
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-lower.1-spec",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lower.1-spec",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]/ownedRule[name=spec]",
+      "occurrence": 1,
+      "key": "source-identity:6dbedef8480529ccbd8b888132d8dc4d6202843381e57012427e253e932b907b",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13025
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lower.1",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]",
+      "occurrence": 1,
+      "key": "source-identity:bf3ceb9e89ee6760f6e8d922c920597882ddda4f81b0c7b9499178f101cda63c",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13020
+    },
+    "operation_name": "lower",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lower.1-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:19a1a6d113037eaa0dd7d281a3e8d9b36dd6df7c164e697cc185532263469b8a",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13035
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Integer",
+        "lower": "0",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lower.1-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:6dbedef8480529ccbd8b888132d8dc4d6202843381e57012427e253e932b907b",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13025
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (lowerBound())",
+        "original_body_sha256": "3059281fd4de5adf5030fc0e0128f57beff7ca04bb2a79414a2356b8c97b62c7"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 5,
+      "original_constraint_evaluations": 5,
+      "native_calls": 5,
+      "outcomes": {
+        "true": 5
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:attribute:UML.xmi:MultiplicityElement-lower",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lower",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedAttribute[name=lower]",
+      "occurrence": 1,
+      "key": "source-identity:b10a7cd654dba2606ed66a76df0146a0e10dc7d613a53cbc2c32734aae5a5ab4",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12875
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lower.1",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]",
+      "occurrence": 1,
+      "key": "source-identity:bf3ceb9e89ee6760f6e8d922c920597882ddda4f81b0c7b9499178f101cda63c",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13020
+    },
+    "operation_name": "lower",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lower.1-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:19a1a6d113037eaa0dd7d281a3e8d9b36dd6df7c164e697cc185532263469b8a",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13035
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Integer",
+        "lower": "0",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lower.1-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:6dbedef8480529ccbd8b888132d8dc4d6202843381e57012427e253e932b907b",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13025
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (lowerBound())",
+        "original_body_sha256": "3059281fd4de5adf5030fc0e0128f57beff7ca04bb2a79414a2356b8c97b62c7"
+      }
+    ],
+    "derived_definition_link": {
+      "source_identity": {
+        "file": "uml-2.5.1/UML.xmi",
+        "native_id": "MultiplicityElement-lower",
+        "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedAttribute[name=lower]",
+        "occurrence": 1,
+        "key": "source-identity:b10a7cd654dba2606ed66a76df0146a0e10dc7d613a53cbc2c32734aae5a5ab4",
+        "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+        "source_line": 12875
+      },
+      "definition_identity": {
+        "file": "uml-2.5.1/UML.xmi",
+        "native_id": "MultiplicityElement-lower.1-spec",
+        "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lower]/ownedRule[name=spec]",
+        "occurrence": 1,
+        "key": "source-identity:6dbedef8480529ccbd8b888132d8dc4d6202843381e57012427e253e932b907b",
+        "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+        "source_line": 13025
+      },
+      "type": "Integer",
+      "lower": "1",
+      "upper": "1"
+    },
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 5,
+      "original_constraint_evaluations": 5,
+      "native_calls": 5,
+      "outcomes": {
+        "true": 5
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:construct:UML.xmi:MultiplicityElement-lowerBound",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lowerBound",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lowerBound]",
+      "occurrence": 1,
+      "key": "source-identity:56af9b5e4c7a91f7061c97342e93c56c7ea6ff1444e0d5df90e759f3f898d65a",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13042
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lowerBound",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lowerBound]",
+      "occurrence": 1,
+      "key": "source-identity:56af9b5e4c7a91f7061c97342e93c56c7ea6ff1444e0d5df90e759f3f898d65a",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13042
+    },
+    "operation_name": "lowerBound",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lowerBound-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lowerBound]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:0224b141ebf7228f62877228bb1b7aa10d0f639dd908257544b97ad10a4a487b",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13056
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Integer",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lowerBound-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lowerBound]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:670d3bf4fffc9a695600e6ea1e5c5eae43908b60c13ec33e233c42e9fbc41342",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13047
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (if (lowerValue=null or lowerValue.integerValue()=null) then 1 else lowerValue.integerValue() endif)",
+        "original_body_sha256": "19696f4fa75a3eeace8fe7b60d28df7e563f74d724a03495bb1224fb36ac8383"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 11,
+      "original_constraint_evaluations": 11,
+      "native_calls": 11,
+      "outcomes": {
+        "true": 8,
+        "invalid": 3
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": true
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-lowerBound-spec",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lowerBound-spec",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lowerBound]/ownedRule[name=spec]",
+      "occurrence": 1,
+      "key": "source-identity:670d3bf4fffc9a695600e6ea1e5c5eae43908b60c13ec33e233c42e9fbc41342",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13047
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-lowerBound",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lowerBound]",
+      "occurrence": 1,
+      "key": "source-identity:56af9b5e4c7a91f7061c97342e93c56c7ea6ff1444e0d5df90e759f3f898d65a",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13042
+    },
+    "operation_name": "lowerBound",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lowerBound-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lowerBound]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:0224b141ebf7228f62877228bb1b7aa10d0f639dd908257544b97ad10a4a487b",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13056
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "Integer",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-lowerBound-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=lowerBound]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:670d3bf4fffc9a695600e6ea1e5c5eae43908b60c13ec33e233c42e9fbc41342",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13047
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (if (lowerValue=null or lowerValue.integerValue()=null) then 1 else lowerValue.integerValue() endif)",
+        "original_body_sha256": "19696f4fa75a3eeace8fe7b60d28df7e563f74d724a03495bb1224fb36ac8383"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 11,
+      "original_constraint_evaluations": 11,
+      "native_calls": 11,
+      "outcomes": {
+        "true": 8,
+        "invalid": 3
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:construct:UML.xmi:MultiplicityElement-upper.1",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upper.1",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]",
+      "occurrence": 1,
+      "key": "source-identity:ae21ab6ac54ec8c4b59979121897098e95de7482029415dd524656d954c0c177",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13061
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upper.1",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]",
+      "occurrence": 1,
+      "key": "source-identity:ae21ab6ac54ec8c4b59979121897098e95de7482029415dd524656d954c0c177",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13061
+    },
+    "operation_name": "upper",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upper.1-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:e26849df08603f09948c9d3d7bad16543dceb40ad7640eaf134d737407762579",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13076
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "UnlimitedNatural",
+        "lower": "0",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upper.1-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:f2875a3ac768273637b7fea1c79662ce54db83490a2035366d42138fb7f43af3",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13066
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (upperBound())",
+        "original_body_sha256": "ba752ced9af47c8ed4117e56ceb718f70e4b85883e4b0bcbe1f45f28d8571226"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 10,
+      "original_constraint_evaluations": 10,
+      "native_calls": 10,
+      "outcomes": {
+        "true": 10
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": true
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-upper.1-spec",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upper.1-spec",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]/ownedRule[name=spec]",
+      "occurrence": 1,
+      "key": "source-identity:f2875a3ac768273637b7fea1c79662ce54db83490a2035366d42138fb7f43af3",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13066
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upper.1",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]",
+      "occurrence": 1,
+      "key": "source-identity:ae21ab6ac54ec8c4b59979121897098e95de7482029415dd524656d954c0c177",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13061
+    },
+    "operation_name": "upper",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upper.1-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:e26849df08603f09948c9d3d7bad16543dceb40ad7640eaf134d737407762579",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13076
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "UnlimitedNatural",
+        "lower": "0",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upper.1-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:f2875a3ac768273637b7fea1c79662ce54db83490a2035366d42138fb7f43af3",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13066
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (upperBound())",
+        "original_body_sha256": "ba752ced9af47c8ed4117e56ceb718f70e4b85883e4b0bcbe1f45f28d8571226"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 5,
+      "original_constraint_evaluations": 5,
+      "native_calls": 5,
+      "outcomes": {
+        "true": 5
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:attribute:UML.xmi:MultiplicityElement-upper",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upper",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedAttribute[name=upper]",
+      "occurrence": 1,
+      "key": "source-identity:e2a36e490f81c485e1ca2a3a8d79ed7d49e4b7f0373d4b59a0632d6daaff0190",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 12894
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upper.1",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]",
+      "occurrence": 1,
+      "key": "source-identity:ae21ab6ac54ec8c4b59979121897098e95de7482029415dd524656d954c0c177",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13061
+    },
+    "operation_name": "upper",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upper.1-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:e26849df08603f09948c9d3d7bad16543dceb40ad7640eaf134d737407762579",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13076
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "UnlimitedNatural",
+        "lower": "0",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upper.1-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:f2875a3ac768273637b7fea1c79662ce54db83490a2035366d42138fb7f43af3",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13066
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (upperBound())",
+        "original_body_sha256": "ba752ced9af47c8ed4117e56ceb718f70e4b85883e4b0bcbe1f45f28d8571226"
+      }
+    ],
+    "derived_definition_link": {
+      "source_identity": {
+        "file": "uml-2.5.1/UML.xmi",
+        "native_id": "MultiplicityElement-upper",
+        "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedAttribute[name=upper]",
+        "occurrence": 1,
+        "key": "source-identity:e2a36e490f81c485e1ca2a3a8d79ed7d49e4b7f0373d4b59a0632d6daaff0190",
+        "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+        "source_line": 12894
+      },
+      "definition_identity": {
+        "file": "uml-2.5.1/UML.xmi",
+        "native_id": "MultiplicityElement-upper.1-spec",
+        "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upper]/ownedRule[name=spec]",
+        "occurrence": 1,
+        "key": "source-identity:f2875a3ac768273637b7fea1c79662ce54db83490a2035366d42138fb7f43af3",
+        "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+        "source_line": 13066
+      },
+      "type": "UnlimitedNatural",
+      "lower": "1",
+      "upper": "1"
+    },
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 5,
+      "original_constraint_evaluations": 5,
+      "native_calls": 5,
+      "outcomes": {
+        "true": 5
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:construct:UML.xmi:MultiplicityElement-upperBound",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upperBound",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upperBound]",
+      "occurrence": 1,
+      "key": "source-identity:774b0bb69f33437abb49aca0139a8efe1fbd90bbcc23825c9e9eef00d62e0e24",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13083
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upperBound",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upperBound]",
+      "occurrence": 1,
+      "key": "source-identity:774b0bb69f33437abb49aca0139a8efe1fbd90bbcc23825c9e9eef00d62e0e24",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13083
+    },
+    "operation_name": "upperBound",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upperBound-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upperBound]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:e1d68cbe9bf01bc5015989775c7dee412840abd9fc7454d1dc1026b3c4eacdbc",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13097
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "UnlimitedNatural",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upperBound-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upperBound]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:a87f1a21acce87755ae57220a5af5cc9f3a0b7d84d57bfec88821614f8d9beaa",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13088
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (if (upperValue=null or upperValue.unlimitedValue()=null) then 1 else upperValue.unlimitedValue() endif)",
+        "original_body_sha256": "31d9e28a01b857a63a9ba80ec5bd07022a03011278a3f6ba787d5c655cc77446"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 13,
+      "original_constraint_evaluations": 11,
+      "native_calls": 11,
+      "outcomes": {
+        "true": 8,
+        "not-evaluated": 2,
+        "invalid": 3
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": true
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  },
+  {
+    "obligation_id": "uml:2.5.1:constraint:UML.xmi:MultiplicityElement-upperBound-spec",
+    "source_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upperBound-spec",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upperBound]/ownedRule[name=spec]",
+      "occurrence": 1,
+      "key": "source-identity:a87f1a21acce87755ae57220a5af5cc9f3a0b7d84d57bfec88821614f8d9beaa",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13088
+    },
+    "implementation_status": "partial",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/UmlValidate.java",
+        "symbol": "multiplicityCases"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_backend.py",
+        "symbol": "multiplicity_case_records"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/uml_ocl_obligations.py",
+        "symbol": "multiplicity_execution_catalog"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_each_original_constraint_and_derived_definition_executes_with_actual_values"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_native_scalar_boolean_and_unlimited_results_match_independent_xml_oracle"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_parameter_names_direction_order_and_runtime_result_binding_are_preserved"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_missing_instances_wrong_types_bad_arguments_and_carrier_overflow_stay_uncovered"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_false_null_and_invalid_result_probes_are_distinct_and_never_acceptance"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "ActualMultiplicityOperationTests.test_optional_native_int_carriers_are_disclosed_and_do_not_certify_null_semantics"
+      },
+      {
+        "file": "tests/test_uml_operation_derived_execution.py",
+        "symbol": "MultiplicitySourceContractTests.test_cases_cannot_supply_code_unknown_sources_or_duplicate_ids"
+      }
+    ],
+    "basis": "Pinned UML.xmi full source identity and exact parameter/return signatures; original operation role/equality in separate typed native result frame; independent raw XML defaults/typed literal and pair-direction oracle.",
+    "operation_identity": {
+      "file": "uml-2.5.1/UML.xmi",
+      "native_id": "MultiplicityElement-upperBound",
+      "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upperBound]",
+      "occurrence": 1,
+      "key": "source-identity:774b0bb69f33437abb49aca0139a8efe1fbd90bbcc23825c9e9eef00d62e0e24",
+      "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+      "source_line": 13083
+    },
+    "operation_name": "upperBound",
+    "operation_signature": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upperBound-result",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upperBound]/ownedParameter[name=result]",
+          "occurrence": 1,
+          "key": "source-identity:e1d68cbe9bf01bc5015989775c7dee412840abd9fc7454d1dc1026b3c4eacdbc",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13097
+        },
+        "name": "result",
+        "direction": "return",
+        "type": "UnlimitedNatural",
+        "lower": "1",
+        "upper": "1",
+        "ordered": false,
+        "unique": true
+      }
+    ],
+    "original_definitions": [
+      {
+        "source_identity": {
+          "file": "uml-2.5.1/UML.xmi",
+          "native_id": "MultiplicityElement-upperBound-spec",
+          "xml_path": "XMI/Package[name=UML]/packagedElement[name=CommonStructure]/packagedElement[name=MultiplicityElement]/ownedOperation[name=upperBound]/ownedRule[name=spec]",
+          "occurrence": 1,
+          "key": "source-identity:a87f1a21acce87755ae57220a5af5cc9f3a0b7d84d57bfec88821614f8d9beaa",
+          "sha256": "e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21",
+          "source_line": 13088
+        },
+        "role": "bodyCondition",
+        "original_body": "result = (if (upperValue=null or upperValue.unlimitedValue()=null) then 1 else upperValue.unlimitedValue() endif)",
+        "original_body_sha256": "31d9e28a01b857a63a9ba80ec5bd07022a03011278a3f6ba787d5c655cc77446"
+      }
+    ],
+    "derived_definition_link": null,
+    "actual_execution_evidence": {
+      "round": "uml-multiplicity-execution-next-final-02",
+      "case_result_rows": 13,
+      "original_constraint_evaluations": 11,
+      "native_calls": 11,
+      "outcomes": {
+        "true": 8,
+        "not-evaluated": 2,
+        "invalid": 3
+      },
+      "rows_for_construct_are_overlapping_and_not_summed": false
+    },
+    "limitations": [
+      "Bounded explicit local cases, not complete UML design-time obligations, all model subclasses, full parameter domains or professional acceptance.",
+      "Optional Integer/UnlimitedNatural results use Java int; optional null/invalid carrier equivalence is not certified. Six wrong-kind/LiteralNull/OpaqueExpression bound bodies are actually invalid and remain uncovered.",
+      "No-instance, bad arguments, overflow and diagnostic result injections are never acceptance.",
+      "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
+      "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
+    ],
+    "full_obligation_implemented": false,
+    "independent_model_evaluation": false,
+    "professional_acceptance": "pending",
+    "organization_approval": "pending"
+  }
+]

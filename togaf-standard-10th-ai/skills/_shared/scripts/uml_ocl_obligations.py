@@ -9,6 +9,48 @@ from standards import Incomplete,XMI,safe_xml,sha
 from standards_coverage import source_identities
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE_SHA256='e8166c91f51b8a0c015a90101b83d2249d03252e9f9a500a6511654347804f21'
+MULTIPLICITY_QUERIES=frozenset({'compatibleWith','includesMultiplicity','is','isMultivalued','lower','lowerBound','upper','upperBound'})
+
+def multiplicity_execution_catalog():
+    """Pinned signatures and original roles; presence is not execution evidence."""
+    data=(ROOT/'standards/sources/uml-2.5.1/UML.xmi').read_bytes()
+    if sha(data)!=SOURCE_SHA256:raise Incomplete('Multiplicity execution source fingerprint mismatch')
+    root=safe_xml(data);identities=source_identities({'file':'uml-2.5.1/UML.xmi','sha256':SOURCE_SHA256},root)
+    owner=next(e for e in root.iter('packagedElement') if e.get('name')=='MultiplicityElement')
+    def scalar(e,name):
+        child=e.find(name)
+        return child.get('value','0') if child is not None else '1'
+    def parameter(e):
+        typ=e.get('type')
+        if not typ:
+            child=e.find('type');typ=child.get('href','').rsplit('#',1)[-1] if child is not None else None
+        return {'source_identity':identities[e],'name':e.get('name'),'direction':e.get('direction','in'),
+                'type':typ,'lower':scalar(e,'lowerValue'),'upper':scalar(e,'upperValue'),
+                'ordered':e.get('isOrdered','false')=='true','unique':e.get('isUnique','true')=='true'}
+    records=[]
+    for operation in owner.findall('ownedOperation'):
+        if operation.get('name') not in MULTIPLICITY_QUERIES:continue
+        params=[parameter(e) for e in operation.findall('ownedParameter')]
+        rules=[]
+        for rule in operation.findall('ownedRule'):
+            native_id=rule.get('{'+XMI+'}id');body=rule.findtext('specification/body')
+            role='bodyCondition' if operation.get('bodyCondition')==native_id else 'precondition'
+            if role=='precondition' and not any(c.get('{'+XMI+'}idref')==native_id for c in operation.findall('precondition')):
+                raise Incomplete('Unexpected multiplicity operation constraint role')
+            rules.append({'source_identity':identities[rule],'role':role,'original_body':body,'original_body_sha256':sha(body.encode())})
+        feature=next((e for e in owner.findall('ownedAttribute') if e.get('name')==operation.get('name') and e.get('isDerived')=='true'),None)
+        derived=None
+        if feature is not None:
+            linked=[r for r in operation.findall('ownedRule') if any(c.get('{'+XMI+'}idref')==feature.get('{'+XMI+'}id') for c in r.findall('constrainedElement'))]
+            if len(linked)!=1:raise Incomplete('Multiplicity derived definition link is not unique')
+            derived={'source_identity':identities[feature],'definition_identity':identities[linked[0]],
+                     'type':parameter(feature)['type'],'lower':scalar(feature,'lowerValue'),'upper':scalar(feature,'upperValue')}
+        records.append({'source_identity':identities[operation],'owner_identity':identities[owner],
+                        'context':'MultiplicityElement','name':operation.get('name'),'is_query':operation.get('isQuery')=='true',
+                        'parameters':params,'rules':rules,'derived':derived,'catalog_execution_count':0})
+    if len(records)!=8 or sum(len(r['rules']) for r in records)!=10 or sum(r['derived'] is not None for r in records)!=2:
+        raise Incomplete('Multiplicity execution scope counts changed')
+    return {'source_sha256':SOURCE_SHA256,'operations':records,'catalog_execution_count':0,'full_standard_acceptance':False}
 
 def execution_inventory(data=None,file='uml-2.5.1/UML.xmi'):
     normative=data is None
@@ -85,4 +127,4 @@ def execution_inventory(data=None,file='uml-2.5.1/UML.xmi'):
     return {'schema_version':'uml-ocl-execution-inventory/1','source':source,'source_fingerprint_verified':normative,
         'summary':summary,'ocl_rules':rules,'operations':operations,'derived_features':derived,
         'vertex_inherited_features':inherited,'source_bytes_preserved':True,
-        'scope':'Source catalog only. The mapped validator executes class invariants and one bounded finite-Integer query adapter; it does not certify operation pre/postconditions, body-condition equivalence or derived-feature equivalence.'}
+        'scope':'Source catalog only. The mapped validator executes class invariants and one bounded finite-Integer query adapter. Explicit MultiplicityElement cases additionally bind native arguments/results to original precondition/bodyCondition expressions and two linked derived getters. Catalog presence, no-instance cases, optional int carriers and full operation/derived equivalence are not certified.'}
