@@ -23,6 +23,80 @@ SYNTAX_ADAPTERS={
         'basis':'Normative Transition-containingStateMachine-result has exact return type StateMachine; the query isQuery=true. The let binding and expression remain unchanged.',
     },
 }
+LIFELINE_RULE='Lifeline-interaction_uses_share_lifeline'
+LIFELINE_SOURCE_SHA256='79da3aca775088ee979b72e9bbc16774cfcb4fee0bef79f1c6a4ae23bf72753f'
+UML_PUBLICATION_SHA256='416b57e1933780eb48bd60fe513e031da220c28a521bdd334a366bebc78a463e'
+OCL_PUBLICATION_SHA256='b97e46a946418ba3c8db6f33def013e4d8a56ac500cb1bed055fed660977a7ef'
+
+def boolean_semantics_adapter():
+    publication=ROOT/'standards/sources/ocl-2.4/OCL-2.4.pdf'
+    if not publication.is_file() or sha(publication.read_bytes())!=OCL_PUBLICATION_SHA256:
+        raise Incomplete('Boolean semantic adapter normative OCL fingerprint mismatch')
+    return {'id':'OCL-2.4-Boolean-four-valued-operations','kind':'typed-standard-library-evaluation-adapter',
+            'operations':['and','or','xor','implies','not'],'implementation':'scripts/UmlValidate.java:BooleanEvaluationVisitor',
+            'basis':{'file':'standards/sources/ocl-2.4/OCL-2.4.pdf','sha256':OCL_PUBLICATION_SHA256,
+                     'url':'https://www.omg.org/spec/OCL/2.4/PDF','clause':'11.5.4 Boolean','pdf_page':178,'printed_page':162},
+            'scope':'Only operation owner identity equal to the backend standard Boolean classifier; custom operations delegate to the original evaluator.',
+            'literal_ast_scope':'Exactly eighteen whole expressions: not null/not invalid and null/invalid pairs with and/or/xor/implies; whitespace may vary. No identifiers, strings, nested expressions or model text are rewritten.',
+            'source_body_preserved':True,'human_acceptance':'pending','official_full_conformance':False}
+
+def lifeline_adapter(row):
+    """Use §17.12.17.5 prose to make the published collection RHS executable.
+
+    This is a separately disclosed semantic adaptation. The published OCL is
+    ill-typed (Boolean implies Bag(Lifeline)) and uses the peer selector inside
+    the enclosing-lifeline selection. The prose explicitly requires existence
+    of a common enclosing lifeline, with the same represents and selector.
+    """
+    body=row['body']
+    if row.get('context')!='Lifeline' or sha(body.encode())!=LIFELINE_SOURCE_SHA256:
+        raise Incomplete('Lifeline semantic adapter source fingerprint/context mismatch')
+    publication=ROOT/'standards/sources/uml-2.5.1/UML-2.5.1.pdf'
+    if not publication.is_file() or sha(publication.read_bytes())!=UML_PUBLICATION_SHA256:
+        raise Incomplete('Lifeline semantic adapter normative prose fingerprint mismatch')
+    marker='peerUses->forAll('
+    if body.count(marker)!=1:raise Incomplete('Lifeline semantic adapter quantifier boundary mismatch')
+    def common(candidate):
+        return '('+candidate+'.represents = self.represents and '+\
+            '(if self.selector = null then '+candidate+'.selector = null '+\
+            'else if '+candidate+'.selector = null then false '+\
+            'else if self.selector.oclIsKindOf(LiteralString) then '+\
+            'if '+candidate+'.selector.oclIsKindOf(LiteralString) then '+\
+            'self.selector.oclAsType(LiteralString).value = '+candidate+'.selector.oclAsType(LiteralString).value else false endif '+\
+            'else if self.selector.oclIsKindOf(LiteralInteger) then '+\
+            'if '+candidate+'.selector.oclIsKindOf(LiteralInteger) then '+\
+            'self.selector.oclAsType(LiteralInteger).value = '+candidate+'.selector.oclAsType(LiteralInteger).value else false endif '+\
+            'else false endif endif endif endif))'
+    execution='let intUses : Set(InteractionUse) = interaction.interactionUse in\n'+\
+        'intUses->forAll(iuse : InteractionUse |\n'+\
+        ' let usingInteraction : Set(Interaction) = iuse.enclosingInteraction->asSet()->union(\n'+\
+        '  iuse.enclosingOperand->asSet().combinedFragment->asSet()\n'+\
+        '   ->closure(cf : CombinedFragment | cf.enclosingOperand->asSet().combinedFragment->asSet())\n'+\
+        '   .enclosingInteraction->asSet()) in\n'+\
+        ' let peerUses : Set(InteractionUse) =\n'+\
+        '  usingInteraction.fragment->select(oclIsKindOf(InteractionUse))\n'+\
+        '   ->collect(f : InteractionFragment | f.oclAsType(InteractionUse))->asSet()->union(\n'+\
+        '  usingInteraction.fragment->select(oclIsKindOf(CombinedFragment))\n'+\
+        '   ->collect(f : InteractionFragment | f.oclAsType(CombinedFragment))->asSet()\n'+\
+        '   ->closure(cf : CombinedFragment | cf.operand.fragment->select(oclIsKindOf(CombinedFragment))\n'+\
+        '    ->collect(f : InteractionFragment | f.oclAsType(CombinedFragment))->asSet())\n'+\
+        '   .operand.fragment->select(oclIsKindOf(InteractionUse))\n'+\
+        '   ->collect(f : InteractionFragment | f.oclAsType(InteractionUse))->asSet())->excluding(iuse) in\n'+\
+        'peerUses->forAll(peerUse : InteractionUse |\n'+\
+        ' peerUse.refersTo.lifeline->forAll(peer : Lifeline |\n'+\
+        '  '+common('peer')+' implies\n'+\
+        '  usingInteraction.lifeline->exists(enclosing : Lifeline | '+common('enclosing')+')\n'+\
+        ' ))\n)'
+    return execution,{'id':LIFELINE_RULE,'context':'Lifeline','kind':'normative-prose-semantic-adapter',
+        'status':'applied-to-execution-body','original_body':body,'original_body_sha256':LIFELINE_SOURCE_SHA256,
+        'execution_body':execution,'execution_body_sha256':sha(execution.encode()),'source_body_preserved':True,
+        'basis':{'file':'standards/sources/uml-2.5.1/UML-2.5.1.pdf','sha256':UML_PUBLICATION_SHA256,
+                 'url':'https://www.omg.org/spec/UML/2.5.1/PDF','clause':'17.12.17.5 interaction_uses_share_lifeline',
+                 'pdf_pages':[664,665],'printed_pages':[622,623],
+                 'prose':'It must be common to a lifeline within that enclosing Interaction. By common Lifelines we mean Lifelines with the same selector and represents associations.'},
+        'adaptation':'Use the published enclosing/peer-use containment paths, with optional ends lifted to sets and element-wise typed casts; replace collection-valued implication RHS with exists, bind the candidate selector, and compare absent/string/integer selectors symmetrically.',
+        'scope':'Standard LiteralString/LiteralInteger/absent selectors; unsupported selector kinds are not accepted as common.',
+        'human_acceptance':'pending','official_full_conformance':False}
 
 def official_rules():
     source=ROOT/'standards/sources/uml-2.5.1/UML.xmi';xml=safe_xml(source.read_bytes());rows=[]
@@ -35,11 +109,7 @@ def official_rules():
     return rows,sha(source.read_bytes())
 
 def execution_rules(rows):
-    """Copy source rules, applying only two fingerprint-pinned syntax adapters.
-
-    The source bodies remain authoritative. Lifeline's ill-typed constraint is
-    deliberately not interpreted here; parsing is not normative certification.
-    """
+    """Copy source rules, keeping pinned syntax and prose adaptations separate."""
     executable=[];adapters=[];seen=set()
     for row in rows:
         item=dict(row);config=SYNTAX_ADAPTERS.get(row['id'])
@@ -55,9 +125,13 @@ def execution_rules(rows):
                 'original_body_sha256':digest,'execution_body_sha256':sha(item['body'].encode()),
                 'adaptation':config['original_token']+' -> '+config['execution_token'],'basis':config['basis'],
                 'source_body_preserved':True,'scope':'Only the pinned rule ID, context and original body bytes; not a full-language equivalence certificate.'})
+        if row['id']==LIFELINE_RULE:
+            if row['id'] in seen:raise Incomplete('duplicate Lifeline semantic adapter source rule')
+            seen.add(row['id']);item['body'],adapter=lifeline_adapter(row);adapters.append(adapter)
         executable.append(item)
-    if seen!=set(SYNTAX_ADAPTERS):
-        raise Incomplete('UML syntax adapter pinned rule missing: '+', '.join(sorted(set(SYNTAX_ADAPTERS)-seen)))
+    required=set(SYNTAX_ADAPTERS)|{LIFELINE_RULE}
+    if seen!=required:
+        raise Incomplete('UML adapter pinned rule missing: '+', '.join(sorted(required-seen)))
     return executable,adapters
 
 def official_query_adapters():
@@ -90,7 +164,7 @@ def validate_mapped(data,java_home=None):
     home=Path(java_home or os.environ.get('JAVA_HOME',''))
     java=str(home/'bin/java') if (home/'bin/java').is_file() else shutil.which('java')
     if not java:raise Incomplete('Java21 unavailable; pass --java-home or JAVA_HOME')
-    rules,source_sha=official_rules();executable,syntax_adapters=execution_rules(rules);queries=official_query_adapters()
+    rules,source_sha=official_rules();executable,syntax_adapters=execution_rules(rules);queries=official_query_adapters();boolean_adapter=boolean_semantics_adapter()
     # Map namespace declarations and Clark tags only through a serialized copy.
     # In contrast to byte.replace, this does not rewrite business string literals.
     from lxml import etree
@@ -114,7 +188,7 @@ def validate_mapped(data,java_home=None):
         result=subprocess.run([java,'-Xmx512m','--class-path',str(JARS/'*'),str(ROOT/'scripts/UmlValidate.java'),str(p),str(tsv),str(JARS),str(query_tsv)],capture_output=True,text=True,timeout=120)
         if result.returncode:raise Incomplete('mapped UML2/OCL backend failed: '+result.stderr[-4000:])
         report=json.loads(result.stdout)
-    report.update(original_sha256=sha(data),mapped_sha256=sha(copy),namespace_mapping=mapping,original_bytes_preserved=True,normative_ocl_source_sha256=source_sha,normative_ocl_rule_count=len(rules),query_adapters=queries,syntax_adapters=syntax_adapters,dependency_manifest_sha256=sha((JARS/'manifest.json').read_bytes()),mapping_equivalence='explicit adapter, not independently certified',conformance_status='incomplete')
+    report.update(original_sha256=sha(data),mapped_sha256=sha(copy),namespace_mapping=mapping,original_bytes_preserved=True,normative_ocl_source_sha256=source_sha,normative_ocl_rule_count=len(rules),query_adapters=queries,syntax_adapters=[a for a in syntax_adapters if a['kind']=='exact-source-syntax-adapter'],semantic_adapters=[a for a in syntax_adapters if a['kind']=='normative-prose-semantic-adapter'],boolean_operation_adapter=boolean_adapter,dependency_manifest_sha256=sha((JARS/'manifest.json').read_bytes()),mapping_equivalence='explicit adapter, not independently certified',conformance_status='incomplete',value_semantics={'outcomes':['true','false','null','invalid','non-boolean'],'null_is_false':False,'null_is_invalid':False,'boolean_null_operation_equivalence':'typed OCL 2.4 Boolean operation adapter; full-language equivalence not certified'})
     return report
 
 def main():

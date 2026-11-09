@@ -124,17 +124,16 @@ def query_boundary_probe(data):
 
 
 class SyntaxAdapterSourceGuards(unittest.TestCase):
-    def test_only_execution_copies_of_the_two_pinned_bodies_change(self):
+    def test_only_execution_copies_of_three_pinned_bodies_change(self):
         rows,digest=official_rules();original=copy.deepcopy(rows);executable,adapters=execution_rules(rows)
         self.assertEqual(original,rows);self.assertEqual(425,len(rows));self.assertEqual(digest,official_rules()[1])
-        self.assertEqual({OPAQUE,TRANSITION},{a['id'] for a in adapters})
-        self.assertEqual({OPAQUE,TRANSITION},{r['id'] for r,e in zip(rows,executable) if r['body']!=e['body']})
-        self.assertEqual(next(r['body'] for r in rows if r['id']==LIFELINE),next(r['body'] for r in executable if r['id']==LIFELINE))
+        self.assertEqual({OPAQUE,TRANSITION,LIFELINE},{a['id'] for a in adapters})
+        self.assertEqual({OPAQUE,TRANSITION,LIFELINE},{r['id'] for r,e in zip(rows,executable) if r['body']!=e['body']})
         for adapter in adapters:
             self.assertEqual(sha(adapter['original_body'].encode()),adapter['original_body_sha256'])
             self.assertEqual(sha(adapter['execution_body'].encode()),adapter['execution_body_sha256'])
     def test_body_whitespace_context_and_wrong_id_do_not_bypass_fingerprint_guard(self):
-        for identity in [OPAQUE,TRANSITION]:
+        for identity in [OPAQUE,TRANSITION,LIFELINE]:
             for field,value in [('body',None),('context','State'),('id',identity+'-different')]:
                 rows,_=official_rules();row=next(r for r in rows if r['id']==identity)
                 row[field]=row[field]+' ' if value is None else value
@@ -179,11 +178,13 @@ class ActualSyntaxAdapterOracleTests(unittest.TestCase):
         self.assertEqual([],rows['normative-vertex-null']['invalid_ids']);self.assertNotIn('ORPHAN_STATE',rows['native-vertex-null']['violation_ids'])
         required=[d for d in self.report['diagnostics'] if '#T_NO_CONTAINER' in d['message'] and "required feature 'container'" in d['message']]
         self.assertEqual(1,len(required));self.assertEqual(4,required[0]['severity'])
-    def test_report_preserves_source_authority_and_lifeline_remains_unmapped(self):
-        self.assertEqual(425,self.report['normative_ocl_rule_count']);self.assertEqual(424,self.report['ocl_parsed']);self.assertEqual(1,self.report['ocl_unmapped'])
+    def test_report_preserves_source_authority_and_lifeline_prose_basis(self):
+        self.assertEqual(425,self.report['normative_ocl_rule_count']);self.assertEqual(425,self.report['ocl_parsed']);self.assertEqual(0,self.report['ocl_unmapped'])
         self.assertFalse(self.report['official_full_conformance']);self.assertEqual('incomplete',self.report['conformance_status'])
         pending=next(r for r in self.report['ocl_rules'] if r['id']==LIFELINE)
-        self.assertEqual('unmapped-or-parse-failed',pending['parse_status']);self.assertIn('implies(Bag(Lifeline))',pending['parse_error'])
+        self.assertEqual('parsed',pending['parse_status'])
+        self.assertEqual([LIFELINE],[a['id'] for a in self.report['semantic_adapters']])
+        self.assertEqual([664,665],self.report['semantic_adapters'][0]['basis']['pdf_pages'])
         self.assertEqual({OPAQUE,TRANSITION},{a['id'] for a in self.report['syntax_adapters']})
 
 

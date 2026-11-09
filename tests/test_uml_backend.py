@@ -22,8 +22,9 @@ class ActualUMLBackendTests(unittest.TestCase):
     def test_normative_invariants_are_parsed_and_individually_reported(self):
         self.assertEqual(len(self.good['ocl_rules']),425);self.assertGreater(self.good['ocl_parsed'],300);self.assertEqual(self.good['ocl_parsed']+self.good['ocl_unmapped'],425);self.assertGreater(self.good['ocl_evaluations'],0)
     def test_duplicate_names_detected_by_independent_ocl_invariant(self):
+        good=next(r for r in self.good['ocl_rules'] if r['id']=='Namespace-members_distinguishable');self.assertEqual(good['violations'],0);self.assertEqual(good['invalid_evaluations'],0)
         row=next(r for r in self.bad['ocl_rules'] if r['id']=='Namespace-members_distinguishable');self.assertEqual(row['violations'],1);self.assertEqual(row['violation_ids'],['M']);self.assertTrue(self.bad['diagnostics'])
-    def test_library_load_does_not_certify_full_language(self):self.assertFalse(self.good['official_full_conformance']);self.assertEqual(self.good['conformance_status'],'incomplete');self.assertGreater(self.good['ocl_unmapped'],0)
+    def test_library_load_does_not_certify_full_language(self):self.assertFalse(self.good['official_full_conformance']);self.assertEqual(self.good['conformance_status'],'incomplete');self.assertEqual('typed OCL 2.4 Boolean operation adapter; full-language equivalence not certified',self.good['value_semantics']['boolean_null_operation_equivalence']);self.assertFalse(self.good['boolean_operation_adapter']['official_full_conformance'])
     def test_original_namespace_and_byte_authority_preserved(self):
         self.assertTrue(self.good['original_bytes_preserved']);self.assertEqual(self.good['namespace_mapping']['http://www.omg.org/spec/UML/20131001'],'http://www.eclipse.org/uml2/5.0.0/UML');self.assertNotEqual(self.good['original_sha256'],self.good['mapped_sha256'])
     def test_normative_multiplicity_query_adapter_detects_pin_boundary(self):

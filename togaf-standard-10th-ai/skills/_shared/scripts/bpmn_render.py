@@ -1,7 +1,7 @@
-"""Render an explicit BPMNDI view with bpmn-js; no layout or missing DI is invented.
+"""Render explicit BPMNDI with local native-design and bpmn-js symbol backends.
 
-This gate covers visible process/collaboration notation, not the full BPMN semantic
-or choreography suite. All model, DI and rendered element IDs are cross-checked.
+Source node bounds and connector waypoints are authoritative. Missing diagram
+geometry is refused, and this operation does not establish full conformance.
 """
 import json
 import math
@@ -23,8 +23,17 @@ EDGES = {'sequenceFlow', 'messageFlow', 'association', 'dataInputAssociation', '
 CONTAINERS = {'subProcess', 'transaction', 'adHocSubProcess'}
 
 
-def diagram_plan(data, package_root=None):
+def diagram_plan(data, package_root=None, auto_layout=False):
     """Require the single requested view to cover every visible semantic element."""
+    if type(auto_layout) is not bool:
+        raise Invalid('auto_layout must be an explicitly selected Boolean')
+    if auto_layout:
+        from bpmn_layout import derive_layout
+        derived, layout = derive_layout(data, package_root)
+        plan = diagram_plan(derived, package_root)
+        plan.update(layout=layout, authoritative_source_sha256=sha(data),
+                    layout_xml=derived.decode('utf-8'), auto_layout=True)
+        return plan
     report = check_native(data, 'bpmn', '2.0.2', package_root)
     if report['errors']:
         raise Invalid('; '.join(report['errors']))
@@ -32,6 +41,11 @@ def diagram_plan(data, package_root=None):
     if blockers:
         raise Incomplete('; '.join(blockers))
     root = safe_xml(data)
+    if any(isinstance(e.tag, str) and
+           (local(e.tag) in {'choreography', 'conversation', 'subConversation', 'callConversation'} or
+            e.get('participantBandKind')) for e in root.iter()):
+        from bpmn_design_render import design_plan
+        return design_plan(data, root, report)
     nodes = {e.get('id'): e for e in root.iter() if isinstance(e.tag, str) and e.get('id')}
     diagrams = list(root.iter('{'+DI+'}BPMNDiagram'))
     if len(diagrams) != 1:
@@ -125,12 +139,21 @@ def diagram_plan(data, package_root=None):
             'native_validation': report}
 
 
-def render_native(data, out, package_root=None):
+def render_native(data, out, package_root=None, auto_layout=False):
+    if type(auto_layout) is not bool:
+        raise Invalid('auto_layout must be an explicitly selected Boolean')
+    original_data = data
+    layout = None
+    if auto_layout:
+        from bpmn_layout import derive_layout
+        data, layout = derive_layout(data, package_root)
     plan = diagram_plan(data, package_root)
     out = Path(out).resolve()
     base = out.with_suffix('') if out.suffix.lower() in {'.svg', '.png'} else out/'diagram'
     destinations = {'svg': base.with_suffix('.svg'), 'png': base.with_suffix('.png'),
                     'report': base.with_suffix('.render.json')}
+    if layout and layout['derived']:
+        destinations['derived_bpmn'] = base.with_suffix('.layout.bpmn')
     if any(p.exists() for p in destinations.values()):
         raise Invalid('Refusing to overwrite an existing BPMN rendering or evidence report')
     with tempfile.TemporaryDirectory(prefix='bpmn-notation-') as tmp:
@@ -143,7 +166,8 @@ def render_native(data, out, package_root=None):
                 'input': str(source), 'font': str(font), 'svg': str(folder/'diagram.svg'),
                 'png': str(folder/'diagram.png'), 'report': str(folder/'render.json')}
         (folder/'spec.json').write_text(json.dumps(spec, ensure_ascii=False))
-        run = subprocess.run([shutil.which('node') or 'node', str(ROOT/'scripts/bpmn_render.mjs'), str(folder/'spec.json')],
+        script = 'bpmn_design_render.mjs' if plan.get('backend') == 'native-design-di' else 'bpmn_render.mjs'
+        run = subprocess.run([shutil.which('node') or 'node', str(ROOT/'scripts'/script), str(folder/'spec.json')],
                              capture_output=True, text=True, timeout=120)
         if run.returncode:
             reason = (run.stderr or run.stdout)[-4000:]
@@ -155,8 +179,12 @@ def render_native(data, out, package_root=None):
                       native_validation=plan['native_validation'],
                       conformance_status='incomplete', full_language_acceptance=False,
                       outputs={k: str(p) for k,p in destinations.items()},
-                      source_sha256=sha(data))
+                      source_sha256=sha(original_data), rendered_model_sha256=sha(data),
+                      auto_layout=bool(auto_layout), layout=layout,
+                      authoritative_source_unchanged=True)
         for kind in ('svg', 'png'):
             write_new(destinations[kind], (folder/('diagram.'+kind)).read_bytes())
+        if 'derived_bpmn' in destinations:
+            write_new(destinations['derived_bpmn'], data)
         write_new(destinations['report'], json.dumps(result, ensure_ascii=False, indent=2).encode())
         return result

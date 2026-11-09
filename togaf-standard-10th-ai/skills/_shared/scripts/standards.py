@@ -11,7 +11,7 @@ SOURCES=ROOT/'standards/sources'
 VERSIONS={'bpmn':'2.0.2','uml':'2.5.1','archimate':'4'}
 BPMN='http://www.omg.org/spec/BPMN/20100524/MODEL'
 XMI='http://www.omg.org/spec/XMI/20131001'
-KNOWN={BPMN,'http://www.omg.org/spec/BPMN/20100524/DI','http://www.omg.org/spec/DD/20100524/DI','http://www.omg.org/spec/DD/20100524/DC',XMI,'http://www.omg.org/spec/UML/20131001','http://www.omg.org/spec/UML/20131001/UMLDI','http://www.omg.org/spec/DD/20131001/DI','http://www.omg.org/spec/DD/20131001/DC','http://www.w3.org/2001/XMLSchema-instance'}
+KNOWN={BPMN,'http://www.omg.org/spec/BPMN/20100524/DI','http://www.omg.org/spec/DD/20100524/DI','http://www.omg.org/spec/DD/20100524/DC',XMI,'http://www.omg.org/spec/UML/20131001','http://www.omg.org/spec/UML/20131001/UMLDI','http://www.omg.org/spec/UML/20161101/UMLDI','http://www.omg.org/spec/DD/20131001/DI','http://www.omg.org/spec/DD/20131001/DC','http://www.w3.org/2001/XMLSchema-instance'}
 class Invalid(ValueError):pass
 class Incomplete(RuntimeError):pass
 
@@ -34,7 +34,21 @@ def native_inventory(root):
         result.append({'id':identity,'tag':e.tag,'attributes':dict(e.attrib),'text':e.text if e.text and e.text.strip() else None,'children':[c.tag for c in e if isinstance(c.tag,str)]})
     return result
 
-def validate_references(root,package_root=None):
+def bpmn_reference_fields():
+    """Derive QName/IDREF fields from the acquired normative exchange schemas."""
+    fields={'attribute':{},'element':{}}
+    xsd='{http://www.w3.org/2001/XMLSchema}'
+    for name in ('Semantic.xsd','BPMNDI.xsd','DI.xsd'):
+        path=SOURCES/'bpmn-2.0.2'/name
+        if not path.is_file():raise Incomplete('normative reference schema missing: '+name)
+        schema=safe_xml(path.read_bytes())
+        for element in schema.iter():
+            if element.tag not in (xsd+'attribute',xsd+'element'):continue
+            if element.get('type','').split(':')[-1] in ('QName','IDREF','IDREFS') and element.get('name'):
+                fields[local(element.tag)][element.get('name')]=element.get('type').split(':')[-1]
+    return fields
+
+def validate_references(root,package_root=None,verified_external_refs=None):
     from bpmn_references import local_reference, local_id
     ids={};errors=[];blocked=[]
     for e in root.iter():
@@ -43,20 +57,23 @@ def validate_references(root,package_root=None):
         if identity:
             if identity in ids:errors.append('duplicate native ID: '+identity)
             ids[identity]=e
-    refattrs={'sourceRef','targetRef','processRef','attachedToRef','bpmnElement','default','activityRef','messageRef','participantRef','initiatingParticipantRef','itemSubjectRef','errorRef','escalationRef','signalRef','operationRef','calledElement','choreographyRef'}
+    fields=bpmn_reference_fields() if namespace(root.tag)==BPMN else {'attribute':{},'element':{}}
+    refattrs=fields['attribute']
     for e in root.iter():
         if not isinstance(e.tag,str):continue
         for key,value in e.attrib.items():
             if namespace(e.tag) in (BPMN,'http://www.omg.org/spec/BPMN/20100524/DI') and not namespace(key) and local(key) in refattrs:
                 # QName prefixes are namespace-qualified, not silently local IDs.
-                ref,problem=local_reference(e,value,root.get('targetNamespace'))
-                if problem:blocked.append(problem)
-                elif ref not in ids:errors.append('dangling BPMN reference: '+value)
+                for token in value.split() if refattrs[local(key)]=='IDREFS' else [value]:
+                    ref,problem=local_reference(e,token,root.get('targetNamespace'))
+                    if problem:blocked.append(problem)
+                    elif ref not in ids:errors.append('dangling BPMN reference: '+token)
             if namespace(key) in ('',XMI) and local(key) in ('href','idref'):
                 if local(key)=='idref':
                     for ref in value.split():
                         if ref not in ids:errors.append('dangling XMI idref: '+ref)
                     continue
+                if value in (verified_external_refs or set()):continue
                 path,_,fragment=value.partition('#');path=unquote(path)
                 if not path:
                     if fragment and fragment not in ids:errors.append('dangling href fragment: '+fragment)
@@ -71,11 +88,12 @@ def validate_references(root,package_root=None):
                 else:
                     ext=safe_xml(target.read_bytes())
                     if fragment and not any(c.get('{'+XMI+'}id')==fragment or c.get('id')==fragment for c in ext.iter()):errors.append('external href fragment missing: '+value)
-        if namespace(e.tag)==BPMN and local(e.tag) in ('incoming','outgoing','flowNodeRef','participantRef','messageFlowRef','eventDefinitionRef','sourceRef','targetRef'):
+        if namespace(e.tag)==BPMN and local(e.tag) in fields['element']:
             if e.text:
-                ref,problem=local_reference(e,e.text,root.get('targetNamespace'))
-                if problem:blocked.append(problem)
-                elif ref not in ids:errors.append('dangling BPMN reference element: '+e.text.strip())
+                for token in e.text.split() if fields['element'][local(e.tag)]=='IDREFS' else [e.text]:
+                    ref,problem=local_reference(e,token,root.get('targetNamespace'))
+                    if problem:blocked.append(problem)
+                    elif ref not in ids:errors.append('dangling BPMN reference element: '+token.strip())
     return errors,blocked
 
 def catalog(language,version):
@@ -99,8 +117,14 @@ def catalog(language,version):
             props=[{'name':p.get('name'),'tag':local(p.tag),'id':p.get('{'+XMI+'}id') or next((v for k,v in p.attrib.items() if local(k)=='id'),None),'validation_status':'uncovered'} for p in e if local(p.tag) in ('ownedAttribute','ownedRule','ownedLiteral')]
             identity=e.get('{'+XMI+'}id') or next((v for k,v in e.attrib.items() if local(k)=='id'),None)
             constructs.append({'name':e.get('name'),'kind':t.split(':')[-1],'native_id':identity,'source_file':sourcefile.name,'properties_constraints':props,'source_locator':'xmi:id='+str(identity),'implementation_status':'inventory-only','conformance_tests':'uncovered'})
+    from standards_coverage import ledger
+    coverage=ledger(language,version)
+    profile_catalog={}
+    if language=='uml':
+        from uml_profiles import catalog as standard_profile_catalog
+        profile_catalog={'standard_profile':standard_profile_catalog()}
     return {'language':language,'version':version,'sources':[{'file':p.name,'sha256':sha(p.read_bytes())} for p in files if p.suffix in ('.cmof','.xmi','.xsd')],
-        'constructs':constructs,'construct_count':len(constructs),'full_design_time_validation':'incomplete','official_oracle':'machine-readable source, not implementation generator','coverage_status':'uncovered','di_source':'BPMNDI/DI/DC' if language=='bpmn' else 'UMLDI/PrimitiveTypes/StandardProfile','certification':'not-claimed'}
+        'constructs':constructs,'construct_count':len(constructs),'full_design_time_validation':'incomplete','official_oracle':'machine-readable source, not implementation generator','coverage_status':'uncovered','coverage_ledger':coverage,'di_source':'BPMNDI/DI/DC' if language=='bpmn' else 'UMLDI/PrimitiveTypes/StandardProfile','certification':'not-claimed',**profile_catalog}
 
 def check_native(data,language,version,package_root=None):
     if VERSIONS.get(language)!=version:raise Invalid('unsupported version; no fallback')
@@ -131,16 +155,32 @@ def check_native(data,language,version,package_root=None):
         from bpmn_semantics import check as check_behavior
         behavior=check_behavior(root)
         errors.extend(f["rule_id"]+': '+str(f['id'])+': '+f['message'] for f in behavior['findings'])
+        from bpmn_design_semantics import check as check_design_time
+        design_time=check_design_time(root)
+        errors.extend(f["rule_id"]+': '+str(f['id'])+': '+f['message'] for f in design_time['findings'])
     elif namespace(root.tag) not in (XMI,'http://www.omg.org/spec/UML/20131001'):
         errors.append('UML 2.5.1 requires normative UML/XMI namespaces; Eclipse namespaces require explicit mapping, not silent substitution')
-    referrors,refblocked=validate_references(root,package_root);errors+=referrors;blocked+=refblocked
+    if language=='uml' and not errors:
+        from uml_design_semantics import check as check_uml_design_time
+        design_time=check_uml_design_time(root)
+        errors.extend(f['rule_id']+': '+str(f['id'])+': '+f['message'] for f in design_time['findings'])
+        from uml_profiles import check as check_standard_profiles
+        profiles=check_standard_profiles(root,package_root)
+        verified_refs=set(profiles['verified_profile_references'])
+        errors.extend(f['rule_id']+': '+str(f['id'])+': '+f['message'] for f in profiles['findings'])
+        blocked.extend(profiles['capability_uncovered'])
+        blocked.extend(message for message in design_time['capability_uncovered']
+                       if not any(message=='Cross-file UML reference type remains unverified: '+ref for ref in verified_refs))
+    referrors,refblocked=validate_references(root,package_root,verified_refs if 'verified_refs' in locals() else None);errors+=referrors;blocked+=refblocked
     vendor=sorted({uri for e in root.iter() if isinstance(e.tag,str)
                    for uri in [namespace(e.tag),*(namespace(key) for key in e.attrib)]
-                   if uri and uri not in KNOWN and uri!='http://www.w3.org/XML/1998/namespace'})
+                   if uri and uri not in KNOWN and uri not in (profiles['verified_profile_namespaces'] if 'profiles' in locals() else []) and uri!='http://www.w3.org/XML/1998/namespace'})
     if vendor:blocked.append('vendor/profile extensions opaque, not standard-validated: '+', '.join(vendor))
     if language=='uml':blocked.append('complete UML2/OCL/Profiles/UMLDI metamodel validation and notation suite not yet verified')
     else:blocked.append('complete BPMN normative semantic, choreography and notation constraint suite not yet verified')
-    return {'language':language,'version':version,'errors':errors,'blockers':blocked,'native_inventory':native_inventory(root),'vendor_namespaces':vendor,'conformance_status':'invalid' if errors else 'incomplete','source_sha256':sha(data),**({'behavior_validation':behavior} if language=='bpmn' else {})}
+    missing=[item for item in blocked if any(token in item for token in ('file missing','source missing','material missing','resource missing','not acquired','needs a package root')) or item.startswith('package root required')]
+    groups={'validation_errors':errors,'missing_material':missing,'capability_uncovered':[item for item in blocked if item not in missing]}
+    return {'language':language,'version':version,'errors':errors,'blockers':blocked,'diagnostic_groups':groups,'native_inventory':native_inventory(root),'vendor_namespaces':vendor,'conformance_status':'invalid' if errors else 'incomplete','source_sha256':sha(data),**({'behavior_validation':behavior,'design_time_semantics':design_time} if language=='bpmn' else {'design_time_semantics':design_time} if 'design_time' in locals() else {}),**({'standard_profile_validation':profiles} if 'profiles' in locals() else {})}
 
 def make_package(data,language,version,package_root=None):
     report=check_native(data,language,version,package_root)
@@ -173,9 +213,11 @@ def write_new(path,data):
     with path.open('xb') as stream:stream.write(data)
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('command',choices=['catalog','import','validate','export','render']);parser.add_argument('--language',choices=VERSIONS,required=True);parser.add_argument('--version',required=True);parser.add_argument('--input',type=Path);parser.add_argument('--out',type=Path);parser.add_argument('--package-root',type=Path);parser.add_argument('--normalize',action='store_true');parser.add_argument('--mapped-uml-backend',action='store_true');parser.add_argument('--java-home',type=Path);args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('command',choices=['catalog','import','validate','export','render']);parser.add_argument('--language',choices=VERSIONS,required=True);parser.add_argument('--version',required=True);parser.add_argument('--input',type=Path);parser.add_argument('--out',type=Path);parser.add_argument('--package-root',type=Path);parser.add_argument('--normalize',action='store_true');parser.add_argument('--auto-layout',action='store_true');parser.add_argument('--mapped-uml-backend',action='store_true');parser.add_argument('--java-home',type=Path);args=parser.parse_args()
     result={};code=0
     try:
+        if args.auto_layout and (args.command!='render' or args.language!='bpmn'):
+            raise Invalid('--auto-layout requires BPMN render')
         if args.command=='catalog':
             result=catalog(args.language,args.version);code=3 if result.get('source_status')=='blocked' else 0
         else:
@@ -212,7 +254,7 @@ def main():
                 if args.version!='2.0.2':raise Invalid('unsupported BPMN rendering version; no fallback')
                 if not args.out:raise Invalid('--out required')
                 from bpmn_render import render_native, Invalid as BpmnInvalid, Incomplete as BpmnIncomplete
-                try:result=render_native(data,args.out,args.package_root)
+                try:result=render_native(data,args.out,args.package_root,auto_layout=args.auto_layout)
                 except BpmnInvalid as exc:raise Invalid(str(exc))
                 except BpmnIncomplete as exc:raise Incomplete(str(exc))
             elif args.command=='render' and args.language=='uml':

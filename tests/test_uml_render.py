@@ -33,6 +33,26 @@ UML='''<?xml version="1.0" encoding="utf-8"?>
 
 
 class UmlNotationTests(unittest.TestCase):
+    def test_source_bound_standard_profile_notation_keeps_model_and_application_ids(self):
+        uri='http://www.omg.org/spec/UML/20161101/StandardProfile'
+        root=safe_xml(UML)
+        wrapper=etree.Element('{http://www.omg.org/spec/XMI/20131001}XMI',nsmap={
+            'xmi':'http://www.omg.org/spec/XMI/20131001','uml':'http://www.omg.org/spec/UML/20131001','StandardProfile':uri})
+        wrapper.append(root)
+        pa=etree.SubElement(root,'profileApplication',{'{http://www.omg.org/spec/XMI/20131001}type':'uml:ProfileApplication',
+                                                     '{http://www.omg.org/spec/XMI/20131001}id':'PA'})
+        etree.SubElement(pa,'appliedProfile',href=uri+'.xmi#_0')
+        for name,identity,field,target in [('Utility','ST_CLASS','base_Class','ORDER'),
+                                         ('Create','ST_OPERATION','base_BehavioralFeature','ORDER_CREATE'),
+                                         ('Framework','ST_PACKAGE','base_Package','DOMAIN')]:
+            etree.SubElement(wrapper,'{'+uri+'}'+name,{'{http://www.omg.org/spec/XMI/20131001}id':identity,field:target})
+        raw=etree.tostring(wrapper);before=etree.tostring(wrapper)
+        model=diagram_model(raw);svg,layout=svg_diagram(model)
+        self.assertEqual(before,etree.tostring(wrapper));self.assertEqual(3,len(model['profile_applications']))
+        self.assertIn('data-stereotype-ids="ST_CLASS"',svg)
+        for label in ('«Utility»','«Create» +create','«Framework»'):self.assertIn(label,svg)
+        self.assertEqual(5,len(layout['classifiers']));self.assertEqual(3,len(model['relations']))
+
     def test_class_features_operations_and_explicit_association_bounds(self):
         model=diagram_model(UML)
         self.assertEqual(5,len(model['classifiers']))
@@ -67,7 +87,7 @@ class UmlNotationTests(unittest.TestCase):
                 with self.assertRaises(Incomplete):diagram_model(raw)
 
     def test_unresolved_and_external_type_is_blocked(self):
-        with self.assertRaisesRegex(Incomplete,'Unresolved'):
+        with self.assertRaisesRegex(Invalid,'Dangling type reference'):
             diagram_model(UML.replace(b'type="INTEGER"',b'type="MISSING"'))
         raw=UML.replace(b'name="status" visibility="private" type="STRING"/>',b'name="status" visibility="private"><type href="https://example.invalid/types.uml#String"/></ownedAttribute>')
         with self.assertRaises(Incomplete):diagram_model(raw)

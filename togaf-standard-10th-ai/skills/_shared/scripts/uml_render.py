@@ -1,7 +1,9 @@
-"""Native UML 2.5.1 class-diagram subset, with explicit generated layout.
+"""Native UML 2.5.1 class diagram and validated StandardProfile text labels.
 
-Unsupported constructs, unresolved types, navigability and aggregation are refused.
-This renderer does not claim UMLDI preservation or full metamodel/OCL acceptance.
+The derived layout supports Model/Package, Class/PrimitiveType, compartments,
+ordinary associations and generalizations. StandardProfile text labels apply to
+supported Class/Operation/Package elements. Full diagram/OCL/Profile/UMLDI
+acceptance remains incomplete; original native bytes remain authoritative.
 """
 import html
 import json
@@ -23,8 +25,15 @@ def diagram_model(data, package_root=None):
     blockers=[b for b in validation['blockers'] if not b.startswith('complete UML2/OCL')]
     if blockers:raise Incomplete('; '.join(blockers))
     root=safe_xml(data)
+    from uml_profiles import check as check_profile
+    profile=check_profile(root,package_root)
+    if profile['findings']:raise Invalid('; '.join(f['message'] for f in profile['findings']))
+    if profile['capability_uncovered']:raise Incomplete('; '.join(profile['capability_uncovered']))
+    stereotypes={}
+    for application in profile['applications']:
+        stereotypes.setdefault(application['base_id'],[]).append(application)
     if root.tag=='{'+XMI+'}XMI':
-        models=[e for e in root if isinstance(e.tag,str)]
+        models=[e for e in root if isinstance(e.tag,str) and namespace(e.tag) not in profile['verified_profile_namespaces']]
         if len(models)!=1 or models[0].tag!='{'+UML+'}Model':raise Incomplete('Class rendering requires exactly one native UML Model')
         root=models[0]
     if root.tag!='{'+UML+'}Model':raise Incomplete('Class rendering requires a native UML Model')
@@ -70,6 +79,7 @@ def diagram_model(data, package_root=None):
         pid=identity(package);packages.append({'id':pid,'name':name(package),'visibility':visibility(package),'parent_id':parent,'kind':'Model' if package is root else 'Package'})
         for e in package:
             if not isinstance(e.tag,str):continue
+            if local(e.tag)=='profileApplication':continue  # Verified separately; no mutation of authoritative XMI.
             if local(e.tag)!='packagedElement':raise Incomplete('Unsupported package child: '+local(e.tag))
             kind=typed(e)
             if kind=='Package':collect(e,pid)
@@ -183,7 +193,14 @@ def diagram_model(data, package_root=None):
         if ident in ranks:return ranks[ident]
         visiting.add(ident);value=max([rank(p)+1 for p in parents[ident]] or [0]);visiting.remove(ident);ranks[ident]=value;return value
     for ident in parents:rank(ident)
-    return {'model_id':identity(root),'name':name(root),'packages':packages,'classifiers':classifiers,'relations':relations,'ranks':ranks,'applied_defaults':defaults,'native_validation':validation,'source_sha256':sha(data)}
+    for classifier in classifiers:
+        classifier['stereotypes']=stereotypes.get(classifier['id'],[])
+        for feature in classifier['attributes']+classifier['operations']:
+            feature['stereotypes']=stereotypes.get(feature['id'],[])
+            if feature['stereotypes']:
+                feature['text']='«'+', '.join(a['stereotype'] for a in feature['stereotypes'])+'» '+feature['text']
+    for package in packages:package['stereotypes']=stereotypes.get(package['id'],[])
+    return {'model_id':identity(root),'name':name(root),'packages':packages,'classifiers':classifiers,'relations':relations,'ranks':ranks,'applied_defaults':defaults,'native_validation':validation,'profile_applications':profile['applications'],'source_sha256':sha(data)}
 
 
 def svg_diagram(model):
@@ -191,9 +208,11 @@ def svg_diagram(model):
     def text_width(s):return sum(14 if ord(c)>255 else 8 for c in s)
     boxes={};package_boxes={};end_labels=[];by_package={p['id']:[] for p in model['packages']}
     for c in model['classifiers']:
-        lines=[c['name']]+[a['text'] for a in c['attributes']]+[o['text'] for o in c['operations']]
+        stereotype_text='«'+', '.join(a['stereotype'] for a in c.get('stereotypes',[]))+'»' if c.get('stereotypes') else ''
+        lines=[c['name'],stereotype_text]+[a['text'] for a in c['attributes']]+[o['text'] for o in c['operations']]
         c['width']=max(240,max(map(text_width,lines))+44)
         c['height']=70+max(1,len(c['attributes']))*25+max(1,len(c['operations']))*25 if c['kind']=='Class' else 76
+        if stereotype_text:c['height']+=24
         by_package[c['package_id']].append(c)
     children={p['id']:[] for p in model['packages']}
     for p in model['packages']:
@@ -215,7 +234,7 @@ def svg_diagram(model):
     width,height=layout(model['model_id'],20,70);width+=70;height+=140
     pieces=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}"><defs><marker id="uml-generalization" viewBox="0 0 20 20" refX="18" refY="10" markerWidth="14" markerHeight="14" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L18,10 L1,19 Z" fill="white" stroke="#263440" stroke-width="1.5"/></marker></defs><rect width="100%" height="100%" fill="white"/>',f'<text x="24" y="36" font-family="TogafCJK" font-size="22">{esc(model["name"])} — UML 类图</text>']
     for p in model['packages']:
-        b=package_boxes[p['id']];x,y,w,h=b['x'],b['y'],b['width'],b['height'];label=('«model» ' if p['kind']=='Model' else '')+p['visibility']+p['name'];tab=max(150,text_width(label)+24)
+        b=package_boxes[p['id']];x,y,w,h=b['x'],b['y'],b['width'],b['height'];stereotype_text=('«'+', '.join(a['stereotype'] for a in p.get('stereotypes',[]))+'» ') if p.get('stereotypes') else '';label=stereotype_text+('«model» ' if p['kind']=='Model' else '')+p['visibility']+p['name'];tab=max(150,text_width(label)+24)
         pieces.append(f'<g data-native-id="{esc(p["id"])}" class="uml-package"><path d="M{x},{y+22} V{y} H{x+tab} V{y+22} H{x+w} V{y+h} H{x} Z" fill="white" stroke="#647583" stroke-width="1.3"/><text x="{x+10}" y="{y+17}" font-family="TogafCJK" font-size="14">{esc(label)}</text></g>')
     for relation in model['relations']:
         a,b=boxes[relation['source_id']],boxes[relation['target_id']];ax,ay=a['x']+a['width']/2,a['y']+a['height']/2;bx,by=b['x']+b['width']/2,b['y']+b['height']/2
@@ -248,11 +267,15 @@ def svg_diagram(model):
         b=boxes[c['id']];x,y,w,h=b['x'],b['y'],b['width'],b['height'];style='font-style:italic;' if c['abstract'] else ''
         pieces.append(f'<g data-native-id="{esc(c["id"])}" class="uml-classifier"><rect x="{x}" y="{y}" width="{w}" height="{h}" fill="white" stroke="#263440" stroke-width="1.5"/>')
         title_y=y+28
+        if c.get('stereotypes'):
+            labels='«'+', '.join(a['stereotype'] for a in c['stereotypes'])+'»'
+            ids=' '.join(a['id'] or '' for a in c['stereotypes'])
+            pieces.append(f'<text data-stereotype-ids="{esc(ids)}" x="{x+w/2}" y="{title_y}" text-anchor="middle" font-family="TogafCJK" font-size="14">{esc(labels)}</text>');title_y+=24
         if c['kind']=='PrimitiveType':pieces.append(f'<text x="{x+w/2}" y="{title_y}" text-anchor="middle" font-family="TogafCJK" font-size="14">«primitive»</text>');title_y+=24
         skew=f' transform="translate({x+w/2},{title_y}) skewX(-12) translate({-(x+w/2)},{-title_y})"' if c['abstract'] else ''
         pieces.append(f'<text x="{x+w/2}" y="{title_y}" text-anchor="middle" font-family="TogafCJK" font-size="16" style="{style}"{skew}>{esc(c["visibility"]+c["name"])}</text>')
         if c['kind']=='Class':
-            sep1=y+44;sep2=sep1+max(1,len(c['attributes']))*25+10
+            sep1=y+44+(24 if c.get('stereotypes') else 0);sep2=sep1+max(1,len(c['attributes']))*25+10
             pieces.append(f'<path d="M{x},{sep1} H{x+w} M{x},{sep2} H{x+w}" stroke="#263440" fill="none"/>')
             for i,a in enumerate(c['attributes']):
                 decoration='text-decoration:underline;' if a['static'] else ''
@@ -287,11 +310,11 @@ def render_native(data,out,package_root=None):
         raster=json.loads((folder/'render-report.json').read_text())
         result={'status':'passed','operation':'render','language':'uml','version':'2.5.1','notation_status':'native-class-diagram-subset',
                 'renderer':'Native UML compartment/relationship renderer + resvg 2.6.2','layout_status':'layout generated; UMLDI not preserved',
-                'supported_scope':'Model/Package, Class/PrimitiveType, attributes, operations/parameters, acyclic Class generalization and ordinary non-navigable binary Class associations with explicit literal bounds.',
+                'supported_scope':'Model/Package, Class/PrimitiveType, attributes, operations/parameters, acyclic Class generalization, ordinary non-navigable binary Class associations with explicit literal bounds, and source-validated official StandardProfile text labels on supported Class/Operation/Package elements.',
                 'conformance_status':'incomplete','full_language_acceptance':False,'source_sha256':sha(data),
                 'classifier_count':len(model['classifiers']),'relation_count':len(model['relations']),'model':model,'layout':layout,'raster':raster,
                 'outputs':{k:str(p) for k,p in paths.items()},'svg_sha256':sha(svg.encode()),'png_sha256':sha((folder/'diagram.png').read_bytes()),
-                'limits':['Full UML metamodel/OCL, all 673 constructs, Profiles and UMLDI acceptance are incomplete.','Unsupported constructs/properties, external or unresolved types, navigability, association classes, aggregation and composition are refused.','Generated layout is a new reading view; original XML bytes/IDs are preserved in inventory and mapped fields.','This operation does not grant professional notation certification or business acceptance.']}
+                'limits':['Full UML metamodel/OCL, arbitrary Profile definitions, stereotype icons, all diagram categories and UMLDI acceptance remain incomplete.','Unsupported constructs/properties, external or unresolved types, navigability, association classes, aggregation and composition are refused.','Generated layout is a new reading view; original XML bytes/IDs are preserved in inventory and mapped fields.','Professional notation acceptance and business approval remain pending.']}
         for kind in ('svg','png'):write_new(paths[kind],(folder/('diagram.'+kind)).read_bytes())
         write_new(paths['report'],json.dumps(result,ensure_ascii=False,indent=2).encode())
         return result
