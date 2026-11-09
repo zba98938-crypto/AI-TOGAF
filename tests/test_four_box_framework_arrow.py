@@ -17,6 +17,7 @@ from registry import load
 def inspect_connector(svg):
     root = ET.fromstring(svg)
     cards, text_bottom, relations, polygons, extra_marker_lines = {}, {}, {}, [], []
+    issues, leader_relationship_ids = [], set()
     for node in root.iter():
         tag = node.tag.rsplit('}', 1)[-1]
         if tag == 'g' and node.get('data-entity-id'):
@@ -24,8 +25,22 @@ def inspect_connector(svg):
             rect = next(child for child in node if child.tag.endswith('rect'))
             cards[ident] = tuple(float(rect.get(k)) for k in ('x', 'y', 'width', 'height'))
             text_bottom[ident] = max(float(child.get('y')) for child in node if child.tag.endswith('text'))
-        if tag == 'path' and node.get('data-relationship-id'):
-            relations[node.get('data-relationship-id')] = node.attrib
+        if tag == 'path':
+            leader = node.get('data-annotation-leader')
+            ident = node.get('data-relationship-id')
+            if leader not in (None, 'true'):
+                issues.append('invalid-annotation-leader-value')
+            if leader == 'true':
+                if node.get('marker-start') or node.get('marker-end'):
+                    issues.append('annotation-leader-has-business-arrow')
+                if ident:
+                    leader_relationship_ids.add(ident)
+            elif ident:
+                if ident in relations:
+                    issues.append('duplicate-business-relationship-path')
+                relations[ident] = node.attrib
+                if node.get('marker-end') != 'url(#arrow)':
+                    issues.append('missing-business-relationship-arrow')
         if tag == 'path' and node.get('marker-start') and not node.get('data-relationship-id'):
             extra_marker_lines.append(node.attrib)
         if tag == 'polygon':
@@ -37,7 +52,8 @@ def inspect_connector(svg):
     near = lambda a, b: abs(a[0] - b[0]) < .11 and abs(a[1] - b[1]) < .11
     fixed = [(node, pts) for node, pts in polygons
              if any(near(p, (x1, y)) for p in pts) and any(near(p, (x2, y)) for p in pts)]
-    issues = []
+    if leader_relationship_ids - relations.keys():
+        issues.append('annotation-leader-without-business-relationship')
     if extra_marker_lines:
         issues.append('unnumbered-model-marker-line')
     if len(fixed) != 1:
@@ -98,6 +114,72 @@ class FourBoxFrameworkArrowTests(unittest.TestCase):
                 points[0] = points[1]
                 target.set('points', ' '.join(points))
             self.assertTrue(inspect_connector(ET.tostring(root, encoding='unicode'))[0], mutation)
+
+    def test_same_id_annotation_leader_keeps_business_arrow_in_either_order(self):
+        profile = load()[2]['four-box-business-model-default']
+        model = normalize_example(profile)
+        svg, _ = render_profile(model, model['views'][0], profile, 'adaptive')
+        for leader_first in (False, True):
+            with self.subTest(leader_first=leader_first):
+                root = ET.fromstring(svg)
+                leader = next(n for n in root.iter() if n.get('data-annotation-leader') == 'true')
+                ident = leader.get('data-relationship-id')
+                business = next(n for n in root.iter() if n.tag.endswith('path')
+                                and n.get('data-relationship-id') == ident
+                                and n.get('data-annotation-leader') is None)
+                before = dict(business.attrib)
+                parent = next(n for n in root.iter() if leader in list(n))
+                parent.remove(leader)
+                parent.insert(0 if leader_first else len(parent), leader)
+                issues, _, relations, _, _ = inspect_connector(ET.tostring(root, encoding='unicode'))
+                self.assertEqual([], issues)
+                self.assertEqual(before, relations[ident])
+                self.assertEqual({r['id'] for r in model['relationships']}, set(relations))
+                self.assertTrue(all(r.get('marker-end') == 'url(#arrow)' for r in relations.values()))
+
+    def test_oracle_rejects_missing_business_arrows_and_mislabeled_business_paths(self):
+        profile = load()[2]['four-box-business-model-default']
+        model = normalize_example(profile)
+        svg, _ = render_profile(model, model['views'][0], profile, 'adaptive')
+        for mutation, expected in (
+                ('missing-arrow', 'missing-business-relationship-arrow'),
+                ('business-marked-as-leader', 'annotation-leader-has-business-arrow'),
+                ('missing-business-path', 'annotation-leader-without-business-relationship'),
+                ('duplicate-business-path', 'duplicate-business-relationship-path')):
+            with self.subTest(mutation=mutation):
+                root = ET.fromstring(svg)
+                leader = next(n for n in root.iter() if n.get('data-annotation-leader') == 'true')
+                business = next(n for n in root.iter() if n.tag.endswith('path')
+                                and n.get('data-relationship-id') == leader.get('data-relationship-id')
+                                and n.get('data-annotation-leader') is None)
+                parent = next(n for n in root.iter() if business in list(n))
+                if mutation == 'missing-arrow':
+                    del business.attrib['marker-end']
+                elif mutation == 'business-marked-as-leader':
+                    business.set('data-annotation-leader', 'true')
+                elif mutation == 'missing-business-path':
+                    parent.remove(business)
+                else:
+                    parent.append(copy.deepcopy(business))
+                issues, _, relations, _, _ = inspect_connector(ET.tostring(root, encoding='unicode'))
+                self.assertIn(expected, issues)
+                if mutation in ('business-marked-as-leader', 'missing-business-path'):
+                    self.assertNotEqual({r['id'] for r in model['relationships']}, set(relations))
+
+    def test_oracle_rejects_illegal_annotation_leader_values(self):
+        profile = load()[2]['four-box-business-model-default']
+        model = normalize_example(profile)
+        svg, _ = render_profile(model, model['views'][0], profile, 'adaptive')
+        for value in ('false', 'TRUE', '', '1', 'null'):
+            with self.subTest(value=value):
+                root = ET.fromstring(svg)
+                business = next(n for n in root.iter() if n.tag.endswith('path')
+                                and n.get('data-relationship-id')
+                                and n.get('data-annotation-leader') is None)
+                business.set('data-annotation-leader', value)
+                issues, _, relations, _, _ = inspect_connector(ET.tostring(root, encoding='unicode'))
+                self.assertIn('invalid-annotation-leader-value', issues)
+                self.assertEqual({r['id'] for r in model['relationships']}, set(relations))
 
 
 if __name__ == '__main__':
