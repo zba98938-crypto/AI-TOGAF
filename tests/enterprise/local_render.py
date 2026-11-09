@@ -189,9 +189,17 @@ def validate_graphic(kind, data):
         if tag in {'script', 'foreignobject', 'iframe', 'object', 'embed', 'audio', 'video', 'image',
                    'set', 'animate', 'animatemotion', 'animatetransform'}:
             raise ValueError('active or embedded graphic content is refused')
-        for key, value in element.attrib.items():
-            key = key.split('}')[-1].lower()
-            if key.startswith('on') or key in {'base', 'schemaLocation'.lower()}:
+        for attribute, value in element.attrib.items():
+            key = attribute.split('}')[-1].lower()
+            # BPMN 2.0.2 Semantic.xsd, tMultiInstanceLoopCharacteristics,
+            # declares this unqualified QName reference (Table 10.41).
+            # Its "on" prefix is not a browser event handler. Keep the
+            # exception exact: no foreign element/namespace/case aliases,
+            # and never carry it into the rendered SVG admission boundary.
+            standard_mi_reference = (kind == 'bpmn'
+                and element.tag == '{http://www.omg.org/spec/BPMN/20100524/MODEL}multiInstanceLoopCharacteristics'
+                and attribute == 'oneBehaviorEventRef')
+            if (key.startswith('on') and not standard_mi_reference) or key in {'base', 'schemaLocation'.lower()}:
                 raise ValueError('active attributes and external schemas are refused')
             standard_profile_href='http://www.omg.org/spec/UML/20161101/StandardProfile.xmi#_0'
             if key in {'href', 'src'} and not re.fullmatch(r'#[\w.:-]+', value) and not (kind=='uml-class-layout' and key=='href' and value==standard_profile_href):

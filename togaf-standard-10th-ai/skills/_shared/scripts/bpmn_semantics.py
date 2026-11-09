@@ -169,7 +169,12 @@ def check(root):
     for edge in root.iter('{'+DI+'}BPMNEdge'):
         target=resolve(edge,edge.get('bpmnElement'))
         ref,problem=local_reference(edge,edge.get('bpmnElement'),root.get('targetNamespace'))
-        if not problem and (target is None or not standard(target,{'sequenceFlow','messageFlow','association','dataInputAssociation','dataOutputAssociation','conversationLink'})):issue('di-edge',edge,'diagram edge does not refer to a semantic connector')
+        if edge.get('bpmnElement') is None:
+            from bpmn_data_notation import shortcut
+            from standards import Invalid,Incomplete
+            try:shortcut(root,edge)
+            except (Invalid,Incomplete) as exc:issue('di-edge',edge,str(exc))
+        elif not problem and (target is None or not standard(target,{'sequenceFlow','messageFlow','association','dataInputAssociation','dataOutputAssociation','conversationLink'})):issue('di-edge',edge,'diagram edge does not refer to a semantic connector')
         points=[x for x in edge if local(x)=='waypoint']
         if len(points)<2:issue('di-edge',edge,'diagram edge has fewer than two waypoints')
         try:

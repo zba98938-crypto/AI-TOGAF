@@ -59,7 +59,10 @@ and spells ConversationNode.messageFlowRef as messageFlowRefs.
 
 
 def design_plan(data, root, report):
+    import math
     from bpmn_render import SHAPES, EDGES, CONTAINERS
+    from bpmn_data_notation import graphic_types,selected_data,shortcut,validate_data_endpoints,DATA_SHAPES,DATA_EDGES
+    graphic_type=graphic_types()
     shapes_supported = SHAPES | CONVERSATIONS | CHOREOGRAPHY_ACTIVITIES
     edges_supported = EDGES | {'conversationLink'}
     nodes = {e.get('id'): e for e in root.iter() if isinstance(e.tag, str) and e.get('id')}
@@ -86,27 +89,35 @@ def design_plan(data, root, report):
 
     def bounds(e):
         b = e.find('{' + DC + '}Bounds')
-        return {k: float(b.get(k)) for k in ('x', 'y', 'width', 'height')} if b is not None else None
+        if b is None:return None
+        raw={k:b.get(k) for k in ('x','y','width','height')}
+        try:
+            values={k:float(v) for k,v in raw.items()}
+            if not all(math.isfinite(v) for v in values.values()) or values['width']<=0 or values['height']<=0:raise ValueError()
+        except (TypeError,ValueError):raise Invalid('Native DI bounds require finite coordinates and positive dimensions')
+        return raw
 
     for index, e in enumerate(plane):
         if local(e.tag) not in {'BPMNShape', 'BPMNEdge'}:
             continue
         semantic = resolve(e, e.get('bpmnElement'))
         is_shape = local(e.tag) == 'BPMNShape'
-        if semantic is None or local(semantic.tag) not in (shapes_supported if is_shape else edges_supported):
+        special=shortcut(root,e) if not is_shape and e.get('bpmnElement') is None else None
+        if not special and (semantic is None or graphic_type(semantic) not in (shapes_supported if is_shape else edges_supported)):
             raise Incomplete('Unsupported native notation element: ' + str(e.get('bpmnElement')))
-        sid = semantic.get('id')
+        sid = semantic.get('id') if semantic is not None else '__shortcut_'+(e.get('id') or '__source_di_'+str(index))
         # DI IDs are optional in the official XSD; a source-position identifier is
         # an output identity only, never written back into authoritative XML.
         gid = e.get('id') or '__source_di_' + str(index)
         if any(g['graphic_id'] == gid for g in graphics):
             raise Invalid('Duplicate DI graphic identity: ' + gid)
-        g = {'graphic_id': gid, 'semantic_id': sid, 'type': local(semantic.tag),
+        g = {'graphic_id': gid, 'semantic_id': sid if semantic is not None else None, 'type': graphic_type(semantic) if semantic is not None else 'dataAssociationShortcut',
              'kind': 'shape' if is_shape else 'edge',
              'identity_origin': 'native-id' if e.get('id') else 'source-plane-position',
-             'source_locator': root.getroottree().getpath(e),
-             'name': semantic.get('name') or '',
+             'source_locator': root.getroottree().getpath(e),'source_plane_index':index,
+             'name': semantic.get('name') or '' if semantic is not None else '',
              'attributes': {k: v for k, v in e.attrib.items() if k not in {'id', 'bpmnElement'}}}
+        if special:g['view_identity']=sid
         label = e.find(d('BPMNLabel'))
         g['label_bounds'] = bounds(label) if label is not None else None
         if is_shape:
@@ -123,28 +134,41 @@ def design_plan(data, root, report):
                 raise Incomplete(g['type'] + ' notation needs a resolved ' + call_attr + ' to select its standard symbol')
             multiplicity = semantic.find(q('participantMultiplicity'))
             g['participant_multiplicity'] = multiplicity is not None and (multiplicity.get('maximum') is None or int(multiplicity.get('maximum')) > 1)
+            if not g['band_kind'] and any(not old['band_kind'] for old in shapes.get(sid,[])):raise Invalid('Repeated ordinary BPMN element depiction is not allowed: '+sid)
             shapes.setdefault(sid, []).append(g)
         else:
-            g['waypoints'] = [{k: float(c.get(k)) for k in ('x', 'y')} for c in e if local(c.tag) == 'waypoint']
+            g['waypoints'] = [{k: c.get(k) for k in ('x', 'y')} for c in e if local(c.tag) == 'waypoint']
             g['source_graphic_id'] = ref(e, e.get('sourceElement'))
             g['target_graphic_id'] = ref(e, e.get('targetElement'))
-            g['source_semantic_id'] = ref(semantic, semantic.get('sourceRef'))
-            g['target_semantic_id'] = ref(semantic, semantic.get('targetRef'))
+            g['source_semantic_id'] = ref(semantic, semantic.get('sourceRef')) if semantic is not None else None
+            g['target_semantic_id'] = ref(semantic, semantic.get('targetRef')) if semantic is not None else None
+            if special:g.update(special)
+            g['source_semantic_ids']=[ref(c,c.text) for c in semantic.findall(q('sourceRef'))] if semantic is not None else []
             # DataAssociation uses reference children rather than attributes.
             for direction in ('source', 'target'):
-                c = semantic.find(q(direction + 'Ref'))
+                c = semantic.find(q(direction + 'Ref')) if semantic is not None else None
                 if c is not None:
                     g[direction + '_semantic_id'] = ref(c, c.text)
+            if sid in edges:raise Invalid('Repeated BPMN edge depiction is not allowed: '+sid)
             edges.setdefault(sid, []).append(g)
         graphics.append(g)
 
-    expected_shapes, expected_edges, hidden = set(), set(), []
+    expected_shapes, expected_edges, hidden = set(), {g['view_identity'] for g in graphics if g['type']=='dataAssociationShortcut'}, []
+    inventory=[];data_owners=set()
+    def data_details(owner):
+        if owner in data_owners:return
+        data_owners.add(owner)
+        for item in selected_data(owner,graphic_type):
+            sid=item.get('id');shape=graphic_type(item) in DATA_SHAPES
+            depicted=sid in (shapes if shape else edges)
+            inventory.append({'id':sid,'type':graphic_type(item),'native_role':local(item.tag),'owner_id':owner.get('id'),'depicted':depicted,'source_locator':root.getroottree().getpath(item),'scope':'visible owner; optional data depiction'})
+            if depicted:(expected_shapes if shape else expected_edges).add(sid)
     visible_wrappers = CONTAINERS | {'subChoreography'}
     visiting = set()
 
     def hide(owner, parent_id):
         hidden.extend({'id': c.get('id'), 'type': local(c.tag), 'collapsed_parent_id': parent_id}
-                      for c in owner.iterdescendants() if isinstance(c.tag, str) and c.get('id'))
+                      for c in owner.iterdescendants() if isinstance(c.tag, str) and c.get('id') and c.get('id') not in shapes and c.get('id') not in edges)
 
     def conversation_details(owner):
         for child in owner:
@@ -161,6 +185,7 @@ def design_plan(data, root, report):
         if owner in visiting:
             raise Incomplete('Recursive expanded called choreography cannot be unfolded in one finite DI view')
         visiting.add(owner)
+        data_details(owner)
         for e in owner:
             if not isinstance(e.tag, str) or not e.tag.startswith('{' + BPMN + '}'):
                 continue
@@ -168,10 +193,13 @@ def design_plan(data, root, report):
             if k == 'laneSet':
                 for lane in e.iter(q('lane')):
                     expected_shapes.add(lane.get('id'))
+            elif graphic_type(e) in DATA_SHAPES|DATA_EDGES:
+                continue
             elif k in shapes_supported and k != 'participant':
                 expected_shapes.add(sid)
                 declared = shapes.get(sid, [])
                 expanded = any(g['attributes'].get('isExpanded') in {'true', '1'} for g in declared)
+                data_details(e)
                 if k in visible_wrappers:
                     container(e) if expanded else hide(e, sid)
                 elif k == 'subConversation':
@@ -187,12 +215,18 @@ def design_plan(data, root, report):
                 expected_edges.add(sid)
         visiting.remove(owner)
 
+    included_choreographies=[];choreography_inventory=[]
     target_type = local(target.tag)
     if target_type in {'process', 'choreography'}:
         container(target)
         # Choreography message flows are represented by the activity interaction
         # and optional band envelope decorators, not obligatory visible edges.
         if target_type == 'choreography':
+            for participant in target.findall(q('participant')):
+                if any(not g['band_kind'] for g in shapes.get(participant.get('id'),[])):
+                    expected_shapes.add(participant.get('id'))
+                    process=resolve(participant,participant.get('processRef'))
+                    if process is not None:container(process)
             expected_edges -= {e.get('id') for e in target.findall(q('messageFlow'))}
     else:
         for p in target.findall(q('participant')):
@@ -201,6 +235,15 @@ def design_plan(data, root, report):
             if process is not None:
                 container(process)
         container(target)
+        for reference in target.findall(q('choreographyRef')):
+            choreography=resolve(reference,reference.text)
+            if choreography is None or local(choreography.tag)!='choreography':raise Incomplete('Mixed Collaboration requires resolved native choreographyRef')
+            candidates={e.get('id') for e in choreography.iter() if isinstance(e.tag,str) and e.get('id')}
+            depicted=bool(candidates&(set(shapes)|set(edges)))
+            choreography_inventory.append({'id':choreography.get('id'),'depicted':depicted,'source_locator':root.getroottree().getpath(reference),'scope':'referenced native Choreography; inclusion selected by explicit source DI'})
+            if depicted:
+                included_choreographies.append(choreography)
+                container(choreography)
         grouped = {ref(c, c.text) for e in target.iter() if local(e.tag) in CONVERSATIONS for c in e.findall(q('messageFlowRef'))}
         expected_edges -= grouped
     if None in expected_shapes or None in expected_edges:
@@ -213,7 +256,7 @@ def design_plan(data, root, report):
     extra_edges = set(edges) - expected_edges
     # Explicit choreography message connectors and grouped messages remain legal
     # optional depictions when their native scope is in the selected view.
-    optional_messages = {e.get('id') for e in target.findall(q('messageFlow'))}
+    optional_messages = {e.get('id') for owner in [target]+included_choreographies for e in owner.findall(q('messageFlow'))}
     extra_edges -= optional_messages
     if extra_shapes or extra_edges:
         raise Incomplete('DI graphics outside the visible native scope: ' + ', '.join(sorted(extra_shapes | extra_edges)))
@@ -233,10 +276,10 @@ def design_plan(data, root, report):
             group = [g for g in graphics if g.get('activity_graphic_id') == activity['graphic_id']]
             if len(group) < 2:
                 raise Incomplete('Missing required Participant Bands for ' + sid)
-            b = activity['bounds']
+            b = {k:float(v) for k,v in activity['bounds'].items()}
             intervals = []
             for band in group:
-                r = band['bounds']
+                r = {k:float(v) for k,v in band['bounds'].items()}
                 if not (abs(r['x'] - b['x']) < 1e-7 and abs(r['width'] - b['width']) < 1e-7 and
                         r['y'] >= b['y'] and r['y'] + r['height'] <= b['y'] + b['height']):
                     raise Invalid('Participant Band bounds must align with and lie within activity: ' + band['graphic_id'])
@@ -255,6 +298,7 @@ def design_plan(data, root, report):
             if len(gaps) != 1:
                 raise Invalid('Participant Bands must leave exactly one Activity Name Band: ' + sid)
             activity['name_band'] = {'x': b['x'], 'y': gaps[0][0], 'width': b['width'], 'height': gaps[0][1] - gaps[0][0]}
+    validate_data_endpoints(root,graphics)
     for g in graphics:
         if g['kind'] != 'edge':
             continue
@@ -274,12 +318,12 @@ def design_plan(data, root, report):
     projected, adjustments = notation_projection(root)
     return {'backend': 'native-design-di', 'diagram_id': diagrams[0].get('id'), 'plane_id': plane.get('id'),
             'root_id': target.get('id'), 'root_type': target_type,
-            'shape_ids': sorted(shapes), 'edge_ids': sorted(edges),
+            'shape_ids': sorted(shapes), 'edge_ids': sorted({sid for sid in edges if sid in nodes}|{sid for g in graphics for sid in g.get('normalized_semantic_ids',[])}),
             'shape_graphic_ids': [g['graphic_id'] for g in graphics if g['kind'] == 'shape'],
             'edge_graphic_ids': [g['graphic_id'] for g in graphics if g['kind'] == 'edge'],
             'graphics': graphics, 'source_sha256': sha(data),
             'notation_xml': projected, 'notation_adaptations': adjustments,
-            'visible_names': {i: nodes[i].get('name') for i in set(shapes) | set(edges) if nodes[i].get('name')},
-            'hidden_native_elements': hidden, 'native_validation': report,
-            'geometry_origin': 'source BPMNDI; no automatic node or edge layout',
+            'visible_names': {i: nodes[i].get('name') for i in set(shapes) | set(edges) if i in nodes and nodes[i].get('name')},
+            'hidden_native_elements': hidden,'data_depiction_inventory':inventory,'included_choreography_ids':[e.get('id') for e in included_choreographies],'referenced_choreography_inventory':choreography_inventory, 'native_validation': report,
+            'geometry_origin': 'source BPMNDI coordinate strings and plane order; no automatic node or edge layout',
             'auto_layout': False}

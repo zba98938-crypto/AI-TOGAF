@@ -1,0 +1,675 @@
+[
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:MultiInstanceLoopCharacteristics-loopCardinality",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "design_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_scene.mjs",
+        "symbol": "renderDesignScene"
+      },
+      {
+        "file": "tests/bpmn_mi_shortcut_fixtures.py",
+        "symbol": "mi_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types",
+        "role": "source-type-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_and_subprocess_owner_specific_positive_models"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_scalar_type_mapping_is_explicitly_uncovered_and_source_bytes_roundtrip"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_external_data_object_as_loop_io"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_another_activity_io_even_with_correct_type"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_subprocess_collection_must_be_a_visible_data_object"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_loop_collection_flag_including_false_default_is_required"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_event_reference_type_and_optional_default_behavior_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_valid_mi_requires_cardinality_or_input_collection"
+      }
+    ],
+    "basis": "Source-bound bounded design-time rules from official Table10.29 (physical220-222), scoped CMOF/XSD roles, Section9.7 (physical166-167), Figure10.68 and DI exception/Table12.35 (physical253-254/398/405/441-442).",
+    "limitations": [
+      "All bindings remain partial; this group does not close full standard obligations or expand acceptance.",
+      "Scalar-of external ItemDefinition structure/type equivalence, opaque integer/Boolean expression evaluation, Complex runtime event selection, and owner kinds beyond specified Task/SubProcess cases remain uncovered.",
+      "Only an unambiguous native two-association SequenceFlow shortcut and explicitly referenced mixed Collaboration view are covered; no native content or node/edge coordinates are synthesized.",
+      "Existing bpmnElement/sourceElement/targetElement and MI data role bindings require separately reviewed extensions; this noncolliding delta does not overwrite them.",
+      "Independent model evaluation, professional human acceptance and actual organization approval remain pending."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:MultiInstanceLoopCharacteristics-loopDataInputRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "design_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_scene.mjs",
+        "symbol": "renderDesignScene"
+      },
+      {
+        "file": "tests/bpmn_mi_shortcut_fixtures.py",
+        "symbol": "mi_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types",
+        "role": "source-type-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_and_subprocess_owner_specific_positive_models"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_scalar_type_mapping_is_explicitly_uncovered_and_source_bytes_roundtrip"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_external_data_object_as_loop_io"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_another_activity_io_even_with_correct_type"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_subprocess_collection_must_be_a_visible_data_object"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_loop_collection_flag_including_false_default_is_required"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_event_reference_type_and_optional_default_behavior_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_valid_mi_requires_cardinality_or_input_collection"
+      }
+    ],
+    "basis": "Source-bound bounded design-time rules from official Table10.29 (physical220-222), scoped CMOF/XSD roles, Section9.7 (physical166-167), Figure10.68 and DI exception/Table12.35 (physical253-254/398/405/441-442).",
+    "limitations": [
+      "All bindings remain partial; this group does not close full standard obligations or expand acceptance.",
+      "Scalar-of external ItemDefinition structure/type equivalence, opaque integer/Boolean expression evaluation, Complex runtime event selection, and owner kinds beyond specified Task/SubProcess cases remain uncovered.",
+      "Only an unambiguous native two-association SequenceFlow shortcut and explicitly referenced mixed Collaboration view are covered; no native content or node/edge coordinates are synthesized.",
+      "Existing bpmnElement/sourceElement/targetElement and MI data role bindings require separately reviewed extensions; this noncolliding delta does not overwrite them.",
+      "Independent model evaluation, professional human acceptance and actual organization approval remain pending."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:MultiInstanceLoopCharacteristics-loopDataOutputRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "design_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_scene.mjs",
+        "symbol": "renderDesignScene"
+      },
+      {
+        "file": "tests/bpmn_mi_shortcut_fixtures.py",
+        "symbol": "mi_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types",
+        "role": "source-type-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_and_subprocess_owner_specific_positive_models"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_scalar_type_mapping_is_explicitly_uncovered_and_source_bytes_roundtrip"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_external_data_object_as_loop_io"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_another_activity_io_even_with_correct_type"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_subprocess_collection_must_be_a_visible_data_object"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_loop_collection_flag_including_false_default_is_required"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_event_reference_type_and_optional_default_behavior_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_valid_mi_requires_cardinality_or_input_collection"
+      }
+    ],
+    "basis": "Source-bound bounded design-time rules from official Table10.29 (physical220-222), scoped CMOF/XSD roles, Section9.7 (physical166-167), Figure10.68 and DI exception/Table12.35 (physical253-254/398/405/441-442).",
+    "limitations": [
+      "All bindings remain partial; this group does not close full standard obligations or expand acceptance.",
+      "Scalar-of external ItemDefinition structure/type equivalence, opaque integer/Boolean expression evaluation, Complex runtime event selection, and owner kinds beyond specified Task/SubProcess cases remain uncovered.",
+      "Only an unambiguous native two-association SequenceFlow shortcut and explicitly referenced mixed Collaboration view are covered; no native content or node/edge coordinates are synthesized.",
+      "Existing bpmnElement/sourceElement/targetElement and MI data role bindings require separately reviewed extensions; this noncolliding delta does not overwrite them.",
+      "Independent model evaluation, professional human acceptance and actual organization approval remain pending."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:MultiInstanceLoopCharacteristics-oneBehaviorEventRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "design_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_scene.mjs",
+        "symbol": "renderDesignScene"
+      },
+      {
+        "file": "tests/bpmn_mi_shortcut_fixtures.py",
+        "symbol": "mi_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types",
+        "role": "source-type-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_and_subprocess_owner_specific_positive_models"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_scalar_type_mapping_is_explicitly_uncovered_and_source_bytes_roundtrip"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_external_data_object_as_loop_io"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_another_activity_io_even_with_correct_type"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_subprocess_collection_must_be_a_visible_data_object"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_loop_collection_flag_including_false_default_is_required"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_event_reference_type_and_optional_default_behavior_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_valid_mi_requires_cardinality_or_input_collection"
+      }
+    ],
+    "basis": "Source-bound bounded design-time rules from official Table10.29 (physical220-222), scoped CMOF/XSD roles, Section9.7 (physical166-167), Figure10.68 and DI exception/Table12.35 (physical253-254/398/405/441-442).",
+    "limitations": [
+      "All bindings remain partial; this group does not close full standard obligations or expand acceptance.",
+      "Scalar-of external ItemDefinition structure/type equivalence, opaque integer/Boolean expression evaluation, Complex runtime event selection, and owner kinds beyond specified Task/SubProcess cases remain uncovered.",
+      "Only an unambiguous native two-association SequenceFlow shortcut and explicitly referenced mixed Collaboration view are covered; no native content or node/edge coordinates are synthesized.",
+      "Existing bpmnElement/sourceElement/targetElement and MI data role bindings require separately reviewed extensions; this noncolliding delta does not overwrite them.",
+      "Independent model evaluation, professional human acceptance and actual organization approval remain pending."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:reference:BPMN20.cmof:MultiInstanceLoopCharacteristics-noneBehaviorEventRef",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "design_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_scene.mjs",
+        "symbol": "renderDesignScene"
+      },
+      {
+        "file": "tests/bpmn_mi_shortcut_fixtures.py",
+        "symbol": "mi_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types",
+        "role": "source-type-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_and_subprocess_owner_specific_positive_models"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_scalar_type_mapping_is_explicitly_uncovered_and_source_bytes_roundtrip"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_external_data_object_as_loop_io"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_task_cannot_use_another_activity_io_even_with_correct_type"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_subprocess_collection_must_be_a_visible_data_object"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_loop_collection_flag_including_false_default_is_required"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_event_reference_type_and_optional_default_behavior_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_valid_mi_requires_cardinality_or_input_collection"
+      }
+    ],
+    "basis": "Source-bound bounded design-time rules from official Table10.29 (physical220-222), scoped CMOF/XSD roles, Section9.7 (physical166-167), Figure10.68 and DI exception/Table12.35 (physical253-254/398/405/441-442).",
+    "limitations": [
+      "All bindings remain partial; this group does not close full standard obligations or expand acceptance.",
+      "Scalar-of external ItemDefinition structure/type equivalence, opaque integer/Boolean expression evaluation, Complex runtime event selection, and owner kinds beyond specified Task/SubProcess cases remain uncovered.",
+      "Only an unambiguous native two-association SequenceFlow shortcut and explicitly referenced mixed Collaboration view are covered; no native content or node/edge coordinates are synthesized.",
+      "Existing bpmnElement/sourceElement/targetElement and MI data role bindings require separately reviewed extensions; this noncolliding delta does not overwrite them.",
+      "Independent model evaluation, professional human acceptance and actual organization approval remain pending."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:attribute:BPMN20.cmof:MultiInstanceLoopCharacteristics-isSequential",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "check"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "design_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_scene.mjs",
+        "symbol": "renderDesignScene"
+      },
+      {
+        "file": "tests/bpmn_mi_shortcut_fixtures.py",
+        "symbol": "mi_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types",
+        "role": "source-type-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_actual_mi_shortcut_mixed_svg_png_and_lexical_geometry"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNMISemanticsTests.test_sequential_flag_uses_official_boolean_lexical_values_and_rejects_invalid"
+      }
+    ],
+    "basis": "Source-bound bounded design-time rules from official Table10.29 (physical220-222), scoped CMOF/XSD roles, Section9.7 (physical166-167), Figure10.68 and DI exception/Table12.35 (physical253-254/398/405/441-442).",
+    "limitations": [
+      "All bindings remain partial; this group does not close full standard obligations or expand acceptance.",
+      "Scalar-of external ItemDefinition structure/type equivalence, opaque integer/Boolean expression evaluation, Complex runtime event selection, and owner kinds beyond specified Task/SubProcess cases remain uncovered.",
+      "Only an unambiguous native two-association SequenceFlow shortcut and explicitly referenced mixed Collaboration view are covered; no native content or node/edge coordinates are synthesized.",
+      "Existing bpmnElement/sourceElement/targetElement and MI data role bindings require separately reviewed extensions; this noncolliding delta does not overwrite them.",
+      "Independent model evaluation, professional human acceptance and actual organization approval remain pending."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:symbol:BPMN-2.0.2.pdf:p254:21ccc356e2fb7e863137890d",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_notation.py",
+        "symbol": "shortcut"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "design_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_scene.mjs",
+        "symbol": "renderDesignScene"
+      },
+      {
+        "file": "tests/bpmn_mi_shortcut_fixtures.py",
+        "symbol": "shortcut_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types",
+        "role": "source-type-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_no_bpmn_element_shortcut_binds_two_actual_native_associations"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_mixed_collaboration_choreography_and_pool_data_view_has_explicit_scope"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_actual_mi_shortcut_mixed_svg_png_and_lexical_geometry"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_shortcut_requires_both_underlying_associations_and_no_guessed_pair"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_shortcut_requires_data_shape_to_sequence_flow_edge_in_that_direction"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_mixed_data_owner_impersonation_and_band_endpoints_are_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_zero_source_transformation_cannot_impersonate_a_source_output_shortcut"
+      }
+    ],
+    "basis": "Source-bound bounded design-time rules from official Table10.29 (physical220-222), scoped CMOF/XSD roles, Section9.7 (physical166-167), Figure10.68 and DI exception/Table12.35 (physical253-254/398/405/441-442).",
+    "limitations": [
+      "All bindings remain partial; this group does not close full standard obligations or expand acceptance.",
+      "Scalar-of external ItemDefinition structure/type equivalence, opaque integer/Boolean expression evaluation, Complex runtime event selection, and owner kinds beyond specified Task/SubProcess cases remain uncovered.",
+      "Only an unambiguous native two-association SequenceFlow shortcut and explicitly referenced mixed Collaboration view are covered; no native content or node/edge coordinates are synthesized.",
+      "Existing bpmnElement/sourceElement/targetElement and MI data role bindings require separately reviewed extensions; this noncolliding delta does not overwrite them.",
+      "Independent model evaluation, professional human acceptance and actual organization approval remain pending."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:symbol:BPMN-2.0.2.pdf:p167:dcdd676a6852349297d54765",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_render.py",
+        "symbol": "plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_render.py",
+        "symbol": "design_plan"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_scene.mjs",
+        "symbol": "renderDataScene"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_scene.mjs",
+        "symbol": "renderDesignScene"
+      },
+      {
+        "file": "tests/bpmn_mi_shortcut_fixtures.py",
+        "symbol": "mixed_model",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_references.py",
+        "symbol": "local_reference",
+        "role": "validation-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_data_compensation.py",
+        "symbol": "_exchange_types",
+        "role": "source-type-dependency"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_design_semantics.py",
+        "symbol": "check",
+        "role": "validation-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_mixed_collaboration_choreography_and_pool_data_view_has_explicit_scope"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_actual_mi_shortcut_mixed_svg_png_and_lexical_geometry"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_referenced_but_unpictured_choreography_is_optional_native_inventory"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_mixed_data_owner_impersonation_and_band_endpoints_are_rejected"
+      },
+      {
+        "file": "tests/test_bpmn_mi_shortcut.py",
+        "symbol": "BPMNShortcutAndMixedDITests.test_mixed_repeated_ordinary_shape_is_rejected_but_participant_bands_remain_valid"
+      }
+    ],
+    "basis": "Source-bound bounded design-time rules from official Table10.29 (physical220-222), scoped CMOF/XSD roles, Section9.7 (physical166-167), Figure10.68 and DI exception/Table12.35 (physical253-254/398/405/441-442).",
+    "limitations": [
+      "All bindings remain partial; this group does not close full standard obligations or expand acceptance.",
+      "Scalar-of external ItemDefinition structure/type equivalence, opaque integer/Boolean expression evaluation, Complex runtime event selection, and owner kinds beyond specified Task/SubProcess cases remain uncovered.",
+      "Only an unambiguous native two-association SequenceFlow shortcut and explicitly referenced mixed Collaboration view are covered; no native content or node/edge coordinates are synthesized.",
+      "Existing bpmnElement/sourceElement/targetElement and MI data role bindings require separately reviewed extensions; this noncolliding delta does not overwrite them.",
+      "Independent model evaluation, professional human acceptance and actual organization approval remain pending."
+    ]
+  }
+]

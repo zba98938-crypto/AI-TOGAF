@@ -24,6 +24,7 @@ RULES = {
     'di-attribute-applicability': ('12.2.3.3 BPMNShape attributes', [403]),
     'di-participant-band': ('12.2.3.3/4 and 11.5.1/2', [354, 358, 361, 403, 404]),
     'di-band-message': ('11.5.1, 11.5.3 and Table 12.33', [355, 363, 438, 439, 440]),
+    'di-ordinary-identity': ('12.2.1 BPMN DI ordinary depiction uniqueness', [398]),
     'di-edge-endpoint': ('12.2.3.5 and 12.3.3 BPMNEdge', [405, 440, 441]),
 }
 CONVERSATIONS = {'conversation', 'subConversation', 'callConversation'}
@@ -259,6 +260,19 @@ def check(root):
             issue('di-participant-band', activity_shape, 'activity depiction must include its initiating Participant Band')
         if activity is not None and kind(activity) == 'choreographyTask' and set(identities) != set(refs(activity, 'participantRef')):
             issue('di-participant-band', activity_shape, 'task depiction must show both Participants')
+
+    # Source planes define independent diagrams. Reuse across diagrams and
+    # choreography Participant Bands is legal; ordinary reuse within one is not.
+    for plane in root.iter(d('BPMNPlane')):
+        ordinary={}
+        for graphic in plane:
+            if kind(graphic) not in {'BPMNShape','BPMNEdge'} or graphic.get('participantBandKind'):
+                continue
+            identity=ref(graphic,graphic.get('bpmnElement'))
+            if not identity:continue  # No-model shortcut is checked separately.
+            if identity in ordinary:
+                issue('di-ordinary-identity',graphic,'Repeated ordinary BPMN element depiction is not allowed: '+identity)
+            else:ordinary[identity]=graphic
 
     for edge in root.iter(d('BPMNEdge')):
         for attr in ('sourceElement', 'targetElement'):

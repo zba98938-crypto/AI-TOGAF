@@ -6,6 +6,7 @@ export async function renderDataScene({spec,fontCSS}) {
   const parsed=await viewer.get('moddle').fromXML(spec.notation_xml);
   if(parsed.warnings.length)throw new Error('Native model parse warnings: '+parsed.warnings.map(w=>w.message).join('; '));
   const nodes=parsed.elementsById,symbols=viewer.get('bpmnRenderer');
+  const nativeBo=g=>g.type==='dataAssociationShortcut'?viewer.get('moddle').create('bpmn:Association',{id:g.view_identity,associationDirection:'None'}):nodes[g.semantic_id];
   const add=(parent,tag,attrs={})=>{const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))if(v!==null&&v!==undefined)e.setAttribute(k,String(v));parent.append(e);return e;};
   const svg=add(document.querySelector('#scene'),'svg',{xmlns:NS,version:'1.1'});
   add(add(svg,'defs'),'style').textContent=fontCSS+'text{font-family:TogafCJK,sans-serif}';
@@ -15,7 +16,7 @@ export async function renderDataScene({spec,fontCSS}) {
   // Prepare endpoint objects before drawing. Their references may point forward
   // in source plane order, which is a z-order and not a construction order.
   for(const g of spec.graphics){
-    const bo=nodes[g.semantic_id];if(!bo)throw new Error('Native semantic object missing '+g.semantic_id);
+    const bo=nativeBo(g);if(!bo)throw new Error('Native semantic object missing '+g.semantic_id);
     const element={id:g.graphic_id,type:bo.$type,businessObject:bo,di:nodes[g.graphic_id]||{$type:g.kind==='shape'?'bpmndi:BPMNShape':'bpmndi:BPMNEdge',...g.attributes},parent:{businessObject:nodes[spec.root_id]}};
     if(g.kind==='shape')Object.assign(element,numberBox(g.bounds));
     else element.waypoints=g.waypoints.map(numberBox);
@@ -38,7 +39,7 @@ export async function renderDataScene({spec,fontCSS}) {
     labels.push({semantic_id:g.semantic_id,name,lines,source_bounds:supplied||null,origin:supplied?'source BPMNLabel':'derived typography placement; source node/edge geometry unchanged'});
   }
   for(const g of spec.graphics){
-    const bo=nodes[g.semantic_id],element=elements.get(g.graphic_id);
+    const bo=nativeBo(g),element=elements.get(g.graphic_id);
     const attrs={'data-element-id':g.semantic_id,'data-di-id':g.graphic_id,'data-native-type':g.type,'data-source-plane-index':g.source_plane_index};
     if(g.kind==='shape'){
       Object.assign(attrs,{transform:`translate(${g.bounds.x},${g.bounds.y})`,'data-di-x':g.bounds.x,'data-di-y':g.bounds.y,'data-di-width':g.bounds.width,'data-di-height':g.bounds.height});
@@ -52,6 +53,7 @@ export async function renderDataScene({spec,fontCSS}) {
       }
     }else{
       attrs['data-source-waypoints']=JSON.stringify(g.waypoints);
+      if(g.normalized_semantic_ids)attrs['data-normalized-native-associations']=JSON.stringify(g.normalized_semantic_ids);
       attrs['data-source-di-endpoint']=g.source_graphic_id;attrs['data-target-di-endpoint']=g.target_graphic_id;
       const group=add(scene,'g',attrs);
       element.source=elements.get(g.source_graphic_id);element.target=elements.get(g.target_graphic_id);

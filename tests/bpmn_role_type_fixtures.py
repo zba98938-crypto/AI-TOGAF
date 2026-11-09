@@ -9,7 +9,7 @@ def multi_instance_model():
     process=element(root,'process',id='P')
     element(process,'dataObject',id='LOOP_SOURCE',itemSubjectRef='tns:COLLECTION',isCollection='true')
     element(process,'dataObject',id='LOOP_RESULT',itemSubjectRef='tns:COLLECTION',isCollection='true')
-    task=element(process,'task',id='A')
+    task=element(process,'subProcess',id='A')
     loop=element(task,'multiInstanceLoopCharacteristics',id='LOOP')
     element(loop,'loopDataInputRef','tns:LOOP_SOURCE')
     element(loop,'loopDataOutputRef','tns:LOOP_RESULT')

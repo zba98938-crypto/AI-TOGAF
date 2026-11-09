@@ -40,7 +40,7 @@ try {
   const report={status:'passed',notation_status:'rendered-explicit-bpmndi',renderer:'AI-TOGAF native DI scene / bpmn-js 18.31.1 symbols / resvg 2.6.2',
     browser:browser.togafBrowser,network:'disabled',warnings:[],diagram_id:spec.diagram_id,
     shape_ids:spec.shape_ids,edge_ids:spec.edge_ids,shape_graphic_ids:spec.shape_graphic_ids,edge_graphic_ids:spec.edge_graphic_ids,
-    svg_graphic_ids:rendered.graphicIds,source_geometry:rendered.geometry,geometry_origin:spec.geometry_origin,auto_layout:false,
+    svg_graphic_ids:rendered.graphicIds,source_geometry:rendered.geometry,source_coordinate_geometry:rendered.sourceCoordinateGeometry,source_plane_order_preserved:true,data_depiction_inventory:spec.data_depiction_inventory,included_choreography_ids:spec.included_choreography_ids,geometry_origin:spec.geometry_origin,auto_layout:false,
     common_symbol_evidence:rendered.commonSymbols,label_layouts:rendered.labelLayouts,hidden_native_elements:spec.hidden_native_elements,
     width:raster.width,height:raster.height,svg_sha256:sha(rendered.svg),png_sha256:sha(png),font_sha256:sha(font),
     supported_scope:'Explicit Conversation/Choreography view, task/sub/call notation, repeated Participant Bands, optional envelopes and loop/multiplicity markers; installed bpmn-js ordinary process symbols.',

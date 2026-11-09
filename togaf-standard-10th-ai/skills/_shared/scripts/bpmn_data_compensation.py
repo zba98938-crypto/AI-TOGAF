@@ -15,6 +15,12 @@ XSD_SHA256 = 'c4318842f7d2bbc262d7954c9452c501db16f0868eac0b8732ec5d7fb384d9a7'
 META_PATH = Path(__file__).resolve().parents[1]/'standards/sources/bpmn-2.0.2/BPMN20.cmof'
 SCHEMA_PATH = META_PATH.with_name('Semantic.xsd')
 RULES = {
+    'mi-initialization': ('10.3.8 Table 10.29', [220,221], ['MultiInstanceLoopCharacteristics-loopCardinality', 'MultiInstanceLoopCharacteristics-loopDataInputRef']),
+    'mi-loop-reference-type': ('10.3.8 Table 10.29', [221], ['MultiInstanceLoopCharacteristics-loopDataInputRef', 'MultiInstanceLoopCharacteristics-loopDataOutputRef']),
+    'mi-loop-reference-scope': ('10.3.8 Table 10.29 and Data lifecycle', [221,236,240], ['MultiInstanceLoopCharacteristics-loopDataInputRef', 'MultiInstanceLoopCharacteristics-loopDataOutputRef']),
+    'mi-loop-collection': ('10.3.8 Table 10.29', [220,221], ['MultiInstanceLoopCharacteristics-loopDataInputRef', 'MultiInstanceLoopCharacteristics-loopDataOutputRef']),
+    'mi-data-item-scalar': ('10.3.8 Table 10.29', [221], ['MultiInstanceLoopCharacteristics-inputDataItem', 'MultiInstanceLoopCharacteristics-outputDataItem']),
+    'mi-behavior-event-type': ('10.3.8 Table 10.29', [222], ['MultiInstanceLoopCharacteristics-oneBehaviorEventRef', 'MultiInstanceLoopCharacteristics-noneBehaviorEventRef']),
     'data-association-type': ('10.3 DataAssociation, Table 10.63', [252], ['DataAssociation-sourceRef', 'DataAssociation-targetRef']),
     'data-association-direction': ('10.3 DataInputAssociation/DataOutputAssociation', [252,253], ['DataInputAssociation', 'DataOutputAssociation', 'Activity-dataInputAssociations', 'Activity-dataOutputAssociations']),
     'data-association-source-cardinality': ('10.3 DataAssociation copying/transformation', [251,252], ['DataAssociation-sourceRef', 'DataAssociation-transformation']),
@@ -285,6 +291,51 @@ def check(root):
                 if is_type(item,'ItemDefinition') and item is not target_item:
                     issue('data-association-item-definition',e,'differing identified source and target ItemDefinitions require transformation')
 
+    # MI collection roles are outer interface data; contained input/output items
+    # are scalar inner-instance data. Opaque expressions remain non-executable.
+    mi_unverified = []
+    for loop in root.iter(q('multiInstanceLoopCharacteristics')):
+        owner = loop.getparent()
+        input_ref = loop.find(q('loopDataInputRef'))
+        if loop.find(q('loopCardinality')) is None and input_ref is None:
+            issue('mi-initialization',loop,'valid MultiInstance requires loopCardinality or loopDataInputRef')
+        if loop.find(q('loopCardinality')) is not None:
+            mi_unverified.append({'id':loop.get('id'),'obligation':'loopCardinality evaluates to integer','status':'uncovered: opaque expression is retained, never executed'})
+        for direction in ('Input','Output'):
+            child = loop.find(q('loopData'+direction+'Ref'))
+            target = resolved(child,child.text) if child is not None else None
+            if child is not None and typed(target,'ItemAwareElement','mi-loop-reference-type',child):
+                if is_type(owner,'Task'):
+                    if not is_type(target,'Data'+direction):
+                        issue('mi-loop-reference-type',child,'Task MI loop reference must identify Data'+direction)
+                    elif kind(target.getparent())!='ioSpecification' or target.getparent().getparent() is not owner:
+                        issue('mi-loop-reference-scope',child,'Task MI loop data must belong to the same Activity InputOutputSpecification')
+                elif is_type(owner,'SubProcess'):
+                    if not is_type(target,'DataObject'):
+                        issue('mi-loop-reference-type',child,'SubProcess MI loop reference must identify a DataObject')
+                    elif not visible(target,owner):
+                        issue('mi-loop-reference-scope',child,'SubProcess MI collection DataObject is outside visible lifecycle scope')
+                else:
+                    mi_unverified.append({'id':loop.get('id'),'obligation':'MI owner-specific loop reference semantics for '+kind(owner),'status':'uncovered'})
+                item = effective_item(target)
+                if boolean(target,'isCollection') is False or is_type(item,'ItemDefinition') and boolean(item,'isCollection') is False:
+                    issue('mi-loop-collection',child,'MI loop data must be collection-valued')
+            data_item = loop.find(q(direction.lower()+'DataItem'))
+            if data_item is not None:
+                item = effective_item(data_item)
+                if boolean(data_item,'isCollection') is True or is_type(item,'ItemDefinition') and boolean(item,'isCollection') is True:
+                    issue('mi-data-item-scalar',data_item,'MI instance data item must be scalar, not a collection')
+                # CMOF exposes no scalar-of relationship. Equality of external
+                # structureRef strings would not prove semantic scalarization.
+                mi_unverified.append({'id':data_item.get('id'),'obligation':'scalar type of corresponding loopData'+direction,
+                                      'status':'uncovered: external ItemDefinition structure scalarization is not adjudicated'})
+        for field in ('oneBehaviorEventRef','noneBehaviorEventRef'):
+            if loop.get(field):
+                typed(resolved(loop,loop.get(field)),'EventDefinition','mi-behavior-event-type',loop)
+        if loop.find(q('completionCondition')) is not None or loop.findall(q('complexBehaviorDefinition')):
+            mi_unverified.append({'id':loop.get('id'),'obligation':'boolean expression result/type and Complex behavior event selection',
+                                  'status':'uncovered: expressions and optional event/default behavior remain preserved without execution'})
+
     # Event sets have direct containment; IOSpecification sets have shared ownership.
     for owner in root.iter():
         if not native(owner) or kind(owner) not in {'ioSpecification','startEvent','endEvent','boundaryEvent','intermediateCatchEvent','intermediateThrowEvent','implicitThrowEvent'}:
@@ -358,5 +409,5 @@ def check(root):
     return {'implemented_rule_ids':list(RULES),'findings':findings,'normative_rule_basis':basis,
             'capability_uncovered':sorted(set(uncovered)), 'source_status':'verified-local-cmof',
             'metamodel_class_count':len(graph),'exchange_adaptations':ADAPTATIONS,
-            'exchange_type_audit':type_audit,
+            'exchange_type_audit':type_audit,'mi_unverified_obligations':mi_unverified,
             'full_design_time_semantics':'incomplete','independent_normative_rule_review':'pending'}

@@ -16,6 +16,8 @@ DATA={'dataInput','dataOutput','dataObjectReference','dataStoreReference','dataI
 def plan(data,root,report):
     from bpmn_render import SHAPES,EDGES,CONTAINERS
     from bpmn_design_render import notation_projection
+    from bpmn_data_notation import graphic_types,selected_data,shortcut,validate_data_endpoints
+    graphic_type=graphic_types()
     q=lambda name:'{'+BPMN+'}'+name
     d=lambda name:'{'+DI+'}'+name
     nodes={e.get('id'):e for e in root.iter() if isinstance(e.tag,str) and e.get('id')}
@@ -41,16 +43,18 @@ def plan(data,root,report):
     for index,e in enumerate(plane):
         if local(e.tag) not in {'BPMNShape','BPMNEdge'}:continue
         semantic=resolve(e,e.get('bpmnElement'));is_shape=local(e.tag)=='BPMNShape'
-        if semantic is None or local(semantic.tag) not in (SHAPES if is_shape else EDGES):
+        special=shortcut(root,e) if not is_shape and e.get('bpmnElement') is None else None
+        if not special and (semantic is None or graphic_type(semantic) not in (SHAPES if is_shape else EDGES)):
             raise Incomplete('Unsupported Data DI depiction: '+str(e.get('bpmnElement')))
         if e.get('participantBandKind'):
             raise Incomplete('Participant bands need the choreography DI renderer')
-        sid=semantic.get('id');gid=e.get('id') or '__source_di_'+str(index)
+        gid=e.get('id') or '__source_di_'+str(index);sid=semantic.get('id') if semantic is not None else '__shortcut_'+gid
         if any(g['graphic_id']==gid for g in graphics):raise Invalid('Duplicate DI graphic identity: '+gid)
-        g={'graphic_id':gid,'semantic_id':sid,'type':local(semantic.tag),'kind':'shape' if is_shape else 'edge',
+        g={'graphic_id':gid,'semantic_id':sid if semantic is not None else None,'type':graphic_type(semantic) if semantic is not None else 'dataAssociationShortcut','kind':'shape' if is_shape else 'edge',
            'identity_origin':'native-id' if e.get('id') else 'source-plane-position',
-           'source_locator':root.getroottree().getpath(e),'name':semantic.get('name') or '',
+           'source_locator':root.getroottree().getpath(e),'name':semantic.get('name') or '' if semantic is not None else '',
            'attributes':{k:v for k,v in e.attrib.items() if k not in {'id','bpmnElement'}},'source_plane_index':index}
+        if special:g['view_identity']=sid
         label=e.find(d('BPMNLabel'));g['label_bounds']=box(label) if label is not None else None
         collection=shapes if is_shape else edges
         if sid in collection:raise Invalid('Repeated ordinary BPMN element depiction is not allowed: '+sid)
@@ -64,21 +68,22 @@ def plan(data,root,report):
                 if len(g['waypoints'])<2 or not all(math.isfinite(float(v)) for p in g['waypoints'] for v in p.values()):raise ValueError()
             except (ValueError,TypeError):raise Invalid('BPMNEdge requires at least two finite source waypoints: '+gid)
             g['source_graphic_id']=identity(e,e.get('sourceElement'));g['target_graphic_id']=identity(e,e.get('targetElement'))
-            g['source_semantic_ids']=[identity(semantic,semantic.get('sourceRef'))] if semantic.get('sourceRef') else []
-            g['target_semantic_id']=identity(semantic,semantic.get('targetRef'))
+            g['source_semantic_ids']=[identity(semantic,semantic.get('sourceRef'))] if semantic is not None and semantic.get('sourceRef') else []
+            g['target_semantic_id']=identity(semantic,semantic.get('targetRef')) if semantic is not None else None
+            if special:g.update(special)
             if g['type'] in {'dataInputAssociation','dataOutputAssociation'}:
                 g['source_semantic_ids']=[identity(c,c.text) for c in semantic.findall(q('sourceRef'))]
                 child=semantic.find(q('targetRef'));g['target_semantic_id']=identity(child,child.text) if child is not None else None
         graphics.append(g)
-    expected_shapes=set();expected_edges=set();hidden=[];inventory=[]
+    expected_shapes=set();expected_edges={g['view_identity'] for g in graphics if g['type']=='dataAssociationShortcut'};hidden=[];inventory=[]
+    visited_data=set()
     def data_details(owner):
-        selected=list(owner)
-        for spec in owner.findall(q('ioSpecification')):selected.extend(spec)
-        for item in selected:
-            if not isinstance(item.tag,str) or not item.tag.startswith('{'+BPMN+'}') or local(item.tag) not in DATA:continue
-            sid=item.get('id');shape=local(item.tag) in {'dataInput','dataOutput','dataObjectReference','dataStoreReference'}
+        if owner in visited_data:return
+        visited_data.add(owner)
+        for item in selected_data(owner,graphic_type):
+            sid=item.get('id');shape=graphic_type(item) in {'dataInput','dataOutput','dataObjectReference','dataStoreReference'}
             depicted=sid in (shapes if shape else edges)
-            inventory.append({'id':sid,'type':local(item.tag),'owner_id':owner.get('id'),'depicted':depicted,
+            inventory.append({'id':sid,'type':graphic_type(item),'native_role':local(item.tag),'owner_id':owner.get('id'),'depicted':depicted,
                               'source_locator':root.getroottree().getpath(item),'scope':'visible owner; optional data depiction'})
             if depicted:(expected_shapes if shape else expected_edges).add(sid)
     def container(owner):
@@ -91,9 +96,10 @@ def plan(data,root,report):
             elif kind in SHAPES:
                 expected_shapes.add(sid)
                 if kind in CONTAINERS:
+                    data_details(item)
                     graphic=shapes.get(sid)
                     if graphic and graphic['attributes'].get('isExpanded') in {'true','1'}:container(item)
-                    else:hidden.extend({'id':c.get('id'),'type':local(c.tag),'collapsed_parent_id':sid} for c in item.iterdescendants() if isinstance(c.tag,str) and c.get('id'))
+                    else:hidden.extend({'id':c.get('id'),'type':local(c.tag),'collapsed_parent_id':sid} for c in item.iterdescendants() if isinstance(c.tag,str) and c.get('id') and c.get('id') not in shapes and c.get('id') not in edges)
                 else:data_details(item)
             elif kind in EDGES:expected_edges.add(sid)
             elif kind in {'choreographyTask','subChoreography','callChoreography'}:
@@ -114,28 +120,12 @@ def plan(data,root,report):
     if extras:raise Incomplete('Data DI graphics lie outside the visible native scope: '+', '.join(extras))
     if not shapes:raise Incomplete('BPMNDI contains no visible shapes')
     by_graphic={g['graphic_id']:g for g in graphics}
-    def depicts_item_context(item,graphic):
-        depicted=nodes[graphic['semantic_id']]
-        if depicted is item:return True
-        item_kind=local(item.tag)
-        if item_kind in {'dataInput','dataOutput','property'} and any(depicted is p for p in item.iterancestors()):return True
-        if item_kind=='dataObject' and local(depicted.tag)=='dataObjectReference' and resolve(depicted,depicted.get('dataObjectRef')) is item:return True
-        if local(depicted.tag)=='participant':
-            process=resolve(depicted,depicted.get('processRef'))
-            if process is not None and any(process is p for p in item.iterancestors()):return True
-        return False
+    validate_data_endpoints(root,graphics)
     for g in edges.values():
         for side in ['source','target']:
             explicit=g[side+'_graphic_id']
             if explicit:
                 if explicit not in by_graphic:raise Incomplete('Explicit DI endpoint lies outside selected view: '+explicit)
-                if g['type'] in {'dataInputAssociation','dataOutputAssociation'}:
-                    targets=g['source_semantic_ids'] if side=='source' else [g['target_semantic_id']]
-                    candidates=[nodes[sid] for sid in targets if sid in nodes]
-                    if by_graphic[explicit]['kind']=='edge':
-                        raise Incomplete('Data Association endpoint-to-edge shorthand requires separate source-bound verification')
-                    if candidates and not any(depicts_item_context(item,by_graphic[explicit]) for item in candidates):
-                        raise Invalid('Data DI '+side+' override conflicts with its ItemAwareElement/owner context: '+g['graphic_id'])
                 continue
             candidates=g['source_semantic_ids'] if side=='source' else [g['target_semantic_id']]
             if len(candidates)!=1 or candidates[0] not in shapes and candidates[0] not in edges:
@@ -144,12 +134,12 @@ def plan(data,root,report):
             g[side+'_graphic_id']=selected['graphic_id']
     projected,adaptations=notation_projection(root)
     return {'backend':'native-data-di','diagram_id':diagrams[0].get('id'),'plane_id':plane.get('id'),
-            'root_id':target.get('id'),'root_type':local(target.tag),'shape_ids':sorted(shapes),'edge_ids':sorted(edges),
+            'root_id':target.get('id'),'root_type':local(target.tag),'shape_ids':sorted(shapes),'edge_ids':sorted({sid for sid in edges if sid in nodes}|{sid for g in graphics for sid in g.get('normalized_semantic_ids',[])}),
             'shape_graphic_ids':[g['graphic_id'] for g in graphics if g['kind']=='shape'],
             'edge_graphic_ids':[g['graphic_id'] for g in graphics if g['kind']=='edge'],'graphics':graphics,
             'source_sha256':sha(data),'notation_xml':projected,'notation_adaptations':adaptations,
-            'visible_names':{sid:nodes[sid].get('name') for sid in shapes.keys()|edges.keys() if nodes[sid].get('name')},
-            'hidden_native_elements':hidden,'data_depiction_inventory':inventory,
+            'visible_names':{sid:nodes[sid].get('name') for sid in shapes.keys()|edges.keys() if sid in nodes and nodes[sid].get('name')},
+            'hidden_native_elements':hidden,'shortcut_graphic_ids':[g['graphic_id'] for g in graphics if g['type']=='dataAssociationShortcut'],'data_depiction_inventory':inventory,
             'diagram_scope':'explicit process/collaboration view; optional nested data depictions selected by source DI',
             'native_validation':report,'geometry_origin':'source BPMNDI coordinate strings and plane order; no automatic layout',
-            'normative_physical_pages':[242,244,251,398,405,423,441,442],'auto_layout':False}
+            'normative_physical_pages':[221,242,244,251,253,254,398,405,423,441,442],'auto_layout':False}

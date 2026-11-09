@@ -48,7 +48,7 @@ def diagram_plan(data, package_root=None, auto_layout=False):
         return design_plan(data, root, report)
     nodes_by_id = {e.get('id'):e for e in root.iter() if isinstance(e.tag,str) and e.get('id')}
     from bpmn_references import local_reference
-    data_graphics = {'dataInput','dataOutput','dataObjectReference','dataStoreReference','dataInputAssociation','dataOutputAssociation'}
+    data_graphics = {'inputDataItem','outputDataItem','dataInput','dataOutput','dataObjectReference','dataStoreReference','dataInputAssociation','dataOutputAssociation'}
     has_data_graphic = any(isinstance(e.tag,str) and e.tag in {'{'+BPMN+'}'+k for k in data_graphics}
                            for e in root.iter())
     for graphic in root.iter():

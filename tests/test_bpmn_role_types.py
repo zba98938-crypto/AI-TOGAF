@@ -61,7 +61,9 @@ class BPMNRoleTypeTests(unittest.TestCase):
         def matching(root):
             for identity in ['MI_INPUT','MI_OUTPUT']:
                 e=by_id(root,identity);e.set('isCollection','true');e.set('itemSubjectRef','tns:COLLECTION')
-        self.assertEqual([],check_native(change(self.data,matching),'bpmn','2.0.2')['errors'])
+        errors=check_native(change(self.data,matching),'bpmn','2.0.2')['errors']
+        self.assertFalse(any('data-item-collection:' in e for e in errors))
+        self.assertEqual(2,sum('mi-data-item-scalar:' in e for e in errors))
 
     def test_role_mapping_is_scoped_and_vendor_or_similar_tags_are_not_guessed(self):
         model_class,_=self.resolver()

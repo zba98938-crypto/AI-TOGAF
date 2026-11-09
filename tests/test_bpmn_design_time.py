@@ -190,8 +190,10 @@ class BPMNDesignNotationTests(unittest.TestCase):
     def test_repeated_graphics_need_explicit_edge_endpoint_selection(self):
         def repeat(r):
             e=etree.fromstring(etree.tostring(by_id(r,'T1_DI')));e.set('id','T1_DI_COPY');by_id(r,'PLANE').append(e)
-        # Each repeated activity view needs its own Participant Bands first.
-        with self.assertRaisesRegex(Incomplete,'Participant Bands'):
+        # BPMN 2.0.2 12.2.1 (physical 398) forbids repeating an ordinary
+        # element within one diagram. Only choreography Participant Bands
+        # may repeat; an explicit endpoint cannot legalize this activity.
+        with self.assertRaisesRegex(Invalid,'Repeated ordinary BPMN element'):
             diagram_plan(change(choreography(),repeat))
 
     def test_di_ids_are_optional_for_nonreferenced_graphics(self):

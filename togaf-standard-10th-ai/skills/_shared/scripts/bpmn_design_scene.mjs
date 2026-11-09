@@ -6,6 +6,10 @@ export async function renderDesignScene({xml,spec,fontCSS}) {
     const parsed = await viewer.get('moddle').fromXML(spec.notation_xml);
     if (parsed.warnings.length) throw new Error('Native model parse warnings: '+parsed.warnings.map(w=>w.message).join('; '));
     const symbols = viewer.get('bpmnRenderer'), nodes = parsed.elementsById;
+    const sourceGraphics=spec.graphics,raw=new Map(sourceGraphics.map(g=>[g.graphic_id,g]));
+    const numeric=b=>b?Object.fromEntries(Object.entries(b).map(([k,v])=>[k,Number(v)])):b;
+    spec={...spec,graphics:sourceGraphics.map(g=>({...g,bounds:numeric(g.bounds),label_bounds:numeric(g.label_bounds),waypoints:g.waypoints?.map(numeric)}))};
+    const nativeBo=g=>g.type==='dataAssociationShortcut'?viewer.get('moddle').create('bpmn:Association',{id:g.view_identity,associationDirection:'None'}):nodes[g.semantic_id];
     const svg = document.createElementNS(NS,'svg');
     svg.setAttribute('xmlns',NS); svg.setAttribute('version','1.1');
     document.querySelector('#scene').append(svg);
@@ -84,10 +88,10 @@ export async function renderDesignScene({xml,spec,fontCSS}) {
     const order=[...shapeGraphics.filter(g=>!g.band_kind)].sort((a,b)=>b.bounds.width*b.bounds.height-a.bounds.width*a.bounds.height)
       .concat(shapeGraphics.filter(g=>g.band_kind));
     for (const g of order) {
-      const b=g.bounds, bo=nodes[g.semantic_id];
+      const b=g.bounds, bo=nativeBo(g);
       if (!bo) throw new Error('Native semantic object missing '+g.semantic_id);
       const group=add(scene,'g',{'data-element-id':g.semantic_id,'data-di-id':g.graphic_id,'data-native-type':g.type,
-        transform:`translate(${b.x},${b.y})`,'data-di-x':b.x,'data-di-y':b.y,'data-di-width':b.width,'data-di-height':b.height});
+        transform:`translate(${b.x},${b.y})`,'data-di-x':raw.get(g.graphic_id).bounds.x,'data-di-y':raw.get(g.graphic_id).bounds.y,'data-di-width':raw.get(g.graphic_id).bounds.width,'data-di-height':raw.get(g.graphic_id).bounds.height});
       const di=nodes[g.graphic_id] || {$type:'bpmndi:BPMNShape',...g.attributes};
       const element={id:g.graphic_id,type:bo.$type,businessObject:bo,di,...b,parent:{businessObject:nodes[spec.root_id]}};
       elements.set(g.graphic_id,element);
@@ -122,7 +126,7 @@ export async function renderDesignScene({xml,spec,fontCSS}) {
     }
     // Repaint thick call borders once bands are complete, preserving their fill.
     for (const g of shapeGraphics.filter(g=>g.type==='callChoreography')) {
-      add(scene,'rect',{x:g.bounds.x,y:g.bounds.y,width:g.bounds.width,height:g.bounds.height,rx:8,stroke:'#111','stroke-width':4,fill:'none','pointer-events':'none','data-call-boundary':g.graphic_id});
+      add(scene.querySelector(`[data-di-id="${g.graphic_id}"]`),'rect',{x:0,y:0,width:g.bounds.width,height:g.bounds.height,rx:8,stroke:'#111','stroke-width':4,fill:'none','pointer-events':'none','data-call-boundary':g.graphic_id});
     }
     function offsetPolyline(points,distance) {
       const normals=points.slice(1).map((p,i)=>{const a=points[i],dx=p.x-a.x,dy=p.y-a.y,l=Math.hypot(dx,dy);if(!l)throw new Error('ConversationLink has coincident consecutive waypoints');return {x:-dy/l,y:dx/l};});
@@ -135,11 +139,11 @@ export async function renderDesignScene({xml,spec,fontCSS}) {
     const pathOf=points=>points.map((p,i)=>`${i?'L':'M'} ${p.x} ${p.y}`).join(' ');
     const edgeGraphics=spec.graphics.filter(g=>g.kind==='edge');
     for (const g of edgeGraphics) {
-      const bo=nodes[g.semantic_id];
+      const bo=nativeBo(g);
       elements.set(g.graphic_id,{id:g.graphic_id,type:bo.$type,businessObject:bo,di:nodes[g.graphic_id]||{$type:'bpmndi:BPMNEdge',...g.attributes},waypoints:g.waypoints,parent:{businessObject:nodes[spec.root_id]}});
     }
     for (const g of edgeGraphics) {
-      const bo=nodes[g.semantic_id],group=add(scene,'g',{'data-element-id':g.semantic_id,'data-di-id':g.graphic_id,'data-native-type':g.type,'data-source-waypoints':JSON.stringify(g.waypoints)});
+      const bo=nativeBo(g),group=add(scene,'g',{'data-element-id':g.semantic_id,'data-di-id':g.graphic_id,'data-native-type':g.type,'data-source-waypoints':JSON.stringify(raw.get(g.graphic_id).waypoints),'data-source-di-endpoint':g.source_graphic_id,'data-target-di-endpoint':g.target_graphic_id,'data-normalized-native-associations':g.normalized_semantic_ids?JSON.stringify(g.normalized_semantic_ids):undefined});
       const connection=elements.get(g.graphic_id);
       connection.source=elements.get(g.source_graphic_id);connection.target=elements.get(g.target_graphic_id);
       if (g.type==='conversationLink') {
@@ -153,8 +157,12 @@ export async function renderDesignScene({xml,spec,fontCSS}) {
         text(group,g.name,g.label_bounds||{x:(a.x+z.x)/2-80,y:(a.y+z.y)/2-24,width:160,height:20},{size:13,external:!g.label_bounds});
       }
     }
-    const actual=[...svg.querySelectorAll('[data-di-id]')].map(e=>e.getAttribute('data-di-id')).sort();
-    const expected=spec.graphics.map(g=>g.graphic_id).sort();
+    // Reattach whole graphic groups in the normative source-plane Z-order.
+    // Preparing shapes/forward endpoints never defines painter ordering.
+    const drawn=new Map([...scene.children].filter(e=>e.hasAttribute('data-di-id')).map(e=>[e.getAttribute('data-di-id'),e]));
+    for(const g of sourceGraphics){const group=drawn.get(g.graphic_id);if(group){group.setAttribute('data-source-plane-index',g.source_plane_index);scene.append(group);}}
+    const actual=[...svg.querySelectorAll('[data-di-id]')].map(e=>e.getAttribute('data-di-id'));
+    const expected=sourceGraphics.map(g=>g.graphic_id);
     if (JSON.stringify(actual)!==JSON.stringify(expected)) throw new Error('Rendered DI graphic set differs from source plan');
     for (const [id,name] of Object.entries(spec.visible_names)) {
       if (!svg.textContent.replace(/\s+/g,'').includes(name.replace(/\s+/g,''))) throw new Error('SVG omitted native name '+id);
@@ -162,5 +170,5 @@ export async function renderDesignScene({xml,spec,fontCSS}) {
     const box=scene.getBBox(),margin=12;
     const width=Math.ceil(box.width+2*margin),height=Math.ceil(box.height+2*margin);
     svg.setAttribute('viewBox',`${box.x-margin} ${box.y-margin} ${width} ${height}`);svg.setAttribute('width',width);svg.setAttribute('height',height);
-    return {svg:new XMLSerializer().serializeToString(svg),graphicIds:actual,commonSymbols:common,labelLayouts:layouts,geometry:spec.graphics.map(g=>({graphic_id:g.graphic_id,semantic_id:g.semantic_id,kind:g.kind,bounds:g.bounds,waypoints:g.waypoints}))};
+    return {svg:new XMLSerializer().serializeToString(svg),graphicIds:actual,commonSymbols:common,labelLayouts:layouts,geometry:sourceGraphics.map(g=>({graphic_id:g.graphic_id,semantic_id:g.semantic_id,kind:g.kind,bounds:numeric(g.bounds),waypoints:g.waypoints})),sourceCoordinateGeometry:sourceGraphics.map(g=>({graphic_id:g.graphic_id,semantic_id:g.semantic_id,kind:g.kind,bounds:g.bounds,waypoints:g.waypoints,source_plane_index:g.source_plane_index}))};
 }

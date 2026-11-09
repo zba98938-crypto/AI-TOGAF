@@ -35,7 +35,7 @@ try{
     data_depiction_inventory:spec.data_depiction_inventory,diagram_scope:spec.diagram_scope,source_plane_order_preserved:true,
     width:raster.width,height:raster.height,svg_sha256:sha(rendered.svg),png_sha256:sha(png),font_sha256:sha(font),
     notation_adaptations:spec.notation_adaptations,notation_projection_sha256:sha(spec.notation_xml),native_source_unchanged:true,
-    limits:['Explicit partial process/collaboration DI view; unpictured data is not a validation failure.','Full applicable BPMN design-time obligations remain incomplete.','SequenceFlow data shorthand and choreography data views need separate verification.','No professional visual acceptance or organization approval is implied.']};
+    limits:['Explicit partial process/collaboration DI view; unpictured data is not a validation failure.','Full applicable BPMN design-time obligations remain incomplete.','Only an unambiguous two-association SequenceFlow shortcut is covered; external scalar typing and full mixed view obligation closure remain incomplete.','No professional visual acceptance or organization approval is implied.']};
   await fs.writeFile(spec.svg,rendered.svg);await fs.writeFile(spec.png,png);await fs.writeFile(spec.report,JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify({status:'passed',graphics:spec.graphics.length}));
 }catch(error){const reason=String(error);console.error(reason);process.exitCode=reason.includes('browser-unavailable:')||reason.includes('diagram-capacity:')?3:1;}
