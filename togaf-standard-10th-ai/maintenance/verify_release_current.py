@@ -15,6 +15,8 @@ def verify(release_dir=None):
  global R
  if release_dir is not None:R=Path(release_dir).resolve()
  seal=json.loads((P/'package-manifest.json').read_text());release=json.loads((R/'release-manifest.json').read_text());issues=[]
+ if not release.get('optional_node_dependencies'):
+  raise ValueError('Source-only development archive cannot pass the complete release gate')
  expected={'skills/'+x['path']:x['sha256'] for x in seal['files']}
  current_paths={p.relative_to(P).as_posix() for p in P.rglob('*') if include(p,P)}
  sealed_paths={x['path'] for x in seal['files']}

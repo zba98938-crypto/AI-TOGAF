@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 from contextlib import contextmanager
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import hashlib
 import fcntl
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -23,6 +23,7 @@ import sqlite3
 import subprocess
 import sys
 import threading
+import time
 from urllib.parse import parse_qs, quote, unquote, urlsplit
 import uuid
 
@@ -205,7 +206,14 @@ def diff_snapshots(before, after):
 
 
 class Workbench:
-    def __init__(self, data_dir, *, job_timeout=180, start_worker=True):
+    def __init__(self, data_dir, *, job_timeout=180, max_job_bytes=512 * 1024 ** 2,
+                 max_job_store_bytes=2 * 1024 ** 3, failed_output_retention_days=7,
+                 start_worker=True):
+        if max_job_bytes <= 0 or max_job_store_bytes <= 0 or failed_output_retention_days < 0:
+            raise ValueError('Job storage limits must be positive; retention days cannot be negative')
+        self.max_job_bytes = max_job_bytes
+        self.max_job_store_bytes = max_job_store_bytes
+        self.failed_output_retention_days = failed_output_retention_days
         self.data_dir = Path(data_dir).expanduser().resolve()
         shared = (ROOT / 'togaf-standard-10th-ai/skills').resolve()
         if self.data_dir == ROOT or self.data_dir == WEB or self.data_dir.is_relative_to(shared) or self.data_dir.is_relative_to(WEB):
@@ -250,18 +258,20 @@ class Workbench:
                 CREATE TABLE IF NOT EXISTS jobs (
                     id TEXT PRIMARY KEY, project_id TEXT NOT NULL, version TEXT NOT NULL,
                     status TEXT NOT NULL, render INTEGER NOT NULL, created_at TEXT NOT NULL,
-                    started_at TEXT, finished_at TEXT, error TEXT,
+                    started_at TEXT, finished_at TEXT, error TEXT, outputs_pruned_at TEXT,
                     FOREIGN KEY(project_id,version) REFERENCES versions(project_id,id));
             ''')
             for table, name, declaration in (
                     ('versions', 'native', 'TEXT'),
                     ('jobs', 'kind', "TEXT NOT NULL DEFAULT 'project'"),
-                    ('jobs', 'auto_layout', 'INTEGER NOT NULL DEFAULT 0')):
+                    ('jobs', 'auto_layout', 'INTEGER NOT NULL DEFAULT 0'),
+                    ('jobs', 'outputs_pruned_at', 'TEXT')):
                 columns = {row['name'] for row in db.execute('PRAGMA table_info(' + table + ')')}
                 if name not in columns:
                     db.execute('ALTER TABLE ' + table + ' ADD COLUMN ' + name + ' ' + declaration)
             db.execute("UPDATE jobs SET status='failed', finished_at=?, error=? WHERE status='running'",
                        (now(), 'Server restarted while generation was running; no result accepted'))
+        self.prune_failed_outputs()
         if start_worker:
             self.thread = threading.Thread(target=self._worker, name='workbench-generator', daemon=True)
             self.thread.start()
@@ -277,6 +287,78 @@ class Workbench:
                     yield conn
             finally:
                 conn.close()
+
+    @staticmethod
+    def tree_bytes(root):
+        total = 0
+        if not root.is_dir() or root.is_symlink():
+            return total
+        for directory, folders, files in os.walk(root, followlinks=False):
+            folders[:] = [name for name in folders if not (Path(directory) / name).is_symlink()]
+            for name in files:
+                path = Path(directory) / name
+                if not path.is_symlink():
+                    try:
+                        total += path.lstat().st_blocks * 512
+                    except FileNotFoundError:
+                        pass
+        return total
+
+    def storage_issue(self, identity):
+        if self.tree_bytes(self.jobs_dir / identity) > self.max_job_bytes:
+            return 'Job output exceeded the per-job storage limit'
+        if self.tree_bytes(self.jobs_dir) > self.max_job_store_bytes:
+            return 'Job store exceeded the total storage limit'
+        return None
+
+    def trim_generation_log(self, identity):
+        """Keep the diagnostic tail without retaining an unbounded worker log."""
+        path = self.jobs_dir / identity / 'generation.log'
+        if not path.is_file() or path.is_symlink():
+            return
+        limit = max(1, min(8 * 1024 ** 2, self.max_job_bytes // 8))
+        if path.stat().st_size <= limit:
+            return
+        with path.open('rb') as stream:
+            stream.seek(-limit, os.SEEK_END)
+            tail = stream.read()
+        path.write_bytes(tail)
+
+    def prune_failed_outputs(self, *, older_than_days=None):
+        """Retain failed job metadata and logs, discard only expired partial outputs."""
+        days = self.failed_output_retention_days if older_than_days is None else older_than_days
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+        with self.db() as db:
+            identities = [row['id'] for row in db.execute(
+                "SELECT id FROM jobs WHERE status='failed' AND finished_at IS NOT NULL AND finished_at<=?", (cutoff,))]
+        removed = 0
+        for identity in identities:
+            output = self.output_root(identity)
+            if output.is_dir() and not output.is_symlink():
+                shutil.rmtree(output)
+                removed += 1
+        return removed
+
+    def prune_completed_outputs(self, older_than_days, *, apply=False):
+        """Preview or remove old successful/blocked attachments, keeping job records."""
+        if older_than_days < 0:
+            raise ValueError('Completed job retention days cannot be negative')
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=older_than_days)).isoformat()
+        with self.db() as db:
+            rows = [dict(row) for row in db.execute(
+                "SELECT id,status FROM jobs WHERE status IN ('succeeded','blocked') "
+                "AND finished_at IS NOT NULL AND finished_at<=? AND outputs_pruned_at IS NULL", (cutoff,))]
+        candidates = []
+        for row in rows:
+            output = self.output_root(row['id'])
+            if output.is_dir() and not output.is_symlink():
+                candidates.append({'id': row['id'], 'status': row['status'], 'bytes': self.tree_bytes(output)})
+        if apply:
+            for row in candidates:
+                shutil.rmtree(self.output_root(row['id']))
+                with self.db() as db:
+                    db.execute('UPDATE jobs SET outputs_pruned_at=? WHERE id=?', (now(), row['id']))
+        return {'applied': apply, 'jobs': candidates, 'total_bytes': sum(row['bytes'] for row in candidates)}
 
     @staticmethod
     def project_row(db, identity):
@@ -414,6 +496,9 @@ class Workbench:
             raise APIError(400, 'invalid_request', 'render must be a boolean')
         if kind not in ('project', 'native') or not isinstance(auto_layout, bool):
             raise APIError(400, 'invalid_request', 'kind must be project/native; auto_layout must be a boolean')
+        self.prune_failed_outputs()
+        if self.tree_bytes(self.jobs_dir) >= self.max_job_store_bytes:
+            raise APIError(507, 'storage_limit', 'Job store is full; archive or remove older job outputs before generating')
         with self.db() as db:
             self.project_row(db, project)
             snapshot = self.version(db, project, version)
@@ -440,7 +525,8 @@ class Workbench:
         if row is None:
             raise APIError(404, 'not_found', 'Job not found')
         result = dict(row)
-        result.update(render=bool(result['render']), auto_layout=bool(result['auto_layout']), version_hash=result['version'], outputs=[], notice=NOTICE)
+        result.update(render=bool(result['render']), auto_layout=bool(result['auto_layout']),
+                      outputs_pruned=bool(result['outputs_pruned_at']), version_hash=result['version'], outputs=[], notice=NOTICE)
         root = self.output_root(identity)
         if result['status'] in ('succeeded', 'blocked') and root.is_dir() and not root.is_symlink():
             for path in sorted(root.rglob('*')):
@@ -484,6 +570,11 @@ class Workbench:
                         with self.db() as db:
                             db.execute("UPDATE jobs SET status='failed', finished_at=?, error=? WHERE id=?",
                                        (now(), str(exc)[-8000:], row['id']))
+                    finally:
+                        try:
+                            self.trim_generation_log(row['id'])
+                        except OSError as exc:
+                            logging.warning('Could not trim generation log for %s: %s', row['id'], exc)
             finally:
                 os.close(fd)
             if row is None:
@@ -524,14 +615,29 @@ class Workbench:
                 if self.stop.is_set():
                     self._kill(process)
             try:
-                code = process.wait(timeout=self.job_timeout)
-            except subprocess.TimeoutExpired:
-                self._kill(process)
-                process.wait()
-                raise RuntimeError(f'Generation timed out after {self.job_timeout:g}s') from None
+                deadline = time.monotonic() + self.job_timeout
+                while True:
+                    try:
+                        code = process.wait(timeout=min(1, max(0.01, deadline - time.monotonic())))
+                        break
+                    except subprocess.TimeoutExpired:
+                        issue = self.storage_issue(job['id'])
+                        if issue:
+                            self._kill(process)
+                            process.wait()
+                            shutil.rmtree(root)
+                            raise RuntimeError(issue) from None
+                        if time.monotonic() >= deadline:
+                            self._kill(process)
+                            process.wait()
+                            raise RuntimeError(f'Generation timed out after {self.job_timeout:g}s') from None
             finally:
                 with self.lock:
                     self.process = None
+        issue = self.storage_issue(job['id'])
+        if issue:
+            shutil.rmtree(root)
+            raise RuntimeError(issue)
         if code:
             with (root.parent / 'generation.log').open('rb') as log:
                 log.seek(max(0, log.seek(0, os.SEEK_END) - 6000))
@@ -857,6 +963,12 @@ def main():
     parser.add_argument('--port', type=int, default=8765)
     parser.add_argument('--data-dir', default=str(ROOT / 'output' / 'workbench-data'))
     parser.add_argument('--job-timeout', type=float, default=180)
+    parser.add_argument('--max-job-mib', type=int, default=512)
+    parser.add_argument('--max-job-store-mib', type=int, default=2048)
+    parser.add_argument('--failed-output-retention-days', type=int, default=7)
+    parser.add_argument('--prune-failed-now', action='store_true', help='Remove failed job partial outputs after stopping the server')
+    parser.add_argument('--prune-completed-days', type=int, help='Preview completed job outputs older than this many days')
+    parser.add_argument('--apply-prune', action='store_true', help='Apply --prune-completed-days after reviewing its preview')
     parser.add_argument('--generate-worker', help=argparse.SUPPRESS)
     parser.add_argument('--native-worker', help=argparse.SUPPRESS)
     parser.add_argument('--out', help=argparse.SUPPRESS)
@@ -873,11 +985,33 @@ def main():
         generation_worker(args.native_worker or args.generate_worker, args.out, args.render,
                           native=bool(args.native_worker), auto_layout=args.auto_layout)
         return
-    if args.job_timeout <= 0:
-        parser.error('--job-timeout must be positive')
+    if args.job_timeout <= 0 or args.max_job_mib <= 0 or args.max_job_store_mib <= 0 or args.failed_output_retention_days < 0:
+        parser.error('Timeout and storage limits must be positive; retention days cannot be negative')
+    if args.apply_prune and args.prune_completed_days is None:
+        parser.error('--apply-prune requires --prune-completed-days')
+    if args.prune_completed_days is not None and args.prune_completed_days < 0:
+        parser.error('--prune-completed-days cannot be negative')
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
+    storage = dict(max_job_bytes=args.max_job_mib * 1024 ** 2,
+                   max_job_store_bytes=args.max_job_store_mib * 1024 ** 2,
+                   failed_output_retention_days=args.failed_output_retention_days)
+    if args.prune_failed_now or args.prune_completed_days is not None:
+        try:
+            app = Workbench(args.data_dir, job_timeout=args.job_timeout, start_worker=False, **storage)
+        except (ValueError, OSError) as exc:
+            parser.error(str(exc))
+        try:
+            report = {}
+            if args.prune_failed_now:
+                report['failed_output_directories_removed'] = app.prune_failed_outputs(older_than_days=0)
+            if args.prune_completed_days is not None:
+                report['completed_outputs'] = app.prune_completed_outputs(args.prune_completed_days, apply=args.apply_prune)
+            print(json.dumps(report))
+        finally:
+            app.close()
+        return
     try:
-        server = create_server(args.host, args.port, args.data_dir, job_timeout=args.job_timeout)
+        server = create_server(args.host, args.port, args.data_dir, job_timeout=args.job_timeout, **storage)
     except (ValueError, OSError) as exc:
         parser.error(str(exc))
     print(f'Workbench: http://{args.host}:{server.server_port} (loopback only); data: {server.app.data_dir}', flush=True)

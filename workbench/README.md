@@ -12,6 +12,8 @@ python3 -B workbench/server.py --port 8765 --data-dir output/workbench-data
 
 打开 <http://127.0.0.1:8765>。前端无需 npm 构建、CDN 或额外字体服务；后端依赖使用当前 Python 环境与唯一 skills 包的依赖。更换端口或 `--data-dir` 可建立独立本地工作空间。
 
+任务目录默认限制为单任务 512 MiB、全部任务 2048 MiB。超过限额的生成任务会失败并清除不完整输出，旧任务占满总额时拒绝新任务。任务结束后日志最多保留末尾 8 MiB，较低的单任务限额会进一步缩小日志上限。失败任务的不完整 `outputs/` 在 7 天后于服务启动或下次提交任务时清理；输入、布局、日志和数据库记录保留。可通过 `--max-job-mib`、`--max-job-store-mib` 和 `--failed-output-retention-days` 调整。停服后运行 `python3 -B workbench/server.py --data-dir output/workbench-data --prune-failed-now` 可立即清理失败任务的不完整输出。成功和 blocked 任务不会自动删除；用 `--prune-completed-days 30` 先预览较早任务的可清理附件，确认后加 `--apply-prune` 执行，任务记录保留。
+
 ## 操作闭环
 
 1. **创建 / 导入**：从现有视点模板创建示例项目，或上传已有共享模型 JSON；也可通过“导入 UML/BPMN”载入 UTF-8 原生 XML。原生模型可以独立建立项目或加入现有草稿，服务保存原文及诊断版本。

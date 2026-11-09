@@ -51,8 +51,10 @@ def main(release_dir=None,run_dir=None,out=None):
  run_dir=Path(run_dir).resolve() if run_dir is not None else BASE/('archive-'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S'))
  if report_path.exists():raise ValueError('Report path must be new; previous evidence is immutable: '+str(report_path))
  if run_dir.exists():raise ValueError('Extraction directory must be new; previous evidence is immutable: '+str(run_dir))
- run_dir.mkdir(parents=True,exist_ok=False);target=run_dir/'skills';checks=[]
  release=json.loads((release_root/'release-manifest.json').read_text());assert release['passed']
+ if not release.get('optional_node_dependencies'):
+  raise ValueError('Source-only release has no Node dependency archive; full portability verification requires a complete release')
+ run_dir.mkdir(parents=True,exist_ok=False);target=run_dir/'skills';checks=[]
  for key in ['package','optional_node_dependencies']:
   item=release[key];archive=release_root/item['path'];assert sha(archive)==item['sha256'];extract(archive,run_dir)
  sealed=json.loads((target/'package-manifest.json').read_text());bad=[x['path'] for x in sealed['files'] if sha(target/x['path'])!=x['sha256']]

@@ -10,6 +10,12 @@ from urllib.parse import urlsplit,unquote
 C=Path(__file__).resolve().parents[1];DEST=C/'skills'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 def ignore(path,names):return [n for n in names if n in {'node_modules','__pycache__','.DS_Store','.git','.venv','generated'} or n.endswith(('.pyc','.log'))]
+def copy_changed(src,dst):
+ """Keep an existing portable source file when its bytes already match."""
+ src,dst=Path(src),Path(dst)
+ if dst.is_symlink():raise ValueError('Portable corpus destination cannot be a symlink: '+str(dst))
+ if dst.is_file() and src.stat().st_size==dst.stat().st_size and sha(src)==sha(dst):return str(dst)
+ return shutil.copy2(src,dst)
 def restore_portable_reading_links():
  """Keep proven package reading derivations when refreshing their source text."""
  manifest=DEST/'reading-link-manifest.json'
@@ -41,16 +47,16 @@ def main():
  shared=DEST/'_shared';corpus=shared/'corpus';corpus.mkdir(exist_ok=True)
  for name in ['chapters','architecture/roles','architecture/guides','architecture/diagrams','architecture/adm-flow','fundamental/analysis','fundamental/chinese-text','supplementary']:
   src=C/name
-  if src.exists():shutil.copytree(src,corpus/name,dirs_exist_ok=True,ignore=ignore)
+  if src.exists():shutil.copytree(src,corpus/name,dirs_exist_ok=True,ignore=ignore,copy_function=copy_changed)
  retrieval_source=C/'retrieval';retrieval_target=corpus/'retrieval';retrieval_target.mkdir(parents=True,exist_ok=True)
  indexes={p.name for p in retrieval_source.glob('*.jsonl') if p.is_file()}
  if not indexes:raise ValueError('Complete retrieval index missing')
  for stale in retrieval_target.glob('*.jsonl'):
   if stale.name not in indexes:stale.unlink()
- for name in sorted(indexes):shutil.copy2(retrieval_source/name,retrieval_target/name)
+ for name in sorted(indexes):copy_changed(retrieval_source/name,retrieval_target/name)
  for name in ['architecture/source-method-graph.json','quality/extended-source-issues.json','quality/extended-publication.json']:
   src=C/name;target=corpus/name
-  if src.exists():target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,target)
+  if src.exists():target.parent.mkdir(parents=True,exist_ok=True);copy_changed(src,target)
  # The portable reader ships diagram artifacts, while optional renderer logs
  # remain with the original execution evidence. Record this derivation rather
  # than publish a manifest whose output hash points to an excluded log.

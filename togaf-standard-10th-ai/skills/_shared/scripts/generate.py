@@ -5,9 +5,12 @@ import base64
 import html
 import hashlib
 import json
+import os
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -316,8 +319,37 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('model');p.add_argument('--out',required=True);p.add_argument('--artifact',action='append');p.add_argument('--deliverable',action='append');p.add_argument('--all',action='store_true');p.add_argument('--render',action='store_true');p.add_argument('--view',action='append');p.add_argument('--profile',action='append');p.add_argument('--layout',choices=['reference','adaptive']);p.add_argument('--strict',action='store_true',help='拒绝语义/表达错误；默认保留带缺口草稿');a=p.parse_args()
     if not a.all and not a.artifact and not a.deliverable and not a.view and not a.profile:p.error('至少选择一个 --artifact、--deliverable、--view、--profile 或 --all')
     try:
-        result=generate(load_json(a.model),a.out,a.artifact,a.deliverable,a.all,a.render,a.view,a.profile,a.layout,a.strict)
+        result=staged_generate(load_json(a.model),a.out,a.artifact,a.deliverable,a.all,a.render,a.view,a.profile,a.layout,a.strict)
     except subprocess.CalledProcessError as e:p.exit(3 if e.returncode==3 else 1,str(e)+'\n')
     except (ValueError,OSError,RuntimeError) as e:p.exit(1,str(e)+'\n')
     print(f'Generated {len(result["artifacts"])} artifacts, {len(result["deliverables"])} deliverables; rendered={result["rendered"]}')
+
+def staged_generate(model, out, *args):
+    """Replace a CLI delivery only after generation succeeds; discard stale files."""
+    destination=Path(out).absolute()
+    if destination.is_symlink() or (destination.exists() and not destination.is_dir()):
+        raise ValueError('Output must be a directory, not a file or symlink')
+    if Path.cwd().resolve().is_relative_to(destination.resolve()):
+        raise ValueError('Output cannot contain the current working directory')
+    if destination.exists():
+        manifest=destination/'manifest.json'
+        if not manifest.is_file() or json.loads(manifest.read_text()).get('schema_version')!='2.0':
+            raise ValueError('Existing output is not a generated delivery; choose a dedicated directory')
+    destination.parent.mkdir(parents=True,exist_ok=True)
+    staging=Path(tempfile.mkdtemp(prefix='.'+destination.name+'.staging-',dir=destination.parent))
+    backup=None
+    try:
+        result=generate(model,staging,*args)
+        if destination.exists():
+            backup=destination.with_name('.'+destination.name+'.previous-'+uuid.uuid4().hex)
+            os.replace(destination,backup)
+        try:
+            os.replace(staging,destination)
+        except BaseException:
+            if backup is not None:os.replace(backup,destination)
+            raise
+        if backup is not None:shutil.rmtree(backup)
+        return result
+    finally:
+        if staging.exists():shutil.rmtree(staging)
 if __name__=='__main__':main()

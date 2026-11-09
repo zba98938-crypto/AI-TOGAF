@@ -16,6 +16,7 @@ python3 -B workbench/server.py --port 8765 --data-dir output/workbench-data
 - `--data-dir` 下建立 `workbench.sqlite3`、SQLite WAL、锁文件及 `jobs/<job-id>/`。
   默认路径是新的 `output/workbench-data`，不要将历史成果目录指定为工作目录。
   同一工作目录只允许一个服务实例，单实例可服务多个浏览器标签。
+- 单任务输出默认上限 512 MiB，全部任务目录默认上限 2048 MiB；生成过程中和结束时检查。触限任务标记 failed，保留输入、布局与日志，删除不完整 `outputs/`。任务结束后日志保留末尾最多 8 MiB。失败输出默认保留 7 天后自动清理；成功和 blocked 输出不自动清理。`--max-job-mib`、`--max-job-store-mib`、`--failed-output-retention-days` 可调整限额。停服后用 `--prune-failed-now` 立即清理失败输出；`--prune-completed-days 30` 仅预览较早任务，增加 `--apply-prune` 才删除附件，并在任务记录中标记清理时间。
 - 版本是不可变快照；`id`/`version_hash` 是 model、layout、parent、created_at、message
   及可选 native 原文的规范 JSON 的 SHA-256。`model_hash` 仍只对项目 JSON 计算，保持旧语义。
   `native_sha256` 对原生源码 UTF-8 字节计算。重复保存或回滚仍产生新版本。
@@ -108,7 +109,7 @@ blocked 表示原文/交换输出有效而预览不可满足，已核验文件�
 与重启后的生成重叠。默认超时 180 秒，可用 `--job-timeout` 调整；超时杀死整个生成进程组。
 子进程自己也设置截止时间，防止服务消失后永久残留。
 重启将上次 running 标记 failed（结果不计成功），queued 自动继续。
-失败任务仍保留记录、input.json、layout.json、generation.log 和不完整输出用于本机诊断，
+失败任务保留记录、input.json、layout.json、generation.log；不完整输出仅在保留期内用于本机诊断，
 但 HTTP 不提供失败任务的文件下载。不会自动重试失败任务，需用户重新生成。
 
 ## 安全边界
@@ -125,7 +126,7 @@ blocked 表示原文/交换输出有效而预览不可满足，已核验文件�
   这是受信任本机用户的离线工具，不是 OS 级沙箱或多租户服务；同机恶意程序/文件系统
   管理员仍可改写数据，勿暴露端口、勿以高权限运行、勿将身份声明视作认证。
 - 当前适用于 macOS/Linux（使用 POSIX 文件锁、进程组、O_NOFOLLOW）。
-  没有用户管理、删除、迁移、云同步、审计签名或自动数据清理；备份请停服后复制整个 data-dir。
+  没有用户管理、自动删除成功任务、迁移、云同步或审计签名；失败任务的不完整输出会按保留期清理，成功任务附件仅经停服后的显式命令清理。备份请停服后复制整个 data-dir。
 
 ## 验证
 

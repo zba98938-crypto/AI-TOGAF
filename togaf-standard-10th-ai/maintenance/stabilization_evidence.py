@@ -240,6 +240,8 @@ def package_pass(data,root=REPO):
     releases=[safe(n,root) for n in inputs if n.endswith('/release-manifest.json')]
     if len(releases)!=1:raise ValueError('package verification needs one exact release manifest')
     release_path=releases[0];release=json.loads(release_path.read_text());release_root=release_path.parent
+    if not release.get('optional_node_dependencies'):
+        raise ValueError('Source-only development archive cannot satisfy formal package verification')
     package=Path(root)/'togaf-standard-10th-ai/skills';manifest_path=package/'package-manifest.json'
     required={release_path,manifest_path}
     for key in ('package','optional_node_dependencies'):

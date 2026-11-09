@@ -70,11 +70,13 @@ def record_build_provenance():
  pointer.write_text(json.dumps(current,ensure_ascii=False,indent=2)+'\n')
  return current
 
-def main(release_dir=None):
+def main(release_dir=None, *, source_only=False):
  global R
  if release_dir is not None:R=Path(release_dir).resolve()
  if R.exists():raise ValueError('Release directory must be new; previous archives are immutable: '+str(R))
  closure=require_source_closure(P/'_shared/corpus')
+ if not source_only and not (P/'_shared/node_modules').is_dir():
+  raise ValueError('Node dependencies are missing; install them or use --source-only for a development archive')
  provenance=record_build_provenance()
  R.mkdir(parents=True,exist_ok=False)
  body=json.loads((C/'fundamental/chinese-text/index.json').read_text())
@@ -93,29 +95,32 @@ def main(release_dir=None):
   for f in files+[{'path':'package-manifest.json'}]:
    p=P/f['path'];name='skills/'+f['path'];tf.add(p,arcname=name,recursive=False);expected[name]=sha(p)
  verified=verify_archive(archive,expected)
- # Native Node dependencies are a separate, explicitly platform-bound optional pack.
- deps=P/'_shared/node_modules';dep_archive=R/('togaf-node-dependencies-'+sys.platform+'-'+platform.machine()+'.tar.gz');dep_count=0;unsafe=[]
- with tarfile.open(dep_archive,'w:gz',compresslevel=6) as tf:
-  for p in sorted(deps.rglob('*')):
-   if p.name in {'.DS_Store','__pycache__'}:continue
-   if p.is_symlink():
-    target=p.resolve()
-    if deps.resolve() not in target.parents:unsafe.append(p.relative_to(P).as_posix());continue
-   if p.is_file() or p.is_symlink():tf.add(p,arcname='skills/'+p.relative_to(P).as_posix(),recursive=False);dep_count+=1
- assert not unsafe,unsafe
- dependency_paths={}
- # Stream-verify every dependency file and every symbolic link against local bytes.
- with tarfile.open(dep_archive,'r:gz') as tf:
-  for item in tf:
-   relative=Path(item.name).relative_to('skills');p=P/relative
-   if item.issym():assert os.readlink(p)==item.linkname
-   elif item.isfile():
-    h=hashlib.sha256();stream=tf.extractfile(item)
-    for b in iter(lambda:stream.read(1024*1024),b''):h.update(b)
-    assert h.hexdigest()==sha(p),relative
-   dependency_paths[relative.as_posix()]={'sha256':sha(p) if item.isfile() else None,'link_target':item.linkname if item.issym() else None,'bytes':item.size}
- (R/'node-dependency-manifest.json').write_text(json.dumps({'schema_version':'platform-node-dependencies/1','platform':sys.platform,'machine':platform.machine(),'lockfile_sha256':sha(P/'_shared/package-lock.json'),'files':dependency_paths,'notice_zh':'只验证本机依赖字节与链接；跨操作系统需按锁文件重新准备依赖。'},ensure_ascii=False,indent=2)+'\n')
- report={'schema_version':'local-release/1','generated_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'passed':verified['passed'],'release_status':'engineering-preview-verification-pending','all_plan_items_complete':False,'package':{'path':archive.name,'sha256':sha(archive),'bytes':archive.stat().st_size,'verified_contents':verified},'optional_node_dependencies':{'path':dep_archive.name,'sha256':sha(dep_archive),'bytes':dep_archive.stat().st_size,'files':dep_count,'platform':sys.platform,'machine':platform.machine(),'manifest':'node-dependency-manifest.json','manifest_sha256':sha(R/'node-dependency-manifest.json')},'package_manifest_sha256':sha(P/'package-manifest.json'),'local_patch_count':len(patches),'installations_performed':[],'semantic_remaining':['independent-material-unit-review-and-recheck','complete-UML-2.5.1-design-time-obligations','complete-BPMN-2.0.2-design-time-obligations','507-independent-current-version-Actor-scorer-cases','current-round-entrypoint-and-publication-verification','human-professional-acceptance','real-organization-signature'],'validation_scope_zh':'passed只表示归档内容与封存字节逐项一致，不表示全部计划或语义验收完成。'}
+ # A development archive can omit the machine-specific dependency copy.
+ dependency_release=None;dep_archive=None
+ if not source_only:
+  deps=P/'_shared/node_modules';dep_archive=R/('togaf-node-dependencies-'+sys.platform+'-'+platform.machine()+'.tar.gz');dep_count=0;unsafe=[]
+  with tarfile.open(dep_archive,'w:gz',compresslevel=6) as tf:
+   for p in sorted(deps.rglob('*')):
+    if p.name in {'.DS_Store','__pycache__'}:continue
+    if p.is_symlink():
+     target=p.resolve()
+     if deps.resolve() not in target.parents:unsafe.append(p.relative_to(P).as_posix());continue
+    if p.is_file() or p.is_symlink():tf.add(p,arcname='skills/'+p.relative_to(P).as_posix(),recursive=False);dep_count+=1
+  assert not unsafe,unsafe
+  dependency_paths={}
+  # Stream-verify every dependency file and every symbolic link against local bytes.
+  with tarfile.open(dep_archive,'r:gz') as tf:
+   for item in tf:
+    relative=Path(item.name).relative_to('skills');p=P/relative
+    if item.issym():assert os.readlink(p)==item.linkname
+    elif item.isfile():
+     h=hashlib.sha256();stream=tf.extractfile(item)
+     for b in iter(lambda:stream.read(1024*1024),b''):h.update(b)
+     assert h.hexdigest()==sha(p),relative
+    dependency_paths[relative.as_posix()]={'sha256':sha(p) if item.isfile() else None,'link_target':item.linkname if item.issym() else None,'bytes':item.size}
+  (R/'node-dependency-manifest.json').write_text(json.dumps({'schema_version':'platform-node-dependencies/1','platform':sys.platform,'machine':platform.machine(),'lockfile_sha256':sha(P/'_shared/package-lock.json'),'files':dependency_paths,'notice_zh':'只验证本机依赖字节与链接；跨操作系统需按锁文件重新准备依赖。'},ensure_ascii=False,indent=2)+'\n')
+  dependency_release={'path':dep_archive.name,'sha256':sha(dep_archive),'bytes':dep_archive.stat().st_size,'files':dep_count,'platform':sys.platform,'machine':platform.machine(),'manifest':'node-dependency-manifest.json','manifest_sha256':sha(R/'node-dependency-manifest.json')}
+ report={'schema_version':'local-release/1','generated_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'passed':verified['passed'],'release_status':'development-source-only' if source_only else 'engineering-preview-verification-pending','all_plan_items_complete':False,'package':{'path':archive.name,'sha256':sha(archive),'bytes':archive.stat().st_size,'verified_contents':verified},'optional_node_dependencies':dependency_release,'source_only':source_only,'package_manifest_sha256':sha(P/'package-manifest.json'),'local_patch_count':len(patches),'installations_performed':[],'semantic_remaining':['independent-material-unit-review-and-recheck','complete-UML-2.5.1-design-time-obligations','complete-BPMN-2.0.2-design-time-obligations','507-independent-current-version-Actor-scorer-cases','current-round-entrypoint-and-publication-verification','human-professional-acceptance','real-organization-signature'],'validation_scope_zh':'passed只表示归档内容与封存字节逐项一致，不表示全部计划或语义验收完成。'}
  report['body_translation_progress']=body['counts']
  report['retrieval_source_closure']={'passed':closure['passed'],'counts':closure['counts']}
  report['build_provenance']=provenance
@@ -131,10 +136,15 @@ def main(release_dir=None):
   text=text.replace(old,Path(os.path.relpath(target,R)).as_posix())
  text=text.replace('隔离副本的检索、模型校验、生成与渲染证据见[迁移检查](../quality/portability-validation.json)。这证明已测试本机的路径独立性，不是所有平台的运行认证。',
                    '本归档的隔离迁移检查由正式轮次调用 `verify_portability.py --release-dir <本目录> --run-dir <新解包目录> --out <新报告路径>` 保存。只有该轮实际执行结果可以支持本轮迁移结论；归档封存不授予语义验收或真实组织批准。')
+ if source_only:
+  text=text.replace('可选离线Node依赖包名称、平台和SHA-256见归档清单，在同一目标目录解开，使其位于`skills/_shared/node_modules/`。',
+                    '本开发归档未包含离线Node依赖包；需要渲染时按锁文件准备依赖。')
+  text=text.replace('本归档的隔离迁移检查由正式轮次调用', '完整隔离迁移检查需要另行封存含Node依赖的正式归档，再由正式轮次调用')
  readme.write_text(text)
- print({'files':len(files),'patches':len(patches),'source_archive_bytes':archive.stat().st_size,'node_archive_bytes':dep_archive.stat().st_size,'passed':report['passed']})
+ print({'files':len(files),'patches':len(patches),'source_archive_bytes':archive.stat().st_size,'node_archive_bytes':dep_archive.stat().st_size if dep_archive else 0,'passed':report['passed']})
 if __name__=='__main__':
  parser=argparse.ArgumentParser(description=__doc__)
  parser.add_argument('--release-dir',type=Path)
+ parser.add_argument('--source-only',action='store_true',help='Development archive without a machine-specific Node dependency copy')
  args=parser.parse_args()
- main(args.release_dir)
+ main(args.release_dir,source_only=args.source_only)

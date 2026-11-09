@@ -17,6 +17,8 @@ python3 -B _shared/scripts/local_tool.py generate work/model.json --out work/out
 
 依赖：Python按 `_shared/requirements.txt`；Node按 `_shared/package-lock.json`，Node>=22.13。需已安装Chrome/Chromium或设置 `TOGAF_BROWSER_PATH`；不会自动下载浏览器。开发副本复用已在本地安装的Node依赖。可安装归档不包含node_modules或机器特定虚拟环境，首次部署按锁文件安装依赖；离线环境使用相同平台已准备依赖。所有输出与临时文件放包内 `work/`。
 
+CLI `generate --out work/<交付目录>` 会先在同级临时目录生成、校验，再替换已有的生成目录；旧目录中不属于本次交付的文件会移除。若已有目录没有版本 2 的生成清单，命令会拒绝覆盖。工作台任务和正式评测仍使用各自的新目录及不可变证据规则。日常检查使用项目根目录的 `tools/daily_check.py`，无需运行全量渲染或封包。
+
 独立复制该`skills/`目录后仍可执行。安装时17个技能目录与`_shared/`保持为同级；本次交付不写入用户的全局技能目录。
 
 ## 部署到另一个目录
