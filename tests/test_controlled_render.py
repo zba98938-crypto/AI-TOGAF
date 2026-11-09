@@ -7,13 +7,128 @@ import sys
 import time
 from pathlib import Path
 from unittest.mock import patch
-from enterprise.local_render import LocalRenderController, parts, validate_graphic, read_session, write_session, owned_processes
+from enterprise.local_render import (LocalRenderController, parts, validate_graphic, read_session,
+                                    write_session, owned_processes, publish_session, rollback_session,
+                                    OutputCleanupError)
 from enterprise.runtime import Budget, Blocked
 
 SVG = b'<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><text x="20" y="50">safe</text></svg>'
 
 
 class ControlledRenderTests(unittest.TestCase):
+    def test_output_set_reservation_rejects_every_collision_without_partial_results(self):
+        for collision in range(4):
+            with self.subTest(collision=collision), tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp)/'session'; root.mkdir(); results=root/'results'; results.mkdir()
+                protected=Path(tmp)/'protected'; protected.write_bytes(b'protected unchanged')
+                names=['results/job.'+suffix for suffix in ('svg','png','json','browser.png')]
+                conflict=root/names[collision]; conflict.symlink_to(protected)
+                fd=os.open(root,os.O_RDONLY|os.O_DIRECTORY)
+                try:
+                    with self.assertRaises(OSError):
+                        publish_session(fd,{name:b'new result' for name in names})
+                    self.assertEqual({p.name for p in results.iterdir()},{conflict.name})
+                    self.assertTrue(conflict.is_symlink())
+                    self.assertEqual(protected.read_bytes(),b'protected unchanged')
+                finally: os.close(fd)
+
+    def test_output_write_failure_removes_reserved_files_and_preserves_unrelated_results(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); (root/'results').mkdir(); (root/'results/other.svg').write_bytes(SVG)
+            fd=os.open(root,os.O_RDONLY|os.O_DIRECTORY)
+            real_write=os.write; calls=[]
+            def fail_after_partial(fd,data):
+                calls.append(fd)
+                if len(calls)==1: return real_write(fd,data[:4])
+                raise OSError('synthetic disk write failure')
+            try:
+                with patch('enterprise.local_render.os.write',side_effect=fail_after_partial):
+                    with self.assertRaisesRegex(OSError,'disk write failure'):
+                        publish_session(fd,{'results/job.svg':SVG,'results/job.png':b'png'})
+                self.assertEqual({p.name for p in (root/'results').iterdir()},{'other.svg'})
+                self.assertEqual((root/'results/other.svg').read_bytes(),SVG)
+            finally: os.close(fd)
+
+    def test_output_cleanup_preserves_replacements_and_reports_uncertified_ownership(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/'session';root.mkdir();(root/'results').mkdir()
+            protected=Path(tmp)/'protected';protected.write_bytes(b'unchanged')
+            fd=os.open(root,os.O_RDONLY|os.O_DIRECTORY)
+            try:
+                receipts=publish_session(fd,{'results/job.svg':SVG,'results/job.png':b'png'})
+                replaced=root/'results/job.png'; replaced.unlink(); replaced.symlink_to(protected)
+                with self.assertRaisesRegex(OutputCleanupError,'ownership changed'):
+                    rollback_session(fd,receipts)
+                self.assertTrue(replaced.is_symlink())
+                self.assertFalse((root/'results/job.svg').exists())
+                self.assertEqual(protected.read_bytes(),b'unchanged')
+            finally: os.close(fd)
+
+    def test_output_cleanup_handles_replacement_at_atomic_move_boundary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/'session';root.mkdir();(root/'results').mkdir()
+            evidence=Path(tmp)/'trusted';evidence.mkdir()
+            protected=Path(tmp)/'protected';protected.write_bytes(b'unchanged')
+            fd=os.open(root,os.O_RDONLY|os.O_DIRECTORY); real_rename=os.rename; injected=[]
+            def replace_before_move(source,target,**kwargs):
+                if source=='job.png' and not injected:
+                    injected.append(source)
+                    os.unlink(source,dir_fd=kwargs['src_dir_fd'])
+                    os.symlink(protected,source,dir_fd=kwargs['src_dir_fd'])
+                return real_rename(source,target,**kwargs)
+            try:
+                receipts=publish_session(fd,{'results/job.svg':SVG,'results/job.png':b'png'},evidence)
+                with patch('enterprise.local_render.os.rename',side_effect=replace_before_move):
+                    with self.assertRaisesRegex(OutputCleanupError,'ownership changed'):
+                        rollback_session(fd,receipts,evidence)
+                self.assertTrue(injected)
+                self.assertTrue((root/'results/job.png').is_symlink())
+                self.assertFalse((root/'results/job.svg').exists())
+                self.assertEqual(protected.read_bytes(),b'unchanged')
+                self.assertFalse(list(evidence.iterdir()))
+            finally: os.close(fd)
+
+    def test_output_cleanup_restore_collision_preserves_both_replacement_entries(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/'session';root.mkdir();(root/'results').mkdir()
+            evidence=Path(tmp)/'trusted';evidence.mkdir()
+            protected=Path(tmp)/'protected';protected.write_bytes(b'unchanged')
+            fd=os.open(root,os.O_RDONLY|os.O_DIRECTORY);real_rename=os.rename;injected=[]
+            def replace_and_occupy(source,target,**kwargs):
+                if source=='job.png' and not injected:
+                    injected.append(source);parent=kwargs['src_dir_fd']
+                    os.unlink(source,dir_fd=parent);os.symlink(protected,source,dir_fd=parent)
+                    real_rename(source,target,**kwargs)
+                    occupant=os.open(source,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600,dir_fd=parent)
+                    with os.fdopen(occupant,'wb') as stream:stream.write(b'new occupant')
+                    return
+                return real_rename(source,target,**kwargs)
+            try:
+                receipts=publish_session(fd,{'results/job.svg':SVG,'results/job.png':b'png'},evidence)
+                with patch('enterprise.local_render.os.rename',side_effect=replace_and_occupy):
+                    with self.assertRaisesRegex(OutputCleanupError,'retained without deletion'):
+                        rollback_session(fd,receipts,evidence)
+                self.assertEqual((root/'results/job.png').read_bytes(),b'new occupant')
+                retained=list(evidence.glob('render-rollback-*/*'))
+                self.assertEqual(len(retained),1);self.assertTrue(retained[0].is_symlink())
+                self.assertEqual(os.readlink(retained[0]),str(protected))
+                self.assertFalse((root/'results/job.svg').exists())
+                self.assertEqual(protected.read_bytes(),b'unchanged')
+            finally: os.close(fd)
+
+    def test_output_set_publication_returns_only_current_owned_files(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); (root/'results').mkdir()
+            fd=os.open(root,os.O_RDONLY|os.O_DIRECTORY)
+            try:
+                payloads={'results/job.svg':SVG,'results/job.png':b'png bytes'}
+                receipts=publish_session(fd,payloads)
+                self.assertEqual([item['path'] for item in receipts],list(payloads))
+                for name,data in payloads.items(): self.assertEqual((root/name).read_bytes(),data)
+                rollback_session(fd,receipts)
+                self.assertFalse(list((root/'results').iterdir()))
+            finally: os.close(fd)
+
     def test_process_inspection_failure_cannot_certify_empty_cleanup(self):
         from subprocess import CompletedProcess
         for result in (CompletedProcess([],1,'','denied'),CompletedProcess([],0,'','')):

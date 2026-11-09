@@ -14,6 +14,8 @@ REPO = Path(__file__).resolve().parents[1]
 FILES = ('tests/enterprise/local_render.py', 'tests/test_controlled_render.py',
          'tests/diagnose_controlled_render.py',
          'tests/test_bpmn_render.py','tests/bpmn_design_fixtures.py',
+         'tests/bpmn_data_di_fixtures.py','tests/bpmn_data_compensation_fixtures.py',
+         'tests/bpmn_role_type_fixtures.py','tests/test_controlled_bpmn_data_render.py',
          'tests/test_uml_render.py',
          'togaf-standard-10th-ai/skills/_shared/scripts/controlled_render_client.py',
          'togaf-standard-10th-ai/skills/_shared/scripts/controlled_render_worker.mjs')
@@ -46,11 +48,13 @@ def run(out, shared, browser):
         from test_controlled_render import SVG
         from test_bpmn_render import BPMN
         from bpmn_design_fixtures import conversation,choreography
+        from bpmn_data_di_fixtures import data_di_model,boundary_di_model
         from test_uml_render import UML
         inputs = [('svg','svg',SVG.replace(b'safe','中文字体'.encode())),
                   ('mmd','mmd','flowchart LR\nA[业务需求] --> B[架构评审]\nB --> C[交付证据]'.encode()),
                   ('bpmn','bpmn',BPMN),('conversation','bpmn',conversation()),
                   ('choreography','bpmn',choreography()),('choreography-expanded','bpmn',choreography(True,True)),
+                  ('data-full','bpmn',data_di_model()),('data-owner-partial','bpmn',boundary_di_model()),
                   ('uml-class','uml-class-layout',UML)]
         for name,kind,data in inputs:
             source=name+('.uml' if kind=='uml-class-layout' else '.'+kind)

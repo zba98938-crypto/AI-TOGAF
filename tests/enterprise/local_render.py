@@ -5,6 +5,7 @@ into a per-task private directory; outputs have fixed names under .render/result
 Directory-descriptor I/O refuses symlinks, including races and named pipes.
 """
 import contextlib
+import ctypes
 import hashlib
 import json
 import os
@@ -13,6 +14,7 @@ import shutil
 import signal
 import stat
 import subprocess
+import sys
 import tempfile
 import threading
 import time
@@ -22,6 +24,10 @@ from pathlib import Path, PurePosixPath
 MAX_INPUT = 1024 * 1024
 MAX_OUTPUT = 64 * 1024 * 1024
 PROTOCOL = 'controlled-local-render/1'
+
+
+class OutputCleanupError(RuntimeError):
+    pass
 
 
 def parts(name):
@@ -76,6 +82,85 @@ def write_session(root_fd, name, data):
                      0o600, dir_fd=parent)
         with os.fdopen(fd, 'wb') as stream:
             stream.write(data)
+
+
+def publish_session(root_fd, payloads, quarantine_parent=None):
+    """Reserve the whole result set; roll back only files this call created."""
+    created = []
+    try:
+        for name, data in payloads.items():
+            names = parts(name)
+            with directory(root_fd, names[:-1]) as parent:
+                fd = os.open(names[-1], os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
+                             0o600, dir_fd=parent)
+                info = os.fstat(fd)
+                created.append({'path': name, 'device': info.st_dev, 'inode': info.st_ino, 'fd': fd})
+        for item, data in zip(created, payloads.values()):
+            view = memoryview(data)
+            while view:
+                written = os.write(item['fd'], view)
+                if written <= 0:
+                    raise OSError('render output write did not progress')
+                view = view[written:]
+        return [{k: v for k, v in item.items() if k != 'fd'} for item in created]
+    except Exception:
+        rollback_session(root_fd, created, quarantine_parent)
+        raise
+    finally:
+        for item in created:
+            os.close(item['fd'])
+
+
+def rename_exclusive(source_fd, source, target_fd, target):
+    """Use the installed OS's atomic, non-overwriting rename operation."""
+    library = ctypes.CDLL(None, use_errno=True)
+    if sys.platform == 'darwin':
+        function = library.renameatx_np
+        flag = 0x00000004  # RENAME_EXCL, acquired local SDK sys/stdio.h.
+    elif sys.platform.startswith('linux') and hasattr(library, 'renameat2'):
+        function = library.renameat2
+        flag = 1  # RENAME_NOREPLACE.
+    else:
+        raise OSError('atomic exclusive rename is unavailable; displaced output is retained')
+    function.argtypes = [ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_uint]
+    function.restype = ctypes.c_int
+    if function(source_fd, os.fsencode(source), target_fd, os.fsencode(target), flag) != 0:
+        error = ctypes.get_errno()
+        raise OSError(error, os.strerror(error), target)
+
+
+def rollback_session(root_fd, created, quarantine_parent=None):
+    """Inspect only entries atomically moved out of the Actor's writable tree."""
+    if not created:
+        return
+    quarantine = Path(tempfile.mkdtemp(prefix='render-rollback-', dir=quarantine_parent))
+    quarantine_fd = os.open(quarantine, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    errors = []
+    try:
+        for index, item in enumerate(reversed(created)):
+            names = parts(item['path'])
+            displaced = str(index)+'-'+names[-1]
+            try:
+                with directory(root_fd, names[:-1]) as parent:
+                    os.rename(names[-1], displaced, src_dir_fd=parent, dst_dir_fd=quarantine_fd)
+                    info = os.stat(displaced, dir_fd=quarantine_fd, follow_symlinks=False)
+                    if (info.st_dev, info.st_ino) == (item['device'], item['inode']):
+                        os.unlink(displaced, dir_fd=quarantine_fd)
+                    else:
+                        errors.append('render output ownership changed during cleanup: '+item['path'])
+                        rename_exclusive(quarantine_fd, displaced, parent, names[-1])
+            except FileNotFoundError:
+                continue
+            except OSError as exc:
+                errors.append(str(exc))
+    finally:
+        os.close(quarantine_fd)
+        try:
+            quarantine.rmdir()
+        except OSError:
+            errors.append('displaced outputs retained without deletion: '+str(quarantine))
+    if errors:
+        raise OutputCleanupError('; '.join(errors))
 
 
 def validate_graphic(kind, data):
@@ -247,6 +332,8 @@ class LocalRenderController:
         started = time.monotonic()
         task_root = self.private / identity
         process = None
+        published = []
+        accounted_output_bytes = 0
         try:
             if forced_reason:
                 raise ValueError(forced_reason)
@@ -332,16 +419,21 @@ class LocalRenderController:
             if session['output_bytes'] + output_bytes > 512 * 1024 * 1024:
                 session['quota_exceeded'] = True
                 raise ValueError('controlled renderer per-session output quota (512 MiB) exceeded')
+            payloads = {}
             for suffix, filename in output_files.items():
                 data_out = (task_root/filename).read_bytes()
                 output = '.render/results/'+identity+'.'+('browser.png' if suffix=='browser_png' else suffix)
-                write_session(session['fd'], output, data_out)
+                payloads[output] = data_out
                 outputs[suffix] = {'path': output, 'sha256': hashlib.sha256(data_out).hexdigest(), 'bytes': len(data_out)}
+            published = publish_session(session['fd'], payloads, self.evidence)
             session['output_bytes'] += output_bytes
+            accounted_output_bytes = output_bytes
             row.update(status='pass', outputs=outputs, renderer_report=report,
                        environment_policy='allowlist; no inherited Node/Python/loader/credential variables')
         except Exception as exc:
             row['reason'] = str(exc)
+            if isinstance(exc, OutputCleanupError):
+                row['output_cleanup_verification_failed'] = True
         finally:
             try:
                 if process is not None:
@@ -356,10 +448,21 @@ class LocalRenderController:
                 if self.budget:
                     self.budget.trip(row['reason'])
             finally:
+                if row['status'] != 'pass':
+                    try:
+                        rollback_session(session['fd'], published, self.evidence)
+                        session['output_bytes'] -= accounted_output_bytes
+                        row.pop('outputs', None)
+                    except Exception as exc:
+                        row.update(reason='controlled renderer output cleanup verification failed: '+str(exc),
+                                   output_cleanup_verification_failed=True)
+                        if self.budget:
+                            self.budget.trip(row['reason'])
                 shutil.rmtree(task_root, ignore_errors=True)
                 row.update(seconds=round(time.monotonic()-started, 3),
                            cleaned=not task_root.exists() and not row.get('owned_processes_remaining')
-                                   and not row.get('cleanup_verification_failed'))
+                                   and not row.get('cleanup_verification_failed')
+                                   and not row.get('output_cleanup_verification_failed'))
             self.events.append(row)
             (self.evidence/'events.json').write_text(json.dumps(self.events, ensure_ascii=False, indent=2)+'\n')
             try:
