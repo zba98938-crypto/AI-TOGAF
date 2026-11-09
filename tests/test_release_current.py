@@ -11,6 +11,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'togaf-standard-10th-ai/maintenance'))
 import verify_release_current as release_check
+import verify_portability
 from verify_implementation_ledger import declared_inputs
 
 
@@ -23,7 +24,17 @@ class ReleaseCurrentTest(unittest.TestCase):
     def fixture(self, root):
         package, release = root / 'skills', root / 'release'
         write(package / '_shared/package-lock.json', {'lockfileVersion': 3})
-        write(package / '_shared/corpus/source-map.json', {'logical_paths': {}})
+        source = package / '_shared/corpus/source.json'
+        write(source, {'source': 'small verified fixture'})
+        write(package / '_shared/corpus/source-map.json', {
+            'logical_paths': {'source.json': 'source.json'},
+            'file_sha256': {'source.json': release_check.sha(source)}})
+        write(package / '_shared/corpus/retrieval/chunks.jsonl', {
+            'id': 'fixture', 'source_path': 'source.json', 'source_sha256': release_check.sha(source)})
+        write(package / '_shared/corpus/source-map.json', {
+            'logical_paths': {'source.json': 'source.json'},
+            'file_sha256': {'source.json': release_check.sha(source)},
+            'retrieval_index_sha256': {'retrieval/chunks.jsonl': release_check.sha(package / '_shared/corpus/retrieval/chunks.jsonl')}})
         files = [{'path': str(p.relative_to(package)), 'sha256': release_check.sha(p)}
                  for p in sorted(package.rglob('*')) if p.is_file()]
         write(package / 'package-manifest.json', {'files': files})
@@ -81,6 +92,38 @@ class ReleaseCurrentTest(unittest.TestCase):
                 failed = [r['path'] for r in declared_inputs(root, root / 'quality/release.json') if not r['passed']]
                 self.assertIn('skills/_shared/package-lock.json', failed)
                 self.assertIn('release/source.tar.gz', failed)
+
+    def test_explicit_release_directory_and_report_bind_actual_inputs(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            package, release = self.fixture(root)
+            actual_release = root / 'round-release'
+            release.rename(actual_release)
+            output = root / 'round/report.json'
+            with patch.multiple(release_check, C=root, P=package, R=release):
+                self.assertEqual(0, release_check.main(actual_release, output))
+                report = json.loads(output.read_text())
+                self.assertIn('round-release/release-manifest.json', report['input_sha256'])
+                self.assertNotIn('release/release-manifest.json', report['input_sha256'])
+                original = output.read_bytes()
+                with self.assertRaisesRegex(ValueError, 'path must be new'):
+                    release_check.main(actual_release, output)
+                self.assertEqual(original, output.read_bytes())
+
+    def test_portability_refuses_previous_report_or_extraction_before_execution(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            output = root / 'previous.json'
+            output.write_text('old evidence')
+            with self.assertRaisesRegex(ValueError, 'Report path must be new'):
+                verify_portability.main(root / 'release', root / 'new-extraction', output)
+            self.assertFalse((root / 'new-extraction').exists())
+            self.assertEqual('old evidence', output.read_text())
+            extracted = root / 'old-extraction'
+            extracted.mkdir()
+            with self.assertRaisesRegex(ValueError, 'Extraction directory must be new'):
+                verify_portability.main(root / 'release', extracted, root / 'new-report.json')
+            self.assertFalse((root / 'new-report.json').exists())
 
 
 if __name__ == '__main__':

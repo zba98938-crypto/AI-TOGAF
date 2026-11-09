@@ -1,0 +1,1349 @@
+# 政府参考模型（GRM）
+
+**The Open Group TOGAF® 系列指南**
+
+文档编号：G21D
+
+> 中文译本说明：本文档依据 The Open Group《Government Reference Model (GRM)》（G21D）翻译。GRM 以“部门（L1）—功能（L2）—服务（L3）”三级目录组织；本译本按原文表逐项译出 11 个部门的定义与各章功能/服务目录及其说明，各领域“变革的关键驱动因素”按原文小节逐段译出。原文各章图 2-1 至 12-1（各部门 L1–L3 结构与内容概览）未单独重绘，正文相应位置以英文原图或原文图号说明；附录 A 图示已按页嵌入。
+
+---
+
+## 前言
+
+The Open Group 是一个全球性联盟，通过技术标准与开源倡议帮助各组织实现业务目标；其使命是推动实现**无边界信息流**（Boundaryless Information Flow™）。TOGAF 标准是一套经过实践检验的企业方法论与框架。本文档是 TOGAF® 系列指南之一，主题为政府参考模型。
+
+## 关于作者
+
+（以下所属机构为文档批准时的信息。）
+
+**Mick Adams，EY**
+
+Mick Adams 是 The Open Group 架构论坛（Architecture Forum）的联合主席，也是 The Open Group Open CA 认证项目中的杰出职业领袖（Distinguished Profession Leader）。他是众多“世界级企业架构”（World-Class Enterprise Architecture）论文的重要作者，也是 TOGAF® 9 标准的重要贡献者。他常驻欧洲，是 EY 全球架构领导团队的成员，服务于金融服务、石油与天然气以及公共部门等多个行业，帮助客户借助技术解决具有挑战性的业务问题。
+
+**Chris A. Brown，EY**
+
+Chris 拥有多年经验，帮助组织实现其战略目标，使 IT 服务与业务流程对齐。他在运用 TOGAF® 方法论交付大规模数字化转型项目方面经验深厚。Chris 原籍澳大利亚，曾在当地的公共与私营部门工作；过去 15 年在英国工作，跨多个行业，尤其专注于中央政府各部门以及能源、公用事业与基础设施市场。
+
+**Michael Chambers，EY**
+
+Michael Chambers 是一位管理顾问，在业务与企业架构方面拥有多年专长。他运用 TOGAF® 标准，帮助组织通过技术与战略的清晰对齐实现目标与愿景。他在私营与公共部门均拥有架构与转型经验，包括高等教育、法律与监管、媒体、电信以及地方/中央政府服务。
+
+**Jaisinh S. Dhembre，EY**
+
+Jaisinh Dhembre（JD）是一位成就卓著的业务与 IT 高管，拥有二十多年全球经验，帮助组织通过数字与技术转型实现业务目标。作为业务成果驱动架构思维的坚定倡导者，JD 是 TOGAF® 9 认证架构师，参与过多个论坛与工作组，包括架构论坛、数字从业者工作组（Digital Practitioners Work Group）、IoT 工作组与 SOA 工作组。他还是为 TOGAF 标准 9 版做出贡献的团队成员之一。JD 还协助管理 EY 的会员资格及与 The Open Group 的关系。JD 常驻美国，与妻子和两个女儿生活在一起，是 EY 技术转型领导团队的成员，与全球各行业组织密切合作。
+
+**Jeremy Giles，Ministry of Defence**
+
+Jeremy（Jes）Giles 中校目前负责统筹协调英国陆军未来集体训练能力需求，并为陆军服务司令部技术主管（Service Command Technical Authority，SCTA）提供国防建模与仿真一致性（Defence Modelling and Simulation Coherence，DMaSC）方面的建议。迄今为止，他的职业生涯在两方面保持平衡：一方面作为以作战为重点的步兵军官，在伊拉克、阿富汗等地服役；另一方面在参谋岗位积累经验，以发起方、用户与交付方角色管理陆军训练仿真能力。
+
+**Priya Mistry，EY**
+
+Priya Mistry 是 TOGAF® 9 认证专业人士，专长于业务架构与 IT 转型。她常驻英国，运用业务架构帮助 IT 组织领导者设计转型计划并管理技术变革，以支持企业目标与宗旨。她拥有国防、公共部门与电信行业的经验。
+
+**Clemence Monsaingeon，EY**
+
+Clemence Monsaingeon 是一位顾问，帮助组织改进流程并借助技术实现目标。她常驻英国，拥有与全球组织在其财务、运营与商务职能方面合作的经验。
+
+## 致谢
+
+（以下所属机构为文档批准时的信息。）
+
+The Open Group 衷心感谢本文档的作者以及下列参与本文档公司评审（Company Review）的评审人：
+
+- Christopher Carlson，CT Carlson LLC
+- David Gilmour，Mundo Congnito
+- Sonia Gonzalez，The Open Group
+
+## 商标
+
+ArchiMate、TOGAF、The Open Group 等名称与标识归其各自所有者；Boundaryless Information Flow 为 The Open Group 商标。
+
+---
+
+## 参考文献
+
+以下文献按原文 Referenced Documents 的顺序列出，为本文档编写中所使用的参考资料（原文注明：所附链接在写作时有效，但不保证日后可用）。为控制版面，各条目的访问链接（URL）从略，可在英文原版对应条目中查阅；DOI 予以保留。
+
+| 编号 | 文献 |
+|---|---|
+| [ACCA] | 英格兰及威尔士特许会计师协会（ACCA），2016：《公共部门变革的 50 个驱动因素》（50 Drivers of Change in the Public Sector）。 |
+| [AHRQ] | 美国医疗保健研究与质量局（Agency for Healthcare Research and Quality, AHRQ），2018 年 11 月：《EvidenceNow 关键驱动因素与变革策略》（EvidenceNow Key Drivers and Change Strategies）。 |
+| [Allcock et al., 2015] | Allcock, C.、Dormon, F.、Taunt, R.、Dixon, J.，2015：《建设性舒适：加速 NHS 变革》（Constructive Comfort: Accelerating Change in the NHS），伦敦：健康基金会（The Health Foundation）。 |
+| [Australian Government Department of Defence] | 澳大利亚国防部，2020 年 7 月 1 日：《2020 国防战略更新与 2020 部队结构计划》（2020 Defence Strategic Update & 2020 Force Structure Plan）。 |
+| [Benini et al., 2020] | Benini, L.、Viaud, V.，2020：《与欧洲环境与可持续性相关的变革驱动因素》（Drivers of Change of Relevance for Europe’s Environment and Sustainability），卢森堡：欧洲环境署，doi:10.2800/129404。 |
+| [Brooks, 2018] | Brooks, K.，2018 年 8 月：《机器人如何改变国防部门》（How Robots are Changing the Defence Sector）。 |
+| [Byrom et al., 2020] | Byrom, N.、Beardon, S.、Kendrick, A.，2020 年 5 月：《COVID-19 措施对民事司法系统的影响》（The Impact of COVID-19 Measures on the Civil Justice System），吉尔福德：法律教育基金会。 |
+| [Case & Hampson, 2019] | Case, S.、Hampson, K.，2019：《青少年司法变革路径：驱动因素、挑战与机遇》（Youth Justice Pathways to Change），《Youth Justice》19(1)，第 25–41 页，doi:10.1177/1473225418822166。 |
+| [Dahl-Østergaard et al., 2005] | Dahl-Østergaard, T.、Unsworth, S.、Robinson, M.、Jensen, R.I.，2005 年 9 月：《发展合作中运用权力与变革驱动因素分析的经验教训》，OECD DAC 治理网络。 |
+| [Davies, 2020] | Davies, T.，2020 年 4 月：《议会对抗冠状病毒：未来始于当下》（Councils versus Coronavirus: The Future Starts Now），The MJ.co.uk。 |
+| [Deloitte, 2012] | 德勤（Deloitte），2012：《颠覆性创新如何帮助政府以更少投入实现更多》（How Disruptive Innovation can Help Government Achieve More for Less）。 |
+| [DoH, 2015] | 卫生部（Department of Health），2015 年 6 月：《创新与转型是改革健康与社会照护的关键驱动因素——Hamilton》（Innovation and Transformation are Key Drivers to Reforming Health and Social Care – Hamilton）。 |
+| [DMC Canotec, 2018] | DMC Canotec，2018：《推动教育领域的数字化变革》（Driving Digital Change in Education）。 |
+| [Henkin et al., 2012] | Henkin, T.、Padgette, R.、Knapp, S.、Fetting, E.、Baker, S.、Stanley, R. G.：《公共交通行业面临的变革驱动因素》（Drivers of Change Faced by the Transit Industry），载《转变公共交通机构与商业模式》（Transforming Public Transportation Institutional and Business Models），第 15–18 页，2012 年，华盛顿特区：美国国家科学院。 |
+| [European Monitoring Centre on Change] | 欧洲变革监测中心（European Monitoring Centre on Change），2008：《欧盟运输与物流部门的趋势与变革驱动因素》（Trends and Drivers of Change in the EU Transport and Logistics Sector），测绘报告，都柏林：欧洲改善生活与工作条件基金会。 |
+| [EY, 2018] | 安永（EY），2018：《国家安全与国防》（National Security and Defense）。 |
+| [EY, 2020] | 安永（EY），2020：《理解大趋势，助您在他人未见之处发现机遇》（Understanding Megatrends will Help you See Opportunities Where Others Don’t）。 |
+| [Front Office Shared Services, 2008] | 前台共享服务（Front Office Shared Services），2008：《管理转型》（Managing Transformation），伦敦：改善与发展署（Improvement and Development Agency）。 |
+| [Government Enterprise Architecture, 2018] | 政府企业架构（Government Enterprise Architecture），2018 年 3 月：《业务参考分类法》（Business Reference Taxonomy），新西兰政府。 |
+| [Government Finance Function, 2019] | 政府财政职能（Government Finance Function），2019：《政府财政职能战略 2019—2023》（Government Finance Function Strategy 2019-2023），OneFinance。 |
+| [Government of Jersey, 2020] | 泽西政府（Government of Jersey），2020：《商业计划：增长、住房与环境》（Business Plan Growth, Housing, and Environment），泽西政府传播团队。 |
+| [Guijosa, 2018] | Guijosa, C.，2018 年 12 月：《据 KnowledgeWorks，影响教育未来的五大驱动因素》（The Five Drivers that will Influence the Future of Education）。 |
+| [Ham et al., 2012] | Ham, C.、Dixon, A.、Brooke, B.，2012：《转变健康与社会照护的提供方式》（Transforming the Delivery of Health and Social Care），伦敦：国王基金会（The King’s Fund）。 |
+| [Higgs & Gilleard, 2015] | Higgs, P.、Gilleard, C.，2015：《影响老龄化过程中态度与行为趋势的关键社会与文化驱动因素及其政策含义》（Key Social and Cultural Drivers of Changes Affecting Trends in Attitudes and Behaviour Throughout the Ageing Process and What they Mean for Policy-Making），伦敦：政府科学办公室。 |
+| [HMCTS, 2019] | 英国皇家法院与法庭服务局（HM Courts & Tribunals Service），2019：《HMCTS 2019—2020 年业务计划》，伦敦。 |
+| [ICAEW, 2021a] | 英格兰及威尔士特许会计师协会（ICAEW），2021 年 2 月：《冠状病毒与公共部门》（Coronavirus and the Public Sector）。 |
+| [ICAEW, 2021b] | 英格兰及威尔士特许会计师协会（ICAEW），2021 年 2 月：《疫情后需重建对国际公共财政的信任》（Trust in International Public Finances Needs to be Rebuilt Following the Pandemic）。 |
+| [John Borton Consulting, 2009] | John Borton Consulting，2009 年 11 月：《人道主义体系的未来》（Future of the Humanitarian System），人道主义未来组织。 |
+| [Lewis et al., 2017] | Lewis, J. M.、Ricard, L. M.、Klijn, E. H.，2017 年 7 月：《创新驱动因素、网络与领导力如何塑造公共部门创新能力》（How Innovation Drivers, Networking and Leadership Shape Public Sector Innovation Capacity），《国际行政科学评论》84(2)，第 288–307 页，doi:10.1177/0020852317694085。 |
+| [Lineberger, 2019] | Lineberger, R.，2019：《2020 全球航空航天与国防工业展望》（2020 Global Aerospace and Defense Industry Outlook），德勤。 |
+| [Local Government Association, 2021] | 英国地方政府协会（Local Government Association），2021：《转型》（Transformation）。 |
+| [Martinez, 2017] | Martinez, J.A.，2017：《供应链中的主要驱动因素》（Main Drivers in the Supply Chain），BDP International。 |
+| [Metcalfe, 2019] | Metcalfe, A.，2019 年 9 月：《公共财政创新》（Innovation in Public Finance），ACCA。 |
+| [MoD, 2018] | 英国国防部（Ministry of Defence），2018：《动员、现代化与转型国防》（Mobilising, Modernising, and Transforming Defence），gov.uk。 |
+| [MHCLG, 2020] | 英国住房、社区与地方政府部（Ministry of Housing, Communities, and Local Government），2020：《面向未来的规划》（Planning for the Future），伦敦。 |
+| [Naidoo, 2014] | Naidoo, V.，2014 年 12 月：《高等教育变革的驱动因素》（Drivers for Change in Higher Education）。 |
+| [National Infrastructure Commission, 2017] | 英国国家基础设施委员会（National Infrastructure Commission），2017 年 3 月：《经济增长与基础设施服务需求》（Economic Growth and Demand for Infrastructure Services）。 |
+| [NHS Confederation, 2013] | 英国 NHS 联合会（The NHS Confederation），2013：《改变照护，提升质量》（Changing Care, Improving Quality），伦敦。 |
+| [Niestadt et al., 2019] | Niestadt, M.、Debyser, A.、Scordamaglia, D.，2019：《交通运输中的人工智能》（Artificial Intelligence in Transport），欧盟。 |
+| [Nurjono et al., 2018] | Nurjono, M.、Yoong, J.、Yap, P.、Wee, S.L.、Johannes, H.、Vrijhoef, M.，2018 年 10 月：《新加坡整合式照护的实施：复杂适应系统视角》（Implementation of Integrated Care in Singapore: A Complex Adaptive System Perspective），《国际整合照护杂志》18(4)，第 1–7 页，doi:10.5334/ijic.4174。 |
+| [Obama White House, 2013] | 奥巴马政府（Obama White House），2013 年 5 月：《带定义的业务参考模型分类法》（Business Reference Model Taxonomy with Definitions），奥巴马政府档案馆。 |
+| [OECD, 2003] | 经济合作与发展组织（OECD），2003：《管理交通需求的基本驱动因素》（Managing the Fundamental Drives of Transport Demand），巴黎：OECD 出版。 |
+| [O’Hanlon, 2018] | O’Hanlon, M. E.，2018 年 9 月：《预测 2020—2040 年军事技术变革》（Forecasting Change in Military Technology, 2020-2040），布鲁金斯学会。 |
+| [Orlik et al., 2019] | Orlik, T.、Johnson, S.、Tanzi, A.，2019 年 10 月：《追踪威胁全球最热经济体的力量》（Tracking the Forces Threatening the World’s Hottest Economies），彭博。 |
+| [Page, 2020] | Page, L.，2020 年 9 月：《科技初创企业加入军队现代化之战：无人机蜂群与机器人时代》（Tech Start-ups Join Battle to Modernise Army for an Era of Drone Swarms and Robots），《每日电讯报》。 |
+| [PricewaterhouseCoopers, 2005] | 普华永道（PricewaterhouseCoopers），2005：《21 世纪的国防工业》（The Defence Industry in the 21st Century）。 |
+| [Redecker et al., 2011] | Redecker, C.、Leis, M.、Leendertse, M.、Punie, Y.、Gijsbers, G.、Kirschner, P.、Hoogveld, B.，2011：《学习的未来：为变革做准备》（The Future of Learning: Preparing for Change），卢森堡：欧盟出版局。 |
+| [Reid et al., 2005] | Reid, J.、Johnson, A.、Browne, D.、Drayson, L.、Michael, A.，2005 年 12 月：《国防工业战略》（Defence Industrial Strategy），gov.uk。 |
+| [Ryley et al., 2018] | Ryley, K.、Allison, K.、Hegarty, J.、Wain, J.、Cook, G.、Doyle, G.、Bradbury, P.，2018 年 9 月：《转型变革是未来地方政府服务交付的首要任务》，CIVICA。 |
+| [Sandschneider, 2017] | Sandschneider, E.，2017：《全球变革的驱动因素》（Drivers of Global Change），柏林：美国学院。 |
+| [SSON] | 共享服务与外包网络（SSON），2020 年 1 月：《共享服务：数字化与颠覆》（Shared Services: Digitized and Disrupted）。 |
+| [Spies, 2019] | Spies, M.，2019 年 7 月：《塑造未来高等教育格局的驱动因素与创新是什么？》（What are the Drivers and Innovations Shaping Tomorrow’s Higher Education Landscape?），FutureLearn。 |
+| [Stacey et al., 2017] | Stacey, N.、Ellwood, P.、Bradbrook, S.、Reynolds, J.、Williams, H.，2017：《信息通信技术与工作地点的主要趋势与变革驱动因素》（Key Trends and Drivers of Change in Information and Communication Technologies and Work Location），卢森堡：欧洲工作安全与健康署，doi:10.2802/807562。 |
+| [Trendall, 2020] | Trendall, S.，2020 年 6 月：《地方政府如何做好共享服务？》（How Can Local Government Get it Right on Shared Services?），Public Technology。 |
+| [Tucker, 2018] | Tucker, R.，2018 年 1 月：《将塑造 2019 及以后的六大变革驱动力》（Six Driving Forces of Change that Will Shape 2019 and Beyond），《福布斯》。 |
+| [UNESCO ISCED] | 联合国教科文组织《国际教育标准分类》（International Standard Classification of Education, ISCED）。 |
+| [Viens, 2019] | Viens, A.，2019 年 11 月：《投资大趋势：人口与社会变化如何塑造未来》（An Investing Megatrend: How Demographics and Social Changes are Shaping the Future），Visual Capitalist。 |
+| [Zuckerman et al., 2017] | Zuckerman, S.、Campbell Wilcox, K.、Durand, F. T.、Lawson, H. A.、Schiller, K. S.，2017 年 11 月：《变革驱动因素：政策创新实施过程中分布式领导与绩效适应的研究》（Drivers for Change），《领导力与学校政策》（Leadership and Policy in Schools），第 1–29 页，doi:10.1080/15700763.2017.1384500。 |
+
+---
+
+## 1. 引言
+
+业务架构定义企业架构的业务战略、治理、组织、业务信息与关键业务流程；架构方法决定如何在恰当的成本、收益与风险参数内实现变革。
+
+这一方法面临的挑战在于：用于让业务架构师（或计划开发业务架构或技术方案者）了解全球各国政府预期架构构建块（ABB）的架构标准，在应用上缺乏一致性。
+
+**政府参考模型（GRM）** 为公共部门组织提供一种共同的自我审视方式，以规划并执行有效的转型变革。
+
+### 1.1 目标
+
+本文档的目标是规定一个标准参考模型模板，用于描述公共部门中任何业务，并支持不同的架构方法与分析技术。该模型支持架构服务提供方之间的协作，并促进业务架构专业的发展。
+
+### 1.2 概述
+
+GRM 用于对运营部门进行分类与分段，以运行有效的架构职能。该模型便于确定变革对整体资产（estate）的影响，并映射架构层之间的依赖关系。
+
+本文档为组织提供发展方向，以开发业务架构资产，帮助公共部门决策者解决业务问题、管理业务与技术变革，并规划未来变革。
+
+GRM 可开箱即用、扩展，或按组织的独特特征与具体需求定制。
+
+### 1.3 什么是政府参考模型？
+
+GRM 是公共部门的**穷尽且互斥**参考模型，提供描述业务架构的术语分类，可作为跨所有政府的框架。
+
+GRM 假定政府的应用资产分布于以下部门：
+
+- 国际事务与贸易
+- 国防与安全
+- 一般政府与地方服务
+- 青少年与教育
+- 健康与社区福祉
+- 司法、治安与内政
+- 财政
+- 增长、住房与环境
+- 政策、绩效、人口与创新
+- 共享服务
+- 交通与运营
+
+表 1-1 给出 GRM 中各类部门的名称与说明。
+
+**表 1-1：部门及定义**
+
+| 部门 | 定义 |
+|---|---|
+| 国际事务与贸易 | 政府为促进与国际经济体的财政支持与贸易而开展的活动，并涉及政策、援助计划、条约与外交关系的实施。 |
+| 国防与安全 | 对应部队、武器及相关实体的研究、维护、装备、采购与开发；也包括向所有现役与非现役文职人员与军人支付的薪酬与福利。 |
+| 一般政府（客户服务、客户运营）与地方服务 | 提供一般客户服务与运营，包括登记、许可、申请、劳动力规划、社会服务、劳动权利管理与地方服务。 |
+| 青少年与教育 | 对应早期教育、小学、中学、高等教育与特殊教育的教育项目；儿童社会服务、保护及相关儿童与青少年服务；以及政府为促进教育开展的技能或培训活动。 |
+| 健康与社区福祉 | 涵盖向个人与家庭提供的医疗与护理治理、战略与照护服务，研究，以及为保障心理与身体健康而提供的医院与社区服务。 |
+| 司法、治安与内政 | 涵盖司法、检察、与保护资金相关的支出、执法服务，以及刑事司法成本——包括监禁、监督、假释与罪犯康复——的总成本。 |
+| 财政 | 对公共支出、收入、财务报告与审计保持控制，并为未来投资决策与财务规划提供方向。 |
+| 增长、住房与环境 | 通过监管的许可与执法，确保对自然与城市环境的责任、提供核心基础设施，并保护公民的生活水平与安全的活动。 |
+| 政策、绩效、人口与创新 | 涉及政府范围内的政策制定，提供人口统计数据以及对照基准的绩效数据以确保持续改进，并包含战略与长期规划，以识别未来风险、机遇与解决方案。 |
+| 共享服务 | 代表公众协调并管理人员、沟通、财务与转型服务，以促进信息流转，并对人员、流程与技术实施监督，从而支持采购并与企业战略对齐。 |
+| 交通与运营 | 使一般运营得以实现，并保障人员与货物在陆地、空中、海上与太空的安全转移与可用性的活动。 |
+
+该参考模型为政府提供的每一项服务提供分类法，同时提供一种**共同语言**：它简化复杂的信息组件，使跨政府的服务与共同能力保持一致，并对常用的运营服务给出统一视图。
+
+本 GRM 的目标受众包括公共部门的决策者与变革设计者。
+
+后续各节将逐一展开三个层级：第 1 层（部门）及对应的第 2 层（功能）与第 3 层（服务）。这些组成要素的推荐命名与说明，用于进一步给出公共部门组织中可能存在的组织单元的细节与语境。此外，还将针对各部门分别探讨变革驱动因素（译注：原文此处称“12 个部门”，但表 1-1 与第 2—12 章实际列出 11 个部门）。
+
+图 1-1 给出 GRM 各要素的结构视图。
+
+![图 1-1：政府参考模型的结构（Structure of the Government Reference Model）](figs/g21d_fig1-1.svg)
+
+对关键术语的说明：
+
+- **部门（Sectors）**：政府的业务领域。
+- **功能（Functions）**：在聚合层面界定政府做什么。
+- **服务（Services）**：在组件层面进一步界定政府做什么。
+- **变革驱动因素（Drivers for Change）**：元因素——被视为未来塑造者的驱动因素，例如人口变化或技术创新。
+
+### 1.4 TOGAF 标准与 GRM
+
+GRM 的意图是置于 TOGAF 架构开发方法（ADM）周期的**阶段 B：业务架构（Phase B: Business Architecture）**之中。它将为公共部门人员提供参考，并提供一种在业务架构领域加速开发参考模型的模式。
+
+---
+
+## 2. 国际事务与贸易
+
+如原文图 2-1 所示，国际事务与贸易由以下活动构成：政府为促进与国际经济体的财政支持与贸易而开展的活动，并涉及政策、援助计划、条约与外交关系的实施。
+
+![图 2-1（中文图）](figs/zh/g21de_fig2-1_zh.png)
+
+> 图 2-1。图内文字已中文化；原图见英文原文 Figure 2-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| International Affairs and Trade | 国际事务与贸易 |
+| Development and Aid | 发展与援助 |
+| International Development | 国际发展 |
+| Humanitarian Aid | 人道主义援助 |
+| Trade | 贸易 |
+| Global Trade | 全球贸易 |
+| Export Control | 出口管制 |
+| Import Control | 进口管制 |
+| International Affairs | 国际事务 |
+| Foreign Affairs | 外交事务 |
+| Foreign Treaties | 外交条约 |
+
+### 2.1 分类目录
+
+**表 2-1：部门——国际事务与贸易**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 发展与援助 | — | **功能概述**：为欠发达经济体提供发展援助与人道主义援助的服务。 |
+| 发展与援助 | 国际发展 | 通过货物与服务的自愿转移，援助发展中经济体的活动。 |
+| 发展与援助 | 人道主义援助 | 支持欠发达经济体实现增长并从冲突中恢复的活动。 |
+| 贸易 | — | **功能概述**：通过促进海外贸易增加繁荣的服务。 |
+| 贸易 | 全球贸易 | 通过促进海外贸易、便利货物与服务流动来增加经济财富的活动。 |
+| 贸易 | 出口管制 | 监管货物从本国出口的国际销售与流动，确保遵守国内与国际协议及准则。 |
+| 贸易 | 进口管制 | 监管货物进入本国的国际采购与流动，确保遵守国内与国际协议及准则。 |
+| 国际事务 | — | **功能概述**：通过提供海外外交建议、谈判伙伴关系与协议来维护国际关系的服务。 |
+| 国际事务 | 外交事务 | 通过提供外交协助、与国际政府开展磋商所作的国际贡献。 |
+| 国际事务 | 外交条约 | 通过监督现有条约、谈判伙伴关系与正式协议，维护与国际政府关系的活动。 |
+
+### 2.2 变革的关键驱动因素
+
+国际事务与贸易的未来将受到下述趋势的影响。
+
+**强大的政治力量设定议程**
+
+当前的人口结构使富裕且经济实力强大的国家形成一种默契假设：代议制政府、自由市场经济与经过改革的国家结构之组合，应代表未来的常态。然而，治理角色的扩大使人们日益倾向于对援助组织施加规范性与行政性框架，以便对其活动进行监管、登记与控制。
+
+**新型脆弱性**
+
+供给侧冲击已导致初级商品价格下降。COVID-19 大流行造成投资与国际贸易收缩——市场暂时关闭企业，并限制旅行与人员流动，进而导致家庭支出与产出水平收缩。
+
+这暴露了全球供应链的脆弱性；若叠加外交紧张局势，可能促使跨国公司更认真地探索近岸外包（near-shoring）。
+
+**去全球化**
+
+民粹主义与民族主义趋势已在主要经济体中兴起，它们通过设置技术壁垒推行保护主义做法，从而削弱全球性组织。此外，东亚经济体正变得更加自力更生，对西方世界的依赖下降。这些因素将促成全球供应链的碎片化——新兴工业化国家将开始对贸易与投资流采取区域化路径。
+
+**技术**
+
+对数字贸易的投资将使组织能够从信息中获取最大业务价值、改进决策并提升效率。未来数年预计将利用以下技术：
+
+- **区块链技术**：用于提升问责与透明度，并有可能消除腐败。
+  该技术可用于分发与追踪援助资金、为难民营提供并管理身份 ID，或通过点对点网络记录交易来建立可信的土地登记，从而实现去中心化账本。
+- **数字身份**：未来公民很可能需要借助生物识别（如视网膜扫描、指纹或面部识别）来开立银行账户、登记投票、取得许可与执照。
+- **数据分析**：通过整合数据库制作的仪表盘，有助于为冲突地区的援助确定安全的运送路径，并帮助找到更好的仓库货物存放地点。
+- **协作工具**：条约起草/条约管理解决方案、条约完善与争端解决，将借助协作软件与工具（如文档共享、即时消息、云存储、视频会议、分析、交叉检索）实现。
+
+---
+
+## 3. 国防与安全
+
+如原文图 3-1 所示，国防与安全对应部队、武器及相关实体的研究、维护、装备、采购、运营与开发；也包括向所有现役与非现役文职人员与军人支付的薪酬与福利。
+
+![图 3-1（中文图）](figs/zh/g21de_fig3-1_zh.png)
+
+> 图 3-1。图内文字已中文化；原图见英文原文 Figure 3-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| Defense and Security | 国防与安全 |
+| Defense Activities | 国防活动 |
+| Military Operations | 军事行动 |
+| Threat Reduction | 威胁削减 |
+| Counter Terrorism | 反恐 |
+| Defense Readiness and Preparation | 国防准备与战备 |
+| Defence Training and Allocation | 国防训练与分配 |
+| Defense Application | 国防应用 |
+| Defense Network and IT Infrastructure | 国防网络与 IT 基础设施 |
+| Population Protection | 民众保护 |
+| Intelligence and International Security | 情报与国际安全 |
+| International Security Assistance | 国际安全援助 |
+| Intelligence and Counter-Intelligence Operations | 情报与反情报行动 |
+| Special Intelligence | 特殊情报 |
+
+### 3.1 分类目录
+
+**表 3-1：部门——国防与安全**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 国防活动 | — | **功能概述**：国家防务所利用的项目，包括国防相关活动、威胁削减与反恐。 |
+| 国防活动 | 军事行动 | 对应所有杂项国防相关活动（如国家防务之外的采购费用）。 |
+| 国防活动 | 威胁削减 | 对应减少与防止与威胁相关的货物或机密数据扩散的活动，包括数据利用、有效的信息机动与网络安全作战。 |
+| 国防活动 | 反恐 | 包括对应消除与威慑恐怖主义行为的国内与国际响应。 |
+| 国防准备与战备 | — | **功能概述**：部队与基础设施的维护、装备、采购与开发，以及向人员支付的薪酬与福利。 |
+| 国防准备与战备 | 国防训练与分配 | 通过真实任务与职能以及模拟训练环境，提升国防领域个人与集体绩效，并整合机动与交战活动的运用。 |
+| 国防准备与战备 | 国防应用 | 包括通过综合运用交战与机动，在所有环境中达成国防目标的活动。 |
+| 国防准备与战备 | 国防网络与 IT 基础设施 | 对应为满足国防的连接性与互操作需求而进行的信息流动。 |
+| 国防准备与战备 | 民众保护 | 包括确保民众、政府与领导人安全并受保护的所有活动。 |
+| 情报与国际安全 | — | **功能概述**：保护、分析并理解政府与盟友需求与利益的活动。 |
+| 情报与国际安全 | 国际安全援助 | 对应通过利用跨政府 IT 基础设施、网络与信息，保护政府利益并应对潜在威胁的所有活动。 |
+| 情报与国际安全 | 情报与反情报行动 | 包括分析并理解政府与公民需求之能力的全部活动。 |
+| 情报与国际安全 | 特殊情报 | 为支持国家利益而处理、分析、收集信息的先进服务。 |
+
+### 3.2 变革的关键驱动因素
+
+技术与转型是贯穿国防部门的共同主题。这些主题受到流氓国家、网络攻击、恐怖主义以及国家间争夺技术优势等重大力量的推动。为缓解技能短缺并扩大人才库，国防组织有义务建立积极的监测、留任、招聘与培训实践。
+
+以下给出各趋势的概要说明。
+
+**基础设施优化**
+
+武装部队有必要发展军事基础设施，使其能够抵御对支出的审视、在环境上可持续，并适配不断演变的冲突性质，从而实现战略目标。装备老化及其维护是一项重大挑战。实现基础设施现代化的机会可通过以下方式把握：
+
+- 制定反映未来部队需求的愿景，使国防基础设施更具环境可持续性
+- 借助私营部门的资金建设与维护国防基础设施
+- 识别基础设施管理自动化的潜力，从而释放人员投入关键任务
+
+**劳动力转型**
+
+国防机构在招聘与留任操作日益精密装备的专业人员方面，正面临来自私营部门的激烈竞争。这导致工程、网络与核等细分领域出现技能短缺，削弱了其应对技术进步的能力。通过鼓励更大的多样性（在领导岗位与作战岗位均是）以及扩大网络领域招聘来拓宽人才库，将有助于满足不断演变的军事需求。
+
+**技术**
+
+技术变革一直是界定未来国防挑战的驱动力，它创造新机遇与效率，使一些国家得以取得对他国的技术主导地位。网络安全、大数据、人工智能（AI）、机器人与自主车辆已在引发全球安全的剧烈转变。未来数年，定向能武器、高超声速平台与可复用蜂群技术将进一步补充这些能力。新技术将使后勤更加复杂，并挑战国防领导者管理其组织的方式。
+
+**当代作战环境**
+
+国际舞台上的竞争性质已经改变，旧有范式已过时，使对手/盟友、训练/作战等传统二分法变得更细微且易变。国防机构还必须能够在所谓“次阈值冲突”（sub-threshold conflict）中训练与作战——即对手的行动未达到传统军事行动标准的情形；同时还要面对竞争者在地理、时间或领域语境中也可能同时是盟友的环境。这种动态的多域环境要求国防机构更加敏捷、更善于响应变化，并寻求开发机遇与优势的新路径，以保持竞争优势。
+
+---
+
+## 4. 一般政府与地方服务
+
+如原文图 4-1 所示，一般政府与地方服务涉及提供一般客户服务与运营，包括登记、许可、申请、劳动力规划、社会服务、劳动权利管理与地方服务。
+
+![图 4-1（英文原图）](figs/zh/g21de_fig4-1_zh.png)
+
+> 图 4-1。图内文字已中文化；原图见英文原文 Figure 4-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| General Government and Local Services | 一般政府与地方服务 |
+| Customer Services | 客户服务 |
+| Cashiers | 出纳柜台 |
+| Tax Forms | 税务表单 |
+| Front Desk | 前台 |
+| Imports Administrations | 进口管理 |
+| Planning Applications | 规划申请 |
+| Housing Gateway | 住房门户 |
+| Registration Cards | 登记卡 |
+| Social Security, Benefits, and Pensions | 社会保障、福利与养老金 |
+| Business Licenses | 营业执照 |
+| Student Finance | 学生资助 |
+| License Applications | 许可申请 |
+| People Hub | 人员中心 |
+| Workforce Planning | 劳动力规划 |
+| Customer Operations | 客户运营 |
+| Social Security | 社会保障 |
+| Benefits | 福利 |
+| Pensions | 养老金 |
+| Income Support | 收入补助 |
+| Benefits Fraud | 福利欺诈 |
+| Customer Complaints | 客户投诉 |
+| Back to Work | 重返工作岗位 |
+| Local Service | 地方服务 |
+| Superintendent Registrar | 登记主管 |
+| Community Planning and Consultation | 社区规划与咨询 |
+| Customer Forums | 客户论坛 |
+| Community Grants | 社区补助 |
+| Neighborhood Engagement and Development | 邻里参与与发展 |
+| Local Law | 地方法规 |
+
+### 4.1 分类目录
+
+**表 4-1：部门——一般政府与地方服务**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 客户服务（Customer Services） | — | **功能概述**：向服务使用者提供协助与建议。 |
+| 客户服务 | 出纳柜台（Cashiers） | 提供负责处理来访咨询并监管一般文书事务的人员。 |
+| 客户服务 | 税务表单（Tax Forms） | 涉及为纳税人及免税组织提供并支持用于申报财务信息的表单。 |
+| 客户服务 | 前台（Front Desk） | 涵盖负责履行行政职责的人员的运营与协调。 |
+| 客户服务 | 进口管理（Imports Administrations） | 负责来自海外货件入境所需进口文件的收集、准备与一般咨询。 |
+| 客户服务 | 规划申请（Planning Applications） | 涉及规划许可的整体管理与文书工作，以获得在土地上建造或改变土地用途的许可。 |
+| 客户服务 | 住房门户（Housing Gateway） | 涉及可负担住房购买计划的运营、资格判定与申请评估。 |
+| 客户服务 | 登记卡（Registration Cards） | 与申请庇护者的整体管理及文书工作相关的活动。 |
+| 客户服务 | 社会保障、福利与养老金（Social Security, Benefits, and Pensions） | 涉及与查询、申请社会保障号码、福利与养老金计划所需文书以及可能出现的差异相关的活动。 |
+| 客户服务 | 营业执照（Business Licenses） | 与完成创办企业申请相关的流程。 |
+| 客户服务 | 学生资助（Student Finance） | 涵盖用于支付学费及接受高等教育相关费用的学生贷款与助学金的提供与管理。 |
+| 客户服务 | 许可申请（License Applications） | 与从事受监管角色所需书面授权的整体管理与文书工作相关的活动。 |
+| 客户服务 | 人员中心（People Hub） | 监督客户服务与运营岗位人员的招聘、行政与培训。 |
+| 客户服务 | 劳动力规划（Workforce Planning） | 涵盖对当前与未来劳动力的分析，以识别缺口，并使一般政府与地方政府实现战略目标。 |
+| 客户运营（Customer Operations） | — | **功能概述**：直接与公众接触的职能。 |
+| 客户运营 | 社会保障管理（Social Security Administration） | 负责社会保障号码的分配，并管理社会保障退休、遗属与伤残保险计划。 |
+| 客户运营 | 福利（Benefits） | 处理福利的提供与资格判定，包括收入相关福利、住房福利、儿童福利、照护者福利与伤残福利。 |
+| 客户运营 | 养老金（Pensions） | 涵盖定期发放固定款项，以支持公民退休后的生活。 |
+| 客户运营 | 收入补助（Income Support） | 涉及向低收入个人提供额外资金。 |
+| 客户运营 | 福利欺诈（Benefits Fraud） | 涵盖对个人申领无权享受福利之行为的调查与处理。 |
+| 客户运营 | 客户投诉（Customer Complaints） | 包括评估并处理个人对客户运营的不满。 |
+| 客户运营 | 重返工作岗位（Back to Work） | 为职业中断后希望重返工作岗位的个人提供指导、支持与信息。 |
+| 地方服务（Local Service） | — | **功能概述**：在特定地点或社区内提供服务。 |
+| 地方服务 | 登记主管（Superintendent Registrar） | 监督当地社区出生、婚姻与死亡的登记。 |
+| 地方服务 | 社区规划与咨询（Community Planning and Consultation） | 涉及就预算与法律问题向本地社区团体提供信息与建议，并就本地项目与服务提供一般咨询。 |
+| 地方服务 | 客户论坛（Customer Forums） | 提供用于整合社区并共享反馈的在线渠道。 |
+| 地方服务 | 社区补助（Community Grants） | 向社区团体提供赠款与贷款，以资助本地项目与服务。 |
+| 地方服务 | 邻里参与与发展（Neighborhood Engagement and Development） | 支持建立本地网络与活动，与商业机构联络以支持社区项目，并为居民组织活动。 |
+| 地方服务 | 地方法规（Local Law） | 在城镇与区域层面提供建议并实施法律程序。 |
+
+### 4.2 变革的关键驱动因素
+
+若干因素正在推动一般政府与地方服务部门发生根本性变革，政府需要考虑以下要点。
+
+**管理不断变化的期望与声誉**
+
+管理期望与声誉将从以下方面提升服务质量：采购从事增值活动的专业人员、利用知识型基础设施实现准确的交易处理，并基于市场细分定制服务。
+
+为管理期望而采取的其他做法包括：
+
+- **个性化客户体验**：利用 CRM 软件中的数据评估用户历史；通过集中式数据枢纽创建个性化数字画像，使服务能够满足个人期望并缩短响应时间。
+- **运营创新**：在传统渠道之外提供 7×24 小时的服务与支持；建立数据与知识共享基础设施；从客户数据中学习；并使薪酬与客户满意度及留存率重新对齐。
+- **利用技能娴熟的人员管理需求**：实施/获取一套按标准定义、高强度的多学科培训课程，内容包括：
+  - 正式的纳税人关系
+  - 服务产品
+  - 技术
+  - 主动销售
+  - 纳税人接触礼仪
+  - 跨职能团队技能，以确保具备补位与适当覆盖的能力
+  - 对绩效不足通过辅导与追加培训投入加以解决
+
+**环境**
+
+在国家与地方层面，政府应应对气候变化这一紧迫危机。改善空气质量、管理废弃物与回收、促进交通低排放、建设绿色基础设施，是减缓气候变化的部分行动。这些行动还应带来文化变革，既支持更好的生活质量，也支持气候韧性。研究与创新同样重要，并将有助于实现这些目标。
+
+---
+
+## 5. 青少年与教育
+
+如原文图 5-1 所示，青少年与教育包括对应早期教育、小学、中学、高等教育与特殊教育的教育项目；也包括儿童社会服务、保护及相关儿童与青少年服务，以及政府为促进教育开展的技能或培训活动。
+
+![图 5-1（中文图）](figs/zh/g21de_fig5-1_zh.png)
+
+> 图 5-1。图内文字已中文化；原图见英文原文 Figure 5-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| Young People and Education | 青少年与教育 |
+| Children's Service | 儿童服务 |
+| Looked After Children | 受照料儿童 |
+| Fostering and Adoption | 寄养与收养 |
+| Children's Social Care and Safeguarding | 儿童社会照护与保护 |
+| Family and Parenting | 家庭与育儿 |
+| Early Years | 早期教育 |
+| Children and Adolescent Services | 儿童与青少年服务 |
+| Education | 教育 |
+| Primary Schools | 小学 |
+| Secondary Schools | 中学 |
+| Specialist Teaching | 特殊教育 |
+| Standards and Achievement | 标准与成就 |
+| Curriculum | 课程 |
+| Higher Education and Skills | 高等教育与技能 |
+| Higher Education | 高等教育 |
+| Early Careers | 早期职业 |
+| Apprenticeships | 学徒制 |
+
+### 5.1 分类目录
+
+**表 5-1：部门——青少年与教育**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 儿童服务（Children's Service） | — | **功能概述**：对应社会服务，以及早期教育中的额外保护、青少年支持与家长支持。 |
+| 儿童服务 | 受照料儿童（Looked-after Children） | 因强制照护令或父母协议而由地方当局照料的个人。 |
+| 儿童服务 | 寄养与收养（Fostering and Adoption） | 将儿童临时或长期托付给替代父母的责任安排。 |
+| 儿童服务 | 儿童社会照护与保护（Children's Social Care and Safeguarding） | 包括保护培训、政策与流程，确保所有儿童免受伤害。 |
+| 儿童服务 | 家庭与育儿（Family and Parenting） | 包括向父母与照护者提供信息与支持，以促进情绪健康与积极家庭关系的活动。 |
+| 儿童服务 | 早期教育（Early Years） | 提供支持儿童入学前学习、发展与照护的活动。 |
+| 儿童服务 | 儿童与青少年服务（Children and Adolescent Services） | 在迈向成年的多个过渡阶段提供支持与指导。 |
+| 教育（Education） | — | **功能概述**：包括通过学校教育向儿童提供技能与知识，并遵循国家期望与标准。 |
+| 教育 | 小学（Primary Schools） | 包括提供初等水平教育的活动，侧重阅读与写作。 |
+| 教育 | 中学（Secondary Schools） | 通过中等教育机构提供教育。 |
+| 教育 | 特殊教育（Specialist Teaching） | 提供额外帮助、调整后的课程或学习环境、特定设备或材料，以支持学生。 |
+| 教育 | 标准与成就（Standards and Achievement） | 包括开发符合教育标准并认证教育资质的课程材料、学习材料、资源、考试材料与考试管理。 |
+| 教育 | 课程（Curriculum） | 规定必修课程与单元，并与各部门沟通以确保各教育机构的一致性。 |
+| 高等教育与技能（Higher Education and Skills） | — | **功能概述**：支持为工作相关学科提供继续教育与培训，包括学徒制、在职培训，以及与行业和高等教育机构的沟通。 |
+| 高等教育与技能 | 高等教育（Higher Education） | 包括中学之后的教育。 |
+| 高等教育与技能 | 早期职业（Early Careers） | 包括通过工作场所与实习提供培训。 |
+| 高等教育与技能 | 学徒制（Apprenticeships） | 包括在职培训与课堂培训的结合。 |
+
+### 5.2 变革的关键驱动因素
+
+教育机构必须采用新技术，以实现个性化学习，并制定与更广泛的国家战略相整合、具有支持性的国际教育政策。
+
+为此，教育机构应考虑下述政策。
+
+**创新课程并面向学生个体开展教学**
+
+教育提供方应使用 AI、虚拟现实（VR）、物联网（IoT）、高级分析与认知系统等新型数字工具，创建个性化学习路径。这将便于收集每位学生的个人目标、学习画像、学习表现与课外活动信息。由此提供的关键特性包括：利用预测分析与基于能力的学习实现定制化学习，并给出学生个体能力的细粒度视图。
+
+**教育国际化**
+
+由于人才全球竞争、学术流动、海外实习与国际校区的兴起，世界正走向“无国界教育”。制定战略并简化移民政策以推动教育国际化，将促进国家繁荣、重塑国际关系，并提升院校与国家的知名度。这进而使新兴经济体能够在国际学生市场中成为全球竞争者。
+
+**教室现代化**
+
+借助新技术设计创新的校园结构，可用于应对气候可持续性挑战。示例包括：
+
+- 转向配备现代技术（AI、3D 打印与仿真环境）并与产业参与者连接的创新中心，以支持真实项目与原型制作
+- 发展类似高科技工作场所的垂直学校，以实现与社区的资源共享
+
+**调整国家课程**
+
+教育将发生转型，以帮助人们适应不断变化的就业市场需求，并在其一生中反复学习，从而在颠覆性世界中保持相关性。为适应就业市场的变化，国家课程同样需要转型，以帮助学生培养 21 世纪的核心技能，如复杂问题解决、批判性思维、协作与数字素养。
+
+---
+
+## 6. 健康与社区福祉
+
+如原文图 6-1 所示，健康与社区福祉涵盖向个人与家庭提供的医疗与护理治理、战略与照护服务，研究，以及为保障心理与身体健康而提供的医院与社区服务。
+
+![图 6-1（中文图）](figs/zh/g21de_fig6-1_zh.png)
+
+> 图 6-1。图内文字已中文化；原图见英文原文 Figure 6-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| Health and Community Wellbeing | 健康与社区福祉 |
+| Hospital and Community Services | 医院与社区服务 |
+| Adult Social Care | 成人社会照护 |
+| Adult Mental Health | 成人心理健康 |
+| Preventative Health | 预防性健康 |
+| Psychotherapy | 心理治疗 |
+| Counseling | 咨询 |
+| Community Services | 社区服务 |
+| Adult Safeguarding | 成人保护 |
+| Medical Aligned Professions | 医疗相关专业 |
+| Hospital Inpatients | 医院住院 |
+| Hospital Outpatients | 医院门诊 |
+| Facilities Management | 设施管理 |
+| Emergency Services | 急救服务 |
+| Medical | 医疗 |
+| Medical Professional Lead | 医疗专业领导 |
+| Primary Care Strategy | 初级医疗战略 |
+| Regulatory Oversight | 监管监督 |
+| Information and Strategy Governance | 信息与战略治理 |
+| Mortality | 死亡事务 |
+| Litigation | 诉讼 |
+| Pharmacy | 药房 |
+| Nursing | 护理 |
+| Nursing Strategy and Governance | 护理战略与治理 |
+| Nursing Standards and QA | 护理标准与质量保证 |
+| Health and Community Nursing | 健康与社区护理 |
+
+### 6.1 分类目录
+
+**表 6-1：部门——健康与社区福祉**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 医院与社区服务（Hospital and Community Services） | — | **功能概述**：为保障成人的心理与身体健康而提供的服务。 |
+| 医院与社区服务 | 成人社会照护（Adult Social Care） | 涉及为有身体或学习困难的成人提供支持所需的活动。 |
+| 医院与社区服务 | 成人心理健康（Adult Mental Health） | 为有心理健康需求的成人提供心理支持、就业支持、创伤知情照护、药物管理及个性化支持的可及途径。 |
+| 医院与社区服务 | 预防性健康（Preventative Health） | 指为预防疾病而提供的照护。 |
+| 医院与社区服务 | 心理治疗（Psychotherapy） | 涉及运用生理学方法支持并帮助有心理与情绪困难的成人。 |
+| 医院与社区服务 | 咨询（Counseling） | 涉及运用谈话疗法支持并帮助有心理与情绪困难的成人。 |
+| 医院与社区服务 | 社区服务（Community Services） | 涉及保护社区成员的身心健康并监测社区健康服务。 |
+| 医院与社区服务 | 成人保护（Adult Safeguarding） | 包括保护培训、政策与流程，确保所有成人免受伤害。 |
+| 医院与社区服务 | 医疗相关专业（Medical Aligned Professions） | 指由注册或合格医疗专业人员提供的诊断、技术、治疗与支持服务。 |
+| 医院与社区服务 | 医院门诊（Hospital Outpatients） | 为患者提供不足一晚的医院照护与监护。 |
+| 医院与社区服务 | 医院住院（Hospital Inpatients） | 为患者提供至少一晚的医院照护与监护。 |
+| 医院与社区服务 | 设施管理（Facilities Management） | 对应医院与社区设施的维护、管理与保养。 |
+| 医院与社区服务 | 急救服务（Emergency Services） | 提供院前照护，包括救护车、紧急响应与院外治疗。 |
+| 医疗（Medical） | — | **功能概述**：包括医疗的类型、分类和/或专科。 |
+| 医疗 | 医疗专业领导（Medical Professional Lead） | 指为医疗实践与医疗专业人员设定方向的服务。 |
+| 医疗 | 初级医疗战略（Primary Care Strategy） | 为未来初级医疗提供方向与框架。 |
+| 医疗 | 监管监督（Regulatory Oversight） | 指用于协调各项职能以确保政策一致实施的服务。 |
+| 医疗 | 信息与战略治理（Information and Strategy Governance） | 指使医疗专业人员、流程、工具与技术对齐以达成结果。 |
+| 医疗 | 死亡事务（Mortality） | 指与死亡及丧亲相关的服务与信息。 |
+| 医疗 | 诉讼（Litigation） | 指针对公共部门医疗方提起的任何争议/法律行动。 |
+| 医疗 | 药房（Pharmacy） | 为处方、调剂与分发药物而开展的服务。 |
+| 护理（Nursing） | — | **功能概述**：提供与照护病患及体弱者相关的服务。 |
+| 护理 | 护理战略与治理（Nursing Strategy and Governance） | 指使护理服务、流程、工具与技术对齐以达成结果。 |
+| 护理 | 护理标准与质量保证（Nursing Standards and QA） | 包括用于评估患者照护标准与护士专业能力的活动。 |
+| 护理 | 健康与社区护理（Health and Community Nursing） | 管理社区与健康照护，并领导地区护士、社区护士与支持人员团队。 |
+
+### 6.2 变革的关键驱动因素
+
+健康与社区福祉部门正面临巨大变化与挑战：预期寿命延长，且医疗实践开始从优先治疗疾病的传统做法转向预防。
+
+因此，政府需要考虑以下要点。
+
+**应对人口结构变化**
+
+由于以下因素的综合作用，可以合理预期预期寿命的长期上升趋势将持续：
+
+- 饮食改善
+- 药物使用管理更有效
+- 复杂疾病管理能力提升
+- 健康与社会照护更好整合
+
+因此，可以预期老龄化人口的影响将加大对公共医疗服务的需求与压力。
+
+**创新**
+
+“合成生物学”是一种多学科科学方法，它以工程方法研究生物学，在细胞中设计与构建功能。截至 2020 年的十年间，对微生物组健康与保健初创企业的年度投资增长了 1,600%。
+
+创新潜力可通过利用合成生物学发展个性化基因治疗来实现，以治疗慢性病与遗传病。借助微生物的能力，将有助于解决现有的健康挑战，并创造跨行业的机会。
+
+**纳入技术进步**
+
+技术进步将带来数据使用与所有权的根本性变化，其方式包括：
+
+- **AI 与智能**：当前技术利用无线与智能设备技术提升支持的可移动性；未来，电子健康记录还将补充患者采集数据与基因组学，以实现实时数据的编码化。
+- **区块链**：区块链技术将用于归档相关活动日志，并通过记录患者电子记录的每次访问或每次变更并加时间戳，作为额外的安全层，确保健康记录的完整性。
+- **传感器**：包括石墨烯与量子传感器在内的精密传感器，可用于实时监测人体的变化、采集数字基础设施的性能数据，并具有检测病原体的潜力。
+- **量子计算**：将实现更高效的计算，并随着进展加速促进药物发现。
+
+---
+
+## 7. 司法、治安与内政
+
+如原文图 7-1 所示，司法、治安与内政涵盖司法、检察、与保护资金相关的支出、执法服务，以及刑事司法成本——包括监禁、监督、假释与罪犯康复——的总成本。
+
+![图 7-1（中文图）](figs/zh/g21de_fig7-1_zh.png)
+
+> 图 7-1。图内文字已中文化；原图见英文原文 Figure 7-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| Judiciary, Justice, and Home Affairs | 司法、治安与内政 |
+| Protection and Law Enforcement | 保护与执法 |
+| Customs | 海关 |
+| Immigration | 移民 |
+| Emergency Planning | 应急规划 |
+| Fire Service | 消防服务 |
+| Health and Safety | 健康与安全 |
+| Police Service | 警务 |
+| Criminal Justice and Offender Management | 刑事司法与罪犯管理 |
+| Youth Offending | 青少年犯罪 |
+| Criminal Justice | 刑事司法 |
+| Prison Monitoring | 监狱监督 |
+| Police Authority | 警察当局 |
+| Law Commission | 法律委员会 |
+| Criminal Compensation | 刑事赔偿 |
+| Police Complaints | 警察投诉 |
+
+### 7.1 分类目录
+
+**表 7-1：部门——司法、治安与内政**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 保护与执法（Protection and Law Enforcement） | — | **功能概述**：指保护与保障公众并确保法律得到强制遵守的服务。 |
+| 保护与执法 | 海关（Customs） | 用于检查非法货物或可能需缴税的货物，并就配额与海关法规提供建议，包括检查、货物清关、筛查与搜查。 |
+| 保护与执法 | 移民（Immigration） | 监测海外入境旅客的状态以确认其获准入境，并通过旅客入境控制系统确保抵达时通关。 |
+| 保护与执法 | 应急规划（Emergency Planning） | 在不可预见情形下提供紧急援助，包括应急资金、后勤支持，就设备法规提供建议，并协调政府与社区服务。 |
+| 保护与执法 | 消防服务（Fire Service） | 提供消防员与协助，以扑灭火灾、减少损害、促进消防安全，并实现紧急预防、保护与响应。 |
+| 保护与执法 | 健康与安全（Health and Safety） | 包括用于设计、开发与实施健康与安全计划的活动。 |
+| 保护与执法 | 警务（Police Service） | 包括就规则与法规提供建议、改善公共安全、减少暴力与非法物质使用的活动。 |
+| 刑事司法与罪犯管理（Criminal Justice and Offender Management） | — | **功能概述**：指对已犯罪或违法者实施司法。 |
+| 刑事司法与罪犯管理 | 青少年犯罪（Youth Offending） | 监督青少年罪犯，并提供社区服务以防止青少年未来再次犯罪。 |
+| 刑事司法与罪犯管理 | 刑事司法（Criminal Justice） | 涵盖对已犯罪个人实施司法，包括提供公诉律师。 |
+| 刑事司法与罪犯管理 | 监狱监督（Prison Monitoring） | 代表对用于羁押刑事罪犯的设施进行监督。 |
+| 刑事司法与罪犯管理 | 警察当局（Police Authority） | 包括协调执法服务的活动。 |
+| 刑事司法与罪犯管理 | 法律委员会（Law Commission） | 审查现有法律，并在必要时提出改革建议。 |
+| 刑事司法与罪犯管理 | 刑事赔偿（Criminal Compensation） | 涵盖就犯罪相关费用向犯罪受害者提供补偿的计划。 |
+| 刑事司法与罪犯管理 | 警察投诉（Police Complaints） | 处理对警察部队或个人不满的评估，以维持公众信心。 |
+
+### 7.2 变革的关键驱动因素
+
+随着技术进步，在政治环境与监管随社会演进的过程中，司法与治安部门具有显著的改进与适应潜力。为提升司法体系的绩效与效率，政府需要考虑以下要点。
+
+**为新威胁做准备**
+
+社会变革带来新的潜在威胁，这要求司法与治安部门进行改革，也需要更强的预防与培训：
+
+- 由于技术进步以及 COVID-19 大流行等情形，人口更多转向线上，远程办公与远程教育的增加可能导致网络犯罪上升。
+  欺诈、数据窃取、诱骗（grooming）、跟踪与骚扰的威胁被放大。针对此类犯罪修法是必要的，但更重要的是应落实预防这些犯罪的流程。
+- 民权运动也可能成为变革的驱动因素，司法体系随之适应不断演进的社会。
+- 有组织犯罪、恐怖主义与人口贩运等威胁，将要求跨境司法辖区与执法机构之间更大程度的合作。
+
+**受害者支持**
+
+在司法体系中，支持犯罪与创伤事件的受害者至关重要。免费提供情感支持、咨询、安全住所、专家服务与资金支持等服务，对于帮助人们走出困境至关重要。为确保其需求在刑事司法体系中得到满足，还应让受害者了解自身权利，包括知悉调查进展并使其隐私受到尊重。
+
+**监狱基础设施现代化**
+
+多数刑事司法体系日益依赖监狱，而其中大多数未能实现维护社会安全的目标。再犯率高的国家往往在其监狱中优先惩罚，而再犯率较低的情形则见于优先关系与尊严的监狱。改革成本是监狱设施老化的主要原因；然而，囚犯康复与成功回归社会对保障公共安全不可或缺。更成功的模式——如通常被认为属于此类模式的斯堪的纳维亚模式——可作为论证该项投资的模板。
+
+**利用新技术**
+
+利用技术实现司法与司法体系现代化有多重目的：
+
+- 更好的在线法律服务，增加法院使用者可获得的信息或服务，如在线和解表单、便于了解自身权利与程序步骤的友好信息门户。
+  使用数字通信与信息工具，可为更多公民提供更易获取的公共司法服务。
+- 通过改善专业人员之间的沟通与协作、基于更大法律数据库提升决策质量、减少行政负担来再造流程。
+  这可以简化并加速程序，使其更加以用户为中心，并减少时间与成本。
+- 促进跨境合作，以克服距离与语言障碍，以及在他国获得司法服务的复杂性。
+  Europa 门户或 e-CODEX 提供指南、表单、面向法律从业者、主管机关与公民的信息等在线工具，以便更便捷地交换并加速流程。
+- 通过物联网、AI 与传感器等新技术改进刑事司法流程，既协助破案，也用于预防犯罪。
+  共享数据库也已证明对执法至关重要；例如在将嫌疑人与犯罪关联，或改进证据分析与处理方面。
+
+---
+
+## 8. 财政
+
+如原文图 8-1 所示，财政对公共支出、收入、财务报告与审计保持控制，并为未来投资决策与财务规划提供方向。
+
+![图 8-1（英文原图）](figs/zh/g21de_fig8-1_zh.png)
+
+> 图 8-1。图内文字已中文化；原图见英文原文 Figure 8-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| Financial | 财政 |
+| Revenue | 收入 |
+| Tax Office | 税务局 |
+| Social Security | 社会保障 |
+| Import Duty | 进口关税 |
+| Tax and Revenue Compliance | 税收与收入合规 |
+| Strategic Finance | 战略财务 |
+| Policy Support | 政策支持 |
+| Corporate and Business Planning | 公司/业务规划 |
+| Strategic Risk | 战略风险 |
+| Financial Planning | 财务规划 |
+| Investment Decisions | 投资决策 |
+| Accounting and Reporting | 会计与报告 |
+| Finance Business Partnering | 财务业务伙伴 |
+| Finance Planning and Performance | 财务规划与绩效 |
+| Accounting Standards Compliance | 会计准则合规 |
+| Investment Management | 投资管理 |
+| Cash Management | 现金管理 |
+| Shareholder of Owned Subsidiaries | 自有子公司股权 |
+| Pension Fund Management | 养老基金管理 |
+| Risk and Audit | 风险与审计 |
+| Enterprise Risk | 企业风险 |
+| Internal Audit | 内部审计 |
+
+### 8.1 分类目录
+
+**表 8-1：部门——财政**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 收入（Revenue） | — | **功能概述**：与从国内外来源收取应付政府款项相关的活动。 |
+| 收入 | 税务局（Tax Office） | 负责税收体系的管理、税收政策制定、维护与实施。 |
+| 收入 | 社会保障（Social Security） | 通过援助措施促进人口福利，在生活不稳定时提供帮助并预防此类不稳定。 |
+| 收入 | 进口关税（Import Duty） | 由海关当局对进口及部分出口征收税款。 |
+| 收入 | 税收与收入合规（Tax and Revenue Compliance） | 支持个人与企业遵守税务要求，并向政府缴纳各项税费。 |
+| 战略财务（Strategic Finance） | — | **功能概述**：与交付支持未来服务提供的长期财务战略、财务监控与控制相关的活动。 |
+| 战略财务 | 政策支持（Policy Support） | 评估当前计划与政策的可持续性。 |
+| 战略财务 | 公司/业务规划（Corporate and Business Planning） | 审视内部能力，并制定利用这些能力达成目标的战略。 |
+| 战略财务 | 战略风险（Strategic Risk） | 分析风险敞口，并确定确保活动持续所需的适当措施。 |
+| 战略财务 | 财务规划（Financial Planning） | 评估政府的长期财政需求，获取并分配资源、管理成本。 |
+| 战略财务 | 投资决策（Investment Decisions） | 确定在投资机会上投入资本的地点与金额。 |
+| 会计与报告（Accounting and Reporting） | — | **功能概述**：用于识别、组织、分类、记录、汇总并沟通财务交易信息的活动。 |
+| 会计与报告 | 财务业务伙伴（Finance Business Partnering） | 管理企业、组织与个人之间有助于政府目标的业务伙伴关系与关系。 |
+| 会计与报告 | 财务规划与绩效（Finance Planning and Performance） | 定义用于衡量政府金融资产与资本有效性的一组能力。 |
+| 会计与报告 | 会计准则合规（Accounting Standards Compliance） | 确保会计信息统一、会计决策以合理方式作出。 |
+| 投资管理（Investment Management） | — | **功能概述**：指金融资产与其他投资的处理。 |
+| 投资管理 | 现金管理（Cash Management） | 收取与管理现金流的过程。 |
+| 投资管理 | 投资（Investments） | 为未来产生收入而获取的货币资产。 |
+| 投资管理 | 自有子公司股权（Shareholders of Owned Subsidiaries） | 指母公司拥有或控制的公司股份。 |
+| 投资管理 | 养老基金管理（Pension Fund Management） | 涉及投资并管理养老基金资产，以优化对该养老基金的缴款。 |
+| 风险与审计（Risk and Audit） | — | **功能概述**：对受监管活动进行系统检查与审查，以确保符合受监管活动的标准。 |
+| 风险与审计 | 企业风险（Enterprise Risk） | 识别并应对可能对战略目标实现构成风险的潜在事件。 |
+| 风险与审计 | 财务治理（Financial Governance） | 收集、管理、监控并控制财务信息。 |
+| 风险与审计 | 内部审计（Internal Audit） | 就政府风险管理、治理与内部控制流程是否有效运行提供独立保证。 |
+
+### 8.2 变革的关键驱动因素
+
+近年来，技术变革的步伐、不断演变的客户期望以及变化的监管框架，推动了金融部门的持续创新，如金融科技、移动银行与加密货币。叠加近期市场中断（如 COVID-19 全球大流行），长期影响仍不明朗。为适应变化并建立韧性，金融部门需要相应转型。
+
+以下给出转型驱动因素的概要说明。
+
+**战略冲击**
+
+像 COVID-19 大流行这样前所未有的市场中断，已导致公共支出发生重大变化，表现为支出增加、收入减少与市场波动加剧。
+
+- 为在危机中维持金融稳定，政策应对必须与监管机构及央行协调，以尽量减少影响。
+  货币与财政政策应相互协调，以安全满足公众需求，并因应形势调整、依据国家优先事项有策略地实施。
+- 危机复苏要求重新思考公共财政的做法。
+  利用技术更好地预测未来危机及其影响；为公共投资配置引入韧性建设标准；把社会与环境目标纳入复苏计划——这些是重塑财政职能时可采取的部分措施。
+
+**技术快速变化**
+
+与私营部门一样，技术创新正在推动公共财政职能的变革。随着公众审视加强与技术素养提升，政府也面临利用技术进行创新的压力。
+
+- 大数据与预测分析有助于在公共财政方面作出更好的财务决策，识别并降低风险，从而提升财务规划与绩效。
+- 后台转型由 AI、机器人与自动化驱动，它们可减少人工工作、卸除员工的行政负担，使精力转向更具生产性的角色。
+- 技术使用扩大意味着潜在攻击入口增多；网络安全应置于首位，政府需要更负责任地处理从公众收集的数据，并确保数据安全政策得到落实。
+- 情感计算或“情感 AI”等其他技术，可被政府用于影响公民行为。
+
+---
+
+## 9. 增长、住房与环境
+
+如原文图 9-1 所示，增长、住房与环境对应以下活动：确保对自然与城市环境的责任、提供核心基础设施，并通过监管的许可与执法保护公民的生活水平与安全。
+
+![图 9-1（中文图）](figs/zh/g21de_fig9-1_zh.png)
+
+> 图 9-1。图内文字已中文化；原图见英文原文 Figure 9-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| Growth, Housing, and Environment | 增长、住房与环境 |
+| Partnerships | 伙伴关系 |
+| Business and SME Support | 企业与中小企业支持 |
+| Tourism | 旅游 |
+| Sport | 体育 |
+| Culture | 文化 |
+| Rural Economy | 乡村经济 |
+| Grants | 赠款 |
+| Telecommunications | 电信 |
+| Water | 水务 |
+| Electricity | 电力 |
+| Port | 港口 |
+| Post | 邮政 |
+| Natural Environment | 自然环境 |
+| Environmental Services | 环境服务 |
+| Environmental Ecology | 环境生态 |
+| Meteorological Services | 气象服务 |
+| Veterinary Services | 兽医服务 |
+| Marine and Fisheries | 海洋与渔业 |
+| Property and Special Projects | 物业与特别项目 |
+| Property | 物业 |
+| Surveying | 测绘估值 |
+| Architects | 建筑设计 |
+| Capital Projects | 资本项目 |
+| Asset Management | 资产管理 |
+| Regulation | 监管 |
+| Building Control | 建筑管控 |
+| Trading Standards | 交易标准 |
+| Document Verification Service | 文件验证服务 |
+| Environmental Health | 环境卫生 |
+| Licensing | 许可 |
+| Environmental Protection | 环境保护 |
+
+### 9.1 分类目录
+
+**表 9-1：部门——增长、住房与环境**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 伙伴关系（Partnerships） | — | **功能概述**：两个或更多职能之间的关系。 |
+| 伙伴关系 | 企业与中小企业支持（Business and SME Support） | 为中小企业与商业提供支持体系。 |
+| 伙伴关系 | 旅游（Tourism） | 鼓励休闲访客到访该地区，支持旅游业，并就旅游法规提供建议。 |
+| 伙伴关系 | 体育（Sport） | 包括维护、运营休闲与体育设施并就其法规提供建议所需的活动。 |
+| 伙伴关系 | 文化（Culture） | 指支持艺术与文化组织（如博物馆、画廊与文物）发展与管理活动。 |
+| 伙伴关系 | 乡村经济（Rural Economy） | 包括与自然、农业活动及人居环境的开发、投资与监管相关的活动。 |
+| 伙伴关系 | 赠款（Grants） | 指提供贷款以资助伙伴。 |
+| 伙伴关系 | 电信（Telecommunications） | 涉及支持传输信号的电信组织，并就电信相关法规、标准与新技术提供建议。 |
+| 伙伴关系 | 水务（Water） | 指支持水务行业伙伴关系，并就水管理与使用相关法规与标准提供建议的活动。 |
+| 伙伴关系 | 电力（Electricity） | 指支持行业伙伴关系，并就电力使用与能源相关法规与标准提供建议的活动。 |
+| 伙伴关系 | 港口（Port） | 指支持行业伙伴关系并对海港实施适当监管的活动。 |
+| 伙伴关系 | 邮政（Post） | 指支持包裹与信件的收寄投递、发行邮票，并就邮政相关法规与标准提供建议的活动。 |
+| 自然环境（Natural Environment） | — | **功能概述**：对周围环境与野生动物的管理与保护，以保护和确保自然环境的可持续性。 |
+| 自然环境 | 环境服务（Environmental Services） | 指为保护自然环境而进行的维护、保障与建议提供。 |
+| 自然环境 | 环境生态（Environmental Ecology） | 指将栖息地改善到更好状态、保护生态系统并支持保育的活动。 |
+| 自然环境 | 气象服务（Meteorological Services） | 涉及就气候、天气预报与恶劣天气提供建议、信息与预警。 |
+| 自然环境 | 兽医服务（Veterinary Services） | 指为确保家畜健康而提供的建议与研究。 |
+| 自然环境 | 海洋与渔业（Marine and Fisheries） | 对自然环境中的海域进行维护，并提升社区意识。 |
+| 物业与特别项目（Property and Special Projects） | — | **功能概述**：为开发与基础设施项目提供投资与管理服务。 |
+| 物业与特别项目 | 物业（Property） | 指支持、开发与管理建筑的活动。 |
+| 物业与特别项目 | 测绘估值（Surveying） | 指公共物业与建筑的估值、成本核算、管理、营销与维护。 |
+| 物业与特别项目 | 建筑设计（Architects） | 包括与物业和建筑的规划、设计与建造相关的活动。 |
+| 物业与特别项目 | 资本项目（Capital Projects） | 指长期投资项目的支持、开发与管理。 |
+| 物业与特别项目 | 资产管理（Asset Management） | 负责支持政府资产的管理。 |
+| 监管（Regulation） | — | **功能概述**：指监管流程的交付。 |
+| 监管 | 建筑管控（Building Control） | 确定设计与建造所需的最低标准。 |
+| 监管 | 交易标准（Trading Standards） | 指执行与伙伴关系相关的立法，以保护消费者。 |
+| 监管 | 文件验证服务（Document Verification Service） | 验证政府签发的关键文件，以确保遵守立法并减少欺诈。 |
+| 监管 | 环境卫生（Environmental Health） | 就工业、旅游或社区使用对自然环境的影响提供建议与评估。 |
+| 监管 | 许可（Licensing） | 指与授予、撤销及管理从事受监管任务或职能所需书面授权相关的活动。 |
+| 监管 | 环境保护（Environmental Protection） | 指纠正与抵消环境缺陷相关的活动。 |
+
+### 9.2 变革的关键驱动因素
+
+随着气候变化成为地球面临的最大威胁之一，并被人口增长与消费增加所加速，增长、住房与环境部门面临重大挑战。以下因素将被视为驱动因素。
+
+**人口增长与经济活动**
+
+人口不断增长，并伴随人口结构变化与社会变化。更快的城市化与更多的经济支出也对自然资源造成压力，增加废弃物与污染，从而加速气候变化。在应对与减缓气候变化威胁时，应考虑所有这些因素。事实上，由于信息更易获得、数字化与旅行，年轻世代在社会议题上更为进步。重要的是推动政策与监管，为这些世代创造更可持续的未来。
+
+**气候变化**
+
+人类依赖环境获取水、空气、食物与住所。随着人口增长，污染性、碳密集型技术的使用与资源的过度开发给后代带来了挑战。领导者有必要更严肃地考虑气候风险与影响，包括对供应链与实体基础设施的不利影响。过去几年，许多政府一直在实施绿色复苏计划，并为缓解脱碳的项目提供资金。
+
+**数字化与技术**
+
+技术进步使可再生能源得到更大程度的使用与开发。但新技术也有助于聚焦于减缓气候变化的影响，而非仅从中恢复。流程数字化可显著降低成本与运营浪费，住房领域同样如此。“智慧城市”的发展为将经济与人口增长同环境变化脱钩提供了机会。
+
+---
+
+## 10. 政策、绩效、人口与创新
+
+如原文图 10-1 所示，政策、绩效、人口与创新涉及政府范围内的政策制定，提供人口统计数据以及对照基准的绩效数据以确保持续改进，并包含战略与长期规划，以识别未来风险、机遇与解决方案。
+
+![图 10-1（中文图）](figs/zh/g21de_fig10-1_zh.png)
+
+> 图 10-1。图内文字已中文化；原图见英文原文 Figure 10-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| Policy, Performance, Population, and Innovation | 政策、绩效、人口与创新 |
+| Policy | 政策 |
+| Collaborative Policy | 协同政策 |
+| Policy Secretariat | 政策秘书处 |
+| Social Policy | 社会政策 |
+| Environmental Policy | 环境政策 |
+| Economic Policy | 经济政策 |
+| Planning and Performance | 规划与绩效 |
+| Capacity Planning | 能力规划 |
+| Key Performance Indicators | 关键绩效指标 |
+| Population Statistics (and Census) | 人口统计（与普查） |
+| Innovation and Strategy | 创新与战略 |
+| Social Strategy | 社会战略 |
+| Environmental Strategy | 环境战略 |
+| Economic Strategy | 经济战略 |
+| Population Strategy | 人口战略 |
+| Housing Strategy | 住房战略 |
+| Short, Medium-Term Strategy | 中短期战略 |
+| Long-Term Strategy | 长期战略 |
+
+### 10.1 分类目录
+
+**表 10-1：部门——政策、绩效、人口与创新**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 政策（Policy） | — | **功能概述**：制定并评估与环境、社会、经济及市场相关的当前计划与政策的可持续性。 |
+| 政策 | 协同政策（Collaborative Policy） | 指监测、管理并回应市场需求的活动。 |
+| 政策 | 政策秘书处（Policy Secretariat） | 协调分析、需求评估，并启动战略文件起草，以确立公共政策并简化政策程序。 |
+| 政策 | 社会政策（Social Policy） | 指政府为减少不平等并确保适当福利而实施的活动、指南、原则与立法。 |
+| 政策 | 环境政策（Environmental Policy） | 包括政府为尽量减少社会对环境的影响而实施的活动、指南、原则与立法。 |
+| 政策 | 经济政策（Economic Policy） | 包括政府为分析经济稳定性与增长而实施的活动、指南、原则与立法。 |
+| 规划与绩效（Planning and Performance） | — | **功能概述**：指识别并规划达成目标最佳方式的持续过程。 |
+| 规划与绩效 | 能力规划（Capacity Planning） | 指用于确定政府为满足规划要求而可用的最大变革与生产能力。 |
+| 规划与绩效 | 关键绩效指标（Key Performance Indicators） | 衡量结果与活动，以确定政府通过实现战略目标取得的成功，并确定改进标准。 |
+| 规划与绩效 | 人口统计（与普查）（Population Statistics (and Census)） | 包括生成人口统计与普查数据，含监测人口趋势与基准，为研究、政策制定与规划提供依据。 |
+| 创新与战略（Innovation and Strategy） | — | **功能概述**：指为达成目标、回应未满足的市场需求并利用新兴技术而采用的计划、举措与活动。 |
+| 创新与战略 | 社会战略（Social Strategy） | 指用于实现社会目标并应对社会不平等的计划、举措与活动。 |
+| 创新与战略 | 环境战略（Environmental Strategy） | 指用于实现环境目标并应对气候变化的计划、举措与活动。 |
+| 创新与战略 | 经济战略（Economic Strategy） | 指用于实现经济目标并通过更有效的资源配置与利用提升绩效的计划、举措与活动。 |
+| 创新与战略 | 人口战略（Population Strategy） | 指用于实现人口目标并应对风险的计划、举措与活动。 |
+| 创新与战略 | 住房战略（Housing Strategy） | 指用于实现住房目标并促进住房灵活性与可负担性的计划、举措与活动。 |
+| 创新与战略 | 中短期战略（Short, Medium-Term Strategy） | 包括确定年度与近期目标，并识别达成目标的最佳方法。 |
+| 创新与战略 | 长期战略（Long-Term Strategy） | 包括确定战略目标，并识别达成目标的最佳方法。 |
+
+### 10.2 变革的关键驱动因素
+
+若干因素正在推动该部门的变革，政府需要考虑以下要点。
+
+**应对人口结构变化**
+
+全球生育率下降导致的老龄化正在对政策产生显著影响。这将减少劳动年龄人口、增加对社会照护的依赖，并导致潜在产出增速与自然失业率下降。
+
+人口构成的变化还将导致社会偏好变化，进而影响战略目标、KPI，并最终影响长期战略。
+
+**自动化与创新**
+
+为使工作场所更具竞争力并对冲劳动人口下降，使用技术的压力加大。数字政府不久将能够利用“云”中的开放网络进行沟通，并开发新想法与应用。认知计算及此类机制随后可收集、分发与访问海量数据，帮助政府领导者作出更好的决策，并促进政府问责、社会包容与伙伴关系。
+
+**采用新的经济度量**
+
+指导国家政策与企业投资的传统指标狭隘地聚焦于短期财务价值。随着社会价值分化，企业与政府之间的错位加剧，酿成不平等、气候变化与生活水平下降等重大政策失败。
+
+纳入更广泛的“社会”指标（如工作时间）将显著改变我们对经济的理解。随着社会压力促使政府回应，许多群体正在开发新的指标；例如，联合国支持以仪表盘方式度量福祉。
+
+这些对战略目标认知的变化，随后将对政策与战略产生重大影响。
+
+---
+
+## 11. 共享服务
+
+如原文图 11-1 所示，共享服务代表公众协调并管理人员、沟通、财务与转型服务，以促进信息流转，并对人员、流程与技术实施监督，从而支持采购并与企业战略对齐。
+
+![图 11-1（中文图）](figs/zh/g21de_fig11-1_zh.png)
+
+> 图 11-1。图内文字已中文化；原图见英文原文 Figure 11-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| Shared Services | 共享服务 |
+| People and Corporate Services | 人员与公司服务 |
+| People and Organizational Change | 人员与组织变革 |
+| Culture and Modernization | 文化与现代化 |
+| Human Resources | 人力资源 |
+| Business Administration Support | 业务行政支持 |
+| Business Continuity | 业务连续性 |
+| Compliance | 合规 |
+| Employee Health and Safety | 员工健康与安全 |
+| Soft Facilities Management | 软性设施管理 |
+| Communications | 沟通 |
+| External Media | 对外媒体 |
+| Internal Communications | 内部沟通 |
+| Marketing | 营销 |
+| Web Design | 网页设计 |
+| International Communications | 国际传播 |
+| Commercial Services | 商业服务 |
+| Market Engagement | 市场接触 |
+| Market Creation | 市场创建 |
+| Commercial Negotiations | 商业谈判 |
+| Contract Management | 合同管理 |
+| Procurement | 采购 |
+| Transformation | 转型 |
+| Business Processes | 业务流程 |
+| IT Operations | IT 运营 |
+| Information Management | 信息管理 |
+| Information Security | 信息安全 |
+| Digital Government | 数字政府 |
+| Enterprise Architecture | 企业架构 |
+| Data Protection | 数据保护 |
+| Portfolio and Performance Management | 组合与绩效管理 |
+| Finance Hub | 财务共享中心 |
+| Standardized Processes | 标准化流程 |
+| Analytics | 分析 |
+| Reporting | 报告 |
+| Transactional Services | 交易服务 |
+| Debt Management | 债务管理 |
+| Pension Fund Administration | 养老基金管理 |
+| Payroll | 薪酬发放 |
+
+### 11.1 分类目录
+
+**表 11-1：部门——共享服务**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 人员与公司服务（People and Corporate Services） | — | **功能概述**：合并或整合人员与全企业所需支持服务的活动。 |
+| 人员与公司服务 | 人员与组织变革（People and Organizational Change） | 涵盖围绕改变政府战略、流程、文化与技术的各项流程。 |
+| 人员与公司服务 | 文化与现代化（Culture and Modernization） | 指用于更新人员服务并管理员工文化的活动。 |
+| 人员与公司服务 | 人力资源（Human Resources） | 指与员工管理（包括招聘、培训与沟通）相关的活动。 |
+| 人员与公司服务 | 业务行政支持（Business Administration Support） | 指涉及监督与监管业务运营的所有活动。 |
+| 人员与公司服务 | 业务连续性（Business Continuity） | 涉及建立系统以阻遏潜在威胁。 |
+| 人员与公司服务 | 合规（Compliance） | 指对人员指南与法规的直接监控与监督。 |
+| 人员与公司服务 | 员工健康与安全（Employee Health and Safety） | 包括用于设计、开发与实施员工健康与安全计划的活动。 |
+| 人员与公司服务 | 软性设施管理（Soft Facilities Management） | 指对非必要设施的管理，使工作场所更舒适、更宜人。 |
+| 沟通（Communications） | — | **功能概述**：为支持传播服务的提供而对信息、监管与媒体服务进行增长、提供与管理。 |
+| 沟通 | 对外媒体（External Media） | 指政府与外部环境之间的信息流动。 |
+| 沟通 | 内部沟通（Internal Communications） | 对使信息能够传输给本国公民的行业进行监管、增长与管理。 |
+| 沟通 | 营销（Marketing） | 提供营销内容与呈现，并通过任何媒介分发。 |
+| 沟通 | 网页设计（Web Design） | 指交互式网页内容的设计。 |
+| 沟通 | 国际传播（International Communications） | 对使信息能够传输到海外的行业进行监管、增长与管理。 |
+| 商业服务（Commercial Services） | — | **功能概述**：与供应商、供货商、伙伴及第三方进行寻源、管理与采购合同相关的活动，以支持新项目与机会的开发。 |
+| 商业服务 | 市场接触（Market Engagement） | 指政府在项目采购之前与供应商接触的活动。 |
+| 商业服务 | 市场创建（Market Creation） | 指消除贸易壁垒并提供产权，以允许为某种商品或服务建立市场。 |
+| 商业服务 | 商业谈判（Commercial Negotiations） | 为开发新机会而进行战略讨论的识别、管理与开展。 |
+| 商业服务 | 合同管理（Contract Management） | 与伙伴和供应商合同的创建、执行与分析。 |
+| 商业服务 | 采购（Procurement） | 指风险评估、备选方案评估、向供应商授予合同，以及对产品或服务合同的持续管理。 |
+| 转型（Transformation） | — | **功能概述**：对某项职能的全面重新评估与彻底改造。 |
+| 转型 | 业务流程（Business Processes） | 指对现有业务流程、活动与职能的监测、评估与改进。 |
+| 转型 | IT 运营（IT Operations） | 包括由 IT 部门管理的流程与服务。 |
+| 转型 | 信息管理（Information Management） | 指促进数据与信息收集和迁移的活动。 |
+| 转型 | 信息安全（Information Security） | 指保护信息与系统免遭未经授权的访问、使用、修改或破坏。 |
+| 转型 | 数字政府（Digital Government） | 指利用信息与技术提供数字化服务。 |
+| 转型 | 企业架构（Enterprise Architecture） | 用于为组织的流程、人员与技术定义当前、过渡与目标战略的活动。 |
+| 转型 | 数据保护（Data Protection） | 与个人数据的保护、收集、合规与分发相关的活动。 |
+| 转型 | 组合与绩效管理（Portfolio and Performance Management） | 支持政府持有的投资与资产的管理与有效性。 |
+| 财务共享中心（Finance Hub） | — | **功能概述**：大量且多样的金融服务机构总部所在的金融中心。 |
+| 财务共享中心 | 标准化流程（Standardized Processes） | 建立一套经过验证并获接受的程序，以界定适当且可靠的做法。 |
+| 财务共享中心 | 分析（Analytics） | 对极大、复杂数据集（大数据）直至稀疏的罕见事件数据进行各种形式的数据分析。 |
+| 财务共享中心 | 报告（Reporting） | 包括财务信息的提供、报告以及对财务交易的分析。 |
+| 财务共享中心 | 交易服务（Transactional Services） | 监督业务交易与交易事项，如合并或收购。 |
+| 财务共享中心 | 债务管理（Debt Management） | 制定并执行债务管理战略、实现风险与成本目标并达成任何其他既定债务管理目标的过程。 |
+| 财务共享中心 | 养老基金管理（Pension Fund Administration, PFA） | 负责开立退休储蓄账户（RSA）、支付退休福利，并对与养老基金相关的所有交易进行会计核算。 |
+| 财务共享中心 | 薪酬发放（Payroll） | 在设定期间内向员工支付的全部薪酬。 |
+
+### 11.2 变革的关键驱动因素
+
+共享服务也将因政府需要考虑的共同驱动因素而变化。
+
+**人员改革**
+
+为满足新的需求与公共部门需要，需要通过现代化的人员获取、培训与保留来改变劳动力构成。知识产权也是公共部门的差异化与竞争因素。由于年轻且懂技术的人员短缺，培训因而至关重要，公共部门亦然。
+
+**数字化**
+
+认知计算与区块链的进步可用于增加客户互动并增强个性化服务，以应对更复杂的问题并改善客户自助服务。虚拟助手也可用于让员工专注于富有挑战性的任务，从而全面提升用户体验与满意度。
+
+区块链可用于管理数据与数字资产，并创建数字审计轨迹，进而用于优化供应链、改进采购，并保存雇佣、契约等记录。
+
+**增强技术能力**
+
+数字化增强了跨职能协作与重要信息共享的能力。借助数字工具，这将带来效率显著提升的潜力。
+
+这将包括采用以下技术：
+
+- **下一代 ERP 系统**：采购这些系统将使政府能够在前台与后台流程中创造整体且更优的客户体验。
+- **自动化（AI、RPA 与自动化）**：减少人工工作量并卸除员工的行政负担，使其能够聚焦职能优先事项。
+- **云**：云使客户服务与运营更具动态性与灵活性——增强以成本有效、低风险方式试验新项目的能力，并使政府能够更快地利用技术满足客户需求。
+
+---
+
+## 12. 交通与运营
+
+如原文图 12-1 所示，交通与运营包括使一般运营（含维护与一般管理）得以实现的活动，并保障人员与货物在陆地、空中、海上与太空的安全转移与可用性。
+
+![图 12-1（中文图）](figs/zh/g21de_fig12-1_zh.png)
+
+> 图 12-1。图内文字已中文化；原图见英文原文 Figure 12-1。
+
+**图内标签对照**
+
+| 图内英文 | 中文 |
+|---|---|
+| Transport and Operations | 交通与运营 |
+| Transport | 交通 |
+| Ground Transport | 地面交通 |
+| Air Transport | 航空交通 |
+| Water Transport | 水上交通 |
+| Space Transport | 航天交通 |
+| Other Transport | 其他交通 |
+| Operations | 运营 |
+| Waste Management | 废弃物管理 |
+| Property Maintenance | 物业维护 |
+| Car Parks | 停车场 |
+| Street Maintenance and Highways | 街道维护与公路 |
+| Parks and Trees | 公园与树木 |
+
+### 12.1 分类目录
+
+**表 12-1：部门——交通与运营**
+
+| 功能 | 服务 | 说明 |
+|---|---|---|
+| 交通（Transport） | — | **功能概述**：与人员与货物在陆地、空中、海上与太空的安全转移与可用性相关的活动。 |
+| 交通 | 地面交通（Ground Transport） | 涉及确保人员与货物在陆地上安全转移与可用性的活动。 |
+| 交通 | 航空交通（Air Transport） | 涉及确保人员与货物在空中安全转移与可用性的活动。 |
+| 交通 | 水上交通（Water Transport） | 涉及确保人员与货物在水上安全转移与可用性的活动。 |
+| 交通 | 航天交通（Space Transport） | 涉及确保人员与货物在太空安全转移与可用性的活动。 |
+| 交通 | 其他交通（Other Transport） | 涉及未由陆地、空中、水上与太空覆盖的人员与货物的所有其他移动（按经纬度界定）。 |
+| 运营（Operations） | — | **功能概述**：与废弃物、公共物业、绿化、停车设施与街道的维护及一般管理相关的活动。 |
+| 运营 | 废弃物管理（Waste Management） | 对应废弃物的处置、回收、监测、收集或移动。 |
+| 运营 | 物业维护（Property Maintenance） | 指确保政府拥有建筑与物业的安全、保养与维护。 |
+| 运营 | 停车场（Car Parks） | 指确保公共停车场的安全、保养与维护。 |
+| 运营 | 街道维护与公路（Street Maintenance and Highways） | 指道路、人行道与公路的修理、保养与维护。 |
+| 运营 | 公园与树木（Parks and Trees） | 指国家公园、公共公园与保护区内树木与绿化的维护、种植与保护。 |
+
+### 12.2 变革的关键驱动因素
+
+对交通与运营部门而言，城市中的有效出行仍是生产率、经济增长与可持续性的关键使能因素。
+
+以下因素将被视为驱动因素。
+
+**公众舆论**
+
+政府必须回应公众对气候变化看法的变化，这将推动创新，并促使更关注替代燃料、能源可得性与全球应对。此外，随着替代燃料与能源来源出现，预期车辆排放将会下降。
+
+**政策**
+
+随着对支出的审视加强，政府正更密切地关注交通基础设施的交付与投资。交通与监管的未来将着眼于：
+
+- 在不损害安全与整体生产率的前提下支持创新
+- 消除出行服务提供商的准入门槛
+- 运用行为经济学咨询，帮助更有效地设计与实施政策
+
+**智能出行**
+
+可通过自动驾驶技术鼓励智能出行：利用数字方案与大数据，为出行者提供有用的实时信息，包括行程规划、路线优化、导航、时刻表与绩效评估。这些信息也可被政府机构用于在高峰时段以需求定价来管理与调节繁忙道路的需求。
+
+---
+
+## 13. 结论
+
+GRM 为公共部门组织提供了规划并执行变革的共同框架与方法。11 个部门提供了一种视角，使政府组织能够对部门进行分段，便于识别变革影响并映射依赖关系。变革驱动因素呈现政府内部的共同主题，可用于为总体成果提供输入。
+
+最终，本文档为开发业务架构资产提供方向，帮助公共部门决策者解决问题、管理变革，并实现有效的未来规划。
+
+---
+
+## 附录 A：政府参考模型图示（Government Reference Model Visual）
+
+本附录概述拟议 GRM 在 11 个部门范围内 L1–L3 要素的结构与内容。
+
+原文该附录为跨四页（第 48–52 页）的整页图示，未附文字说明。其结构可概括为：
+
+- **第 1 层（部门，Level 1）**：11 个部门，与第 2–12 章一一对应（国际事务与贸易、国防与安全、一般政府与地方服务、青少年与教育、健康与社区福祉、司法治安与内政、财政、增长住房与环境、政策绩效人口与创新、共享服务、交通与运营）；
+- **第 2 层（功能，Level 2）**：各部门下按聚合层面划分的功能分组，内容见各章表 X-1 的“功能”列；
+- **第 3 层（服务，Level 3）**：各功能下进一步细分的具体服务，内容见各章表 X-1 的“服务”列及其说明。
+
+即：该图示按部门汇总第 2–12 章各表（部门 → 功能 → 服务）的内容，形成覆盖 11 个部门的 L1–L3 整体视图（跨四页呈现）；各章另配一张“Figure X-1: Structure and Content Overview of the L1–L3 Elements of the Proposed … Sector”概览图，与附录图示属同一系列。
+
+![附录 A 图示（第 48 页，英文原图）](figs/g21de_appendixA_p48.png)
+
+![附录 A 图示（第 49 页，英文原图）](figs/g21de_appendixA_p49.png)
+
+![附录 A 图示（第 50 页，英文原图）](figs/g21de_appendixA_p50.png)
+
+![附录 A 图示（第 51 页，英文原图）](figs/g21de_appendixA_p51.png)
+
+![附录 A 图示（第 52 页，英文原图）](figs/g21de_appendixA_p52.png)
+
+> 附录 A 为英文原图（第 48–52 页），中文说明见上文。
+
+---
+
+## 附录 B：缩略语
+
+下表按原文附录 B（Acronyms & Abbreviations）顺序收录全部缩略语。
+
+| 缩略语 | 英文全称 | 中文 |
+|---|---|---|
+| ABB | Architecture Building Block | 架构构建块 |
+| ACCA | Association of Chartered Certified Accountants | 英格兰及威尔士特许会计师协会 |
+| AI | Artificial Intelligence | 人工智能 |
+| AHRQ | Agency for Healthcare Research and Quality | 美国医疗保健研究与质量局 |
+| DMaSC | Defence Modeling and Simulation Coherence (British Army) | 国防建模与仿真一致性（英国陆军） |
+| DoD | Department of Defence | 国防部 |
+| DoH | Department of Health | 卫生部 |
+| ERP | Enterprise Resource Planning | 企业资源规划 |
+| GRM | Government Reference Model | 政府参考模型 |
+| HMCTS | His Majesty’s Courts & Tribunals Service | 英国皇家法院与法庭服务局 |
+| ICAEW | Institute of Chartered Accountants in England and Wales | 英格兰及威尔士特许会计师协会 |
+| IoT | Internet of Things | 物联网 |
+| ISCED | International Standard Classification of Education | 国际教育标准分类 |
+| KPI | Key Performance Indicator | 关键绩效指标 |
+| MHCLG | Ministry of Housing, Communities, and Local Government | 住房、社区与地方政府部 |
+| MoD | Ministry of Defence (UK) | 国防部（英国） |
+| PFA | Pension Fund Administration | 养老基金管理 |
+| RPA | Robotic Process Automation | 机器人流程自动化 |
+| RSA | Retirement Savings Account | 退休储蓄账户 |
+| SCTA | Service Command Technical Authority (British Army) | 服务司令部技术主管机构（英国陆军） |
+| SSON | Shared Services and Outsourcing Network | 共享服务与外包网络 |
+| UNESCO | United Nations Educational, Scientific, and Cultural Organization | 联合国教育、科学及文化组织 |
+| VR | Virtual Reality | 虚拟现实 |
+
+## 索引
+
+> 原文为页码索引；中文版重新排版后页码不适用，以下按章节号定位。
+
+| 中文术语 | 英文 | 章节 |
+|---|---|---|
+| ABB | ABB | 1 |
+| 情感计算 | affective computing | 8.2 |
+| 老龄化人口 | ageing population | 6.2 |
+| 人工智能 | Artificial Intelligence | 3.2 |
+| 后台转型 | back-office transformation | 8.2 |
+| 区块链 | Blockchain | 2.2 |
+| 区块链技术 | Blockchain technology | 2.2 |
+| 业务架构 | Business Architecture | 1 |
+| 民权 | civil rights | 7.2 |
+| 气候变化 | climate change | 4.2 |
+| 气候变化危机 | climate change crisis | 4.2 |
+| 协作 | collaboration | 1.1 |
+| 刑事司法 | criminal justice | 1.3 |
+| 批判性思维 | critical thinking | 5.2 |
+| 客户自助服务 | customer self-service | 11.2 |
+| 网络犯罪 | cybercrime | 7.2 |
+| 网络安全 | cybersecurity | 3.1 |
+| 数据分析 | data analytics | 2.2 |
+| 去全球化 | de-globalization | 2.2 |
+| 人口结构 | demographics | 2.2 |
+| 数字资产 | digital assets | 11.2 |
+| 数字身份 | digital identity | 2.2 |
+| 数字素养 | digital literacy | 5.2 |
+| 数字工具 | digital tools | 5.2 |
+| 数字化 | digitalization | 9.2 |
+| 变革驱动因素 | drivers for change | 1.3 |
+| 指标 | economic metrics | 10 |
+| 情感 AI | emotional AI | 8.2 |
+| 环境 | environment | 1.3 |
+| 功能 | functions | 1.3 |
+| 政府参考模型 | Government Reference Model | 1 |
+| GRM | GRM | 1 |
+| 创新中心 | innovation centers | 5.2 |
+| 知识产权 | intellectual property | 11.2 |
+| 教育国际化 | internationalization of education | 5.2 |
+| 就业市场 | job market | 5.2 |
+| 管理期望 | manage expectations | 4.2 |
+| 市场波动 | market volatility | 8.2 |
+| 军事基础设施 | military infrastructure | 3.2 |
+| 教室现代化 | modernization of classrooms | 5.2 |
+| 国家课程 | national curriculum | 5.2 |
+| 新技术 | new technologies | 3.2 |
+| 新威胁 | new threats | 7.2 |
+| 运营创新 | operational innovation | 4.2 |
+| 人员改革 | people reform | 11.2 |
+| 个性化客户体验 | personalized customer experience | 4.2 |
+| 个性化学习 | personalized learning | 5.2 |
+| 政策 | policy | 1.3 |
+| 政治力量 | political forces | 2.2 |
+| 人口增长 | population growth | 9.2 |
+| 监狱基础设施 | prison infrastructure | 7.2 |
+| 问题解决 | problem solving | 5.2 |
+| 公众舆论 | public opinion | 12.2 |
+| 公共部门 | public sector | 1 |
+| 参考模型模板 | reference model template | 1.1 |
+| 可再生能源 | renewable energies | 9.2 |
+| 部门 | sectors | 1 |
+| 服务 | services | 1.1 |
+| 技能短缺 | skill shortages | 3.2 |
+| 智慧城市 | smart cities | 9.2 |
+| 智能出行 | smart mobility | 12.2 |
+| 战略冲击 | strategic shock | 8.2 |
+| 合成生物学 | synthetic biology | 6.2 |
+| 分类法 | taxonomy | 1.3 |
+| 技术变革 | technological change | 1.2 |
+| 技术创新 | technological innovations | 1.3 |
+| 技术 | technology | 1 |
+| 技术进步 | technology advancements | 3.2 |
+| TOGAF 架构开发方法（ADM） | TOGAF ADM; TOGAF Architecture Development Method | 1.4 |
+| 垂直学校 | vertical schools | 5.2 |
+| 受害者支持 | victim support | 7.2 |
+| 虚拟助手 | virtual assistants | 11.2 |
+| 脆弱性 | vulnerabilities | 2.2 |
+| 劳动力转型 | workforce transformation | 3.2 |
+
+---
+
+*译本依据：The Open Group, TOGAF® Series Guide: Government Reference Model (GRM), Document No. G21D.*
