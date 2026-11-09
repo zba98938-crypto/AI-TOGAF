@@ -185,14 +185,20 @@ def official_query_adapters():
                  'scope':'finite Integer arguments only; adapter equivalence and unlimited-bound execution not certified','independent_acceptance':'pending'}]
     raise Incomplete('normative multiplicity query missing')
 
+class OperationCasesUncovered(Incomplete):
+    """An exact caller obligation is outside this bounded execution capability."""
+
+class OperationCasesMissing(Incomplete):
+    """The new operation-case input or its pinned source material is unavailable."""
+
 def multiplicity_case_records(cases):
     """Expand explicit cases using pinned source identities, never caller OCL."""
+    if not isinstance(cases,list):raise Invalid('operation cases must be a list')
     from uml_ocl_obligations import multiplicity_execution_catalog
     catalog=multiplicity_execution_catalog();lookup={}
     for operation in catalog['operations']:
         lookup[operation['source_identity']['key']]=(operation,False)
         if operation['derived']:lookup[operation['derived']['source_identity']['key']]=(operation,True)
-    if not isinstance(cases,list):raise Invalid('operation cases must be a list')
     rows=[];metadata=[];seen=set()
     for case in cases:
         if not isinstance(case,dict) or set(case)-{'id','self','obligation','arguments','result_probe'}:
@@ -201,18 +207,18 @@ def multiplicity_case_records(cases):
             raise Invalid('operation case requires plain id, self and exact obligation identity')
         if case['id'] in seen:raise Invalid('duplicate operation case id')
         seen.add(case['id'])
-        if case['obligation'] not in lookup:raise Incomplete('operation obligation not in the bounded source scope')
+        if case['obligation'] not in lookup:raise OperationCasesUncovered('operation obligation not in the bounded source scope')
         operation,derived=lookup[case['obligation']];arguments=case.get('arguments',[])
         if not isinstance(arguments,list):raise Invalid('operation arguments must be a list')
         encoded=[]
         for argument in arguments:
-            if not isinstance(argument,dict) or set(argument)!={'kind','value'} or argument['kind'] not in {'integer','unlimited','object','null','invalid'}:
+            if not isinstance(argument,dict) or set(argument)!={'kind','value'} or not isinstance(argument['kind'],str) or argument['kind'] not in {'integer','unlimited','object','null','invalid'}:
                 raise Invalid('operation argument must have a supported kind and value')
             value=str(argument['value'])
             if any(c in value for c in '\t\n\r|;'):raise Invalid('operation argument delimiter prohibited')
             encoded.append(argument['kind']+'|'+value)
         probe=case.get('result_probe','')
-        if probe not in {'','true','false','null','invalid'}:raise Invalid('unsupported fixed result diagnostic')
+        if not isinstance(probe,str) or probe not in {'','true','false','null','invalid'}:raise Invalid('unsupported fixed result diagnostic')
         signature=';'.join('|'.join(str(p[k]).lower() if isinstance(p[k],bool) else str(p[k]) for k in ('name','direction','type','lower','upper','ordered','unique')) for p in operation['parameters'])
         result=next(p for p in operation['parameters'] if p['direction']=='return')
         for rule in operation['rules']:
@@ -227,6 +233,19 @@ def multiplicity_case_records(cases):
                              'parameters':operation['parameters'],'derived_feature':operation['derived'] if derived else None,
                              'result_probe_is_diagnostic_only':bool(probe),'full_obligation_implemented':False})
     return rows,metadata,catalog
+
+def read_operation_cases(path):
+    """Classify the optional new case file before native process execution."""
+    try:text=path.read_text(encoding='utf-8')
+    except UnicodeError as error:raise Invalid('operation case file must be UTF-8') from error
+    except OSError as error:raise OperationCasesMissing('operation case file unavailable: '+str(path)) from error
+    try:cases=json.loads(text)
+    except json.JSONDecodeError as error:
+        raise Invalid('operation case JSON invalid at line '+str(error.lineno)+', column '+str(error.colno)) from error
+    try:multiplicity_case_records(cases)
+    except OperationCasesUncovered:raise
+    except (OSError,Incomplete) as error:raise OperationCasesMissing('operation case source material unavailable: '+str(error)) from error
+    return cases
 
 def validate_mapped(data,java_home=None,operation_cases=None):
     xml=safe_xml(data)
@@ -285,8 +304,17 @@ def validate_mapped(data,java_home=None,operation_cases=None):
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--input',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--java-home',type=Path);p.add_argument('--operation-cases',type=Path);a=p.parse_args()
     try:
-        report=validate_mapped(a.input.read_bytes(),a.java_home,json.loads(a.operation_cases.read_text()) if a.operation_cases else None);a.out.parent.mkdir(parents=True,exist_ok=True)
+        cases=read_operation_cases(a.operation_cases) if a.operation_cases else None
+        data=a.input.read_bytes()
+        if a.operation_cases and (a.out.exists() or a.out.is_symlink()):raise Invalid('output already exists; no file was overwritten')
+        report=validate_mapped(data,a.java_home,cases);a.out.parent.mkdir(parents=True,exist_ok=True)
         with a.out.open('x') as f:json.dump(report,f,ensure_ascii=False,indent=2)
         print(json.dumps({k:report[k] for k in ('loaded_objects','ocl_parsed','ocl_unmapped','ocl_evaluations','conformance_status')}));return 3
-    except (Invalid,Incomplete,subprocess.TimeoutExpired) as e:print(str(e));return 3
+    except (Invalid,Incomplete,subprocess.TimeoutExpired,OSError) as e:
+        if a.operation_cases:
+            category='capability-uncovered' if isinstance(e,OperationCasesUncovered) else 'validation-error' if isinstance(e,(Invalid,FileExistsError)) else 'material-missing' if isinstance(e,(OperationCasesMissing,OSError)) else 'backend-incomplete'
+            print(json.dumps({'conformance_status':'invalid' if category=='validation-error' else 'incomplete',
+                'failure_category':category,'message':str(e)},ensure_ascii=False));return 3
+        if isinstance(e,OSError):raise
+        print(str(e));return 3
 if __name__=='__main__':raise SystemExit(main())
