@@ -5,7 +5,8 @@ from pathlib import Path
 from .runtime import Blocked,save
 from .campaign import BatchExhausted
 
-def coordinate(out,budget,skills,cases,runtime_root,limit=0,resume=False,runtime_factory=None,runner=None):
+def coordinate(out,budget,skills,cases,runtime_root,limit=0,resume=False,runtime_factory=None,runner=None,
+               render_mode='native',render_admission=None):
     if runtime_factory is None:
         from .agents import NativeAgents,run_cases
         runtime_factory=NativeAgents;runner=run_cases
@@ -28,7 +29,9 @@ def coordinate(out,budget,skills,cases,runtime_root,limit=0,resume=False,runtime
                 except BatchExhausted:
                     budget.seal_batch('normal resumed batch boundary');continue
             budget.phase='runtime-preflight'
-            runtime=runtime_factory(out/('agents-%d-attempt-%d'%(budget.batch,len(attempts))),budget,skills,runtime_root=runtime_root)
+            options={'runtime_root':runtime_root}
+            if render_mode!='native':options.update(render_mode=render_mode,render_admission=render_admission)
+            runtime=runtime_factory(out/('agents-%d-attempt-%d'%(budget.batch,len(attempts))),budget,skills,**options)
             preflight=runtime.preflight();save(out/('native-preflight-%d-%d.json'%(budget.batch,len(attempts))),preflight)
             budget.phase='business-cases'
             try:

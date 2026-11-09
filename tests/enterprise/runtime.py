@@ -106,6 +106,7 @@ class Budget:
         self.started_wall = time.time() if started_wall is None else started_wall
         self.started = time.monotonic() - max(0,time.time()-self.started_wall)
         self.prior_output_roots = tuple(Path(p) for p in prior_output_roots)
+        self.live_output_roots = ()
         self.deadline = self.started + max_hours * 3600
         self.dispatch_deadline = self.deadline - min(reserve_seconds, max_hours * 360)
         self.max_sessions = max_sessions
@@ -130,7 +131,7 @@ class Budget:
                 raise Blocked('campaign time budget exhausted; preserving partial evidence')
             if force or now - self.last_sample >= 5:
                 resources = owned_resources()
-                size = sum(output_bytes(p) for p in (self.out,)+self.prior_output_roots)
+                size = sum(output_bytes(p) for p in (self.out,)+self.prior_output_roots+self.live_output_roots)
                 free = shutil.disk_usage(str(self.out)).free
                 resources.update(elapsed_seconds=round(now - self.started, 3),
                                  output_bytes=size, disk_free_bytes=free)

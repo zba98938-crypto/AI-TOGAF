@@ -18,6 +18,7 @@ import zlib
 from pathlib import Path
 from .cases import REPO, SHARED
 from .runtime import Blocked, run_command, save, sha256, tree_hashes
+from .review_evidence import observed_review,canonical_observations,thread_identity,reviewed_status,SCORE_DIMENSIONS
 
 ACTOR_SCHEMA = {'type':'object','properties':{
     'summary':{'type':'string'},'skills_used':{'type':'array','items':{'type':'string'}},
@@ -25,8 +26,6 @@ ACTOR_SCHEMA = {'type':'object','properties':{
     'findings':{'type':'array','items':{'type':'string'}},
     'limits':{'type':'array','items':{'type':'string'}}},
     'required':['summary','skills_used','artifacts','findings','limits'],'additionalProperties':False}
-SCORE_DIMENSIONS = ('input_sufficiency','actual_skill_execution','factual_correctness',
-                    'evidence_traceability','cross_view_consistency','saved_artifacts','safety_boundaries')
 SCORE_SCHEMA = {'type':'object','properties':{
     'verdict':{'type':'string','enum':['pass','fail','needs_review']},
     'routing':{'type':'string','enum':['accepted','rejected','uncertain']},
@@ -38,46 +37,6 @@ SCORE_SCHEMA = {'type':'object','properties':{
         'expected':{'type':'string'},'actual':{'type':'string'},'evidence_file':{'type':'string'},
         'reproduction':{'type':'string'}},'required':['expected','actual','evidence_file','reproduction'],'additionalProperties':False}}},
     'required':['verdict','routing','reason','dimensions','defects'],'additionalProperties':False}
-
-
-def reviewed_status(verdict,kind,saved,has_image=False):
-    status = verdict['verdict']
-    required = set(SCORE_DIMENSIONS) | ({'visual_semantics'} if has_image else set())
-    dimensions = verdict.get('dimensions',[])
-    names = [d['name'] for d in dimensions]
-    if status == 'pass' and (verdict['routing'] != 'accepted' or
-            not required <= set(names) or len(names) != len(set(names)) or
-            any(d['verdict'] != 'pass' or not d.get('evidence','').strip() for d in dimensions)):
-        status = 'needs_review'
-    if status == 'pass' and kind in ('profile','deliverable','workflow','repeat') and not saved:
-        status = 'fail'
-        verdict['reason'] = 'no actual saved work beyond raw input; actor narrative is not artifact execution'
-    return status
-
-
-def observed_review(events_path,image_paths=(),attached_image=None):
-    """Use retained runtime events, never an actor-authored review flag.
-
-    Command execution proves inspection activity, not semantic correctness.
-    Every additional image needs an actual image-view tool event.
-    """
-    commands=[];viewed={str(Path(attached_image).resolve())} if attached_image else set()
-    for line in Path(events_path).read_text().splitlines():
-        try:event=json.loads(line)
-        except ValueError:continue
-        if event.get('type')!='item.completed':continue
-        item=event.get('item',{})
-        if item.get('type')=='command_execution' and item.get('exit_code')==0:commands.append(item.get('command',''))
-        if item.get('type')=='mcp_tool_call' and 'view_image' in str(item.get('tool','')) and item.get('status')=='completed':
-            arguments=item.get('arguments',{})
-            if isinstance(arguments,str):
-                try:arguments=json.loads(arguments)
-                except ValueError:continue
-            if arguments.get('path'):viewed.add(str(Path(arguments['path']).resolve()))
-    required={str(Path(p).resolve()) for p in image_paths}
-    return {'successful_inspection_commands':commands,'viewed_images':sorted(viewed),
-            'unviewed_images':sorted(required-viewed),'inspection_observed':bool(commands),
-            'all_images_observed':required<=viewed,'semantic_acceptance':'requires-independent-score'}
 
 
 def permission_configuration(real_home,skills,private_home,runtime_root=None,java_home=None):
@@ -166,6 +125,10 @@ def provider_configuration(path):
                 'private_config_retained':False,'plugins_mcp_hooks':'not copied',
                 'docs':['https://learn.chatgpt.com/docs/developer-commands?surface=cli',
                         'https://learn.chatgpt.com/docs/build-skills']}
+    for key in ('model_reasoning_effort','service_tier','disable_response_storage'):
+        value = re.search(r'^'+key+r'\s*=\s*(.+)$',prefix,re.M)
+        if value:
+            metadata[key] = json.loads(value.group(1).strip())
     return '\n'.join(selected)+'\n',metadata
 
 
@@ -184,7 +147,7 @@ def read_final(path):
 
 
 class NativeAgents:
-    def __init__(self,directory,budget,skills,config=None,runtime_root=None):
+    def __init__(self,directory,budget,skills,config=None,runtime_root=None,render_mode='native',render_admission=None):
         self.directory = Path(directory)
         self.directory.mkdir(parents=True,exist_ok=True)
         self.budget = budget
@@ -204,21 +167,35 @@ class NativeAgents:
         self.shared=self.frozen_skills/'_shared'
         self.java_home=admission_location(frozen['java_home'],'Java runtime')
         self.browser_path=frozen.get('tool_binaries',{}).get('browser',{}).get('path')
+        if render_mode not in ('native','controlled-local'):
+            raise Blocked('unknown rendering mode')
+        self.render_mode=render_mode
+        self.render_controller=None
+        if render_mode=='controlled-local':
+            from diagnose_controlled_render import hashes
+            if not render_admission or not self.browser_path:
+                raise Blocked('controlled rendering requires explicit zero-model admission and pinned browser')
+            admission=json.loads(Path(render_admission).read_text())
+            if (admission.get('passed') is not True or admission.get('source_sha256')!=hashes()
+                    or admission.get('controller_cleanup',{}).get('browser_sha256')!=sha256(self.browser_path)):
+                raise Blocked('controlled renderer admission failed or refers to different source/browser bytes')
+            self.render_admission_sha256=sha256(render_admission)
         self.runtime_path=str(self.shared/'.venv/bin')+os.pathsep+str(self.java_home/'bin')+os.pathsep+'/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin'
-        self.codex = shutil.which('codex')
-
-        if not self.codex:
-            raise Blocked('codex CLI unavailable')
+        codex_binary=frozen.get('tool_binaries',{}).get('codex')
+        if not codex_binary:raise Blocked('fresh frozen runtime must pin the existing native Codex binary')
+        self.codex=codex_binary['path']
         if (Path('/etc/codex/skills').is_dir() and list(Path('/etc/codex/skills').iterdir())):
             raise Blocked('admin skills present; isolation requires an explicitly scoped runtime')
         config = config or Path(os.environ.get('CODEX_HOME',str(Path.home()/'.codex'))) / 'config.toml'
         private,metadata = provider_configuration(config)
+        metadata['codex_binary']=codex_binary
         from .relay import ProviderRelay
         self.relay = ProviderRelay(private,os.environ,on_response=getattr(budget,'observe_http',None))
         private = self.relay.config
         metadata['credential_shield'] = 'in-memory loopback relay to same configured upstream; no transport secret in Actor config/env'
         self.temporary = tempfile.TemporaryDirectory(prefix='togaf-enterprise-private-')
         self.home = Path(self.temporary.name)
+        self.budget.live_output_roots = tuple(getattr(self.budget,'live_output_roots',())) + (self.home,)
         metadata['read_isolation'] = 'Native named permissions: frozen skills read-only; real user home and other private contexts denied; only current Actor workspace writable, scorer workspace read-only; network commands disabled'
         metadata['docs'].append('https://learn.chatgpt.com/docs/permissions')
         self.workspaces = {}
@@ -229,6 +206,9 @@ class NativeAgents:
         permission_header,permission_tables = permission_config.split('\n',1)
         private = permission_header+'\n'+private
         metadata['frozen_runtime_manifest_sha256']=sha256(self.runtime_root/'runtime-manifest.json')
+        shutil.copyfile(self.runtime_root/'runtime-manifest.json',self.directory/'frozen-runtime-manifest.json')
+        import subprocess
+        metadata['source_commit']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
         metadata['permissions_sha256'] = hashlib.sha256(permission_config.encode()).hexdigest()
         private += '\n[shell_environment_policy]\ninherit = "none"\n[shell_environment_policy.set]\nPATH = '+json.dumps(self.runtime_path)+'\nHOME = '+json.dumps(str(self.home))+'\nPYTHONDONTWRITEBYTECODE = "1"\nPYTHONNOUSERSITE = "1"\n'+permission_tables
         config_path.write_text(private)
@@ -247,19 +227,31 @@ class NativeAgents:
                         PATH=self.runtime_path,JAVA_HOME=str(self.java_home))
         self.env.update(shell_additions)
         self.metadata = metadata
+        metadata['render_mode']=render_mode
+        if render_mode=='controlled-local':
+            from .local_render import LocalRenderController
+            self.render_controller=LocalRenderController(self.shared,self.browser_path,
+                self.directory/'controlled-render',private_parent=self.home,budget=self.budget)
+            metadata['render_admission_sha256']=self.render_admission_sha256
+            metadata['renderer_boundary']='Controller-owned fixed graphic worker; native browser failure history remains separate'
         save(self.directory / 'runtime.json',metadata)
 
     def retain_workspaces(self):
+        self.metadata['workspace_bindings']={name:{'live_path':str(root.resolve()),
+            'retained_path':name+'/workspace'} for name,root in self.workspaces.items()}
         for name,root in self.workspaces.items():
             destination = self.directory/name/'workspace'
             shutil.copytree(root,destination,ignore=shutil.ignore_patterns('.agents','_shared','.git','node_modules','.venv','__pycache__'),symlinks=True)
 
     def close(self):
+        if getattr(self,'render_controller',None):
+            self.metadata['controlled_renderer_cleanup']=self.render_controller.close()
         self.retain_workspaces()
         self.relay.close()
         self.metadata['model_api_requests_observed'] = self.relay.requests
         save(self.directory / 'runtime.json',self.metadata)
         self.temporary.cleanup()
+        self.budget.live_output_roots = tuple(p for p in self.budget.live_output_roots if p != self.home)
 
     def workspace(self,name,expose_skills):
         # Artifact/profile IDs in a cwd would leak the expected route to a blind Actor.
@@ -269,6 +261,8 @@ class NativeAgents:
         root = self.home / 'workspaces' / token
         root.mkdir(parents=True,exist_ok=False)
         self.workspaces[name] = root
+        if getattr(self,'render_controller',None):
+            self.render_controller.register(root)
         if expose_skills:
             target = root / '.agents/skills'
             target.mkdir(parents=True)
@@ -294,6 +288,19 @@ class NativeAgents:
             'with small Python queries before reading records. Do not cat the entire large raw-input.json or a complete '
             'enterprise snapshot into tool output. Preserve all original records and evidence; selective reading is '
             'a runtime practice, not permission to ignore conflicting facts or invent conclusions.\n')
+        if getattr(self,'render_controller',None):
+            with (root/'AGENTS.md').open('a') as stream:
+                stream.write('\n## Local graphic rendering\n'
+                    'A tested controller owns browser execution. Save graphic source in this workspace, '
+                    'then write a JSON task with exactly kind (svg, mmd, bpmn, uml-class-layout) and source (session-relative path). '
+                    'Run '+str(self.shared/'.venv/bin/python')+' '+str(self.shared/'scripts/controlled_render_client.py')+
+                    ' task.json. Results are fixed-path SVG/PNG/diagnostics under .render/results. '
+                    'No commands, scripts, URLs or browser options are accepted. For BPMN preserve explicit DI; '
+                    'missing DI requires an explicit separately chosen layout operation. '
+                    'For a supported native UML class model without UMLDI, explicitly choose kind uml-class-layout '
+                    'to derive a separate reading layout; existing UMLDI remains authoritative and unsupported views are refused. '
+                    'SVG input must be passive vector content without embedded fonts or other resources; the controller supplies the bundled font. '
+                    'Use the controller to obtain PNGs rather than attempting native browser flags.\n')
         return root
 
     def session(self,name,role,root,prompt,schema,image=None,timeout=600):
@@ -332,19 +339,27 @@ class NativeAgents:
         tool_calls = 0
         command_calls = 0
         events = 0
-        for line in (directory / 'stdout.jsonl').open():
-            try:
-                event = json.loads(line)
-            except ValueError:
-                continue
-            events += 1
-            if 'usage' in event:
-                usage.append(event['usage'])
-            if event.get('item',{}).get('type')=='command_execution':
-                command_calls += 1
-            if event.get('item',{}).get('type') in ('command_execution','mcp_tool_call','file_change','web_search'):
-                tool_calls += 1
+        with (directory / 'stdout.jsonl').open() as stream:
+            for line in stream:
+                try:
+                    event = json.loads(line)
+                except ValueError:
+                    continue
+                events += 1
+                if 'usage' in event:
+                    usage.append(event['usage'])
+                if event.get('item',{}).get('type')=='command_execution':
+                    command_calls += 1
+                if event.get('item',{}).get('type') in ('command_execution','mcp_tool_call','file_change','web_search'):
+                    tool_calls += 1
         result.update(usage=usage,event_count=events,tool_event_count=tool_calls,command_event_count=command_calls)
+        result['execution_identity']={'role':role,'workspace_name':name if role=='actor' else name+'-scoring',
+            'live_workspace':str(root.resolve()),'source_commit':self.metadata['source_commit'],
+            'frozen_runtime_manifest_sha256':self.metadata['frozen_runtime_manifest_sha256'],
+            'schema_sha256':sha256(directory/'schema.json'),'prompt_sha256':sha256(directory/'prompt.txt'),
+            'command_sha256':sha256(directory/'command.json'),'events_sha256':sha256(directory/'stdout.jsonl'),
+            'thread_id':thread_identity(directory/'stdout.jsonl') if result['exit_code']==0 else None,
+            'attached_image':str(Path(image).relative_to(root)) if image else None}
         save(directory / 'session.json',result)
         if result['exit_code']!=0:
             raise Blocked('configured Agent runtime failed: '+str(directory / 'stderr.log'))
@@ -399,9 +414,14 @@ class NativeAgents:
         script=root/'node-probe.mjs'
         script.write_text('import fs from "node:fs";import {Resvg} from '+json.dumps(str(self.shared/'node_modules/@resvg/resvg-js/index.js'))+';import {BpmnModdle} from '+json.dumps(str(self.shared/'node_modules/bpmn-moddle/dist/index.js'))+';const xml=`<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" targetNamespace="urn:probe"><process id="P"/></definitions>`;const m=new BpmnModdle();const result=await m.fromXML(xml);const written=await m.toXML(result.rootElement);if(!written.xml.includes("process"))throw Error("BPMN writer failed");fs.writeFileSync("node-probe.png",new Resvg(`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="red"/></svg>`).render().asPng());console.log("ok");')
         probe('node-import-render-probe',['/opt/homebrew/bin/node',str(script)])
-        browser_probe=root/'browser-probe.mjs'
-        browser_probe.write_text(browser_probe_source(self.shared))
-        probe('browser-render-probe',['/opt/homebrew/bin/node',str(browser_probe)])
+        if getattr(self,'render_mode','native')=='controlled-local':
+            (root/'controller-probe.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="120" viewBox="0 0 300 120"><text x="20" y="60" font-size="20">隔离会话渲染</text></svg>')
+            save(root/'controller-probe.json',{'kind':'svg','source':'controller-probe.svg'})
+            probe('controlled-browser-render-probe',[py,str(self.shared/'scripts/controlled_render_client.py'),'controller-probe.json'])
+        else:
+            browser_probe=root/'browser-probe.mjs'
+            browser_probe.write_text(browser_probe_source(self.shared))
+            probe('browser-render-probe',['/opt/homebrew/bin/node',str(browser_probe)])
         java=root/'Probe.java';java.write_text('class Probe {public static void main(String[] a){System.out.println("java21-ok");}}')
         probe('java-compile-probe',[str(self.java_home/'bin/javac'),str(java)])
         probe('java-run-probe',[str(self.java_home/'bin/java'),str(java)])
@@ -472,6 +492,12 @@ class NativeAgents:
             if model_path.is_file():
                 raw['shared_enterprise_model'] = json.loads(model_path.read_text())
         save(root / 'raw-input.json',raw)
+        save(self.directory / name / 'case-binding.json',{
+            'schema_version':'independent-case-binding/1','id':name,'kind':case['kind'],
+            'target':case['target'],'owner':case['owner'],'request':case['request'],
+            'raw_input_sha256':sha256(root/'raw-input.json'),
+            'source_commit':self.metadata['source_commit'],
+            'frozen_runtime_manifest_sha256':self.metadata['frozen_runtime_manifest_sha256']})
         # A blind actor prompt includes neither rubric nor target IDs.
         prompt = (case['request']+'\n读取 raw-input.json；证据来自合成运营快照。实际使用适用技能，'
                   '写出成果文件并在最终答复列相对路径。缺少材料应明确阻断，不伪造事实。'
@@ -517,14 +543,18 @@ class NativeAgents:
         # Include actual rendered output for a bounded image-aware semantic review.
         image = next((evidence / p for p in sorted(artifacts) if Path(p).suffix.lower()=='.png'),None)
         verdict,scorer = self.session(name,'scorer',scoring_root,scoring_prompt,SCORE_SCHEMA,image=image)
+        scorer_output=copy.deepcopy(verdict)
         status = reviewed_status(verdict,case['kind'],saved,has_image=image is not None)
         observation=observed_review(self.directory/name/'scorer/stdout.jsonl',
-                                    [evidence/p for p in artifacts if Path(p).suffix.lower()=='.png'],image)
+                                    [evidence/p for p in artifacts if Path(p).suffix.lower()=='.png'],image,
+                                    workspace=scoring_root)
+        observation=canonical_observations(observation,scoring_root)
         if status=='pass' and (not observation['inspection_observed'] or not observation['all_images_observed']):
             status='needs_review'
             verdict['reason']+='; runtime events do not establish evidence inspection and viewing of every delivered image'
         result = {'id':name,'kind':case['kind'],'target':case['target'],'owner':case['owner'],
                   'status':status,'actor':actor,'scorer':scorer,'score':verdict,'saved_artifacts':saved,
+                  'scorer_output':scorer_output,
                   'review_observations':observation,
                   'repeat_of':case.get('repeat_of'),'actor_output':output}
         save(self.directory / name / 'result.json',result)

@@ -55,6 +55,7 @@ class EnterpriseHarnessTests(unittest.TestCase):
         runtime.budget = self.budget
         runtime.codex = '/synthetic/codex'
         runtime.env = {}
+        runtime.metadata={'source_commit':'a'*40,'frozen_runtime_manifest_sha256':'b'*64}
         root = self.root/'opaque-live-root'
         root.mkdir()
         def fake_command(argv,directory,budget,**kwargs):
@@ -64,8 +65,11 @@ class EnterpriseHarnessTests(unittest.TestCase):
             self.assertTrue(final.is_relative_to(runtime.home))
             self.assertNotIn('trust-framework',str(schema))
             save(final,{'verified':True})
-            (directory/'stdout.jsonl').write_text('{"type":"turn.completed","usage":{"input_tokens":1,"output_tokens":1}}\n')
-            return {'status':'pass','exit_code':0}
+            (directory/'stdout.jsonl').write_text('{"type":"thread.started","thread_id":"synthetic-thread-0001"}\n'
+                '{"type":"turn.completed","usage":{"input_tokens":1,"output_tokens":1}}\n')
+            result={'argv':[str(v) for v in argv],'status':'pass','exit_code':0}
+            save(directory/'command.json',result)
+            return result
         schema={'type':'object','properties':{'verified':{'type':'boolean'}},'required':['verified']}
         with patch('enterprise.agents.run_command',side_effect=fake_command):
             output,detail=runtime.session('profile-trust-framework-default','actor',root,'synthetic',schema)
@@ -127,6 +131,7 @@ class EnterpriseHarnessTests(unittest.TestCase):
         runtime.home = self.root/'private'
         runtime.directory = self.root/'evidence'
         runtime.workspaces = {}
+        runtime.metadata={}
         from enterprise.cases import REPO, SHARED
         runtime.frozen_skills=REPO/'togaf-standard-10th-ai/skills'
         runtime.shared=SHARED

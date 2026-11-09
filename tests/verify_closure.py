@@ -10,18 +10,21 @@ from enterprise.cases import inventory,agent_cases
 from enterprise.closure_cases import cases as closure_cases
 from enterprise.frozen_runtime import hashes
 from strict_json import load
+from enterprise.review_evidence import saved_json_hash
 
 def execute(args):
     out=args.out.resolve()
     if out.exists() and not args.resume:raise ValueError('--out must be new; existing evidence immutable')
     if args.resume and not out.is_dir():raise ValueError('resume requires original campaign directory')
     out.mkdir(parents=True,exist_ok=True)
-    revision=hashes(ROOT/'togaf-standard-10th-ai/skills',('.venv','node_modules','__pycache__','.DS_Store'))
+    revision={'togaf-standard-10th-ai/skills/'+k:v for k,v in hashes(ROOT/'togaf-standard-10th-ai/skills',('.venv','node_modules','__pycache__','.DS_Store')).items()}
     revision.update({'tests/'+k:v for k,v in hashes(ROOT/'tests',('__pycache__',)).items()})
     revision_hash=hashlib.sha256(json.dumps(revision,sort_keys=True).encode()).hexdigest()
     if args.resume and (out/'source-sha256.json').is_file() and load(out/'source-sha256.json')!=revision:raise Blocked('revision changed: frozen-source results cannot count as current coverage; retain ledger and create an explicit new revision campaign')
     save(out/'source-sha256.json',revision)
-    specs=inventory();native_cases=closure_cases()+agent_cases();save(out/'coverage-inventory.json',{'existing':specs,'native_case_count':len(native_cases),'native_cases':[{'id':c['id'],'kind':c['kind'],'target':c['target'],'owner':c['owner']} for c in native_cases],'full_language_normative_constructs':'tracked separately; not deemed covered by these business cases'})
+    specs=inventory();native_cases=closure_cases()+agent_cases();save(out/'coverage-inventory.json',{'existing':specs,'native_case_count':len(native_cases),'native_cases':[{'id':c['id'],'kind':c['kind'],'target':c['target'],'owner':c['owner'],
+        'request_sha256':hashlib.sha256(c['request'].encode()).hexdigest(),'raw_input_sha256':saved_json_hash(c['raw']),
+        'rubric_sha256':saved_json_hash(c['rubric'])} for c in native_cases],'full_language_normative_constructs':'tracked separately; not deemed covered by these business cases'})
     rows=[]
     def record(name,fn):
         started=time.monotonic()
@@ -30,8 +33,8 @@ def execute(args):
         except Exception as exc:row={'name':name,'status':'blocked' if isinstance(exc,Blocked) else 'fail','error':str(exc),'traceback':traceback.format_exc()}
         row['seconds']=round(time.monotonic()-started,3);rows.append(row);save(out/'offline-results.json',rows);print(json.dumps({k:v for k,v in row.items() if k!='detail'},ensure_ascii=False),flush=True);return row
     def unit_tests():
-        discovery='import sys,unittest;s=unittest.defaultTestLoader.discover(sys.argv[1]);n=s.countTestCases();print("discovered tests:",n);sys.exit(3 if not n else int(not unittest.TextTestRunner(verbosity=2).run(s).wasSuccessful()))'
-        result=subprocess.run([sys.executable,'-c',discovery,str(ROOT/'tests')],capture_output=True,text=True,timeout=300)
+        unit_out=out/('unit-regressions-attempt-%d'%(len(list(out.glob('unit-regressions-attempt-*')))+1))
+        result=subprocess.run([sys.executable,str(ROOT/'tests/run_unit_regressions.py'),str(ROOT/'tests'),'--out',str(unit_out)],capture_output=True,text=True,timeout=600)
         (out/'unit-tests.log').write_text(result.stdout+result.stderr)
         return {'status':'pass' if result.returncode==0 else 'fail','exit_code':result.returncode}
     record('regression-and-independent-negative-tests',unit_tests)
@@ -57,21 +60,23 @@ def execute(args):
         budget=CampaignBudget(out,old);budget.start_heartbeat()
         try:
             from enterprise.closure_campaign import coordinate
-            native_result=coordinate(out,budget,specs['skills'],native_cases,args.runtime_root,args.case_limit,args.resume)
+            native_result=coordinate(out,budget,specs['skills'],native_cases,args.runtime_root,args.case_limit,args.resume,
+                                     render_mode=args.render_mode,render_admission=args.render_admission)
         finally:
             budget.close();native_result['budget']=budget.state()
     elif args.native:native_result['reason']='offline regression failed; native dispatch forbidden'
     save(out/'native-results.json',native_result)
     summary={'source_revision_sha256':revision_hash,'offline_status':'pass' if all_pass else 'fail','native_status':native_result['status'],'native_case_count':len(native_cases),'native_passes':sum(r['status']=='pass' for r in native_result['rows']),'strict_language_conformance':'incomplete','source_acceptance':'pending','human_signoff':'pending','implementation_not_all_complete':True}
     save(out/'summary.json',summary)
-    if revision!= {**hashes(ROOT/'togaf-standard-10th-ai/skills',('.venv','node_modules','__pycache__','.DS_Store')),**{'tests/'+k:v for k,v in hashes(ROOT/'tests',('__pycache__',)).items()}}:raise ValueError('source changed during frozen-version verification')
+    if revision!= {**{'togaf-standard-10th-ai/skills/'+k:v for k,v in hashes(ROOT/'togaf-standard-10th-ai/skills',('.venv','node_modules','__pycache__','.DS_Store')).items()},**{'tests/'+k:v for k,v in hashes(ROOT/'tests',('__pycache__',)).items()}}:raise ValueError('source changed during frozen-version verification')
     seal={str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest() for p in out.rglob('*') if p.is_file() and p.name!='evidence-sha256.json'};save(out/'evidence-sha256.json',seal)
     print(json.dumps(summary,ensure_ascii=False));return 1 if not all_pass else 3 if native_result['status'] not in ('pass','not-dispatched') else 0
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--model',type=Path,required=True);p.add_argument('--native',action='store_true');p.add_argument('--runtime-root',type=Path);p.add_argument('--case-limit',type=int,default=0,help='initial directed subset; remaining cases explicitly uncovered');p.add_argument('--resume',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--model',type=Path,required=True);p.add_argument('--native',action='store_true');p.add_argument('--runtime-root',type=Path);p.add_argument('--case-limit',type=int,default=0,help='initial directed subset; remaining cases explicitly uncovered');p.add_argument('--resume',action='store_true');p.add_argument('--render-mode',choices=['native','controlled-local'],default='native');p.add_argument('--render-admission',type=Path);a=p.parse_args()
     if a.case_limit<0:p.error('--case-limit cannot be negative')
     if a.native and not a.runtime_root:p.error('--runtime-root required for isolated native evaluation')
+    if a.native and a.render_mode=='controlled-local' and not a.render_admission:p.error('--render-admission required for controlled-local rendering')
     try:return execute(a)
     except (ValueError,Blocked) as e:print(str(e),file=sys.stderr);return 3 if isinstance(e,Blocked) else 1
 if __name__=='__main__':raise SystemExit(main())

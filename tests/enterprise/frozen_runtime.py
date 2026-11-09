@@ -31,6 +31,7 @@ def build(source,destination,java_home=None,reuse_runtime=None,browser_home=None
     java=admission_location(java_home,"Java runtime") if java_home else None
     if not java or not (java/'bin/java').is_file() or java.is_relative_to(Path.home().resolve()):raise Blocked('isolated Java21 outside real home required')
     python=binary_record(sys.executable);node=binary_record(shutil.which('node'))
+    codex=binary_record(shutil.which('codex'))
     if sys.platform=="darwin" and destination.is_relative_to(Path("/tmp").resolve()):raise Blocked("macOS frozen runtime must be outside denied /tmp; use a scoped path such as /Users/Shared")
     prior=verify(reuse_runtime) if reuse_runtime else None
     destination.mkdir(parents=True);shared=destination/'skills/_shared'
@@ -47,6 +48,7 @@ def build(source,destination,java_home=None,reuse_runtime=None,browser_home=None
             subprocess.run([str(shared/'.venv/bin/python'),'-m','pip','download','-r',str(shared/'requirements.txt'),'-d',str(wheels)],stdout=stream,stderr=stream,check=True,timeout=300)
         subprocess.run([str(shared/'.venv/bin/python'),'-m','pip','install','--no-index','--find-links',str(wheels),'-r',str(shared/'requirements.txt')],stdout=stream,stderr=stream,check=True,timeout=120)
     manifest={'schema_version':'frozen-runtime/2','source':str(source),'source_hashes':hashes(source,('.venv','node_modules','__pycache__','.DS_Store')),'frozen_hashes':hashes(destination/'skills',('.venv','node_modules','__pycache__','.DS_Store')),'dependency_hashes':dependency_hashes(destination),'wheel_hashes':hashes(wheels),'java_home':str(java),'java_hashes':hashes(java),'tool_binaries':{'python':python,'node':node},'python':str(shared/'.venv/bin/python'),'dependencies_sha256':sha256(shared/'package-lock.json'),'home_configuration_copied':False,'system_dependency_boundary':'base Python, Node loader and browser/system libraries are external OS dependencies; binary paths/hashes recorded, not claimed fully hermetic'}
+    manifest['tool_binaries']['codex']=codex
     if browser_home:
         browser_home=admission_location(browser_home,"browser distribution");candidates=list(browser_home.rglob('chrome-headless-shell'))
         candidates=[p for p in candidates if p.is_file()]
