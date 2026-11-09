@@ -96,7 +96,8 @@ Node/resvg 渲染链，缺失本地依赖或表达检查错误都会使任务 fa
 `kind:"native"` 使用固定原生 worker；输出 exact `native.bpmn`/`native.uml`、无损 native-package、
 三类诊断、预览报告和带指纹清单。服务核对原文、清单与不可变版本的来源 SHA。
 `render:false` 仅交换，成功不表示完整能力通过。`render:true` 请求本地预览：
-BPMN 使用显式 DI，缺少 DI 时 blocked；目前没有已验证的派生 BPMN 自动布局。
+BPMN 使用显式 DI，缺少 DI 且未选择自动布局时 blocked；显式 `auto_layout:true` 为当前支持的
+过程/协作/会话/编排子集生成独立 `.layout.bpmn`，保留原始 XML 和已有坐标，布局能力未覆盖时 blocked。
 UML 无 DI 时只有 `auto_layout:true` 才渲染现有类图子集，派生布局单独标记。
 现有 UMLDI 保留原文，预览标记 capability_uncovered，避免覆盖已有坐标。
 blocked 表示原文/交换输出有效而预览不可满足，已核验文件仍可下载；失败不会提供部分文件。

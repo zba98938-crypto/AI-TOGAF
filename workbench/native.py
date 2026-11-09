@@ -122,10 +122,11 @@ def generate(native, out, *, render=False, auto_layout=False):
                 preview['derived_layout'] = True
             else:
                 root = safe_xml(data)
-                if not any(isinstance(e.tag, str) and e.tag == '{http://www.omg.org/spec/BPMN/20100524/DI}BPMNDiagram' for e in root.iter()):
-                    raise Incomplete('Native BPMNDI coordinates missing; no derived BPMN auto-layout backend has been verified')
+                if not auto_layout and not any(isinstance(e.tag, str) and e.tag == '{http://www.omg.org/spec/BPMN/20100524/DI}BPMNDiagram' for e in root.iter()):
+                    raise Incomplete('Native BPMNDI coordinates missing; explicitly select automatic layout to create a derived preview')
                 from bpmn_render import render_native
-                rendered = render_native(data, out / 'native-preview.svg')
+                rendered = render_native(data, out / 'native-preview.svg', auto_layout=auto_layout)
+                preview['derived_layout'] = bool((rendered.get('layout') or {}).get('derived'))
             preview.update(status='succeeded', rendering=rendered,
                            full_language_acceptance=rendered.get('full_language_acceptance', False))
         except Incomplete as exc:

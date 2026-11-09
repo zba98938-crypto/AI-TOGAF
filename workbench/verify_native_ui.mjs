@@ -28,6 +28,8 @@ const bpmnSource = path.join(repo,'togaf-standard-10th-ai/skills/_shared/example
 const bpmn = await fs.readFile(bpmnSource);
 const bpmnFixture = path.join(out,'native-input.bpmn');
 await fs.writeFile(bpmnFixture,bpmn);
+const noDI = `<?xml version="1.0" encoding="UTF-8"?>\n<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" id="D" targetNamespace="urn:workbench:ui"><process id="P" isExecutable="false"><startEvent id="S" name="开始"/><endEvent id="E" name="完成"/><sequenceFlow id="F" sourceRef="S" targetRef="E"/></process></definitions>`;
+const noDIFixture=path.join(out,'native-input-nodi.bpmn');await fs.writeFile(noDIFixture,noDI);
 const report = {schema_version:'workbench-native-ui/1',runtime_mode:'local-test-controller',actor_sandbox_used:false,
   source_authority:'native.xml UTF-8 bytes',checks:[],errors:[],blocked_requests:[],passed:false,
   fixture_sha256:sha(Buffer.from(xml)),source_sha256:{}};
@@ -158,6 +160,35 @@ try {
   require(bpmnGeometry.width<=bpmnGeometry.viewport+1,'BPMN mobile page overflows');
   report.checks.push({id:'native-bpmn-mobile-layout',passed:true,...bpmnGeometry});
   await page.screenshot({path:path.join(out,'native-bpmn-mobile.png'),fullPage:true});
+  await page.setViewport({width:1440,height:1080,deviceScaleFactor:1});
+  await (await page.$('#native-import-file')).uploadFile(noDIFixture);
+  await page.waitForFunction(()=>!document.querySelector('#save').disabled);
+  await page.click('#save');await page.waitForSelector('#modal[open]');
+  await page.type('#modal-content input[name="message"]','无坐标 BPMN 权威原文');
+  await page.click('#modal-content button[type="submit"]');
+  await page.waitForFunction(previous=>document.querySelector('#version-label').title!==previous,{},bpmnVersion.head_version);
+  await page.waitForFunction(()=>!document.querySelector('#modal').open&&!document.querySelector('#native-preview').disabled);
+  const noDIVersion=await detail();
+  require(noDIVersion.native.xml===noDI&&!await page.$eval('#native-auto-layout',node=>node.checked),'No-DI import changed source or enabled layout');
+  await page.focus('#native-preview');await page.keyboard.press('Enter');
+  let noDIJob;
+  await until(async()=>{const current=await detail();noDIJob=current.jobs.filter(row=>row.kind==='native'&&row.version===noDIVersion.head_version).at(-1);
+    return noDIJob&&['succeeded','blocked','failed'].includes(noDIJob.status);},45000);
+  require(noDIJob.status==='blocked'&&noDIJob.native_preview.category==='missing_material','No-DI preview generated implicit layout');
+  report.checks.push({id:'native-bpmn-no-di-default-blocked',passed:true,job:noDIJob.id,version:noDIJob.version});
+  await page.focus('#native-auto-layout');await page.keyboard.press('Space');
+  await page.focus('#native-preview');await page.keyboard.press('Enter');
+  let layoutJob;
+  await until(async()=>{const current=await detail();layoutJob=current.jobs.filter(row=>row.kind==='native'&&row.version===noDIVersion.head_version).at(-1);
+    return layoutJob&&layoutJob.id!==noDIJob.id&&['succeeded','blocked','failed'].includes(layoutJob.status);},45000);
+  require(layoutJob.status==='succeeded'&&layoutJob.native_preview.derived_layout&&!layoutJob.full_language_acceptance,
+    'Explicit BPMN auto-layout failed: '+JSON.stringify(layoutJob));
+  require(layoutJob.outputs.some(row=>row.name==='native-preview.layout.bpmn'),'Derived BPMN layout was not exported separately');
+  require((await detail()).native.xml===noDI,'Automatic layout rewrote authoritative source');
+  await page.waitForFunction(()=>{const img=document.querySelector('.native-preview-image');return img?.complete&&img.naturalWidth>0;});
+  report.checks.push({id:'native-bpmn-explicit-derived-layout-preserves-source',passed:true,job:layoutJob.id,version:layoutJob.version,
+    source_sha256:layoutJob.native_source_sha256,derived_layout:true});
+  await page.screenshot({path:path.join(out,'native-bpmn-autolayout-desktop.png'),fullPage:true});
   require(report.errors.length===0 && report.blocked_requests.length===0,'UI errors or external requests occurred');
   report.passed=true;
 } catch(error) {
@@ -177,7 +208,7 @@ finally {
   report.passed=report.passed && report.errors.length===0 && !report.cleanup.browser_alive && !report.cleanup.server_alive && report.cleanup.profile_removed;
   if(!report.passed)process.exitCode=1;
   await fs.writeFile(path.join(out,'server.log'),serverLog);
-  for(const name of ['native-input.uml','native-input.bpmn','server.log','native-desktop.png','native-mobile.png','native-bpmn-desktop.png','native-bpmn-mobile.png'])
+  for(const name of ['native-input.uml','native-input.bpmn','native-input-nodi.bpmn','server.log','native-desktop.png','native-mobile.png','native-bpmn-desktop.png','native-bpmn-mobile.png','native-bpmn-autolayout-desktop.png'])
     try{(report.output_sha256??={})[name]=sha(await fs.readFile(path.join(out,name)));}catch{}
   report.source_changed_during_run=[];
   for(const [filename,expected] of Object.entries(report.source_sha256))

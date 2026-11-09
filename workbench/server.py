@@ -821,7 +821,7 @@ def generation_worker(model_path, out, render=False, native=False, auto_layout=F
             command = args[1]
             if (native and isinstance(command, (list, tuple)) and len(command) == 3
                     and command[0] in {'node', shutil.which('node')}
-                    and Path(command[1]).resolve() in {SCRIPTS / 'bpmn_render.mjs', SCRIPTS / 'render.mjs'}
+                    and Path(command[1]).resolve() in {SCRIPTS / 'bpmn_render.mjs', SCRIPTS / 'bpmn_design_render.mjs', SCRIPTS / 'render.mjs'}
                     and Path(command[2]).resolve().is_relative_to(allowed)
                     and Path(command[2]).suffix == '.json'):
                 return
