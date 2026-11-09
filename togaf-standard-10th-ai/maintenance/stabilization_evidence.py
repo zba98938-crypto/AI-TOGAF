@@ -60,7 +60,15 @@ def write_new(path,data):
     with path.open('x') as stream:json.dump(data,stream,ensure_ascii=False,indent=2);stream.write('\n')
 
 
-def freeze(round_id,out,root=REPO,entry_inputs=None):
+def material_freeze_refs(input_manifest,root,visual_source_manifest=None):
+    """Rebuild the acquired input closure before freezing any review evidence."""
+    tests=str(Path(__file__).resolve().parents[2]/'tests')
+    if tests not in sys.path:sys.path.insert(0,tests)
+    from enterprise.material_authority import required_freeze_refs
+    return required_freeze_refs(input_manifest,root,visual_source_manifest=visual_source_manifest)
+
+
+def freeze(round_id,out,root=REPO,entry_inputs=None,material_input_manifest=None,visual_source_manifest=None):
     root=Path(root).resolve()
     if not re.fullmatch('[A-Za-z0-9_.-]+',round_id):raise ValueError('invalid round_id')
     changed=subprocess.check_output(['git','status','--porcelain'],cwd=root,text=True)
@@ -107,6 +115,26 @@ def freeze(round_id,out,root=REPO,entry_inputs=None):
                 raise ValueError('entry input cannot be an excluded downstream publication')
             entry_names.append(ref['path']);files[ref['path']]=ref['sha256']
         if len(set(entry_names))!=2:raise ValueError('entry input paths must be distinct')
+    if visual_source_manifest is not None and material_input_manifest is None:
+        raise ValueError('material visual sources require an explicit material input manifest')
+    bound_material_inputs=None
+    if material_input_manifest is not None:
+        required=material_freeze_refs(material_input_manifest,root,visual_source_manifest)
+        if not isinstance(required,dict) or not required:
+            raise ValueError('empty material review input closure')
+        for name,digest in required.items():
+            if name in excluded or name.startswith(('togaf-standard-10th-ai/skills/build-history/',
+                    'togaf-standard-10th-ai/maintenance/stabilization/rounds/')):
+                raise ValueError('material inputs cannot include excluded downstream publications')
+            verified_file({'path':name,'sha256':digest},root)
+            if name in files and files[name]!=digest:
+                raise ValueError('material input differs from frozen source: '+name)
+            files[name]=digest
+        for ref in (material_input_manifest,visual_source_manifest):
+            if ref is not None and required.get(ref['path'])!=ref['sha256']:
+                raise ValueError('material input manifest is outside its reconstructed closure')
+        bound_material_inputs={'input_manifest':material_input_manifest,
+                               'visual_source_manifest':visual_source_manifest}
     result={'schema_version':'stabilization-source-freeze/1','stage':'source_freeze',
             'round_id':round_id,'source_commit':commit,'passed':bool(files),'files':files,
             'excluded_generated_paths':sorted(excluded),'excluded_generated_prefixes':[
@@ -114,6 +142,7 @@ def freeze(round_id,out,root=REPO,entry_inputs=None):
                 'togaf-standard-10th-ai/maintenance/stabilization/rounds/']}
     result['bound_standard_materials']=bound_sources
     if entry_inputs is not None:result['entry_inputs']=entry_inputs
+    if bound_material_inputs is not None:result['bound_material_review_inputs']=bound_material_inputs
     write_new(out,result);return result
 
 
@@ -124,6 +153,13 @@ def verify_frozen(data,root=REPO,replacements=None):
     if not set(replacements)<=set(files):raise ValueError('activation replaces a non-frozen input')
     changed=[n for n,digest in files.items() if sha(safe(n,root))!=replacements.get(n,digest)]
     if changed:raise ValueError('frozen source changed: '+', '.join(changed[:10]))
+    materials=data.get('bound_material_review_inputs')
+    if materials is not None:
+        if not isinstance(materials,dict) or set(materials)!={'input_manifest','visual_source_manifest'}:
+            raise ValueError('invalid frozen material input declaration')
+        required=material_freeze_refs(materials['input_manifest'],root,materials['visual_source_manifest'])
+        if not required or any(files.get(n)!=digest for n,digest in required.items()):
+            raise ValueError('frozen source map omits acquired material review inputs')
     if (Path(root)/'.git').exists():
         tracked=subprocess.check_output(['git','ls-files','-z'],cwd=root).decode().split('\0')[:-1]
         excluded=set(data.get('excluded_generated_paths',[]));prefixes=data.get('excluded_generated_prefixes',[])
@@ -489,17 +525,10 @@ def assess_report(round_data,root=REPO):
     if standards:
         try:standard_complete,standard_checks=local_gate('standard').standard_checks(round_data,root)
         except (OSError,ValueError,KeyError,TypeError,ImportError) as exc:standard_checks={'error':str(exc)}
-    material_check={'complete':False,'status':'pending','required_units':None,'reviewed_units':0}
-    material_ref=round_data.get('material_review')
-    if material_ref:
-        try:
-            _,materials=read_ref(material_ref,root)
-            _,inventory=read_ref(materials['source_unit_inventory'],root)
-            material_check={'complete':False,'status':'uncovered',
-                'required_units':len(inventory.get('units',[])),'reviewed_units':0,'evidence':material_ref,
-                'reason':'Native material review result collection and execution verification are not implemented in this revision.'}
-        except (OSError,ValueError,KeyError,TypeError) as exc:
-            material_check={'complete':False,'status':'invalid','reason':str(exc),'evidence':material_ref}
+    try:material_check=local_gate('material').material_checks(round_data,root)
+    except (OSError,ValueError,KeyError,TypeError,ImportError) as exc:
+        material_check={'complete':False,'status':'invalid','required_units':None,'reviewed_units':0,
+                        'reason':str(exc),'evidence':round_data.get('material_review')}
     result={'schema_version':'stabilization-report/1','round_id':round_data['round_id'],
             'stage':'total_report','source_commit':round_data['source_commit'],'stages':rows,'standard_capabilities':standards,
             'standard_checks':standard_checks,
@@ -707,11 +736,17 @@ def main():
     freeze_parser=sub.add_parser('freeze');freeze_parser.add_argument('--round-id',required=True);freeze_parser.add_argument('--out',type=Path,required=True)
     freeze_parser.add_argument('--entry-inputs',type=Path,required=True,
                                help='Explicit two-entry before-byte manifest for this round')
+    freeze_parser.add_argument('--material-input-manifest',type=Path,
+                               help='Explicit acquired full-material review input manifest to freeze')
+    freeze_parser.add_argument('--material-visual-manifest',type=Path,
+                               help='Optional retained visual source derivation manifest for those inputs')
     for name in ('record','report','ledger','status','acceptance-pack','final-readonly'):
         p=sub.add_parser(name);p.add_argument('--round',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
         if name=='record':p.add_argument('--stage',choices=STAGES[1:6],required=True);p.add_argument('--evidence',type=Path,required=True)
     args=parser.parse_args()
-    if args.command=='freeze':result=freeze(args.round_id,args.out,entry_inputs=json.loads(args.entry_inputs.read_text()))
+    if args.command=='freeze':result=freeze(args.round_id,args.out,entry_inputs=json.loads(args.entry_inputs.read_text()),
+        material_input_manifest=reference(args.material_input_manifest) if args.material_input_manifest else None,
+        visual_source_manifest=reference(args.material_visual_manifest) if args.material_visual_manifest else None)
     else:
         data=json.loads(args.round.read_text())
         commands={'report':report,'ledger':ledger,'status':completion_status,'acceptance-pack':acceptance_pack,'final-readonly':final_readonly}

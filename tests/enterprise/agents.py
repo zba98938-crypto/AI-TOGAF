@@ -371,15 +371,16 @@ class NativeAgents:
         # the denied retained-evidence tree. Write inside this workspace first,
         # then let the unsandboxed harness archive the unchanged probe evidence.
         live = root/'.tmp'/name
-        # Scorer command must inherit /dev/null stdout/stderr, not a writable
+        # Scorer command must inherit pipes for stdout/stderr, not a writable
         # workspace log descriptor; otherwise denial would be a false positive.
         if read_only:
             import subprocess
             live.mkdir(parents=True,exist_ok=True)
             self.budget.check()
-            done=subprocess.run(argv,cwd=root,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=timeout)
+            command_argv=[os.fspath(value) for value in argv]
+            done=subprocess.run(command_argv,cwd=root,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=timeout)
             (live/'stdout.log').write_bytes(done.stdout);(live/'stderr.log').write_bytes(done.stderr)
-            result={'exit_code':done.returncode,'timeout':False}
+            result={'argv':command_argv,'exit_code':done.returncode,'timeout':False}
             save(live/'command.json',result)
         else:
             result = run_command(argv,live,self.budget,env=env,cwd=root,timeout=timeout)

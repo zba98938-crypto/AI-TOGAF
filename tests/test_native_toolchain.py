@@ -1,11 +1,32 @@
 """Regression for exact sandbox argv and fail-closed collective diagnostics."""
 import sys,tempfile,unittest,json,subprocess
 from pathlib import Path
+from types import SimpleNamespace
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tests'))
 from enterprise.agents import NativeAgents,sandbox_argv,browser_probe_source
 from enterprise.runtime import Blocked
 from enterprise.frozen_runtime import admission_location
 class NativeToolchainTests(unittest.TestCase):
+ def test_read_only_probe_retains_actual_argv_and_unchanged_process_output(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp);workspace=root/'workspace';workspace.mkdir();evidence=root/'evidence'
+   runtime=object.__new__(NativeAgents);runtime.directory=evidence
+   checks=[];runtime.budget=SimpleNamespace(check=lambda:checks.append('checked'))
+   original=workspace/'readable.txt';original.write_bytes(b'local synthetic probe\n')
+   for name,path in [('allowed-read',original),('missing-read',workspace/'absent.txt')]:
+    argv=['/bin/cat',path]
+    result=runtime.sandbox_probe(name,workspace,argv,{},read_only=True)
+    retained=json.loads((evidence/name/'command.json').read_text())
+    self.assertEqual(retained,result);self.assertEqual(retained['argv'],['/bin/cat',str(path)])
+    self.assertFalse(retained['timeout'])
+    if name=='allowed-read':
+     self.assertEqual(retained['exit_code'],0)
+     self.assertEqual((evidence/name/'stdout.log').read_bytes(),original.read_bytes())
+    else:
+     self.assertNotEqual(retained['exit_code'],0)
+     self.assertEqual((evidence/name/'stdout.log').read_bytes(),b'')
+     self.assertIn(b'absent.txt',(evidence/name/'stderr.log').read_bytes())
+   self.assertEqual(checks,['checked','checked'])
  def test_temp_policy_is_in_cli_not_only_parent_environment(self):
   argv=sandbox_argv('codex',Path('/tmp/work'),'scorer');self.assertIn('enterprise-scorer',argv);self.assertIn('shell_environment_policy.set.TMPDIR="/private/tmp/work/.tmp"' if sys.platform=='darwin' else 'shell_environment_policy.set.TMPDIR="/tmp/work/.tmp"',argv);self.assertEqual(argv[-1],'--')
  def test_invalid_role_rejected(self):

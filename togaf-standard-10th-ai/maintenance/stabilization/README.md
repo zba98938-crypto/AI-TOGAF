@@ -21,6 +21,8 @@
 
 冻结前准备 `stabilization-entry-inputs/1` JSON，包含本轮 `round_id` 及精确 `entries.current_map`、`entries.catalogue` 两个 `{path, sha256}` 引用。路径为仓库内规范相对路径，分别指向实际 JSON 映射和 HTML 图册。冻结会将这两个被忽略的生成文件也纳入旧字节基线。
 
+资料复核轮次还须在冻结时传入 `--material-input-manifest <全量review-input-manifest.json>`，有视觉衍生材料时同时传入 `--material-visual-manifest <视觉来源清单.json>`。冻结前会从已获取的资料重建完整单元、候选和分片，核对所有输入指纹并把被忽略的原文、图像、清单和复核验证器纳入同一冻结文件表。后续复核权限清单绑定该冻结和独立的实际原生运行准入；运行结果不作为上游冻结输入，夹具执行不会计入资料语义复核。
+
 ```bash
 python3 -B togaf-standard-10th-ai/maintenance/stabilization_evidence.py freeze \
   --round-id <本轮ID> --entry-inputs <入口旧字节清单.json> --out <新冻结结果.json>
