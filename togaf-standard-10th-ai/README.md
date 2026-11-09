@@ -2,13 +2,13 @@
 
 本轮当前状态见[本地工程稳定化维护](maintenance/stabilization/README.md)。本轮源码正在修复与补齐，尚未执行完整507项独立评测或切换真实入口。下列历史质量报告、图册和中文作者复核记录保留原有范围；模型复核、人工专业验收与真实组织批准分别记录。
 
-以已归并到本目录的26份英文指南PDF为源，保存完整正文、表格、图片语义和可追溯检索块。另保存用户指定的2025数字版六卷基础正文（43章、3附录）。26份系列指南、六卷基础正文及G226/W242C现有逐节语义分析；六卷874个编号小节、3522个来源块已完成中文正文译写；G226另有75节中文正文和764个精确英文来源块，W242C中文原文逐页保全。作者重点来源复核已记录，不同评审人的最终语义验收仍待完成。当前状态以[实施证据与缺口](quality/implementation-ledger.md)为准。
+以已归并到本目录的26份英文指南PDF为源，保存完整正文、表格、图片语义和可追溯检索块。另保存用户指定的2025数字版六卷基础正文（43章、3附录）。26份系列指南、六卷基础正文及G226/W242C现有逐节语义分析；六卷874个编号小节、3522个来源块已完成中文正文译写；G226另有75节中文正文和764个精确英文来源块，W242C中文原文逐页保全。作者重点来源复核已记录，不同评审人的最终语义验收仍待完成。本轮当前状态以[稳定化维护与正式轮次证据](maintenance/stabilization/README.md)为准；[旧实施证据与缺口](quality/implementation-ledger.md)仅保留历史范围。
 
 ## 从这里读取
 
 - [ADM框架与完整流程图](architecture/adm-flow/index.html)：Preliminary、A–H、持续需求管理、94来源步骤及13幅流程图。
-- [当前制品与图形图册](../output/adm-language-continuation-20261108/artifacts.html)，[完整案例的23份候选交付物与33视图](../output/adm-language-continuation-20261108/adm-delivery-after-four-box/index.md)。
-- [当前工程证据及七类验收边界](quality/seven-gap-reconciliation.md)：工程检查、专业语义接受和真实组织批准分别记录。
+- [当前已激活的历史制品与图形图册](../output/adm-language-continuation-20261108/artifacts.html)，[完整案例的23份候选交付物与33视图](../output/adm-language-continuation-20261108/adm-delivery-after-four-box/index.md)。
+- [历史工程证据及七类验收边界](quality/seven-gap-reconciliation.md)：工程检查、专业语义接受和真实组织批准分别记录。
 
 - [唯一来源保存位置与旧路径迁移清单](sources/README.md)：旧资料目录已去重归并，历史路径不再代表当前磁盘位置。
 
@@ -16,14 +16,14 @@
 - [基础标准执行验证](quality/foundation-execution-verification.json)：75项基础制品、23项交付物及94个来源步骤的绑定与反例。
 - [全周期ADM虚构案例](maintenance/cases/omnichannel/generated-adm/adm-check.md)及[独立原始材料](maintenance/cases/omnichannel/adm-business-materials.md)。
 
-- [目录内可运行skills包](skills/README.md)：17个入口、本地来源与共享执行器；[安装归档](release/README.md)。
+- [目录内可运行skills包](skills/README.md)：17个入口、本地来源与共享执行器；[历史安装归档](release/README.md)。
 - [六卷及补充资料解析](quality/extended-publication.md)：982个小节分析、86处图像引用及24张表/规格记录。
 
 - [六卷实际中文正文](fundamental/chinese-text/README.md)：874个编号小节、3522个来源块；[G226与W242C中文正文](supplementary/chinese-text/README.md)。正文译写、作者复核和最终独立验收分别记录。
 - [六卷基础标准本地副本](fundamental/web-2025/README.md)：完整MHTML、离线HTML、英文MD/JSON与获取审计。
 - [本地来源与基础标准范围](fundamental/README.md)：保留初次本地清点与后续用户授权保存记录，区分基础正文与补充资料。
 - [全渠道履约贯通案例](maintenance/cases/omnichannel/README.md)：任务、角色、技能证据、接口、风险与过渡状态的联合验证。
-- [实际完成状态](quality/completion-status.md)：区分维护记录、已发布解析、验证与业务验收。
+- [历史完成状态](quality/completion-status.md)：仅适用于其记录的版本；本轮完成状态见稳定化维护与正式轮次证据。
 
 - [架构解析、图示关系与角色能力](architecture/README.md)：架构实体、方向、分类层级、角色职责及全部参考技能等级。
 - [转换覆盖与视觉审校清单](quality/conversion-coverage.md)：全部文档和图像的输出位置、实际覆盖及剩余独立审校范围。

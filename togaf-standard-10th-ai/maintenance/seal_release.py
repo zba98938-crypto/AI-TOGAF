@@ -122,7 +122,7 @@ def main(release_dir=None):
  report['foundation_body_remaining_volume_ids']=remaining
  gb=json.loads((C/'supplementary/chinese-text/G226.json').read_text())
  report['G226_body_progress']=gb['coverage']
- report['semantic_remaining']=(['remaining-foundation-volumes-full-Chinese-body'] if remaining else [])+([] if gb['body_complete'] else ['G226-full-Chinese-body'])+['different-reviewer-final-semantic-acceptance']
+ report['semantic_remaining'].extend((['remaining-foundation-volumes-full-Chinese-body'] if remaining else [])+([] if gb['body_complete'] else ['G226-full-Chinese-body']))
  (R/'release-manifest.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  (R/'README.md').write_text('''# TOGAF skills工程预览交付\n\n本目录封存待验证的本地工程预览包；封存本身不宣称工程交付或标准能力已完成。六卷基础标准874个编号小节、3522个来源块，以及G226的75节中文正文均已译写，W242C中文原文逐页保全。独立模型逐项资料复核与复查、完整 UML/BPMN 设计时义务、当前版本 507 项评测及正式入口切换均须以本轮实际记录判定。人工专业验收与真实组织批准保持待签署。\n\n- [skills源码、规范、字体及本地资料包](togaf-skills-engineering-preview.tar.gz)：17入口、共享执行器、当前来源和5版可编辑案例。不包含node_modules、Python环境或浏览器。\n- [归档指纹及校验结果](release-manifest.json)：源码归档每个文件与封存清单逐字节核对；原件版权、许可证和原始引用保留。\n- 本轮实施证据与未完成项由显式轮次清单和总报告记录；历史 quality 台账不作为本归档的当前验收结论。\n\n在目标目录解包：\n\n```bash\ntar -xzf togaf-skills-engineering-preview.tar.gz\ncd skills\npython3 -B _shared/scripts/local_tool.py doctor\n```\n\n可选离线Node依赖包名称、平台和SHA-256见归档清单，在同一目标目录解开，使其位于`skills/_shared/node_modules/`。该依赖包仅适用于本次macOS本机平台；Python依赖、Node运行时及Chrome/Chromium未随包提供。其他环境按[包内依赖说明](../skills/_shared/references/local-package.md)及锁文件准备。\n\n保留17个技能目录与`_shared/`同级。解包到任意自选位置不会自动注册为全局技能；本轮未向外部技能目录安装任何内容。所有运行输出放包内`work/`。\n\n隔离副本的检索、模型校验、生成与渲染证据见[迁移检查](../quality/portability-validation.json)。这证明已测试本机的路径独立性，不是所有平台的运行认证。\n''')
  readme=R/'README.md';text=readme.read_text()
