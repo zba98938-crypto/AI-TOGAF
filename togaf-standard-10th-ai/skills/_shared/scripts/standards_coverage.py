@@ -10,13 +10,15 @@ import hashlib
 import json
 from pathlib import Path
 import re
-from urllib.parse import urlsplit
+from urllib.parse import urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parents[2]
 SOURCES = ROOT/'standards/sources'
 KINDS = ('construct', 'attribute', 'reference', 'constraint', 'symbol', 'exchange')
 XSD = 'http://www.w3.org/2001/XMLSchema'
+MACHINE_XMI_NAMESPACES = frozenset(('http://schema.omg.org/spec/XMI/2.1',
+                                   'http://www.omg.org/spec/XMI/20131001'))
 
 
 def digest(data): return hashlib.sha256(data).hexdigest()
@@ -159,6 +161,260 @@ def source_identity_provenance(row, root):
             'duplicate_occurrence_count': sum(len(values) for values in duplicate.values()),
             'duplicate_groups': groups, 'ambiguous_references': references,
             'global_identity_repair_applied': False, 'semantic_acceptance': 'not-established-by-source-provenance'}
+
+
+def machine_xml_attribute(element, name):
+    """A foreign attribute with the same local name is not an XMI identity."""
+    return next((element.get('{'+namespace+'}'+name) for namespace in sorted(MACHINE_XMI_NAMESPACES)
+                 if element.get('{'+namespace+'}'+name) is not None), None)
+
+
+def bound_type_qname(element, declaration=False):
+    """Expand explicit XMI type values using the element's actual namespace map.
+
+    An untyped reference has no inferred expected type. A qualified declaration
+    element can name its own type; an unqualified serialization role cannot.
+    This compares QName identity only, never metaclass inheritance/conformance.
+    """
+    from lxml import etree
+    raw = machine_xml_attribute(element, 'type')
+    basis = 'xmi:type'
+    result = {'lexical_value': raw, 'expanded_name': None, 'namespace_uri': None,
+              'local_name': None, 'binding_status': 'unknown-type', 'basis': basis}
+    if raw is None:
+        if declaration and isinstance(element.tag, str) and element.tag.startswith('{'):
+            qname = etree.QName(element.tag)
+            if qname.namespace not in MACHINE_XMI_NAMESPACES:
+                return {'lexical_value': element.tag, 'expanded_name': element.tag,
+                        'namespace_uri': qname.namespace, 'local_name': qname.localname,
+                        'binding_status': 'bound', 'basis': 'qualified-declaration-element'}
+        return result
+    parts = raw.split(':')
+    try:
+        valid = len(parts) in (1, 2) and all(part and etree.QName(part).namespace is None and
+                                            etree.QName(part).localname == part for part in parts)
+    except ValueError:
+        valid = False
+    if not valid:
+        result['binding_status'] = 'invalid-qname'; return result
+    prefix = parts[0] if len(parts) == 2 else None
+    namespace = 'http://www.w3.org/XML/1998/namespace' if prefix == 'xml' else element.nsmap.get(prefix)
+    result['local_name'] = parts[-1]
+    if not namespace:
+        result['binding_status'] = 'unbound-prefix' if prefix else 'unqualified-without-namespace'
+        return result
+    result.update(expanded_name='{'+namespace+'}'+parts[-1], namespace_uri=namespace,
+                  binding_status='bound')
+    return result
+
+
+def compare_type_qnames(expected, declared):
+    if expected['binding_status'] != 'bound' or declared is None or declared['binding_status'] != 'bound':
+        status = 'unknown-type'
+    elif expected['namespace_uri'] != declared['namespace_uri']:
+        status = 'namespace-mismatch'
+    elif expected['expanded_name'] != declared['expanded_name']:
+        status = 'type-difference-unadjudicated'
+    else:
+        status = 'matched-bound-qname'
+    return {'status': status, 'expected': expected, 'declared': declared,
+            'metamodel_type_conformance': 'not-adjudicated', 'execution_adapter_applied': False}
+
+
+def machine_document_uri_status(uri):
+    if not isinstance(uri, str) or not uri or any(character.isspace() or ord(character) < 32 for character in uri):
+        return 'unavailable-or-invalid-document-uri'
+    try:
+        parsed = urlsplit(uri)
+        return ('http-document-uri' if parsed.scheme in ('http', 'https') and parsed.netloc and not parsed.fragment
+                else 'unsupported-document-uri')
+    except ValueError:
+        return 'unavailable-or-invalid-document-uri'
+
+
+def machine_reference_provenance(base, sources):
+    """Inspect exact registered documents and fragments without fetching/aliasing.
+
+    Local-file access, registered logical document URI, Package.uri, QName and
+    fragment identities are separate facts. Local candidates do not authorize a
+    different logical route. Unknown types and duplicate fragments stay open.
+    Only currently fingerprint-verified registered CMOF/XMI files are parsed.
+    """
+    from collections import Counter, defaultdict
+    from standards import Invalid, safe_xml
+    base = Path(base).resolve()
+    by_file = {}; by_uri = defaultdict(list); inventories = []; references = []
+    global_fragments = defaultdict(list)
+    for row in sources:
+        if row.get('url'): by_uri[row['url']].append(row['file'])
+        if Path(row['file']).suffix not in ('.cmof', '.xmi'): continue
+        path = contained_file(base, row['file']); raw = path.read_bytes()
+        if digest(raw) != row['sha256']:
+            raise Invalid('normative source fingerprint conflict: '+row['file'])
+        root = safe_xml(raw); identities = source_identities(row, root); native = defaultdict(list)
+        for element in identities:
+            native_id = machine_xml_attribute(element, 'id')
+            if native_id: native[native_id].append(element)
+        def declaration(element):
+            packages = []
+            for parent in (element, *element.iterancestors()):
+                qname = bound_type_qname(parent, declaration=True)
+                if qname['binding_status'] == 'bound' and qname['local_name'] in ('Package', 'Profile', 'Model'):
+                    packages.append({'source_identity': identities[parent], 'name': parent.get('name'),
+                                     'package_uri': parent.get('uri'), 'declared_qname': qname})
+            return {'source_identity': identities[element], 'native_id': machine_xml_attribute(element, 'id'),
+                    'name': element.get('name'), 'xml_element_qname': element.tag,
+                    'declared_qname': bound_type_qname(element, declaration=True),
+                    'package_context': list(reversed(packages))}
+        declarations = {element: declaration(element) for element in identities if machine_xml_attribute(element, 'id')}
+        packages = [declaration(element) for element in identities
+                    if bound_type_qname(element, declaration=True)['binding_status'] == 'bound' and
+                    bound_type_qname(element, declaration=True)['local_name'] in ('Package', 'Profile', 'Model')]
+        inventory = {'file': row['file'], 'sha256': row['sha256'], 'logical_document_uri': row.get('url'),
+                     'logical_document_uri_status': machine_document_uri_status(row.get('url')),
+                     'xmi_namespace_status': 'recognized' if MACHINE_XMI_NAMESPACES.intersection(root.nsmap.values()) else 'unknown-xmi-namespace',
+                     'xml_namespaces': [{'prefix': prefix, 'namespace_uri': uri} for prefix, uri in
+                                        sorted(root.nsmap.items(), key=lambda item: str(item[0]))],
+                     'packages': packages, 'native_id_count': len(native),
+                     'native_id_occurrences': sum(len(values) for values in native.values()),
+                     'duplicate_native_ids': sorted(key for key, values in native.items() if len(values) > 1)}
+        inventories.append(inventory)
+        by_file[row['file']] = {'row': row, 'root': root, 'identities': identities,
+                               'native': native, 'declarations': declarations}
+        for native_id, elements in native.items():
+            global_fragments[native_id].extend(declarations[element] for element in elements)
+    for file, model in by_file.items():
+        for element, identity in model['identities'].items():
+            href = element.get('href')
+            if href is None: continue
+            expected = bound_type_qname(element)
+            xml_bases = [{'source_identity': model['identities'][parent],
+                          'original_xml_base': parent.get('{http://www.w3.org/XML/1998/namespace}base')}
+                         for parent in reversed((element, *element.iterancestors()))
+                         if parent.get('{http://www.w3.org/XML/1998/namespace}base') is not None]
+            record = {'source_identity': identity, 'attribute': 'href', 'original_href': href,
+                      'xml_base_context': {'status': 'base-chain-preserved', 'entries': xml_bases},
+                      'xml_base_resolution_status': 'not-assessed',
+                      'expected_qname': expected, 'logical_document_uri': None,
+                      'logical_registration_status': 'logical-uri-unavailable', 'logical_registered_files': [],
+                      'local_file': None, 'local_file_status': 'not-resolved',
+                      'fragment': None, 'fragment_status': 'not-resolved',
+                      'local_target_candidates': [], 'local_target': None, 'resolved_target': None,
+                      'unregistered_fragment_inventory_matches': [],
+                      'external_dependency': None, 'qualified_identity_complete': False,
+                      'execution_adapter_applied': False, 'identity_substitution_applied': False}
+            record['reference_key'] = 'machine-reference:'+digest(json.dumps(
+                {'source_identity': identity['key'], 'attribute': 'href', 'original_href': href},
+                sort_keys=True, separators=(',', ':')).encode())
+            local_file = None
+            try:
+                if any(character.isspace() or ord(character) < 32 for character in href):
+                    raise ValueError('reference URI contains whitespace or control characters')
+                parsed = urlsplit(href); document = href.partition('#')[0]
+                record['fragment'] = parsed.fragment if '#' in href else None
+                base_unadjudicated = not parsed.scheme and any(entry['original_xml_base'] for entry in xml_bases)
+                record['xml_base_resolution_status'] = ('relative-resolution-with-base-unadjudicated' if base_unadjudicated else
+                    'not-required-for-absolute-reference' if parsed.scheme else 'no-nonempty-xml-base')
+                source_uri = model['row'].get('url')
+                logical = None if base_unadjudicated else document if parsed.scheme else urljoin(source_uri, document) if source_uri else None
+                record['logical_document_uri'] = logical
+                registered = by_uri.get(logical, []) if logical is not None else []
+                record['logical_registered_files'] = list(registered)
+                record['logical_registration_status'] = ('xml-base-unadjudicated' if base_unadjudicated else
+                    'registered-exact-logical-uri' if len(registered) == 1 else
+                    'ambiguous-logical-uri' if registered else 'unregistered-logical-uri' if logical else 'logical-uri-unavailable')
+                if logical == 'http://schema.omg.org/spec/MOF/2.0/cmof.xml':
+                    record['external_dependency'] = 'cmof-base-metamodel'
+                elif (parsed.scheme or parsed.netloc) and not registered:
+                    record['external_dependency'] = 'unregistered-external-document'
+                if base_unadjudicated:
+                    record['local_file_status'] = 'xml-base-unadjudicated'
+                    record['diagnostic'] = 'Relative reference with nonempty xml:base context requires separate identity adjudication; no logical or local resolution was attempted.'
+                elif (parsed.scheme and parsed.scheme not in ('http', 'https')) or (
+                    logical is not None and machine_document_uri_status(logical) != 'http-document-uri'):
+                    record['local_file_status'] = 'rejected-uri-scheme'
+                elif parsed.netloc or parsed.scheme:
+                    if len(registered) == 1:
+                        local_file = registered[0]
+                        record['local_file_status'] = ('registered-local-machine-file' if local_file in by_file else
+                                                       'registered-non-indexed-source')
+                    else:
+                        record['local_file_status'] = 'external-document-not-resolved'
+                elif parsed.query or '%' in parsed.path or '\\' in parsed.path:
+                    record['local_file_status'] = 'unsupported-local-uri-component'
+                elif parsed.path.startswith('/'):
+                    record['local_file_status'] = 'rejected-path-escape'
+                else:
+                    target = (base/Path(file).parent/parsed.path).resolve() if parsed.path else (base/file).resolve()
+                    if not target.is_relative_to(base):
+                        record['local_file_status'] = 'rejected-path-escape'
+                    else:
+                        local_file = target.relative_to(base).as_posix()
+                        record['local_file_status'] = ('registered-local-machine-file' if local_file in by_file else
+                            'unregistered-local-file' if target.is_file() else 'missing-local-file')
+                record['local_file'] = local_file
+                if local_file in by_file:
+                    fragment = record['fragment']
+                    targets = by_file[local_file]['native'].get(fragment, []) if fragment else []
+                    candidates = [by_file[local_file]['declarations'][target] for target in targets]
+                    record['local_target_candidates'] = candidates
+                    record['fragment_status'] = ('no-fragment-unadjudicated' if not fragment else
+                        'missing-fragment' if not candidates else 'ambiguous-fragment' if len(candidates) > 1 else 'exact-unique-fragment')
+                    if len(candidates) == 1: record['local_target'] = candidates[0]
+                record['logical_local_file_consistent'] = (registered[0] == local_file if len(registered) == 1 and local_file is not None else None)
+            except (ValueError, OSError, RuntimeError) as exc:
+                record['local_file_status'] = 'invalid-reference-uri'
+                record['diagnostic'] = str(exc)
+            target = record['local_target']
+            comparison = compare_type_qnames(expected, target['declared_qname'] if target else None)
+            comparison['comparison_basis'] = ('registered-reference-target' if
+                record['logical_registration_status'] == 'registered-exact-logical-uri' and
+                record.get('logical_local_file_consistent') is True else
+                'local-file-candidate-only' if target else 'no-reference-target')
+            record['type_comparison'] = comparison
+            if record['logical_registration_status'] != 'registered-exact-logical-uri' and record['fragment']:
+                for candidate in global_fragments.get(record['fragment'], []):
+                    record['unregistered_fragment_inventory_matches'].append({
+                        'declaration': candidate,
+                        'candidate_qname_comparison': compare_type_qnames(expected, candidate['declared_qname']),
+                        'comparison_basis': 'inventory-only-global-exact-fragment; no logical-document association',
+                        'reference_type_adjudicated': False, 'reference_identity_resolved': False})
+            record['namespace_status'] = ('matched-namespace-uri' if comparison['status'] == 'matched-bound-qname' else
+                'namespace-mismatch' if comparison['status'] == 'namespace-mismatch' else
+                'matched-namespace-type-unadjudicated' if comparison['status'] == 'type-difference-unadjudicated' else 'unknown-type-namespace')
+            record['qualified_identity_complete'] = bool(
+                record['logical_registration_status'] == 'registered-exact-logical-uri' and
+                record.get('logical_local_file_consistent') is True and
+                record['local_file_status'] == 'registered-local-machine-file' and
+                record['fragment_status'] == 'exact-unique-fragment' and
+                comparison['status'] == 'matched-bound-qname')
+            if record['qualified_identity_complete']: record['resolved_target'] = target
+            references.append(record)
+    source_registration_complete = bool(inventories) and all(
+        row['logical_document_uri'] and len(by_uri[row['logical_document_uri']]) == 1 and
+        row['logical_document_uri_status'] == 'http-document-uri' and
+        row['xmi_namespace_status'] == 'recognized' and not row['duplicate_native_ids'] for row in inventories)
+    complete = source_registration_complete and all(record['qualified_identity_complete'] for record in references)
+    summary = {'reference_count': len(references), 'qualified_identity_complete_count': sum(
+        record['qualified_identity_complete'] for record in references),
+        'local_exact_fragment_count': sum(record['fragment_status'] == 'exact-unique-fragment' for record in references),
+        'machine_source_registration_complete': source_registration_complete,
+        'duplicate_native_id_group_count': sum(len(row['duplicate_native_ids']) for row in inventories),
+        'source_reference_identity_complete': complete,
+        'logical_registration_counts': dict(Counter(record['logical_registration_status'] for record in references)),
+        'xml_base_resolution_counts': dict(Counter(record['xml_base_resolution_status'] for record in references)),
+        'local_file_counts': dict(Counter(record['local_file_status'] for record in references)),
+        'fragment_counts': dict(Counter(record['fragment_status'] for record in references)),
+        'namespace_counts': dict(Counter(record['namespace_status'] for record in references)),
+        'type_comparison_counts': dict(Counter(record['type_comparison']['status'] for record in references)),
+        'unregistered_fragment_inventory_match_count': sum(len(record['unregistered_fragment_inventory_matches']) for record in references),
+        'inventory_candidate_type_comparison_counts': dict(Counter(candidate['candidate_qname_comparison']['status']
+            for record in references for candidate in record['unregistered_fragment_inventory_matches'])),
+        'external_dependency_counts': dict(Counter(record['external_dependency'] for record in references if record['external_dependency']))}
+    return {'schema_version': 'normative-machine-reference-identity/1', 'sources': inventories,
+            'references': references, 'summary': summary, 'resolution_policy':
+            'Exact registered logical URI and contained registered source file, unique original fragment, and bound QName identity; nonempty xml:base relative references remain unadjudicated; no network, basename alias, prefix removal, type inference or inheritance adaptation.',
+            'semantic_acceptance': 'not-established-by-source-reference-identity'}
 
 
 def source_entry(language, version, row, element, kind, owner=None, identities=None):
@@ -399,15 +655,16 @@ def ledger(language, version, sources_root=None, bindings=None, evidence=None):
     body = any(row.get('source_class') == 'official-normative-publication' for row in sources)
     source_defects = sorted({(item['source']['file'], item['source']['ambiguous_native_id'])
                              for item in entries if item['source'].get('ambiguous_native_id')})
+    machine_references = machine_reference_provenance(base, sources)
     available_names = {Path(row['file']).name for row in sources}
     imported_names = set()
-    from standards import safe_xml
-    for row in sources:
-        if Path(row['file']).suffix not in ('.xmi', '.cmof'): continue
-        for element in safe_xml(contained_file(base, row['file']).read_bytes()).iter():
-            href = element.get('href') if isinstance(element.tag, str) else None
-            if href and Path(urlsplit(href.partition('#')[0]).path).suffix in ('.xmi', '.cmof'):
-                imported_names.add(Path(urlsplit(href.partition('#')[0]).path).name)
+    for reference in machine_references['references']:
+        href = reference['original_href']
+        try:
+            imported = Path(urlsplit(href.partition('#')[0]).path)
+        except ValueError:
+            continue
+        if imported.suffix in ('.xmi', '.cmof'): imported_names.add(imported.name)
     missing_imports = sorted(imported_names-available_names)
     blockers = ['Normative prose/caption applicability and semantic obligations have not been fully adjudicated.',
                 'Every applicable obligation needs implementation, independent positive and negative oracles, and current executed evidence.',
@@ -415,13 +672,17 @@ def ledger(language, version, sources_root=None, bindings=None, evidence=None):
     if not body: blockers.insert(0, 'Normative specification body is missing.')
     if source_defects: blockers.append('Normative machine source contains duplicate IDs; entries retain disambiguating XML paths.')
     if missing_imports: blockers.append('Normative machine imports not acquired: '+', '.join(missing_imports))
+    if not machine_references['summary']['source_reference_identity_complete']:
+        blockers.append('Normative machine reference identities remain unresolved; registered document URI, contained file, exact fragment and bound QName are separate requirements. See machine_reference_provenance.')
     result = {'schema_version': 'native-design-time-coverage/1', 'language': language, 'version': version,
             'sources': sources, 'items': entries, 'item_count': len(entries),
             'by_kind': {kind: sum(item['kind'] == kind for item in entries) for kind in KINDS},
             'unadjudicated_prose_candidates': sum(item['applicability'] == 'unadjudicated' for item in entries),
-            'completeness': completeness(entries, body and not source_defects and not missing_imports),
+            'completeness': completeness(entries, body and not source_defects and not missing_imports and
+                                         machine_references['summary']['source_reference_identity_complete']),
             'source_defects': [{'file': file, 'duplicate_native_id': identity} for file, identity in source_defects],
-            'missing_machine_imports': missing_imports, 'blockers': blockers,
+            'missing_machine_imports': missing_imports, 'machine_reference_provenance': machine_references,
+            'machine_reference_summary': machine_references['summary'], 'blockers': blockers,
             'human_acceptance': 'pending', 'organization_approval': 'pending-signature'}
     if language=='uml':
         result['source_availability']={'status':'verified-local-files','file_count':len(sources),

@@ -42,6 +42,45 @@ class StandardsCoverageTests(unittest.TestCase):
         self.assertTrue(self.uml['source_defects'])
         self.assertFalse(self.uml['completeness']['source_scope_complete'])
 
+    def test_reference_diagnostics_preserve_both_complete_existing_obligation_id_sets(self):
+        expected={'uml':(5779,'1ebf53efcebfee41e3c905d21e44da2e8d0a33bc1d88f8f4aabd6cf45244aa24'),
+                  'bpmn':(4147,'ec17e19fe5252b8432169058a8ecbf80d1c822f2a0d919eaf5aaa38b44c6ff9c')}
+        for language,report in [('uml',self.uml),('bpmn',self.bpmn)]:
+            with self.subTest(language=language):
+                values='\n'.join(row['id'] for row in report['items'])
+                self.assertEqual(expected[language],(len(report['items']),hashlib.sha256(values.encode()).hexdigest()))
+                self.assertEqual(report['machine_reference_summary'],report['machine_reference_provenance']['summary'])
+                self.assertFalse(report['machine_reference_summary']['source_reference_identity_complete'])
+                self.assertFalse(report['completeness']['source_scope_complete'])
+                self.assertFalse(report['completeness']['applicability_adjudication_complete'])
+
+    def test_existing_filename_cannot_close_a_missing_fragment_or_namespace_conflict(self):
+        from test_standard_source_references import document
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);folder=root/'bpmn-2.0.2';folder.mkdir();rows=[]
+            def put(name,raw,url,source_class='official-machine-readable'):
+                relative='bpmn-2.0.2/'+name;(root/relative).write_bytes(raw)
+                rows.append({'language':'bpmn-2.0.2','file':relative,'sha256':hashlib.sha256(raw).hexdigest(),
+                             'url':url,'source_class':source_class})
+            put('BPMN20.cmof',document('<ownedMember ids:type="meta:Class" ids:id="Source">'
+                '<type ids:type="meta:Class" href="Peer.cmof#Absent"/></ownedMember>'),
+                'https://example.invalid/std/BPMN20.cmof')
+            put('Peer.cmof',document('<ownedMember ids:type="meta:Class" ids:id="Present"/>'),
+                'https://example.invalid/std/Peer.cmof')
+            put('body.pdf',b'fixture source presence only','https://example.invalid/spec/PDF','official-normative-publication')
+            (root/'manifest.json').write_text(json.dumps(rows))
+            report=ledger('bpmn','2.0.2',root,bindings=[])
+            self.assertEqual([],report['missing_machine_imports'])
+            self.assertEqual(1,report['machine_reference_summary']['fragment_counts']['missing-fragment'])
+            self.assertFalse(report['completeness']['source_scope_complete'])
+            raw=document('<ownedMember ids:type="meta:Class" ids:id="Absent"/>',meta_uri='urn:foreign:metamodel')
+            (folder/'Peer.cmof').write_bytes(raw);rows[1]['sha256']=hashlib.sha256(raw).hexdigest()
+            (root/'manifest.json').write_text(json.dumps(rows))
+            report=ledger('bpmn','2.0.2',root,bindings=[])
+            self.assertEqual([],report['missing_machine_imports'])
+            self.assertEqual(1,report['machine_reference_summary']['namespace_counts']['namespace-mismatch'])
+            self.assertFalse(report['completeness']['source_scope_complete'])
+
     def test_all_425_declared_uml_invariants_are_source_covered(self):
         from uml_backend import official_rules
         identities = {row['source']['locator'].split(';')[0] for row in self.uml['items']
