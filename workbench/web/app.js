@@ -5,9 +5,10 @@ const clone = value => structuredClone(value);
 const short = value => String(value || '').slice(0, 9);
 const date = value => value ? new Date(value).toLocaleString('zh-CN', {hour12: false}) : '—';
 const pretty = value => JSON.stringify(value, null, 2);
-const STATES = {draft:'草稿',in_review:'评审中',accepted:'本地评审接受',changes_requested:'请求修改',submit:'提交评审',comment:'评审意见',request_changes:'请求修改',accept:'本地接受',queued:'排队中',running:'生成中',succeeded:'已生成',failed:'失败'};
+const STATES = {draft:'草稿',in_review:'评审中',accepted:'本地评审接受',changes_requested:'请求修改',submit:'提交评审',comment:'评审意见',request_changes:'请求修改',accept:'本地接受',queued:'排队中',running:'生成中',succeeded:'已生成',failed:'失败',blocked:'预览待补充'};
 const S = {projects:[],project:null,model:null,layout:{},base:null,view:null,selected:null,dirty:false,
   tab:'canvas',query:'',type:'',undo:[],redo:[],jobs:[],catalog:[],busy:false,modelGroup:'entities',
+  native:null,nativeDiagnostics:null,nativeAutoLayout:false,
   transform:{x:60,y:80,k:1},positions:new Map(),pendingFit:false,jobTimers:new Map()};
 
 async function api(path, {method='GET',body}={}) {
@@ -21,14 +22,14 @@ function toast(message, error=false) {
   const item=document.createElement('div');item.className='toast'+(error?' error':'');item.textContent=message;
   $('#toasts').append(item);setTimeout(()=>item.remove(),6500);
 }
-function report(error) { toast(error.message || String(error),true); if(error.issues)showIssues(error.issues); }
+function report(error) { toast(error.message || String(error),true); if(error.issues){if(S.native&&error.issues.some(i=>i.category)){const data={valid:false,conformance_complete:false,validation_errors:[],missing_material:[],capability_uncovered:[]};for(const row of error.issues)(data[row.category] || data.validation_errors).push(row);S.nativeDiagnostics=data;setTab('native');}else showIssues(error.issues);} }
 function guarded(fn) {return (...args)=>Promise.resolve().then(()=>fn(...args)).catch(report);}
 function act(selector,fn) {$(selector).addEventListener('click',guarded(fn));}
 function view() {return S.model?.views.find(row=>row.id===S.view);}
 function reviewState(version=S.base) {return S.project?.review_states?.[version] || S.project?.versions?.find(v=>v.id===version)?.review_state || 'draft';}
 function versions() {return [...(S.project?.versions || [])].sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at)));}
 function selection() {return S.selected ? S.model?.[S.selected.group]?.find(e=>e.id===S.selected.id) : null;}
-function snapshot() {return {model:clone(S.model),layout:clone(S.layout)};}
+function snapshot() {return {model:clone(S.model),layout:clone(S.layout),native:clone(S.native)};}
 function remember() {S.undo.push(snapshot());if(S.undo.length>40)S.undo.shift();S.redo=[];}
 function modified() {S.dirty=true;$('#validation-status').textContent='更改后待校验';updateHeader();}
 function updateHeader() {
@@ -47,7 +48,7 @@ function updateHeader() {
 function setTab(tab) {
   S.tab=tab;$$('.tab').forEach(item=>{item.classList.toggle('active',item.dataset.tab===tab);item.setAttribute('aria-selected',item.dataset.tab===tab);});
   $$('.workspace-panel').forEach(panel=>{panel.hidden=panel.id!=='panel-'+tab;panel.classList.toggle('active',!panel.hidden);});
-  if(tab==='model')renderModel();if(tab==='versions')renderVersions();if(tab==='reviews')renderReviews();if(tab==='jobs')renderJobs();
+  if(tab==='model')renderModel();if(tab==='native')renderNative();if(tab==='versions')renderVersions();if(tab==='reviews')renderReviews();if(tab==='jobs')renderJobs();
   if(tab==='canvas')requestAnimationFrame(()=>{drawGraph();if(S.pendingFit){fit();S.pendingFit=false;}});
 }
 function modal(title,html,onSubmit) {
@@ -74,9 +75,10 @@ async function openProject(id) {
   if(!canLeave())return;
   const data=await api('/projects/'+encodeURIComponent(id));
   S.project=data;S.model=clone(data.model);S.layout=clone(data.layout || {});S.base=data.head_version;
+  S.native=clone(data.native || null);S.nativeDiagnostics=data.validation?.native || null;S.nativeAutoLayout=false;
   S.view=S.model.views[0]?.id;S.selected=null;S.dirty=false;S.undo=[];S.redo=[];S.query='';S.type='';S.pendingFit=true;
   S.jobs=data.jobs || [];$('#search').value='';$('#issues-panel').hidden=true;
-  $('#validation-status').textContent=data.validation?.valid?'已保存版本校验通过':'等待校验';
+  $('#validation-status').textContent=data.validation?.valid?'已保存版本规则校验通过':data.validation?.native&&!data.validation.native.valid?'已保存原生草稿有错误':'等待校验';
   localStorage.setItem('atlas-project',id);
   renderAll();for(const job of S.jobs)if(['queued','running'].includes(job.status))trackJob(job.id);
 }
@@ -113,6 +115,50 @@ act('#export',()=>{
   const a=document.createElement('a');a.href=url;a.download=(S.model.project.id || 'architecture')+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   toast('已导出当前模型；画布布局随平台版本保存，不写入业务模型');
 });
+
+act('#native-import',()=>$('#native-import-file').click());
+$('#native-import-file').addEventListener('change',guarded(async event=>{
+  const file=event.target.files[0];if(!file)return;
+  try {
+    if(file.size>7*1024*1024)throw new Error('原生源码超过 7 MiB 编辑限制');
+    const xml=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(await file.arrayBuffer());
+    const language=/\.bpmn$/i.test(file.name)||xml.includes('http://www.omg.org/spec/BPMN/20100524/MODEL')?'bpmn':'uml';
+    const native={language,version:language==='bpmn'?'2.0.2':'2.5.1',xml};
+    if(S.model){remember();S.native=native;S.nativeDiagnostics=null;modified();setTab('native');toast('原生源码已载入草稿；保存将建立新版本');}
+    else modal('建立原生模型项目',`<form><p class="hint">原生 XML 原文作为权威数据保存。无效源码可以保存为带诊断的草稿，生成必须先通过已实现规则。</p><label class="field"><span>项目名称</span><input name="name" required maxlength="120" value="${esc(file.name.replace(/\.[^.]+$/,''))}"></label>${actions('保存首个原生版本')}</form>`,async data=>{
+      const project=await api('/projects',{method:'POST',body:{name:data.get('name'),native}});
+      await refreshProjects();await openProject(project.id);setTab('native');toast('原生模型与诊断已建立首个版本');
+    });
+  } finally {event.target.value='';}
+}));
+
+function nativeDiagnosticMarkup(data) {
+  if(!data)return '<p class="hint">源码更改后请重新诊断。完整标准能力的状态与输入错误分开记录。</p>';
+  const groups={validation_errors:'校验错误',missing_material:'材料缺失',capability_uncovered:'能力未覆盖'};
+  return `<p class="hint">已实现规则：${data.valid?'未发现输入错误':'存在输入错误'} · 完整标准能力：${data.conformance_complete?'已验证':'未完成'}</p>`+Object.entries(groups).map(([key,label])=>`<section class="native-diagnostic-group"><h3>${label} · ${(data[key] || []).length}</h3>${(data[key] || []).length?(data[key] || []).map(row=>`<div class="issue ${esc(row.level)}"><span class="issue-code">${esc(row.code)}</span><div>${esc(row.message)}</div></div>`).join(''):'<p class="hint">本次未记录此类问题。</p>'}</section>`).join('');
+}
+function renderNative() {
+  const panel=$('#panel-native');
+  if(!S.model){panel.innerHTML='<div class="empty-state"><h3>导入原生 UML 或 BPMN</h3><p>选择 UTF-8 的 .uml、.xmi、.bpmn 或 .xml 文件，保存原文、诊断和不可变版本。</p><button id="native-empty-import" class="button primary">选择原生文件</button></div>';$('#native-empty-import').addEventListener('click',()=>$('#native-import-file').click());return;}
+  if(!S.native){panel.innerHTML='<div class="panel-heading"><div><h2>原生模型源码</h2><p>本项目尚无原生 XML。可将 UML 或 BPMN 原文加入当前草稿。</p></div><button id="native-add-source" class="button primary">导入原生源码</button></div>';$('#native-add-source').addEventListener('click',()=>$('#native-import-file').click());return;}
+  panel.innerHTML=`<div class="panel-heading"><div><h2>原文驱动模型与预览</h2><p>UTF-8 XML 原文是权威数据；诊断、交换包和布局预览由已保存版本派生。</p></div><div class="row-actions"><button id="native-remove" class="button">移除草稿中的原生模型</button><button id="native-export" class="button">导出原文 ↗</button></div></div><div class="native-editor-grid"><div class="panel-card"><div class="native-editor-toolbar"><label class="field"><span>标准与版本</span><select id="native-language"><option value="bpmn" ${S.native.language==='bpmn'?'selected':''}>BPMN 2.0.2</option><option value="uml" ${S.native.language==='uml'?'selected':''}>UML 2.5.1</option></select></label><button id="native-diagnose" class="button">诊断源码</button></div><label class="field"><span>原生 XML 源码</span><textarea id="native-source" class="editor-large native-source" spellcheck="false" aria-label="原生XML源码">${esc(S.native.xml)}</textarea></label><p class="hint">保存包含无效源码的草稿会保留错误诊断；这些版本不能生成。原有 DI 坐标保持原文，自动布局必须显式选择。</p></div><div class="panel-card"><h3>诊断与能力状态</h3><div id="native-diagnostics">${nativeDiagnosticMarkup(S.nativeDiagnostics)}</div></div></div><div class="panel-card"><div class="native-preview-toolbar"><label><input id="native-auto-layout" type="checkbox" ${S.nativeAutoLayout?'checked':''}> 显式生成派生自动布局（已有 DI 保持）</label><button id="native-preview" class="button primary" ${S.dirty?'disabled':''}>预览已保存版本</button></div><p class="hint">预览复用生成任务及版本评审。材料缺失或图形能力未覆盖会保留明确状态；原文导出不受派生布局影响。</p><div id="native-preview-result"></div></div>`;
+  let remembered=false;
+  $('#native-source').addEventListener('input',event=>{if(!remembered){remember();remembered=true;}S.native.xml=event.target.value;delete S.native.source_sha256;S.nativeDiagnostics=null;modified();$('#native-preview').disabled=true;$('#native-diagnostics').innerHTML=nativeDiagnosticMarkup(null);});
+  $('#native-language').addEventListener('change',event=>{remember();S.native.language=event.target.value;S.native.version=event.target.value==='bpmn'?'2.0.2':'2.5.1';S.nativeDiagnostics=null;modified();$('#native-preview').disabled=true;$('#native-diagnostics').innerHTML=nativeDiagnosticMarkup(null);});
+  $('#native-auto-layout').addEventListener('change',event=>{S.nativeAutoLayout=event.target.checked;});
+  $('#native-diagnose').addEventListener('click',guarded(async()=>{const result=await api('/native/validate',{method:'POST',body:{native:S.native}});S.nativeDiagnostics=result;$('#native-diagnostics').innerHTML=nativeDiagnosticMarkup(result);$('#validation-status').textContent=result.valid?'原生规则诊断完成':'原生源码有错误';}));
+  $('#native-export').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([S.native.xml],{type:'application/xml;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download=(S.model.project.id || 'native')+(S.native.language==='bpmn'?'.bpmn':'.uml');link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  $('#native-remove').addEventListener('click',()=>{remember();S.native=null;S.nativeDiagnostics=null;modified();renderNative();toast('原生模型已从草稿移除；历史版本保持，可撤销');});
+  $('#native-preview').addEventListener('click',guarded(async()=>{if(S.dirty)throw new Error('先保存原生草稿，再生成版本预览');const job=await api(`/projects/${S.project.id}/generate`,{method:'POST',body:{version:S.base,kind:'native',render:true,auto_layout:S.nativeAutoLayout}});S.jobs.unshift(job);updateHeader();trackJob(job.id);renderNativePreview();toast('原生预览任务已排队');}));
+  renderNativePreview();
+}
+function renderNativePreview() {
+  const target=$('#native-preview-result');if(!target)return;
+  const job=S.jobs.find(row=>row.kind==='native'&&row.version===S.base);
+  if(!job){target.innerHTML='<p class="hint">尚无此版本的原生预览任务。</p>';return;}
+  const picture=(job.outputs || []).find(row=>row.name==='native-preview.png');
+  target.innerHTML=`<p class="hint">任务 ${esc(short(job.id))} · ${esc(STATES[job.status] || job.status)} · 版本 ${esc(short(job.version))}</p>${job.native_preview?.issues?nativeDiagnosticMarkup({valid:true,conformance_complete:false,[job.native_preview.category]:job.native_preview.issues}):''}${job.error?`<pre>${esc(job.error)}</pre>`:''}${picture?`<img class="native-preview-image" src="${esc(picture.url)}" alt="已保存原生模型版本的派生预览">`:''}<div class="output-links">${(job.outputs || []).map(row=>`<a class="button small" href="${esc(row.url)}" target="_blank" rel="noopener">${esc(row.name)} ↗</a>`).join('')}</div>`;
+}
 
 // Canvas state is separate from semantic model data. The graph is explicitly a
 // relationship projection, not a replacement for each profile's notation.
@@ -265,10 +311,10 @@ function showIssues(issues) {
   if(S.tab!=='canvas')setTab('canvas');
 }
 act('#close-issues',()=>{$('#issues-panel').hidden=true;});
-act('#validate',async()=>{S.busy=true;updateHeader();try{const data=await api('/validate',{method:'POST',body:{model:S.model}});showIssues(data.issues);toast(data.valid?'已编码规则校验通过':'发现模型问题，请在校验面板处理',!data.valid);}finally{S.busy=false;updateHeader();}});
+act('#validate',async()=>{S.busy=true;updateHeader();try{const data=await api('/validate',{method:'POST',body:{model:S.model}});if(S.native){S.nativeDiagnostics=await api('/native/validate',{method:'POST',body:{native:S.native}});setTab('native');$('#validation-status').textContent=S.nativeDiagnostics.valid?'已实现原生规则诊断完成':'原生源码有校验错误';toast(S.nativeDiagnostics.valid?'原生规则诊断完成；完整能力状态见面板':'原生草稿有错误，可保存诊断版本',!S.nativeDiagnostics.valid);}else{showIssues(data.issues);toast(data.valid?'已编码规则校验通过':'发现模型问题，请在校验面板处理',!data.valid);}}finally{S.busy=false;updateHeader();}});
 act('#save',()=>{
-  modal('保存不可变模型版本',`<form><p class="hint">保存模型与独立画布布局。当前基线：<code>${esc(short(S.base))}</code>。并发修改将被拒绝，历史版本不会覆盖。</p><label class="field"><span>变更说明</span><input name="message" required maxlength="500" placeholder="例如：明确承运商数据范围与责任"></label>${actions('校验并保存')}</form>`,async data=>{
-    const result=await api(`/projects/${S.project.id}/versions`,{method:'POST',body:{base_version:S.base,model:S.model,layout:S.layout,message:data.get('message')}});
+  modal('保存不可变模型版本',`<form><p class="hint">保存模型、原生 XML 原文和独立画布布局。当前基线：<code>${esc(short(S.base))}</code>。原生错误诊断随草稿保存，含错误版本不能生成；并发修改被拒绝，历史版本保持。</p><label class="field"><span>变更说明</span><input name="message" required maxlength="500" placeholder="例如：明确承运商数据范围与责任"></label>${actions('保存新版本')}</form>`,async data=>{
+    const result=await api(`/projects/${S.project.id}/versions`,{method:'POST',body:{base_version:S.base,model:S.model,layout:S.layout,native:S.native,message:data.get('message')}});
     const id=S.project.id;S.dirty=false;await refreshProjects();await openProject(id);toast('新版本已保存：'+short(result.head_version || S.base));
   });
 });
@@ -288,7 +334,7 @@ function versionOptions(selected) {return versions().map(v=>`<option value="${es
 function renderVersions() {
   if(!S.model)return panelEmpty('versions','版本记录与差异将在保存模型后出现。');
   const vs=versions();
-  $('#panel-versions').innerHTML=`<div class="panel-heading"><div><h2>每次修改，都有来处</h2><p>比较已保存快照中的实体、关系、来源及布局。未保存草稿不在版本差异中。</p></div><span class="pill">${vs.length} 个不可变版本</span></div><div class="panel-card"><div class="diff-controls"><label class="field"><span>基线版本</span><select id="diff-from">${versionOptions(vs.length>1?vs[1].id:vs[0]?.id)}</select></label><span>→</span><label class="field"><span>目标版本</span><select id="diff-to">${versionOptions(S.base)}</select></label><button id="compare-versions" class="button primary">比较版本</button><button id="checkout-version" class="button">载入为草稿</button></div><div id="diff-results" class="hint">选择两个版本查看字段级差异。</div></div><div class="panel-card"><h3>版本历史</h3><div class="table-wrap"><table><thead><tr><th>快照</th><th>变更说明</th><th>时间</th><th>评审状态</th></tr></thead><tbody>${vs.map(v=>`<tr><td title="${esc(v.id)}"><code>${esc(short(v.id))}</code>${v.id===S.project.head_version?' <span class="pill">HEAD</span>':''}</td><td>${esc(v.message)}</td><td>${esc(date(v.created_at))}</td><td>${esc(STATES[reviewState(v.id)] || reviewState(v.id))}</td></tr>`).join('')}</tbody></table></div></div>`;
+  $('#panel-versions').innerHTML=`<div class="panel-heading"><div><h2>每次修改，都有来处</h2><p>比较已保存快照中的实体、关系、来源、原生 XML 及布局。未保存草稿不在版本差异中。</p></div><span class="pill">${vs.length} 个不可变版本</span></div><div class="panel-card"><div class="diff-controls"><label class="field"><span>基线版本</span><select id="diff-from">${versionOptions(vs.length>1?vs[1].id:vs[0]?.id)}</select></label><span>→</span><label class="field"><span>目标版本</span><select id="diff-to">${versionOptions(S.base)}</select></label><button id="compare-versions" class="button primary">比较版本</button><button id="checkout-version" class="button">载入为草稿</button></div><div id="diff-results" class="hint">选择两个版本查看字段级差异。</div></div><div class="panel-card"><h3>版本历史</h3><div class="table-wrap"><table><thead><tr><th>快照</th><th>变更说明</th><th>时间</th><th>评审状态</th></tr></thead><tbody>${vs.map(v=>`<tr><td title="${esc(v.id)}"><code>${esc(short(v.id))}</code>${v.id===S.project.head_version?' <span class="pill">HEAD</span>':''}</td><td>${esc(v.message)}</td><td>${esc(date(v.created_at))}</td><td>${esc(STATES[reviewState(v.id)] || reviewState(v.id))}</td></tr>`).join('')}</tbody></table></div></div>`;
   $('#compare-versions').addEventListener('click',guarded(async()=>{
     const from=$('#diff-from').value,to=$('#diff-to').value;
     const data=await api(`/projects/${S.project.id}/diff?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`);
@@ -296,7 +342,7 @@ function renderVersions() {
   }));
   $('#checkout-version').addEventListener('click',guarded(async()=>{
     if(!canLeave())return;const id=$('#diff-to').value;const version=await api(`/projects/${S.project.id}/versions/${encodeURIComponent(id)}`);
-    remember();S.model=clone(version.model);S.layout=clone(version.layout || {});S.view=S.model.views[0]?.id;S.selected=null;
+    remember();S.model=clone(version.model);S.layout=clone(version.layout || {});S.native=clone(version.native || null);S.nativeDiagnostics=version.validation?.native || null;S.view=S.model.views[0]?.id;S.selected=null;
     // Always save the restored snapshot against current HEAD; never rewrite history.
     S.base=S.project.head_version;modified();setTab('canvas');S.pendingFit=true;renderAll();toast('历史快照已载入为草稿；保存会建立新版本，不覆盖历史');
   }));
@@ -316,22 +362,22 @@ function renderReviews() {
 
 act('#generate',()=>{
   if(S.dirty){toast('请先保存当前草稿；生成任务只使用不可变的已保存版本',true);return;}
-  modal('生成可追溯架构制品',`<form><p class="hint">调用已有严格生成器，输入绑定版本 <code>${esc(short(S.base))}</code>，结果写入新的任务目录，不覆盖历史证据。</p><label class="field"><span>渲染方式</span><select name="render"><option value="false">生成模型、SVG 和 Markdown</option><option value="true">额外渲染 PNG / 大图原尺寸分块（需要本机浏览器）</option></select></label><div class="warning-note">生成成功不是业务验收通过。表达错误、超时或浏览器阻断会作为失败保留，不能伪装成功。</div>${actions('启动生成任务')}</form>`,async data=>{
-    const job=await api(`/projects/${S.project.id}/generate`,{method:'POST',body:{version:S.base,render:data.get('render')==='true'}});
+  modal('生成可追溯架构制品',`<form><p class="hint">输入绑定版本 <code>${esc(short(S.base))}</code>，成果保存到新的任务目录。</p><label class="field"><span>生成内容</span><select name="kind"><option value="project">项目 JSON 制品与交付物</option>${S.native?`<option value="native" ${!S.model.views.length?'selected':''}>原生 ${S.native.language.toUpperCase()} 原文与交换包</option>`:''}</select></label><label class="field"><span>预览方式</span><select name="render"><option value="false">保存可编辑源码与交换成果</option><option value="true">额外生成 SVG / PNG 预览</option></select></label>${S.native?'<label class="field"><span><input name="auto_layout" value="true" type="checkbox"> 显式为无坐标原生模型生成派生自动布局</span></label>':''}<p class="hint">原生图形能力不足或材料缺失时单独记录预览阻断；原文和已有 DI 保持。完整能力状态随诊断保存。</p>${actions('启动生成任务')}</form>`,async data=>{
+    const job=await api(`/projects/${S.project.id}/generate`,{method:'POST',body:{version:S.base,kind:data.get('kind'),render:data.get('render')==='true',auto_layout:data.get('auto_layout')==='true'}});
     S.jobs.unshift(job);updateHeader();setTab('jobs');trackJob(job.id);toast('生成任务已排队');
   });
 });
 function renderJobs() {
-  const panel=$('#panel-jobs');panel.innerHTML=`<div class="panel-heading"><div><h2>每个成果，绑定一个输入版本</h2><p>任务在后台执行；输出与失败原因持续保留，重新打开项目后仍可查看。</p></div><span class="pill">${S.jobs.length} 个任务</span></div>`+(S.jobs.length?S.jobs.map(job=>`<article class="panel-card"><div class="job-header"><div><strong>生成任务 ${esc(short(job.id))}</strong><p class="hint">版本 ${esc(short(job.version))} · ${esc(date(job.created_at))}</p></div><span class="job-status ${esc(job.status)}">${esc(STATES[job.status] || job.status)}</span></div>${job.error?`<pre>${esc(typeof job.error==='string'?job.error:pretty(job.error))}</pre>`:''}<div class="output-links">${(job.outputs || []).map(output=>`<a class="button small" href="${esc(output.url)}" target="_blank" rel="noopener">${esc(output.name)} ↗</a>`).join('')}</div></article>`).join(''):'<div class="panel-card empty-state"><h3>还没有生成任务</h3><p>保存模型后，点击顶部“生成制品”启动真实后端任务。</p></div>');
+  const panel=$('#panel-jobs');panel.innerHTML=`<div class="panel-heading"><div><h2>每个成果，绑定一个输入版本</h2><p>任务在后台执行；输出与失败原因持续保留，重新打开项目后仍可查看。</p></div><span class="pill">${S.jobs.length} 个任务</span></div>`+(S.jobs.length?S.jobs.map(job=>`<article class="panel-card"><div class="job-header"><div><strong>${job.kind==='native'?'原生模型':'生成'}任务 ${esc(short(job.id))}</strong><p class="hint">版本 ${esc(short(job.version))} · ${esc(date(job.created_at))}</p></div><span class="job-status ${esc(job.status)}">${esc(STATES[job.status] || job.status)}</span></div>${job.native_preview?.issues?job.native_preview.issues.map(row=>`<p class="hint">${esc(row.category)} · ${esc(row.message)}</p>`).join(''):''}${job.error?`<pre>${esc(typeof job.error==='string'?job.error:pretty(job.error))}</pre>`:''}<div class="output-links">${(job.outputs || []).map(output=>`<a class="button small" href="${esc(output.url)}" target="_blank" rel="noopener">${esc(output.name)} ↗</a>`).join('')}</div></article>`).join(''):'<div class="panel-card empty-state"><h3>还没有生成任务</h3><p>保存模型后，点击顶部“生成制品”启动真实后端任务。</p></div>');
 }
 function trackJob(id) {
   if(S.jobTimers.has(id))return;
   const tick=async()=>{
     try {
       const data=await api('/jobs/'+id),index=S.jobs.findIndex(job=>job.id===id);
-      if(index<0){S.jobTimers.delete(id);return;}S.jobs[index]=data;if(S.tab==='jobs')renderJobs();
+      if(index<0){S.jobTimers.delete(id);return;}S.jobs[index]=data;if(S.tab==='jobs')renderJobs();if(S.tab==='native')renderNativePreview();
       if(['queued','running'].includes(data.status))S.jobTimers.set(id,setTimeout(tick,1500));
-      else {S.jobTimers.delete(id);toast(data.status==='succeeded'?'制品生成完成':'制品生成失败，请查看任务诊断',data.status!=='succeeded');}
+      else {S.jobTimers.delete(id);toast(data.status==='succeeded'?'制品生成完成':data.status==='blocked'?'原文交换完成，预览材料或能力待补':'制品生成失败，请查看任务诊断',data.status!=='succeeded');}
     } catch(error){S.jobTimers.delete(id);report(error);}
   };
   S.jobTimers.set(id,setTimeout(tick,300));
@@ -347,7 +393,7 @@ document.addEventListener('keydown',e=>{
   if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();if(!$('#save').disabled)$('#save').click();return;}
   if(!typing&&!$('#modal').open&&(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){
     e.preventDefault();const from=e.shiftKey?S.redo:S.undo,to=e.shiftKey?S.undo:S.redo;
-    if(from.length){to.push(snapshot());const state=from.pop();S.model=state.model;S.layout=state.layout;S.selected=null;modified();renderAll();}return;
+    if(from.length){to.push(snapshot());const state=from.pop();S.model=state.model;S.layout=state.layout;S.native=state.native || null;S.nativeDiagnostics=null;S.selected=null;modified();renderAll();}return;
   }
   if(!typing&&!$('#modal').open&&e.key==='/'){e.preventDefault();setTab('canvas');$('#search').focus();}
   if(!typing&&e.key==='Escape'&&!$('#modal').open){S.selected=null;drawGraph();renderInspector();}

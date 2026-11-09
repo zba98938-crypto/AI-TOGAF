@@ -25,14 +25,14 @@
     <main class="main-shell">
       <header class="topbar">
         <div class="breadcrumb"><span>工作空间</span><span class="separator">/</span><strong id="project-name">架构项目</strong><span id="example-label" class="badge">虚构示例</span></div>
-        <div class="top-actions"><button id="new-project-top" class="button subtle">＋ 新建项目</button><button id="import" class="button subtle">导入模型</button><button id="export" class="button subtle" disabled>导出 JSON ↗</button><input id="import-file" type="file" accept=".json,application/json" hidden></div>
+        <div class="top-actions"><button id="new-project-top" class="button subtle">＋ 新建项目</button><button id="import" class="button subtle">导入模型</button><button id="native-import" class="button subtle">导入 UML / BPMN</button><button id="export" class="button subtle" disabled>导出 JSON ↗</button><input id="import-file" type="file" accept=".json,application/json" hidden><input id="native-import-file" type="file" accept=".bpmn,.uml,.xmi,.xml,application/xml,text/xml" hidden></div>
       </header>
       <section class="project-header" aria-label="项目操作">
         <div><div class="eyebrow">MODEL-DRIVEN ARCHITECTURE</div><h1 id="view-title">让架构从静态走向协作</h1><div class="project-subtitle"><span id="version-label" class="version-chip">尚未载入</span><span id="dirty-label">所有更改已保存</span><span class="dot-separator">·</span><span id="review-label">本地评审记录</span></div></div>
         <div class="header-actions"><button id="validate" class="button" disabled><span>✓</span> 校验模型</button><button id="save" class="button primary" disabled>保存新版本</button><button id="generate" class="button dark" disabled>生成制品 <span>↗</span></button></div>
       </section>
       <div class="workspace-tabs" role="tablist" aria-label="工作台页面">
-        <button class="tab active" data-tab="canvas" role="tab" aria-selected="true">◈ 架构画布</button><button class="tab" data-tab="model" role="tab" aria-selected="false">☷ 模型数据</button><button class="tab" data-tab="versions" role="tab" aria-selected="false">◷ 版本对比</button><button class="tab" data-tab="reviews" role="tab" aria-selected="false">◎ 评审记录</button><button class="tab" data-tab="jobs" role="tab" aria-selected="false">↗ 生成任务 <span id="job-count" class="inline-count">0</span></button>
+        <button class="tab active" data-tab="canvas" role="tab" aria-selected="true">◈ 架构画布</button><button class="tab" data-tab="model" role="tab" aria-selected="false">☷ 模型数据</button><button class="tab" data-tab="native" role="tab" aria-selected="false">◇ UML / BPMN 源码</button><button class="tab" data-tab="versions" role="tab" aria-selected="false">◷ 版本对比</button><button class="tab" data-tab="reviews" role="tab" aria-selected="false">◎ 评审记录</button><button class="tab" data-tab="jobs" role="tab" aria-selected="false">↗ 生成任务 <span id="job-count" class="inline-count">0</span></button>
         <span class="tab-end"><span class="status-dot"></span><span id="validation-status">等待校验</span></span>
       </div>
       <section id="panel-canvas" class="workspace-panel active" role="tabpanel" aria-label="架构画布">
@@ -52,6 +52,7 @@
         <div id="issues-panel" class="issues-panel" hidden><div class="issues-heading"><strong id="issues-title">校验结果</strong><button id="close-issues" class="icon-button" aria-label="关闭校验结果">×</button></div><div id="issues-list"></div></div>
       </section>
       <section id="panel-model" class="workspace-panel padded" role="tabpanel" aria-label="模型数据" hidden></section>
+      <section id="panel-native" class="workspace-panel padded" role="tabpanel" aria-label="UML BPMN 原生模型源码" hidden></section>
       <section id="panel-versions" class="workspace-panel padded" role="tabpanel" aria-label="版本对比" hidden></section>
       <section id="panel-reviews" class="workspace-panel padded" role="tabpanel" aria-label="评审记录" hidden></section>
       <section id="panel-jobs" class="workspace-panel padded" role="tabpanel" aria-label="生成任务" hidden></section>

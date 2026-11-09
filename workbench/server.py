@@ -32,6 +32,7 @@ WEB = Path(__file__).resolve().parent / 'web'
 MAX_BODY = 8 * 1024 * 1024
 NOTICE = '本地声明身份，不是身份认证、专业批准或业务合规证明；生成不代表评审通过。'
 sys.dont_write_bytecode = True
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(SCRIPTS))
 sys.path.insert(0, str(SCRIPTS.parent / 'vendor'))
 
@@ -92,6 +93,43 @@ def checked_model(model):
     if not result['valid']:
         raise APIError(422, 'validation_failed', 'Model has validation errors', result['issues'])
     return result
+
+
+def native_source(value):
+    from workbench.native import normalize
+    try:
+        return normalize(value)
+    except (ValueError, TypeError) as exc:
+        raise APIError(400, 'invalid_native_request', str(exc)) from None
+
+
+def snapshot_validation(model, native=None):
+    result = checked_model(model)
+    if native is not None:
+        from workbench.native import diagnose
+        result['native'] = diagnose(native)
+        result['valid'] = result['valid'] and result['native']['valid']
+    return result
+
+
+def checked_native(native):
+    if native is None:
+        raise APIError(422, 'native_material_missing', 'This version has no native XML source')
+    from workbench.native import diagnose
+    result = diagnose(native)
+    if not result['valid']:
+        raise APIError(422, 'native_validation_failed', 'Native draft has validation errors', result['validation_errors'])
+    return result
+
+
+def native_companion(name):
+    """A native-only project has no invented architecture entities or relations."""
+    return {'schema_version': '2.0', 'project': {
+        'id': 'native-' + uuid.uuid4().hex, 'name': name, 'version': '1',
+        'context': {'domains': ['business'], 'landscape': 'capability', 'purpose': 'solution-delivery',
+                    'abstraction': 'logical', 'evolution': 'target'},
+        'is_example': False, 'approval_status': 'unknown', 'implementation_status': 'unknown'},
+        'sources': [], 'entities': [], 'relationships': [], 'views': [], 'deliverables': [], 'gaps': []}
 
 
 def loopback(host):
@@ -160,6 +198,9 @@ def diff_snapshots(before, after):
         else:
             add(group, group, a, b)
     add('layout', 'layout', before['layout'], after['layout'])
+    a, b = before.get('native') or {}, after.get('native') or {}
+    for field in sorted(set(a) | set(b)):
+        add('native', field, a.get(field, missing), b.get(field, missing))
     return changes
 
 
@@ -212,6 +253,13 @@ class Workbench:
                     started_at TEXT, finished_at TEXT, error TEXT,
                     FOREIGN KEY(project_id,version) REFERENCES versions(project_id,id));
             ''')
+            for table, name, declaration in (
+                    ('versions', 'native', 'TEXT'),
+                    ('jobs', 'kind', "TEXT NOT NULL DEFAULT 'project'"),
+                    ('jobs', 'auto_layout', 'INTEGER NOT NULL DEFAULT 0')):
+                columns = {row['name'] for row in db.execute('PRAGMA table_info(' + table + ')')}
+                if name not in columns:
+                    db.execute('ALTER TABLE ' + table + ' ADD COLUMN ' + name + ' ' + declaration)
             db.execute("UPDATE jobs SET status='failed', finished_at=?, error=? WHERE status='running'",
                        (now(), 'Server restarted while generation was running; no result accepted'))
         if start_worker:
@@ -250,6 +298,8 @@ class Workbench:
         result = dict(row)
         for key in ('model', 'layout', 'validation'):
             result[key] = json.loads(result[key])
+        result['native'] = json.loads(result['native']) if result['native'] is not None else None
+        result['native_sha256'] = result['native']['source_sha256'] if result['native'] else None
         result['review_state'] = self.state(db, project, identity)
         result['version_hash'] = result['id']
         return result
@@ -259,8 +309,8 @@ class Workbench:
         rows = db.execute('SELECT id FROM versions WHERE project_id=? ORDER BY rowid', (identity,)).fetchall()
         versions = [self.version(db, identity, row['id']) for row in rows]
         head = next(v for v in versions if v['id'] == project['head_version'])
-        project.update(model=head['model'], layout=head['layout'], validation=head['validation'],
-                       versions=[{k: v for k, v in row.items() if k not in ('model', 'layout')} for row in versions],
+        project.update(model=head['model'], layout=head['layout'], native=head['native'], validation=head['validation'],
+                       versions=[{k: v for k, v in row.items() if k not in ('model', 'layout', 'native')} for row in versions],
                        reviews=[self.review_dict(r) for r in db.execute(
                            'SELECT * FROM reviews WHERE project_id=? ORDER BY rowid', (identity,))],
                        jobs=[self.job(db, r['id']) for r in db.execute(
@@ -275,18 +325,25 @@ class Workbench:
         result.update(version_hash=result['version'], notice=NOTICE)
         return result
 
-    def insert_version(self, db, project, model, layout, message, parent, result):
+    def insert_version(self, db, project, model, layout, message, parent, result, native=None):
         stamp = now()
-        identity = digest(dict(model=model, layout=layout, parent=parent, created_at=stamp, message=message))
-        db.execute('INSERT INTO versions VALUES (?,?,?,?,?,?,?,?,?)',
-                   (project, identity, parent, stamp, message, dumps(model), dumps(layout), dumps(result), digest(model)))
+        content = dict(model=model, layout=layout, parent=parent, created_at=stamp, message=message)
+        if native is not None:
+            content['native'] = native
+        identity = digest(content)
+        db.execute('INSERT INTO versions (project_id,id,parent,created_at,message,model,layout,validation,model_hash,native) VALUES (?,?,?,?,?,?,?,?,?,?)',
+                   (project, identity, parent, stamp, message, dumps(model), dumps(layout), dumps(result), digest(model),
+                    dumps(native) if native is not None else None))
         db.execute('UPDATE projects SET head_version=?, updated_at=? WHERE id=?', (identity, stamp, project))
         return identity
 
     def create_project(self, data):
         name = required_text(data, 'name', 200)
+        native = native_source(data.get('native'))
         if 'model' in data:
             model = data['model']
+        elif native is not None:
+            model = native_companion(name)
         else:
             from registry import load
             from profile_examples import normalize_example
@@ -297,11 +354,11 @@ class Workbench:
             if not profile or not isinstance(profile.get('example'), dict):
                 raise APIError(400, 'unknown_template', 'Unknown template')
             model = normalize_example(profile)
-        result = checked_model(model)
+        result = snapshot_validation(model, native)
         identity, stamp = uuid.uuid4().hex, now()
         with self.db() as db:
             db.execute('INSERT INTO projects VALUES (?,?,?,?,?)', (identity, name, '', stamp, stamp))
-            self.insert_version(db, identity, model, {}, 'Initial version', None, result)
+            self.insert_version(db, identity, model, {}, 'Initial version', None, result, native)
             return self.detail(db, identity)
 
     def save_version(self, project, data):
@@ -315,8 +372,10 @@ class Workbench:
             current = self.project_row(db, project)
             if current['head_version'] != base:
                 raise APIError(409, 'version_conflict', 'Head changed; reload and explicitly merge before saving')
-            result = checked_model(data['model'])
-            self.insert_version(db, project, data['model'], data.get('layout', {}), message, base, result)
+            previous = self.version(db, project, base)
+            native = native_source(data['native']) if 'native' in data else previous['native']
+            result = snapshot_validation(data['model'], native)
+            self.insert_version(db, project, data['model'], data.get('layout', {}), message, base, result, native)
             return self.detail(db, project)
 
     def review(self, project, data):
@@ -339,6 +398,8 @@ class Workbench:
                     raise APIError(409, 'review_transition', 'Version must be in_review')
                 if action == 'accept':
                     checked_model(snapshot['model'])
+                    if snapshot['native'] is not None:
+                        checked_native(snapshot['native'])
                 state = 'accepted' if action == 'accept' else 'changes_requested'
             row = dict(id=uuid.uuid4().hex, project_id=project, version=version, action=action,
                        author=author, comment=comment, state=state, created_at=now())
@@ -348,15 +409,20 @@ class Workbench:
     def enqueue(self, project, data):
         version = required_text(data, 'version', 128)
         render = data.get('render', False)
+        kind, auto_layout = data.get('kind', 'project'), data.get('auto_layout', False)
         if not isinstance(render, bool):
             raise APIError(400, 'invalid_request', 'render must be a boolean')
+        if kind not in ('project', 'native') or not isinstance(auto_layout, bool):
+            raise APIError(400, 'invalid_request', 'kind must be project/native; auto_layout must be a boolean')
         with self.db() as db:
             self.project_row(db, project)
             snapshot = self.version(db, project, version)
             checked_model(snapshot['model'])
+            if kind == 'native' or snapshot['native'] is not None:
+                checked_native(snapshot['native'])
             identity = uuid.uuid4().hex
-            db.execute('INSERT INTO jobs (id,project_id,version,status,render,created_at) VALUES (?,?,?,?,?,?)',
-                       (identity, project, version, 'queued', int(render), now()))
+            db.execute('INSERT INTO jobs (id,project_id,version,status,render,created_at,kind,auto_layout) VALUES (?,?,?,?,?,?,?,?)',
+                       (identity, project, version, 'queued', int(render), now(), kind, int(auto_layout)))
             result = self.job(db, identity)
         self.wake.set()
         return result
@@ -374,9 +440,9 @@ class Workbench:
         if row is None:
             raise APIError(404, 'not_found', 'Job not found')
         result = dict(row)
-        result.update(render=bool(result['render']), version_hash=result['version'], outputs=[], notice=NOTICE)
+        result.update(render=bool(result['render']), auto_layout=bool(result['auto_layout']), version_hash=result['version'], outputs=[], notice=NOTICE)
         root = self.output_root(identity)
-        if result['status'] == 'succeeded' and root.is_dir() and not root.is_symlink():
+        if result['status'] in ('succeeded', 'blocked') and root.is_dir() and not root.is_symlink():
             for path in sorted(root.rglob('*')):
                 relative = path.relative_to(root).as_posix()
                 if path.is_symlink() or not path.is_file():
@@ -387,6 +453,12 @@ class Workbench:
                 except APIError:
                     continue
                 result['outputs'].append({'name': relative, 'url': f'/api/jobs/{identity}/files/{quote(relative)}'})
+            if result['kind'] == 'native':
+                with open_safe(root, 'manifest.json') as stream:
+                    manifest = json.load(stream)
+                result['native_preview'] = manifest.get('preview')
+                result['native_source_sha256'] = manifest.get('native_source_sha256')
+                result['full_language_acceptance'] = manifest.get('full_language_acceptance', False)
         return result
 
     def _worker(self):
@@ -424,21 +496,26 @@ class Workbench:
         root = self.output_root(job['id'])
         root.parent.mkdir(exist_ok=False)
         root.mkdir()
-        model_file = root.parent / 'input.json'
-        model_file.write_text(dumps(snapshot['model']), encoding='utf-8')
+        native = job.get('kind') == 'native'
+        model_file = root.parent / ('input-native.json' if native else 'input.json')
+        model_file.write_text(dumps(snapshot['native'] if native else snapshot['model']), encoding='utf-8')
         # This snapshot is retained separately: drag layout is editorial metadata,
         # not generate.py's reference/adaptive renderer selection.
         (root.parent / 'layout.json').write_text(dumps(snapshot['layout']), encoding='utf-8')
-        command = [sys.executable, str(Path(__file__).resolve()), '--generate-worker', str(model_file), '--out', str(root),
+        command = [sys.executable, str(Path(__file__).resolve()), '--native-worker' if native else '--generate-worker', str(model_file), '--out', str(root),
                    '--worker-timeout', str(self.job_timeout)]
         if job['render']:
             command.append('--render')
+        if native and job.get('auto_layout'):
+            command.append('--auto-layout')
         env = {'PATH': os.environ.get('PATH', '/usr/bin:/bin'), 'HOME': str(root.parent),
                # HOME is job-local; keep the invoking interpreter's installed
                # Python dependencies available without a second skills venv.
                'PYTHONUSERBASE': site.getuserbase(),
                'TMPDIR': str(root.parent), 'PYTHONDONTWRITEBYTECODE': '1', 'PYTHONIOENCODING': 'utf-8',
                'LANG': os.environ.get('LANG', 'en_US.UTF-8')}
+        if os.environ.get('TOGAF_BROWSER_PATH'):
+            env['TOGAF_BROWSER_PATH'] = os.environ['TOGAF_BROWSER_PATH']
         with (root.parent / 'generation.log').open('wb') as log:
             process = subprocess.Popen(command, cwd=root.parent, env=env, stdout=log, stderr=subprocess.STDOUT,
                                        start_new_session=True, pass_fds=(semaphore_fd,))
@@ -464,6 +541,14 @@ class Workbench:
             manifest = json.load(handle)
         if not manifest.get('runtime_stable') or not manifest.get('output_sha256'):
             raise RuntimeError('Incomplete or unstable generation manifest')
+        if native:
+            expected_source = snapshot['native']['source_sha256']
+            original_name = 'native.bpmn' if snapshot['native']['language'] == 'bpmn' else 'native.uml'
+            if manifest.get('native_source_sha256') != expected_source:
+                raise RuntimeError('Native manifest does not bind the immutable version source')
+            with open_safe(root, original_name) as handle:
+                if hashlib.sha256(handle.read()).hexdigest() != expected_source:
+                    raise RuntimeError('Native output does not preserve the immutable version source')
         for name, expected in manifest['output_sha256'].items():
             with open_safe(root, name) as handle:
                 actual = hashlib.sha256(handle.read()).hexdigest()
@@ -471,7 +556,10 @@ class Workbench:
                 raise RuntimeError('Output hash mismatch: ' + name)
         (root / 'workbench-layout.json').write_text(dumps(snapshot['layout']), encoding='utf-8')
         with self.db() as db:
-            db.execute("UPDATE jobs SET status='succeeded', finished_at=?, error=NULL WHERE id=?", (now(), job['id']))
+            status = manifest.get('job_status', 'succeeded') if native else 'succeeded'
+            if status not in ('succeeded', 'blocked'):
+                raise RuntimeError('Native generator returned an unsupported completion status')
+            db.execute("UPDATE jobs SET status=?, finished_at=?, error=NULL WHERE id=?", (status, now(), job['id']))
 
     @staticmethod
     def _kill(process):
@@ -609,6 +697,12 @@ class Handler(BaseHTTPRequestHandler):
             if 'model' not in data:
                 raise APIError(400, 'invalid_request', 'model is required')
             return 200, validation(data['model'])
+        if path == '/api/native/validate' and not get:
+            native = native_source(data.get('native'))
+            if native is None:
+                raise APIError(400, 'invalid_native_request', 'native source is required')
+            from workbench.native import diagnose
+            return 200, diagnose(native)
         if path == '/api/projects':
             if not get:
                 return 201, app.create_project(data)
@@ -641,7 +735,7 @@ class Handler(BaseHTTPRequestHandler):
             if len(parts) == 3:
                 return 200, job
             if len(parts) >= 5 and parts[3] == 'files':
-                if job['status'] != 'succeeded':
+                if job['status'] not in ('succeeded', 'blocked'):
                     raise APIError(409, 'job_not_ready', 'Only successful job outputs are downloadable')
                 self.send_file(app.output_root(parts[2]), '/'.join(parts[4:]), download=True)
                 return 200, None
@@ -700,7 +794,7 @@ def create_server(host='127.0.0.1', port=8765, data_dir=None, **kwargs):
         raise
 
 
-def generation_worker(model_path, out, render=False):
+def generation_worker(model_path, out, render=False, native=False, auto_layout=False):
     """Fixed local generator entrypoint, with Python egress/write protection."""
     allowed = Path(out).resolve().parent
 
@@ -725,6 +819,12 @@ def generation_worker(model_path, out, render=False):
             writable(args[1])
         elif event == 'subprocess.Popen':
             command = args[1]
+            if (native and isinstance(command, (list, tuple)) and len(command) == 3
+                    and command[0] in {'node', shutil.which('node')}
+                    and Path(command[1]).resolve() in {SCRIPTS / 'bpmn_render.mjs', SCRIPTS / 'render.mjs'}
+                    and Path(command[2]).resolve().is_relative_to(allowed)
+                    and Path(command[2]).suffix == '.json'):
+                return
             # generate.py --render only needs the bundled, network-free SVG/resvg entrypoint.
             if not (isinstance(command, (list, tuple)) and len(command) == 3 and command[0] == 'node'
                     and Path(command[1]).resolve() == SCRIPTS / 'render.mjs'
@@ -733,6 +833,10 @@ def generation_worker(model_path, out, render=False):
 
     sys.addaudithook(audit)
     from strict_json import load
+    if native:
+        from workbench.native import generate
+        generate(load(model_path), out, render=render, auto_layout=auto_layout)
+        return
     from generate import generate
     generate(load(model_path), out, all_items=True, render=render, strict=True)
 
@@ -744,17 +848,20 @@ def main():
     parser.add_argument('--data-dir', default=str(ROOT / 'output' / 'workbench-data'))
     parser.add_argument('--job-timeout', type=float, default=180)
     parser.add_argument('--generate-worker', help=argparse.SUPPRESS)
+    parser.add_argument('--native-worker', help=argparse.SUPPRESS)
     parser.add_argument('--out', help=argparse.SUPPRESS)
     parser.add_argument('--render', action='store_true', help=argparse.SUPPRESS)
+    parser.add_argument('--auto-layout', action='store_true', help=argparse.SUPPRESS)
     parser.add_argument('--worker-timeout', type=float, default=180, help=argparse.SUPPRESS)
     args = parser.parse_args()
-    if args.generate_worker:
+    if args.generate_worker or args.native_worker:
         if not args.out:
             parser.error('worker requires --out')
         # An independent process-group deadline also applies if the server dies.
         signal.signal(signal.SIGALRM, lambda *_: os.killpg(os.getpgrp(), signal.SIGKILL))
         signal.setitimer(signal.ITIMER_REAL, args.worker_timeout)
-        generation_worker(args.generate_worker, args.out, args.render)
+        generation_worker(args.native_worker or args.generate_worker, args.out, args.render,
+                          native=bool(args.native_worker), auto_layout=args.auto_layout)
         return
     if args.job_timeout <= 0:
         parser.error('--job-timeout must be positive')
