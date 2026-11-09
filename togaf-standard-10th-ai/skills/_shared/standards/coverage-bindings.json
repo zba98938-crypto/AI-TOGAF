@@ -11203,5 +11203,641 @@
       "Derived getter links are explicit constrainedElement source links; getter names and zero-instance parses never certify equivalence.",
       "Original bodyCondition/precondition roles and entire result = source text remain authoritative; no postcondition API or RHS substitution certifies this group."
     ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:exchange:BPMN20.xsd:040ccfee5223331571a27198",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "ResourceContext"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "relative_location"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "decode_resources"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "materialize_bundle"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "make_package"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "package_bytes"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "document",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "imported",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "record",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_direct_identity_is_complete_but_cross_document_semantics_remains_uncovered"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_native_package_root_resource_bytes_and_coordinates_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_cycles_are_finite_and_each_file_is_materialized_once"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_namespace_mismatch_missing_file_and_missing_id_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_resources_reject_duplicate_path_main_collision_tamper_and_extra"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_materialization_verifies_before_creating_destination"
+      }
+    ],
+    "basis": "Exact acquired BPMN 2.0.2 source obligation; bounded package-local import graph and per-owner namespace/ID identity; byte-preserving document/resource package with independent fixture role expectations.",
+    "limitations": [
+      "bounded local native BPMN imports and QName document identity; cross-document semantics, DI, XSD/WSDL imports and aggregate standard applicability remain incomplete",
+      "XSD/WSDL import obligations, xml:base execution, cross-document semantic/DI/rendering and complete standard applicability remain uncovered.",
+      "Resource closure complete is limited identity availability; it does not establish whole normative obligation or human acceptance.",
+      "Fixed resource/size/depth/reference budgets are disclosed; only explicit root/resources enable source reads."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:exchange:BPMN20.xsd:082ec843263b1947bfbc7754",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "ResourceContext"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "relative_location"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "decode_resources"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "materialize_bundle"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "make_package"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "package_bytes"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "document",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "imported",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "record",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_direct_identity_is_complete_but_cross_document_semantics_remains_uncovered"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_namespace_mismatch_missing_file_and_missing_id_are_distinct"
+      }
+    ],
+    "basis": "Exact acquired BPMN 2.0.2 source obligation; bounded package-local import graph and per-owner namespace/ID identity; byte-preserving document/resource package with independent fixture role expectations.",
+    "limitations": [
+      "bounded local native BPMN imports and QName document identity; cross-document semantics, DI, XSD/WSDL imports and aggregate standard applicability remain incomplete",
+      "XSD/WSDL import obligations, xml:base execution, cross-document semantic/DI/rendering and complete standard applicability remain uncovered.",
+      "Resource closure complete is limited identity availability; it does not establish whole normative obligation or human acceptance.",
+      "Fixed resource/size/depth/reference budgets are disclosed; only explicit root/resources enable source reads."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:exchange:BPMN20.xsd:50fea66911631f58dff4507d",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "ResourceContext"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "relative_location"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "decode_resources"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "materialize_bundle"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "make_package"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "package_bytes"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "document",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "imported",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "record",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_direct_identity_is_complete_but_cross_document_semantics_remains_uncovered"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_namespace_mismatch_missing_file_and_missing_id_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_xsd_wsdl_and_other_import_types_are_uncovered_without_reads"
+      }
+    ],
+    "basis": "Exact acquired BPMN 2.0.2 source obligation; bounded package-local import graph and per-owner namespace/ID identity; byte-preserving document/resource package with independent fixture role expectations.",
+    "limitations": [
+      "bounded local native BPMN imports and QName document identity; cross-document semantics, DI, XSD/WSDL imports and aggregate standard applicability remain incomplete",
+      "XSD/WSDL import obligations, xml:base execution, cross-document semantic/DI/rendering and complete standard applicability remain uncovered.",
+      "Resource closure complete is limited identity availability; it does not establish whole normative obligation or human acceptance.",
+      "Fixed resource/size/depth/reference budgets are disclosed; only explicit root/resources enable source reads."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:exchange:BPMN20.xsd:7db8e0954a95744896211c9d",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "ResourceContext"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "relative_location"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "decode_resources"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "materialize_bundle"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "make_package"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "package_bytes"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "document",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "imported",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "record",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_direct_identity_is_complete_but_cross_document_semantics_remains_uncovered"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_nested_document_base_allows_bounded_parent_segments"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_namespace_mismatch_missing_file_and_missing_id_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_invalid_import_paths_are_rejected_before_disk_reads"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_symbolic_link_loop_is_classified_without_traceback_or_read"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_missing_disk_resource_remains_a_material_gap_after_path_resolution"
+      }
+    ],
+    "basis": "Exact acquired BPMN 2.0.2 source obligation; bounded package-local import graph and per-owner namespace/ID identity; byte-preserving document/resource package with independent fixture role expectations.",
+    "limitations": [
+      "bounded local native BPMN imports and QName document identity; cross-document semantics, DI, XSD/WSDL imports and aggregate standard applicability remain incomplete",
+      "XSD/WSDL import obligations, xml:base execution, cross-document semantic/DI/rendering and complete standard applicability remain uncovered.",
+      "Resource closure complete is limited identity availability; it does not establish whole normative obligation or human acceptance.",
+      "Fixed resource/size/depth/reference budgets are disclosed; only explicit root/resources enable source reads."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:exchange:BPMN20.xsd:80caebb0c35e4cbd3186dd34",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "ResourceContext"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "relative_location"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "decode_resources"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "materialize_bundle"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "make_package"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "package_bytes"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "document",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "imported",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "record",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_direct_identity_is_complete_but_cross_document_semantics_remains_uncovered"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_native_package_root_resource_bytes_and_coordinates_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_cycles_are_finite_and_each_file_is_materialized_once"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_namespace_mismatch_missing_file_and_missing_id_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_resources_reject_duplicate_path_main_collision_tamper_and_extra"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_materialization_verifies_before_creating_destination"
+      }
+    ],
+    "basis": "Exact acquired BPMN 2.0.2 source obligation; bounded package-local import graph and per-owner namespace/ID identity; byte-preserving document/resource package with independent fixture role expectations.",
+    "limitations": [
+      "bounded local native BPMN imports and QName document identity; cross-document semantics, DI, XSD/WSDL imports and aggregate standard applicability remain incomplete",
+      "XSD/WSDL import obligations, xml:base execution, cross-document semantic/DI/rendering and complete standard applicability remain uncovered.",
+      "Resource closure complete is limited identity availability; it does not establish whole normative obligation or human acceptance.",
+      "Fixed resource/size/depth/reference budgets are disclosed; only explicit root/resources enable source reads."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:exchange:BPMN20.xsd:8e75de6c6ddfe64469a039d2",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "ResourceContext"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "relative_location"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "decode_resources"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "materialize_bundle"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "make_package"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "package_bytes"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "document",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "imported",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "record",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_direct_identity_is_complete_but_cross_document_semantics_remains_uncovered"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_native_package_root_resource_bytes_and_coordinates_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_cycles_are_finite_and_each_file_is_materialized_once"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_namespace_mismatch_missing_file_and_missing_id_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_resources_reject_duplicate_path_main_collision_tamper_and_extra"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_materialization_verifies_before_creating_destination"
+      }
+    ],
+    "basis": "Exact acquired BPMN 2.0.2 source obligation; bounded package-local import graph and per-owner namespace/ID identity; byte-preserving document/resource package with independent fixture role expectations.",
+    "limitations": [
+      "bounded local native BPMN imports and QName document identity; cross-document semantics, DI, XSD/WSDL imports and aggregate standard applicability remain incomplete",
+      "XSD/WSDL import obligations, xml:base execution, cross-document semantic/DI/rendering and complete standard applicability remain uncovered.",
+      "Resource closure complete is limited identity availability; it does not establish whole normative obligation or human acceptance.",
+      "Fixed resource/size/depth/reference budgets are disclosed; only explicit root/resources enable source reads."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:exchange:BPMN-2.0.2.pdf:p505:34144bf031926f94a238ffd6",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "ResourceContext"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "relative_location"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "decode_resources"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "materialize_bundle"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "make_package"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "package_bytes"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "document",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "imported",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "record",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_direct_identity_is_complete_but_cross_document_semantics_remains_uncovered"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_native_package_root_resource_bytes_and_coordinates_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_cycles_are_finite_and_each_file_is_materialized_once"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_namespace_mismatch_missing_file_and_missing_id_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_resources_reject_duplicate_path_main_collision_tamper_and_extra"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_materialization_verifies_before_creating_destination"
+      }
+    ],
+    "basis": "Exact acquired BPMN 2.0.2 source obligation; bounded package-local import graph and per-owner namespace/ID identity; byte-preserving document/resource package with independent fixture role expectations.",
+    "limitations": [
+      "bounded local native BPMN imports and QName document identity; cross-document semantics, DI, XSD/WSDL imports and aggregate standard applicability remain incomplete",
+      "XSD/WSDL import obligations, xml:base execution, cross-document semantic/DI/rendering and complete standard applicability remain uncovered.",
+      "Resource closure complete is limited identity availability; it does not establish whole normative obligation or human acceptance.",
+      "Fixed resource/size/depth/reference budgets are disclosed; only explicit root/resources enable source reads."
+    ]
+  },
+  {
+    "obligation_id": "bpmn:2.0.2:constraint:BPMN-2.0.2.pdf:p505:ccb4c2b64d04974b2f5dd004",
+    "implementation": [
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "ResourceContext"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "relative_location"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "decode_resources"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/bpmn_imports.py",
+        "symbol": "materialize_bundle"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "check_native"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "make_package"
+      },
+      {
+        "file": "togaf-standard-10th-ai/skills/_shared/scripts/standards.py",
+        "symbol": "package_bytes"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "document",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "imported",
+        "role": "oracle-fixture-dependency"
+      },
+      {
+        "file": "tests/bpmn_import_resource_fixtures.py",
+        "symbol": "record",
+        "role": "oracle-fixture-dependency"
+      }
+    ],
+    "positive_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_direct_identity_is_complete_but_cross_document_semantics_remains_uncovered"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_native_package_root_resource_bytes_and_coordinates_are_preserved"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_cycles_are_finite_and_each_file_is_materialized_once"
+      }
+    ],
+    "negative_tests": [
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_namespace_mismatch_missing_file_and_missing_id_are_distinct"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_resources_reject_duplicate_path_main_collision_tamper_and_extra"
+      },
+      {
+        "file": "tests/test_bpmn_import_resources.py",
+        "symbol": "BPMNImportResourcesTests.test_materialization_verifies_before_creating_destination"
+      }
+    ],
+    "basis": "Exact acquired BPMN 2.0.2 source obligation; bounded package-local import graph and per-owner namespace/ID identity; byte-preserving document/resource package with independent fixture role expectations.",
+    "limitations": [
+      "bounded local native BPMN imports and QName document identity; cross-document semantics, DI, XSD/WSDL imports and aggregate standard applicability remain incomplete",
+      "XSD/WSDL import obligations, xml:base execution, cross-document semantic/DI/rendering and complete standard applicability remain uncovered.",
+      "Resource closure complete is limited identity availability; it does not establish whole normative obligation or human acceptance.",
+      "Fixed resource/size/depth/reference budgets are disclosed; only explicit root/resources enable source reads."
+    ]
   }
 ]
