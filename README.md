@@ -2,6 +2,8 @@
 
 TOGAF资料的唯一主目录为[togaf-standard-10th-ai](togaf-standard-10th-ai/README.md)。旧英文资料、中文稿和架构角色技能下载目录已按内容指纹归并，独有资料完整保留，重复副本删除。
 
+正在进行[本地工程稳定化与 UML/BPMN 设计时补齐](togaf-standard-10th-ai/maintenance/stabilization/README.md)。旧质量报告和图册保留各自版本范围；本轮完整标准覆盖、独立资料复核、507 项评测及入口切换尚未完成，人工专业验收与真实组织批准待签署。
+
 - [当前完成状态](togaf-standard-10th-ai/quality/completion-status.md)
 - [统一原始来源与迁移记录](togaf-standard-10th-ai/sources/README.md)
 - [ADM、制品、流程及层次关系](togaf-standard-10th-ai/skills/_shared/references/togaf-explained.md)

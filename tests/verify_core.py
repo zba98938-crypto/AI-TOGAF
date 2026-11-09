@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Run current skills regression checks without historical reports or datasets."""
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -53,13 +54,7 @@ def main():
     py = sys.executable
     scripts = SHARED / 'scripts'
     record('syntax', lambda: syntax_check(out))
-    discovery = (
-        'import sys,unittest; '
-        'suite=unittest.defaultTestLoader.discover(sys.argv[1],pattern="test_*.py"); '
-        'count=suite.countTestCases(); print("discovered tests:",count); '
-        'sys.exit(3 if not count else int(not unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()))'
-    )
-    record('unit-regressions', lambda: command('unit-regressions', [py, '-c', discovery, REPO / 'tests']))
+    record('unit-regressions', lambda: command('unit-regressions', [py, REPO/'tests/run_unit_regressions.py', REPO/'tests','--out',out/'unit-regressions']))
     for name, script, destination in (
         ('skill-packages', 'verify_skill_packages.py', out / 'packages.json'),
         ('method-case-constraints', 'verify_method_case_constraints.py', out / 'method-cases.json'),
@@ -99,6 +94,9 @@ def main():
                'limits': ['Engineering checks do not grant professional/source-equivalence/business approval.',
                           'Text geometry does not verify edge routing or all visual semantics.',
                           'Missing historical architecture data is separate from synthetic SQL reconciliation.']}
+    summary['evidence_sha256']={p.relative_to(out).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+        for p in sorted(out.rglob('*')) if p.is_file() and not p.is_symlink()
+        and p not in (out/'summary.json',out/'progress.json')}
     save(out / 'summary.json', summary)
     print(json.dumps({'status': summary['status'], 'report': str(out / 'summary.json'), 'failures': failures, 'blocked': blocked}, ensure_ascii=False))
     return 1 if failures else 3 if blocked else 0

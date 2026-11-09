@@ -50,7 +50,9 @@ def build_fixture(root):
     for stage in activation.STAGES:
         data = {'stage': stage, 'round_id': round_id, 'source_commit': commit, 'passed': True}
         if stage == 'source_freeze':
-            data['files'] = {'source.py': activation.sha(source)}
+            data['files'] = {p.relative_to(root).as_posix():activation.sha(p) for p in [source,mapping,catalogue]}
+            data['entry_inputs'] = {'schema_version':'stabilization-entry-inputs/1','round_id':round_id,
+                                   'entries':{'current_map':ref(mapping),'catalogue':ref(catalogue)}}
         if stage == 'model_evaluation':
             data.update(required_items=507, executed_items=507, passed_items=507,
                         unexecuted_items=0, actor_scorer_independent=True)
@@ -210,6 +212,8 @@ class CurrentOutputActivationTests(unittest.TestCase):
         self.assertFalse(evidence['passed'])
         self.assertTrue(evidence['rolled_back'])
         for key, path in self.paths.items():
+            self.assertEqual(path.relative_to(self.root).as_posix(), evidence['entry_files'][key]['path'])
+            self.assertEqual(evidence['before_sha256'][key], evidence['entry_files'][key]['after_sha256'])
             self.assertEqual(self.before[key], (out / 'before' / (key + path.suffix)).read_bytes())
         self.assertEqual([], list(self.root.rglob('*.activation-*')))
 
@@ -253,6 +257,8 @@ class CurrentOutputActivationTests(unittest.TestCase):
         self.assertEqual('concurrent user edit', self.paths['catalogue'].read_text())
         evidence = json.loads((out / 'activation.json').read_text())
         self.assertFalse(evidence['rolled_back'])
+        for key, path in self.paths.items():
+            self.assertEqual(activation.sha(path), evidence['entry_files'][key]['after_sha256'])
         self.assertTrue(any('Concurrent entry change' in reason for reason in evidence['rollback_errors']))
 
     def test_successful_fixture_activation_records_ui_and_preserves_pending_signatures(self):
@@ -265,6 +271,11 @@ class CurrentOutputActivationTests(unittest.TestCase):
         self.assertTrue(result['passed'])
         self.assertTrue(result['applied'])
         self.assertFalse(result['rolled_back'])
+        for key, path in self.paths.items():
+            self.assertEqual(path.relative_to(self.root).as_posix(), result['entry_files'][key]['path'])
+            self.assertEqual(result['before_sha256'][key], result['entry_files'][key]['before_sha256'])
+            self.assertEqual(activation.sha(path), result['entry_files'][key]['after_sha256'])
+            self.assertNotEqual(result['entry_files'][key]['before_sha256'], result['entry_files'][key]['after_sha256'])
         self.assertEqual('pending_signature', result['organization_approval'])
         self.assertEqual('pending_signature', result['professional_acceptance'])
 
@@ -285,6 +296,84 @@ class CurrentOutputActivationTests(unittest.TestCase):
         with patch.object(activation.subprocess, 'run', return_value=clean):
             with self.assertRaisesRegex(ValueError, 'HEAD differs'):
                 activation.verify_git_identity(self.root, 'b' * 40)
+
+    def git_guard(self, status):
+        head=subprocess.CompletedProcess([],0,'a'*40+'\n','')
+        state=subprocess.CompletedProcess([],0,status,'')
+        with patch.object(activation.subprocess,'run',side_effect=[head,state]):
+            return activation.verify_git_identity(self.root,'a'*40,
+                freeze_ref=self.manifest['prerequisites']['source_freeze'],round_id=self.manifest['round_id'])
+
+    def test_git_guard_allows_only_verified_freeze_generated_changes(self):
+        self.change_stage('source_freeze',excluded_generated_paths=sorted(activation.GENERATED_PATHS),
+                          excluded_generated_prefixes=sorted(activation.GENERATED_PREFIXES))
+        names=['togaf-standard-10th-ai/skills/package-manifest.json',
+               'togaf-standard-10th-ai/skills/build-history/new.json',
+               'togaf-standard-10th-ai/maintenance/stabilization/rounds/round.json',
+               'togaf-standard-10th-ai/quality/implementation-ledger.md']
+        self.assertEqual(sorted(names),self.git_guard(''.join(' M '+n+'\0' for n in names)))
+        self.assert_originals()
+
+    def test_git_guard_rejects_source_changes_broad_exclusions_and_code_in_generated_scope(self):
+        self.change_stage('source_freeze',excluded_generated_paths=sorted(activation.GENERATED_PATHS),
+                          excluded_generated_prefixes=sorted(activation.GENERATED_PREFIXES))
+        for name in ['source.py','tests/new.py',
+                     'togaf-standard-10th-ai/maintenance/stabilization/rounds/injected.py',
+                     'togaf-standard-10th-ai/skills/build-history/injected.mjs']:
+            with self.subTest(name=name),self.assertRaisesRegex(ValueError,'not clean'):
+                self.git_guard('?? '+name+'\0')
+        self.change_stage('source_freeze',excluded_generated_prefixes=['tests/'])
+        with self.assertRaisesRegex(ValueError,'scope is not authorized'):
+            self.git_guard(' M tests/new.py\0')
+        self.assert_originals()
+
+    def test_git_guard_does_not_allow_rename_of_source_to_generated_file(self):
+        self.change_stage('source_freeze',excluded_generated_paths=sorted(activation.GENERATED_PATHS))
+        with self.assertRaisesRegex(ValueError,'not clean'):
+            self.git_guard('R  togaf-standard-10th-ai/skills/package-manifest.json\0source.py\0')
+
+    def test_git_guard_rejects_unresolved_conflict_in_generated_file(self):
+        self.change_stage('source_freeze',excluded_generated_paths=sorted(activation.GENERATED_PATHS))
+        with self.assertRaisesRegex(ValueError,'unresolved Git conflict'):
+            self.git_guard('UU togaf-standard-10th-ai/skills/package-manifest.json\0')
+
+    def test_git_guard_rejects_stale_freeze_or_generated_overlap_with_frozen_source(self):
+        ref=self.manifest['prerequisites']['source_freeze']
+        self.change_stage('source_freeze',excluded_generated_paths=sorted(activation.GENERATED_PATHS))
+        ref['sha256']='0'*64
+        with self.assertRaisesRegex(ValueError,'fingerprint'):
+            self.git_guard(' M togaf-standard-10th-ai/skills/package-manifest.json\0')
+        ref['sha256']=activation.sha(self.root/ref['path'])
+        generated=self.root/'togaf-standard-10th-ai/skills/package-manifest.json'
+        generated.parent.mkdir(parents=True,exist_ok=True);generated.write_text('{}\n')
+        files=json.loads((self.root/ref['path']).read_text())['files']
+        files[generated.relative_to(self.root).as_posix()]=activation.sha(generated)
+        self.change_stage('source_freeze',files=files)
+        with self.assertRaisesRegex(ValueError,'overlap frozen source'):
+            self.git_guard(' M '+generated.relative_to(self.root).as_posix()+'\0')
+
+    def test_verified_freeze_data_allows_exact_activated_entry_hashes_only(self):
+        frozen=json.loads((self.root/self.manifest['prerequisites']['source_freeze']['path']).read_text())
+        entry=self.paths['catalogue'];entry.write_text('activated entry bytes')
+        name=entry.relative_to(self.root).as_posix()
+        head=subprocess.CompletedProcess([],0,'a'*40+'\n','')
+        dirty=subprocess.CompletedProcess([],0,' M '+name+'\0','')
+        with patch.object(activation.subprocess,'run',side_effect=[head,dirty]):
+            self.assertEqual([name],activation.verify_git_identity(self.root,'a'*40,freeze_data=frozen,
+                round_id=self.manifest['round_id'],replacements={name:activation.sha(entry)}))
+        with patch.object(activation.subprocess,'run',return_value=head):
+            with self.assertRaisesRegex(ValueError,'Only frozen current entry'):
+                activation.verify_git_identity(self.root,'a'*40,freeze_data=frozen,round_id=self.manifest['round_id'],
+                    replacements={'source.py':activation.sha(self.root/'source.py')})
+
+    def test_manifest_cannot_substitute_an_entry_after_source_freeze(self):
+        alternate=self.root/'output/current/alternate.html';alternate.write_bytes(self.before['catalogue'])
+        self.manifest['entries']['catalogue']={'path':alternate.relative_to(self.root).as_posix(),'sha256':activation.sha(alternate)}
+        with self.assertRaisesRegex(ValueError,'differ from frozen entry inputs'):self.prepared()
+
+    def test_source_freeze_missing_entry_inputs_is_not_a_current_round(self):
+        self.change_stage('source_freeze',entry_inputs=None)
+        with self.assertRaisesRegex(ValueError,'Frozen entry inputs'):self.prepared()
 
 
 if __name__ == '__main__':

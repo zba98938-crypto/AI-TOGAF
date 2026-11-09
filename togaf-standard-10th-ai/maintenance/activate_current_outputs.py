@@ -17,6 +17,20 @@ REPO = Path(__file__).resolve().parents[2]
 UI_CHECKER = Path(__file__).with_name('verify_current_output_ui.mjs')
 STAGES = ('source_freeze', 'source_closure', 'package_verification',
           'engineering_verification', 'model_evaluation')
+# These dedicated outputs are the source-freeze generator's declared categories.
+# A verified freeze chooses exact members, never an arbitrary exclusion scope.
+GENERATED_PATHS = {
+    'togaf-standard-10th-ai/skills/package-manifest.json',
+    'togaf-standard-10th-ai/skills/build-provenance.json',
+    'togaf-standard-10th-ai/quality/completion-status.json',
+    'togaf-standard-10th-ai/quality/completion-status.md',
+    'togaf-standard-10th-ai/quality/implementation-ledger.json',
+    'togaf-standard-10th-ai/quality/implementation-ledger.md',
+}
+GENERATED_PREFIXES = {
+    'togaf-standard-10th-ai/skills/build-history/',
+    'togaf-standard-10th-ai/maintenance/stabilization/rounds/',
+}
 
 
 def require(condition, message):
@@ -109,13 +123,72 @@ def verify_links(text, source, allowed, *, repo=REPO):
     return document, links
 
 
-def verify_git_identity(repo, source_commit):
+def verify_git_identity(repo, source_commit, *, freeze_ref=None, freeze_data=None,
+                        round_id=None, replacements=None):
     require(re.fullmatch(r'[0-9a-f]{40}', source_commit or ''), 'Invalid source commit')
     head = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=repo, capture_output=True, text=True, check=True).stdout.strip()
     require(head == source_commit, 'Git HEAD differs from frozen source commit')
-    status = subprocess.run(['git', 'status', '--porcelain', '--untracked-files=normal'],
+    excluded, prefixes = set(), set()
+    require(not (freeze_ref is not None and freeze_data is not None), 'Use one verified freeze input')
+    replacements = replacements or {}
+    require(isinstance(replacements, dict), 'Invalid authorized entry replacements')
+    frozen = json.loads(verify_ref(freeze_ref, repo=repo).read_text()) if freeze_ref is not None else freeze_data
+    if frozen is not None:
+        require(isinstance(frozen, dict), 'Invalid verified source freeze')
+        require(frozen.get('stage') == 'source_freeze' and frozen.get('passed') is True
+                and frozen.get('source_commit') == source_commit
+                and frozen.get('round_id') == round_id, 'Source freeze identity differs')
+        files = frozen.get('files')
+        require(isinstance(files, dict) and files, 'Frozen source file map is missing')
+        inputs = frozen.get('entry_inputs')
+        require(isinstance(inputs, dict) and inputs.get('schema_version') == 'stabilization-entry-inputs/1'
+                and inputs.get('round_id') == round_id
+                and isinstance(inputs.get('entries'), dict)
+                and set(inputs['entries']) == {'current_map', 'catalogue'}, 'Frozen entry inputs are missing or differ')
+        require(all(isinstance(record, dict) and set(record) == {'path', 'sha256'}
+                    and isinstance(record.get('path'), str) for record in inputs['entries'].values()),
+                'Invalid frozen entry input references')
+        entry_paths = {record['path']: record['sha256'] for record in inputs['entries'].values()}
+        require(len(entry_paths) == 2 and all(files.get(name) == value for name, value in entry_paths.items()),
+                'Frozen entry inputs do not match frozen source file map')
+        require(set(replacements) <= set(entry_paths), 'Only frozen current entry inputs may be replaced')
+        for name, expected in files.items():
+            verify_ref({'path': name, 'sha256': replacements.get(name, expected)}, repo=repo)
+        paths = frozen.get('excluded_generated_paths', [])
+        roots = frozen.get('excluded_generated_prefixes', [])
+        require(isinstance(paths, list) and isinstance(roots, list)
+                and all(isinstance(v, str) for v in paths + roots), 'Invalid generated exclusion lists')
+        excluded, prefixes = set(paths), set(roots)
+        require(len(excluded) == len(paths) and len(prefixes) == len(roots), 'Duplicate generated exclusions')
+        require(excluded <= GENERATED_PATHS and prefixes <= GENERATED_PREFIXES,
+                'Source freeze generated exclusion scope is not authorized')
+        require(not any(name in excluded or any(name.startswith(p) for p in prefixes) for name in files),
+                'Generated exclusions overlap frozen source files')
+    status = subprocess.run(['git', 'status', '--porcelain', '-z', '--untracked-files=all'],
                             cwd=repo, capture_output=True, text=True, check=True).stdout
-    require(not status.strip(), 'Source checkout is not clean')
+    if not status:
+        require(not replacements or frozen is not None, 'Authorized replacements require verified source freeze')
+        return []
+    require(frozen is not None, 'Source checkout is not clean')
+    records, changed = status.split('\0'), []
+    i = 0
+    while i < len(records) and records[i]:
+        row = records[i]; i += 1
+        require(len(row) >= 4 and row[2] == ' ', 'Invalid Git status record')
+        require(row[:2] not in {'DD', 'AU', 'UD', 'UA', 'DU', 'AA', 'UU'},
+                'Source checkout is not clean; unresolved Git conflict')
+        paths = [row[3:]]
+        if 'R' in row[:2] or 'C' in row[:2]:
+            require(i < len(records) and records[i], 'Missing Git rename/copy source')
+            paths.append(records[i]); i += 1
+        for name in paths:
+            safe_path(name, repo=repo, exists=False)
+            require(name in replacements or name in excluded or any(name.startswith(p) for p in prefixes),
+                    'Source checkout is not clean outside frozen generated scope: ' + name)
+            require(name in replacements or Path(name).suffix.lower() in {'.json', '.md'},
+                    'Source checkout is not clean; generated scope cannot contain source code: ' + name)
+            changed.append(name)
+    return sorted(set(changed))
 
 
 def prepare(manifest, *, repo=REPO):
@@ -126,7 +199,7 @@ def prepare(manifest, *, repo=REPO):
     require(re.fullmatch(r'[0-9a-f]{40}', commit or ''), 'Invalid source commit')
     prerequisites = manifest.get('prerequisites')
     require(isinstance(prerequisites, dict) and set(prerequisites) == set(STAGES), 'All five prerequisite stages are required')
-    verified_stages, frozen_files = {}, {}
+    verified_stages, frozen_files, frozen_inputs = {}, {}, None
     for stage in STAGES:
         path = verify_ref(prerequisites[stage], repo=repo)
         data = json.loads(path.read_text())
@@ -134,6 +207,10 @@ def prepare(manifest, *, repo=REPO):
                 and data.get('source_commit') == commit, 'Prerequisite failed or belongs to another version: ' + stage)
         require(data.get('stage') == stage, 'Prerequisite stage differs: ' + stage)
         if stage == 'source_freeze':
+            frozen_inputs = data.get('entry_inputs')
+            require(isinstance(frozen_inputs, dict) and frozen_inputs.get('schema_version') == 'stabilization-entry-inputs/1'
+                    and frozen_inputs.get('round_id') == round_id and isinstance(frozen_inputs.get('entries'), dict)
+                    and set(frozen_inputs['entries']) == {'current_map', 'catalogue'}, 'Frozen entry inputs are missing or differ')
             frozen_files = data.get('files')
             require(isinstance(frozen_files, dict) and frozen_files, 'Frozen source file map is missing')
             for name, expected in frozen_files.items():
@@ -145,6 +222,9 @@ def prepare(manifest, *, repo=REPO):
         verified_stages[stage] = dict(prerequisites[stage])
     entries = manifest.get('entries')
     require(isinstance(entries, dict) and set(entries) == {'current_map', 'catalogue'}, 'Both current entrypoints are required')
+    require(entries == frozen_inputs['entries'], 'Current entry inputs differ from frozen entry inputs')
+    require(all(frozen_files.get(record['path']) == record['sha256'] for record in entries.values()),
+            'Current entry inputs are absent from frozen source file map')
     current = verify_ref(entries['current_map'], repo=repo)
     catalogue = verify_ref(entries['catalogue'], repo=repo)
     require(current != catalogue and current.suffix == '.json' and catalogue.suffix == '.html', 'Invalid entrypoint types')
@@ -219,6 +299,9 @@ def prepare(manifest, *, repo=REPO):
                        'source_commit': commit, 'prerequisites': verified_stages,
                        'prepared': True, 'applied': False, 'passed': False,
                        'before_sha256': {key: sha(path) for key, path in {'current_map': current, 'catalogue': catalogue}.items()},
+                       'entry_files': {key: {'path': path.relative_to(repo).as_posix(),
+                                             'before_sha256': sha(path), 'after_sha256': sha(path)}
+                                       for key, path in {'current_map': current, 'catalogue': catalogue}.items()},
                        'proposed_sha256': {key: hashlib.sha256(value).hexdigest() for key, value in new_bytes.items()},
                        'target_files': len(allowed), 'catalogue_links': len(links), 'atlas_links': len(atlas_links),
                        'replacements': replaced, 'runtime_mode': 'local-test-controller',
@@ -311,6 +394,8 @@ def _activate_locked(prepared, destination, *, ui_checker=check_ui, writer=atomi
         raise
     finally:
         result['after_sha256'] = {key: sha(path) for key, path in paths.items()}
+        for key, value in result['after_sha256'].items():
+            result['entry_files'][key]['after_sha256'] = value
         result['completed_at'] = datetime.now(timezone.utc).isoformat()
         write_json(destination / 'activation.json', result)
     return result
@@ -339,13 +424,18 @@ def main():
         require(destination.is_relative_to(REPO / 'output') and not destination.exists(), 'Evidence must use a new repository output directory')
         destination.mkdir(parents=True)
         manifest = json.loads(manifest_path.read_text())
-        verify_git_identity(REPO, manifest.get('source_commit'))
         prepared = prepare(manifest)
+        prepared['result']['post_freeze_generated_changes'] = verify_git_identity(
+            REPO, manifest.get('source_commit'), freeze_ref=manifest['prerequisites']['source_freeze'],
+            round_id=manifest['round_id'])
         shutil.copyfile(manifest_path, destination / 'round-manifest.json')
         write_json(destination / 'preparation.json', prepared['result'])
         if args.apply:
             # Re-run all fingerprints immediately before replacing either entry.
             prepared = prepare(manifest)
+            prepared['result']['post_freeze_generated_changes'] = verify_git_identity(
+                REPO, manifest.get('source_commit'), freeze_ref=manifest['prerequisites']['source_freeze'],
+                round_id=manifest['round_id'])
             interrupted = False
             def interrupt(signum, frame):
                 nonlocal interrupted

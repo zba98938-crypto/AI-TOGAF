@@ -1,4 +1,4 @@
-"""Publish current bounded engineering evidence without granting full acceptance."""
+"""Publish explicit stabilization rounds; preserve the legacy historical reporter."""
 import argparse
 import datetime
 import hashlib
@@ -195,14 +195,27 @@ def annotation_export_bindings(data, run, current_source, repo=REPO):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--campaign', type=Path, required=True)
-    parser.add_argument('--units', type=Path, required=True)
-    parser.add_argument('--production', type=Path, required=True)
+    parser.add_argument('--round', type=Path, help='Formal explicit round manifest; no historical-directory defaults.')
+    parser.add_argument('--out', type=Path, help='New immutable formal report path.')
+    parser.add_argument('--campaign', type=Path, help='Legacy historical replay input; not a formal stabilization round.')
+    parser.add_argument('--units', type=Path)
+    parser.add_argument('--production', type=Path)
     parser.add_argument('--current-run', type=Path,
                         help='Actual continuation outputs; --campaign retains unchanged historical inputs.')
     parser.add_argument('--outputs', type=Path,
                         help='JSON map of continuation output names to subsequent actual execution paths.')
     args = parser.parse_args()
+    if args.round:
+        if not args.out:parser.error('--out is required for --round')
+        if any((args.campaign,args.units,args.production,args.current_run,args.outputs)):
+            parser.error('Formal rounds cannot consume legacy continuation or compatibility inputs')
+        from stabilization_evidence import report
+        result=report(json.loads(args.round.read_text()),args.out)
+        print(json.dumps({'round_id':result['round_id'],'engineering_stable':result['engineering_stable'],
+                          'technical_scope_complete':result['technical_scope_complete']},ensure_ascii=False))
+        return 0
+    if not all((args.campaign,args.units,args.production)):
+        parser.error('Use --round/--out for formal publication; legacy historical replay requires --campaign, --units and --production')
     run = args.campaign.resolve()
     current_run = args.current_run.resolve() if args.current_run else run
     continuation = args.current_run is not None
