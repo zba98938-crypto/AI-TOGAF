@@ -41,6 +41,11 @@ class StabilizationStandardGateTests(unittest.TestCase):
             '        self.assertEqual(ET.fromstring("<Class/>").tag, "Class")\n'
             '    def test_negative(self):\n'
             '        with self.assertRaises(ET.ParseError): ET.fromstring("<Class>")\n')
+        (tests / 'java').mkdir()
+        (tests / 'java/Probe.java').write_text('class Probe {}\n')
+        (cls.fixture / 'workbench/web').mkdir(parents=True)
+        (cls.fixture / 'workbench/native.py').write_text('def normalize(value): return value\n')
+        (cls.fixture / 'workbench/web/app.js').write_text('const nativeEditor = true;\n')
         sources = shared / 'standards/sources'
         sources.mkdir(parents=True)
         manifest = []
@@ -68,6 +73,7 @@ class StabilizationStandardGateTests(unittest.TestCase):
         cls.write(sources / 'manifest.json', manifest)
         cls.write(shared / 'standards/coverage-bindings.json', bindings)
         cls.write(shared / 'standards/java/manifest.json', {'synthetic': True})
+        (shared / 'standards/java/backend.jar').write_bytes(b'Synthetic dependency marker, never executed.\n')
         evidence_dir = cls.fixture / 'evidence'
         evidence_dir.mkdir()
         done = subprocess.run([sys.executable, '-B', '-m', 'unittest', '-v', 'test_oracle'],
@@ -200,6 +206,16 @@ class StabilizationStandardGateTests(unittest.TestCase):
             original = path.read_bytes()
             with self.subTest(path=name):
                 path.write_bytes(original + b' ')
+                self.assert_invalid()
+            path.write_bytes(original)
+
+    def test_java_oracle_workbench_and_actual_backend_changes_reject_old_execution(self):
+        for name in ('tests/java/Probe.java', 'workbench/native.py', 'workbench/web/app.js',
+                     'togaf-standard-10th-ai/skills/_shared/standards/java/backend.jar'):
+            path = self.root/name
+            original = path.read_bytes()
+            with self.subTest(path=name):
+                path.write_bytes(original + b' changed')
                 self.assert_invalid()
             path.write_bytes(original)
 

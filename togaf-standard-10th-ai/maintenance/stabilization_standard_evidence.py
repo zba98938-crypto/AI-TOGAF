@@ -49,11 +49,17 @@ def _verified_ref(root, ref):
 def _source_snapshot(root):
     """Use exactly the native evidence collector's source/dependency scope."""
     shared = root / 'togaf-standard-10th-ai/skills/_shared'
-    paths = set((root / 'tests').glob('*.py'))
+    paths = {path for path in (root / 'tests').rglob('*')
+             if path.suffix in {'.py', '.java', '.js', '.mjs', '.json', '.svg', '.ttf'}
+             and '__pycache__' not in path.parts}
+    paths.update(path for path in (root / 'workbench').rglob('*')
+                 if path.suffix in {'.py', '.js', '.mjs', '.json', '.html', '.css', '.svg', '.ttf'}
+                 and '__pycache__' not in path.parts)
     for suffix in ('*.py', '*.java', '*.mjs'):
         paths.update((shared / 'scripts').glob(suffix))
     paths.update((shared / 'standards').glob('*.json'))
     paths.add(shared / 'standards/java/manifest.json')
+    paths.update((shared / 'standards/java').glob('*.jar'))
     paths.add(shared / 'standards/sources/manifest.json')
     return {path.relative_to(root).as_posix(): _sha(_safe(root, path.relative_to(root).as_posix()))
             for path in sorted(paths) if path.is_file()}

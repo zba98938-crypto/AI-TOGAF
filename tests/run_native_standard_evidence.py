@@ -69,12 +69,18 @@ def write(path, value):
 
 
 def source_snapshot():
-    paths = set((REPO/'tests').glob('*.py'))
+    paths = {path for path in (REPO/'tests').rglob('*')
+             if path.suffix in {'.py', '.java', '.js', '.mjs', '.json', '.svg', '.ttf'}
+             and '__pycache__' not in path.parts}
+    paths.update(path for path in (REPO/'workbench').rglob('*')
+                 if path.suffix in {'.py', '.js', '.mjs', '.json', '.html', '.css', '.svg', '.ttf'}
+                 and '__pycache__' not in path.parts)
     paths.update((ROOT/'scripts').glob('*.py'))
     paths.update((ROOT/'scripts').glob('*.java'))
     paths.update((ROOT/'scripts').glob('*.mjs'))
     paths.update((ROOT/'standards').glob('*.json'))
     paths.add(ROOT/'standards/java/manifest.json')
+    paths.update((ROOT/'standards/java').glob('*.jar'))
     paths.add(ROOT/'standards/sources/manifest.json')
     return {str(path.relative_to(REPO)): digest(path) for path in sorted(paths) if path.is_file()}
 
